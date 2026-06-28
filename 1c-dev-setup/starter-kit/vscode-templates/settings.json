@@ -1,0 +1,28 @@
+{
+  // Путь к Java 17+ (Temurin). Узнать: /usr/libexec/java_home -v 17
+  "bsl.languageServer.javaPath": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java",
+
+  // Путь к JAR BSL Language Server (скачать из релизов 1c-syntax/bsl-language-server)
+  "bsl.languageServer.path": "/Users/ivan-gurkin/tools/bsl-language-server-exec.jar",
+
+  // Внешний файл настроек диагностик линтера (лежит в корне проекта)
+  "bsl.languageServer.configurationRoot": ".",
+
+  // Кодировка исходников 1С
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+
+  // BSL-файлы
+  "[bsl]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+    "editor.formatOnSave": false
+  },
+
+  // Не индексировать тяжёлые/бинарные каталоги
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/build/**": true,
+    "**/reports/**": true
+  }
+}
