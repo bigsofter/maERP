@@ -1,25 +1,30 @@
-# Сборочные артефакты и бэкапы
+# Сборочные артефакты
 /build/
 /out/
 /reports/
+
+# Бинарники и базы: в git не храним, релизы кладём в GitHub Releases
 *.cf
 *.cfe
+*.cfu
 *.epf
 *.erf
 *.dt
 *.1cd
 *.log
 
-# EDT/Eclipse временное
-/.metadata/
-/.settings/
+# EDT / Eclipse
+.metadata/
 bin/
 tmp/
+*.launch
+.recommenders/
 
-# IDE/OS
+# IDE / OS
 .DS_Store
 *.swp
 
-# Локальные секреты/окружение
+# Локальные секреты и окружение
 .env
 *.local
+scripts/env.local.sh
