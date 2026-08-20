@@ -4,12 +4,25 @@
 source "$(dirname "${BASH_SOURCE[0]}")/env.sh"
 
 SRC="${1:-$SRC_CF}"
-REPORT="$BUILD/bsl-report.json"
+REPORT="$BUILD/bsl-json.json"
 
-JAVA="${JAVA:-/Applications/1C/1CE/components/axiom-jdk-full-17.0.16+12-x86_64/bin/java}"
+# BSL LS требует Java 21, а поставляемая с EDT — 17, поэтому отдельный JDK
+# в ~/.local. Раскладка macOS-сборки Temurin — Contents/Home.
+if [ -z "${JAVA:-}" ]; then
+	for candidate in \
+		"$HOME/.local/jdk-21/Contents/Home/bin/java" \
+		"$HOME/.local/jdk-21/bin/java"
+	do
+		[ -x "$candidate" ] && { JAVA="$candidate"; break; }
+	done
+fi
 BSL_LS_JAR="${BSL_LS_JAR:-$HOME/.local/share/bsl-language-server/bsl-language-server.jar}"
 
-[ -x "$JAVA" ] || { echo "Не найдена Java: $JAVA" >&2; exit 1; }
+if [ -z "${JAVA:-}" ] || [ ! -x "$JAVA" ]; then
+	echo "Не найден JDK 21 в ~/.local/jdk-21. Java из комплекта EDT (17) не подходит:" >&2
+	echo "BSL LS собран под 21. Поставь JDK 21 туда либо задай JAVA." >&2
+	exit 1
+fi
 if [ ! -f "$BSL_LS_JAR" ]; then
   echo "Не найден BSL Language Server: $BSL_LS_JAR" >&2
   echo "Скачай jar с https://github.com/1c-syntax/bsl-language-server/releases" >&2
