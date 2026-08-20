@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="82f76083-c70b-4a52-8d9b-53fbc9a57d21">
+  <producedTypes>
+    <selectionType typeId="6f1cc39a-3f73-405b-9eac-1c8e066996d1" valueTypeId="e7338fc4-daae-4ac6-9fe6-b263f9ff8e5c"/>
+    <listType typeId="57c2c6dd-ead2-4bfb-b864-627ee261bfcc" valueTypeId="0569d088-5651-4ac8-98d4-f655f299f37d"/>
+    <managerType typeId="d1b7d6cf-15a3-4bf7-8eb8-aea14a921be2" valueTypeId="22bed3aa-1628-490c-954d-363a262245a1"/>
+    <recordSetType typeId="59f7c026-8438-489e-a6c6-29d738605fa1" valueTypeId="24f9ba82-1fbe-4da2-a0d7-242fb4e37144"/>
+    <recordKeyType typeId="df42ce02-07f0-4abf-a848-a7ae857a9bd9" valueTypeId="5ee720a3-ea42-4967-b8ef-656419f84fe0"/>
+    <recordType typeId="14f6ba81-c2ef-421a-9f24-905b8e617331" valueTypeId="17c55eeb-2b0f-4b31-8b9d-a117da9d786a"/>
+  </producedTypes>
+  <name>ДвиженияСвязанныхДокументов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Движения связанных документов</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Mouvements de documents liés</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Related document movements</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Movimientos de documentos relacionados</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="887c3cba-7459-4cd6-9a2e-73f3580e2048">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nombre</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quantity</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Количество</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="c902e353-b972-43ca-b2c5-03f7ddb19203">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Somme</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Suma</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="478e436c-0785-476a-a850-6bc378361e35">
+    <name>СуммаНДС</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма НДС</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant TVA</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>VAT Amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe del IVA</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="5569f601-ad97-482b-9774-5c1a38f9d6ca">
+    <name>СуммаСНДС</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма с НДС</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant TTC</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount including VAT</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe IVA incluido</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="f2465bef-748b-4786-bd71-7f53f0e7abea">
+    <name>Основание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Основание</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Base</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Footing</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Base</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="5691f4cc-c8b0-41af-bf20-0a84b19a61c4">
+    <name>КодСтроки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Код строки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Code de ligne</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Line code</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Código de cadena</value>
+    </synonym>
+    <type>
+      <types>DefinedType.КодСтроки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="9b73cf41-4ef1-4821-9d91-c09c5aee498c">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nomenclatura</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="a343a6a2-7945-4c1f-9a78-1e8266f7b29e">
+    <name>Характеристика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Caractéristique</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Feature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Característica</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="cd97e182-88b9-4e2e-97b9-f38df4bb2321">
+    <name>Серия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Серия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Série</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Series</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Serie</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СерииНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="74078326-18bf-45de-8c28-e70ca1c0d86e">
+    <name>ХозяйственнаяОперация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operación</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ХозяйственныеОперации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

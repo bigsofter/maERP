@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="17e44fb9-6aea-49ec-8703-29978a53aeaf">
+  <producedTypes>
+    <objectType typeId="7906f6fe-7e71-4daa-a412-2b7f3b75220a" valueTypeId="db84cae6-e79b-4e98-a06c-b3dc8b5fa4cd"/>
+    <managerType typeId="571c3108-b2c8-4aef-94a8-6db8093cb3a6" valueTypeId="3e96b7f6-7ddb-4f5c-aff1-b4c6faa77ad1"/>
+  </producedTypes>
+  <name>ГрупповоеИзменениеРеквизитов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Групповое изменение реквизитов</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Changement de groupe d'accessoires</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Group change of banking details</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Cambio grupal de accesorios</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.ГрупповоеИзменениеРеквизитов.Form.Форма</defaultForm>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="ef7b3e90-ba18-48b9-992e-5ea42329cf7a">
+    <name>ИзменятьВТранзакции</name>
+    <synonym>
+      <key>ru</key>
+      <value>Изменять в транзакции</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Modifier dans une transaction</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Edit in a transaction</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Editar en una transacción</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>При невозможности изменения элементов в транзакции, все изменения будут отменены.</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Si vous ne pouvez pas modifier les éléments de la transaction, toutes les modifications seront annulées.</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>If you cannot modify the elements of the transaction, all changes will be canceled.</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Si no puede modificar los elementos de la transacción, se cancelarán todos los cambios.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ff60e9e8-22cc-4864-9f3b-0e7ef99b880c">
+    <name>ПрерыватьПриОшибке</name>
+    <synonym>
+      <key>ru</key>
+      <value>Прерывать при ошибке</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Interrompre en cas d'erreur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Interrupt in case of error</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Interrumpir en caso de error</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Предупреждать, если во время изменения элементов возникнут ошибки.</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Avertir si des erreurs se produisent lors de la modification d'éléments.</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Warn if errors occur when editing items.</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Avise si se producen errores al editar elementos.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="efe76fa9-c2b7-4e35-96f4-85bd6b3dfb26">
+    <name>ИспользуютсяДопРеквизиты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Используются доп реквизиты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Des suppléments sont utilisés</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Supplements are used</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Se utilizan suplementos</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>У изменяемых объектов есть дополнительные реквизиты</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Les objets mutables ont des accessoires supplémentaires</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Mutable objects have additional accessories</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Los objetos mutables tienen accesorios adicionales</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="9377bda6-584c-438a-8f2d-bebb165ed975">
+    <name>ИспользуютсяДопСведения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Используются доп сведения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Données supplémentaires utilisées</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Additional data used</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Datos adicionales utilizados</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>У изменяемых объектов есть дополнительные сведения</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Les objets mutables ont des informations supplémentaires</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Mutable objects have additional information</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Los objetos mutables tienen información adicional</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="aa9637e6-781e-4adc-a263-205a11b7876a">
+    <name>ПоказыватьСлужебныеРеквизиты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Показывать служебные реквизиты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Afficher les détails de service</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>View service details</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Ver detalles del servicio</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Отображать служебные реквизиты в общем списке реквизитов.</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Afficher les détails du service dans la liste générale des détails.</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>View the details of the service in the general list of details.</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Consulte los detalles del servicio en la lista general de detalles.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="e9145179-b064-447d-9f83-5b74452929d7">
+    <name>РежимРазработчика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Режим разработчика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Mode développeur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Developer mode</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modo desarrollador</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Выполнять запись объектов в режиме ОбменДанными.Загрузка = Истина.</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Écrire des objets en mode d'échange de Données.Chargement = True.</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Write objects in Data exchange mode.Loading = True.</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Escribir objetos en modo de intercambio de datos.Cargando = Verdadero . </value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="4883bff5-442d-4ce2-886e-9516e9e3ad02">
+    <name>ТипОперации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип операции</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type d'opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of operation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de operación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Определяет режим работы с через ввод новых</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Définit le mode de fonctionnement avec l'entrée de nouveaux</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Sets the operating mode with the input of new</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Establece el modo de funcionamiento con la entrada de nuevo</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ffa84489-d734-47a3-bb6f-80d3464bb4a9">
+    <name>РежимВыполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Режим выполнения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Mode d'exécution</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Mode of execution</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modo de ejecución</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Определяет вариант изменения реквизитов  замена значений или произвольным алгоритмом.</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Définit l'option de modification des valeurs ou un algorithme arbitraire.</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Sets the option for changing values or an arbitrary algorithm.</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Establece la opción para cambiar valores o un algoritmo arbitrario.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="cd4d6875-fcf8-4551-8eda-403f36c073e4">
+    <name>ВариантЗаписиОбъекта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вариант записи объекта</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Option d'enregistrement d'objet</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Object registration option</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Opción de registro de objetos</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Объект может быть записан автоматически после выполнения алгоритма или необходимость записи определяется в коде.</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>L'objet peut être écrit automatiquement après l'exécution de l'algorithme ou la nécessité d'écrire est déterminée dans le code.</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>The object can be written automatically after the execution of the algorithm or the need to write is determined in the code.</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>El objeto se puede escribir automáticamente después de la ejecución del algoritmo o de que la necesidad de escribir se determine en el código.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <forms uuid="06f7971a-0b9b-43b7-a5ca-b7fe4f8f120a">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="c5ba31e3-c057-4f15-a964-bb3ae4c1a6e7">
+    <name>ВыбранныеЭлементы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выбранные элементы</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Éléments sélectionnés</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Selected items</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Artículos seleccionados</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="899972cb-bb44-4663-8ba6-167457610d48">
+    <name>ВыборВидаОбъектов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выбор вида объектов</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Sélection d'une vue d'objet</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Selecting an object view</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Seleccionar una vista de objeto</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="affafd3d-27dc-496d-85c4-4e2426da7f92">
+    <name>ДополнительныеПараметры</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дополнительные параметры</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Options avancées</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Advanced options</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Opciones avanzadas</value>
+    </synonym>
+    <help>
+      <pages>
+        <lang>ru</lang>
+      </pages>
+    </help>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="160d555f-50a8-4f28-b304-debc5a174cbe">
+    <name>РедактированиеФормулы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Редактирование формулы</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Modification d'une formule</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Modifying a formula</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modificación de una fórmula</value>
+    </synonym>
+    <help>
+      <pages>
+        <lang>ru</lang>
+      </pages>
+    </help>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="669231da-08e3-4db7-b16c-8794d5732579">
+    <name>ФильтрРеквизитов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Фильтр реквизитов</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Filtre d'accessoires</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Accessories filter</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Filtro de accesorios</value>
+    </synonym>
+    <templateType>TextDocument</templateType>
+  </templates>
+  <commands uuid="5689f1a1-f965-4c69-8083-38bff0bdf7e1">
+    <name>ГрупповоеИзменениеРеквизитов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Групповое изменение реквизитов</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Changement de groupe d'accessoires</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Group change of banking details</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cambio grupal de accesorios</value>
+    </synonym>
+    <group>NavigationPanelOrdinary</group>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:DataProcessor>

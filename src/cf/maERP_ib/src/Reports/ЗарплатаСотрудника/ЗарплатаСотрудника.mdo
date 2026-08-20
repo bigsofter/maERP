@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="f4346ab3-77eb-486f-b4b7-1e63b18cea51">
+  <producedTypes>
+    <objectType typeId="644f8b98-fa43-4ada-98dc-0b58a60566c2" valueTypeId="c48512d0-198d-4312-a041-33179b3beac1"/>
+    <managerType typeId="2dcdbcc4-7c08-4ff1-8cf8-04f9270a8511" valueTypeId="bd31ab40-19b2-446e-b1f3-b28621e325c1"/>
+  </producedTypes>
+  <name>ЗарплатаСотрудника</name>
+  <synonym>
+    <key>ru</key>
+    <value>Зарплата сотрудника</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Salaire de l'employé</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Employee's salary</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Salario del empleado</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>Report.ЗарплатаСотрудника.Form.ФормаОтчета</defaultForm>
+  <attributes uuid="b83e3c41-8c37-47e2-83a7-5b432413edf6">
+    <name>Год</name>
+    <synonym>
+      <key>ru</key>
+      <value>Год</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Année</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Year</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Año</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>4</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="5fea46fc-247f-4faf-9fa9-8c5df10a7e0a">
+    <name>Месяц</name>
+    <synonym>
+      <key>ru</key>
+      <value>Месяц</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Mois</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Month</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Mes</value>
+    </synonym>
+    <type>
+      <types>EnumRef.Месяца</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="5fe2970e-9b86-4c28-9a50-0abd9439dec0">
+    <name>ПериодРасчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период расчета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Période de calcul</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Calculation period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Periodo de cálculo</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="74d70d4b-5ebe-479c-aa82-b50e05e18679">
+    <name>СформироватьДля</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сформировать для</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Générer pour</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Generate for</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Generar para</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ФизическиеЛица</types>
+      <types>CatalogRef.СтруктураПредприятия</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <forms uuid="90267e84-517b-4401-8c56-ab19a11f9c5f">
+    <name>ФормаОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма отчета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de rapport</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Report form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de informe</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="bb8c45c8-22e8-4a57-a3c3-eea797bf9f0e">
+    <name>Макет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Макет</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Modèle</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Model</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modelo</value>
+    </synonym>
+  </templates>
+</mdclass:Report>

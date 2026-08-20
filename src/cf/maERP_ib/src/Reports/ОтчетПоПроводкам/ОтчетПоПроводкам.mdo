@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="39cc5178-07c1-43ff-a53f-a0fe77199804">
+  <producedTypes>
+    <objectType typeId="234738ba-b9ac-40bd-b7d8-8044cdbedde9" valueTypeId="57cc275e-9a25-48ac-ab98-83d8cd65217b"/>
+    <managerType typeId="1f01f303-7889-4aa6-98a4-5aede89aa69b" valueTypeId="5ed45129-a656-4845-a5ef-45a5237727d5"/>
+  </producedTypes>
+  <name>ОтчетПоПроводкам</name>
+  <synonym>
+    <key>ru</key>
+    <value>Отчет по проводкам</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Rapport sur les ecritures</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Transaction Report</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Informe de transacciones</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>Report.ОтчетПоПроводкам.Form.ФормаОтчета</defaultForm>
+  <mainDataCompositionSchema>Report.ОтчетПоПроводкам.Template.СхемаКомпоновкиДанных</mainDataCompositionSchema>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="ce14fcf1-5977-4d6d-9ab6-6dfe9e1ecf89">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="1f42131e-8d97-48fc-b139-0d8a59216dae">
+    <name>НачалоПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало периода</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Début de la période</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Beginning of the period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comienzo del período</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ba56bb72-2bbf-430b-8d9a-08fe5f253d5e">
+    <name>КонецПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Конец периода</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Fin de période</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>End of period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fin del período</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="d701348f-ed7c-449a-814e-6d6fbaa15124">
+    <name>ВидПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид периода</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de période</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de período</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="6b1b516d-b68f-4201-ad57-4e7f31ce4677">
+    <name>ВключатьОбособленныеПодразделения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Включая обособленные подразделения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Y compris des divisions distinctes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Including separate divisions</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Incluidas las unidades separadas</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="461f7983-c260-44f3-85ad-8239b6f9ce66">
+    <name>ПоказательБУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>БУ (данные бухгалтерского учета)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>COMPT. (données comptables)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>COUNT. (accounting data)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>CONDE. (datos contables)</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="c58f35aa-72ef-4bd5-a144-4af25295c403">
+    <name>ПоказательНУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>НУ (данные налогового учета)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>données fiscales</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>tax data</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>datos fiscales</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="b25917b8-7bc7-441c-8350-05dfee1c1a22">
+    <name>ПоказательПР</name>
+    <synonym>
+      <key>ru</key>
+      <value>ПР (данные по учету постоянных разниц)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>comptabilisation des écarts constants</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>accounting for constant deviations</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>contabilización de desviaciones constantes</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="8c92f069-deda-4a18-afdf-4d152dec17dd">
+    <name>ПоказательВР</name>
+    <synonym>
+      <key>ru</key>
+      <value>ВР (данные по учету временных разниц)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>BP (données relatives à la comptabilisation des écarts temporels)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>BP (data relating to the accounting of time differences)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>BP (datos relativos a la contabilización de las diferencias horarias)</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="0ccc6afe-752f-40a9-a95d-1e62e9ef6fd1">
+    <name>ПоказательВалютнаяСумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валютная сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant en devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount in currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe en moneda</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="a28ec35f-849b-456e-8cec-cb73bda3cb42">
+    <name>ПоказательКоличество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nombre</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quantity</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="b8ba8c4f-494e-471a-91b0-524ccd4e85db">
+    <name>РежимРасшифровки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Режим расшифровки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Mode de décryptage</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Decryption mode</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modo de descifrado</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <forms uuid="88042c87-aa28-4011-beea-1caffd6ec9c1">
+    <name>ФормаОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма отчета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de rapport</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Report form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de informe</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="41782dba-1f05-4263-8ed1-900a806678ae">
+    <name>СхемаКомпоновкиДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Схема компоновки данных</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Schéma de mise en page des données</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Data layout scheme</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Esquema de diseño de datos</value>
+    </synonym>
+    <templateType>DataCompositionSchema</templateType>
+  </templates>
+</mdclass:Report>

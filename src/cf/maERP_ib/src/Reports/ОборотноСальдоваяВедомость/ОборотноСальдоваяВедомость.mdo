@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="85e3256d-a597-4590-ac56-44ba98c8e86a">
+  <producedTypes>
+    <objectType typeId="7b048a54-9cbb-425c-904c-233b75a1f8e8" valueTypeId="d23ff05a-4729-468a-be70-483496c931f4"/>
+    <managerType typeId="fbd239bd-fc58-4395-82c4-47fe04b46106" valueTypeId="de092827-f5b7-4f99-8639-27b24955d928"/>
+  </producedTypes>
+  <name>ОборотноСальдоваяВедомость</name>
+  <synonym>
+    <key>ru</key>
+    <value>Оборотно-сальдовая ведомость</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Balance générale</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>General balance</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Saldo general</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>Report.ОборотноСальдоваяВедомость.Form.ФормаОтчета</defaultForm>
+  <mainDataCompositionSchema>Report.ОборотноСальдоваяВедомость.Template.СхемаКомпоновкиДанных</mainDataCompositionSchema>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="813da04d-650a-4f9a-a7ea-b8f40d69ddfd">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="5865a6a4-3ee7-4ed0-ba35-8628e3d59d8a">
+    <name>НачалоПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало периода</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Début de la période</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Beginning of the period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comienzo del período</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="01f5d5c6-b6e6-4c12-892e-cd7cef6fc7c5">
+    <name>КонецПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Конец периода</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Fin de période</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>End of period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fin del período</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="90355077-7e45-466c-ba48-4d7c66a757fa">
+    <name>ВключатьОбособленныеПодразделения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Включая обособленные подразделения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Y compris des divisions distinctes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Including separate divisions</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Incluidas las unidades separadas</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="cf08c832-e5cd-46eb-a764-515d57d7ffc1">
+    <name>ПоСубсчетам</name>
+    <synonym>
+      <key>ru</key>
+      <value>По субсчетам</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Par sous-comptes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>By sub-accounts</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Por subcuentas</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ecc0461b-01aa-4dba-95ad-f4f8dbf344c1">
+    <name>ВыводитьЗабалансовыеСчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выводить забалансовые счета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Afficher les comptes hors bilan</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>View off-balance sheet accounts</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Ver cuentas fuera de balance</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="97eee4be-3c6d-41b3-9599-6e1ae77477a7">
+    <name>РазмещениеДополнительныхПолей</name>
+    <synonym>
+      <key>ru</key>
+      <value>Размещение</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Placement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Investment</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Inversión</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:StringValue">
+      <value>0</value>
+    </minValue>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3bb3126a-7df1-4437-af77-c8c190704b1e">
+    <name>ПоказательБУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>БУ (данные бухгалтерского учета)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>COMPT. (données comptables)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>COUNT. (accounting data)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>CONDE. (datos contables)</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="a7d52789-b543-40cb-97af-17f93228e01c">
+    <name>ПоказательВалютнаяСумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валютная сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant en devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount in currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe en moneda</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="31fe1121-bfa9-41b6-a73e-fef485bf82f8">
+    <name>РежимРасшифровки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Режим расшифровки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Mode de décryptage</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Decryption mode</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modo de descifrado</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="505b52b5-cde7-42ea-9862-0fddb4028cb8">
+    <name>ВидПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид периода</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de période</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de período</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="36e5da52-bfd0-4cd3-bdf2-502e440e4439">
+    <name>ПоказательНУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>НУ (данные налогового учета)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>données fiscales</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>tax data</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>datos fiscales</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="b8ddbeeb-4d9b-47f6-9ef7-b4e42b4090bf">
+    <name>ПоказательПР</name>
+    <synonym>
+      <key>ru</key>
+      <value>ПР (данные по учету постоянных разниц)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>comptabilisation des écarts constants</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>accounting for constant deviations</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>contabilización de desviaciones constantes</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="6442ba14-772b-4039-8338-49520286b1f9">
+    <name>ПоказательВР</name>
+    <synonym>
+      <key>ru</key>
+      <value>ВР (данные по учету временных разниц)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>BP (données relatives à la comptabilisation des écarts temporels)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>BP (data relating to the accounting of time differences)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>BP (datos relativos a la contabilización de las diferencias horarias)</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="e8b241fd-787d-42d9-b3fc-7e5112006e84">
+    <name>ПоказательКонтроль</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контроль (БУ - (НУ + ПР + ВР))</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Contrôle (UEV - (UEV + PR + VR))</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Control (VU - (VU + PR + VR))</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Control (VU - (VU + PR + VR))</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="c6e44df7-9f48-4841-ad8a-9162b5a02ebb">
+    <name>ПоказательСверкаНУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>БУ-НУ (разница бухгалтерского и налогового учета)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Différence entre la comptabilité et la fiscalité</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Difference between accounting and taxation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Diferencia entre contabilidad e impuestos</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="3f21d58f-41ec-47d0-9edc-fe8fe221f6e7">
+    <producedTypes>
+      <objectType typeId="fe23a0d3-9e2e-41bf-bbe2-050da9a2e4ba" valueTypeId="dd460a53-21cf-44d2-b215-21ddde75be86"/>
+      <rowType typeId="d35dab79-e128-4fba-943c-a94f65904007" valueTypeId="d6032298-576a-4b8d-8232-3ff6a5e80861"/>
+    </producedTypes>
+    <name>Группировка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Группировка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Regroupement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Grouping</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Agrupación</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="cba4f26c-7c1b-4ead-9687-22db2e67f495">
+      <name>Использование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Использование</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Usage</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Usage</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Uso</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="7c3b573b-24b9-4666-9be5-5ee85822d3cb">
+      <name>Счет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Счет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta</value>
+      </synonym>
+      <type>
+        <types>ChartOfAccountsRef.Хозрасчетный</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ea141cbd-f3ef-4cc0-ba4a-3418cc9941db">
+      <name>ПоСубсчетам</name>
+      <synonym>
+        <key>ru</key>
+        <value>По субсчетам</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Par sous-comptes</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>By sub-accounts</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Por subcuentas</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d3e7bb7a-b5ab-4982-9e4a-47398953723a">
+      <name>Представление</name>
+      <synonym>
+        <key>ru</key>
+        <value>По субконто</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Par subconto</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>By subconto</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Por subconto</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="2cf20a67-353f-43d3-8b99-c1b4d9f59973">
+      <name>ПоСубконто</name>
+      <synonym>
+        <key>ru</key>
+        <value>По субконто</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Par subconto</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>By subconto</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Por subconto</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>6</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="8091455e-1ea1-4fd2-beaa-bdc91937260b">
+    <producedTypes>
+      <objectType typeId="54a8b157-ad23-43d9-8c8e-171df256ee9c" valueTypeId="f7aa488a-2d98-4ae1-991b-8d62ba69d918"/>
+      <rowType typeId="a73972c5-2334-462b-bff9-5cf0ffe40dbf" valueTypeId="60ed2bdc-0ffc-4384-9c92-acb858758cf0"/>
+    </producedTypes>
+    <name>РазвернутоеСальдо</name>
+    <synonym>
+      <key>ru</key>
+      <value>Развернутое сальдо</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Solde élargi</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Expanded balance</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Saldo ampliado</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="40401ace-b081-42ba-a03f-eec13be86243">
+      <name>Использование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Использование</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Usage</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Usage</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Uso</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="319e33ef-b402-49a1-b6a0-b951868006e9">
+      <name>Счет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Счет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta</value>
+      </synonym>
+      <type>
+        <types>ChartOfAccountsRef.Хозрасчетный</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="664b212a-7038-45da-b655-08fc0b9f2dab">
+      <name>ПоСубсчетам</name>
+      <synonym>
+        <key>ru</key>
+        <value>По субсчетам</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Par sous-comptes</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>By sub-accounts</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Por subcuentas</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="81077833-8c38-4d2f-933c-c6d575cbb67c">
+      <name>Представление</name>
+      <synonym>
+        <key>ru</key>
+        <value>По субконто</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Par subconto</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>By subconto</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Por subconto</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8bdc363f-55d1-46fa-9637-493b0695a520">
+      <name>ПоСубконто</name>
+      <synonym>
+        <key>ru</key>
+        <value>По субконто</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Par subconto</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>By subconto</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Por subconto</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>6</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="a3d429fb-3615-4199-b718-533b5d83d10d">
+    <producedTypes>
+      <objectType typeId="4a2d0060-c9de-4c94-b257-1ff3f49e298e" valueTypeId="c5f3a897-6fb9-4006-a016-6c5a6acfc85f"/>
+      <rowType typeId="602e9fc8-b6bd-4725-9dda-964f853645d8" valueTypeId="a1d58d8c-676d-46f3-8c8c-8cbdeae210eb"/>
+    </producedTypes>
+    <name>ДополнительныеПоля</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дополнительные поля</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Champs supplémentaires</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Additional fields</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Campos adicionales</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="730676b2-8aef-465e-aa8d-b9bedf8a5506">
+      <name>Использование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Использование</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Usage</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Usage</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Uso</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="125b2dd6-fe37-4f0e-b99e-bc2b7768603d">
+      <name>Поле</name>
+      <synonym>
+        <key>ru</key>
+        <value>Поле</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Champ</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Field</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Campo</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="647c966d-03f0-475b-8677-9f12871a2db6">
+      <name>Представление</name>
+      <synonym>
+        <key>ru</key>
+        <value>Поле</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Champ</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Field</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Campo</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="24a4afdc-1094-4712-89c5-a52cdbf19f45">
+    <name>ФормаОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма отчета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de rapport</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Report form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de informe</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="3fdf0601-512f-4114-acba-f02fac96327e">
+    <name>СхемаКомпоновкиДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Схема компоновки данных</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Schéma de mise en page des données</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Data layout scheme</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Esquema de diseño de datos</value>
+    </synonym>
+    <templateType>DataCompositionSchema</templateType>
+  </templates>
+</mdclass:Report>

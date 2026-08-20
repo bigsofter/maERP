@@ -1,0 +1,5187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="f0a12cd0-0946-4111-8d94-bd5bca176195">
+  <producedTypes>
+    <objectType typeId="9fc1d1b0-63e7-4ead-b41d-318220a2fc15" valueTypeId="40710bc4-8d8b-4308-9dee-98c470234e20"/>
+    <managerType typeId="befe5fcb-7260-45a2-beb5-44918ff0bc5a" valueTypeId="cb2e64ec-4016-49db-b525-db3eb987c2df"/>
+  </producedTypes>
+  <name>КлиентБанк</name>
+  <synonym>
+    <key>ru</key>
+    <value>Обмен с банком</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Échange avec la banque</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Exchange with the bank</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Intercambio con el banco</value>
+  </synonym>
+  <comment>Загрузка / выгрузка платёжных документов</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.КлиентБанк.Form.Форма</defaultForm>
+  <attributes uuid="b230f945-cc2b-4539-90a3-24c9a285502c">
+    <name>ВерсияФормата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Версия формата</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Version du format</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Format version</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Versión de formato</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="771dc59f-3a56-430f-a3d5-5588b94aaecf">
+    <name>КлиентБанка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Клиент банка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Client de banque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Bank customer</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cliente bancario</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>10</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ad4e235c-6abb-4866-9774-83b9c7f48ea2">
+    <name>Кодировка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кодировка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Codage</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Coding</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Codificación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>10</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="1ca313af-15ae-4196-a112-d523f8559f6f">
+    <name>КонтролироватьБезопасностьОбменаСБанком</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контролировать безопасность обмена с банком</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Surveiller la sécurité de l'échange avec la banque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Monitor the security of the exchange with the bank</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Monitorear la seguridad del intercambio con el banco.</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="7bef6951-0442-4cc8-a2d3-b2f118b9cb2d">
+    <name>Программа</name>
+    <synonym>
+      <key>ru</key>
+      <value>Программа</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Logiciel</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Software</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Programas Informáticos</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>254</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="4d25511d-ad17-47c3-87e3-b4370e50d143">
+    <name>СоздаватьНенайденныеЭлементы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Создавать ненайденные элементы</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Créer des éléments non trouvés</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Create items not found</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Crear artículos no encontrados</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="6fe69882-6a53-48a6-8a5f-c01361cf9ba8">
+    <name>ФайлЗагрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Файл загрузки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Fichier de téléchargement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Download file</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Descargar archivo</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="324779a9-790d-4168-b2ed-39472e6b21a5">
+    <producedTypes>
+      <objectType typeId="14e79601-17c0-4855-bccd-76c9243215d1" valueTypeId="700ba159-c679-4a0a-a68c-b8281061df62"/>
+      <rowType typeId="2045d01f-18e9-4ca9-a245-8a81a9a0ca78" valueTypeId="b365bc19-4d46-424c-b775-7ccf6d235be9"/>
+    </producedTypes>
+    <name>ТЧДокументыКВыгрузке</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документы к выгрузке</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Documents à décharger</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Documents to be unloaded</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documentos a descargar</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="2ad8862c-b45f-46dc-87d8-42cdfa29b3f1">
+      <name>ВидДокумента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид документа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type of document</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de documento</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="03803222-039e-4f64-a1cb-430314c3fb4e">
+      <name>ВидПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type of payment</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2a6608f3-de29-49d0-bd9f-50bdfecc1d16">
+      <name>Выгружать</name>
+      <synonym>
+        <key>ru</key>
+        <value>Выгружать</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Décharger</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Unload</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Descargar</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="0defe13a-9729-418f-b90f-f0eba1ffe76c">
+      <name>Готовность</name>
+      <synonym>
+        <key>ru</key>
+        <value>Готовность</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Avancement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Progress</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Progreso</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2c591f69-7f8b-4651-b0c0-bc02068ca7a7">
+      <name>Дата</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Date</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Date</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9eaf2ce1-c631-4228-a9d2-48ed334f2f1f">
+      <name>ДатаОтсылкиДок</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата отсылки документа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Date d &amp; apos; envoi du document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Date of sending the document</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha de envío del documento</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="84d14f5b-fa9d-4c8d-915b-e2b6ddff1337">
+      <name>ДатаПлПоручения</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата пл.поручения</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Date de l'ordre de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Date of the payment order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha de la orden de pago</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ea90046e-79f3-40ec-a6ae-f5a0219e70ab">
+      <name>Документ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Документ</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Document</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Documento</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.СписаниеБезналичныхДенежныхСредств</types>
+        <types>DocumentRef.ПоступлениеБезналичныхДенежныхСредств</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="f764b9e5-26e4-47d8-bc8c-d753510cf472">
+      <name>ДокументОснование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Платежное поручение</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ordre de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Orden de pago</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.СписаниеБезналичныхДенежныхСредств</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d0667f94-0f3b-46b6-ae79-ecec45b8ff7e">
+      <name>ЕстьОшибка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Есть ошибка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Il y a une erreur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>There is an error</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Hay un error</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="93569cc7-3821-4b06-86d4-c0d2b8bdc74c">
+      <name>ИдентификаторПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Идентификатор платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>ID de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment ID</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>ID de PAGO</value>
+      </synonym>
+      <comment>поле 22 &quot;Код&quot;</comment>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>25</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="cacb87a7-45ed-4950-b1d7-0839e3a2a0c4">
+      <name>ИННПлательщика</name>
+      <synonym>
+        <key>ru</key>
+        <value>ИНН плательщика</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>NIF du payeur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>TIN of the payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>TIN del pagador</value>
+      </synonym>
+      <type>
+        <types>DefinedType.NIF</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="4406186e-c965-46f3-96fe-ec653e0971df">
+      <name>ИННПолучателя</name>
+      <synonym>
+        <key>ru</key>
+        <value>ИНН получателя</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>NIF du bénéficiaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary's TIN</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>TIN del beneficiario</value>
+      </synonym>
+      <type>
+        <types>DefinedType.NIF</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="45bb9ccf-7b0d-4c01-87c1-e169597c85a6">
+      <name>КодБК</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код БК</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code BC</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>BC Code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código BC</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c038149a-10a5-430a-aa52-bdf05d99eab2">
+      <name>КодОКАТО</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код ОКАТО</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code OKATO</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>OKATO Code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código OKATO</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>11</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="4eb29788-0520-4225-8cf8-ece9e9ee9cec">
+      <name>Контрагент</name>
+      <synonym>
+        <key>ru</key>
+        <value>Контрагент</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Counterparty</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Contraparte</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КонтрагентДенежныхДокументов</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="e0160e39-a070-4345-95cf-49b557adcfde">
+      <name>КонтрагентБанк</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банк контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Banque de la contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Counterparty bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Contraparte bank</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b9ab33cd-918a-4502-9069-4824a05fc6c8">
+      <name>КонтрагентБанкДляРасчетов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банк для расчетов</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Banque pour les règlements</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank for settlements</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco de liquidación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>254</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c813bb34-f043-439d-b86f-5ba844f9f730">
+      <name>КонтрагентБИКБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>БИК банка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>SWIFT</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>SWIFT</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>RÁPIDO</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>9</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3a6367d9-5971-4daa-a768-2fafabc2811c">
+      <name>КонтрагентБИКРЦБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>БИК РЦ банка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>BIC RC Bank</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>BIC RC Bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco BIC RC</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>9</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="76343dc8-3209-4a91-8ab6-21264d1f247e">
+      <name>КонтрагентГородБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Город банка контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ville de la banque</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>City of the bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>La ciudad de el banco</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="65caad44-eb76-4f7f-9290-50d56adbf029">
+      <name>КонтрагентГородРЦБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Город РЦ банка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ville du centre de règlement de la banque</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>City of the bank's settlement center</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Ciudad del centro de liquidación del banco</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ed75fcb2-3f83-4fec-ba68-e613c29141ba">
+      <name>КонтрагентИНН</name>
+      <synonym>
+        <key>ru</key>
+        <value>ИНН контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>NIF de la contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>TIN of the counterparty</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>TIN de la contraparte</value>
+      </synonym>
+      <type>
+        <types>DefinedType.NIF</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3f58dd46-1202-44c3-9cbf-c6c09c0dfb64">
+      <name>КонтрагентКоррСчетРЦБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Корр счет РЦ банка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte correspondant du centre de règlement de la banque</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Correspondent account of the bank's settlement center</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta corresponsal del centro de liquidación del banco</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+          <fixed>true</fixed>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3c1d77d6-d392-4a05-b0d3-7d31468b7fc0">
+      <name>КонтрагентКПП</name>
+      <synonym>
+        <key>ru</key>
+        <value>КПП контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>ICE de la contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>ICE of the counterparty</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>ICE de la contraparte</value>
+      </synonym>
+      <type>
+        <types>DefinedType.RC</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="39324754-ced7-4075-ad43-fa40167218ef">
+      <name>КонтрагентКратко</name>
+      <synonym>
+        <key>ru</key>
+        <value>Контрагент кратко</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Contrepartie en bref</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Consideration in brief</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Consideración breve</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="26282a98-ba9e-4871-bbfb-e59c3d7a1ee6">
+      <name>КонтрагентНомерСчета</name>
+      <synonym>
+        <key>ru</key>
+        <value>р/с контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>compte de la contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>counterparty account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>cuenta de contraparte</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>34</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9d7f221d-3eb4-4c33-8d1a-ada8c681359d">
+      <name>КонтрагентРасчСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Расчетный счет контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte courant de la contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Current account of the counterparty</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta corriente de la contraparte</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+          <fixed>true</fixed>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="fee229a8-eefe-46c0-b963-1baac55dd4ee">
+      <name>КонтрагентСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Счет контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte de contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Counterparty account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta de contraparte</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.БанковскиеСчета</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9e9c81a7-10c6-40ec-a272-5e80eb5ffe75">
+      <name>КонтрагентТекстКорреспондента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Текст корреспондента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Texte du correspondant</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Text from the correspondent</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>El texto de la corresponsal</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="1d5e42ee-2b7c-4f31-bb2d-bbe580a8f271">
+      <name>КонтрагентТекстНазначения</name>
+      <synonym>
+        <key>ru</key>
+        <value>Текст назначения</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Texte de destination du paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment destination text</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Texto del destino del pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b09fe50c-1b7b-41f7-b0aa-792b276a08d1">
+      <name>КПППлательщика</name>
+      <synonym>
+        <key>ru</key>
+        <value>КПП плательщика</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>ICE du payeur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer's ICE</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>ICE del pagador</value>
+      </synonym>
+      <type>
+        <types>DefinedType.RC</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="822847eb-ef8b-4ded-b62c-6942210877f9">
+      <name>КПППолучателя</name>
+      <synonym>
+        <key>ru</key>
+        <value>КПП получателя</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>ICE du bénéficiaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary's ICE</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>PPC del destinatario</value>
+      </synonym>
+      <type>
+        <types>DefinedType.RC</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="647297ce-97d1-48fd-8e01-3e68097d7b74">
+      <name>НазначениеПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Objet du paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Purpose of payment</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Finalidad del pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d5648a08-082e-4071-bbec-48047e43ae79">
+      <name>Номер</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Numéro</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Habitación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="067732f1-daff-4b51-acb1-74b161e9fc61">
+      <name>НомерВФорматеВыгрузки</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер в формате выгрузки</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Numéro dans le format de déchargement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number in the unloading format</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Número en el formato de descarga</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>6</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="69dc2c6b-6470-45ae-9e16-7bf51e1f7b37">
+      <name>ОписаниеОшибок</name>
+      <synonym>
+        <key>ru</key>
+        <value>Описание ошибок</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Description des erreurs</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Description of errors</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Descripción de los errores</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>255</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="4a50d49a-cc4d-494f-9dde-19326678e239">
+      <name>Организация</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Organisation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Organización</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Организации</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d18a6dd3-0871-4b59-877a-af32f8e97c00">
+      <name>ОрганизацияБанк</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банк организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Banque de l'entreprise</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Company bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco de la empresa</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="cefb8a72-4bc6-4512-a960-a79a4bd67484">
+      <name>ОрганизацияБанкДляРасчетов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банк для расчетов</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Banque pour les règlements</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank for settlements</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco de liquidación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>254</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2c20a6e0-4b37-4ca6-91a6-febf533023ae">
+      <name>ОрганизацияБИКБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>БИК Банка организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>SWIFT de la banque de l'entreprise</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>SWIFT from the company's bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>SWIFT del banco de la empresa</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>9</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="f68c03a3-1c44-4748-84b5-62325432d7e0">
+      <name>ОрганизацияБИКРЦБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>БИК РЦ банка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>BIC RC Bank</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>BIC RC Bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco BIC RC</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>9</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="430747e6-c794-4b56-96cb-e8e4e544b047">
+      <name>ОрганизацияГородБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Город банка организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ville de la banque de l'organisation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>City of the organization's bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Ciudad del banco de la organización</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2031ae64-65d0-4a7a-8080-a9df1a977684">
+      <name>ОрганизацияГородРЦБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Город РЦ банка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ville du centre de règlement de la banque</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>City of the bank's settlement center</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Ciudad del centro de liquidación del banco</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="6e50aacc-b6b9-4d65-986d-417c447dc00e">
+      <name>ОрганизацияИНН</name>
+      <synonym>
+        <key>ru</key>
+        <value>ИНН организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Inn de l'organisation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>INN of the organization</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>NIF organización</value>
+      </synonym>
+      <type>
+        <types>DefinedType.NIF</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="f2922e0f-aef0-4137-9c20-c18efe2dc8a4">
+      <name>ОрганизацияКоррСчетРЦБанка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Корр счет РЦ банка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte correspondant du centre de règlement de la banque</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Correspondent account of the bank's settlement center</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta corresponsal del centro de liquidación del banco</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+          <fixed>true</fixed>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="bb878aa3-35a0-48db-b22d-148e84721677">
+      <name>ОрганизацияКПП</name>
+      <synonym>
+        <key>ru</key>
+        <value>КПП организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>ICE de l'entreprise</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Company profile</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Perfil de la compañía</value>
+      </synonym>
+      <type>
+        <types>DefinedType.RC</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9e5675b7-2db5-4429-9ff4-9479714b419f">
+      <name>ОрганизацияКратко</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация кратко</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Organisation en bref</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization in brief</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Organización en resumen</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="83ccab67-a637-4cab-9269-14a3eadbb6d3">
+      <name>ОрганизацияНомерСчета</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер счета организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Numéro de compte de l'organisation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization account number</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Número de cuenta de la organización</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="44bd832e-341e-4a7c-a00b-47d5fad02f59">
+      <name>ОрганизацияПеречислениеНалога</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация перечисление налога</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Organisation transfert de l'impôt</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization tax transfer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Transferencia de impuestos de la organización</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>150</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="a1a3cc40-adf2-417c-957a-801b8cb376df">
+      <name>ОрганизацияРасчСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Расчетный счет организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte courant de l &amp; apos; organisation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Current account of the organization</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta corriente de la organización</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+          <fixed>true</fixed>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="92d0c46e-c408-493a-becf-c764e7ac4f7c">
+      <name>ОрганизацияСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Счет организации</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte de l'entreprise</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Company account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta de empresa</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.БанковскиеСчета</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="729c2f07-11ae-4eb8-a995-870041b45cec">
+      <name>ОрганизацияТекстКорреспондента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация текст корреспондента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Organisation du texte du correspondant</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization of the correspondent's text</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Organización del texto del corresponsal</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="8ace7c28-d46e-4075-9a8a-bc1eea987b8a">
+      <name>ОрганизацияТекстНазначения</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация текст назначения</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Organisation texte de nomination</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization nomination text</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Texto de nominación de la organización</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="91960c9c-ca4b-4bf7-8533-4609b59e4bfe">
+      <name>ОчередностьПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Очередность платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ordre de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Orden de pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>1</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="00b25dfd-5e77-4995-a047-7eb0da4454dd">
+      <name>ПеречислениеВБюджет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Перечисление в бюджет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Virements au budget</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Transfers to the budget</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Transferencias al presupuesto</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c73b2211-75d8-416c-9b78-c61ad16a5b82">
+      <name>ПоказательДаты</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель даты</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de date</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Date indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador de fecha</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="0b749fee-27b1-40f2-bbd5-610fe460db20">
+      <name>ПоказательНомера</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель номера</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de numéro</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador de número</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>18</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="19159703-9174-49d3-b8ef-1aea7ba8295c">
+      <name>ПоказательОснования</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель основания</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de base</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Basic indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador básico</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b47f8535-c574-42cd-b1ba-18d1a64a0b20">
+      <name>ПоказательПериода</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель периода</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de période</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Period indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador de período</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3eaeb37c-dbbf-4edc-8317-800b57ca1bbd">
+      <name>ПоказательТипа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель типа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de type</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador de tipo</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="e148b40e-895e-45e8-9e76-fdeadd4f3893">
+      <name>Проведен</name>
+      <synonym>
+        <key>ru</key>
+        <value>Проведен</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Reporté</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Postponed</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Aplazado</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="8e99972b-2799-4300-af8c-44ca0e3e18fc">
+      <name>Состояние</name>
+      <synonym>
+        <key>ru</key>
+        <value>Состояние</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>État</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>State</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Estado</value>
+      </synonym>
+      <type>
+        <types>EnumRef.СостоянияБанковскихДокументов</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b8832d3a-3168-4678-b32c-5f8d97e1a066">
+      <name>СостояниеДокумента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Состояние документа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>État du document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Document status</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Estado del documento</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="035eba5d-2b70-44f4-b575-de090409ce62">
+      <name>СрокАкцепта</name>
+      <synonym>
+        <key>ru</key>
+        <value>Срок акцепта</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Délai d'acceptation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Acceptance deadline</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha límite de aceptación</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>3</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ffd3a2ec-14bd-474f-b6b0-2c1124eb7e16">
+      <name>СтавкаНДС</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ставка НДС</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Taux TVA</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>VAT Rates</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de IVA</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СтавкиНДС</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2e1de0e6-9aef-48d2-96cc-146829487d0a">
+      <name>СтатусСоставителя</name>
+      <synonym>
+        <key>ru</key>
+        <value>Статус составителя</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Statut de l'auteur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Status of the author</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Condición del iniciador</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+          <fixed>true</fixed>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="8546daef-c6cc-4218-9883-6f8a61174ea1">
+      <name>СуммаБезКопеек</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма без копеек</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant sans centimes</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount without pennies</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad sin centavos</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b895592e-0a42-4f91-9a7a-3c32880d5f98">
+      <name>СуммаДокумента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма документа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant du document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount of the document</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe del documento</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="77e71d64-1c43-4d0b-9205-1afaa668baf2">
+      <name>ТекстПлательщика</name>
+      <synonym>
+        <key>ru</key>
+        <value>Текст плательщика</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Texte du payeur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer text</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Texto del pagador</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="e548b3a2-bd56-4ead-9b8d-53c910c02026">
+      <name>ТекстПолучателя</name>
+      <synonym>
+        <key>ru</key>
+        <value>Текст получателя</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Texte du bénéficiaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Text of the beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Texto del beneficiario</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c71d257e-eaf3-4096-b792-7cc52fe330e6">
+      <name>ТипДокумента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Тип документа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type of document</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de documento</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="21147db2-a07f-43f4-a40c-ce58673f5ae0">
+      <name>УсловиеОплаты1</name>
+      <synonym>
+        <key>ru</key>
+        <value>Условие оплаты</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Conditions de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment terms</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Condiciones de pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>220</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="6fa5b368-15eb-4392-8d49-54e058993d71">
+      <name>БанковскийСчёт</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банковский счёт</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte bancaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta bancaria</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.БанковскиеСчета</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>DataProcessor.КлиентБанк.TabularSection.ТЧДокументыКВыгрузке.Attribute.Организация</field>
+      </choiceParameterLinks>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="e1f5a10a-4f5a-4e6c-9480-7f8c6520e485">
+    <producedTypes>
+      <objectType typeId="12c5e5e9-c168-4e95-991c-ffe2262ee817" valueTypeId="dfc1cd0e-1cfd-4e34-b635-e2cf12f7562f"/>
+      <rowType typeId="bc30a7f6-e5e0-4947-a092-a4cd9ab81c57" valueTypeId="980e5601-e260-4bda-a98a-4bc650312c4d"/>
+    </producedTypes>
+    <name>ТЧДокументыКЗагрузке</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документы к загрузке</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Documents à télécharger</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Documents to download</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documentos para descargar</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="b6e670da-15cf-486c-a724-f422dcc7a74d">
+      <name>Загружать</name>
+      <synonym>
+        <key>ru</key>
+        <value>Загружать</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Charger</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Load</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Carga</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2aa7cca0-fc1f-40c4-8435-c45eef475aba">
+      <name>Документ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Документ</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Document</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Documento</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.СписаниеБезналичныхДенежныхСредств</types>
+        <types>DocumentRef.ПоступлениеБезналичныхДенежныхСредств</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="89eba814-0239-4798-9def-84f63adc987f">
+      <name>Номер</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Numéro</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Habitación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>128</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="19faaafd-2e78-43f3-9986-6a750c4bee6a">
+      <name>Дата</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Date</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Date</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="55d88a81-0f43-4a28-95b4-2d2acb6ad3b7">
+      <name>Операция</name>
+      <synonym>
+        <key>ru</key>
+        <value>Операция</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Opération</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Operation</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Operación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="1896783c-2ff6-42ca-a5d9-245ac9a0102f">
+      <name>СуммаСписано</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма списано</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant sorti</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount out</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe de salida</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Сумма</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ab8ad49c-4e93-47c0-b5ca-fcb60d72ed87">
+      <name>СуммаПоступило</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма поступило</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant reçu</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount received</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad recibida</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Сумма</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d302145e-b9aa-462a-96e4-cab5b8baa17e">
+      <name>Организация</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Organisation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Organización</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Организации</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d109f553-8073-499e-994a-f46b585cb275">
+      <name>БанковскийСчёт</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банковский счёт</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte bancaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta bancaria</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.БанковскиеСчета</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>DataProcessor.КлиентБанк.TabularSection.ТЧДокументыКЗагрузке.Attribute.Организация</field>
+      </choiceParameterLinks>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2955b9d4-861f-485d-9154-9beff5259b8c">
+      <name>Контрагент</name>
+      <synonym>
+        <key>ru</key>
+        <value>Контрагент</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Counterparty</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Contraparte</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КонтрагентДенежныхДокументов</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="7ee9bdbb-00a8-4d10-87eb-ad52659a23c2">
+      <name>БанковскийСчётКонтрагента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банковский счёт контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte bancaire de la contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Counterparty's bank account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta bancaria de la contraparte</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.БанковскиеСчета</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>DataProcessor.КлиентБанк.TabularSection.ТЧДокументыКЗагрузке.Attribute.Контрагент</field>
+      </choiceParameterLinks>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="311514d5-e9f8-42fc-9e62-0fcfb88af3f9">
+      <name>ДатаСписано</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата списано</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Date de sortie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Release date</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha de lanzamiento</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ef89249c-04ad-4aff-a503-a02c5b7eabb3">
+      <name>ДатаПоступило</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата поступило</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Date de réception</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Date of receipt</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha de recepción</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="47748684-8953-48ed-875a-785f15e40655">
+      <name>ВидПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type of payment</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="6f9d21e7-fc24-41d3-a6ce-0c71a606aea0">
+      <name>ВидОплаты</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид оплаты</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type of payment</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="dee90d3b-ff3a-49f7-b54b-030dbbd24f09">
+      <name>СтатусСоставителя</name>
+      <synonym>
+        <key>ru</key>
+        <value>Статус составителя</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Statut de l'auteur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Status of the author</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Condición del iniciador</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="02dbf797-e0b4-4dfe-82a4-1e5f55a4e573">
+      <name>ПоказательКБК</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель КБК</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Facteur de bioconcentration</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bioconcentration factor</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Factor de bioconcentración</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="acf8cb75-c3c5-4741-bc30-63226df63870">
+      <name>ОКАТО</name>
+      <synonym>
+        <key>ru</key>
+        <value>ОКАТО</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>OKATO</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>OKATO</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>OKATO</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>11</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="50e2e43b-cc13-4a59-b248-409c568977fc">
+      <name>ПоказательОснования</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель основания</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de base</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Basic indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador básico</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="78ce5cf9-7dc9-40e7-aa9b-896ad71c2e09">
+      <name>ПоказательНомера</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель номера</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de numéro</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador de número</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="89979939-e0e0-4ad7-b8cd-34fd0056f747">
+      <name>ПоказательДаты</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель даты</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de date</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Date indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador de fecha</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="13cd764d-ea6b-4363-9d1c-a216ef123fe0">
+      <name>ПлательщикБанк1</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик банк1</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur bank1</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer bank1</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco pagador1</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>РЦ банка плательщика</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>RC banque payeur</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>RC paying bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Banco pagador RC</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="b05b1d70-fda1-4a6c-818c-3d68eb6994e8">
+      <name>ПлательщикБанк2</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик банк2</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur bank2</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank2 payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador Bank2</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Город РЦ банка плательщика</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Ville de RC banque payeur</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>City of the paying bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Ciudad del banco pagador</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="9eb38ea9-e2b1-41b2-8d2f-1f524c8fd63e">
+      <name>ПлательщикБИК</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик БИК</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur SWIFT</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>SWIFT Payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador SWIFT</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>БИК РЦ банка плательщика</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>BIC RC banque payeur</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>BIC RC paying bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>BIC RC banco pagador</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="7e0e3f61-da49-4a6b-9ffb-749537a32bd2">
+      <name>ПлательщикКорсчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик корсчет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur compte corr.</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer account corr.</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta del pagador corr.</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Корсчет РЦ банка плательщика</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Corset RC banque payeur</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>RC payer bank corset</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Corsé de banco pagador RC</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="ba0f9e6f-d6e6-4f10-b1d5-512212f61c5a">
+      <name>ПолучательСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель счет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire compte</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta de beneficiario</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>128</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="efd930ae-b4db-454b-a881-5e8bd13c192c">
+      <name>Получатель</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Recipient</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Destinatario</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="1ead6c61-8aaa-4684-9365-64a378dc3ac1">
+      <name>ПолучательИНН</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель ИНН</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire NIF</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary TIN</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>TIN beneficiario</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>12</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="1f32b6a2-48ef-436b-84d2-118dcae3750e">
+      <name>Получатель1</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель1</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Receveur1</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Receiver 1</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Receptor 1</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="1cedf182-1587-47ec-aa0b-5514dd9a98d2">
+      <name>Получатель2</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель2</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Receveur2</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Receiver 2</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Receptor 2</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="3cb5cd87-736f-43b3-899e-90239bb0b41d">
+      <name>Получатель3</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель3</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Receveur3</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Receiver 3</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Receptor 3</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="43017f98-7eff-4680-b9cf-72a0282e21bc">
+      <name>Получатель4</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель4</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Receveur4</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Receiver 4</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Receptor 4</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="e3206c2a-fc24-4046-b3b2-545f730d4d52">
+      <name>ПолучательРасчСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель расчетный счет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire compte courant</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Current account beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario de la cuenta corriente</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="a36494da-d232-4960-bd35-866a99d15d68">
+      <name>ПолучательБанк1</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель банк1</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire bank1</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary bank1</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco beneficiario1</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>РЦ банка получателя</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>RC banque du bénéficiaire</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>RC beneficiary's bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Banco del beneficiario de RC</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="59b8890f-32eb-4370-a7c1-5e556cbc1268">
+      <name>ПолучательБанк2</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель банк2</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire bank2</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank2 beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario Bank2</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Город РЦ банка получателя</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Ville de RC Bank</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>City of RC Bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Ciudad de RC Bank</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="2b6a013c-61b9-4c75-83bf-133da8259884">
+      <name>ПолучательБИК</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель БИК</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire SWIFT</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>SWIFT Beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario SWIFT</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>БИК РЦ банка получателя</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>BIC RC banque bénéficiaire</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>BIC RC beneficiary bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Banco beneficiario BIC RC</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="514a752b-0c10-410e-9116-fb39e36ec72e">
+      <name>ПолучательКорсчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель корсчет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire compte corr.</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary account corr.</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta beneficiaria corr.</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Корсчет РЦ банка получателя</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Korschet RC banque bénéficiaire</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Korschet RC beneficiary bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Banco beneficiario Korschet RC</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="e57b5d30-e740-443e-84b8-09f393f6a9ee">
+      <name>ПоказательТипа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Показатель типа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Indicateur de type</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type indicator</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Indicador de tipo</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="76d5feb0-bcee-421b-9fb2-f1e99f80a293">
+      <name>СрокПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Срок платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Délai de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment term</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Término del pago</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="cf5d513a-3cbf-4ecf-952f-30f3da2aff88">
+      <name>Очередность</name>
+      <synonym>
+        <key>ru</key>
+        <value>Очередность</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Séquence</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Sequence</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Secuencia</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>2</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="d9e38528-f211-47da-b61b-70350a77414d">
+      <name>ПлательщикКПП</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик КПП</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur ICE</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>ICE Payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador de ICE</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>9</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="ad64b715-6a14-4bdf-9ade-d5ff7589c40b">
+      <name>ПолучательКПП</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель КПП</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire ICE</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary ICE</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario de ICE</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>9</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="5c09b9fa-a33a-44cb-81cd-9ad3f3d362b6">
+      <name>ОчередностьПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Очередность платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ordre de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Orden de pago</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>1</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="aa88fbed-a23a-425a-925c-9f53e326bace">
+      <name>НазначениеПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Objet du paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Purpose of payment</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Finalidad del pago</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="71d3c9d8-be01-4c73-b7c5-a6aa7aa0cf95">
+      <name>НазначениеПлатежа1</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа1</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Affectation du payement1</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Allocation of payment1</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Asignación del pago1</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="9439de0a-cc71-48d6-b5ba-2b3cd989f5f6">
+      <name>НазначениеПлатежа2</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа2</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Affectation du payement2</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Allocation of payment2</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Asignación del pago2</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="5498647a-890a-4903-8755-29d738cc9e78">
+      <name>НазначениеПлатежа3</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа3</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Affectation du payement3</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Allocation of payment3</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Asignación del pago3</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8e8b1117-3a4c-4ada-8d78-bb1729c873c8">
+      <name>НазначениеПлатежа4</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа4</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Affectation du payement4</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Allocation of payment4</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Asignación del pago4</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="202285d7-240e-4605-aee2-489c1de46969">
+      <name>НазначениеПлатежа5</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа5</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Objet du payement5</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Purpose of payment5</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Propósito de payment5</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="383874f2-8476-495f-8271-cda89a59267c">
+      <name>НазначениеПлатежа6</name>
+      <synonym>
+        <key>ru</key>
+        <value>Назначение платежа6</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Objet du payement6</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Purpose of payment6</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Finalidad del pago6</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8d2bc8c3-e867-401d-ba1f-89a2d0b7e894">
+      <name>СрокАкцепта</name>
+      <synonym>
+        <key>ru</key>
+        <value>Срок акцепта</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Délai d'acceptation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Acceptance deadline</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fecha límite de aceptación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="fdb95d54-f136-4a91-80b6-9e33c7aa9aaa">
+      <name>ВидАккредитива</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид аккредитива</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de lettre de crédit</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Type of letter of credit</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de carta de crédito</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8dc43fc9-2e0a-4b6f-95d4-1b908c1e9adc">
+      <name>УсловиеОплаты1</name>
+      <synonym>
+        <key>ru</key>
+        <value>Условие оплаты1</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Conditions de payement1</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Terms of payment1</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Términos de payment1</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="65a30836-1288-4748-8283-7df23ea40000">
+      <name>УсловиеОплаты2</name>
+      <synonym>
+        <key>ru</key>
+        <value>Условие оплаты2</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Conditions de payement2</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Terms of payment2</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Condiciones de pago2</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="d86019ac-7cd6-44ba-957c-985472a3f40f">
+      <name>УсловиеОплаты3</name>
+      <synonym>
+        <key>ru</key>
+        <value>Условие оплаты3</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Conditions de payement3</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Terms of payment3</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Condiciones de pago3</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8b0d15b0-1878-43fb-9ad7-685f3bdb3845">
+      <name>ПлатежПоПредст</name>
+      <synonym>
+        <key>ru</key>
+        <value>Платеж по предст</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Paiement sur présentation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment on presentation</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pago a la presentación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8ff40043-4361-4af5-9906-102f547d2016">
+      <name>ДополнУсловия</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дополнительные условия</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Condition additionnelle</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Additional condition</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Condición adicional</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="c6781ed8-e83a-4ebe-baf0-2ab0cbe7a77a">
+      <name>НомерСчетаПоставщика</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер счета поставщика</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Numéro de compte fournisseur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Supplier account number</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Número de cuenta del proveedor</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="d4dd1e18-bd98-44ff-a312-2ced0ad3df98">
+      <name>СекцияДокумент</name>
+      <synonym>
+        <key>ru</key>
+        <value>Секция документ</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Section document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Document section</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Sección del documento</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8baa753c-3fe2-4f55-ad20-1b4648426114">
+      <name>ИдентификаторПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Идентификатор платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>ID de paiement</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payment ID</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>ID de PAGO</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="ed2bb06c-73b0-4c82-a75a-af54ef6010ab">
+      <name>ПлательщикСтрана</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик страна</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Pays du payeur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Country of the payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>País del pagador</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="32c704f9-bf96-485f-8f10-5210dfb51a4c">
+      <name>ПлательщикБанк3</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик банк3</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur bank3</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank3 payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador Bank3</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Международное наименование банка</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Nom international de la banque</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>International name of the bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Denominación internacional del banco</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="87adad44-ced8-475e-9817-aa50a4fa286d">
+      <name>ПлательщикБанк4</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик банк4</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur bank4</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank4 payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador Bank4</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Адрес банка</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Adresse de la banque</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Bank address</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Dirección bancaria</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="382f308a-5042-4639-b596-050dc613c886">
+      <name>ПлательщикБанк5</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик банк5</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur bank5</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank5 payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador Bank5</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Страна банка</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Pays de la banque</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Country of the bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>País del banco</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="64a8af0a-8832-4025-b190-be731439ef71">
+      <name>ПлательщикСВИФТ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик СВИФТ</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur SWIFT</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>SWIFT Payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador SWIFT</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>СВИФТ РЦ банка плательщика</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>SWIFT RC banque payeur</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>SWIFT RC payer bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Banco pagador SWIFT RC</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="26b1325c-4bc4-4ec1-87f9-9e8ea7a1dff0">
+      <name>ПолучательНаименованиеМеждународное</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель наименование международное</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Destinataire nom international</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Recipient international name</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Nombre internacional del destinatario</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="cea159be-826d-4292-9dad-fcd2448ee326">
+      <name>ПолучательСтрана</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель страна</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Pays bénéficiaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Beneficiary country</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>País beneficiario</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="6f65da48-9d20-4b19-ae37-44bd61a06c7c">
+      <name>ПолучательБанк3</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель банк3</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire de la bank3</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank3 beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario Bank3</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Международное наименование банка</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Nom international de la banque</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>International name of the bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Denominación internacional del banco</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="dbba6313-319f-45f6-9723-45b6a4b33a14">
+      <name>ПолучательБанк4</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель банк4</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire bank4</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank4 beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario Bank4</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Адрес банка</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Adresse de la banque</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Bank address</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Dirección bancaria</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="62c25c47-931b-479c-9af0-7a9c6cf17eea">
+      <name>ПолучательБанк5</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель банк5</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire bank5</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank5 beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario Bank5</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Страна банка</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Pays de la banque</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Country of the bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>País del banco</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="2b75b1ed-d349-4a34-8474-30729c8f1ab7">
+      <name>ПолучательСВИФТ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель СВИФТ</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bénéficiaire SWIFT</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>SWIFT Beneficiary</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Beneficiario SWIFT</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Страна банка</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Pays de la banque</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Country of the bank</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>País del banco</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="8e8fbde7-6d36-495b-983f-643e398c6c9f">
+      <name>КодНазПлатежа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код наз платежа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code Nazaréen</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Nazarene Code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código Nazareno</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>1</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="b414239c-f41c-4e05-b5e3-eabc3bbf943f">
+      <name>ПлательщикСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик счет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur compte</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta del pagador</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>128</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="3e624380-c7fd-4480-8975-82919abef31c">
+      <name>Плательщик</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>The payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="a17d284f-a4ee-46de-8a43-ca4512eed115">
+      <name>ПлательщикИНН</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик ИНН</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur NIF</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer TIN</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>TIN del pagador</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>12</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="d4af0281-be0c-4c08-9827-fda2fca228e8">
+      <name>Плательщик1</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик1</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur1</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer1</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador1</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="a10da5a6-3679-49cc-a271-c9ec7c6955c2">
+      <name>Плательщик2</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик2</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur2</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer2</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador2</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="12398dd6-e285-4bd1-80cf-6a4d080ce7e8">
+      <name>Плательщик3</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик3</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur3</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer3</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador3</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="d65c71d0-a311-459c-98c8-2384f333d609">
+      <name>Плательщик4</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик4</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur4</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Payer4</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador4</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="14b4a5a6-fdb3-445a-8e35-7ea4152df586">
+      <name>ПлательщикРасчСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Плательщик расчетный счет</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Payeur compte courant</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Current account payer</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pagador de cuenta corriente</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="ec9e99c4-03b7-47b6-90f0-98bdaa0f4cc7">
+      <name>ТегПлательщикРасчётныйСчёт</name>
+      <synonym>
+        <key>ru</key>
+        <value>Тег плательщик расчётный счёт</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Tag payeur compte courant</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Current account payer tag</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Etiqueta de pagador de cuenta corriente</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="f5aaba0a-0bc3-4922-9826-0e023e233f41">
+      <name>ТегПолучательРасчётныйСчёт</name>
+      <synonym>
+        <key>ru</key>
+        <value>Тег получатель расчётный счёт</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Tag bénéficiaire compte courant</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Current account beneficiary tag</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Etiqueta de beneficiario de cuenta corriente</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="469ce987-44f8-42b3-91c4-f275f9a0b7f3">
+      <name>КонтрагентНаименование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Наименование контрагента</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Nom de la contrepartie</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Name of the counterparty</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Nombre de la contraparte</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="4c231663-3812-49d1-ae06-de74f4528c14">
+    <producedTypes>
+      <objectType typeId="a85e15a6-0ac5-473e-8959-bf041b96809c" valueTypeId="c5574fb1-b2d7-4f71-a772-9b1fce66f4ad"/>
+      <rowType typeId="cae450ab-5f88-41a9-978b-bdfc5a06eb4f" valueTypeId="2f1028ea-b235-427e-a055-de3c74d5b2a7"/>
+    </producedTypes>
+    <name>ТЧБанковскиеСчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Банковские счета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Comptes bancaires</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Bank accounts</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cuentas bancarias</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="88b183a9-41f2-40f8-827c-eb66d9b0fb88">
+      <name>Пометка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Пометка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Coche</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Tick</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Garrapata</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c1c6c314-8a3a-4e17-bc8a-b9dc57300e04">
+      <name>Наименование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Товар</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Marchandise</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Name</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Denominación</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="84546687-892f-4a88-9246-33b93f3cbbaa">
+      <name>НомерСчёта</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер счёта</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Numéro de compte</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Account number</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Número de cuenta</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="108b606b-3eb7-40a9-91e2-12353867e03a">
+      <name>Организация</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Organisation</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Organization</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Organización</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Организации</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="6281aaed-11a8-4d38-88a1-94a10dea6f14">
+      <name>БанковскийСчёт</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банковский счёт</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Compte bancaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank account</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cuenta bancaria</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.БанковскиеСчета</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>DataProcessor.КлиентБанк.TabularSection.ТЧБанковскиеСчета.Attribute.Организация</field>
+      </choiceParameterLinks>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="846b4fc9-78f3-4c59-b52f-e5cb0d2545a0">
+      <name>Банк</name>
+      <synonym>
+        <key>ru</key>
+        <value>Банк</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Banque</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Bank</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Banco</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Банки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d7bd610f-240b-4d60-8c83-ec4d337c525c">
+      <name>ВыгрузкаНачалоПериода</name>
+      <synonym>
+        <key>ru</key>
+        <value>Выгрузка начало периода</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Déchargement début de période</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Unloading start of period</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Inicio del período de descarga</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="0a7b3861-1eb1-4c7e-8be5-02ed9b4f0b50">
+      <name>ВыгрузкаКонецПериода</name>
+      <synonym>
+        <key>ru</key>
+        <value>Выгрузка конец периода</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Déchargement fin de période</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Unloading at the end of the period</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Descarga al final del período</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="616bb90c-abcb-4c0a-9415-0e015c4b42b4">
+      <name>ЗагрузкаНачалоПериода</name>
+      <synonym>
+        <key>ru</key>
+        <value>Загрузка начало периода</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Chargement début de période</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Loading start of period</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cargando inicio del período</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3d948f36-b61b-430c-a484-7de24202918b">
+      <name>ЗагрузкаКонецПериода</name>
+      <synonym>
+        <key>ru</key>
+        <value>Загрузка конец периода</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Chargement fin de période</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>End of period loading</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Carga de fin de período</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="a9505b07-6e67-4bc7-9c7a-de29c5ad7588">
+    <producedTypes>
+      <objectType typeId="cb534b71-cbe0-4d09-92d4-c698da789428" valueTypeId="530e1064-8784-4de2-b30b-57be464032bc"/>
+      <rowType typeId="54d4dbc3-daf5-4117-b8f8-6558081869e4" valueTypeId="abcf2dd8-aa43-44ce-8819-1c0d4bd9a1c3"/>
+    </producedTypes>
+    <name>ТЧИнформация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ошибки обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Erreurs d'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange errors</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Errores de intercambio</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="3177058e-8c6b-4a16-a7f1-3828e11b7cbc">
+      <name>Описание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Описание</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Description</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Description</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Descripción</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <multiLine>true</multiLine>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="92e91284-7d58-47cd-92a3-916cd1284a09">
+      <name>Данные</name>
+      <synonym>
+        <key>ru</key>
+        <value>Данные</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Données</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Data</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Datos</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.БанковскиеСчета</types>
+        <types>CatalogRef.Контрагенты</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="5bb3bd93-0d61-459a-83a7-826f944e6d5c">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="76aba16d-2208-465a-9db6-45fa8cde43a9">
+    <name>ВидыДокументов</name>
+    <synonym>
+      <key>ru</key>
+      <value>ВидыДокументов</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Espèces</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Species</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Especie</value>
+    </synonym>
+  </templates>
+  <templates uuid="e0f6cb7f-e0b5-405d-b82b-179ea4309d81">
+    <name>ОтчетОВыгруженныхПлатежныхДокументах</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отчет о выгруженных платежных документах</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Rapport sur les documents de paiement déchargés</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Report on the discharged payment documents</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Informe sobre los documentos de pago dados de alta</value>
+    </synonym>
+  </templates>
+  <templates uuid="462fc46d-5864-4b99-9458-618a93f4ec58">
+    <name>ОтчетОЗагруженныхПлатежныхДокументах</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отчет о загруженных платежных документах</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Rapport sur les documents de paiement téléchargés</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Report on uploaded payment documents</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Informe sobre los documentos de pago cargados</value>
+    </synonym>
+  </templates>
+</mdclass:DataProcessor>

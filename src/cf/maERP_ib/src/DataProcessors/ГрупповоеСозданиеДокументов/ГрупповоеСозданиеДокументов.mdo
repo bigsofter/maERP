@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b0e68ae2-4f24-4961-91a1-0600dee908c3">
+  <producedTypes>
+    <objectType typeId="4d32ed51-8d39-4a2e-9a6c-dedcd49c56ff" valueTypeId="0fc394cc-a629-4c75-9fbf-6f6bc370fe58"/>
+    <managerType typeId="c735cd3f-ddc1-4cc5-bbf5-7e30ef570add" valueTypeId="c7da829f-9625-416d-92e1-827ec8aebe78"/>
+  </producedTypes>
+  <name>ГрупповоеСозданиеДокументов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Групповое создание документов</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Création de documents en groupe</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Group document creation</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Creación de documentos grupales</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.ГрупповоеСозданиеДокументов.Form.Форма</defaultForm>
+  <attributes uuid="5d2cbc56-69d9-4d8c-8323-e65feeecff66">
+    <name>Период</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Période</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Period</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Período</value>
+    </synonym>
+    <type>
+      <types>StandardPeriod</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="98bc970b-4004-4e6a-839f-55ed7b665b81">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="7fd86c8d-180f-4693-adad-1ba3867d6c07">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Client</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Counterparty</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contraparte</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <choiceParameters>
+      <name>Отбор.Покупатель</name>
+      <value xsi:type="core:BooleanValue">
+        <value>true</value>
+      </value>
+    </choiceParameters>
+  </attributes>
+  <attributes uuid="c90aec01-6489-4061-b34d-43048366d2a9">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résidence</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Storage location</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacenamiento</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="38a7dc6c-b61a-4409-8ff3-813830bd38c4">
+    <name>КоличествоДокументов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество документов</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nombre de documents</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Number of documents</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Número de documentos</value>
+    </synonym>
+    <type>
+      <types>DefinedType.КоличествоЦелое</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <forms uuid="f316c3a3-1a4b-4556-aedd-68fcad086de0">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <commands uuid="45ce2a61-5b20-40e9-adc3-114776fc4ea8">
+    <name>ГрупповоеСозданиеДокументов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Групповое создание документов</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Création de documents en groupe</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Group document creation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Creación de documentos grupales</value>
+    </synonym>
+    <group>FormCommandBarImportant</group>
+    <commandParameterType>
+      <types>DocumentRef.НалоговаяНакладная</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:DataProcessor>

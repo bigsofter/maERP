@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <title>
+    <key>ru</key>
+    <value>Производственный календарь</value>
+  </title>
+  <title>
+    <key>fr</key>
+    <value>Calendrier</value>
+  </title>
+  <title>
+    <key>en</key>
+    <value>Calendar</value>
+  </title>
+  <title>
+    <key>es</key>
+    <value>Calendario</value>
+  </title>
+  <items xsi:type="form:FormGroup">
+    <name>ГруппаКнопки</name>
+    <id>7</id>
+    <items xsi:type="form:Button">
+      <name>ФормаЗаписать</name>
+      <id>3</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаЗаписатьРасширеннаяПодсказка</name>
+        <id>9</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualButton</type>
+      <commandName>Form.Command.Записать</commandName>
+      <representation>Auto</representation>
+      <defaultButton>true</defaultButton>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ФормаЗаполнитьПоУмолчанию</name>
+      <id>4</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаЗаполнитьПоУмолчаниюРасширеннаяПодсказка</name>
+        <id>10</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualButton</type>
+      <commandName>Form.Command.ЗаполнитьПоУмолчанию</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ВыбранныйГод</name>
+      <id>5</id>
+      <title>
+        <key>ru</key>
+        <value>Год</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Année</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Year</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Año</value>
+      </title>
+      <titleFont xsi:type="core:FontRef">
+        <font>System.DefaultGUIFont</font>
+        <height>10.0</height>
+        <bold>true</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+      </titleFont>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ВыбранныйГод</segments>
+      </dataPath>
+      <handlers>
+        <event>OnChange</event>
+        <name>ВыбранныйГодПриИзменении</name>
+      </handlers>
+      <extendedTooltip>
+        <name>ВыбранныйГодРасширеннаяПодсказка</name>
+        <id>11</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ВыбранныйГодКонтекстноеМеню</name>
+        <id>6</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <horizontalAlign>Center</horizontalAlign>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <width>6</width>
+        <maxWidth>6</maxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+        <wrap>true</wrap>
+        <choiceListButton>false</choiceListButton>
+        <choiceButton>false</choiceButton>
+        <clearButton>false</clearButton>
+        <spinButton>true</spinButton>
+        <openButton>false</openButton>
+        <editFormat>
+          <key>ru</key>
+          <value>ЧЦ=4; ЧГ=0</value>
+        </editFormat>
+        <editFormat>
+          <key>fr</key>
+          <value>ЧЦ=4; ЧГ=0</value>
+        </editFormat>
+        <editFormat>
+          <key>en</key>
+          <value>ЧЦ=4; ЧГ=0</value>
+        </editFormat>
+        <editFormat>
+          <key>es</key>
+          <value>ЧЦ=4; ЧГ=0</value>
+        </editFormat>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Группа кнопки</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Groupe de boutons</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Group of buttons</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Grupo de botones</value>
+    </title>
+    <toolTip>
+      <key>ru</key>
+      <value>Группа кнопки</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Groupe de boutons</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Group of buttons</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Grupo de botones</value>
+    </toolTip>
+    <extendedTooltip>
+      <name>ГруппаКнопкиРасширеннаяПодсказка</name>
+      <id>8</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <throughAlign>Auto</throughAlign>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormField">
+    <name>ДатыВыходных</name>
+    <id>1</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ДатыВыходных</segments>
+    </dataPath>
+    <titleLocation>None</titleLocation>
+    <extendedTooltip>
+      <name>ДатыВыходныхРасширеннаяПодсказка</name>
+      <id>12</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ДатыВыходныхКонтекстноеМеню</name>
+      <id>2</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>CalendarField</type>
+    <editMode>Enter</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:CalendarFieldExtInfo">
+      <handlers>
+        <event>OnPeriodOutput</event>
+        <name>ДатыВыходныхПриВыводеПериода</name>
+      </handlers>
+      <handlers>
+        <event>Selection</event>
+        <name>ДатыВыходныхВыбор</name>
+      </handlers>
+      <width>16</width>
+      <autoMaxWidth>true</autoMaxWidth>
+      <height>9</height>
+      <autoMaxHeight>true</autoMaxHeight>
+      <horizontalStretch>true</horizontalStretch>
+      <verticalStretch>true</verticalStretch>
+      <showCurrentDate>true</showCurrentDate>
+      <calendarNavigation>true</calendarNavigation>
+      <font xsi:type="core:FontRef">
+        <font>Style.Шрифт_Основной</font>
+      </font>
+      <border xsi:type="core:BorderDef">
+        <width>1</width>
+      </border>
+      <widthInMonths>1</widthInMonths>
+      <heightInMonths>1</heightInMonths>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <horizontalAlign>Left</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>OnOpen</event>
+    <name>ПриОткрытии</name>
+  </handlers>
+  <windowOpeningMode>DontBlock</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <enabled>true</enabled>
+  <verticalScroll>UseIfNecessary</verticalScroll>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <attributes>
+    <name>ДатыВыходных</name>
+    <title>
+      <key>ru</key>
+      <value>Даты выходных</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Dates du week-end</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Weekend dates</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Fechas de fin de semana</value>
+    </title>
+    <id>1</id>
+    <valueType>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ВыбранныйГод</name>
+    <title>
+      <key>ru</key>
+      <value>Выбранный год</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Année sélectionnée</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Selected year</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Año seleccionado</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>4</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>СЗВыходные</name>
+    <title>
+      <key>ru</key>
+      <value>СЗВыходные</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Avecsortie</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Withoutout</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Withoutout</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>ValueList</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <extInfo xsi:type="form:ValueListExtInfo">
+      <itemValueType>
+        <types>Date</types>
+        <dateQualifiers/>
+      </itemValueType>
+    </extInfo>
+  </attributes>
+  <formCommands>
+    <name>Записать</name>
+    <title>
+      <key>ru</key>
+      <value>Записать</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Enregistrer</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Save</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Guardar</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Записать</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Enregistrer</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Save</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Guardar</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Write</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>Записать</name>
+      </handler>
+    </action>
+    <representation>TextPicture</representation>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ЗаполнитьПоУмолчанию</name>
+    <title>
+      <key>ru</key>
+      <value>Заполнить по умолчанию</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remplir par défaut</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Fill in by default</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Rellenar por defecto</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Заполнить по умолчанию</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Remplir par défaut</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Fill in by default</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Rellenar por defecto</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.GenerateReport</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ЗаполнитьПоУмолчанию</name>
+      </handler>
+    </action>
+    <representation>TextPicture</representation>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+</form:Form>

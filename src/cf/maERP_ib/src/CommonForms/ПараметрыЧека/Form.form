@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <title>
+    <key>ru</key>
+    <value>Параметры чека</value>
+  </title>
+  <title>
+    <key>fr</key>
+    <value>Paramètres du chèque</value>
+  </title>
+  <title>
+    <key>en</key>
+    <value>Check parameters</value>
+  </title>
+  <title>
+    <key>es</key>
+    <value>Comprobar los parámetros</value>
+  </title>
+  <items xsi:type="form:FormField">
+    <name>ЭтоЧекККМ</name>
+    <id>18</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ЭтоЧекККМ</segments>
+    </dataPath>
+    <handlers>
+      <event>OnChange</event>
+      <name>ЭтоЧекККМПриИзменении</name>
+    </handlers>
+    <extendedTooltip>
+      <name>ЭтоЧекККМРасширеннаяПодсказка</name>
+      <id>20</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ЭтоЧекККМКонтекстноеМеню</name>
+      <id>19</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>CheckBoxField</type>
+    <editMode>Enter</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+      <checkBoxType>Tumbler</checkBoxType>
+      <font xsi:type="core:FontRef">
+        <font>Style.Шрифт_Основной</font>
+      </font>
+      <editFormat>
+        <key>ru</key>
+        <value>БЛ='Чек коррекции'; БИ='Чек ККМ'</value>
+      </editFormat>
+      <editFormat>
+        <key>fr</key>
+        <value>BL= 'Chèque de correction'; BI= 'Chèque de ccm'</value>
+      </editFormat>
+      <editFormat>
+        <key>en</key>
+        <value>BL= 'Correction check'; BI= 'ccm check'</value>
+      </editFormat>
+      <editFormat>
+        <key>es</key>
+        <value>BL= 'Corrección de verificación'; BI= 'ccm check'</value>
+      </editFormat>
+      <equalElementsWidth>true</equalElementsWidth>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormGroup">
+    <name>ГруппаПараметрыКоррекции</name>
+    <id>21</id>
+    <items xsi:type="form:FormField">
+      <name>НеприменениеККТ</name>
+      <id>1</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НеприменениеККТ</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>НеприменениеККТРасширеннаяПодсказка</name>
+        <id>3</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>НеприменениеККТКонтекстноеМеню</name>
+        <id>2</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <checkBoxType>Tumbler</checkBoxType>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+        <editFormat>
+          <key>ru</key>
+          <value>БЛ='Исправление ошибки'; БИ='Неприминение ККТ'</value>
+        </editFormat>
+        <editFormat>
+          <key>fr</key>
+          <value>BL= 'Correction d'une erreur'; BI= 'non-Incrimination de la CCT'</value>
+        </editFormat>
+        <editFormat>
+          <key>en</key>
+          <value>BL= 'Correction of an error'; BI= 'non-Incrimination of the CTC'</value>
+        </editFormat>
+        <editFormat>
+          <key>es</key>
+          <value>BL= 'Corrección de un error'; BI= 'no incriminación del CTC'</value>
+        </editFormat>
+        <equalElementsWidth>true</equalElementsWidth>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ТипКоррекции</name>
+      <id>9</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ТипКоррекции</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ТипКоррекцииРасширеннаяПодсказка</name>
+        <id>11</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ТипКоррекцииКонтекстноеМеню</name>
+        <id>10</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>RadioButtonField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
+        <radioButtonsType>Tumbler</radioButtonsType>
+        <choiceList>
+          <presentation>
+            <key>ru</key>
+            <value>Самостоятельно</value>
+          </presentation>
+          <presentation>
+            <key>fr</key>
+            <value>Tout seul</value>
+          </presentation>
+          <presentation>
+            <key>en</key>
+            <value>All alone</value>
+          </presentation>
+          <presentation>
+            <key>es</key>
+            <value>Completamente solo</value>
+          </presentation>
+          <value xsi:type="core:NumberValue">
+            <value>0</value>
+          </value>
+        </choiceList>
+        <choiceList>
+          <presentation>
+            <key>ru</key>
+            <value>По предписанию</value>
+          </presentation>
+          <presentation>
+            <key>fr</key>
+            <value>Par prescription</value>
+          </presentation>
+          <presentation>
+            <key>en</key>
+            <value>By prescription</value>
+          </presentation>
+          <presentation>
+            <key>es</key>
+            <value>Por prescripción</value>
+          </presentation>
+          <value xsi:type="core:NumberValue">
+            <value>1</value>
+          </value>
+        </choiceList>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+        <orientation>Vertical</orientation>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ДатаКоррекции</name>
+      <id>6</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ДатаКоррекции</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ДатаКоррекцииРасширеннаяПодсказка</name>
+        <id>8</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДатаКоррекцииКонтекстноеМеню</name>
+        <id>7</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <width>14</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ОписаниеКоррекции</name>
+      <id>12</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ОписаниеКоррекции</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ОписаниеКоррекцииРасширеннаяПодсказка</name>
+        <id>14</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ОписаниеКоррекцииКонтекстноеМеню</name>
+        <id>13</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>НомерПредписания</name>
+      <id>15</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НомерПредписания</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>НомерПредписанияРасширеннаяПодсказка</name>
+        <id>17</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>НомерПредписанияКонтекстноеМеню</name>
+        <id>16</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Группа параметры коррекции</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Groupe options de correction</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Correction options group</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Grupo de opciones de corrección</value>
+    </title>
+    <toolTip>
+      <key>ru</key>
+      <value>Параметры коррекции</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Options de correction</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Correction options</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Opciones de corrección</value>
+    </toolTip>
+    <extendedTooltip>
+      <name>ГруппаПараметрыКоррекцииРасширеннаяПодсказка</name>
+      <id>22</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <throughAlign>Auto</throughAlign>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>ФормаПробитьЧек</name>
+      <id>4</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаПробитьЧекРасширеннаяПодсказка</name>
+        <id>5</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ПробитьЧек</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ФормаПоместитьВОчередьЧеков</name>
+      <id>23</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаПоместитьВОчередьЧековРасширеннаяПодсказка</name>
+        <id>24</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ПоместитьВОчередьЧеков</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <horizontalAlign>Left</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>OnOpen</event>
+    <name>ПриОткрытии</name>
+  </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <height>18</height>
+  <windowOpeningMode>DontBlock</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <enabled>true</enabled>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <attributes>
+    <name>НеприменениеККТ</name>
+    <title>
+      <key>ru</key>
+      <value>Вид коррекции</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Type de correction</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Type of correction</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tipo de corrección</value>
+    </title>
+    <id>1</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДатаКоррекции</name>
+    <title>
+      <key>ru</key>
+      <value>Дата коррекции</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Date de correction</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Date of correction</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Fecha de corrección</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Date</types>
+      <dateQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ТипКоррекции</name>
+    <title>
+      <key>ru</key>
+      <value>Тип коррекции</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Type de correction</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Type of correction</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tipo de corrección</value>
+    </title>
+    <id>4</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ОписаниеКоррекции</name>
+    <title>
+      <key>ru</key>
+      <value>Описание коррекции</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Description de la correction</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Description of the correction</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Descripción de la corrección</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>НомерПредписания</name>
+    <title>
+      <key>ru</key>
+      <value>Номер предписания</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Numéro de prescription</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Prescription number</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Número de receta</value>
+    </title>
+    <id>5</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ЭтоЧекККМ</name>
+    <title>
+      <key>ru</key>
+      <value>Вид чека</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Type de chèque</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Type of check</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tipo de cheque</value>
+    </title>
+    <id>6</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <formCommands>
+    <name>ПробитьЧек</name>
+    <title>
+      <key>ru</key>
+      <value>Пробить чек</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Effectuer un chèque</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Making a check</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Hacer un cheque</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Пробить чек</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Effectuer un chèque</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Making a check</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Hacer un cheque</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>CommonPicture.Чек16</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ПробитьЧек</name>
+      </handler>
+    </action>
+    <representation>TextPicture</representation>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ПоместитьВОчередьЧеков</name>
+    <title>
+      <key>ru</key>
+      <value>Поместить в очередь чеков</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Placer dans la file d'attente des chèques</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Place in the check queue</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Colocar en la cola de cheques</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Поместить в очередь чеков</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Placer dans la file d'attente des chèques</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Place in the check queue</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Colocar en la cola de cheques</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.MoveItem</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ПоместитьВОчередьЧеков</name>
+      </handler>
+    </action>
+    <representation>TextPicture</representation>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+</form:Form>

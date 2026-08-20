@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="5cd78f41-0e31-4227-b37b-ace1ad7812d4">
+  <producedTypes>
+    <selectionType typeId="18002e0c-0f5f-4a0f-a8f5-beeaa087cbe6" valueTypeId="fabeb350-e4f0-4529-9f93-7e35e9d8ce58"/>
+    <listType typeId="bcf43eda-793d-4539-bcaa-9a684e9464d2" valueTypeId="c1dd57d2-6bcc-4652-a5b6-6f9f122f5305"/>
+    <managerType typeId="6bc4ab97-726b-482e-acf2-4985e9d4fbd0" valueTypeId="4dfa601f-600c-47fd-bde7-90aef3266418"/>
+    <recordSetType typeId="433becf1-7fe7-419e-b92c-341c5db6c286" valueTypeId="28189ee8-6ffa-45d8-bba4-911c0767461b"/>
+    <recordKeyType typeId="2627236c-cc89-4195-a4dd-157ab900d20d" valueTypeId="3bd5ea92-8b49-4545-8569-86c0a3e8e224"/>
+    <recordType typeId="d12067ac-3134-4151-b4aa-f20dab5093e0" valueTypeId="9b13b143-bdf8-4926-a908-abe954b0749e"/>
+    <recordManagerType typeId="41e65489-241a-45af-b097-af72222e3443" valueTypeId="9974f552-f810-494e-9988-0f15c585c664"/>
+  </producedTypes>
+  <name>ПремииСотрудников</name>
+  <synonym>
+    <key>ru</key>
+    <value>Премии сотрудников</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Primes de personnelles</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <defaultRecordForm>InformationRegister.ПремииСотрудников.Form.ФормаЗаписи</defaultRecordForm>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <informationRegisterPeriodicity>Month</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="ae489fbb-0854-4166-8389-6f69c79c1060">
+    <name>Премия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Премия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Prime</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="37ab4006-ebfa-4e71-a37f-11ea9dfc600f">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Employé</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ФизическиеЛица</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="440bf85d-762f-42af-bd7d-573355b21c83">
+    <name>ВидПремии</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид премии</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de prime</value>
+    </synonym>
+    <type>
+      <types>ChartOfCharacteristicTypesRef.ПоказателиРасчётаПремий</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="285d96c1-9ea3-4574-995a-e67995557bb0">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:InformationRegister>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c3366122-1fa1-4830-b997-2c16e60e8581">
+  <producedTypes>
+    <objectType typeId="51851953-3f26-4558-8171-cb031360dab8" valueTypeId="916b958c-3792-42f5-90d2-6c5fae42d93f"/>
+    <refType typeId="46e6ac5f-b5b8-4db7-833a-7e5340559bab" valueTypeId="b5f9567b-ab4b-44d3-a627-0368d369177e"/>
+    <selectionType typeId="c08e68d4-84cd-4b79-993f-aa65c463598d" valueTypeId="c4d26252-a91f-4b81-a04b-71e7b15b71b8"/>
+    <listType typeId="c9c0760f-2552-4376-9ca4-3069b1813e7b" valueTypeId="bbf1c8d5-7429-453c-91af-356b832d7f7b"/>
+    <managerType typeId="4bf4daca-f41e-49d7-a877-2554fb7604fc" valueTypeId="a7cba0b7-e78b-4f67-ac21-0bd17afb0245"/>
+  </producedTypes>
+  <name>КассоваяСмена</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кассовая смена</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Journée de caisse</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Checkout day</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Cambio de Caja</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Document.КассоваяСмена.StandardAttribute.Number</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Posted</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Ref</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>DeletionMark</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Date</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Number</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <numberType>String</numberType>
+  <numberLength>9</numberLength>
+  <numberAllowedLength>Variable</numberAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultObjectForm>Document.КассоваяСмена.Form.ФормаДокумента</defaultObjectForm>
+  <defaultListForm>Document.КассоваяСмена.Form.ФормаСписка</defaultListForm>
+  <defaultChoiceForm>Document.КассоваяСмена.Form.ФормаВыбора</defaultChoiceForm>
+  <postInPrivilegedMode>true</postInPrivilegedMode>
+  <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
+  <attributes uuid="cbe5a79d-714a-4553-b85d-719ee86f97a7">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="61e80942-4ed4-4a4a-8d6a-e9e0c82c636b">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résidence</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Storage location</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacenamiento</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="95316790-0e6a-4872-8366-21f11fcadd76">
+    <name>СуммаОткрытия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма открытия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant d'ouverture</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Opening amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe de apertura</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СуммаНеотрицательная</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="a84a6151-b5d5-4b91-8a66-aacaf3a949d4">
+    <name>СуммаЗакрытия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма закрытия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant de clôture</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Closing amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Monto de cierre</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СуммаНеотрицательная</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="bda1de49-3957-4402-9aa2-ad9c5f6ea147">
+    <name>Статус</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Statut</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Status</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Estatus</value>
+    </synonym>
+    <type>
+      <types>EnumRef.СтатусыКассовойСмены</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="255ba74a-ab2a-4648-b8f6-86fa7435f31d">
+    <name>Касса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Касса</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Caisse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cash Register</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Caja Registradora</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Кассы</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <choiceParameters>
+      <name>Отбор.ПометкаУдаления</name>
+      <value xsi:type="core:BooleanValue"/>
+    </choiceParameters>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <forms uuid="6e88a90f-15ff-4365-8e29-7178f7441cfd">
+    <name>ФормаДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма документа</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Document form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Forma del documento</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="de4b449a-1318-4e44-b1e1-965a40573a74">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="c3630fcd-d9a1-4d20-b07f-e770c856c2b4">
+    <name>ФормаВыбора</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма выбора</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de sélection</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de selección</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="0d33a1bb-bb15-40ad-b9c4-dcde2ad02910">
+    <name>EtatZ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Etat Z</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Etat Z</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>State Z</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Estado Z</value>
+    </synonym>
+  </templates>
+  <commands uuid="ba366d25-5b24-4e66-aab9-7adb47d44258">
+    <name>ПечатьEtatZ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Etat Z</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Etat Z</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>State Z</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Estado Z</value>
+    </synonym>
+    <group>CommandGroup.Печать</group>
+    <commandParameterType>
+      <types>DocumentRef.КассоваяСмена</types>
+    </commandParameterType>
+    <representation>PictureAndText</representation>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Print</picture>
+    </picture>
+  </commands>
+</mdclass:Document>

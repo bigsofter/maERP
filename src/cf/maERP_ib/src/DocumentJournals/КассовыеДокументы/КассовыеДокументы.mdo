@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DocumentJournal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e6677db2-3896-4b2e-995e-fd12a93ca229">
+  <producedTypes>
+    <selectionType typeId="71dd6fde-205d-40bb-a4dc-4d3adcacff07" valueTypeId="173b99a5-75b0-43b2-bb24-baaffce9847b"/>
+    <listType typeId="e82c15fa-ae25-4f91-bcee-1b3084abe336" valueTypeId="f999be1d-092a-47e6-829b-78bd3c181054"/>
+    <managerType typeId="08376dd7-361b-4c11-99f6-0f0ee2d870a6" valueTypeId="cea40f8a-6909-41c1-9916-df5a4116f77c"/>
+  </producedTypes>
+  <name>КассовыеДокументы</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кассовые документы</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Documents de caisse</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Cash documents</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Documentos en efectivo</value>
+  </synonym>
+  <defaultForm>DocumentJournal.КассовыеДокументы.Form.ФормаСписка</defaultForm>
+  <useStandardCommands>true</useStandardCommands>
+  <registeredDocuments>Document.ПриходныйКассовыйОрдер</registeredDocuments>
+  <registeredDocuments>Document.РасходныйКассовыйОрдер</registeredDocuments>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Type</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Ref</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Date</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Posted</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>DeletionMark</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Number</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <columns uuid="d2a63ef0-8055-4618-a087-a26558fd2cfc">
+    <name>Поступление</name>
+    <synonym>
+      <key>ru</key>
+      <value>Поступление</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Réception</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Reception</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Recepción</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.Сумма</references>
+  </columns>
+  <columns uuid="4db08269-f804-458a-aeaf-8bef8749db21">
+    <name>Списание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Списание</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Sortie de fonds</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Outflow of funds</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Salida de fondos</value>
+    </synonym>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.Сумма</references>
+  </columns>
+  <columns uuid="022f2dd8-57d6-4319-a4b0-09b48b349010">
+    <name>ХозяйственнаяОперация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operación</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.ХозяйственнаяОперация</references>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.ХозяйственнаяОперация</references>
+  </columns>
+  <columns uuid="04f14057-d8bd-4da7-9c48-263dcadc5122">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Contrepartie</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Counterparty</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contraparte</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.Контрагент</references>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.Контрагент</references>
+  </columns>
+  <columns uuid="8479db46-ba09-4da4-aecd-61d0216491ec">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.Организация</references>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.Организация</references>
+  </columns>
+  <columns uuid="d72f7f8b-b109-494c-aa8b-f0ee5fd7b2d2">
+    <name>Касса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Касса</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Caisse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cash Register</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Caja Registradora</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.Касса</references>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.Касса</references>
+  </columns>
+  <columns uuid="b840fdbf-ae6a-41e1-81ce-c2bbf667f64b">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Responsable</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Responsible</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Responsable</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.Ответственный</references>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.Ответственный</references>
+  </columns>
+  <columns uuid="109b5d5f-fd42-4a7f-878b-c0ed7a701a64">
+    <name>КассоваяСмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кассовая смена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Journée de caisse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Checkout day</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cambio de Caja</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.КассоваяСмена</references>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.КассоваяСмена</references>
+  </columns>
+  <columns uuid="741a0f4e-26b0-4524-b2cc-6347808814b9">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Commentaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Comment</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comentario</value>
+    </synonym>
+    <references>Document.ПриходныйКассовыйОрдер.Attribute.Комментарий</references>
+    <references>Document.РасходныйКассовыйОрдер.Attribute.Комментарий</references>
+  </columns>
+  <forms uuid="2f95ddbf-2224-4e5a-9c9c-946918a77c44">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DocumentJournal>

@@ -1,0 +1,1460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <title>
+    <key>ru</key>
+    <value>Подключение и настройка оборудования</value>
+  </title>
+  <title>
+    <key>fr</key>
+    <value>Connexion et configuration du matériel</value>
+  </title>
+  <title>
+    <key>en</key>
+    <value>Hardware connection and configuration</value>
+  </title>
+  <title>
+    <key>es</key>
+    <value>Conexión y configuración de hardware</value>
+  </title>
+  <items xsi:type="form:FormGroup">
+    <name>Оборудование</name>
+    <id>371</id>
+    <items xsi:type="form:FormGroup">
+      <name>УправлениеРабочимМестом</name>
+      <id>488</id>
+      <items xsi:type="form:FormField">
+        <name>ТекущееРабочееМесто</name>
+        <id>411</id>
+        <title>
+          <key>ru</key>
+          <value>Рабочее место</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Lieu de travail</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Place of work</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Lugar de trabajo</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ТекущееРабочееМесто</segments>
+        </dataPath>
+        <extendedTooltip>
+          <name>ТекущееРабочееМестоРасширеннаяПодсказка</name>
+          <id>413</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ТекущееРабочееМестоКонтекстноеМеню</name>
+          <id>412</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>LabelField</type>
+        <groupHorizontalAlign>Right</groupHorizontalAlign>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:LabelFieldExtInfo">
+          <autoMaxHeight>true</autoMaxHeight>
+          <hyperlink>true</hyperlink>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>ВсеРабочиеМеста</name>
+        <id>330</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ВсеРабочиеМеста</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <handlers>
+          <event>OnChange</event>
+          <name>ВсеРабочиеМестаПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>ВсеРабочиеМестаExtendedTooltip</name>
+          <id>347</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ВсеРабочиеМестаКонтекстноеМеню</name>
+          <id>331</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <groupHorizontalAlign>Right</groupHorizontalAlign>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>ГруппироватьПоРабочемуМесту</name>
+        <id>328</id>
+        <visible>true</visible>
+        <enabled>false</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ГруппироватьПоРабочемуМесту</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <handlers>
+          <event>OnChange</event>
+          <name>ГруппироватьПоРабочемуМестуПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>ГруппироватьПоРабочемуМестуExtendedTooltip</name>
+          <id>348</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ГруппироватьПоРабочемуМестуКонтекстноеМеню</name>
+          <id>329</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <groupHorizontalAlign>Right</groupHorizontalAlign>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>ru</key>
+        <value>Управление рабочим местом</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Gestion du lieu de travail</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Workplace management</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Gestión del lugar de trabajo</value>
+      </title>
+      <toolTip>
+        <key>ru</key>
+        <value>Управление рабочим местом</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Gestion du lieu de travail</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Workplace management</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Gestión del lugar de trabajo</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>УправлениеРабочимМестомРасширеннаяПодсказка</name>
+        <id>489</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualGroup</type>
+      <extInfo xsi:type="form:UsualGroupExtInfo">
+        <group>AlwaysHorizontal</group>
+        <representation>WeakSeparation</representation>
+        <showLeftMargin>true</showLeftMargin>
+        <united>true</united>
+        <throughAlign>Auto</throughAlign>
+        <currentRowUse>Auto</currentRowUse>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormGroup">
+      <name>Группа</name>
+      <id>332</id>
+      <items xsi:type="form:FormField">
+        <name>ПереключательТиповПО</name>
+        <id>485</id>
+        <title>
+          <key>ru</key>
+          <value>Тип оборудования</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Type d'équipement</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Type of equipment</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Tipo de equipo</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ПереключательТиповПО</segments>
+        </dataPath>
+        <handlers>
+          <event>OnChange</event>
+          <name>ПереключательТиповПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>ПереключательТиповПОРасширеннаяПодсказка</name>
+          <id>487</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ПереключательТиповПОКонтекстноеМеню</name>
+          <id>486</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <wrap>true</wrap>
+          <listChoiceMode>true</listChoiceMode>
+          <typeDomainEnabled>true</typeDomainEnabled>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>ВсеТипыОборудования</name>
+        <id>323</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ВсеТипыОборудования</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <handlers>
+          <event>OnChange</event>
+          <name>ВсеТипыОборудованияПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>ВсеТипыОборудованияExtendedTooltip</name>
+          <id>342</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ВсеТипыОборудованияКонтекстноеМеню</name>
+          <id>324</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ГруппаExtendedTooltip</name>
+        <id>346</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualGroup</type>
+      <extInfo xsi:type="form:UsualGroupExtInfo">
+        <showLeftMargin>true</showLeftMargin>
+        <united>true</united>
+        <throughAlign>Auto</throughAlign>
+        <currentRowUse>Auto</currentRowUse>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormGroup">
+      <name>ГруппаОсновная</name>
+      <id>375</id>
+      <items xsi:type="form:Table">
+        <name>СписокУстройств</name>
+        <id>292</id>
+        <title>
+          <key>ru</key>
+          <value>Список подключенных устройств</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Liste des périphériques connectés</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>List of connected devices</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Lista de dispositivos conectados</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>СписокУстройств</segments>
+        </dataPath>
+        <skipOnInput>false</skipOnInput>
+        <titleLocation>None</titleLocation>
+        <excludedCommands>CancelSearch</excludedCommands>
+        <excludedCommands>Copy</excludedCommands>
+        <excludedCommands>CopyToClipboard</excludedCommands>
+        <excludedCommands>Delete</excludedCommands>
+        <excludedCommands>DynamicListStandardSettings</excludedCommands>
+        <excludedCommands>Find</excludedCommands>
+        <excludedCommands>ListSettings</excludedCommands>
+        <excludedCommands>LoadDynamicListSettings</excludedCommands>
+        <excludedCommands>OutputList</excludedCommands>
+        <excludedCommands>Refresh</excludedCommands>
+        <excludedCommands>SaveDynamicListSettings</excludedCommands>
+        <items xsi:type="form:FormField">
+          <name>УстройствоИспользуется</name>
+          <id>311</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>СписокУстройств.УстройствоИспользуется</segments>
+          </dataPath>
+          <titleLocation>None</titleLocation>
+          <toolTip>
+            <key>ru</key>
+            <value>Устройство используется</value>
+          </toolTip>
+          <toolTip>
+            <key>fr</key>
+            <value>Appareil utilisé</value>
+          </toolTip>
+          <toolTip>
+            <key>en</key>
+            <value>Device used</value>
+          </toolTip>
+          <toolTip>
+            <key>es</key>
+            <value>Dispositivo utilizado</value>
+          </toolTip>
+          <extendedTooltip>
+            <name>УстройствоИспользуетсяРасширеннаяПодсказка</name>
+            <id>351</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>УстройствоИспользуетсяКонтекстноеМеню</name>
+            <id>312</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>CheckBoxField</type>
+          <editMode>Enter</editMode>
+          <fixingInTable>Left</fixingInTable>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>Ссылка</name>
+          <id>309</id>
+          <title>
+            <key>ru</key>
+            <value>Товар</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>Marchandise</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Name</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Denominación</value>
+          </title>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>СписокУстройств.Ref</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>СсылкаExtendedTooltip</name>
+            <id>352</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>СсылкаКонтекстноеМеню</name>
+            <id>310</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>LabelField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:LabelFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>ДрайверОборудования</name>
+          <id>355</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>СписокУстройств.ДрайверОборудования</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ДрайверОборудованияРасширеннаяПодсказка</name>
+            <id>357</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ДрайверОборудованияКонтекстноеМеню</name>
+            <id>356</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>LabelField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:LabelFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>РабочееМесто</name>
+          <id>326</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>СписокУстройств.РабочееМесто</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>РабочееМестоExtendedTooltip</name>
+            <id>354</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>РабочееМестоКонтекстноеМеню</name>
+            <id>327</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>LabelField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:LabelFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+          </extInfo>
+        </items>
+        <autoCommandBar>
+          <name>СписокУстройствКоманднаяПанель</name>
+          <id>294</id>
+          <items xsi:type="form:Button">
+            <name>Настроить</name>
+            <id>305</id>
+            <title>
+              <key>ru</key>
+              <value>Настроить...</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Configurer...</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>To configure...</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Ajustar...</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <skipOnInput>false</skipOnInput>
+            <extendedTooltip>
+              <name>НастроитьExtendedTooltip</name>
+              <id>349</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <commandName>Form.Command.Настроить</commandName>
+            <buttonImportance>Normal</buttonImportance>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
+          <horizontalAlign>Left</horizontalAlign>
+          <autoFill>true</autoFill>
+        </autoCommandBar>
+        <handlers>
+          <event>Selection</event>
+          <name>СписокУстройствВыбор</name>
+        </handlers>
+        <handlers>
+          <event>OnActivateRow</event>
+          <name>СписокУстройствПриАктивизацииСтроки</name>
+        </handlers>
+        <handlers>
+          <event>NewWriteProcessing</event>
+          <name>СписокУстройствОбработкаЗаписиНового</name>
+        </handlers>
+        <handlers>
+          <event>AfterDeleteRow</event>
+          <name>СписокУстройствПослеУдаления</name>
+        </handlers>
+        <searchStringAddition>
+          <name>СписокУстройствSearchString</name>
+          <id>360</id>
+          <extendedTooltip>
+            <name>СписокУстройствSearchStringExtendedTooltip</name>
+            <id>362</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>СписокУстройствSearchStringContextMenu</name>
+            <id>361</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <source>СписокУстройств</source>
+          <extInfo xsi:type="form:SearchStringAdditionExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+          </extInfo>
+        </searchStringAddition>
+        <viewStatusAddition>
+          <name>СписокУстройствViewStatus</name>
+          <id>363</id>
+          <extendedTooltip>
+            <name>СписокУстройствViewStatusExtendedTooltip</name>
+            <id>365</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>СписокУстройствViewStatusContextMenu</name>
+            <id>364</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>ViewStatusAddition</type>
+          <source>СписокУстройств</source>
+          <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+          </extInfo>
+        </viewStatusAddition>
+        <searchControlAddition>
+          <name>СписокУстройствSearchControl</name>
+          <id>366</id>
+          <extendedTooltip>
+            <name>СписокУстройствSearchControlExtendedTooltip</name>
+            <id>368</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>СписокУстройствSearchControlContextMenu</name>
+            <id>367</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>SearchControlAddition</type>
+          <source>СписокУстройств</source>
+          <extInfo xsi:type="form:SearchControlAdditionExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+          </extInfo>
+        </searchControlAddition>
+        <extendedTooltip>
+          <name>СписокУстройствExtendedTooltip</name>
+          <id>350</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>СписокУстройствКонтекстноеМеню</name>
+          <id>293</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <representation>Tree</representation>
+        <changeRowSet>true</changeRowSet>
+        <changeRowOrder>true</changeRowOrder>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <autoMaxRowsCount>true</autoMaxRowsCount>
+        <header>true</header>
+        <headerHeight>1</headerHeight>
+        <footerHeight>1</footerHeight>
+        <horizontalScrollBar>AutoUse</horizontalScrollBar>
+        <verticalScrollBar>AutoUse</verticalScrollBar>
+        <horizontalLines>true</horizontalLines>
+        <verticalLines>true</verticalLines>
+        <searchOnInput>Auto</searchOnInput>
+        <initialListView>Auto</initialListView>
+        <initialTreeView>ExpandAllLevels</initialTreeView>
+        <horizontalStretch>true</horizontalStretch>
+        <verticalStretch>true</verticalStretch>
+        <rowPictureDataPath xsi:type="form:DataPath">
+          <segments>СписокУстройств.DefaultPicture</segments>
+        </rowPictureDataPath>
+        <searchStringLocation>None</searchStringLocation>
+        <viewStatusLocation>None</viewStatusLocation>
+        <searchControlLocation>None</searchControlLocation>
+        <autoMaxCardHeight>true</autoMaxCardHeight>
+        <extInfo xsi:type="form:DynamicListTableExtInfo">
+          <autoRefreshPeriod>60</autoRefreshPeriod>
+          <period>
+            <startDate>0001-01-01T00:00:00</startDate>
+            <endDate>0001-01-01T00:00:00</endDate>
+          </period>
+          <topLevelParent xsi:type="core:UndefinedValue"/>
+          <allowGettingCurrentRowURL>true</allowGettingCurrentRowURL>
+        </extInfo>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <toolTip>
+        <key>ru</key>
+        <value>Группа основная</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Groupe principal</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Main group</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Grupo principal</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ГруппаОсновнаяРасширеннаяПодсказка</name>
+        <id>376</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualGroup</type>
+      <extInfo xsi:type="form:UsualGroupExtInfo">
+        <showLeftMargin>true</showLeftMargin>
+        <united>true</united>
+        <throughAlign>Auto</throughAlign>
+        <currentRowUse>Auto</currentRowUse>
+      </extInfo>
+    </items>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Оборудование</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Matériel</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Material</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Materiales</value>
+    </title>
+    <extendedTooltip>
+      <name>ОборудованиеРасширеннаяПодсказка</name>
+      <id>372</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <throughAlign>Auto</throughAlign>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormGroup">
+    <name>ИнформационныеСсылки</name>
+    <id>490</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Информационные ссылки</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Liens d'information</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Information links</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Enlaces de información</value>
+    </title>
+    <toolTip>
+      <key>ru</key>
+      <value>Информационные ссылки</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Liens d'information</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Information links</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Enlaces de información</value>
+    </toolTip>
+    <horizontalStretch>true</horizontalStretch>
+    <extendedTooltip>
+      <name>ИнформационныеСсылкиРасширеннаяПодсказка</name>
+      <id>491</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>HorizontalIfPossible</group>
+      <representation>NormalSeparation</representation>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <throughAlign>Auto</throughAlign>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <items xsi:type="form:FormGroup">
+      <name>УправлениеРабочимиМестами</name>
+      <id>409</id>
+      <items xsi:type="form:Button">
+        <name>ВыборРабочегоМеста</name>
+        <id>317</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <skipOnInput>false</skipOnInput>
+        <extendedTooltip>
+          <name>ВыборРабочегоМестаРасширеннаяПодсказка</name>
+          <id>337</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.ВыборРабочегоМеста</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <items xsi:type="form:Button">
+        <name>СписокРабочихМест</name>
+        <id>333</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <skipOnInput>false</skipOnInput>
+        <extendedTooltip>
+          <name>СписокРабочихМестExtendedTooltip</name>
+          <id>338</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СписокРабочихМест</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>ru</key>
+        <value>Управление рабочими местами</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Gestion des emplois</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Job management</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Gestión de trabajos</value>
+      </title>
+      <extendedTooltip>
+        <name>УправлениеРабочимиМестамиРасширеннаяПодсказка</name>
+        <id>410</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>Popup</type>
+      <extInfo xsi:type="form:PopupGroupExtInfo">
+        <representation>Auto</representation>
+        <importance>Normal</importance>
+      </extInfo>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ФормаДрайверыОборудования</name>
+      <id>358</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаДрайверыОборудованияРасширеннаяПодсказка</name>
+        <id>359</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ДрайверыОборудования</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <horizontalAlign>Left</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>NotificationProcessing</event>
+    <name>ОбработкаОповещения</name>
+  </handlers>
+  <handlers>
+    <event>BeforeClose</event>
+    <name>ПередЗакрытием</name>
+  </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <excludedCommands>RestoreValues</excludedCommands>
+  <excludedCommands>SaveValues</excludedCommands>
+  <windowOpeningMode>DontBlock</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <enabled>true</enabled>
+  <verticalScroll>UseIfNecessary</verticalScroll>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <attributes>
+    <name>ПереключательТиповПО</name>
+    <title>
+      <key>ru</key>
+      <value>Поддерживаемые типы оборудования</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Types de matériel pris en charge</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Supported hardware types</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tipos de hardware admitidos</value>
+    </title>
+    <id>8</id>
+    <valueType>
+      <types>EnumRef.ТипыПодключаемогоОборудования</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>СписокУстройств</name>
+    <title>
+      <key>ru</key>
+      <value>Список подключенных устройств</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Liste des périphériques connectés</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>List of connected devices</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Lista de dispositivos conectados</value>
+    </title>
+    <id>9</id>
+    <valueType>
+      <types>DynamicList</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>СписокУстройств.Используется</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>СписокУстройств.Description</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>СписокУстройств.Ref</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>СписокУстройств.ДрайверОборудования</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>СписокУстройств.РабочееМесто</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>СписокУстройств.ТипОборудования</segments>
+    </notDefaultUseAlwaysAttributes>
+    <extInfo xsi:type="form:DynamicListExtInfo">
+      <queryText>ВЫБРАТЬ
+	СправочникПодключаемоеОборудование.Ссылка,
+	СправочникПодключаемоеОборудование.Наименование,
+	СправочникПодключаемоеОборудование.УстройствоИспользуется,
+	СправочникПодключаемоеОборудование.ДрайверОборудования,
+	СправочникПодключаемоеОборудование.РабочееМесто,
+	СправочникПодключаемоеОборудование.ТипОборудования,
+	СправочникПодключаемоеОборудование.ИдентификаторWebСервисОборудования
+ИЗ
+	Справочник.ПодключаемоеОборудование КАК СправочникПодключаемоеОборудование</queryText>
+      <mainTable>Catalog.ПодключаемоеОборудование</mainTable>
+      <dynamicDataRead>true</dynamicDataRead>
+      <autoFillAvailableFields>true</autoFillAvailableFields>
+      <customQuery>true</customQuery>
+      <autoSaveUserSettings>true</autoSaveUserSettings>
+      <getInvisibleFieldPresentations>true</getInvisibleFieldPresentations>
+    </extInfo>
+  </attributes>
+  <attributes>
+    <name>ВсеТипыОборудования</name>
+    <title>
+      <key>ru</key>
+      <value>Все типы оборудования</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Tous les types d'équipement</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>All types of equipment</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Todo tipo de equipos</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ГруппироватьПоРабочемуМесту</name>
+    <title>
+      <key>ru</key>
+      <value>Группировать по рабочему месту</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Regrouper par lieu de travail</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Group by place of work</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Agrupar por lugar de trabajo</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ВсеРабочиеМеста</name>
+    <title>
+      <key>ru</key>
+      <value>Все рабочие места</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Tous les emplois</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>All jobs</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Todos los trabajos</value>
+    </title>
+    <id>4</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ТекущееРабочееМесто</name>
+    <title>
+      <key>ru</key>
+      <value>Текущее рабочее место</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Lieu de travail actuel</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Current place of work</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Lugar de trabajo actual</value>
+    </title>
+    <id>5</id>
+    <valueType>
+      <types>CatalogRef.РабочиеМеста</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>СписокТиповПО</name>
+    <title>
+      <key>ru</key>
+      <value>Список типов ПО</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Liste des types de LOGICIELS</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>List of SOFTWARE types</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Lista de tipos de SOFTWARE</value>
+    </title>
+    <id>6</id>
+    <valueType>
+      <types>ValueList</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <extInfo xsi:type="form:ValueListExtInfo">
+      <itemValueType/>
+    </extInfo>
+  </attributes>
+  <formCommands>
+    <name>Настроить</name>
+    <title>
+      <key>ru</key>
+      <value>Настроить</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Configurer</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Configure</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Configurar</value>
+    </title>
+    <id>12</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Настроить</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Configurer</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Configure</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Configurar</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>НастроитьВыполнить</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ВыборРабочегоМеста</name>
+    <title>
+      <key>ru</key>
+      <value>Выбор рабочего места...</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Choix du lieu de travail...</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Choice of place of work...</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Elección del lugar de trabajo...</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Выбор рабочего места</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Choix du lieu de travail</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Choice of place of work</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Elección del lugar de trabajo</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ВыборРабочегоМеста</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СписокРабочихМест</name>
+    <title>
+      <key>ru</key>
+      <value>Список рабочих мест...</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Liste des emplois...</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>List of jobs...</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Listado de trabajos...</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Список рабочих мест</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Liste des emplois</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>List of jobs</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Listado de trabajos</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СписокРабочихМест</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ДрайверыОборудования</name>
+    <title>
+      <key>ru</key>
+      <value>Драйверы оборудования...</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Pilotes matériels...</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Hardware drivers...</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Controladores de hardware...</value>
+    </title>
+    <id>4</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Драйверы оборудования</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Pilotes matériels</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Hardware drivers</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Controladores de hardware</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ДрайверыОборудования</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+</form:Form>

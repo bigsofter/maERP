@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7c31b142-0a04-4351-86d8-cf5c818c8d32">
+  <producedTypes>
+    <selectionType typeId="ea80a946-c8ac-4ecc-a982-9fb2d6458104" valueTypeId="fc767b43-6795-411b-8730-1fc14f82c905"/>
+    <listType typeId="684898fd-2b81-4ebc-b119-7c91341848d3" valueTypeId="d77d8e64-a936-4549-aac7-efb7bb396b11"/>
+    <managerType typeId="fafa7557-4d97-4ed1-9405-4c7b05be4f88" valueTypeId="0f856115-4b4b-4329-a266-6b6ac89631e0"/>
+    <recordSetType typeId="552a1ba7-32c3-4373-94c4-11cc7c28ca65" valueTypeId="c3e08319-854d-470c-ab7a-1ad5edd8f3d1"/>
+    <recordKeyType typeId="4b9e254e-acee-4c08-9fcd-87e339a3dc72" valueTypeId="d3915850-90bc-44cd-af5e-7a4658bf9e65"/>
+    <recordType typeId="788ae1ee-e20f-4ef7-ae01-41e006c249e2" valueTypeId="6ae6d956-2fe2-481e-b546-4f3325e7b25b"/>
+  </producedTypes>
+  <name>Зарплата</name>
+  <synonym>
+    <key>ru</key>
+    <value>Зарплата</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Salaire</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Salary</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Salarios</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>RecordType</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="dbdfa2b9-45b9-4ee5-bc93-16e9f5f0944c">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Somme</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Suma</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="057d9a1b-dfc6-46dd-bf42-345ddc70d7ed">
+    <name>СтатьяЗатрат</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статья затрат</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Article de coût</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cost item</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Objeto de los gastos</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтатьиДвиженияДенежныхСредств</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="1b6032e2-2581-4265-8218-bbe825faf23f">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Employé</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Employee</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Empleado</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ФизическиеЛица</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

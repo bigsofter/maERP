@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="508e4a09-ca1b-45a4-80c5-360b910cc0f6">
+  <producedTypes>
+    <objectType typeId="1312a0fe-2d57-4543-8a15-d581df7db084" valueTypeId="43e79b33-17ea-4f46-9224-aa0005476e6d"/>
+    <managerType typeId="4d030ab9-7cc9-4f83-b8fc-c6e9e4b2c120" valueTypeId="03e34611-4a6e-4b5d-bb0a-bc35efe2340e"/>
+  </producedTypes>
+  <name>VentesEnDetail</name>
+  <synonym>
+    <key>ru</key>
+    <value>Ventes en détail</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Ventes en détail</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Retail sales</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Ventas minoristas</value>
+  </synonym>
+  <defaultForm>DataProcessor.VentesEnDetail.Form.Form</defaultForm>
+  <attributes uuid="53353806-636c-466a-8d7a-58adce46c527">
+    <name>Organisation</name>
+    <synonym>
+      <key>ru</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="6ba0bcc5-340a-47ff-a361-ed41fb5a1d38">
+    <name>ХозяйственнаяОперация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operación</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ХозяйственныеОперации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="096cb4cc-b112-4820-b7aa-136f52e93e1a">
+    <producedTypes>
+      <objectType typeId="02a4cf31-11fa-46de-ab4f-fc419ce6d0f1" valueTypeId="74c5da7c-5e51-4627-a8cf-52db809a627f"/>
+      <rowType typeId="00542a28-ecbb-484a-80e0-f3dde5bd3a6d" valueTypeId="fffb0a4a-64cb-4779-8fe7-f48887327f96"/>
+    </producedTypes>
+    <name>TabularSection</name>
+    <synonym>
+      <key>ru</key>
+      <value>Tabular section</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Tabular section</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Tabular section</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Sección tabular</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="7c9e32e4-3fc3-4ed1-aa68-7646675cb78f">
+      <name>Количество</name>
+      <synonym>
+        <key>ru</key>
+        <value>Quantité</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Quantity</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Quantité</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>3</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="fda33d83-b0fb-477b-96cd-5398f88ef0fb">
+      <name>Номенклатура</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номенклатура</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Produit</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Nomenclature</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Nomenclatura</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="7dbda658-82e2-42be-9b78-462c4cd81e3b">
+      <name>ПроцентСкидки</name>
+      <synonym>
+        <key>ru</key>
+        <value>Скидка (%)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Remise (%)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Discount (%)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Descuento (%)</value>
+      </synonym>
+      <type>
+        <types>DefinedType.ПроцентСкидки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:StringValue">
+        <value>100</value>
+      </maxValue>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9f76f8c3-3dde-4dac-8883-0c96f64a1936">
+      <name>Серия</name>
+      <synonym>
+        <key>ru</key>
+        <value>Серия</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Série</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Series</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Serie</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СерииНоменклатуры</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>DataProcessor.VentesEnDetail.TabularSection.TabularSection.Attribute.Номенклатура</field>
+      </choiceParameterLinks>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c05a16e9-1d63-4a16-9bd0-8059e1c8ded6">
+      <name>СтавкаНДС</name>
+      <synonym>
+        <key>ru</key>
+        <value>TVA (taux)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>VAT (rates)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>TVA (taux)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>IVA (tasas)</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СтавкиНДС</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b186d13b-1ff1-4045-81de-ca7778556e57">
+      <name>Сумма</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Somme</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>The amount</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Suma</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="eea54ab8-c37c-4969-9361-d14ab9f79c82">
+      <name>СуммаНДС</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма НДС</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>TVA</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>VAT</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>IVA</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="cf684158-fb16-4279-9208-564ae7a5ae89">
+      <name>СуммаСкидки</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма скидки</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant de la remise</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount of the discount</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad de descuento</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="11725a93-9716-4fce-948a-f76add4194fc">
+      <name>СуммаСНДС</name>
+      <synonym>
+        <key>ru</key>
+        <value>Somme (totale)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Sum (total)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Somme (totale)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Suma (total)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3f523261-1f1e-410b-bcfc-38362f4f3698">
+      <name>Упаковка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Упаковка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Emballage</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Packaging</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Embalaje</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.УпаковкиЕдиницыИзмерения</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Номенклатура</name>
+        <field>DataProcessor.VentesEnDetail.TabularSection.TabularSection.Attribute.Номенклатура</field>
+      </choiceParameterLinks>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="73c25106-fee8-44e5-afc0-ede859342034">
+      <name>Характеристика</name>
+      <synonym>
+        <key>ru</key>
+        <value>Характеристика</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Caractéristique</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Feature</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Característica</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>DataProcessor.VentesEnDetail.TabularSection.TabularSection.Attribute.Номенклатура</field>
+      </choiceParameterLinks>
+      <choiceParameters>
+        <name>Отбор.ПометкаУдаления</name>
+        <value xsi:type="core:BooleanValue"/>
+      </choiceParameters>
+      <choiceParameters>
+        <name>Отбор.ДляВнутреннегоИспользования</name>
+        <value xsi:type="core:BooleanValue"/>
+      </choiceParameters>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="4748ed2a-c977-4f1d-9dab-f17ce203edcd">
+      <name>Цена</name>
+      <synonym>
+        <key>ru</key>
+        <value>Цена</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Prix</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Price</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Precio</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="5d56e98a-d97a-4020-b230-5ec3ce06cc06">
+      <name>Отметка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Отметка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Repère</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Mark</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Marca</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="d969d6e5-293d-4fd0-adf4-8402eaaffdfc">
+    <name>Form</name>
+    <synonym>
+      <key>ru</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="c3708854-3524-4b66-b0fe-7bbf3a6af84a">
+    <name>ФормаПростойОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма простой оплаты</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Simple payment form</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de paiement simple</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de pago simple</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="df787128-e84f-473a-aa6b-611a21f7560e">
+    <name>ФормаВводаЧисла</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма ввода числа</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Number entry form</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire d'entrée de nombre</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de entrada de número</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="c8bd40b5-a95b-4b59-a21a-34fb14ae2726">
+    <name>ФормаРедактированияСтроки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Редактирования строки</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Editing line</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Ligne d'édition</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Línea de edición</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="f8d0a387-6355-4f63-a53a-aca3110eb790">
+    <name>FormRemise</name>
+    <synonym>
+      <key>ru</key>
+      <value>Form remise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Form discount</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Form remise</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Descuento de formulario</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="0757041e-44d5-421f-b2a1-3574fdd50474">
+    <name>ФормаСложнойОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма сложной оплаты</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Complex form of payment</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Forme de paiement complexe</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Forma de pago compleja</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="35a2e11b-1560-44d6-8524-1bf78e2c6b71">
+    <name>ФормаПараметровЧека</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма параметров чека</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire des paramètres du chèque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Check settings form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de verificación de configuración</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <commands uuid="da2c836a-6fd8-4672-81f1-e3758a062fac">
+    <name>VentesEnDetail</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ventes en detail</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Retail sales</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Ventes en detail</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Ventas minoristas</value>
+    </synonym>
+    <group>NavigationPanelImportant</group>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:DataProcessor>

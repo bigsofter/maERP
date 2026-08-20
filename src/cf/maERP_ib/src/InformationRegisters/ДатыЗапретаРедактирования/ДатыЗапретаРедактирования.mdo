@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="382a2404-4668-4593-8647-ea13250eb958">
+  <producedTypes>
+    <selectionType typeId="187f7b2c-5eb1-482a-9e9e-d875bd391e9a" valueTypeId="15d6c827-721d-45c3-b7de-294239ce54a3"/>
+    <listType typeId="7bfc47ca-fd48-49ad-875f-e0258e62f8f3" valueTypeId="a2bb36cf-5380-4bde-af81-d8663990925e"/>
+    <managerType typeId="77ade242-f954-4357-8b6e-2550c2b422a6" valueTypeId="5cae62f2-1993-4367-af3d-6519e238f7c5"/>
+    <recordSetType typeId="6f28a464-8926-416b-ac09-acb3b64ffe01" valueTypeId="64631160-aaab-4b73-a4db-b0196aaf3754"/>
+    <recordKeyType typeId="5100a85c-6922-439f-a2f0-4c5e8c6f90c1" valueTypeId="d9516c74-e950-4cac-8ef2-21ae86f3d138"/>
+    <recordType typeId="6c30d8a4-5f9a-42e1-a00c-0dca6e1f950c" valueTypeId="d08e8dca-f5fc-45b3-9f00-bff7e17ab1fd"/>
+    <recordManagerType typeId="d3da862a-5400-40fb-9067-a2ee0a92e555" valueTypeId="82ba3227-de9d-4876-933b-a4bb28f2e410"/>
+  </producedTypes>
+  <name>ДатыЗапретаРедактирования</name>
+  <synonym>
+    <key>ru</key>
+    <value>Даты запрета редактирования</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Dates d'interdiction d'édition</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Publishing blackout dates</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Fechas restringidas de publicación</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <defaultRecordForm>InformationRegister.ДатыЗапретаРедактирования.Form.ФормаЗаписи</defaultRecordForm>
+  <defaultListForm>InformationRegister.ДатыЗапретаРедактирования.Form.ФормаСписка</defaultListForm>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="7d0b7768-2ae8-4bfe-86d3-2c216cea70a7">
+    <name>ДатаЗапрета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата запрета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date de l'interdiction</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Date of the ban</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha de la prohibición</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="09a301a9-c682-4436-9876-b9e83882ade6">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="7d0a3317-a425-4a91-8284-7cfdd0af26da">
+    <name>ВидЗапрета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид запрета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type d'interdiction</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of prohibition</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de prohibición</value>
+    </synonym>
+    <type>
+      <types>ChartOfCharacteristicTypesRef.ВидыЗапретаРедактирования</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:ReferenceValue">
+      <value>ChartOfCharacteristicTypes.ВидыЗапретаРедактирования.Общая</value>
+    </fillValue>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="3be47061-38ca-4964-bc09-59cdcab46162">
+    <name>ЗначениеЗапрета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Значение запрета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Données d'interdiction</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Prohibition data</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Datos de prohibición</value>
+    </synonym>
+    <type>
+      <types>Characteristic.ВидыЗапретаРедактирования</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <linkByType>
+      <field>InformationRegister.ДатыЗапретаРедактирования.Dimension.ВидЗапрета</field>
+    </linkByType>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="bb5911ea-b56f-4298-9e8a-810889bf4ae6">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire d'entrée</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de inscripción</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Entry form</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="805662c6-eb55-4fab-9015-ffd2da5fdd0d">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:InformationRegister>

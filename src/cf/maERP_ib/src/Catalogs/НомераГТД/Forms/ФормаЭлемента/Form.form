@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <items xsi:type="form:FormField">
+    <name>Код</name>
+    <id>1</id>
+    <title>
+      <key>ru</key>
+      <value>Номер декларации</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Numéro de déclaration</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Declaration number</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Número de declaración</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>Объект.Code</segments>
+    </dataPath>
+    <handlers>
+      <event>OnChange</event>
+      <name>КодПриИзменении</name>
+    </handlers>
+    <extendedTooltip>
+      <name>КодРасширеннаяПодсказка</name>
+      <id>3</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>КодКонтекстноеМеню</name>
+      <id>2</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>InputField</type>
+    <editMode>Auto</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:InputFieldExtInfo">
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <wrap>true</wrap>
+      <chooseType>true</chooseType>
+      <typeDomainEnabled>true</typeDomainEnabled>
+      <textEdit>true</textEdit>
+      <textSize>Normal</textSize>
+      <font xsi:type="core:FontRef">
+        <font>Style.Шрифт_Основной</font>
+      </font>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>ПорядковыйНомерТовараДлина</name>
+    <id>9</id>
+    <title>
+      <key>ru</key>
+      <value>Четвертый блок (порядковый номер товара) должен содержать от 1 до 3 цифр
+</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Четвертый блок (порядковый номер товара) должен содержать от 1 до 3 цифр
+</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Четвертый блок (порядковый номер товара) должен содержать от 1 до 3 цифр
+</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>ПорядковыйНомерТовараДлинаРасширеннаяПодсказка</name>
+      <id>11</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ПорядковыйНомерТовараДлинаКонтекстноеМеню</name>
+      <id>10</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>ПорядковыйЦифра3ВместоБуквыЗ</name>
+    <id>12</id>
+    <title>
+      <key>ru</key>
+      <value>В третьем блоке вместо буквы &quot;З&quot; указана цифра три</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>In the third block, instead of the letter &quot;Z&quot;, the number three is indicated</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Dans le troisième bloc, au lieu de la lettre &quot;Z&quot;, le chiffre trois est indiqué</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>En el tercer bloque, en lugar de la letra &quot;Z&quot;, se indica el número tres</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>ПорядковыйЦифра3ВместоБуквыЗРасширеннаяПодсказка</name>
+      <id>14</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ПорядковыйЦифра3ВместоБуквыЗКонтекстноеМеню</name>
+      <id>13</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>ПорядковыйЦифра0ВместоБуквыО</name>
+    <id>15</id>
+    <title>
+      <key>ru</key>
+      <value>В третьем блоке вместо буквы &quot;О&quot; указана цифра ноль</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>In the third block, instead of the letter &quot;o&quot;, the number zero is indicated</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Dans le troisième bloc, au lieu de la lettre &quot;o&quot;, le chiffre zéro est indiqué</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>En el tercer bloque, en lugar de la letra &quot;o&quot;, se indica el número cero</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>ПорядковыйЦифра0ВместоБуквыОРасширеннаяПодсказка</name>
+      <id>17</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ПорядковыйЦифра0ВместоБуквыОКонтекстноеМеню</name>
+      <id>16</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>ПорядковыйНомерДлина</name>
+    <id>18</id>
+    <title>
+      <key>ru</key>
+      <value>Третий блок (порядковый номер декларации) может состоять из (один из вариантов):
+  1) 7 цифр
+  2) двух букв (&quot;ОБ&quot; или &quot;ЗВ&quot;) и 6 цифр
+  3) одной буквы (&quot;В&quot;) и 6 цифр</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>The third block (order number of the declaration) can be composed of (an option):
+  1) 7 digits
+  2) two letters (&quot;OB&quot; or &quot;ZV&quot;) and 6 numbers
+  3) one letter (&quot;B&quot;) and 6 numbers</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Le troisième bloc (numéro d'ordre de la déclaration) peut être composé de (une option):
+  1) 7 chiffres
+  2) deux lettres (&quot;OB &quot; ou&quot; ZV&quot;) et 6 chiffres
+  3) une lettre (&quot;B&quot;) et 6 chiffres</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>El tercer bloque (número de orden de la declaración) puede estar compuesto por (una opción):
+  1) 7 dígitos
+  2) dos letras (&quot;OB &quot;o&quot; ZV&quot;) y 6 números
+  3) una letra (&quot;B&quot;) y 6 números</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>ПорядковыйНомерДлинаРасширеннаяПодсказка</name>
+      <id>20</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ПорядковыйНомерДлинаКонтекстноеМеню</name>
+      <id>19</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>ДатаДекларацииОшибочная</name>
+    <id>21</id>
+    <title>
+      <key>ru</key>
+      <value>Во втором блоке (дата регистрации декларации) указанный год лежит за пределами допустимого периода
+</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>In the second block (date of registration of the declaration), the specified year is outside the allowed period</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Dans le deuxième bloc (date d'enregistrement de la déclaration), l'année spécifiée est en dehors de la période autoriséE</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>En el segundo bloque (fecha de registro de la declaración), el año especificado está fuera del período permitido</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>ДатаДекларацииОшибочнаяРасширеннаяПодсказка</name>
+      <id>23</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ДатаДекларацииОшибочнаяКонтекстноеМеню</name>
+      <id>22</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>ДатаДекларацииДлина</name>
+    <id>24</id>
+    <title>
+      <key>ru</key>
+      <value>Второй блок (дата регистрации декларации) должен быть в формате ДДММГГ
+</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>The second block (date of registration of the declaration) must be in DDMMYY format</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Le deuxième bloc (date d'enregistrement de la déclaration) doit être au format DDMMYY</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>El segundo bloque (fecha de registro de la declaración) debe estar en formato DDMMYY</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>ДатаДекларацииДлинаРасширеннаяПодсказка</name>
+      <id>26</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ДатаДекларацииДлинаКонтекстноеМеню</name>
+      <id>25</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>КодТаможенногоОрганаДлина</name>
+    <id>27</id>
+    <title>
+      <key>ru</key>
+      <value>Первый блок (код таможенного органа) в зависимости от страны ввоза должен состоять из 2, 5 или 8 цифр
+</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>The first block (customs authority code), depending on the country of import, must consist of 2, 5 or 8 digits</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Le premier bloc (code de l'autorité douanière), selon le pays d'importation, doit être composé de 2, 5 ou 8 chiffres</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>El primer bloque (código de autoridad aduanera), según el país de importación, debe constar de 2, 5 u 8 dígitos</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>КодТаможенногоОрганаДлинаРасширеннаяПодсказка</name>
+      <id>29</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>КодТаможенногоОрганаДлинаКонтекстноеМеню</name>
+      <id>28</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>НомерОшибочнаяСтруктура</name>
+    <id>30</id>
+    <title>
+      <key>ru</key>
+      <value>Номер должен состоять из трех или четырех блоков, разделенных дробью &quot;/&quot;
+</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>The number must consist of three or four blocks separated by the fraction &quot;/&quot;</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Le numéro doit être composé de trois ou quatre blocs séparés par la fraction &quot;/&quot;</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>El número debe consistir de tres o cuatro bloques separados por la fracción &quot;/&quot;</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>НомерОшибочнаяСтруктураРасширеннаяПодсказка</name>
+      <id>32</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>НомерОшибочнаяСтруктураКонтекстноеМеню</name>
+      <id>31</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>НомерНевернаяДлина</name>
+    <id>33</id>
+    <title>
+      <key>ru</key>
+      <value>Номер должен содержать от 23 до 28 символов</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>The number must contain from 23 to 28 characters</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Le numéro doit contenir de 23 à 28 caractères</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>El número debe contener de 23 a 28 caracteres</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <toolTipRepresentation>Button</toolTipRepresentation>
+    <extendedTooltip>
+      <name>НомерНевернаяДлинаРасширеннаяПодсказка</name>
+      <id>35</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>НомерНевернаяДлинаКонтекстноеМеню</name>
+      <id>34</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.SpecialTextColor</color>
+    </textColor>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>ФормаЗаписатьИЗакрыть</name>
+      <id>7</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаЗаписатьИЗакрытьРасширеннаяПодсказка</name>
+        <id>8</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.StandardCommand.WriteAndClose</commandName>
+      <representation>Auto</representation>
+      <defaultButton>true</defaultButton>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <horizontalAlign>Left</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <windowOpeningMode>LockOwner</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
+  <autoTitle>true</autoTitle>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <enabled>true</enabled>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <attributes>
+    <name>Объект</name>
+    <id>1</id>
+    <valueType>
+      <types>CatalogObject.НомераГТД</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <main>true</main>
+    <savedData>true</savedData>
+  </attributes>
+  <attributes>
+    <name>КодОшибки</name>
+    <title>
+      <key>ru</key>
+      <value>Код ошибки</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Code d'erreur</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Error code</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Código de error</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>2</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+  <extInfo xsi:type="form:CatalogFormExtInfo">
+    <handlers>
+      <event>BeforeWrite</event>
+      <name>ПередЗаписью</name>
+    </handlers>
+  </extInfo>
+</form:Form>

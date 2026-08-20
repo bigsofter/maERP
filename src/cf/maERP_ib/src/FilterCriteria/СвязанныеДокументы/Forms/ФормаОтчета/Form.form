@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <title>
+    <key>ru</key>
+    <value>Связанные документы</value>
+  </title>
+  <title>
+    <key>fr</key>
+    <value>Documents liés</value>
+  </title>
+  <title>
+    <key>en</key>
+    <value>Related documents</value>
+  </title>
+  <title>
+    <key>es</key>
+    <value>Documentos relacionados</value>
+  </title>
+  <items xsi:type="form:Table">
+    <name>ДЗ</name>
+    <id>1</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ДЗСтруктураПодчиненности</segments>
+    </dataPath>
+    <titleLocation>None</titleLocation>
+    <items xsi:type="form:FormField">
+      <name>ДЗСсылка</name>
+      <id>19</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ДЗСтруктураПодчиненности.Ссылка</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ДЗСсылкаРасширеннаяПодсказка</name>
+        <id>21</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДЗСсылкаКонтекстноеМеню</name>
+        <id>20</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Auto</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+      </extInfo>
+    </items>
+    <autoCommandBar>
+      <name>ДЗКоманднаяПанель</name>
+      <id>3</id>
+      <horizontalAlign>Left</horizontalAlign>
+    </autoCommandBar>
+    <handlers>
+      <event>Selection</event>
+      <name>ДЗВыбор</name>
+    </handlers>
+    <handlers>
+      <event>OnActivateRow</event>
+      <name>ДЗПриАктивизацииСтроки</name>
+    </handlers>
+    <searchStringAddition>
+      <name>ДЗСтрокаПоиска</name>
+      <id>5</id>
+      <extendedTooltip>
+        <name>ДЗСтрокаПоискаРасширеннаяПодсказка</name>
+        <id>7</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДЗСтрокаПоискаКонтекстноеМеню</name>
+        <id>6</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <source>ДЗ</source>
+      <extInfo xsi:type="form:SearchStringAdditionExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+      </extInfo>
+    </searchStringAddition>
+    <viewStatusAddition>
+      <name>ДЗСостояниеПросмотра</name>
+      <id>8</id>
+      <extendedTooltip>
+        <name>ДЗСостояниеПросмотраРасширеннаяПодсказка</name>
+        <id>10</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДЗСостояниеПросмотраКонтекстноеМеню</name>
+        <id>9</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>ViewStatusAddition</type>
+      <source>ДЗ</source>
+      <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+      </extInfo>
+    </viewStatusAddition>
+    <searchControlAddition>
+      <name>ДЗУправлениеПоиском</name>
+      <id>11</id>
+      <extendedTooltip>
+        <name>ДЗУправлениеПоискомРасширеннаяПодсказка</name>
+        <id>13</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДЗУправлениеПоискомКонтекстноеМеню</name>
+        <id>12</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>SearchControlAddition</type>
+      <source>ДЗ</source>
+      <extInfo xsi:type="form:SearchControlAdditionExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+      </extInfo>
+    </searchControlAddition>
+    <extendedTooltip>
+      <name>ДЗРасширеннаяПодсказка</name>
+      <id>4</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ДЗКонтекстноеМеню</name>
+      <id>2</id>
+      <items xsi:type="form:Button">
+        <name>ДЗКонтекстноеМенюПровести</name>
+        <id>22</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ДЗКонтекстноеМенюПровестиРасширеннаяПодсказка</name>
+          <id>23</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.Провести</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <items xsi:type="form:Button">
+        <name>ДЗКонтекстноеМенюОтменаПроведения</name>
+        <id>24</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ДЗКонтекстноеМенюОтменаПроведенияРасширеннаяПодсказка</name>
+          <id>25</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.ОтменаПроведения</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <items xsi:type="form:Button">
+        <name>ДЗКонтекстноеМенюПометкаУдаления</name>
+        <id>26</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ДЗКонтекстноеМенюПометкаУдаленияРасширеннаяПодсказка</name>
+          <id>27</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.ПометкаУдаления</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+    </contextMenu>
+    <representation>Tree</representation>
+    <readOnly>true</readOnly>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <autoMaxRowsCount>true</autoMaxRowsCount>
+    <selectionMode>MultiRow</selectionMode>
+    <headerHeight>1</headerHeight>
+    <footerHeight>1</footerHeight>
+    <horizontalScrollBar>AutoUse</horizontalScrollBar>
+    <verticalScrollBar>AutoUse</verticalScrollBar>
+    <horizontalLines>true</horizontalLines>
+    <verticalLines>true</verticalLines>
+    <horizontalLinesBWA>false</horizontalLinesBWA>
+    <verticalLinesBWA>false</verticalLinesBWA>
+    <useAlternationRowColorBWA>false</useAlternationRowColorBWA>
+    <autoInsertNewRow>true</autoInsertNewRow>
+    <searchOnInput>Auto</searchOnInput>
+    <initialListView>Auto</initialListView>
+    <horizontalStretch>true</horizontalStretch>
+    <verticalStretch>true</verticalStretch>
+    <rowPictureDataPath xsi:type="form:DataPath">
+      <segments>ДЗСтруктураПодчиненности.ИдентификаторКартинки</segments>
+    </rowPictureDataPath>
+    <rowsPicture xsi:type="core:PictureRef">
+      <picture>CommonPicture.СостоянияОбъекта</picture>
+    </rowsPicture>
+    <borderColor xsi:type="core:ColorRef">
+      <color>Style.FormBackColor</color>
+    </borderColor>
+    <autoMaxCardHeight>true</autoMaxCardHeight>
+  </items>
+  <commandBarLocation>None</commandBarLocation>
+  <showCommandBar>false</showCommandBar>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <horizontalAlign>Left</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>OnOpen</event>
+    <name>ПриОткрытии</name>
+  </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <windowOpeningMode>DontBlock</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <enabled>true</enabled>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <attributes>
+    <name>Отчет</name>
+    <id>1</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <main>true</main>
+  </attributes>
+  <attributes>
+    <name>ДЗСтруктураПодчиненности</name>
+    <title>
+      <key>ru</key>
+      <value>ДЗСтруктура подчиненности</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Zstructure de la subordination</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Zstructure of subordination</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Zestructura de subordinación</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>ValueTree</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <columns>
+      <name>Ссылка</name>
+      <title>
+        <key>ru</key>
+        <value>Ссылка</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Référence</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Reference</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Referencia</value>
+      </title>
+      <id>2</id>
+      <valueType>
+        <types>BusinessProcessRef</types>
+        <types>DocumentRef</types>
+        <types>CatalogRef</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ИдентификаторКартинки</name>
+      <title>
+        <key>ru</key>
+        <value>Идентификатор картинки</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>ID d'image</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Image ID</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>ID de IMAGEN</value>
+      </title>
+      <id>5</id>
+      <valueType>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>1</precision>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+  </attributes>
+  <attributes>
+    <name>ТЗРеквизитыСвязи</name>
+    <title>
+      <key>ru</key>
+      <value>ТЗРеквизиты связи</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Tzrequisites de communication</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Tzcommunication requisites</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tzrequisitos de comunicación</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>ValueTable</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <columns>
+      <name>Реквизит</name>
+      <title>
+        <key>ru</key>
+        <value>Реквизит</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Attribut</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Requisite</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Atrezzo</value>
+      </title>
+      <id>1</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ИмяОбъекта</name>
+      <title>
+        <key>ru</key>
+        <value>Имя объекта</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Nom de l'objet</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Name of the object</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Nombre del objeto</value>
+      </title>
+      <id>3</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>РодительРеквизита</name>
+      <title>
+        <key>ru</key>
+        <value>Родитель реквизита</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Parent de l'attribut</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Parent of the attribute</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Padre del atributo</value>
+      </title>
+      <id>4</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ТипОбъекта</name>
+      <title>
+        <key>ru</key>
+        <value>Тип объекта</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Type d'objet</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Type of object</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Tipo de objeto</value>
+      </title>
+      <id>2</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+  </attributes>
+  <attributes>
+    <name>КорневойОбъектМетаданных</name>
+    <title>
+      <key>ru</key>
+      <value>Корневой объект метаданных</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Objet de métadonnées racine</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Root metadata object</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Objeto de metadatos raíz</value>
+    </title>
+    <id>4</id>
+    <valueType>
+      <types>BusinessProcessRef</types>
+      <types>DocumentRef</types>
+      <types>CatalogRef</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <formCommands>
+    <name>Провести</name>
+    <title>
+      <key>ru</key>
+      <value>Провести</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Reporter</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Reporter</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Reportero</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Провести</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Reporter</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Reporter</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Reportero</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Post</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>Провести</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <associatedTableElementId xsi:type="core:StringValue">
+      <value>ДЗ</value>
+    </associatedTableElementId>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ОтменаПроведения</name>
+    <title>
+      <key>ru</key>
+      <value>Отменить проведение</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Annuler la conversion</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Cancel the conversion</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Cancelar la conversión</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Отмена проведения</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Annulation de la conversion</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Cancellation of the conversion</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Cancelación de la conversión</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.UndoPosting</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ОтменаПроведения</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <associatedTableElementId xsi:type="core:StringValue">
+      <value>ДЗ</value>
+    </associatedTableElementId>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ПометкаУдаления</name>
+    <title>
+      <key>ru</key>
+      <value>Пометить на удаление / Снять пометку</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Marquer pour suppression / Enlever la marque</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Mark for deletion / Remove mark</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Marcar para borrar / Eliminar marca</value>
+    </title>
+    <id>3</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Пометка удаления</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Marque de suppression</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Deletion mark</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Marca de borrado</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.MarkToDelete</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ПометкаУдаления</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+</form:Form>

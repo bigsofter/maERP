@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="feafccf5-d2b8-46ca-81c0-e4e985e09369">
+  <producedTypes>
+    <selectionType typeId="19cd9dc1-2a30-466d-a572-8d6e4bea4c75" valueTypeId="dc46c1e2-3daa-4601-b87c-5bd4583300d0"/>
+    <listType typeId="42ba6d70-5589-4ebf-bf75-d91be5fdc057" valueTypeId="147790ac-595c-4dc6-9e33-a2701c543f63"/>
+    <managerType typeId="d19cad6a-c4cb-4d39-85ac-828f7ea4d1da" valueTypeId="d329aac2-cdbb-49c9-8c84-3cde14b7ca7b"/>
+    <recordSetType typeId="900da900-af0b-4d8c-85af-9461479c28c4" valueTypeId="c6d0538e-1e1d-45a6-a182-6ad68c30f404"/>
+    <recordKeyType typeId="538e45ba-379f-4e95-a718-55478f0d0287" valueTypeId="404bb6bc-6289-40ac-b628-7f8f129f4987"/>
+    <recordType typeId="c4ee047f-0e7c-490c-9ae8-cd19cea49564" valueTypeId="3ef7b166-3d20-4f91-8b95-70dacd4fac16"/>
+  </producedTypes>
+  <name>ТоварыВНаличии</name>
+  <synonym>
+    <key>ru</key>
+    <value>Товары в наличии</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Produits en stock</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Productos en stock</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Products in stock</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>RecordType</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="17c085f3-ab03-4bce-8775-5f9f61c8b15c">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nombre</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quantity</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Количество</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="3bff0a66-66b6-4b56-b944-7670f350e0ca">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Somme</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Suma</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="ea857417-afb8-45ca-b00f-cd9cf3c2f6e9">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résidence</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Storage location</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacenamiento</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="49beab53-80d0-4e07-ba19-c252d22ad8e9">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nomenclatura</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="0bbd8116-7fbf-4ec3-9f1d-f83efb8863a4">
+    <name>Характеристика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Caractéristique</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Feature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Característica</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="0ec93497-101a-4641-b2e6-22b832dd0040">
+    <name>Серия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Серия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Série</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Series</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Serie</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СерииНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="e2cffe67-868f-4de7-b9d0-6a006949bd9c">
+    <name>Партия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Партия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Lot</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Lot</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Lote</value>
+    </synonym>
+    <type>
+      <types>DefinedType.ПриходныйДокументПартии</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="68e5134f-b55d-4bba-aae4-d37eff77f7b2">
+    <name>ДатаПартии</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата партии</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date du lot</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Batch date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha de lote</value>
+    </synonym>
+    <comment>Реквизит для ускорения выборки по FIFO</comment>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

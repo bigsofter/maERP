@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="70f47f27-dabd-44d3-9a25-1f398cd2aba9">
+  <producedTypes>
+    <objectType typeId="9fe5928d-4ecc-4189-892c-6b1c46c83154" valueTypeId="9440bf39-761e-4d05-a1cc-fc8496f27ea9"/>
+    <managerType typeId="3648284f-de94-40ba-9b31-7bed7ba8b3ab" valueTypeId="771e5217-84f1-470a-b354-f6f3f901f63a"/>
+  </producedTypes>
+  <name>ВедомостьПоПродажам</name>
+  <synonym>
+    <key>ru</key>
+    <value>Ведомость по продажам</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>État des ventes</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Sales status</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Estado de ventas</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>CommonForm.ФормаОтчёта</defaultForm>
+  <mainDataCompositionSchema>Report.ВедомостьПоПродажам.Template.ОсновнаяСхемаКомпоновкиДанных</mainDataCompositionSchema>
+  <templates uuid="4c2c6551-bfa0-4059-9713-9ce7f712375d">
+    <name>ОсновнаяСхемаКомпоновкиДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Основная схема компоновки данных</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Schéma de base de la mise en page des données</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Basic scheme of the data layout</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Esquema básico de diseño de datos</value>
+    </synonym>
+    <templateType>DataCompositionSchema</templateType>
+  </templates>
+  <templates uuid="2d1c8ca5-8069-41e8-856a-ed51620744a8">
+    <name>ЛоготипКомпании</name>
+    <synonym>
+      <key>ru</key>
+      <value>Логотип компании</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Logo de l'entreprise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Company logo</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Logotipo de la empresa</value>
+    </synonym>
+  </templates>
+  <commands uuid="4bf968b9-da26-46cd-a30f-744c232f338c">
+    <name>ВедомостьПоПродажам</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ведомость по продажам</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>État des ventes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sales status</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Estado de ventas</value>
+    </synonym>
+    <group>CommandGroup.Отчёты</group>
+    <commandParameterType>
+      <types>CatalogRef.Номенклатура</types>
+    </commandParameterType>
+    <parameterUseMode>Multiple</parameterUseMode>
+    <representation>PictureAndText</representation>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Report</picture>
+    </picture>
+  </commands>
+</mdclass:Report>

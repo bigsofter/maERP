@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="17445fad-b9bb-41a5-9682-070cfd71f28d">
+  <producedTypes>
+    <selectionType typeId="3a058168-839f-4714-a1c8-d9e41ebc80d2" valueTypeId="09cd7428-b3dc-4b21-97ff-521c5d1ea677"/>
+    <listType typeId="b13c4311-1865-4c4b-b5d0-e0dded1b2c75" valueTypeId="3a5bec7f-e609-4c37-965b-5d6baea0545a"/>
+    <managerType typeId="52d85b3a-8f8a-45c1-95cc-dc5391bdbdc3" valueTypeId="3313daf1-cb48-4807-8394-8e251fb9ea02"/>
+    <recordSetType typeId="b56233ec-98af-4ccb-a721-512a78679e76" valueTypeId="2b9f6300-2234-4fb1-9a52-6c2d954ff48e"/>
+    <recordKeyType typeId="c7790d97-8fd6-495f-8b4b-fbb32a48d43f" valueTypeId="f5fe43ab-b59b-4787-8519-e038772561dc"/>
+    <recordType typeId="a8958595-bcc2-401c-9a15-1443448832ae" valueTypeId="9c5b9c23-359b-4eb9-b7a2-2c7a6b22d080"/>
+  </producedTypes>
+  <name>Убытки</name>
+  <synonym>
+    <key>ru</key>
+    <value>Убытки</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Charges</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Expenses</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Gastos</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="7accc392-b39e-4028-9e4a-2dba7f897040">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Somme</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Suma</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="26cb638c-c9a7-4dbb-8ff3-0185973d63b3">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="5c3d1c3b-5dda-4529-9d8c-e8d89b33df12">
+    <name>СтатьяДДС</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статья затрат</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Article de coût</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cost item</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Objeto de los gastos</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтатьиДвиженияДенежныхСредств</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="938ecc11-30bb-407d-a65a-93fa8184daa9">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résidence</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Storage location</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacenamiento</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="a79160a5-b0cb-4d00-b8f5-3560ccd4c558">
+    <name>ХозяйственнаяОперация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operación</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ХозяйственныеОперации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6a4d1e4e-257d-4a15-b8b6-ed71fa1689bc">
+  <name>ПослеПроведенияДокументаОплаты</name>
+  <synonym>
+    <key>ru</key>
+    <value>После проведения документа оплаты</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Après avoir effectué le document de paiement</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>After making the payment document</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Después de realizar el documento de pago</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.РасходныйКассовыйОрдер</types>
+    <types>DocumentObject.СписаниеБезналичныхДенежныхСредств</types>
+    <types>DocumentObject.ПоступлениеБезналичныхДенежныхСредств</types>
+    <types>DocumentObject.ПриходныйКассовыйОрдер</types>
+  </source>
+  <event>Posting</event>
+  <handler>CommonModule.ПодпискиНаСобытия.ПослеПроведенияДокументаОплаты</handler>
+</mdclass:EventSubscription>

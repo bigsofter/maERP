@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <title>
+    <key>ru</key>
+    <value>Авторизация операции</value>
+  </title>
+  <title>
+    <key>fr</key>
+    <value>Autorisation de l'opération</value>
+  </title>
+  <title>
+    <key>en</key>
+    <value>Authorization of the operation</value>
+  </title>
+  <title>
+    <key>es</key>
+    <value>Autorización de la operación</value>
+  </title>
+  <items xsi:type="form:FormField">
+    <name>Сумма</name>
+    <id>1</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>Сумма</segments>
+    </dataPath>
+    <defaultItem>true</defaultItem>
+    <extendedTooltip>
+      <name>СуммаExtendedTooltip</name>
+      <id>19</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>СуммаКонтекстноеМеню</name>
+      <id>2</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>InputField</type>
+    <markRequiredComplete>true</markRequiredComplete>
+    <editMode>Enter</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:InputFieldExtInfo">
+      <handlers>
+        <event>TextEditEnd</event>
+        <name>СуммаОкончаниеВводаТекста</name>
+      </handlers>
+      <autoMaxHeight>true</autoMaxHeight>
+      <wrap>true</wrap>
+      <choiceButton>false</choiceButton>
+      <spinButton>true</spinButton>
+      <autoMarkIncomplete>true</autoMarkIncomplete>
+      <chooseType>true</chooseType>
+      <typeDomainEnabled>true</typeDomainEnabled>
+      <textEdit>true</textEdit>
+      <textSize>Normal</textSize>
+      <font xsi:type="core:FontRef">
+        <font>Style.Шрифт_Основной</font>
+      </font>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormField">
+    <name>ТипКарты</name>
+    <id>16</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ТипКарты</segments>
+    </dataPath>
+    <titleLocation>Left</titleLocation>
+    <extendedTooltip>
+      <name>ТипКартыExtendedTooltip</name>
+      <id>20</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ТипКартыКонтекстноеМеню</name>
+      <id>17</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>RadioButtonField</type>
+    <editMode>Enter</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
+      <columnsCount>1</columnsCount>
+      <orientation>Vertical</orientation>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormField">
+    <name>НомерКарты</name>
+    <id>14</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>НомерКарты</segments>
+    </dataPath>
+    <skipOnInput>true</skipOnInput>
+    <extendedTooltip>
+      <name>НомерКартыExtendedTooltip</name>
+      <id>21</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>НомерКартыКонтекстноеМеню</name>
+      <id>15</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>InputField</type>
+    <readOnly>true</readOnly>
+    <markRequiredComplete>true</markRequiredComplete>
+    <editMode>Enter</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:InputFieldExtInfo">
+      <autoMaxHeight>true</autoMaxHeight>
+      <wrap>true</wrap>
+      <mask>9999 9999 9999 9999 9999</mask>
+      <autoMarkIncomplete>true</autoMarkIncomplete>
+      <chooseType>true</chooseType>
+      <typeDomainEnabled>true</typeDomainEnabled>
+      <textSize>Normal</textSize>
+      <font xsi:type="core:FontRef">
+        <font>Style.Шрифт_Основной</font>
+      </font>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormField">
+    <name>УказатьДополнительныеДанные</name>
+    <id>12</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>УказатьДополнительныеДанные</segments>
+    </dataPath>
+    <skipOnInput>true</skipOnInput>
+    <titleLocation>Right</titleLocation>
+    <handlers>
+      <event>OnChange</event>
+      <name>УказатьДополнительныеДанныеПриИзменении</name>
+    </handlers>
+    <extendedTooltip>
+      <name>УказатьДополнительныеДанныеExtendedTooltip</name>
+      <id>22</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>УказатьДополнительныеДанныеКонтекстноеМеню</name>
+      <id>13</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>CheckBoxField</type>
+    <editMode>Enter</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+      <checkBoxType>Switcher</checkBoxType>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormGroup">
+    <name>ГруппаРучнойВводДанных</name>
+    <id>5</id>
+    <items xsi:type="form:FormField">
+      <name>СсылочныйНомер</name>
+      <id>6</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>СсылочныйНомер</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>СсылочныйНомерExtendedTooltip</name>
+        <id>24</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>СсылочныйНомерКонтекстноеМеню</name>
+        <id>7</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>НомерЧека</name>
+      <id>8</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НомерЧека</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>НомерЧекаExtendedTooltip</name>
+        <id>25</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>НомерЧекаКонтекстноеМеню</name>
+        <id>9</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>НомерЧекаЭТ</name>
+      <id>30</id>
+      <title>
+        <key>ru</key>
+        <value>Номер квитанции терминала</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Numéro de réception du terminal</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Terminal reception number</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Número de recepción de la terminal</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НомерЧекаЭТ</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>НомерЧекаЭТРасширеннаяПодсказка</name>
+        <id>32</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>НомерЧекаЭТКонтекстноеМеню</name>
+        <id>31</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Дополнительные данные операции</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Données d'opération supplémentaires</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Additional operation data</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Datos de operación adicionales</value>
+    </title>
+    <extendedTooltip>
+      <name>ГруппаРучнойВводДанныхExtendedTooltip</name>
+      <id>23</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <throughAlign>Auto</throughAlign>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>ВыполнитьОперацию</name>
+      <id>10</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <skipOnInput>false</skipOnInput>
+      <extendedTooltip>
+        <name>ВыполнитьОперациюExtendedTooltip</name>
+        <id>18</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ВыполнитьОперацию</commandName>
+      <representation>Auto</representation>
+      <defaultButton>true</defaultButton>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ФормаОтмена</name>
+      <id>28</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаОтменаРасширеннаяПодсказка</name>
+        <id>29</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.StandardCommand.Cancel</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <horizontalAlign>Left</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <windowOpeningMode>DontBlock</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <allowFormCustomize>true</allowFormCustomize>
+  <enabled>true</enabled>
+  <verticalScroll>UseIfNecessary</verticalScroll>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <attributes>
+    <name>Сумма</name>
+    <title>
+      <key>ru</key>
+      <value>Сумма</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Somme</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>The amount</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Suma</value>
+    </title>
+    <id>1</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>СсылочныйНомер</name>
+    <title>
+      <key>ru</key>
+      <value>Ссылочный номер</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Numéro de référence</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Reference number</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Número de referencia</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>НомерЧека</name>
+    <title>
+      <key>ru</key>
+      <value>Номер чека</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Numéro de chèque</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Receipt number</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Número de cheque</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>УказатьДополнительныеДанные</name>
+    <title>
+      <key>ru</key>
+      <value>Указать дополнительные данные</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Spécifier des données supplémentaires</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Specify additional data</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Especificar datos adicionales</value>
+    </title>
+    <id>4</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>НомерКарты</name>
+    <title>
+      <key>ru</key>
+      <value>Номер карты</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Numéro de carte</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Card number</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Número de tarjeta</value>
+    </title>
+    <id>5</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ТипКарты</name>
+    <title>
+      <key>ru</key>
+      <value>Тип карты</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Type de carte</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Type of card</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tipo de tarjeta</value>
+    </title>
+    <id>7</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ПоказыватьНомерКарты</name>
+    <title>
+      <key>ru</key>
+      <value>Показывать номер карты</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Afficher le numéro de carte</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Display the card number</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Mostrar el número de la tarjeta</value>
+    </title>
+    <id>8</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>НомерЧекаЭТ</name>
+    <title>
+      <key>ru</key>
+      <value>Номер чека ЭТ</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Numéro de chèque ET</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Check number AND</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Verifique el número Y</value>
+    </title>
+    <id>9</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <formCommands>
+    <name>ВыполнитьОперацию</name>
+    <title>
+      <key>ru</key>
+      <value>Выполнить операцию</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Exécuter l'opération</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Execute the operation</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Ejecute la operación</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Выполнить операцию</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Exécuter l'opération</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Execute the operation</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Ejecute la operación</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ВыполнитьОперацию</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <parameters>
+    <name>ПараметрыФормы</name>
+    <valueType>
+      <types>ValueList</types>
+    </valueType>
+    <keyParameter>true</keyParameter>
+  </parameters>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+</form:Form>

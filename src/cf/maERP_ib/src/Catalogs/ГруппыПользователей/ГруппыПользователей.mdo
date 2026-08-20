@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="fdc26be2-b8b3-4f23-9546-2ea14bc5b41c">
+  <producedTypes>
+    <objectType typeId="27e5e812-2fa6-49fa-9c8e-549f874621e9" valueTypeId="8b371ba9-549e-44a4-8095-54b69f2f3ae0"/>
+    <refType typeId="32de3eb9-370f-4fbc-b2fe-7009184e94a2" valueTypeId="3540fb6a-6cba-482b-9ff0-dfb1c4896c63"/>
+    <selectionType typeId="1ff0d64f-9cbf-4a75-826c-c2d4cca7bb5a" valueTypeId="a881a422-923c-4a21-a47f-66bcdf0cd7b3"/>
+    <listType typeId="ac9c3ebe-0497-4fb7-b908-72bc944c7a4a" valueTypeId="975e41e7-2ef7-4318-b907-9022a2a14c19"/>
+    <managerType typeId="076ffbca-3f27-4e34-8368-f140aa4221e6" valueTypeId="60cb6475-23b4-4180-bb9d-ec606c71c6c2"/>
+  </producedTypes>
+  <name>ГруппыПользователей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Группы пользователей</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Groupe d'utilisateurs</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>User group</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Grupo de usuarios</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.ГруппыПользователей.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <descriptionLength>100</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>Catalog.ГруппыПользователей.Form.ФормаЭлемента</defaultObjectForm>
+  <defaultListForm>Catalog.ГруппыПользователей.Form.ФормаСписка</defaultListForm>
+  <defaultChoiceForm>Catalog.ГруппыПользователей.Form.ФормаВыбора</defaultChoiceForm>
+  <attributes uuid="5bdfdc4c-823b-4bd6-bedf-8c542b91cf4f">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Commentaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Comment</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comentario</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Комментарий</types>
+    </type>
+    <multiLine>true</multiLine>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="70ae74ea-8b63-4691-a1b9-6381987f2b05">
+    <producedTypes>
+      <objectType typeId="446b73c1-6c01-4b2a-bc9f-c17d7f4c2b71" valueTypeId="a46c078c-8818-4407-bd80-5f604dee166c"/>
+      <rowType typeId="ddcdcd1e-92b0-4e36-8ecd-f6118dc6c3cb" valueTypeId="0b00f990-0de5-4f0f-a4cf-fa4834e1c020"/>
+    </producedTypes>
+    <name>ТЧСостав</name>
+    <synonym>
+      <key>ru</key>
+      <value>Состав</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Composition</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Composition</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Composición</value>
+    </synonym>
+    <fillChecking>ShowError</fillChecking>
+    <attributes uuid="7bf73741-ba76-46e5-8a38-609dabd2ceca">
+      <name>Пользователь</name>
+      <synonym>
+        <key>ru</key>
+        <value>Пользователь</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Utilisateur</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>User</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Usuario</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Пользователи</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+  <forms uuid="3ef91504-7d17-42d0-aa40-2c6a9b61b5a7">
+    <name>ФормаЭлемента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма элемента</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire d'élément</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Element form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Forma del elemento</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="aa38ad76-3563-4b5d-93fa-adb6f67eb8f2">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="37929c80-4866-42e1-90e3-5775d4e3ecaf">
+    <name>ФормаВыбора</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма выбора</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de sélection</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Selection form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de selección</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:Catalog>

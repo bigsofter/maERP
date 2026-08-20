@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="fbb5f70b-a310-4919-877a-676278bf21a5">
+  <producedTypes>
+    <objectType typeId="bd43cb39-99ea-410e-b36f-3eb697784897" valueTypeId="21f95642-911e-4f55-9b0f-72f8d9fd7e2f"/>
+    <managerType typeId="415eef97-e11a-47fb-b36b-1f88444fe0a1" valueTypeId="328575b9-69e1-4248-9954-d94868ea5154"/>
+  </producedTypes>
+  <name>ПечатьЭтикеток</name>
+  <synonym>
+    <key>ru</key>
+    <value>Печать этикеток</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Impression d'étiquettes</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Label printing</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Impresión de etiquetas</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.ПечатьЭтикеток.Form.Форма</defaultForm>
+  <tabularSections uuid="a9e63df6-2d78-4468-bcd7-facd3dcfa9b3">
+    <producedTypes>
+      <objectType typeId="15b8c20d-b4cf-4085-9233-a6cc95e1fba3" valueTypeId="38651045-7511-409c-9a8c-253c1cbecba9"/>
+      <rowType typeId="6e52389c-12f1-4d4c-94a7-fc8b00abc504" valueTypeId="4efca993-90da-4070-9c24-5db2eebeeaf4"/>
+    </producedTypes>
+    <name>ТЧТовары</name>
+    <synonym>
+      <key>ru</key>
+      <value>ТЧТовары</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Tch</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Tch</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tch</value>
+    </synonym>
+    <attributes uuid="200dbe06-26d3-4f9a-97ff-e9bfd4366db9">
+      <name>Номенклатура</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номенклатура</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Nomenclature</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Nomenclature</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Nomenclatura</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b177adce-e820-4edc-b0cb-a8c379393cac">
+      <name>Серия</name>
+      <synonym>
+        <key>ru</key>
+        <value>Серия</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Série</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Series</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Serie</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СерииНоменклатуры</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>DataProcessor.ПечатьЭтикеток.TabularSection.ТЧТовары.Attribute.Номенклатура</field>
+      </choiceParameterLinks>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="692a9363-147a-470c-ae49-1a95ba5158b1">
+      <name>Штрихкод</name>
+      <synonym>
+        <key>ru</key>
+        <value>Штрихкод</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code barres</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Barcode</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código de Barras</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>200</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:StringValue"/>
+    </attributes>
+    <attributes uuid="fd0f8689-bbc8-43fe-bead-2fe31c9b7388">
+      <name>Количество</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Nombre</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Quantity</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КоличествоНеотрицательное</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="33e474a3-8504-43e7-847c-3086ae61a332">
+      <name>ЦенаРозничная</name>
+      <synonym>
+        <key>ru</key>
+        <value>Цена розн.</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Prix de vente</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Selling price</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Precio de venta</value>
+      </synonym>
+      <type>
+        <types>DefinedType.СуммаНеотрицательная</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="f4530659-ff38-4307-960d-dc3504497751">
+      <name>Характеристика</name>
+      <synonym>
+        <key>ru</key>
+        <value>Характеристика</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Caractéristique</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Feature</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Característica</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameters>
+        <name>Отбор.ПометкаУдаления</name>
+        <value xsi:type="core:BooleanValue"/>
+      </choiceParameters>
+      <choiceParameters>
+        <name>Отбор.ДляВнутреннегоИспользования</name>
+        <value xsi:type="core:BooleanValue"/>
+      </choiceParameters>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="b948ccd2-2542-4637-92ed-e6bfbf4cd7e0">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="e3b6f203-bd17-4730-b3d7-4575c68f68b6">
+    <name>ВыборСерииПоОстаткам</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выбор товаров по остаткам</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Sélection de la produit par solde</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Selection of the product by balance</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Selección del producto por balance</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="94c8b8a1-2dbd-4d4f-8614-f6320680fe84">
+    <name>СтикерEAC</name>
+    <synonym>
+      <key>ru</key>
+      <value>Стикер (EAC)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Autocollant (EAC)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sticker (EAC)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Pegatina (EAC)</value>
+    </synonym>
+  </templates>
+</mdclass:DataProcessor>

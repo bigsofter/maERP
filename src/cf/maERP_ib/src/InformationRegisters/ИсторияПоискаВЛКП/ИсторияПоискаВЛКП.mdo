@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c07c2ed4-7a6d-4cc3-a4d7-b79996430a97">
+  <producedTypes>
+    <selectionType typeId="3eddd6be-65f2-40fe-a9bc-69213e977975" valueTypeId="e7e770b8-7ff0-4823-bcea-136dac730055"/>
+    <listType typeId="19c2ac66-eb46-4a31-b456-bbf5dc005520" valueTypeId="2e2d3ef3-04a2-4b4e-bd90-11101df93bb6"/>
+    <managerType typeId="99ce43a4-1d71-404e-a5fa-f88510b46d08" valueTypeId="bf05d1d7-48b6-4548-be6f-51827072a312"/>
+    <recordSetType typeId="912245d8-ebe0-4d88-8ed4-57261a2a54c7" valueTypeId="a52df32c-a85b-4569-93bf-865fc01e7d4d"/>
+    <recordKeyType typeId="9064a640-53f8-4b0e-a73f-7b9fee258f07" valueTypeId="9578378a-84ea-4af7-96ad-e5c80e6ca2c4"/>
+    <recordType typeId="b700e86b-f39b-4aeb-b1dc-abdd57abf096" valueTypeId="a44e57fc-ccc6-46d0-b498-c70c1cc7ac9e"/>
+    <recordManagerType typeId="03868a70-549b-4d89-ab6c-c817720ef77e" valueTypeId="0e0274c7-7788-4856-b5c5-bb2370302e16"/>
+  </producedTypes>
+  <name>ИсторияПоискаВЛКП</name>
+  <synonym>
+    <key>ru</key>
+    <value>История поиска в ЛКП</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="8fbc2fc0-b105-46f9-ae60-7e47d193de4b">
+    <name>ТекстПоиска</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текст поиска</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>500</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+  </resources>
+  <resources uuid="9c253b3b-334c-409f-88e4-479766a3d840">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="dd9b7083-50b2-4624-9fce-55e5a1f8bf3b">
+    <name>Автор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Автор</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="56267d53-2c9f-438f-8f44-6b5061951b74">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <commands uuid="59f32b39-7407-48ae-91f7-919eef0595f6">
+    <name>КомандаИсторияПоискаВЛКП</name>
+    <synonym>
+      <key>ru</key>
+      <value>История поиска в ЛКП</value>
+    </synonym>
+    <group>FormNavigationPanelGoTo</group>
+    <commandParameterType>
+      <types>CatalogRef.Контрагенты</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+  </commands>
+</mdclass:InformationRegister>

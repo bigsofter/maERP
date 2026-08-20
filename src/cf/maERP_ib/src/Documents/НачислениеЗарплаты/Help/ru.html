@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta http-equiv="content-type" content="text/html;charset=utf-8"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link></head><body>
+<div>
+<div><font size="3"><b>Порядок расчёта премий</b></font></div>
+<div><font size="3"><b><br></b></font></div>
+<div><font size="2">1. В справочнике "Показатели расчёта премий" заполнить показатели с видами "SMART" и "Веса". Остальные показатели являются системными и привязаны к бизнес-логике приложения. Для показателей с видом "Веса" необходимо заполнить вложенные показатели в карточке показателя. Выполнение показателя "SMART" и планы показателя "Планы", а также вложенных показателей показателя "Веса" устанавливается в документе "Установка плановых показателей".</font></div>
+<div><font size="2"> </font></div>
+<div><font size="2">2. В справочнике "Варианты расчёта премий" создать существующие в организации варианты расчёта. В таблице указываются показатели и их стоимость.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">3. В документе "Кадровый приказ" заполнить данные по окладам, графикам работы, вариантам расчёта премии сотрудников.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">4. В справочнике "Формулы расчёта премий" заполнить существующие в организации формулы премий для специфических товаров.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">5. В справочнике "Группы номенклатуры" создать списки товаров, по которым будет расчёт с использованием формул расчёта премий. Формула указывается в поле "Мотивация".</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">6. В документе "Установка плановых показателей" заполнить данные по сотрудникам с указанием плана или стоимости показателя на расчётный период. Для показателя "SMART" нужно вручную установить признак выполнения/невыполнения показателя.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">7. В параметрах программы указать % премии по новым и старым клиентам, % профита при отсутствии цен.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">8. В параметрах программы указать границу (в рублях) статуса перехода клиента от нового к старому. При расчёте статуса программа учитывает объёмы отгрузок по контрагенту и всех связанных с ним контрагентам.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">9. В справочнике "Контрагенты" объединить в группы связанных контрагентов. Для этого в основном контрагенте установить признак "Группа компаний", далее перенести остальных контрагентов в его иерархию.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">10. Логика расчёта премии сотрудника выполняется при проведении документа "Реализация товаров и услуг", соответственно при изменении первичных данных описанных выше, необходимо выполнить перепроведение документов в расчётном периоде.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">11. Если в номенклатуре установлен признак "Не рассчитывать премию</font><span style="font-size: small;">", то по ней премия рассчитываться не будет.</span></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">12. Выполнение логики расчёта премии при проведении документа "Реализация товаров и услуг":</font></div>
+<div><font size="2">- Рассчитывается отношение контрагента к новым или старым клиентам на момент отгрузки, по расчётным данным определяется % от прибыли.</font></div>
+<div><font size="2">- По товарам реализации программа получает формулы расчёта премий если товары присутствуют в справочнике "Группы номенклатуры".</font></div>
+<div><font size="2">- Программа получает цены номенклатуры в разрезах "Розничная", "Стоп", "Тип цен" (если тип цен указан в документе "Счёт").</font></div>
+<div><font size="2">- Рассчитывается себестоимость списанных товаров.</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">- Если по товару найдена формула расчёта, то премия рассчитывается по ней, где <b>Основа</b>:</font></div></div><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+<div>
+<div><b><font size="2">Наценка</font></b><span style="font-size: small;"> = Сумма продажи - Себестоимость</span></div></div></blockquote>
+<div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">	</span><b>Профит</b> = </font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">		</span>Стоп цена установлена: Сумма продажи - Сумма стоп</font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">		</span>Стоп цена не установлена: Сумма продажи / 100 * % профита при отсутствии цен</font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">	</span><b>Продажа</b> = Сумма продажи</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">	</span><b>Премия</b> = (<b>Основа</b> / 100 * % компании в формуле) / 100 * % премии в формуле</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">- Формула не найдена, но продажа по индивидуальному типу цен (согласованные с клиентом цены), то <b>Премия</b> = Доход от наценки + Доход от скидки завода, где:</font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">	</span><b>Доход от наценки</b> = (Сумма продажи - Сумма по типу цен) / 100 * % прибыли для нового клиента</font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">	</span><b>Доход от скидки завода</b> = (Сумма по типу цен - Себестоимость) / 100 * Рассчитанный по клиенту % от прибыли</font></div>
+<div><font size="2"><br></font></div>
+<div><font size="2">- Все остальные товары</font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">	</span><b>Профит</b> = </font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">		</span>Сумма стоп = 0 или Сумма продажи &lt; Сумма стоп: Сумма продажи / 100 * % профита при отсутствии цен</font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space:pre">		</span>Остальные: Сумма продажи - Сумма стоп</font></div>
+<div><font size="2"><span class="Apple-tab-span" style="white-space: pre;">	</span><b>Премия</b> = <b>Профит</b> / 100 * Рассчитанный по клиенту % от прибыли</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font size="3"><b>	</b></font></span></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font size="3"><b>	</b></font></span></div>
+<div><br></div></div><font><font><font><font><font><font><font><font><font><font><font><font><font><font><font><font size="2" style="font-size: small;"><font size="2">
+
+
+</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></body></html>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="eb3da8d0-8dc0-4756-9ab8-004cdcd4abc4">
+  <producedTypes>
+    <selectionType typeId="b446df2e-1117-4314-915e-44b5c4266456" valueTypeId="3517808d-6d56-40e0-9b76-206f2b8ff35a"/>
+    <listType typeId="1fb8ef4b-739f-4035-a3d8-cd3f77a04e66" valueTypeId="8424c692-3f65-4906-9563-269a04adf948"/>
+    <managerType typeId="c2d81d9a-6299-46d3-8854-0613c75ec78b" valueTypeId="6a286abd-48b2-4b06-8074-568da74b93b6"/>
+    <recordSetType typeId="ddbe9581-00bf-4855-9c1c-0d892a2d240a" valueTypeId="823acc96-aa9b-4a33-bedb-d7ebefa41c6e"/>
+    <recordKeyType typeId="60be351e-792a-41df-8c53-0ec359f2465a" valueTypeId="e7cf717d-435b-48e0-a384-f6b30e0e84aa"/>
+    <recordType typeId="b34ced90-40d2-4363-af6e-745d0df1de2e" valueTypeId="37755a65-271d-4c04-aa1e-aece589696f7"/>
+  </producedTypes>
+  <name>ВзаиморасчётыСПокупателямиНалоговый</name>
+  <synonym>
+    <key>ru</key>
+    <value>Взаиморасчёты с покупателями (налоговый)</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Règlements avec les clients (comptable)</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="284cf451-28fb-4356-bc57-8a02684c71ac">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="67ce8fcc-bef8-4d08-94ca-6e2315713f41">
+    <name>ВидОперации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид операции</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type d'opération</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидыОперацийНалоговые</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="b58172fb-ed61-4eec-ab63-7f52cd2c4d60">
+    <name>Описание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Описание</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Descriptif</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="8f3fca18-7fe2-459c-b1ee-927ef15bdffb">
+    <name>ДокументДвижения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ движения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Document de mouvement</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.СписаниеБезналичныхДенежныхСредств</types>
+      <types>DocumentRef.РасходныйКассовыйОрдер</types>
+      <types>DocumentRef.ПоступлениеБезналичныхДенежныхСредств</types>
+      <types>DocumentRef.ПриходныйКассовыйОрдер</types>
+      <types>DocumentRef.ВозвратОтПокупателяНалоговый</types>
+      <types>DocumentRef.НалоговаяНакладная</types>
+      <types>DocumentRef.ВозвратПоставщикуНалоговый</types>
+      <types>DocumentRef.НалоговаяНакладнаяПокупка</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <dimensions uuid="2a278823-7b03-4516-a8af-632dbde6a4ef">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Entreprise</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="dfdf3a3f-8099-409b-a0c0-4b3e18313610">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Contrepartie</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

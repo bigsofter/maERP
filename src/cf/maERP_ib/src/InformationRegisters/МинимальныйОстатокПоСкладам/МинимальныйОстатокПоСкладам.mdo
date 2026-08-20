@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2d47cb96-c12d-4bb3-aae4-b5174e6fba2f">
+  <producedTypes>
+    <selectionType typeId="7800ee11-6404-46a6-a49b-40fad1f7f947" valueTypeId="091dd21e-c72a-438e-9610-27558631ef78"/>
+    <listType typeId="4b68fd28-3746-41e3-be4e-f0b7e2e0cab4" valueTypeId="dfeb2182-d78f-4d83-b82d-22140c1c84ff"/>
+    <managerType typeId="1d2cd76a-2e03-415a-bc34-5bdfb5ba9bc5" valueTypeId="12823ba0-9280-4372-8bc5-157427c54f4f"/>
+    <recordSetType typeId="93ceed4a-0197-4da2-95a6-c027fffe51d4" valueTypeId="95ce000e-2629-4de1-9048-7e69fcde7650"/>
+    <recordKeyType typeId="3d68ffdc-fae1-44ff-8613-5006e7e22db1" valueTypeId="a84a0c0a-a4c3-4be2-b707-f0615a6e4569"/>
+    <recordType typeId="c55e37e0-3579-4f6c-9cc0-fdf66e782438" valueTypeId="0103e8e0-0aec-49c3-aefd-359502973635"/>
+    <recordManagerType typeId="188c4f1d-237f-4b8a-b01a-f7fb3dac4dab" valueTypeId="511bcb5c-76b9-4b47-91ef-40e38f8788ad"/>
+  </producedTypes>
+  <name>МинимальныйОстатокПоСкладам</name>
+  <synonym>
+    <key>ru</key>
+    <value>Минимальный остаток по складам</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Quantité minimale de stockage par stock</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Minimum storage quantity per stock</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Cantidad mínima de almacenamiento por stock</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="86956026-2b34-4700-87bf-182f25360ec2">
+    <name>МинимальноеКоличествоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Минимальное количество хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Quantité minimale de stockage</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Minimum amount of storage</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad mínima de almacenamiento</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>6</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="7d485a31-a9ce-49ff-8272-fa053fe23d46">
+    <name>МаксимальноеКоличествоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Максимальное количество хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Quantité de stockage maximale</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad máxima de almacenamiento</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Maximum storage amount</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>6</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="2f2bfd24-64ad-4287-bb9e-de2d4d1246d7">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nomenclatura</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="ad762536-d15f-41ca-85e4-39bcdc7a9d22">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résidence</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Storage location</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacenamiento</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

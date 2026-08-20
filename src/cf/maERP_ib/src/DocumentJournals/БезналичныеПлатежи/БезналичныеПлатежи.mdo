@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DocumentJournal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7e052c6d-65a2-4c1a-ad5e-b4f687eaa107">
+  <producedTypes>
+    <selectionType typeId="008dea38-5603-480d-895e-22b7f164716f" valueTypeId="0cbcf07e-31e5-4879-8f7b-ad84370466f5"/>
+    <listType typeId="d22ccfaa-0ea1-4401-b737-feb5ae366420" valueTypeId="2208cb8d-1816-439d-8e45-7823674ce6f1"/>
+    <managerType typeId="56641f54-3940-4986-918b-1bf7596ba56e" valueTypeId="cff0a9f0-8719-43ef-a920-098ad51d3405"/>
+  </producedTypes>
+  <name>БезналичныеПлатежи</name>
+  <synonym>
+    <key>ru</key>
+    <value>Безналичные платежи</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Virement bancaire</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Bank transfer</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Transferencia bancaria</value>
+  </synonym>
+  <defaultForm>DocumentJournal.БезналичныеПлатежи.Form.ФормаСписка</defaultForm>
+  <useStandardCommands>true</useStandardCommands>
+  <registeredDocuments>Document.ПоступлениеБезналичныхДенежныхСредств</registeredDocuments>
+  <registeredDocuments>Document.СписаниеБезналичныхДенежныхСредств</registeredDocuments>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Type</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Ref</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Date</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Posted</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>DeletionMark</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Number</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <columns uuid="88265be1-901a-47b7-b789-78789788d764">
+    <name>Поступление</name>
+    <synonym>
+      <key>ru</key>
+      <value>Поступление</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Réception</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Reception</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Recepción</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.Сумма</references>
+  </columns>
+  <columns uuid="5dc74b78-dadc-4a0b-bf85-5f4eef9ee718">
+    <name>Списание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Списание</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Sortie de fonds</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Outflow of funds</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Salida de fondos</value>
+    </synonym>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.Сумма</references>
+  </columns>
+  <columns uuid="f27cd1e0-eba3-40df-8e71-ef8d9772692d">
+    <name>НазначениеПлатежа</name>
+    <synonym>
+      <key>ru</key>
+      <value>Назначение платежа</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Objet du paiement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Purpose of payment</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Finalidad del pago</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.НазначениеПлатежа</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.НазначениеПлатежа</references>
+  </columns>
+  <columns uuid="9cbc7500-1c57-4747-b57f-7345e42dd275">
+    <name>ХозяйственнаяОперация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operación</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.ХозяйственнаяОперация</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.ХозяйственнаяОперация</references>
+  </columns>
+  <columns uuid="012a198d-c54f-4f56-932f-2fa992ad27a4">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Contrepartie</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Counterparty</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contraparte</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.Контрагент</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.Контрагент</references>
+  </columns>
+  <columns uuid="a6d86161-eb10-4c35-be95-8406bc1886a4">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.Организация</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.Организация</references>
+  </columns>
+  <columns uuid="57929a68-d85d-441d-a1d6-8ad137ecac34">
+    <name>БанковскийСчёт</name>
+    <synonym>
+      <key>ru</key>
+      <value>Банковский счёт</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Compte bancaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Bank account</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cuenta bancaria</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.БанковскийСчёт</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.БанковскийСчёт</references>
+  </columns>
+  <columns uuid="0dfb1ae4-dffa-4133-847b-e60d86abef57">
+    <name>НомерВходящегоДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер по банку</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Numéro par banque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Number by bank</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Número por banco</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.НомерВходящегоДокумента</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.НомерВходящегоДокумента</references>
+  </columns>
+  <columns uuid="ca54ce36-477e-44fd-93f3-249a562a9bb8">
+    <name>ДатаВходящегоДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата по банку</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date par banque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Date by bank</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha por banco</value>
+    </synonym>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.ДатаВходящегоДокумента</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.ДатаВходящегоДокумента</references>
+  </columns>
+  <columns uuid="509dd12d-b6dc-481f-ad52-e960d6da398c">
+    <name>ДатаПроведенияБанком</name>
+    <synonym>
+      <key>ru</key>
+      <value>Проведено банком</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Effectué par la banque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Carried out by the bank</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Realizado por el banco</value>
+    </synonym>
+    <indexing>Index</indexing>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.ДатаПроведенияБанком</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.ДатаПроведенияБанком</references>
+  </columns>
+  <columns uuid="107c81c2-d5af-444e-9cce-5e588cdba501">
+    <name>ПроведеноБанком</name>
+    <synonym>
+      <key>ru</key>
+      <value>Проведено банком</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Effectué par la banque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Carried out by the bank</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Realizado por el banco</value>
+    </synonym>
+    <indexing>Index</indexing>
+    <references>Document.ПоступлениеБезналичныхДенежныхСредств.Attribute.ПроведеноБанком</references>
+    <references>Document.СписаниеБезналичныхДенежныхСредств.Attribute.ПроведеноБанком</references>
+  </columns>
+  <forms uuid="aaf59aeb-0ee4-4ff8-9391-4b89af2482ea">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DocumentJournal>

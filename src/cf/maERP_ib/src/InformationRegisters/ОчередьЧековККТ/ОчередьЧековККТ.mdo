@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="771d77d3-ea4d-4d48-a0c5-29aeb93b3829">
+  <producedTypes>
+    <selectionType typeId="6d7be0d2-6c34-4b15-96dc-4a87f2eda4a1" valueTypeId="4225694a-e8cf-474a-8afb-27226f67cc7d"/>
+    <listType typeId="0a1d253a-d56f-441d-8224-e79a3774e088" valueTypeId="18eee91d-5c7e-4506-bd1b-046d6fda9710"/>
+    <managerType typeId="d1f05cdc-3bc8-4a0a-b130-e6161171f123" valueTypeId="1c3cd11d-d79f-4916-ae4d-ac6280282e6b"/>
+    <recordSetType typeId="aa05f816-e093-4c2c-83bd-49d2c1a7f5f7" valueTypeId="c62e8fbb-3740-4aa5-9461-61c8109622a6"/>
+    <recordKeyType typeId="ca3cf228-2f35-4da8-9526-675303980ce3" valueTypeId="0f165ca0-c13a-4c93-b66b-a02dd8ff0aff"/>
+    <recordType typeId="8ec80d90-6542-409c-8711-179a46d75f35" valueTypeId="09d1904f-445d-43a1-a7f1-5b19b6650116"/>
+    <recordManagerType typeId="24c3feae-a26f-4151-9c12-887e2d11d2c6" valueTypeId="28a03d18-6450-4295-8b62-831e4b8fcf58"/>
+  </producedTypes>
+  <name>ОчередьЧековККТ</name>
+  <synonym>
+    <key>ru</key>
+    <value>Очередь чеков ККТ</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>La file d'attente des chèques de la CCT</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>The CTC check queue</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>La cola de verificación de CTC</value>
+  </synonym>
+  <editType>InDialog</editType>
+  <defaultRecordForm>InformationRegister.ОчередьЧековККТ.Form.ФормаЗаписи</defaultRecordForm>
+  <defaultListForm>InformationRegister.ОчередьЧековККТ.Form.ФормаСписка</defaultListForm>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="7dfcd7a7-830a-4274-96a3-5fb971fb8f8e">
+    <name>ОборудованиеККТ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Оборудование ККТ</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Équipement de TDC</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>CCT equipment</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Equipo de CCT</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ПодключаемоеОборудование</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="52de66a5-0b07-45de-87e4-8188aa0ad9d0">
+    <name>СтатусЧека</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус чека</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Statut du chèque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Check status</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comprobar estado</value>
+    </synonym>
+    <type>
+      <types>EnumRef.СтатусЧекаККТВОчереди</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:ReferenceValue">
+      <value>Enum.СтатусЧекаККТВОчереди.EnumValue.Новый</value>
+    </fillValue>
+  </resources>
+  <resources uuid="ba8e8b6f-81fa-4bc4-ad3c-719d098a474d">
+    <name>Дата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="cfe38db9-0648-4ed3-ac95-b15be878f5f4">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>DefinedType.ОрганизацияБПО</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="7f3e1ec0-283e-40a0-a7f8-375a1f5d51f9">
+    <name>ОрганизацияИНН</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация ИНН</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation des Inn</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization of the Inn</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización de la Posada</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+  </resources>
+  <resources uuid="16eb208b-c412-4ed5-ba9d-6669664d545b">
+    <name>СистемаНалогообложения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Система налогообложения</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The taxation system</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Sistema fiscal</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Système fiscal</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ТипыСистемНалогообложенияККТ</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="2c2fb771-0c36-482b-8259-98084acb2c61">
+    <name>ТорговыйОбъект</name>
+    <synonym>
+      <key>ru</key>
+      <value>Торговый объект</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Centre commercial</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Shopping center</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Centro comercial</value>
+    </synonym>
+    <type>
+      <types>DefinedType.ТорговыйОбъектБПО</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="604adefc-2c57-41f5-b3a1-6159989a5183">
+    <name>ТипДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип документа</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de document</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of document</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de documento</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ТипыФискальныхДокументовККТ</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:ReferenceValue">
+      <value>Enum.ТипыФискальныхДокументовККТ.EnumValue.КассовыйЧек</value>
+    </fillValue>
+  </resources>
+  <resources uuid="1e277f0c-5d62-497d-99cd-f8b466981465">
+    <name>ТипРасчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип расчета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de calcul</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of calculation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de cálculo</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ТипыРасчетаДенежнымиСредствами</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="734607b3-174a-4f8a-8653-a85dc933b219">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Somme</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Suma</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="cbf45e53-bb30-4436-a072-c87b912c217d">
+    <name>ДанныеЧека</name>
+    <synonym>
+      <key>ru</key>
+      <value>Данные чека</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Données du chèque</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Check data</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comprobar datos</value>
+    </synonym>
+    <type>
+      <types>ValueStorage</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="26166ae8-4f46-4a81-a5c0-6013a50823e5">
+    <name>ТекстОшибки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текст ошибки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Texte d'erreur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Error text</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Texto de error</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+  </resources>
+  <resources uuid="8e876ffa-7546-42b7-ade8-074329f89df7">
+    <name>Содержание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Содержание</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Contenu</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Content</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contenido</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+  </resources>
+  <resources uuid="92c3a6b9-24d7-4f46-a319-d22ba5c7b8d4">
+    <name>СубъектПерсональныхДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Субъект персональных данных</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Sujet des données personnelles</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Subject of personal data</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Objeto de los datos personales</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СубъектПерсональныхДанныхБПО</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="e6fb4cbe-f6d6-4f52-8bea-42fb07b95431">
+    <name>ДокументОснование</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ основание</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Document base</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Basic document</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documento básico</value>
+    </synonym>
+    <type>
+      <types>DefinedType.ОснованиеФискальнойОперацииБПО</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="53793ef5-3354-44ff-8fcc-a550d2d82694">
+    <name>ИдентификаторЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Идентификатор записи</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>ID d'enregistrement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Registration ID</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>ID de REGISTRO</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>36</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="72889af2-6352-4d93-90f9-88095a8b7361">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="5dd2284c-3346-49cb-b88b-8892d08aaab0">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de inscripción</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="130f1fe5-9ed5-4b7a-9920-a66b59770b68">
+    <name>Макет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Макет</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Model</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modelo</value>
+    </synonym>
+  </templates>
+</mdclass:InformationRegister>

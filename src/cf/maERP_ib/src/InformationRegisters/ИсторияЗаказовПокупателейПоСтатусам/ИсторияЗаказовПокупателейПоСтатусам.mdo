@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="8b430581-1f0e-4b2f-b143-151abe34abd7">
+  <producedTypes>
+    <selectionType typeId="16c7931b-faec-4027-af29-d8b3ca110a2b" valueTypeId="816df288-a479-4f06-87ca-d6646102397b"/>
+    <listType typeId="7dd38624-69ed-45e2-88ac-2e949e27e6d4" valueTypeId="c7a6d23d-1a02-4b49-bcc7-4fecdda8ab6c"/>
+    <managerType typeId="17da440a-a7c6-4df4-ae91-b87ee1dfee03" valueTypeId="de583ef8-52f9-4d0c-9fe9-ff6db5e24be6"/>
+    <recordSetType typeId="0dd2a41f-cf45-4339-b653-3fa6c2641f9b" valueTypeId="d749c9e3-0644-45da-84dc-fc6bc306720f"/>
+    <recordKeyType typeId="0b402e30-6285-4353-b24a-e75a5006e81c" valueTypeId="5cef8fdf-d8ec-4dcc-90b3-0028afc781eb"/>
+    <recordType typeId="5c49f33f-6c79-464e-bc67-09b7485e48e3" valueTypeId="bd13551c-df60-4dba-9148-5ba897429a09"/>
+    <recordManagerType typeId="2829fe5d-325c-45fd-a6b9-42c1f05add26" valueTypeId="649db055-48fe-412e-9ed5-47b602387942"/>
+  </producedTypes>
+  <name>ИсторияЗаказовПокупателейПоСтатусам</name>
+  <synonym>
+    <key>ru</key>
+    <value>История заказов покупателей по статусам</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Historique des commandes des acheteurs par statut</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Buyer order history by status</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Historial de pedidos del comprador por estado</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <informationRegisterPeriodicity>Second</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="cb4fb274-bee2-44bd-930b-328380c47f81">
+    <name>СтатусЗаказаПокупателя</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус заказа покупателя</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Statut de la commande de l'acheteur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Status of the buyer's order</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Estado del pedido del comprador</value>
+    </synonym>
+    <type>
+      <types>EnumRef.СтатусыЗаказовПокупателя</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="04af9024-a029-4a70-9739-c7e8fd0ec959">
+    <name>ДокументПродажи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ продажи</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Document de vente</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sales document</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documento de ventas</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="c1720e75-8fa6-4926-ba01-16a9edeedc01">
+    <name>СрокОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Срок оплаты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Terme de paiement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Payment term</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Plazo de pago</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="c4b97662-6a3b-44be-ba74-de4f70c03227">
+    <name>ЗаказПокупателя</name>
+    <synonym>
+      <key>ru</key>
+      <value>Заказ покупателя</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Commande de l'acheteur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Customer's order</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Orden del comprador</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ЗаказПокупателя</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4f960265-22b1-4f31-9599-23533cc8d16b">
+  <producedTypes>
+    <selectionType typeId="c00eb7f9-3d22-4b18-8972-0d1b16dcbb2c" valueTypeId="4db2058a-bc90-4856-b095-1c32f87765e9"/>
+    <listType typeId="23f503cb-4a21-4976-abe1-5463f5e46d82" valueTypeId="a4201032-7158-437e-b920-192b4a1fa76f"/>
+    <managerType typeId="dacc834c-e263-4e58-91ae-cd22c51fd282" valueTypeId="1a94ca43-4c46-454b-a276-58fe0951e33d"/>
+    <recordSetType typeId="23b1e61e-71b1-4e23-9bba-fdd8b61dab1f" valueTypeId="ecfe9abe-149c-4256-a88e-a80e680eedc4"/>
+    <recordKeyType typeId="0b493d14-5924-4c00-aca9-bd806065ee27" valueTypeId="b32be055-cae7-4864-a83c-7430d3ece26f"/>
+    <recordType typeId="98d9bcbd-bc74-4f64-ba3a-b8bb09fc2488" valueTypeId="ae4a91bb-0a65-4cb4-b85d-f16c72b16820"/>
+  </producedTypes>
+  <name>ДвиженияПоКассе</name>
+  <synonym>
+    <key>ru</key>
+    <value>Движения по кассе</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Movement de caisse</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Cash movement</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Movimiento de efectivo</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="7c9ec788-fa99-47e2-b76a-ff7a3c182c2f">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Somme</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Suma</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="459d27dd-aa1e-42a1-ba00-d607eec884dc">
+    <name>ДокументПродажи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ продажи</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Document de vente</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sales document</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documento de ventas</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.НалоговаяНакладная</types>
+      <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+      <types>DocumentRef.НалоговаяНакладнаяПокупка</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="c130a405-7bf9-4199-9eb0-a91598f1ad68">
+    <name>КассоваяСмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кассовая смена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Journée de caisse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Checkout day</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cambio de Caja</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.КассоваяСмена</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="e855abed-7972-44d5-9878-0c4861b48255">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résidence</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Storage location</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacenamiento</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.БанковскиеСчета</types>
+      <types>CatalogRef.Кассы</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="509f2391-4c49-409a-a537-1362c2a67372">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="77a8115d-0d4b-4c01-a735-91ee39087a1f">
+    <name>ТипДвижения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип движения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de mouvement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of movement</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de movimiento</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ТипыДвиженияДенежныхСредств</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="179550c2-3ae2-4223-b9e7-09d916ad5fb4">
+    <name>ТипДенежныхСредств</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип денежных средств</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de trésorerie</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of cash</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de efectivo</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.TypesDePayment</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="749218bf-8bf6-4f29-bee7-64909297aa38">
+    <name>ТипНоменклатуры</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип номенклатуры</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Type of nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de nomenclatura</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ТипыНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="6d0ca5a5-1339-4e58-848c-3bbc9930def0">
+    <name>ХозяйственнаяОперация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operación</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ХозяйственныеОперации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

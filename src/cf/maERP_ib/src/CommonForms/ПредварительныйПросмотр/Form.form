@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <items xsi:type="form:FormField">
+    <name>Таб</name>
+    <id>1</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>Таб</segments>
+    </dataPath>
+    <titleLocation>None</titleLocation>
+    <extendedTooltip>
+      <name>ТабРасширеннаяПодсказка</name>
+      <id>3</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ТабКонтекстноеМеню</name>
+      <id>2</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>SpreadsheetDocumentField</type>
+    <editMode>Enter</editMode>
+    <showInHeader>true</showInHeader>
+    <headerHorizontalAlign>Left</headerHorizontalAlign>
+    <showInFooter>true</showInFooter>
+    <extInfo xsi:type="form:SpreadSheetDocFieldExtInfo">
+      <handlers>
+        <event>Selection</event>
+        <name>ТабВыбор</name>
+      </handlers>
+      <width>50</width>
+      <autoMaxWidth>true</autoMaxWidth>
+      <height>10</height>
+      <autoMaxHeight>true</autoMaxHeight>
+      <horizontalStretch>true</horizontalStretch>
+      <verticalStretch>true</verticalStretch>
+      <pointerType>Special</pointerType>
+      <verticalScrollBar>ScrollAuto</verticalScrollBar>
+      <horizontalScrollBar>ScrollAuto</horizontalScrollBar>
+      <selectionShowMode>Always</selectionShowMode>
+      <drawingSelectionShowMode>Auto</drawingSelectionShowMode>
+      <edit>true</edit>
+      <showGroups>true</showGroups>
+      <enableStartDrag>true</enableStartDrag>
+      <enableDrag>true</enableDrag>
+      <borderColor xsi:type="core:ColorRef">
+        <color>Style.FormBackColor</color>
+      </borderColor>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>ФормаПечатьСразу</name>
+      <id>14</id>
+      <title>
+        <key>ru</key>
+        <value>Печать</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Impression</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Print</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Impresión</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаПечатьСразуРасширеннаяПодсказка</name>
+        <id>15</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Item.Таб.StandardCommand.PrintImmediately</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>PictureAndText</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InCommandBar</locationInCommandBar>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ФормаПредварительныйПросмотр</name>
+      <id>12</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаПредварительныйПросмотрРасширеннаяПодсказка</name>
+        <id>13</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Item.Таб.StandardCommand.Preview</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Picture</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InCommandBar</locationInCommandBar>
+    </items>
+    <items xsi:type="form:FormGroup">
+      <name>ФормаГруппаСохранить</name>
+      <id>4</id>
+      <items xsi:type="form:Button">
+        <name>ФормаСохранитьPDF</name>
+        <id>6</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ФормаСохранитьPDFРасширеннаяПодсказка</name>
+          <id>7</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СохранитьPDF</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <items xsi:type="form:Button">
+        <name>ФормаСохранитьXLSX</name>
+        <id>8</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ФормаСохранитьXLSXРасширеннаяПодсказка</name>
+          <id>9</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СохранитьXLSX</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>ru</key>
+        <value>Сохранить</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Enregistrer</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Save</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Guardar</value>
+      </title>
+      <toolTip>
+        <key>ru</key>
+        <value>Форма группа сохранить</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Formulaire groupe enregistrer</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Group register form</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Formulario de registro de grupo</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ФормаГруппаСохранитьРасширеннаяПодсказка</name>
+        <id>5</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>Popup</type>
+      <extInfo xsi:type="form:PopupGroupExtInfo">
+        <picture xsi:type="core:PictureRef">
+          <picture>StdPicture.SaveFile</picture>
+        </picture>
+        <representation>Auto</representation>
+        <importance>Normal</importance>
+      </extInfo>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ФормаШрифт</name>
+      <id>18</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаШрифтРасширеннаяПодсказка</name>
+        <id>19</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Item.Таб.StandardCommand.Font</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+      <locationInCommandBar>InCommandBar</locationInCommandBar>
+    </items>
+    <horizontalAlign>Left</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>OnOpen</event>
+    <name>ПриОткрытии</name>
+  </handlers>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <windowOpeningMode>DontBlock</windowOpeningMode>
+  <saveWindowSettings>true</saveWindowSettings>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <enabled>true</enabled>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <attributes>
+    <name>Таб</name>
+    <title>
+      <key>ru</key>
+      <value>Таб</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Tab</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Tab</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Pestaña</value>
+    </title>
+    <id>1</id>
+    <valueType>
+      <types>SpreadsheetDocument</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <extInfo xsi:type="form:SpreadsheetDocumentExtInfo"/>
+  </attributes>
+  <attributes>
+    <name>ИмяФайла</name>
+    <title>
+      <key>ru</key>
+      <value>Имя файла</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Nom de fichier</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>File name</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Nombre de archivo</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <formCommands>
+    <name>СохранитьPDF</name>
+    <title>
+      <key>ru</key>
+      <value>Документ Adobe PDF (.pdf)</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Document Adobe PDF (.pdf)</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Adobe PDF Document (.pdf)</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Documento PDF de Adobe (.pdf)</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Сохранить PDF</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Enregistrer PDF</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Save PDF</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Guardar PDF</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>CommonPicture.PDF16</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СохранитьPDF</name>
+      </handler>
+    </action>
+    <representation>TextPicture</representation>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СохранитьXLSX</name>
+    <title>
+      <key>ru</key>
+      <value>Лист Microsoft Excel 2007 (.xlsx)</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Feuille Microsoft Excel 2007 (.xlsx)</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Microsoft Excel 2007 Sheet (.xlsx)</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Hoja de Microsoft Excel 2007 (.xlsx)</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Сохранить XLSX</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Enregistrer XLSX</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Save XLSX</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Guardar XLSX</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>CommonPicture.Excel16</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СохранитьXLSX</name>
+      </handler>
+    </action>
+    <representation>TextPicture</representation>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+</form:Form>

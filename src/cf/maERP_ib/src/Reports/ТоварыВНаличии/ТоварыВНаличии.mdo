@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="49fbe9ff-679e-4702-b350-ea5167d19068">
+  <producedTypes>
+    <objectType typeId="e40c25e4-db2b-41f5-97bd-f4ccf7715ca3" valueTypeId="22f456c3-f92a-4880-9e03-056e77cc4918"/>
+    <managerType typeId="930537a1-bd37-46d7-ac24-1824d5b011c8" valueTypeId="56c23275-8602-4472-ace3-c73d6ce34723"/>
+  </producedTypes>
+  <name>ТоварыВНаличии</name>
+  <synonym>
+    <key>ru</key>
+    <value>Товары в наличии</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Marchandises en stock</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Productos en stock</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Goods in stock</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>CommonForm.ФормаОтчёта</defaultForm>
+  <mainDataCompositionSchema>Report.ТоварыВНаличии.Template.ОсновнаяСхемаКомпоновкиДанных</mainDataCompositionSchema>
+  <templates uuid="b81eb8e9-1fd2-4b6e-8180-96f478b422ba">
+    <name>ОсновнаяСхемаКомпоновкиДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Основная схема компоновки данных</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Schéma de base de la mise en page des données</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Basic scheme of the data layout</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Esquema básico de diseño de datos</value>
+    </synonym>
+    <templateType>DataCompositionSchema</templateType>
+  </templates>
+  <commands uuid="1c905e79-dd8d-402c-87ce-3f1db38842b4">
+    <name>ТоварыВНаличии</name>
+    <synonym>
+      <key>ru</key>
+      <value>Товары в наличии</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Marchandises en stock</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Productos en stock</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Goods in stock</value>
+    </synonym>
+    <group>CommandGroup.Отчёты</group>
+    <commandParameterType>
+      <types>CatalogRef.Номенклатура</types>
+    </commandParameterType>
+    <parameterUseMode>Multiple</parameterUseMode>
+    <representation>PictureAndText</representation>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Report</picture>
+    </picture>
+  </commands>
+</mdclass:Report>
