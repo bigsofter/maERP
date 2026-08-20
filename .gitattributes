@@ -1,18 +1,33 @@
-# Нормализация переводов строк для исходников 1С
-*.bsl   text working-tree-encoding=UTF-8 eol=lf
-*.os    text eol=lf
-*.xml   text eol=lf
-*.mdo   text eol=lf
-*.json  text eol=lf
-*.md    text eol=lf
+# Исходники 1С в формате EDT — текст, переводы строк нормализуем
+*.bsl     text working-tree-encoding=UTF-8 eol=lf
+*.mdo     text eol=lf
+*.form    text eol=lf
+*.dcs     text eol=lf
+*.dcss    text eol=lf
+*.dcssca  text eol=lf
+*.mxlx    text eol=lf
+*.cmi     text eol=lf
+*.rights  text eol=lf
+*.os      text eol=lf
+*.xml     text eol=lf
+*.json    text eol=lf
+*.md      text eol=lf
+*.sh      text eol=lf
 
-# Бинарные артефакты 1С — не трогать
-*.cf   binary
-*.cfe  binary
-*.epf  binary
-*.erf  binary
-*.dt   binary
-*.1cd  binary
-*.mxl  binary
-*.bin  binary
-*.efd  binary
+# Бинарные вложения конфигурации: внешние компоненты, картинки, макеты
+*.addin   binary
+*.png     binary
+*.jpg     binary
+*.gif     binary
+*.ico     binary
+*.mxl     binary
+*.bin     binary
+
+# Артефакты платформы — в репозиторий не попадают, но на всякий случай
+*.cf      binary
+*.cfe     binary
+*.cfu     binary
+*.epf     binary
+*.erf     binary
+*.dt      binary
+*.efd     binary
