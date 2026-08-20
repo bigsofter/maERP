@@ -19,8 +19,10 @@ DIST="${BUILD}/dist"             # готовые CF/CFU для поставки
 
 # Воркспейс EDT держим вне репозитория, иначе Eclipse-мусор полезет в git.
 EDT_WS="${EDT_WS:-$HOME/EDT/ws-maERP}"
-# Путь к 1cedtcli. Заполнить после установки EDT (см. docs/EDT-SETUP.md).
-EDT_CLI="${EDT_CLI:-}"
+# Путь к 1cedtcli. Файл на месте, но без зарегистрированной в системе JVM
+# не запускается — подробности в docs/EDT-SETUP.md.
+EDT_VERSION="${EDT_VERSION:-1C_EDT 2026.1}"
+EDT_CLI="${EDT_CLI:-$HOME/Library/Application Support/1C/1cedtstart/installations/$EDT_VERSION/1cedt.app/Contents/Eclipse/1cedtcli}"
 
 # Общие ключи пакетного режима: без диалогов и без интерактивных сообщений.
 V8_BATCH=(/DisableStartupDialogs /DisableStartupMessages)
