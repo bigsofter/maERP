@@ -712,7 +712,7 @@ Function PrintAtServer(CurDoc,Spreadsheet)
 EndFunction
 
 &AtServer
-Function CreatePayment(Str,ОснованиеОплаты,SommeOfPayment, ТипОплаты = Неопределено, Чек = Неопределено)
+Procedure CreatePayment(Str,ОснованиеОплаты,SommeOfPayment, ТипОплаты = Неопределено, Чек = Неопределено)
 	If ТипОплаты = PredefinedValue("Справочник.TypesDePayment.VirementBanquaire") Then
 		CurDoc = ?(ЭтоВозврат, Документы.СписаниеБезналичныхДенежныхСредств.СоздатьДокумент(), Документы.ПоступлениеБезналичныхДенежныхСредств.СоздатьДокумент());
 		CurDoc.БанковскийСчёт = Str.Счет;
@@ -735,7 +735,7 @@ Function CreatePayment(Str,ОснованиеОплаты,SommeOfPayment, Тип
 	Исключение
 		WriteLogEvent("CreatePayment",,,,ErrorDescription());
 	Конецпопытки;
-EndFunction
+EndProcedure
 
 &AtServer
 Procedure NewFacture()
