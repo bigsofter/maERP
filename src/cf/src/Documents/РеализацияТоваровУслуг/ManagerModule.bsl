@@ -613,237 +613,81 @@ Function PrintFactureOld(Док, Spreadsheet) Export
 EndFunction
 
 Function PrintFacture(Док, Spreadsheet, СФоном = Ложь) Export
-	БезНДС = Док.Контрагент.ПечатьНакладнойЦеныБезНДС;
-	Если СФоном Тогда 
-		Template = Документы.РеализацияТоваровУслуг.ПолучитьМакет("FactureModelEnTete");
-	Иначе
-		Template = Документы.РеализацияТоваровУслуг.ПолучитьМакет("FactureModel");
+	Если СФоном Тогда
+		Возврат PrintFactureEnTete(Док, Spreadsheet, СФоном);
 	КонецЕсли;
-	//Если СФоном Тогда 
-	//	Spreadsheet.ФоноваяКартинка		= Template.Рисунки.ФоновыйРисунок.Картинка;
-	//	Spreadsheet.ФиксированныйФон = Истина;
-	//КонецЕсли;
-	Query = New Query;
-	Query.Text = ТекстЗапросаFacture();
-	Query.Parameters.Insert("Ref", Док);
-	Selection = Query.Execute().Select(ОбходРезультатаЗапроса.ПоГруппировкам);
-
-	//AreaCaption = Template.GetArea("Caption");
-	Header = Template.GetArea("Header");
-	AreaTabularSectionHeader = Template.GetArea("TabularSectionHeader");
-	AreaTabularSection = Template.GetArea("TabularSection");
-	AreaTabularSectionEmptyLine = Template.GetArea("EmptyLine");
-	AreaTabularSectionFooterSousTotal = Template.GetArea("TabularSectionFooterSousTotal");
-	AreaTabularSectionFooterRemise = Template.GetArea("TabularSectionFooterRemise");
-	AreaTabularSectionFooterTotal = Template.GetArea("TabularSectionFooterTotal"); 
-	AreaTabularSectionFooterTotalTaxe = Template.GetArea("TabularSectionFooterTotalTaxe");
-	AreaTabularSectionAmountInWritten = Template.GetArea("AmountInWritten");
-	AreaTabularSectionLineBC = Template.GetArea("LineBC");
-	ОбластьПустаяСтрока = Template.GetArea("ОбластьПустаяСтрока");
-	Если СФоном Тогда 
-		ОбластьНизРеквизиты = Template.GetArea("ОбластьНизРеквизиты");
-	КонецЕсли;
-	Spreadsheet.РазмерСтраницы = "A4";
-	
-	InsertPageBreak = False;
-	While Selection.Next() Do
-	  //FieldPhoto = Selection.Organisation.ФонПечатныхФорм.Get();
-	  //  Try
-	  //  	Картинка = New Picture(FieldPhoto,Истина);
-	  //  	Spreadsheet.ФоноваяКартинка = Картинка;
-	  //  Except
-	  //  EndTry;
-        НомерСтраницы = 1;
-		FirstRowNumber = Spreadsheet.TableHeight + 1;
-		Header.Parameters.Fill(Selection);
-		Header.Parameters.Number = Selection.Number+"/"+Format(Selection.Date,"Л=fr; ДФ=yy; ДЛФ=DD");
-		Header.Parameters.Date = Format(Selection.Date,"Л=fr; ДФ=dd/MM/yyyy; ДЛФ=DD");
-		
-    	ClientCard = Справочники.Контрагенты.ПолучитьКарточку(Selection.Client, Док.Дата);
-		Client = ""+Selection.Client.Description;
-		Если ЗначениеЗаполнено(ClientCard.Реквизиты.АдресФактический) Тогда 
-			Client = Client +Символы.ПС+ClientCard.Реквизиты.АдресФактический;
-		ИначеЕсли ЗначениеЗаполнено(ClientCard.Реквизиты.АдресЮридический) Тогда 
-			Client = Client + Символы.ПС + ClientCard.Реквизиты.АдресЮридический;
-		КонецЕсли;
-		
-		Header.Parameters.Client = Client;
-		Header.Parameters.Комментарий = Док.Комментарий;
-		Header.Parameters.ICE = ClientCard.Реквизиты.ICE;
-		Header.Parameters.CodeClient = Selection.Client.Код;
-		Spreadsheet.Put(Header, Selection.Level());
-		
-		TotalRemise = 0;
-		TotalSomme = 0;
-        BL = Документы.РеализацияТоваровУслуг.ПустаяСсылка();
-		Spreadsheet.Put(AreaTabularSectionHeader);
-		SelectionTabularSection = Selection.Select();
-		While SelectionTabularSection.Next() Do
-			Если Не BL = SelectionTabularSection.BL И ЗначениеЗаполнено(SelectionTabularSection.BL) Тогда
-				BL = SelectionTabularSection.BL;
-				AreaTabularSectionLineBC.Parameters.BL = "BL: "+РаботаСДокументами.СформироватьЦифровойНомер(BL.Number)+"/"+Format(BL.Date,"Л=fr; ДФ=yy; ДЛФ=DD") + " " + Format(BL.Date,"Л=fr; ДФ=dd/MM/yyyy; ДЛФ=DD");
-				Spreadsheet.Put(AreaTabularSectionLineBC);
-			КонецЕсли;
-			AreaTabularSection.Parameters.Fill(SelectionTabularSection);
-			AreaTabularSection.Parameters.ID = SelectionTabularSection.Produit.Артикул;
-			AreaTabularSection.Parameters.Descriptif = SelectionTabularSection.Produit;
-			AreaTabularSection.Parameters.TauxTVA = SelectionTabularSection.TVA;
-			AreaTabularSection.Parameters.TVA = SelectionTabularSection.SommeTVA;
-			Если БезНДС Тогда 
-				AreaTabularSection.Parameters.Prix = (SelectionTabularSection.SommeTotale - SelectionTabularSection.SommeTVA)/SelectionTabularSection.Quantite;
-				AreaTabularSection.Parameters.Somme = SelectionTabularSection.SommeTotale - SelectionTabularSection.SommeTVA;
-			КонецЕсли;
-			МасОбластей = Новый Массив;
-			МасОбластей.Добавить(AreaTabularSection);
-			МасОбластей.Добавить(AreaTabularSection);
-			//МасОбластей.Добавить(AreaTabularSectionFooterSousTotal);
-			//МасОбластей.Добавить(AreaTabularSectionFooterTotalTaxe);
-			//МасОбластей.Добавить(AreaTabularSectionFooterTotal);
-			//МасОбластей.Добавить(AreaTabularSectionAmountInWritten);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			Если СФоном Тогда 
-				МасОбластей.Добавить(ОбластьНизРеквизиты);
-			КонецЕсли;
-			Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
-				МасОбластей = Новый Массив;
-				МасОбластей.Добавить(ОбластьПустаяСтрока);
-				Если СФоном Тогда 
-					МасОбластей.Добавить(ОбластьНизРеквизиты);
-				КонецЕсли;
-				//Пока Spreadsheet.ПроверитьВывод(МасОбластей) Цикл 
-				Для НомерПроверки = 1 по 5 Цикл 
-					МасОбластей = Новый Массив;
-					МасОбластей.Добавить(ОбластьПустаяСтрока);
-					Если СФоном Тогда 
-						МасОбластей.Добавить(ОбластьНизРеквизиты);
-					КонецЕсли;
-					//МасОбластей.Добавить(ОбластьПустаяСтрока);
-					//МасОбластей.Добавить(ОбластьПустаяСтрока);
-					Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
-						Если СФоном Тогда 
-							Spreadsheet.Put(ОбластьНизРеквизиты);
-						КонецЕсли;
-						Прервать;
-					иначе
-						Spreadsheet.Put(ОбластьПустаяСтрока);
-					КонецЕсли;
-				КонецЦикла;
-				Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
-				НомерСтраницы = НомерСтраницы + 1;
-				//Header.Parameters.PageNumber = НомерСтраницы;
-				Spreadsheet.Put(Header, Selection.Level());
-				Spreadsheet.Put(AreaTabularSectionHeader, Selection.Level());
-			КонецЕсли;
-			Spreadsheet.Put(AreaTabularSection, SelectionTabularSection.Level());
-			TotalRemise = TotalRemise + SelectionTabularSection.Remise;
-			TotalSomme = TotalSomme + SelectionTabularSection.Somme;
-		EndDo;
-		
-		Для НомерПроверки = 1 по 50 Цикл 
-			МасОбластей = Новый Массив;
-			МасОбластей.Добавить(AreaTabularSection);
-			МасОбластей.Добавить(AreaTabularSection);
-			МасОбластей.Добавить(AreaTabularSectionFooterSousTotal);
-			МасОбластей.Добавить(AreaTabularSectionFooterTotalTaxe);
-			МасОбластей.Добавить(AreaTabularSectionFooterTotal);
-			МасОбластей.Добавить(AreaTabularSectionAmountInWritten);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			Если СФоном Тогда 
-				МасОбластей.Добавить(ОбластьНизРеквизиты);
-			КонецЕсли;
-			Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
-				//Если СФоном Тогда 
-				//	Spreadsheet.Put(ОбластьНизРеквизиты);
-				//КонецЕсли;
-				Прервать;
-			иначе
-				Spreadsheet.Put(AreaTabularSectionEmptyLine);
-			КонецЕсли;
-		КонецЦикла;
-		
-		AreaTabularSectionFooterSousTotal.Parameters.SousTotal = ""+Format(Selection.TotalSomme-Selection.TotalSommeTVA,"NFD=2; NZ=0,00")+" "+Selection.Devise;
-		СпособОплаты = РаботаСДокументами.ПолучитьСпособОплаты(Док);
-		Если Не ЗначениеЗаполнено(СпособОплаты) Тогда 
-			СпособОплаты = Selection.Client.ТипОплаты;
-		КонецЕсли;
-		AreaTabularSectionFooterSousTotal.Parameters.СпособОплаты = СпособОплаты;
-		Spreadsheet.Put(AreaTabularSectionFooterSousTotal);
-		If TotalRemise <> 0 Then 
-			AreaTabularSectionFooterRemise.Parameters.Remise = ""+Format(TotalRemise,"NFD=2; NZ=0,00")+" "+Selection.Devise;
-			Spreadsheet.Put(AreaTabularSectionFooterRemise);
-		EndIf;
-		
-		AreaTabularSectionFooterTotalTaxe.Parameters.TotalTaxe = ""+Format(Selection.TotalSommeTVA,"NFD=2; NZ=0,00")+" "+Selection.Devise;
-		Spreadsheet.Put(AreaTabularSectionFooterTotalTaxe);
-		
-		AreaTabularSectionFooterTotal.Parameters.Total = ""+Format(Selection.TotalSomme,"NFD=2; NZ=0,00")+" "+Selection.Devise;
-		Spreadsheet.Put(AreaTabularSectionFooterTotal);
-		
-		TextAmountInWritten = "Arrêtée la présente facture à la somme de :";
-		AmountInWritten = Справочники.Валюты.СформироватьСуммуПрописью(Selection.TotalSomme,Константы.ВалютаРегламентированногоУчета.Получить(),Перечисления.Локализации.fr_CA);
-		TextAmountInWritten = TextAmountInWritten + Символы.ПС +" *** "+ ВРег(AmountInWritten) + " *** ";
-		AreaTabularSectionAmountInWritten.Параметры.AmountInWritten = TextAmountInWritten;
-		Spreadsheet.Put(AreaTabularSectionAmountInWritten);
-		
-		//Spreadsheet.BottomMargin = 10;
-		Для НомерПроверки = 1 по 5 Цикл 
-			МасОбластей = Новый Массив;
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			МасОбластей.Добавить(ОбластьПустаяСтрока);
-			Если СФоном Тогда 
-				МасОбластей.Добавить(ОбластьНизРеквизиты);
-			КонецЕсли;
-			Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
-				Прервать;
-			иначе
-				Spreadsheet.Put(ОбластьПустаяСтрока);
-			КонецЕсли;
-		КонецЦикла;
-		Если СФоном Тогда 
-			Spreadsheet.Put(ОбластьНизРеквизиты);
-		КонецЕсли;
-		
-		Spreadsheet.PutHorizontalPageBreak();
-	EndDo; 
-	
-	Spreadsheet.FitToPage = True;
-	Spreadsheet.ИспользуемоеИмяФайла = РаботаСДокументами.КраткоеПредставлениеДокумента(Док, "Facture");
-	Return Spreadsheet;
-	
-EndFunction
-
-Function PrintFactureEnTete(Док, Spreadsheet, СФоном = Ложь) Export
-	Template = Документы.РеализацияТоваровУслуг.ПолучитьМакет("FactureModelEnTete");
-	Spreadsheet.ФоноваяКартинка = Template.Рисунки.ФоновыйРисунок.Картинка;
-	Query = Новый Запрос(ТекстЗапросаFacture());
-	Query.УстановитьПараметр("Ref", Док);
-	Selection = Query.Выполнить().Выбрать(ОбходРезультатаЗапроса.ПоГруппировкам);
+	Template = Документы.РеализацияТоваровУслуг.ПолучитьМакет("FactureModel");
+	Выборки = ВыборкиFacture(Док);
+	Selection = Выборки.Selection;
 
 	Области = ОбластиМакетаFacture(Template);
 	Spreadsheet.РазмерСтраницы = "A4";
 	Карточки = Новый Соответствие;
 	Пока Selection.Следующий() Цикл
+		ЕстьНДС = (Selection.TotalSommeTVA <> 0);
 		ЗаполнитьШапкуFacture(Области.Header, Selection, Док.Дата, Карточки);
+		ВыводПечатныхФорм.УстановитьЛоготип(Области.Header, Выборки.Логотипы[Selection.Ссылка]);
+		Spreadsheet.Вывести(Области.Header, Selection.Уровень());
+		Spreadsheet.Вывести(Области.TabularSectionHeader);
+		TotalRemise = ВывестиСтрокиFacture(Spreadsheet, Области, Selection);
+		ДобитьСтраницуПустымиСтроками(Spreadsheet, Области.EmptyLine, ОбластиПодвалаFacture(Области, Истина, ЕстьНДС));
+		ВывестиПодвалFacture(Spreadsheet, Области, Selection, Док, TotalRemise, ЕстьНДС);
+		Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
+	КонецЦикла;
+
+	Spreadsheet.АвтоМасштаб = Истина;
+	Spreadsheet.ИспользуемоеИмяФайла = РаботаСДокументами.КраткоеПредставлениеДокумента(Док, "Facture");
+	Возврат Spreadsheet;
+
+EndFunction
+
+Функция ВывестиСтрокиFacture(Spreadsheet, Области, Selection)
+	// Выводит строки документа без области реквизитов внизу страницы; возвращает сумму скидок по строкам.
+	SelectionTabularSection = Selection.Выбрать();
+	TotalRemise = 0;
+	BL = Документы.РеализацияТоваровУслуг.ПустаяСсылка();
+	МасОбластей = МассивОбластей(Области.TabularSection, Области.ПустаяСтрока);
+	Пока SelectionTabularSection.Следующий() Цикл
+		Если BL <> SelectionTabularSection.BL И ЗначениеЗаполнено(SelectionTabularSection.BL) Тогда
+			BL = SelectionTabularSection.BL;
+			Области.LineBC.Параметры.BL = ПредставлениеBL(SelectionTabularSection.BLНомер, SelectionTabularSection.BLДата);
+			Spreadsheet.Вывести(Области.LineBC);
+		КонецЕсли;
+		ЗаполнитьСтрокуFacture(Области.TabularSection, SelectionTabularSection, Selection.БезНДС);
+		Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
+			Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
+			Spreadsheet.Вывести(Области.Header, Selection.Уровень());
+			Spreadsheet.Вывести(Области.TabularSectionHeader, Selection.Уровень());
+		КонецЕсли;
+		Spreadsheet.Вывести(Области.TabularSection, SelectionTabularSection.Уровень());
+		TotalRemise = TotalRemise + SelectionTabularSection.Remise;
+	КонецЦикла;
+	Возврат TotalRemise;
+КонецФункции
+
+Function PrintFactureEnTete(Док, Spreadsheet, СФоном = Ложь) Export
+	Template = Документы.РеализацияТоваровУслуг.ПолучитьМакет("FactureModelEnTete");
+	Выборки = ВыборкиFacture(Док);
+	Selection = Выборки.Selection;
+
+	Области = ОбластиМакетаFacture(Template);
+	Области.Вставить("НизРеквизиты", Template.ПолучитьОбласть("ОбластьНизРеквизиты"));
+	Spreadsheet.РазмерСтраницы = "A4";
+	Карточки = Новый Соответствие;
+	Пока Selection.Следующий() Цикл
+		ЕстьНДС = (Selection.TotalSommeTVA <> 0);
+		ЗаполнитьШапкуFacture(Области.Header, Selection, Док.Дата, Карточки);
+		ВыводПечатныхФорм.УстановитьЛоготип(Области.Header, Выборки.Логотипы[Selection.Ссылка]);
+		Области.НизРеквизиты.Параметры.НижнийКолонтитул = ВыводПечатныхФорм.РеквизитыОрганизацииДляПодвала(
+			Selection.Organisation, Док.Дата, КарточкаКонтрагента(Карточки, Selection.Organisation, Док.Дата));
 		Spreadsheet.Вывести(Области.Header, Selection.Уровень());
 		Spreadsheet.Вывести(Области.TabularSectionHeader);
 		TotalRemise = ВывестиСтрокиFactureEnTete(Spreadsheet, Области, Selection);
 
-		ОбластиПодвала = ОбластиПодвалаFacture(Области, Ложь);
+		ОбластиПодвала = ОбластиПодвалаFacture(Области, Ложь, ЕстьНДС);
 		Если Spreadsheet.ПроверитьВывод(ОбластиПодвала) Тогда
 			// Подвал помещается - прижимаем его к низу страницы пустыми строками (с запасом в две строки).
-			ДобитьСтраницуПустымиСтроками(Spreadsheet, Области.EmptyLine, ОбластиПодвалаFacture(Области, Истина));
+			ДобитьСтраницуПустымиСтроками(Spreadsheet, Области.EmptyLine, ОбластиПодвалаFacture(Области, Истина, ЕстьНДС));
 		Иначе
 			// Подвал не помещается - добиваем страницу, выводим реквизиты и переносим подвал на новую.
 			ДобитьСтраницуПустымиСтроками(Spreadsheet, Области.EmptyLine, МассивОбластей(Области.НизРеквизиты));
@@ -852,7 +696,7 @@ Function PrintFactureEnTete(Док, Spreadsheet, СФоном = Ложь) Export
 		Если Не Spreadsheet.ПроверитьВывод(ОбластиПодвала) Тогда
 			Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
 		КонецЕсли;
-		ВывестиПодвалFacture(Spreadsheet, Области, Selection, Док, TotalRemise);
+		ВывестиПодвалFacture(Spreadsheet, Области, Selection, Док, TotalRemise, ЕстьНДС);
 		Spreadsheet.Вывести(Области.НизРеквизиты);
 		Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
 	КонецЦикла;
@@ -863,9 +707,25 @@ Function PrintFactureEnTete(Док, Spreadsheet, СФоном = Ложь) Export
 
 EndFunction
 
+Функция ВыборкиFacture(Док)
+	// Selection - выборка строк по группировкам (документ - строки), Логотипы - Соответствие документ - логотип.
+	Query = Новый Запрос(ТекстЗапросаFacture());
+	Query.УстановитьПараметр("Ref", Док);
+	Результат = Query.ВыполнитьПакет();
+	Логотипы = Новый Соответствие;
+	Выборка = Результат[2].Выбрать();
+	Пока Выборка.Следующий() Цикл
+		Логотипы.Вставить(Выборка.Ссылка, Выборка.Логотип);
+	КонецЦикла;
+	Выборки = Новый Структура;
+	Выборки.Вставить("Selection", Результат[3].Выбрать(ОбходРезультатаЗапроса.ПоГруппировкам));
+	Выборки.Вставить("Логотипы", Логотипы);
+	Возврат Выборки;
+КонецФункции
+
 Функция ТекстЗапросаFacture()
-	// Текст запроса строк счёта-фактуры по РТУ и налоговой накладной: товары и услуги
-	// с реквизитами шапки, клиента и накладной (BL), с итогами по документу.
+	// Пакет: [0] строки, [1] шапки, [2] логотипы организаций по документам, [3] строки счёта-фактуры
+	// по РТУ и налоговой накладной с реквизитами шапки, клиента и накладной (BL), с итогами по документу.
 	Возврат
 	"ВЫБРАТЬ
 	|	Doc.Ссылка КАК Ссылка,
@@ -989,6 +849,16 @@ EndFunction
 	|////////////////////////////////////////////////////////////////////////////////
 	|ВЫБРАТЬ
 	|	ВТШапка.Ссылка КАК Ссылка,
+	|	Организации.Логотип КАК Логотип
+	|ИЗ
+	|	ВТШапка КАК ВТШапка
+	|		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Организации КАК Организации
+	|		ПО ВТШапка.Организация = Организации.Ссылка
+	|;
+	|
+	|////////////////////////////////////////////////////////////////////////////////
+	|ВЫБРАТЬ
+	|	ВТШапка.Ссылка КАК Ссылка,
 	|	ВТШапка.Ссылка КАК DocRef,
 	|	ВТШапка.Контрагент КАК Client,
 	|	ВТШапка.Ответственный КАК Createur,
@@ -1052,21 +922,24 @@ EndFunction
 	Области.Вставить("AmountInWritten", Template.ПолучитьОбласть("AmountInWritten"));
 	Области.Вставить("LineBC", Template.ПолучитьОбласть("LineBC"));
 	Области.Вставить("ПустаяСтрока", Template.ПолучитьОбласть("ОбластьПустаяСтрока"));
-	Области.Вставить("НизРеквизиты", Template.ПолучитьОбласть("ОбластьНизРеквизиты"));
 	Возврат Области;
 КонецФункции
 
-Функция ОбластиПодвалаFacture(Области, СЗапасом)
+Функция ОбластиПодвалаFacture(Области, СЗапасом, ЕстьНДС)
 	Массив = Новый Массив;
 	Массив.Добавить(Области.FooterSousTotal);
-	Массив.Добавить(Области.FooterTotalTaxe);
-	Массив.Добавить(Области.FooterTotal);
+	Если ЕстьНДС Тогда
+		Массив.Добавить(Области.FooterTotalTaxe);
+		Массив.Добавить(Области.FooterTotal);
+	КонецЕсли;
 	Массив.Добавить(Области.AmountInWritten);
 	Если СЗапасом Тогда
 		Массив.Добавить(Области.ПустаяСтрока);
 		Массив.Добавить(Области.ПустаяСтрока);
 	КонецЕсли;
-	Массив.Добавить(Области.НизРеквизиты);
+	Если Области.Свойство("НизРеквизиты") Тогда
+		Массив.Добавить(Области.НизРеквизиты);
+	КонецЕсли;
 	Возврат Массив;
 КонецФункции
 
@@ -1084,7 +957,7 @@ EndFunction
 	КонецЕсли;
 	Header.Параметры.Client = Client;
 	Header.Параметры.Комментарий = Selection.Комментарий;
-	Header.Параметры.ICE = КарточкаКлиента.Реквизиты.ICE;
+	Header.Параметры.ICE = ?(ЗначениеЗаполнено(КарточкаКлиента.Реквизиты.ICE), "ICE: " + КарточкаКлиента.Реквизиты.ICE, "");
 	Header.Параметры.CodeClient = Selection.КодКлиента;
 КонецПроцедуры
 
@@ -1118,7 +991,7 @@ EndFunction
 Процедура ЗаполнитьСтрокуFacture(Область, Стр, БезНДС)
 	Область.Параметры.Заполнить(Стр);
 	Область.Параметры.ID = Стр.Артикул;
-	Область.Параметры.Descriptif = Стр.Produit;
+	Область.Параметры.Descriptif = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(Стр.Produit, "", , Истина);
 	Область.Параметры.TauxTVA = Стр.TVA;
 	Область.Параметры.TVA = Стр.SommeTVA;
 	Если БезНДС Тогда
@@ -1128,7 +1001,7 @@ EndFunction
 	КонецЕсли;
 КонецПроцедуры
 
-Процедура ВывестиПодвалFacture(Spreadsheet, Области, Selection, Док, TotalRemise)
+Процедура ВывестиПодвалFacture(Spreadsheet, Области, Selection, Док, TotalRemise, ЕстьНДС)
 	Devise = Selection.Devise;
 	Области.FooterSousTotal.Параметры.SousTotal = ФорматСуммы(Selection.TotalSomme - Selection.TotalSommeTVA, Devise);
 	СпособОплаты = РаботаСДокументами.ПолучитьСпособОплаты(Док);
@@ -1141,10 +1014,13 @@ EndFunction
 		Области.FooterRemise.Параметры.Remise = ФорматСуммы(TotalRemise, Devise);
 		Spreadsheet.Вывести(Области.FooterRemise);
 	КонецЕсли;
-	Области.FooterTotalTaxe.Параметры.TotalTaxe = ФорматСуммы(Selection.TotalSommeTVA, Devise);
-	Spreadsheet.Вывести(Области.FooterTotalTaxe);
-	Области.FooterTotal.Параметры.Total = ФорматСуммы(Selection.TotalSomme, Devise);
-	Spreadsheet.Вывести(Области.FooterTotal);
+	Если ЕстьНДС Тогда
+		// При нулевом НДС строки «TOTAL T.V.A.» и «TOTAL T.T.C.» не выводятся - итог равен сумме без НДС.
+		Области.FooterTotalTaxe.Параметры.TotalTaxe = ФорматСуммы(Selection.TotalSommeTVA, Devise);
+		Spreadsheet.Вывести(Области.FooterTotalTaxe);
+		Области.FooterTotal.Параметры.Total = ФорматСуммы(Selection.TotalSomme, Devise);
+		Spreadsheet.Вывести(Области.FooterTotal);
+	КонецЕсли;
 	Области.AmountInWritten.Параметры.AmountInWritten = СуммаСчетаПрописью(Selection.TotalSomme);
 	Spreadsheet.Вывести(Области.AmountInWritten);
 КонецПроцедуры
