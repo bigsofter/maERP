@@ -117,8 +117,8 @@
   <realTimePosting>Deny</realTimePosting>
   <registerRecords>AccumulationRegister.ДвиженияДенежныхСредств</registerRecords>
   <registerRecords>AccumulationRegister.ДенежныеСредстваОрганизаций</registerRecords>
-  <registerRecords>AccumulationRegister.ВзаиморасчётыСПоставщиками</registerRecords>
-  <registerRecords>AccumulationRegister.ВзаиморасчётыСПокупателямиНалоговый</registerRecords>
+  <registerRecords>AccumulationRegister.ВзаиморасчётыСПоcтавщикамиНалоговый</registerRecords>
+  <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <attributes uuid="5c9a6928-2af2-4ce0-a2eb-926e36c00978">
@@ -283,6 +283,7 @@
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
     <fillValue xsi:type="core:ReferenceValue">
       <value>Catalog.МестаХранения.EmptyRef</value>
     </fillValue>
@@ -873,8 +874,19 @@
       </choiceParameters>
       <choiceParameters>
         <name>Отбор.ТипНоменклатуры</name>
-        <value xsi:type="core:ReferenceValue">
-          <value>Enum.ТипыНоменклатуры.EnumValue.Товар</value>
+        <value xsi:type="core:FixedArrayValue">
+          <values xsi:type="core:ReferenceValue">
+            <value>Enum.ТипыНоменклатуры.EnumValue.Товар</value>
+          </values>
+          <values xsi:type="core:ReferenceValue">
+            <value>Enum.ТипыНоменклатуры.EnumValue.Продукция</value>
+          </values>
+          <values xsi:type="core:ReferenceValue">
+            <value>Enum.ТипыНоменклатуры.EnumValue.Полуфабрикат</value>
+          </values>
+          <values xsi:type="core:ReferenceValue">
+            <value>Enum.ТипыНоменклатуры.EnumValue.Сырье</value>
+          </values>
         </value>
       </choiceParameters>
       <dataHistory>Use</dataHistory>
