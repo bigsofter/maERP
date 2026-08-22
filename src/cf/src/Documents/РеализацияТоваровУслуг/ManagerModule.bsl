@@ -250,7 +250,7 @@
 	Для Каждого Стр Из ТЗ Цикл
 		оСтрока = Макет.ПолучитьОбласть("Строка"); 
 		оСтрока.Параметры.Заполнить(Стр);
-		оСтрока.Параметры.Номенклатура = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(Стр.Номенклатура, Стр.Содержание);
+		оСтрока.Параметры.Номенклатура = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(Стр.Номенклатура, Стр.Содержание, , Истина);
 		оСтрока.Параметры.ЕдиницаИзмерения = Стр.Номенклатура.Единица;
 		Таб.Вывести(оСтрока);
 	КонецЦикла;
@@ -505,7 +505,8 @@ Function PrintFactureOld(Док, Spreadsheet) Export
 		SelectionTabularSection = Selection.Select();
 		While SelectionTabularSection.Next() Do
 			AreaTabularSection.Parameters.Fill(SelectionTabularSection);
-			AreaTabularSection.Parameters.Descriptif = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(SelectionTabularSection.Produit,"");
+			AreaTabularSection.Parameters.Descriptif = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(
+				SelectionTabularSection.Produit, "", , Истина);
 			AreaTabularSection.Parameters.Prix = SelectionTabularSection.Prix;
 			AreaTabularSection.Parameters.TauxTVA = SelectionTabularSection.TVA;
 			AreaTabularSection.Parameters.TVA = SelectionTabularSection.SommeTVA;
@@ -1750,7 +1751,8 @@ Function PrintDevisBL(Док, Spreadsheet, НазваниеДокумента = 
 			НомерСтроки = НомерСтроки+1;
 			AreaTabularSection.Parameters.Fill(SelectionTabularSection);
 			AreaTabularSection.Parameters.LineNumber = НомерСтроки;
-			AreaTabularSection.Parameters.Descriptif = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(SelectionTabularSection.Produit,"");
+			AreaTabularSection.Parameters.Descriptif = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(
+				SelectionTabularSection.Produit, "", , Истина);
 			AreaTabularSection.Parameters.Prix = ?(БезЦен, 0, SelectionTabularSection.Prix);
 			AreaTabularSection.Parameters.Prix = ?(БезЦен, 0, SelectionTabularSection.Prix);
 			AreaTabularSection.Parameters.Somme = ?(БезЦен, 0, SelectionTabularSection.Somme);
