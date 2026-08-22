@@ -15,6 +15,7 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	НадписьИнформацияОТоваре = "";
 	НадписьТекущаяСумма = "";
 	ImprimerFacture = Constants.ImprimerFactureVentesEnDetail.Get();
+	ImprimerBL = Константы.ImprimerBL.Получить();
 	ВыводитьЧекНаЭкрнПередПечатью = Constants.ВыводитьЧекНаЭкрнПередПечатью.Get();
 	НадписьСдача = НСтр("fr = 'RETOUR'; ru = 'СДАЧА'; en = 'change'; es = 'DEPÓSITO'");
 	КассоваяСмена = НайтиОткрытуюСмену();
@@ -350,9 +351,9 @@ Procedure AfterPayment(ResultOfEdit,AdParameters) Export
 		Возврат;
 	КонецЕсли;
 	
-	If ImprimerFacture And CurFacture <> PredefinedValue("Документ.РеализацияТоваровУслуг.ПустаяСсылка") Then
+	If (ImprimerFacture Или ImprimerBL) And CurFacture <> PredefinedValue("Документ.РеализацияТоваровУслуг.ПустаяСсылка") Then
 		Spreadsheet = New SpreadsheetDocument;
-		Печатать = Истина;
+		Печатать = ImprimerFacture;
 		Если ЭтоВозврат И Не ДокВозврат = ПредопределенноеЗначение("Документ.ВозвратОтПокупателя.ПустаяСсылка") Тогда 
 			PrintAtServer(ДокВозврат,Spreadsheet);
 			Таб = Новый ТабличныйДокумент;
@@ -360,12 +361,11 @@ Procedure AfterPayment(ResultOfEdit,AdParameters) Export
 			ВыводПечатныхФормКлиент.ОткрытьПредварительныйПросмотр(Таб);
 		ИначеЕсли (ЭтоПродажа или ЭтоКредит) и не CurFacture = PredefinedValue("Документ.РеализацияТоваровУслуг.ПустаяСсылка") Then
 			PrintAtServer(CurFacture,Spreadsheet);
-			Если ЭтоКредит Тогда 
-				Если ЗначениеЗаполнено(CurFacture) Тогда
-					Таб = Новый ТабличныйДокумент;
-					ПечатьОтгрузкиТоваровНаСервере(Таб);
-					ВыводПечатныхФормКлиент.ОткрытьПредварительныйПросмотр(Таб);
-				КонецЕсли;
+			// Накладная (BL) печатается при включённой константе ImprimerBL для любой продажи, а не только в кредит.
+			Если ImprimerBL И ЗначениеЗаполнено(CurFacture) Тогда
+				Таб = Новый ТабличныйДокумент;
+				ПечатьОтгрузкиТоваровНаСервере(Таб);
+				ВыводПечатныхФормКлиент.ОткрытьПредварительныйПросмотр(Таб);
 			КонецЕсли;
 		Иначе
 			Печатать = Ложь;
