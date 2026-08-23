@@ -95,6 +95,42 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>КодДляПоиска</name>
+      <id>49</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.КодДляПоиска</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>КодДляПоискаРасширеннаяПодсказка</name>
+        <id>50</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КодДляПоискаКонтекстноеМеню</name>
+        <id>51</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>Наименование</name>
       <id>16</id>
       <visible>true</visible>
@@ -564,6 +600,7 @@
       <queryText>ВЫБРАТЬ
 	СправочникКонтрагенты.Ссылка КАК Ссылка,
 	СправочникКонтрагенты.Код КАК Код,
+	СправочникКонтрагенты.КодДляПоиска КАК КодДляПоиска,
 	СправочникКонтрагенты.Наименование КАК Наименование,
 	СправочникКонтрагенты.НаименованиеПолное КАК НаименованиеПолное,
 	СправочникКонтрагенты.ICE КАК ICE,
@@ -709,6 +746,10 @@
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>УсловияОплаты</dataPath>
         <field>УсловияОплаты</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>КодДляПоиска</dataPath>
+        <field>КодДляПоиска</field>
       </fields>
       <parameters>
         <name>Контрагент</name>

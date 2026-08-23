@@ -531,6 +531,82 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>СуммаБезНДС</name>
+      <id>107</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.СуммаБезНДС</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>СуммаБезНДСРасширеннаяПодсказка</name>
+        <id>108</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>СуммаБезНДСКонтекстноеМеню</name>
+        <id>109</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <width>12</width>
+        <maxWidth>12</maxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>СуммаНДС</name>
+      <id>110</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.СуммаНДС</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>СуммаНДСРасширеннаяПодсказка</name>
+        <id>111</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>СуммаНДСКонтекстноеМеню</name>
+        <id>112</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <width>12</width>
+        <maxWidth>12</maxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>Долг</name>
       <id>104</id>
       <visible>true</visible>
@@ -855,6 +931,8 @@
 	ДокументЗаказПокупателя.Организация КАК Организация,
 	ДокументЗаказПокупателя.Ответственный КАК Ответственный,
 	ДокументЗаказПокупателя.Сумма КАК Сумма,
+	ДокументЗаказПокупателя.СуммаНДС КАК СуммаНДС,
+	ДокументЗаказПокупателя.СуммаБезНДС КАК СуммаБезНДС,
 	ДокументЗаказПокупателя.ECommerce КАК ECommerce,
 	ДокументЗаказПокупателя.Доставлен КАК Доставлен,
 	ДокументЗаказПокупателя.НомерВходящегоДокументаЭлектронногоОбмена КАК НомерВходящегоДокументаЭлектронногоОбмена,
@@ -1144,6 +1222,14 @@
             </content>
           </localValue>
         </title>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>СуммаНДС</dataPath>
+        <field>СуммаНДС</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>СуммаБезНДС</dataPath>
+        <field>СуммаБезНДС</field>
       </fields>
       <parameters>
         <name>Период</name>
