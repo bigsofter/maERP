@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6e84eaf3-a9bb-472b-8d8f-5430468a814e">
+  <producedTypes>
+    <selectionType typeId="1ac8e72f-e784-406b-a72a-e25d62a5178f" valueTypeId="c724822d-1958-46e6-a141-184ae24f73ed"/>
+    <listType typeId="856a4383-d9c1-41d4-9240-ae0a09a78937" valueTypeId="803b1f47-08ba-4996-864a-07d7efd567b1"/>
+    <managerType typeId="7c986f1c-4fa8-4e13-825f-b3eba431a39d" valueTypeId="2ff2e17e-85f7-48c1-a26e-12c7c57e6dd8"/>
+    <recordSetType typeId="9646e57d-5faa-4797-8056-aad6c3d8217a" valueTypeId="e9f300fc-777d-4f38-8edf-f868726c4bcf"/>
+    <recordKeyType typeId="2f56ded6-b106-4acc-816f-dbd2b55e21a0" valueTypeId="c9ae3622-3702-45b4-b397-27a8dbc406b5"/>
+    <recordType typeId="9c5c993f-15f0-4dda-970b-0d0528fb1ada" valueTypeId="9be613fb-7498-4748-a460-719aa80d2285"/>
+    <recordManagerType typeId="a43d40f6-fc47-4857-9d46-6a4841f90e77" valueTypeId="2234a6b8-835e-44c8-9b05-09c34324a2f5"/>
+  </producedTypes>
+  <name>ЦеныПродажи</name>
+  <synonym>
+    <key>ru</key>
+    <value>Цены продажи</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Prix de vente</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Sales prices</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Precios de venta</value>
+  </synonym>
+  <comment>Фиксированные цены по контрагенту; запись с пустым контрагентом - цена по умолчанию</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="9302cfb0-968b-465f-bfa6-2aea47f5f192">
+    <name>Цена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Цена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Prix</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Price</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Precio</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СуммаНеотрицательная</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="7f6a06d4-58c8-49b5-8fb0-3bb52c5cd7d3">
+    <name>ЦенаВключаетНДС</name>
+    <synonym>
+      <key>ru</key>
+      <value>Цена включает НДС</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>TVA incluse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>VAT included</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>IVA incluido</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:BooleanValue"/>
+  </attributes>
+  <dimensions uuid="089425a8-3c45-4635-8fc6-9a90fd752b39">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Покупатель</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Acheteur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Buyer</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comprador</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Пустой контрагент - цена по умолчанию для всех</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Contrepartie vide : prix par défaut pour tous</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Empty counterparty: default price for everyone</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Contraparte vacía: precio predeterminado para todos</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="77891f3b-70d0-452e-b7c1-12d0cb396561">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nomenclatura</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

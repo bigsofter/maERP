@@ -2196,6 +2196,60 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
+          <items xsi:type="form:FormField">
+            <name>ТЧТоварыПроцентНаценкиНаЦену</name>
+            <id>489</id>
+            <title>
+              <key>ru</key>
+              <value>Наценка, %</value>
+              <key>fr</key>
+              <value>Majoration, %</value>
+              <key>en</key>
+              <value>Markup, %</value>
+              <key>es</key>
+              <value>Margen, %</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Объект.ТЧТовары.ПроцентНаценкиНаЦену</segments>
+            </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>ТЧТоварыПроцентНаценкиНаЦенуПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ТЧТоварыПроцентНаценкиНаЦенуРасширеннаяПодсказка</name>
+              <id>490</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ТЧТоварыПроцентНаценкиНаЦенуКонтекстноеМеню</name>
+              <id>491</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>InputField</type>
+            <editMode>EnterOnInput</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Center</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:InputFieldExtInfo">
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <wrap>true</wrap>
+              <chooseType>true</chooseType>
+              <typeDomainEnabled>true</typeDomainEnabled>
+              <textEdit>true</textEdit>
+            </extInfo>
+          </items>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -5409,6 +5463,35 @@
         <id>3</id>
         <valueType>
           <types>DefinedType.Количество</types>
+        </valueType>
+        <view>
+          <common>true</common>
+        </view>
+        <edit>
+          <common>true</common>
+        </edit>
+      </columns>
+      <columns>
+        <name>ПроцентНаценкиНаЦену</name>
+        <title>
+          <key>ru</key>
+          <value>Наценка, %</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Majoration, %</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Markup, %</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Margen, %</value>
+        </title>
+        <id>4</id>
+        <valueType>
+          <types>DefinedType.ПроцентСкидки</types>
         </valueType>
         <view>
           <common>true</common>
