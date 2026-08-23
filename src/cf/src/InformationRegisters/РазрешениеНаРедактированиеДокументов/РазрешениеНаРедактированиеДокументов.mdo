@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="24ac4b57-b4a1-42f5-91da-71b8bf28c1e5">
+  <producedTypes>
+    <selectionType typeId="c3679e04-1355-4359-9d21-a4c2b1a49483" valueTypeId="a4c3f6de-8355-436e-a15f-078027b5e5e6"/>
+    <listType typeId="30761f57-90b6-4c8a-b6cd-c0f7bd3b0e01" valueTypeId="c86dbd75-2fbe-45a5-b358-1d0dc93df9e3"/>
+    <managerType typeId="d43e0f9e-25a2-4331-8783-c6d92bbe6e75" valueTypeId="10389d15-3b39-4b90-965e-3a5ab8330a20"/>
+    <recordSetType typeId="c5cbf617-9a9c-42f0-af75-f9875132c9a8" valueTypeId="dab8dd9d-2b17-4ffe-a5a9-3f0a45907c4a"/>
+    <recordKeyType typeId="8b62aeb1-6ecb-406f-93e2-4a0a4a913dd8" valueTypeId="4d40ee2c-1cd5-4d84-b2e5-3b0e3ca1b57b"/>
+    <recordType typeId="4a20c8d9-72b3-4d64-8e10-a83f2ff17dba" valueTypeId="d8fdbe98-4d17-4a35-93f0-de6bd2c86df1"/>
+    <recordManagerType typeId="0f61a2e9-8e0a-4c2c-8ede-9e4a75ec89c9" valueTypeId="98fcd3b1-7c23-4bc7-9d1c-5e91e2c9b13d"/>
+  </producedTypes>
+  <name>РазрешениеНаРедактированиеДокументов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Разрешения на редактирование документов</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Autorisations de modification des documents</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Document editing permissions</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Permisos de edición de documentos</value>
+  </synonym>
+  <comment>Разовое разрешение пользователю отредактировать документ в закрытом периоде; гаснет после записи документа</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <defaultRecordForm>InformationRegister.РазрешениеНаРедактированиеДокументов.Form.ФормаЗаписи</defaultRecordForm>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="43958d10-6597-4ad8-846a-4c7d345d448b">
+    <name>КтоРазрешил</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кто разрешил</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Autorisé par</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Authorized by</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Autorizado por</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="26e98c35-250b-445f-9b95-2bdd2ef0d21f">
+    <name>ДатаРазрешения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата разрешения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date d'autorisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Authorization date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha de autorización</value>
+    </synonym>
+    <type>
+      <types>DateTime</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="a36f1811-8dcf-4505-a9ec-c588bd5254ea">
+    <name>ДатаИспользования</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата использования</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date d'utilisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Usage date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha de uso</value>
+    </synonym>
+    <type>
+      <types>DateTime</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="56f280e2-da36-4a47-b0f9-aa043f594d40">
+    <name>Разрешено</name>
+    <synonym>
+      <key>ru</key>
+      <value>Разрешено</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Autorisé</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Allowed</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Permitido</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:BooleanValue"/>
+  </resources>
+  <dimensions uuid="ddd62894-8d5c-4a37-ab34-51d562871e4d">
+    <name>РедактируемыйДокумент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Document</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Document</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documento</value>
+    </synonym>
+    <type>
+      <types>DocumentRef</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="91d98ee7-8d2e-4ba4-b051-d1b6de999722">
+    <name>Пользователь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Пользователь</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Utilisateur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>User</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Usuario</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="478477d2-aebf-4a0a-ba3b-cbfa44b7fb76">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire d'enregistrement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Record form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de registro</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:InformationRegister>

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентКодДляПоиска</dataPath>
+			<field>КонтрагентКодДляПоиска</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Code</v8:content>
+				</v8:item>
+			<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Code</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Código</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС</dataPath>
+			<field>СуммаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Document</v8:content>
+				</v8:item>
+			<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Documento</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипОперации</dataPath>
+			<field>ТипОперации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип операции</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Opération</v8:content>
+				</v8:item>
+			<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Operation type</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Tipo de operación</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВозвратОтПокупателяТЧТовары.Ссылка.Номер КАК Номер,
+	ВозвратОтПокупателяТЧТовары.Ссылка.Дата КАК Дата,
+	ВозвратОтПокупателяТЧТовары.Ссылка.Контрагент.КодДляПоиска КАК КонтрагентКодДляПоиска,
+	ВозвратОтПокупателяТЧТовары.Ссылка.Контрагент КАК Контрагент,
+	ВозвратОтПокупателяТЧТовары.Номенклатура КАК Номенклатура,
+	ВозвратОтПокупателяТЧТовары.Количество КАК Количество,
+	ВозвратОтПокупателяТЧТовары.Цена КАК Цена,
+	ВозвратОтПокупателяТЧТовары.Сумма КАК Сумма,
+	ВозвратОтПокупателяТЧТовары.СуммаНДС КАК СуммаНДС,
+	ВозвратОтПокупателяТЧТовары.Ссылка КАК Ссылка,
+	ТИПЗНАЧЕНИЯ(ВозвратОтПокупателяТЧТовары.Ссылка) КАК ТипОперации
+ИЗ
+	Документ.ВозвратОтПокупателя.ТЧТовары КАК ВозвратОтПокупателяТЧТовары
+ГДЕ
+	ВозвратОтПокупателяТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВозвратОтПокупателяНалоговыйТЧТовары.Ссылка.Номер,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Ссылка.Дата,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Ссылка.Контрагент,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Номенклатура,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Количество,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Цена,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Сумма,
+	ВозвратОтПокупателяНалоговыйТЧТовары.СуммаНДС,
+	ВозвратОтПокупателяНалоговыйТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(ВозвратОтПокупателяНалоговыйТЧТовары.Ссылка)
+ИЗ
+	Документ.ВозвратОтПокупателяНалоговый.ТЧТовары КАК ВозвратОтПокупателяНалоговыйТЧТовары
+ГДЕ
+	ВозвратОтПокупателяНалоговыйТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВозвратПоставщикуТЧТовары.Ссылка.Номер,
+	ВозвратПоставщикуТЧТовары.Ссылка.Дата,
+	ВозвратПоставщикуТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	ВозвратПоставщикуТЧТовары.Ссылка.Контрагент,
+	ВозвратПоставщикуТЧТовары.Номенклатура,
+	ВозвратПоставщикуТЧТовары.Количество,
+	ВозвратПоставщикуТЧТовары.Цена,
+	ВозвратПоставщикуТЧТовары.Сумма,
+	ВозвратПоставщикуТЧТовары.СуммаНДС,
+	ВозвратПоставщикуТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(ВозвратПоставщикуТЧТовары.Ссылка)
+ИЗ
+	Документ.ВозвратПоставщику.ТЧТовары КАК ВозвратПоставщикуТЧТовары
+ГДЕ
+	ВозвратПоставщикуТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВозвратПоставщикуНалоговыйТЧТовары.Ссылка.Номер,
+	ВозвратПоставщикуНалоговыйТЧТовары.Ссылка.Дата,
+	ВозвратПоставщикуНалоговыйТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	ВозвратПоставщикуНалоговыйТЧТовары.Ссылка.Контрагент,
+	ВозвратПоставщикуНалоговыйТЧТовары.Номенклатура,
+	ВозвратПоставщикуНалоговыйТЧТовары.Количество,
+	ВозвратПоставщикуНалоговыйТЧТовары.Цена,
+	ВозвратПоставщикуНалоговыйТЧТовары.Сумма,
+	ВозвратПоставщикуНалоговыйТЧТовары.СуммаНДС,
+	ВозвратПоставщикуНалоговыйТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(ВозвратПоставщикуНалоговыйТЧТовары.Ссылка)
+ИЗ
+	Документ.ВозвратПоставщикуНалоговый.ТЧТовары КАК ВозвратПоставщикуНалоговыйТЧТовары
+ГДЕ
+	ВозвратПоставщикуНалоговыйТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЗаказПокупателяТЧТовары.Ссылка.Номер,
+	ЗаказПокупателяТЧТовары.Ссылка.Дата,
+	ЗаказПокупателяТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	ЗаказПокупателяТЧТовары.Ссылка.Контрагент,
+	ЗаказПокупателяТЧТовары.Номенклатура,
+	ЗаказПокупателяТЧТовары.Количество,
+	ЗаказПокупателяТЧТовары.Цена,
+	ЗаказПокупателяТЧТовары.Сумма,
+	ЗаказПокупателяТЧТовары.СуммаНДС,
+	ЗаказПокупателяТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(ЗаказПокупателяТЧТовары.Ссылка)
+ИЗ
+	Документ.ЗаказПокупателя.ТЧТовары КАК ЗаказПокупателяТЧТовары
+ГДЕ
+	ЗаказПокупателяТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЗаказПоставщикуТЧТовары.Ссылка.Номер,
+	ЗаказПоставщикуТЧТовары.Ссылка.Дата,
+	ЗаказПоставщикуТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	ЗаказПоставщикуТЧТовары.Ссылка.Контрагент,
+	ЗаказПоставщикуТЧТовары.Номенклатура,
+	ЗаказПоставщикуТЧТовары.Количество,
+	ЗаказПоставщикуТЧТовары.Цена,
+	ЗаказПоставщикуТЧТовары.Сумма,
+	ЗаказПоставщикуТЧТовары.СуммаНДС,
+	ЗаказПоставщикуТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(ЗаказПоставщикуТЧТовары.Ссылка)
+ИЗ
+	Документ.ЗаказПоставщику.ТЧТовары КАК ЗаказПоставщикуТЧТовары
+ГДЕ
+	ЗаказПоставщикуТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	НалоговаяНакладнаяТЧТовары.Ссылка.Номер,
+	НалоговаяНакладнаяТЧТовары.Ссылка.Дата,
+	НалоговаяНакладнаяТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	НалоговаяНакладнаяТЧТовары.Ссылка.Контрагент,
+	НалоговаяНакладнаяТЧТовары.Номенклатура,
+	НалоговаяНакладнаяТЧТовары.Количество,
+	НалоговаяНакладнаяТЧТовары.Цена,
+	НалоговаяНакладнаяТЧТовары.Сумма,
+	НалоговаяНакладнаяТЧТовары.СуммаНДС,
+	НалоговаяНакладнаяТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(НалоговаяНакладнаяТЧТовары.Ссылка)
+ИЗ
+	Документ.НалоговаяНакладная.ТЧТовары КАК НалоговаяНакладнаяТЧТовары
+ГДЕ
+	НалоговаяНакладнаяТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	НалоговаяНакладнаяПокупкаТЧТовары.Ссылка.Номер,
+	НалоговаяНакладнаяПокупкаТЧТовары.Ссылка.Дата,
+	НалоговаяНакладнаяПокупкаТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	НалоговаяНакладнаяПокупкаТЧТовары.Ссылка.Контрагент,
+	НалоговаяНакладнаяПокупкаТЧТовары.Номенклатура,
+	НалоговаяНакладнаяПокупкаТЧТовары.Количество,
+	НалоговаяНакладнаяПокупкаТЧТовары.Цена,
+	НалоговаяНакладнаяПокупкаТЧТовары.Сумма,
+	НалоговаяНакладнаяПокупкаТЧТовары.СуммаНДС,
+	НалоговаяНакладнаяПокупкаТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(НалоговаяНакладнаяПокупкаТЧТовары.Ссылка)
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка.ТЧТовары КАК НалоговаяНакладнаяПокупкаТЧТовары
+ГДЕ
+	НалоговаяНакладнаяПокупкаТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОприходованиеТоваровТЧТовары.Ссылка.Номер,
+	ОприходованиеТоваровТЧТовары.Ссылка.Дата,
+	NULL,
+	NULL,
+	ОприходованиеТоваровТЧТовары.Номенклатура,
+	ОприходованиеТоваровТЧТовары.Количество,
+	ОприходованиеТоваровТЧТовары.Цена,
+	ОприходованиеТоваровТЧТовары.Сумма,
+	ОприходованиеТоваровТЧТовары.СуммаНДС,
+	ОприходованиеТоваровТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(ОприходованиеТоваровТЧТовары.Ссылка)
+ИЗ
+	Документ.ОприходованиеТоваров.ТЧТовары КАК ОприходованиеТоваровТЧТовары
+ГДЕ
+	ОприходованиеТоваровТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ПоступлениеТоваровУслугТЧТовары.Ссылка.Номер,
+	ПоступлениеТоваровУслугТЧТовары.Ссылка.Дата,
+	ПоступлениеТоваровУслугТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	ПоступлениеТоваровУслугТЧТовары.Ссылка.Контрагент,
+	ПоступлениеТоваровУслугТЧТовары.Номенклатура,
+	ПоступлениеТоваровУслугТЧТовары.Количество,
+	ПоступлениеТоваровУслугТЧТовары.Цена,
+	ПоступлениеТоваровУслугТЧТовары.Сумма,
+	ПоступлениеТоваровУслугТЧТовары.СуммаНДС,
+	ПоступлениеТоваровУслугТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(ПоступлениеТоваровУслугТЧТовары.Ссылка)
+ИЗ
+	Документ.ПоступлениеТоваровУслуг.ТЧТовары КАК ПоступлениеТоваровУслугТЧТовары
+ГДЕ
+	ПоступлениеТоваровУслугТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	РеализацияТоваровУслугТЧТовары.Ссылка.Номер,
+	РеализацияТоваровУслугТЧТовары.Ссылка.Дата,
+	РеализацияТоваровУслугТЧТовары.Ссылка.Контрагент.КодДляПоиска,
+	РеализацияТоваровУслугТЧТовары.Ссылка.Контрагент,
+	РеализацияТоваровУслугТЧТовары.Номенклатура,
+	РеализацияТоваровУслугТЧТовары.Количество,
+	РеализацияТоваровУслугТЧТовары.Цена,
+	РеализацияТоваровУслугТЧТовары.Сумма,
+	РеализацияТоваровУслугТЧТовары.СуммаНДС,
+	РеализацияТоваровУслугТЧТовары.Ссылка,
+	ТИПЗНАЧЕНИЯ(РеализацияТоваровУслугТЧТовары.Ссылка)
+ИЗ
+	Документ.РеализацияТоваровУслуг.ТЧТовары КАК РеализацияТоваровУслугТЧТовары
+ГДЕ
+	РеализацияТоваровУслугТЧТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+УПОРЯДОЧИТЬ ПО
+	Дата</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Début de période</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period start</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Inicio del período</v8:content>
+			</v8:item>
+		<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Начало периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Начало периода</v8:content>
+				</v8:item>
+			</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>НачалоПериода(&amp;НачалоПериода, "ДЕНЬ")</expression>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Fin de période</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period end</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Fin del período</v8:content>
+			</v8:item>
+		<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Конец периода</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Конец периода</v8:content>
+				</v8:item>
+			</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>КонецПериода(&amp;КонецПериода, "ДЕНЬ")</expression>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Default</dcsset:presentation>
+		<dcsset:settings xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипОперации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтрагентКодДляПоиска</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Цена</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fa3d9aa8-0085-4e1f-b6fb-ea6c19aef31b</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e13bdbb6-af37-4494-b13b-4ee98aa93448</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипОперации</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>29a93a49-d73f-437c-8bb2-e5466c49305e</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Арктика</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
