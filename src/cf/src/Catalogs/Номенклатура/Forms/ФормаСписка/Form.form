@@ -601,6 +601,110 @@
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
+        <name>ЦенаЗакупки</name>
+        <id>190</id>
+        <title>
+          <key>ru</key>
+          <value>Цена закупки</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Prix d'achat</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Purchase price</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Precio de compra</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Список.ЦенаЗакупки</segments>
+        </dataPath>
+        <extendedTooltip>
+          <name>ЦенаЗакупкиРасширеннаяПодсказка</name>
+          <id>192</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ЦенаЗакупкиКонтекстноеМеню</name>
+          <id>191</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>LabelField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Center</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:LabelFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>РозничнаяЦена</name>
+        <id>193</id>
+        <title>
+          <key>ru</key>
+          <value>Розничная цена</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Prix de vente</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Retail price</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Precio de venta</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Список.РозничнаяЦена</segments>
+        </dataPath>
+        <extendedTooltip>
+          <name>РозничнаяЦенаРасширеннаяПодсказка</name>
+          <id>195</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>РозничнаяЦенаКонтекстноеМеню</name>
+          <id>194</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>LabelField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Center</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:LabelFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
         <name>ЯчейкиСтрокой</name>
         <id>169</id>
         <title>
@@ -978,7 +1082,9 @@
 	СправочникНоменклатура.КодПроизводителя КАК КодПроизводителя,
 	ЕСТЬNULL(ПродажиОбороты.КоличествоОборот, 0) КАК Продажи,
 	СправочникНоменклатура.ОсновнойПоставщик КАК ОсновнойПоставщик,
-	ЕСТЬNULL(ПрисоединённыеФайлыНаличие.ЕстьФайлы, ЛОЖЬ) КАК ЕстьФайлы
+	ЕСТЬNULL(ПрисоединённыеФайлыНаличие.ЕстьФайлы, ЛОЖЬ) КАК ЕстьФайлы,
+	ЕСТЬNULL(ЦеныПоставщика.ЦенаЕдиницыХранения, 0) КАК ЦенаЗакупки,
+	ЕСТЬNULL(ЦеныРозничные.Цена, 0) КАК РозничнаяЦена
 ИЗ
 	Справочник.Номенклатура КАК СправочникНоменклатура
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыВНаличии.Остатки(, МестоХранения = &amp;МестоХранения) КАК ТоварыВНаличииОстатки
@@ -987,6 +1093,11 @@
 		ПО СправочникНоменклатура.Ссылка = ПродажиОбороты.Номенклатура
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПрисоединённыеФайлыНаличие КАК ПрисоединённыеФайлыНаличие
 		ПО СправочникНоменклатура.Ссылка = ПрисоединённыеФайлыНаличие.Объект
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЦеныНоменклатурыПоставщиков.СрезПоследних(, Характеристика = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка)) КАК ЦеныПоставщика
+		ПО СправочникНоменклатура.Ссылка = ЦеныПоставщика.Номенклатура
+			И СправочникНоменклатура.ОсновнойПоставщик = ЦеныПоставщика.Контрагент
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЦеныНоменклатуры.СрезПоследних(, ВидЦены = ЗНАЧЕНИЕ(Справочник.ВидыЦен.Розничная) И Характеристика = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка) И ТоварнаяГруппа = ЗНАЧЕНИЕ(Справочник.ТоварныеГруппы.ПустаяСсылка)) КАК ЦеныРозничные
+		ПО СправочникНоменклатура.Ссылка = ЦеныРозничные.Номенклатура
 ГДЕ
 	ВЫБОР
 			КОГДА &amp;ТипыНоменклатурыУстановлены
@@ -1077,6 +1188,50 @@
             </parameter>
             <values xsi:type="core:StringValue">
               <value>ЧН=0</value>
+            </values>
+          </items>
+        </appearance>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>ЦенаЗакупки</dataPath>
+        <field>ЦенаЗакупки</field>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Цена закупки</value>
+            </content>
+          </localValue>
+        </title>
+        <appearance>
+          <items xsi:type="settings:SettingsParameterValue">
+            <parameter>
+              <value>Format</value>
+            </parameter>
+            <values xsi:type="core:StringValue">
+              <value>ЧДЦ=2; ЧН=</value>
+            </values>
+          </items>
+        </appearance>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>РозничнаяЦена</dataPath>
+        <field>РозничнаяЦена</field>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Розничная цена</value>
+            </content>
+          </localValue>
+        </title>
+        <appearance>
+          <items xsi:type="settings:SettingsParameterValue">
+            <parameter>
+              <value>Format</value>
+            </parameter>
+            <values xsi:type="core:StringValue">
+              <value>ЧДЦ=2; ЧН=</value>
             </values>
           </items>
         </appearance>
