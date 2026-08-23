@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="ad48af5f-9355-4a26-bf8e-378d83a00f3a">
+  <producedTypes>
+    <selectionType typeId="082d5c00-feb6-4d34-8259-3d446ffbfbab" valueTypeId="be7a75de-7073-4e6c-b041-01fbcdbe8086"/>
+    <listType typeId="4db9704e-f03d-4c70-8b8c-49b615379be6" valueTypeId="1eb6347d-58c6-437c-a88b-0b7ab1c5a638"/>
+    <managerType typeId="d6851d3a-db09-4ec6-824b-4ca8e28fba53" valueTypeId="74b5a96f-84b3-4a5c-8e6b-642083549e75"/>
+    <recordSetType typeId="1498b9f3-b424-427e-97e5-f56569c2bdbb" valueTypeId="ace02e97-92fb-4964-b29c-8ddad8844f4d"/>
+    <recordKeyType typeId="82628769-ae41-4d5d-82fe-5e7bd8daf830" valueTypeId="755af7e6-1cc7-40e7-afe9-70e69ebc6156"/>
+    <recordType typeId="6da62c52-b2d1-4b2f-b06f-cc03a3233bec" valueTypeId="4a1142d6-df28-44cf-891c-a03718d77bba"/>
+  </producedTypes>
+  <name>ТоварыВПереработке</name>
+  <synonym>
+    <key>ru</key>
+    <value>Товары в переработке</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Produits en sous-traitance</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Goods in processing</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Productos en procesamiento</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>RecordType</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="e8bcb54c-ae02-4a2f-80d8-dfac3cdb2de2">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nombre</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quantity</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Количество</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="47c7e9b8-39c8-4ab1-a75e-05ddc7b0532b">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Somme</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>The amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Suma</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="fae52c6f-238c-4ee9-9547-d56846c8ba7f">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Sous-traitant</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Processor</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Procesador</value>
+    </synonym>
+    <comment>Переработчик, у которого находятся товары</comment>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="674ef0d1-728b-4ae8-ae2c-9042e6a1b486">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Nomenclature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nomenclatura</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="207ccd0f-426b-46d5-a310-5657e1abef45">
+    <name>Характеристика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Caractéristique</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Feature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Característica</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="d58e302e-1f57-4f02-8056-797a941ef5a3">
+    <name>Серия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Серия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Série</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Series</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Serie</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СерииНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="45eafb4d-cfec-4fe7-a1d2-6d5d74229b51">
+    <name>Партия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Партия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Lot</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Lot</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Lote</value>
+    </synonym>
+    <type>
+      <types>DefinedType.ПриходныйДокументПартии</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="43bdc4f2-10f5-4392-8870-c9364afee1a8">
+    <name>ДатаПартии</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата партии</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date du lot</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Batch date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha de lote</value>
+    </synonym>
+    <comment>Реквизит для ускорения выборки по FIFO</comment>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="1b8bb12a-b9b0-4ab8-af8f-8d312fcc6b78">
+    <name>ПередачаВПереработку</name>
+    <synonym>
+      <key>ru</key>
+      <value>Передача в переработку</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Transfert en sous-traitance</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Transfer for processing</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Transferencia a procesamiento</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ПередачаВПереработку</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>
