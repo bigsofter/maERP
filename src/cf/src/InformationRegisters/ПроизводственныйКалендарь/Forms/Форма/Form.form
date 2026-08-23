@@ -169,6 +169,88 @@
         </font>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>СтранаКалендаря</name>
+      <id>13</id>
+      <title>
+        <key>ru</key>
+        <value>Страна</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Pays</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Country</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>País</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>СтранаКалендаря</segments>
+      </dataPath>
+      <toolTip>
+        <key>ru</key>
+        <value>Страна, праздники которой подставляются при заполнении по умолчанию</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Pays dont les jours fériés sont utilisés pour le remplissage par défaut</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Country whose public holidays are used when filling by default</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>País cuyos días festivos se usan al rellenar por defecto</value>
+      </toolTip>
+      <handlers>
+        <event>OnChange</event>
+        <name>СтранаКалендаряПриИзменении</name>
+      </handlers>
+      <extendedTooltip>
+        <name>СтранаКалендаряРасширеннаяПодсказка</name>
+        <id>14</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>СтранаКалендаряКонтекстноеМеню</name>
+        <id>15</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>EnterOnInput</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <width>12</width>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+        <wrap>true</wrap>
+        <choiceListButton>true</choiceListButton>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -289,6 +371,10 @@
     <horizontalAlign>Left</horizontalAlign>
   </autoCommandBar>
   <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <handlers>
     <event>OnOpen</event>
     <name>ПриОткрытии</name>
   </handlers>
@@ -400,6 +486,38 @@
         <dateQualifiers/>
       </itemValueType>
     </extInfo>
+  </attributes>
+  <attributes>
+    <name>СтранаКалендаря</name>
+    <title>
+      <key>ru</key>
+      <value>Страна календаря</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Pays du calendrier</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Calendar country</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>País del calendario</value>
+    </title>
+    <id>4</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>2</length>
+      </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <formCommands>
     <name>Записать</name>
