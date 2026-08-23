@@ -683,21 +683,6 @@ Function GetFactureNumber()
 	Return CurFacture.Number;
 EndFunction
 
-&AtClient
-Procedure PrintFacture(CurDoc)
-	//Template = "Facture";
-	//Spreadsheet = New SpreadsheetDocument;
-	//PrintAtServer(CurDoc,Spreadsheet);
-
-	//Spreadsheet.PageOrientation = PageOrientation.Portrait;
-	//Spreadsheet.PageSize = "A4";
-	//Spreadsheet.FitToPage = True;
-	//Spreadsheet.ShowGrid = False;
-	//Spreadsheet.ShowHeaders = False;
-	//Spreadsheet.Protection = False;
-	//Spreadsheet.Напечатать(РежимИспользованияДиалогаПечати.Использовать);
-EndProcedure
-
 &AtServer
 Function PrintAtServer(CurDoc,Spreadsheet)
 	Spreadsheet = New SpreadsheetDocument;
