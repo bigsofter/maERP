@@ -256,6 +256,33 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <attributes uuid="4eeb89d1-a157-440d-9f82-218afc97c76e">
+    <name>ЦенаВключаетНДС</name>
+    <synonym>
+      <key>ru</key>
+      <value>Цена включает НДС</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>TVA incluse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>VAT included</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>IVA incluido</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="2a02f479-9832-4e3b-ab83-97feb23cf5c3">
     <name>ФормаДокумента</name>
     <synonym>
@@ -589,6 +616,84 @@
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
       <fillChecking>ShowError</fillChecking>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="e3fb323d-a287-4f7e-bbcd-83641f13504c">
+      <name>СтавкаНДС</name>
+      <synonym>
+        <key>ru</key>
+        <value>НДС (%)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>TVA (%)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>VAT (%)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>IVA (%)</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СтавкиНДС</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="33136ebf-5fb0-426c-b21c-c02a6ece253c">
+      <name>СуммаНДС</name>
+      <synonym>
+        <key>ru</key>
+        <value>НДС</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>TVA</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>VAT</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>IVA</value>
+      </synonym>
+      <type>
+        <types>DefinedType.СуммаНеотрицательная</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="73494e2d-51a1-4da3-a55e-fe82ae4fc960">
+      <name>СуммаСНДС</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма с НДС</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant TTC</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount including VAT</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe IVA incluido</value>
+      </synonym>
+      <type>
+        <types>DefinedType.СуммаНеотрицательная</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
