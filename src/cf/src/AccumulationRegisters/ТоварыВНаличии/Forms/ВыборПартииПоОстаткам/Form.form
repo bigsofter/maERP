@@ -195,6 +195,44 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>СписокЦенаБезНДС</name>
+      <id>56</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.ЦенаБезНДС</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>СписокЦенаБезНДСРасширеннаяПодсказка</name>
+        <id>58</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>СписокЦенаБезНДСКонтекстноеМеню</name>
+        <id>57</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <width>12</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>СписокПартия</name>
       <id>19</id>
       <visible>true</visible>
@@ -446,7 +484,12 @@
 		КОГДА СУММА(ТоварыВНаличииОстатки.КоличествоОстаток) = 0
 			ТОГДА 0
 		ИНАЧЕ ВЫРАЗИТЬ(СУММА(ТоварыВНаличииОстатки.СуммаОстаток) / СУММА(ТоварыВНаличииОстатки.КоличествоОстаток) КАК ЧИСЛО(15, 2))
-	КОНЕЦ КАК ЦенаЗакупки
+	КОНЕЦ КАК ЦенаЗакупки,
+	ВЫБОР
+		КОГДА СУММА(ТоварыВНаличииОстатки.КоличествоОстаток) = 0
+			ТОГДА 0
+		ИНАЧЕ ВЫРАЗИТЬ((СУММА(ТоварыВНаличииОстатки.СуммаОстаток) - СУММА(ТоварыВНаличииОстатки.СуммаНДСОстаток)) / СУММА(ТоварыВНаличииОстатки.КоличествоОстаток) КАК ЧИСЛО(15, 2))
+	КОНЕЦ КАК ЦенаБезНДС
 ИЗ
 	РегистрНакопления.ТоварыВНаличии.Остатки(
 			&amp;ДатаОст,
@@ -513,6 +556,18 @@
             <content>
               <key>ru</key>
               <value>Цена закупки</value>
+            </content>
+          </localValue>
+        </title>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>ЦенаБезНДС</dataPath>
+        <field>ЦенаБезНДС</field>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Цена без НДС</value>
             </content>
           </localValue>
         </title>
