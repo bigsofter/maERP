@@ -388,6 +388,104 @@
 			<dataPath>СтатьяДДС</dataPath>
 			<field>СтатьяДДС</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДСНачальныйОстаток</dataPath>
+			<field>СуммаБезНДСНачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без НДС нач. остаток</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Montant HT solde initial</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Amount excl. VAT opening balance</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Importe sin IVA saldo inicial</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>СуммаБезНДС</dcscom:balanceGroupName>
+				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДСПриход</dataPath>
+			<field>СуммаБезНДСПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без НДС приход</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Montant HT entrée</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Amount excl. VAT receipt</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Importe sin IVA entrada</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДСРасход</dataPath>
+			<field>СуммаБезНДСРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без НДС расход</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Montant HT sortie</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Amount excl. VAT expense</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Importe sin IVA salida</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДСКонечныйОстаток</dataPath>
+			<field>СуммаБезНДСКонечныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без НДС кон. остаток</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Montant HT solde final</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Amount excl. VAT closing balance</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Importe sin IVA saldo final</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>СуммаБезНДС</dcscom:balanceGroupName>
+				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ВЫБОР
@@ -411,6 +509,10 @@
 	ТоварыВНаличииОстаткиИОбороты.СуммаПриход КАК СуммаПриход,
 	ТоварыВНаличииОстаткиИОбороты.СуммаРасход КАК СуммаРасход,
 	ТоварыВНаличииОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
+	ТоварыВНаличииОстаткиИОбороты.СуммаНачальныйОстаток - ТоварыВНаличииОстаткиИОбороты.СуммаНДСНачальныйОстаток КАК СуммаБезНДСНачальныйОстаток,
+	ТоварыВНаличииОстаткиИОбороты.СуммаПриход - ТоварыВНаличииОстаткиИОбороты.СуммаНДСПриход КАК СуммаБезНДСПриход,
+	ТоварыВНаличииОстаткиИОбороты.СуммаРасход - ТоварыВНаличииОстаткиИОбороты.СуммаНДСРасход КАК СуммаБезНДСРасход,
+	ТоварыВНаличииОстаткиИОбороты.СуммаКонечныйОстаток - ТоварыВНаличииОстаткиИОбороты.СуммаНДСКонечныйОстаток КАК СуммаБезНДСКонечныйОстаток,
 	ТоварыВНаличииОстаткиИОбороты.ПериодСекунда КАК ПериодСекунда,
 	ТоварыВНаличииОстаткиИОбороты.ПериодДень КАК ПериодДень,
 	ТоварыВНаличииОстаткиИОбороты.ПериодНеделя КАК ПериодНеделя,
@@ -445,6 +547,10 @@
 	ДополнительныеРасходыОстаткиИОбороты.СуммаПриход,
 	ДополнительныеРасходыОстаткиИОбороты.СуммаРасход,
 	ДополнительныеРасходыОстаткиИОбороты.СуммаКонечныйОстаток,
+	ДополнительныеРасходыОстаткиИОбороты.СуммаНачальныйОстаток - ДополнительныеРасходыОстаткиИОбороты.СуммаНДСНачальныйОстаток,
+	ДополнительныеРасходыОстаткиИОбороты.СуммаПриход - ДополнительныеРасходыОстаткиИОбороты.СуммаНДСПриход,
+	ДополнительныеРасходыОстаткиИОбороты.СуммаРасход - ДополнительныеРасходыОстаткиИОбороты.СуммаНДСРасход,
+	ДополнительныеРасходыОстаткиИОбороты.СуммаКонечныйОстаток - ДополнительныеРасходыОстаткиИОбороты.СуммаНДСКонечныйОстаток,
 	ДополнительныеРасходыОстаткиИОбороты.ПериодСекунда,
 	ДополнительныеРасходыОстаткиИОбороты.ПериодДень,
 	ДополнительныеРасходыОстаткиИОбороты.ПериодНеделя,
@@ -474,6 +580,28 @@
 			<v8:item>
 				<v8:lang>es</v8:lang>
 				<v8:content>Precio de costo</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СебестоимостьБезНДС</dataPath>
+		<expression>Выбор Когда КоличествоКонечныйОстаток = 0 Тогда 0 Иначе СуммаБезНДСКонечныйОстаток / КоличествоКонечныйОстаток Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Себестоимость без НДС</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Coût de revient HT</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Cost excl. VAT</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Costo sin IVA</v8:content>
 			</v8:item>
 		</title>
 	</calculatedField>
@@ -512,6 +640,26 @@
 	<totalField>
 		<dataPath>СуммаКонечныйОстаток</dataPath>
 		<expression>Сумма(СуммаКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаБезНДСНачальныйОстаток</dataPath>
+		<expression>Сумма(СуммаБезНДСНачальныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаБезНДСПриход</dataPath>
+		<expression>Сумма(СуммаБезНДСПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаБезНДСРасход</dataPath>
+		<expression>Сумма(СуммаБезНДСРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаБезНДСКонечныйОстаток</dataPath>
+		<expression>Сумма(СуммаБезНДСКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СебестоимостьБезНДС</dataPath>
+		<expression>Выбор Когда Сумма(КоличествоКонечныйОстаток) = 0 Тогда 0 Иначе Сумма(СуммаБезНДСКонечныйОстаток) / Сумма(КоличествоКонечныйОстаток) Конец</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>

@@ -507,6 +507,28 @@
 			<dataPath>МестоХранения</dataPath>
 			<field>МестоХранения</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЧистаяПрибыль</dataPath>
+			<field>ЧистаяПрибыль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чистая прибыль</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Bénéfice net</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Net profit</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Beneficio neto</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	ПродажиОбороты.Регистратор КАК Регистратор,
@@ -533,6 +555,7 @@
 	ПродажиОбороты.ВыручкаОборот - ПродажиОбороты.НДСОборот КАК ВыручкаБезНДС,
 	ПродажиОбороты.НДСОборот КАК НДС,
 	ПродажиОбороты.ВаловаяПрибыльОборот КАК ВаловаяПрибыль,
+	ПродажиОбороты.ВаловаяПрибыльОборот - ПродажиОбороты.НДСОборот КАК ЧистаяПрибыль,
 	ПродажиОбороты.Ответственный КАК Ответственный,
 	ПродажиОбороты.ДокументПродажи.МестоХранения КАК ТорговаяТочка
 ИЗ
@@ -621,6 +644,10 @@
 	<totalField>
 		<dataPath>СебестоимостьФактическая</dataPath>
 		<expression>Сумма(СебестоимостьФактическая)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЧистаяПрибыль</dataPath>
+		<expression>Сумма(ЧистаяПрибыль)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
