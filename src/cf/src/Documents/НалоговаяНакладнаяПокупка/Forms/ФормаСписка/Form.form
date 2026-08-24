@@ -59,6 +59,56 @@
     <defaultItem>true</defaultItem>
     <titleLocation>None</titleLocation>
     <items xsi:type="form:FormField">
+      <name>НомерКартинкиОплаты</name>
+      <id>72</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.НомерКартинкиОплаты</segments>
+      </dataPath>
+      <titleLocation>None</titleLocation>
+      <extendedTooltip>
+        <name>НомерКартинкиОплатыРасширеннаяПодсказка</name>
+        <id>73</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>НомерКартинкиОплатыКонтекстноеМеню</name>
+        <id>74</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>PictureField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerPicture xsi:type="core:PictureRef">
+        <picture>CommonPicture.КОплате</picture>
+      </headerPicture>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:ImageFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>true</horizontalStretch>
+        <verticalStretch>true</verticalStretch>
+        <valuesPicture xsi:type="core:PictureRef">
+          <picture>CommonPicture.СостояниеЗаказа</picture>
+        </valuesPicture>
+        <border xsi:type="core:BorderDef">
+          <style>Single</style>
+          <width>1</width>
+        </border>
+        <fileDragMode>AsFileRef</fileDragMode>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>ЕстьФайлы</name>
       <id>63</id>
       <visible>true</visible>
@@ -775,6 +825,16 @@
     <main>true</main>
     <extInfo xsi:type="form:DynamicListExtInfo">
       <queryText>ВЫБРАТЬ
+	ВЫБОР
+		КОГДА НЕ ДокументПоступлениеТоваровУслуг.Проведен
+			ТОГДА -1
+		КОГДА ЕСТЬNULL(Оплата.Остаток, ДокументПоступлениеТоваровУслуг.Сумма) &lt;= 0
+			ТОГДА 0
+		КОГДА ЕСТЬNULL(Оплата.Остаток, ДокументПоступлениеТоваровУслуг.Сумма) &lt; ДокументПоступлениеТоваровУслуг.Сумма
+			ТОГДА 1
+		ИНАЧЕ 2
+	КОНЕЦ КАК НомерКартинкиОплаты,
+	ЕСТЬNULL(Оплата.Остаток, ДокументПоступлениеТоваровУслуг.Сумма) КАК Долг,
 	ДокументПоступлениеТоваровУслуг.Ссылка КАК Ссылка,
 	ДокументПоступлениеТоваровУслуг.ПометкаУдаления КАК ПометкаУдаления,
 	ДокументПоступлениеТоваровУслуг.Номер КАК Номер,
@@ -865,7 +925,19 @@
 ИЗ
 	Документ.НалоговаяНакладнаяПокупка КАК ДокументПоступлениеТоваровУслуг
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПрисоединённыеФайлыНаличие КАК ПрисоединённыеФайлыНаличие
-		ПО ДокументПоступлениеТоваровУслуг.Ссылка = ПрисоединённыеФайлыНаличие.Объект</queryText>
+		ПО ДокументПоступлениеТоваровУслуг.Ссылка = ПрисоединённыеФайлыНаличие.Объект
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Налоговый.Регистратор КАК Регистратор,
+			СУММА(ВЫБОР
+					КОГДА Налоговый.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+						ТОГДА Налоговый.Сумма
+					ИНАЧЕ -Налоговый.Сумма
+				КОНЕЦ) КАК Остаток
+		ИЗ
+			РегистрНакопления.ВзаиморасчётыСПоcтавщикамиНалоговый КАК Налоговый
+		СГРУППИРОВАТЬ ПО
+			Налоговый.Регистратор) КАК Оплата
+		ПО ДокументПоступлениеТоваровУслуг.Ссылка = Оплата.Регистратор</queryText>
       <mainTable>Document.НалоговаяНакладнаяПокупка</mainTable>
       <autoFillAvailableFields>true</autoFillAvailableFields>
       <customQuery>true</customQuery>
