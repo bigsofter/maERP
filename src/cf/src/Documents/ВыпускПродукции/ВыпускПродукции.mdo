@@ -796,6 +796,248 @@
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
   </tabularSections>
+  <tabularSections uuid="0f2bb6d1-95ea-429f-b2c0-ec9f4cf55e35">
+    <producedTypes>
+      <objectType typeId="40d3043a-6710-45ce-b708-c4abf739491b" valueTypeId="37652872-b749-4333-be15-24ff73d9cd27"/>
+      <rowType typeId="15bb3219-ae56-45e2-afd4-32a1de524fb9" valueTypeId="0e557779-690f-46e6-866a-0ef0e7bb8d5a"/>
+    </producedTypes>
+    <name>ТЧГотоваяПродукция</name>
+    <synonym>
+      <key>ru</key>
+      <value>Готовая продукция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Produits finis</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Finished products</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Productos terminados</value>
+    </synonym>
+    <fillChecking>ShowError</fillChecking>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="ea51430c-1e2d-4bc7-8e3b-b25e5f15908b">
+      <name>КодСтроки</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код строки</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code de ligne</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Line code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código de cadena</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="780841b0-1569-4fe8-9e89-571c6023b36b">
+      <name>Номенклатура</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номенклатура</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Nomenclature</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Nomenclature</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Nomenclatura</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <choiceParameters>
+        <name>Отбор.ТипНоменклатуры</name>
+        <value xsi:type="core:FixedArrayValue">
+          <values xsi:type="core:ReferenceValue">
+            <value>Enum.ТипыНоменклатуры.EnumValue.Товар</value>
+          </values>
+          <values xsi:type="core:ReferenceValue">
+            <value>Enum.ТипыНоменклатуры.EnumValue.Продукция</value>
+          </values>
+          <values xsi:type="core:ReferenceValue">
+            <value>Enum.ТипыНоменклатуры.EnumValue.Полуфабрикат</value>
+          </values>
+        </value>
+      </choiceParameters>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="e5749110-6bd9-456d-9ea9-a21a60fad8e1">
+      <name>Характеристика</name>
+      <synonym>
+        <key>ru</key>
+        <value>Характеристика</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Caractéristique</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Feature</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Característica</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>Document.ВыпускПродукции.TabularSection.ТЧГотоваяПродукция.Attribute.Номенклатура</field>
+      </choiceParameterLinks>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="4d46f1af-f604-482b-a43a-bb6626295fb0">
+      <name>Упаковка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Упаковка</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Emballage</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Packaging</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Embalaje</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.УпаковкиЕдиницыИзмерения</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Номенклатура</name>
+        <field>Document.ВыпускПродукции.TabularSection.ТЧГотоваяПродукция.Attribute.Номенклатура</field>
+      </choiceParameterLinks>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="3715af4d-867b-4ad1-af83-71b03cc54ca6">
+      <name>Серия</name>
+      <synonym>
+        <key>ru</key>
+        <value>Серия</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Série</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Series</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Serie</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.СерииНоменклатуры</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceParameterLinks>
+        <name>Отбор.Владелец</name>
+        <field>Document.ВыпускПродукции.TabularSection.ТЧГотоваяПродукция.Attribute.Номенклатура</field>
+      </choiceParameterLinks>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="6db42fbc-def2-4742-a9a9-170894409c3a">
+      <name>КоличествоУпаковок</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество упаковок</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Nombre d'emballages</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number of packages</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Número de paquetes</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КоличествоНеотрицательное</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="cc737094-0346-4b76-8dba-edf9cab0280b">
+      <name>Количество</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Nombre</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Quantity</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КоличествоНеотрицательное</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
   <commands uuid="cb5aad8e-ef88-459f-8883-37e614cbf580">
     <name>ВыпускПродукции</name>
     <synonym>
