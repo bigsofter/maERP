@@ -56,7 +56,7 @@ wait_report_mark() { # $1 — паттерн процесса, $2 — файл �
 
 echo "== Шаг 1. Проверка конфигурации (CheckConfig) =="
 rm -f "$CHECK_LOG"
-"$V8" DESIGNER /F "$IB" "${AUTH[@]}" /CheckConfig \
+"$V8" DESIGNER /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /CheckConfig \
 	-ConfigLogIntegrity -IncorrectReferences -ThinClient -Server \
 	"${V8_BATCH[@]}" /Out "$CHECK_LOG" || true
 wait_process_end "CheckConfig" || { echo "CheckConfig не завершился за ${TIMEOUT}с — процесс снят"; FAILED=1; }
@@ -69,8 +69,11 @@ else
 fi
 
 echo "== Шаг 2. Смок-тест «открыть все формы» =="
+# Тонкий клиент обязателен: толстый компилирует общие модули «Сервер + Вызов
+# сервера» дважды и падает на старте («функция уже определена»).
+V8C="${V8_DIR}/1cv8c"
 rm -f "$REPORT" "$CLIENT_LOG"
-"$V8" ENTERPRISE /F "$IB" "${AUTH[@]}" /C "СмокТест;$REPORT" \
+"$V8C" ENTERPRISE /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /C "СмокТест;$REPORT" \
 	"${V8_BATCH[@]}" /Out "$CLIENT_LOG" || true
 if wait_report_mark "СмокТест;$REPORT" "$REPORT" "^ИТОГ;"; then
 	grep '^ИТОГ;' "$REPORT"
