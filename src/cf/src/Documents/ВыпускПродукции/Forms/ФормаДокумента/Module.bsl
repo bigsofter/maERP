@@ -384,7 +384,7 @@
 		ПоказатьПредупреждение(, НСтр("ru = 'В таблице несколько позиций продукции - сначала удалите лишние строки.';
 			|fr = 'Le tableau contient plusieurs produits - supprimez d''abord les lignes superflues.';
 			|en = 'The table contains multiple products - remove the extra rows first.';
-			|es = 'La tabla contiene varios productos: elimine primero las filas sobrantes.'"), 10);
+			|es = 'La tabla contiene varios productos: elimine primero las filas sobrantes.'"));
 		Возврат;
 	КонецЕсли;
 	Если НесколькоСтрокГП И Объект.ТЧГотоваяПродукция.Количество() = 0 И ЗначениеЗаполнено(Объект.Номенклатура) Тогда

@@ -84,6 +84,7 @@
   <realTimePosting>Deny</realTimePosting>
   <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыВПереработке</registerRecords>
+  <registerRecords>AccumulationRegister.ВзаиморасчётыСПоставщиками</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <choiceHistoryOnInput>DontUse</choiceHistoryOnInput>
@@ -302,6 +303,89 @@
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
+  <attributes uuid="e71e64d7-7bf1-42b8-9473-ce4ce249a0b0">
+    <name>СтоимостьУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Стоимость услуг переработчика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Coût des services du sous-traitant</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cost of processor services</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Coste de los servicios del procesador</value>
+    </synonym>
+    <comment>Без НДС; включается в себестоимость готовой продукции</comment>
+    <type>
+      <types>DefinedType.СуммаНеотрицательная</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Стоимость услуг переработчика без НДС; включается в себестоимость готовой продукции и образует долг перед переработчиком</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="9b29b12b-93c5-4a20-9b9f-62ea122ed6ed">
+    <name>СтавкаНДСУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ставка НДС услуг</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Taux de TVA des services</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>VAT rate of services</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de IVA de los servicios</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СтавкиНДС</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="0656d02b-6d1a-4341-8290-a69a91f03604">
+    <name>СуммаНДСУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма НДС услуг</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant de TVA des services</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>VAT amount of services</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe de IVA de los servicios</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СуммаНеотрицательная</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
   <tabularSections uuid="be8ab80a-7b19-4a98-ac7a-9a4a167cfcbe">
     <producedTypes>
       <objectType typeId="68b78cd3-c0d5-4b60-a27c-9f4c9a96df74" valueTypeId="a2ad6c91-7d54-48df-8eb7-5b1a79eb17d4"/>
