@@ -2,15 +2,6 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>Document.ПересчётТоваров.StandardCommand.OpenList</command>
-      <visible>
-        <common>true</common>
-        <for>
-          <role>Role.PDV</role>
-        </for>
-      </visible>
-    </visibilityFragments>
-    <visibilityFragments>
       <command>Document.УценкаТоваров.StandardCommand.OpenList</command>
       <visible/>
     </visibilityFragments>
@@ -18,28 +9,23 @@
   <commandsPlacement>
     <placementFragments>
       <group>NavigationPanelImportant</group>
-      <commands>Document.ПересчётТоваров.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаданиеНаПересчет.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.ОприходованиеТоваров.StandardCommand.OpenList</commands>
+      <commands>Document.СписаниеТоваров.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelImportant</group>
-      <commands>Document.ПересчётТоваров.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаданиеНаПересчет.StandardCommand.OpenList</commands>
     </orderFragments>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
       <commands>Document.ОприходованиеТоваров.StandardCommand.OpenList</commands>
       <commands>Document.СписаниеТоваров.StandardCommand.OpenList</commands>
-      <commands>Document.УценкаТоваров.StandardCommand.OpenList</commands>
-      <commands>Document.ЗаданиеНаПересчет.StandardCommand.OpenList</commands>
-    </orderFragments>
-    <orderFragments>
-      <group>ActionsPanelCreate</group>
-      <commands>Document.ОприходованиеТоваров.StandardCommand.Create</commands>
-      <commands>Document.ПересчётТоваров.StandardCommand.Create</commands>
-      <commands>Document.СписаниеТоваров.StandardCommand.Create</commands>
-      <commands>Document.УценкаТоваров.StandardCommand.Create</commands>
-      <commands>Document.ЗаданиеНаПересчет.StandardCommand.Create</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>
