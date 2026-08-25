@@ -2,6 +2,18 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
+      <command>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+        <for>
+          <role>Role.PDV</role>
+        </for>
+        <for>
+          <role>Role.МенеджерПоЗакупкам</role>
+        </for>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
       <command>Document.ВозвратОтПокупателя.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
@@ -18,10 +30,12 @@
   <commandsPlacement>
     <placementFragments>
       <group>NavigationPanelImportant</group>
-      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
     </placementFragments>
     <placementFragments>
       <group>NavigationPanelOrdinary</group>
+      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
       <commands>Document.ЗаявкаНаПоискТовара.StandardCommand.OpenList</commands>
       <commands>Document.ОтгрузкаТовара.StandardCommand.OpenList</commands>
     </placementFragments>
@@ -33,10 +47,12 @@
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelImportant</group>
-      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
     </orderFragments>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
+      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
       <commands>Document.ЗаявкаНаПоискТовара.StandardCommand.OpenList</commands>
       <commands>Document.ОтгрузкаТовара.StandardCommand.OpenList</commands>
     </orderFragments>
