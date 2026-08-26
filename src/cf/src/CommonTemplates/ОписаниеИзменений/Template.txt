@@ -10,6 +10,24 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.12.17
+### ru
+- Исправлена печать акта передачи в переработку и акта приёмки из переработки: подзаголовки таблиц («Передано сырьё и полуфабрикаты», «Ожидаемая продукция») были в макете обычным текстом, а не полем, и печать обрывалась с ошибкой.
+- Исправлена печать табеля учёта рабочего времени: она обращалась к реквизитам, которых у документа нет, и не формировалась вовсе. Вариант учёта печатается графиком работы сотрудника; строка «Группа» в шапке остаётся пустой - такого реквизита у табеля нет.
+- Печать накладной возврата от покупателя: образец возврата теперь заводится по реализации-основанию, без которого документ вообще не записывался.
+### fr
+- Correction de l'impression du bon de transfert en sous-traitance et du bon de réception : les sous-titres des tableaux (« Matières premières et semi-finis transférés », « Produits attendus ») étaient du texte ordinaire dans le modèle et non un champ, et l'impression s'interrompait sur une erreur.
+- Correction de l'impression de la feuille de présence : elle utilisait des attributs absents du document et ne se formait pas du tout. Le mode de suivi est imprimé d'après l'horaire de travail du salarié ; la ligne « Groupe » de l'en-tête reste vide - cet attribut n'existe pas.
+- Impression du bon de retour client : l'exemple de retour est désormais créé à partir de la vente d'origine, sans laquelle le document ne s'enregistrait pas du tout.
+### en
+- Fixed printing of the transfer-for-processing act and the acceptance act: the table subtitles ("Raw materials and semi-finished products transferred", "Expected products") were plain text in the template rather than a field, and printing broke with an error.
+- Fixed printing of the timesheet: it referenced attributes the document does not have and did not print at all. The accounting mode is printed from the employee's work schedule; the "Group" line in the header stays empty - the timesheet has no such attribute.
+- Customer return note printing: the sample return is now created from the sales document it is based on, without which the document would not save at all.
+### es
+- Corregida la impresión del acta de transferencia a procesamiento y del acta de recepción: los subtítulos de las tablas («Materias primas y semielaborados transferidos», «Productos esperados») eran texto normal en la plantilla y no un campo, y la impresión se interrumpía con error.
+- Corregida la impresión del parte de horas: usaba atributos que el documento no tiene y no se generaba en absoluto. El modo de registro se imprime según el horario de trabajo del empleado; la línea «Grupo» de la cabecera queda vacía - ese atributo no existe.
+- Impresión del albarán de devolución del cliente: la muestra de devolución ahora se crea a partir de la venta de origen, sin la cual el documento no se guardaba.
+
 ## 2.0.12.16
 ### ru
 - Исправлено открытие налоговой накладной и налоговой накладной покупки: форма падала при открытии, потому что состав реквизитов документа определялся способом, который на форме не работает.
