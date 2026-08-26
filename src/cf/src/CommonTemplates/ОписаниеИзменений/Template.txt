@@ -10,6 +10,20 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.12.13
+### ru
+- Исправлена печать накладной без цен: признак «без цен» терялся, когда команда печати его не передавала, и формирование обрывалось. Заодно суммы оплат в подвале накладной приводятся к числу - пустые итоги больше не роняют печать.
+- Карточка бухгалтерской операции: все колонки таблицы проводок настраиваются по наличию на форме, а не вслепую - часть колонок бухгалтерского контура в maERP просто не выводится.
+### fr
+- Correction de l'impression du bon de livraison sans prix : l'indicateur « sans prix » était perdu lorsque la commande d'impression ne le transmettait pas et la génération s'interrompait. De plus, les montants des règlements en pied de bon sont convertis en nombre - les totaux vides ne cassent plus l'impression.
+- Fiche d'opération comptable : toutes les colonnes du tableau des écritures sont configurées selon leur présence sur le formulaire et non à l'aveugle - une partie des colonnes comptables n'est tout simplement pas affichée dans maERP.
+### en
+- Fixed printing the delivery note without prices: the "no prices" flag was lost when the print command did not pass it and generation broke. Payment totals in the note footer are also coerced to numbers - empty totals no longer break printing.
+- Accounting operation card: every column of the entries table is configured based on whether it exists on the form instead of blindly - some accounting columns are simply not rendered in maERP.
+### es
+- Corregida la impresión del albarán sin precios: el indicador «sin precios» se perdía cuando el comando de impresión no lo transmitía y la generación se interrumpía. Además, los importes de los pagos en el pie del albarán se convierten a número: los totales vacíos ya no rompen la impresión.
+- Ficha de operación contable: todas las columnas de la tabla de asientos se configuran según su presencia en el formulario y no a ciegas; parte de las columnas contables simplemente no se muestra en maERP.
+
 ## 2.0.12.12
 ### ru
 - Исправлена подстановка логотипа организации в накладные, счета и коммерческие предложения: поиск рисунка в области макета шёл несуществующим методом, и печать обрывалась на одиннадцати формах реализации и заказа покупателя.
