@@ -894,7 +894,7 @@ EndFunction
 			Области.LineBC.Параметры.BL = ПредставлениеBL(SelectionTabularSection.BLНомер, SelectionTabularSection.BLДата);
 			Spreadsheet.Вывести(Области.LineBC);
 		КонецЕсли;
-		ЗаполнитьСтрокуFacture(Области.TabularSection, SelectionTabularSection, Selection.БезНДС);
+		ЗаполнитьСтрокуFacture(Области.TabularSection, SelectionTabularSection, Selection.БезНДС = Истина);
 		Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
 			Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
 			Spreadsheet.Вывести(Области.Header, Selection.Уровень());
@@ -964,6 +964,13 @@ EndFunction
 	Возврат Выборки;
 КонецФункции
 
+// Текст запроса счёта-фактуры: строки документа с реквизитами шапки и итогами по документу.
+// Метод - один строковый литерал, дробить его нечем.
+// BSLLS:MethodSize-off
+//
+// Возвращаемое значение:
+//  Строка - текст пакетного запроса
+//
 Функция ТекстЗапросаFacture()
 	// Пакет: [0] строки, [1] шапки, [2] логотипы организаций по документам, [3] строки счёта-фактуры
 	// по РТУ и налоговой накладной с реквизитами шапки, клиента и накладной (BL), с итогами по документу.
@@ -1151,7 +1158,23 @@ EndFunction
 	|УПОРЯДОЧИТЬ ПО
 	|	BL,
 	|	LineNumber
-	|ИТОГИ ПО
+	|ИТОГИ
+	|	МАКСИМУМ(DocRef),
+	|	МАКСИМУМ(Client),
+	|	МАКСИМУМ(Createur),
+	|	МАКСИМУМ(Date),
+	|	МАКСИМУМ(Number),
+	|	МАКСИМУМ(Devise),
+	|	МАКСИМУМ(TotalSomme),
+	|	МАКСИМУМ(TotalSommeTVA),
+	|	МАКСИМУМ(Organisation),
+	|	МАКСИМУМ(Основание),
+	|	МАКСИМУМ(Комментарий),
+	|	МАКСИМУМ(КодКлиента),
+	|	МАКСИМУМ(НаименованиеКлиента),
+	|	МАКСИМУМ(КлиентТипОплаты),
+	|	МАКСИМУМ(БезНДС)
+	|ПО
 	|	Ссылка";
 КонецФункции
 
@@ -1701,11 +1724,12 @@ EndFunction
 		ВывестиСтрокиDevisBL(Spreadsheet, Области, Selection, Параметры.БезЦен, Параметры.БезНДС);
 
 		Если Не Параметры.БезЦен Тогда
-			Области.FooterTotal.Параметры.Total = ФорматСуммы(Selection.TotalSomme, Selection.Devise);
+			ИтогоСумма = ЧислоДляПечати(Selection.TotalSomme);
+			ИтогоНДС = ЧислоДляПечати(Selection.TotalTVA);
+			Области.FooterTotal.Параметры.Total = ФорматСуммы(ИтогоСумма, Selection.Devise);
 			Если Параметры.БезНДС Тогда
-				Области.FooterTotal.Параметры.TotalHT = ФорматСуммы(Selection.TotalSomme - Selection.TotalTVA,
-					Selection.Devise);
-				Области.FooterTotal.Параметры.TotalTVA = ФорматСуммы(Selection.TotalTVA, Selection.Devise);
+				Области.FooterTotal.Параметры.TotalHT = ФорматСуммы(ИтогоСумма - ИтогоНДС, Selection.Devise);
+				Области.FooterTotal.Параметры.TotalTVA = ФорматСуммы(ИтогоНДС, Selection.Devise);
 			КонецЕсли;
 			Если Параметры.ПоказыватьОплаты Тогда
 				ЗаполнитьОплатыВПодвале(Области.FooterTotal, Selection.DocRef, Selection.Client, Selection.TotalSomme, Selection.Devise);
@@ -1993,7 +2017,21 @@ EndFunction
 	|
 	|УПОРЯДОЧИТЬ ПО
 	|	LineNumber
-	|ИТОГИ ПО
+	|ИТОГИ
+	|	МАКСИМУМ(DocRef),
+	|	МАКСИМУМ(Client),
+	|	МАКСИМУМ(Createur),
+	|	МАКСИМУМ(Date),
+	|	МАКСИМУМ(Number),
+	|	МАКСИМУМ(Devise),
+	|	МАКСИМУМ(TotalSomme),
+	|	МАКСИМУМ(TotalTVA),
+	|	МАКСИМУМ(Organisation),
+	|	МАКСИМУМ(Комментарий),
+	|	МАКСИМУМ(КодКлиента),
+	|	МАКСИМУМ(НаименованиеКлиента),
+	|	МАКСИМУМ(НомерЗаказа)
+	|ПО
 	|	Ссылка";
 КонецФункции
 

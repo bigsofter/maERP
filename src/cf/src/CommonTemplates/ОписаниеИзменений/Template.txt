@@ -10,6 +10,20 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.12.14
+### ru
+- Исправлена шапка накладных, счетов, коммерческих предложений и проформы: организация, клиент, номер, дата и итоги брались из итоговой строки запроса, где их не было, - формы либо обрывались ошибкой, либо печатались с пустой шапкой. Теперь реквизиты шапки в итоговой строке есть.
+- Заказ покупателя открывается при выключенных тендерах поставщиков: кнопку и надпись тендера платформа с формы убирает, а код к ним обращался.
+### fr
+- Correction de l'en-tête des bons de livraison, factures, devis et proformas : l'organisation, le client, le numéro, la date et les totaux étaient lus dans la ligne de totaux de la requête, où ils n'existaient pas - les formulaires s'interrompaient ou s'imprimaient avec un en-tête vide. Les mentions de l'en-tête y figurent désormais.
+- La commande client s'ouvre lorsque les appels d'offres fournisseurs sont désactivés : la plateforme retire le bouton et le libellé du formulaire, alors que le code y accédait.
+### en
+- Fixed the header of delivery notes, invoices, quotations and proformas: the company, customer, number, date and totals were read from the query total row where they did not exist - the forms either broke with an error or printed an empty header. The header details are now present in the total row.
+- The customer order opens when supplier tenders are disabled: the platform removes the tender button and label from the form, while the code still addressed them.
+### es
+- Corregida la cabecera de albaranes, facturas, presupuestos y proformas: la organización, el cliente, el número, la fecha y los totales se leían de la fila de totales de la consulta, donde no existían; los formularios se interrumpían o se imprimían con la cabecera vacía. Ahora los datos de cabecera están en la fila de totales.
+- El pedido de cliente se abre con las licitaciones de proveedores desactivadas: la plataforma retira el botón y el rótulo del formulario, mientras que el código seguía accediendo a ellos.
+
 ## 2.0.12.13
 ### ru
 - Исправлена печать накладной без цен: признак «без цен» терялся, когда команда печати его не передавала, и формирование обрывалось. Заодно суммы оплат в подвале накладной приводятся к числу - пустые итоги больше не роняют печать.
