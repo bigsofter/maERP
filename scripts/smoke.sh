@@ -2,6 +2,8 @@
 # Автотесты на базе: проверка конфигурации (DESIGNER /CheckConfig) и дымовой
 # прогон «открыть все формы» (обработка СмокТест, запуск через /C).
 # Использование: scripts/smoke.sh [каталог-базы]        (по умолчанию build/ib)
+# Шаг 2 не запускается, если CheckConfig нашёл ошибку компиляции: клиент с несобирающимся
+# модулем всё равно не поднимется, а прогон только съест таймаут.
 # Доступ к базе с пользователями: переменные окружения SMOKE_USER и SMOKE_PWD —
 # пароль передаётся только так, в файлы и логи не попадает.
 # Регламент и разбор ошибок: docs/TESTING.md.
@@ -12,6 +14,7 @@ CHECK_LOG="$BUILD/check-config.log"
 REPORT="$BUILD/smoke-report.txt"
 CLIENT_LOG="$BUILD/smoke-client.log"
 TIMEOUT="${SMOKE_TIMEOUT:-900}"   # секунд на каждый шаг
+START_TIMEOUT="${SMOKE_START_TIMEOUT:-120}"   # секунд на старт клиента (до строки СТАРТ в отчёте)
 
 AUTH=()
 [ -n "${SMOKE_USER:-}" ] && AUTH+=(/N "$SMOKE_USER")
@@ -37,6 +40,24 @@ wait_process_end() { # $1 — паттерн командной строки п�
 	return 0
 }
 
+wait_client_start() { # $1 — паттерн процесса, $2 — файл отчёта
+	# Обработка СмокТест пишет строку «СТАРТ;» до начала прогона. Нет её за START_TIMEOUT —
+	# значит клиент не поднялся (ошибка компиляции, диалог на старте, не та база).
+	local elapsed=0
+	while [ "$elapsed" -lt "$START_TIMEOUT" ]; do
+		# Без якоря ^: 1С пишет отчёт с BOM, и он стоит перед первой строкой.
+		[ -f "$2" ] && grep -q 'СТАРТ;' "$2" && return 0
+		if ! pgrep -f "$1" >/dev/null; then
+			sleep 2
+			[ -f "$2" ] && grep -q 'СТАРТ;' "$2"
+			return $?
+		fi
+		sleep 3; elapsed=$((elapsed + 3))
+	done
+	pkill -f "$1" 2>/dev/null || true
+	return 1
+}
+
 wait_report_mark() { # $1 — паттерн процесса, $2 — файл отчёта, $3 — строка-признак завершения
 	local elapsed=0
 	while [ "$elapsed" -lt "$TIMEOUT" ]; do
@@ -60,12 +81,25 @@ rm -f "$CHECK_LOG"
 	-ConfigLogIntegrity -IncorrectReferences -ThinClient -Server \
 	"${V8_BATCH[@]}" /Out "$CHECK_LOG" || true
 wait_process_end "CheckConfig" || { echo "CheckConfig не завершился за ${TIMEOUT}с — процесс снят"; FAILED=1; }
+COMPILE_ERROR=0
 if [ -s "$CHECK_LOG" ] && grep -qvE '^[[:space:]]*$' "$CHECK_LOG"; then
 	echo "--- Замечания CheckConfig ($CHECK_LOG):"
 	cat "$CHECK_LOG"
 	FAILED=1
+	# Признак ошибки компиляции модуля: платформа печатает позицию вида
+	# {ОбщийМодуль.Имя.Модуль(859,37)} или {Документ.Имя.Форма.Имя.Форма(12,3)}.
+	# Сообщения локализованы, а такая позиция — нет, поэтому ловим именно её.
+	if grep -qE '\{[^}]*Модуль[^}]*\([0-9]+,[0-9]+\)\}|\{[^}]*Форма[^}]*\([0-9]+,[0-9]+\)\}' "$CHECK_LOG"; then
+		COMPILE_ERROR=1
+	fi
 else
 	echo "CheckConfig: ошибок нет"
+fi
+
+if [ "$COMPILE_ERROR" -ne 0 ]; then
+	echo "Есть ошибки компиляции модулей — шаг 2 пропущен: клиент с ними не запустится."
+	echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"
+	exit 1
 fi
 
 echo "== Шаг 2. Смок-тест «открыть все формы» =="
@@ -75,10 +109,21 @@ V8C="${V8_DIR}/1cv8c"
 rm -f "$REPORT" "$CLIENT_LOG"
 "$V8C" ENTERPRISE /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /C "СмокТест;$REPORT" \
 	"${V8_BATCH[@]}" /Out "$CLIENT_LOG" || true
+if ! wait_client_start "СмокТест;$REPORT" "$REPORT"; then
+	echo "Клиент не стартовал за ${START_TIMEOUT}с (нет строки СТАРТ в $REPORT) — процесс снят."
+	echo "Клиентский лог: $CLIENT_LOG"
+	[ -f "$CLIENT_LOG" ] && cat "$CLIENT_LOG"
+	echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"
+	exit 1
+fi
+
 if wait_report_mark "СмокТест;$REPORT" "$REPORT" "^ИТОГ;"; then
 	grep '^ИТОГ;' "$REPORT"
+	SKIPPED=$(grep -c '^ПРОПУСК;' "$REPORT" || true)
+	EMPTY=$(grep -c '^ПУСТО;' "$REPORT" || true)
+	echo "Пропущено проверок: ${SKIPPED:-0}; пустых печатных форм: ${EMPTY:-0} (подробности в $REPORT)"
 	if grep -q '^ОШИБКА;' "$REPORT"; then
-		echo "--- Ошибки открытия форм ($REPORT):"
+		echo "--- Ошибки прогона ($REPORT):"
 		grep '^ОШИБКА;' "$REPORT"
 		FAILED=1
 	fi

@@ -15,18 +15,30 @@
 - Исправлена ошибка печати: модуль печатных форм не запускался из-за неверного обращения к типу макета, а в модуле печати лидов осталась лишняя директива области - реестр макетов и печать снова работают.
 - Исправлена карточка бухгалтерской операции: форма не открывалась из-за обращения к несуществующим константам валют управленческого учёта и финансовой отчётности; в maERP валюта учёта одна.
 - Прогон автотестов доведён до конца: проверка конфигурации больше не выдаёт замечаний - убраны битые ссылки в справке бухгалтерских объектов, отсутствующая картинка в справке группового изменения реквизитов и несуществующий цвет в макете накладной FactureSocassif.
+- Карточка бухгалтерской операции очищена от остатков чужой библиотеки: убраны обращения к неперенесённым механизмам (управление доступом, подключаемые команды, форма редактирования комментария, учёт налоговых разниц), исправлен тип склада в подборе субконто и сообщение о незаполненном сторнируемом документе.
+- Автотесты дополнены вторым проходом: после «открыть все формы» прогон формирует каждую печатную форму каждого документа - раньше печать не проверялась ничем.
+
 ### fr
 - Correction d'une erreur d'impression : le module des formulaires imprimables ne démarrait pas à cause d'un accès incorrect au type de modèle, et le module d'impression des pistes contenait une directive de région superflue - le registre des modèles et l'impression fonctionnent de nouveau.
 - Correction de la fiche d'opération comptable : le formulaire ne s'ouvrait pas à cause de constantes de devises (comptabilité de gestion et états financiers) inexistantes ; dans maERP la devise comptable est unique.
 - Les tests automatiques passent jusqu'au bout : la vérification de la configuration ne signale plus rien - liens rompus dans l'aide des objets comptables, image manquante dans l'aide de la modification groupée et couleur inexistante dans le modèle FactureSocassif ont été supprimés.
+- La fiche d'opération comptable est débarrassée des restes d'une bibliothèque étrangère : suppression des appels aux mécanismes non repris (gestion des accès, commandes enfichables, fenêtre d'édition du commentaire, comptabilisation des écarts fiscaux), correction du type d'entrepôt dans la sélection des sous-comptes et du message sur le document annulable non renseigné.
+- Les tests automatiques reçoivent une seconde passe : après « ouvrir tous les formulaires », l'exécution génère chaque formulaire imprimable de chaque document - l'impression n'était vérifiée par rien auparavant.
+
 ### en
 - Fixed a printing error: the print forms module failed to start because of an incorrect reference to the template type, and the lead printing module had a stray region directive - the template registry and printing work again.
 - Fixed the accounting operation card: the form did not open because of references to non-existent management and financial reporting currency constants; maERP uses a single accounting currency.
 - The automated test run now completes: the configuration check reports nothing - broken links in the help of accounting objects, a missing image in the bulk attribute change help and a non-existent color in the FactureSocassif template have been removed.
+- The accounting operation card is cleared of leftovers from a foreign library: calls to mechanisms that were never ported (access management, plug-in commands, the comment editing window, tax difference accounting) are removed, the warehouse type in subconto selection and the message about an empty document being cancelled are fixed.
+- The automated tests get a second pass: after "open all forms" the run generates every print form of every document - printing was previously checked by nothing.
+
 ### es
 - Corregido un error de impresión: el módulo de formularios de impresión no arrancaba por una referencia incorrecta al tipo de plantilla y el módulo de impresión de leads tenía una directiva de región sobrante - el registro de plantillas y la impresión vuelven a funcionar.
 - Corregida la ficha de operación contable: el formulario no se abría por referencias a constantes de moneda de gestión y de estados financieros inexistentes; en maERP la moneda contable es única.
 - La ejecución de las pruebas automáticas llega hasta el final: la comprobación de la configuración ya no informa nada - se han eliminado los enlaces rotos en la ayuda de los objetos contables, la imagen que faltaba en la ayuda del cambio masivo de atributos y el color inexistente en la plantilla FactureSocassif.
+- La ficha de operación contable se ha limpiado de restos de una biblioteca ajena: se han eliminado las llamadas a mecanismos no trasladados (gestión de accesos, comandos conectables, ventana de edición del comentario, contabilidad de diferencias fiscales), se han corregido el tipo de almacén en la selección de subcuentas y el mensaje sobre el documento revertido sin rellenar.
+- Las pruebas automáticas incorporan una segunda pasada: tras «abrir todos los formularios», la ejecución genera cada formulario de impresión de cada documento; antes la impresión no la comprobaba nada.
+
 
 ## 2.0.12.9
 ### ru
