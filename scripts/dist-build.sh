@@ -2,12 +2,14 @@
 # Собирает файлы поставки тиражного решения: CF и, при наличии предыдущих
 # релизов, файл обновления CFU.
 # Использование: scripts/dist-build.sh <версия> [предыдущий1.cf предыдущий2.cf ...]
+# База берётся из DIST_IB, по умолчанию build/ib. Когда база занята конфигуратором или
+# агентом EDT, собираем от копии: cp build/ib/1Cv8.1CD build/ib-dist/ и DIST_IB=build/ib-dist.
 source "$(dirname "${BASH_SOURCE[0]}")/env.sh"
 
 VERSION="${1:?Укажи версию поставки, например 1.0.2}"
 shift || true
 
-IB="$IB_BUILD"
+IB="${DIST_IB:-$IB_BUILD}"
 LOG="$BUILD/dist-build.log"
 mkdir -p "$DIST"
 
