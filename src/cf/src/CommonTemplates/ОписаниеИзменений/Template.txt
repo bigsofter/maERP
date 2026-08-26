@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.12.11
+### ru
+- Исправлена печать накладных, счетов и заказов: если в документе не заполнена организация или контрагент удалён, печатная форма падала с ошибкой - теперь реквизиты просто остаются пустыми. Прогон нашёл это на десяти печатных формах реализации и заказа покупателя.
+- Исправлен счёт Facture: номер документа не приводился к строке, и формирование обрывалось ошибкой преобразования к числу.
+- Карточка бухгалтерской операции снова открывается: убраны обращения к функциональным опциям учёта по направлениям и управленческого учёта на плане счетов, которых в maERP нет.
+- Прогон автотестов доведён до конца на обновлённой базе: окно печати документов исключено из проверки форм (оно открывается только с параметрами команды печати), проверка конфигурации больше не считает замечанием строку «ошибок не обнаружено», а ожидание старта клиента не зависит от того, как платформа запустила процесс.
+- Сверка ссылок дополнена проверкой функциональных опций - имена в кавычках теперь тоже сверяются с конфигурацией.
+### fr
+- Correction de l'impression des bons de livraison, des factures et des commandes : si l'organisation n'est pas renseignée dans le document ou si le tiers a été supprimé, le formulaire imprimable tombait en erreur - les mentions restent désormais simplement vides. L'exécution l'a trouvé sur dix formulaires de vente et de commande client.
+- Correction de la facture Facture : le numéro du document n'était pas converti en chaîne et la génération s'interrompait par une erreur de conversion en nombre.
+- La fiche d'opération comptable s'ouvre de nouveau : suppression des appels aux options fonctionnelles de comptabilité par axe d'activité et de comptabilité de gestion sur le plan comptable, absentes de maERP.
+- Les tests automatiques vont jusqu'au bout sur la base mise à jour : la fenêtre d'impression est exclue du contrôle des formulaires (elle ne s'ouvre qu'avec les paramètres de la commande d'impression), la vérification de la configuration ne considère plus la ligne « aucune erreur » comme une remarque, et l'attente du démarrage du client ne dépend plus de la façon dont la plateforme a lancé le processus.
+- Le contrôle des références vérifie aussi les options fonctionnelles : les noms entre guillemets sont désormais confrontés à la configuration.
+### en
+- Fixed printing of delivery notes, invoices and orders: when the document has no company filled in or the counterparty was deleted, the print form failed with an error - now the details simply stay empty. The run found this on ten print forms of sales and customer orders.
+- Fixed the Facture invoice: the document number was not converted to a string and generation broke with a number conversion error.
+- The accounting operation card opens again: calls to functional options for activity-line accounting and management accounting on the chart of accounts, which maERP does not have, are removed.
+- The automated run completes on the updated base: the print window is excluded from the form check (it only opens with print command parameters), the configuration check no longer treats the "no errors found" line as a remark, and waiting for the client start no longer depends on how the platform launched the process.
+- The reference check also covers functional options: names in quotes are now verified against the configuration.
+### es
+- Corregida la impresión de albaranes, facturas y pedidos: si en el documento no está rellenada la organización o la contraparte se ha eliminado, el formulario de impresión fallaba con error; ahora los datos simplemente quedan vacíos. La ejecución lo encontró en diez formularios de venta y de pedido de cliente.
+- Corregida la factura Facture: el número del documento no se convertía a cadena y la generación se interrumpía con un error de conversión a número.
+- La ficha de operación contable vuelve a abrirse: se han eliminado las llamadas a opciones funcionales de contabilidad por líneas de actividad y de contabilidad de gestión en el plan de cuentas, que maERP no tiene.
+- La ejecución automática llega hasta el final en la base actualizada: la ventana de impresión se excluye de la comprobación de formularios (solo se abre con los parámetros del comando de impresión), la comprobación de la configuración ya no considera una observación la línea «no se han encontrado errores» y la espera del arranque del cliente no depende de cómo la plataforma haya lanzado el proceso.
+- El control de referencias abarca también las opciones funcionales: los nombres entre comillas se contrastan ahora con la configuración.
+
 ## 2.0.12.10
 ### ru
 - Исправлена ошибка печати: модуль печатных форм не запускался из-за неверного обращения к типу макета, а в модуле печати лидов осталась лишняя директива области - реестр макетов и печать снова работают.

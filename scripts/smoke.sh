@@ -43,14 +43,14 @@ wait_process_end() { # $1 — паттерн командной строки п�
 wait_client_start() { # $1 — паттерн процесса, $2 — файл отчёта
 	# Обработка СмокТест пишет строку «СТАРТ;» до начала прогона. Нет её за START_TIMEOUT —
 	# значит клиент не поднялся (ошибка компиляции, диалог на старте, не та база).
+	# Живость процесса тут не проверяем: обёртка 1cv8c на macOS отдаёт работу дочернему
+	# процессу с другой командной строкой, и pgrep по паттерну запуска его не находит.
+	# Строку ИТОГ ищем на случай, если короткий прогон успел переписать отчёт целиком.
 	local elapsed=0
 	while [ "$elapsed" -lt "$START_TIMEOUT" ]; do
 		# Без якоря ^: 1С пишет отчёт с BOM, и он стоит перед первой строкой.
-		[ -f "$2" ] && grep -q 'СТАРТ;' "$2" && return 0
-		if ! pgrep -f "$1" >/dev/null; then
-			sleep 2
-			[ -f "$2" ] && grep -q 'СТАРТ;' "$2"
-			return $?
+		if [ -f "$2" ] && grep -qE 'СТАРТ;|ИТОГ;' "$2"; then
+			return 0
 		fi
 		sleep 3; elapsed=$((elapsed + 3))
 	done
@@ -81,8 +81,11 @@ rm -f "$CHECK_LOG"
 	-ConfigLogIntegrity -IncorrectReferences -ThinClient -Server \
 	"${V8_BATCH[@]}" /Out "$CHECK_LOG" || true
 wait_process_end "CheckConfig" || { echo "CheckConfig не завершился за ${TIMEOUT}с — процесс снят"; FAILED=1; }
+# Платформа пишет в лог строку «ошибок не обнаружено» на своём языке интерфейса —
+# для скрипта это чистый результат, а не замечание.
+CHECK_CLEAN_LINE='Ошибок не обнаружено|Errores no encontrados|No errors found|Aucune erreur'
 COMPILE_ERROR=0
-if [ -s "$CHECK_LOG" ] && grep -qvE '^[[:space:]]*$' "$CHECK_LOG"; then
+if [ -s "$CHECK_LOG" ] && grep -qvE "^[[:space:]]*$|$CHECK_CLEAN_LINE" "$CHECK_LOG"; then
 	echo "--- Замечания CheckConfig ($CHECK_LOG):"
 	cat "$CHECK_LOG"
 	FAILED=1

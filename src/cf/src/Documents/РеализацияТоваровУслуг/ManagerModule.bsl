@@ -1189,7 +1189,9 @@ EndFunction
 
 Процедура ЗаполнитьШапкуFacture(Header, Selection, ДатаДокумента, Карточки)
 	Header.Параметры.Заполнить(Selection);
-	Header.Параметры.Number = Selection.Number + "/" + Формат(Selection.Date, "Л=fr; ДФ=yy; ДЛФ=DD");
+	// Строка(): номер приходит из объединения нескольких документов, тип поля составной,
+	// и без приведения сложение с разделителем уходит в арифметику.
+	Header.Параметры.Number = Строка(Selection.Number) + "/" + Формат(Selection.Date, "Л=fr; ДФ=yy; ДЛФ=DD");
 	Header.Параметры.Date = Формат(Selection.Date, "Л=fr; ДФ=dd/MM/yyyy; ДЛФ=DD");
 
 	КарточкаКлиента = КарточкаКонтрагента(Карточки, Selection.Client, ДатаДокумента);

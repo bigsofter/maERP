@@ -16,7 +16,8 @@
      "Документ.Х.Форма.Y", "Документ.Х.Макет.Z" — на них опирается печать
      и ОткрытьФорму;
   4. вызовы общих модулей: ОбщийМодуль.Метод() — метод должен существовать
-     и быть экспортным.
+     и быть экспортным;
+  5. функциональные опции: ПолучитьФункциональнуюОпцию("Х").
 
 Известные и осознанно принятые расхождения (стандартные картинки платформы,
 наследие бухгалтерского контура и прочее из docs/TECHDEBT.md) лежат в
@@ -64,6 +65,9 @@ COLLECTIONS = [
     ("КритерииОтбора", "КритерийОтбора", "FilterCriteria"),
     ("БиблиотекаКартинок", "ОбщаяКартинка", "CommonPictures"),
 ]
+
+# Функциональные опции: имя приходит строкой, ошибка вылезает только в рантайме.
+FUNCTIONAL_OPTION_CALLS = ("ПолучитьФункциональнуюОпцию", "ПолучитьФункциональнуюОпциюИнтерфейса")
 
 # Коллекции без менеджера: встречаются только в полных именах.
 SINGULAR_ONLY = [
@@ -209,6 +213,7 @@ class Checker:
             self.templates[folder] = read_children(src, folder, "Templates")
             self.commands[folder] = read_children(src, folder, "Commands")
         self.exports = export_methods(src)
+        self.names["FunctionalOptions"] = read_names(src, "FunctionalOptions")
         self.findings = []
 
         # Перед именем не должно быть точки: «РегистрыСведений.Лиды.СрезПоследних» — это
@@ -224,6 +229,8 @@ class Checker:
         self.re_fullname = re.compile(
             r"^(" + "|".join(singles) + r")\.(" + IDENT + r")"
             r"(?:\.(Форма|Макет|Команда)\.(" + IDENT + r"))?$")
+        self.re_option = re.compile(
+            r"\b(?:" + "|".join(FUNCTIONAL_OPTION_CALLS) + r")\s*\(\s*\"(" + IDENT + r")\"")
         module_names = sorted(self.exports, key=len, reverse=True)
         self.re_call = re.compile(
             nodot + r"(" + "|".join(re.escape(m) for m in module_names) + r")\.(" + IDENT + r")\s*\(") \
@@ -258,6 +265,10 @@ class Checker:
                 folder = TYPE_PREFIXES[prefix]
                 if name not in self.names[folder]:
                     self.add(prefix + "." + name, where, "типа нет в конфигурации")
+
+            for name in self.re_option.findall(line):
+                if name not in self.names["FunctionalOptions"]:
+                    self.add("ФункциональнаяОпция." + name, where, "опции нет в конфигурации")
 
             for literal in literals:
                 match = self.re_fullname.match(literal.strip())
