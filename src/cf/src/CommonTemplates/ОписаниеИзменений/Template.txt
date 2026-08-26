@@ -2,24 +2,74 @@
 
 Формат (разбирается ОбновлениеПрограммы.ОписаниеИзменений и scripts/changelog.sh):
   строка "## <версия>" открывает секцию версии, порядок секций - от новых к старым;
-  строка "- <текст>" - пункт изменений текущей секции;
+  строка "### <код языка>" открывает блок языка внутри секции (ru, fr, en, es);
+  строка "- <текст>" - пункт изменений текущего блока;
   прочие строки игнорируются и служат комментариями.
+Каждая сборка описывается на всех языках конфигурации: окно «Что нового» показывает
+закладку по каждому языку. Если блока языка нет, показывается блок основного языка.
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.12.4
+### ru
+- В окне «Что нового» появились закладки по языкам: список изменений ведётся и показывается на русском, французском, английском и испанском.
+- При открытии окна сразу выбирается закладка языка текущего сеанса.
+### fr
+- La fenêtre « Nouveautés » comporte désormais des onglets de langue : la liste des modifications est tenue et affichée en russe, français, anglais et espagnol.
+- À l'ouverture de la fenêtre, l'onglet de la langue de la session en cours est sélectionné automatiquement.
+### en
+- The "What's new" window now has language tabs: the list of changes is maintained and shown in Russian, French, English and Spanish.
+- When the window opens, the tab of the current session language is selected automatically.
+### es
+- La ventana «Novedades» ahora tiene pestañas de idioma: la lista de cambios se mantiene y se muestra en ruso, francés, inglés y español.
+- Al abrir la ventana se selecciona automáticamente la pestaña del idioma de la sesión actual.
+
 ## 2.0.12.3
+### ru
 - Окно «Что нового» открывалось пустым: текст переведён на HTML-документ, как в типовых конфигурациях, и теперь показывается со списком пунктов по каждой версии.
 - Окно «Что нового» показывает все изменения, накопленные с прошлой публикации программы, а не только последнюю правку: список версий виден целиком, заголовок окна называет текущую версию.
+### fr
+- La fenêtre « Nouveautés » s'ouvrait vide : le texte est désormais affiché comme un document HTML, comme dans les configurations standard, avec la liste des points de chaque version.
+- La fenêtre « Nouveautés » affiche toutes les modifications accumulées depuis la publication précédente du programme, et non seulement la dernière correction : la liste des versions est visible en entier et le titre de la fenêtre indique la version actuelle.
+### en
+- The "What's new" window opened empty: the text is now shown as an HTML document, as in standard configurations, with the list of items for each version.
+- The "What's new" window shows all changes accumulated since the previous release of the application, not only the latest fix: the whole list of versions is visible and the window title names the current version.
+### es
+- La ventana «Novedades» se abría vacía: ahora el texto se muestra como un documento HTML, igual que en las configuraciones estándar, con la lista de puntos de cada versión.
+- La ventana «Novedades» muestra todos los cambios acumulados desde la publicación anterior del programa, y no solo la última corrección: la lista de versiones se ve completa y el título de la ventana indica la versión actual.
 
 ## 2.0.12.2
+### ru
 - Печать документов переведена на общее окно: слева список печатных форм документа с флажками, справа просмотр, число копий, сохранение в PDF, Excel или табличный документ.
 - Макет любой печатной формы можно изменить под себя: реестр макетов открывается в разделе Сервис — Управление данными, там же видно, какие макеты изменены и в какой версии программы, и одной командой возвращается поставляемый макет.
 - Логотип и печать организации подставляются в печатные формы автоматически из карточки организации.
 - На новое окно печати переведены: перемещение, списание и оприходование товаров, передача в переработку и поступление из переработки, корректировка долга, платёжная ведомость на аванс, поступление товаров и услуг, выплата зарплаты, заказ поставщику, налоговая накладная покупки.
 - Окно «Что нового»: исправлен пустой отступ в начале текста.
 - Новая схема нумерации версий: линейка 2.0, номер сборки растёт при каждой передаче на проверку, и все изменения сборки перечисляются в этом окне.
+### fr
+- L'impression des documents passe par une fenêtre commune : à gauche la liste des formulaires imprimables du document avec des cases à cocher, à droite l'aperçu, le nombre de copies et l'enregistrement en PDF, Excel ou document tabulaire.
+- Le modèle de tout formulaire imprimable peut être adapté : le registre des modèles s'ouvre dans la section Service — Gestion de données, on y voit quels modèles ont été modifiés et dans quelle version du programme, et une seule commande restaure le modèle fourni.
+- Le logo et le cachet de l'organisation sont insérés automatiquement dans les formulaires imprimables depuis la fiche de l'organisation.
+- Sont passés à la nouvelle fenêtre d'impression : transfert, sortie et entrée de marchandises, transfert en sous-traitance et réception de sous-traitance, correction de dette, paiement anticipé, bon de réception, paiement des salaires, commande au fournisseur, facture d'achat.
+- Fenêtre « Nouveautés » : le retrait vide en début de texte est corrigé.
+- Nouveau schéma de numérotation des versions : ligne 2.0, le numéro de build augmente à chaque remise pour vérification et toutes les modifications du build sont listées dans cette fenêtre.
+### en
+- Document printing now goes through a common window: the list of the document's print forms with check boxes on the left, preview, number of copies and saving to PDF, Excel or a spreadsheet document on the right.
+- The template of any print form can be customized: the template registry opens in the Service — Data management section, it shows which templates were changed and in which version of the application, and a single command restores the supplied template.
+- The company logo and stamp are inserted into print forms automatically from the company card.
+- Switched to the new print window: transfer, write-off and receipt of goods, transfer for processing and receipt from processing, debt adjustment, advance payroll sheet, receipt of goods and services, salary payment, order to supplier, purchase tax invoice.
+- "What's new" window: the empty indent at the beginning of the text is fixed.
+- New version numbering scheme: line 2.0, the build number increases with every handover for testing, and all changes of the build are listed in this window.
+### es
+- La impresión de documentos pasa por una ventana común: a la izquierda la lista de formularios de impresión del documento con casillas, a la derecha la vista previa, el número de copias y el guardado en PDF, Excel o documento tabular.
+- La plantilla de cualquier formulario de impresión se puede adaptar: el registro de plantillas se abre en la sección Servicio — Gestión de datos, allí se ve qué plantillas se han modificado y en qué versión del programa, y un solo comando restaura la plantilla suministrada.
+- El logotipo y el sello de la organización se insertan automáticamente en los formularios de impresión desde la ficha de la organización.
+- Pasan a la nueva ventana de impresión: traslado, baja y alta de mercancías, transferencia a procesamiento y recepción de procesamiento, corrección de deuda, pago anticipado, recepción de bienes y servicios, pago de salarios, pedido al proveedor y factura de compra.
+- Ventana «Novedades»: se ha corregido el espacio vacío al inicio del texto.
+- Nuevo esquema de numeración de versiones: línea 2.0, el número de compilación aumenta en cada entrega para revisión y todos los cambios de la compilación se enumeran en esta ventana.
 
 ## 1.0.12.1
+### ru
 - Производственный контур: статусы заказов «В производстве», «Передан субподрядчику» и «Получен от субподрядчика» пересчитываются по связанным документам.
 - Выпуск продукции: несколько позиций готовой продукции в одном документе, себестоимость и НДС распределяются по весам технологических карт.
 - Поступление из переработки: стоимость услуг переработчика капитализируется в себестоимость продукции, долг переработчику попадает во взаиморасчёты.
@@ -32,6 +82,52 @@
 - Элементы меню переведены на французский, английский и испанский языки.
 - Механизм обновления данных: версия базы, обработчики обновления и окно «Что нового» с описанием изменений.
 - Исправлено падение при открытии реализации товаров и услуг, а также ряд ошибок в запросах и печатных формах.
+### fr
+- Circuit de production : les statuts des commandes « En production », « Transmis au sous-traitant » et « Reçu du sous-traitant » sont recalculés d'après les documents liés.
+- Fabrication : plusieurs articles de produits finis dans un même document, le coût de revient et la TVA sont répartis selon les poids des fiches techniques.
+- Réception de sous-traitance : le coût des services du sous-traitant est capitalisé dans le coût de revient des produits, la dette envers le sous-traitant entre dans les règlements mutuels.
+- Les marchandises en sous-traitance sont suivies par commande client, et le rapport dispose d'un filtre par commande.
+- Poste de travail « Commandes en production » : les commandes avec leurs statuts, les articles de la commande et les documents liés dans une seule fenêtre.
+- Page d'accueil : tableaux de bord des ventes, du stock et de la production avec les indicateurs du jour, du mois et les records.
+- Le rôle « Opérateur de production » ne voit plus les prix ni les montants dans les documents de mouvement de marchandises et de production.
+- Une même commande client peut donner lieu à plusieurs ventes (livraisons partielles).
+- Le menu est réorganisé par processus métier : les documents principaux de chaque section sont placés dans « Important », les commandes secondaires dans « Voir aussi ».
+- Les éléments de menu sont traduits en français, en anglais et en espagnol.
+- Mécanisme de mise à jour des données : version de la base, gestionnaires de mise à jour et fenêtre « Nouveautés » avec la description des modifications.
+- Correction du plantage à l'ouverture de la vente de biens et services, ainsi que de plusieurs erreurs dans les requêtes et les formulaires imprimables.
+### en
+- Production circuit: the order statuses "In production", "Transferred to subcontractor" and "Received from subcontractor" are recalculated from the related documents.
+- Production output: several finished product items in one document, cost and VAT are distributed by the weights of the technological charts.
+- Receipt from processing: the processor's service cost is capitalized into the product cost, and the debt to the processor goes into mutual settlements.
+- Goods in processing are tracked by customer order, and the report now has a filter by order.
+- "Orders in production" workplace: orders with statuses, order items and related documents in one window.
+- Home page: sales, warehouse and production dashboards with daily and monthly indicators and records.
+- The "Production operator" role no longer sees prices and amounts in goods movement and production documents.
+- One customer order can have several sales documents (partial shipments).
+- The menu is regrouped by business processes: the main documents of each section are placed in "Important", secondary commands in "See also".
+- Menu items are translated into French, English and Spanish.
+- Data update mechanism: infobase version, update handlers and the "What's new" window with the description of changes.
+- Fixed the crash when opening a sales document, as well as a number of errors in queries and print forms.
+### es
+- Circuito de producción: los estados de los pedidos «En producción», «Transferido al subcontratista» y «Recibido del subcontratista» se recalculan según los documentos vinculados.
+- Fabricación: varias posiciones de productos terminados en un mismo documento, el coste y el IVA se distribuyen según los pesos de las fichas técnicas.
+- Recepción de procesamiento: el coste de los servicios del procesador se capitaliza en el coste del producto y la deuda con el procesador entra en las liquidaciones mutuas.
+- Las mercancías en procesamiento se llevan por pedido de cliente y el informe tiene un filtro por pedido.
+- Puesto de trabajo «Pedidos en producción»: pedidos con sus estados, artículos del pedido y documentos vinculados en una sola ventana.
+- Página de inicio: paneles de ventas, almacén y producción con indicadores del día, del mes y récords.
+- El rol «Operador de producción» ya no ve precios ni importes en los documentos de movimiento de mercancías y de producción.
+- Un mismo pedido de cliente admite varias ventas (envíos parciales).
+- El menú se ha reagrupado por procesos de negocio: los documentos principales de cada sección están en «Importante» y los comandos secundarios en «Véase también».
+- Los elementos del menú están traducidos al francés, inglés y español.
+- Mecanismo de actualización de datos: versión de la base, controladores de actualización y ventana «Novedades» con la descripción de los cambios.
+- Corregido el fallo al abrir la venta de bienes y servicios, así como varios errores en consultas y formularios de impresión.
 
 ## 1.0.11.1
+### ru
 - Первый релиз maERP: продажи, закупки, склад, производство, казначейство, зарплата и кадры, бухгалтерия.
+### fr
+- Première version de maERP : ventes, achats, stock, production, trésorerie, paie et RH, comptabilité.
+### en
+- First maERP release: sales, purchases, warehouse, production, treasury, payroll and HR, accounting.
+### es
+- Primera versión de maERP: ventas, compras, almacén, producción, tesorería, nóminas y RR. HH., contabilidad.

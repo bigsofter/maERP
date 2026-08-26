@@ -13,8 +13,11 @@
 #
 #   {
 #     "product": "maERP",          # идентификатор продукта в хабе
-#     "version": "1.0.12.1",       # версия релиза
-#     "changes": ["пункт", ...]    # пункты секции в порядке макета
+#     "version": "2.0.12.4",       # версия релиза
+#     "changes": {                 # пункты секции по языкам, в порядке макета
+#       "ru": ["пункт", ...],
+#       "fr": [...], "en": [...], "es": [...]
+#     }
 #   }
 #
 # Отправка в хаб (HMAC-вебхук Product Hub) - этап 12 плана MERGE-DRISSOTEX,
@@ -51,20 +54,26 @@ import io, json, sys
 
 version, template, out = sys.argv[1], sys.argv[2], sys.argv[3]
 
-changes, in_section = [], False
+DEFAULT_LANGUAGE = 'ru'
+
+changes, in_section, language = {}, False, DEFAULT_LANGUAGE
 for line in io.open(template, encoding='utf-8'):
 	line = line.strip()
 	if line.startswith('## '):
 		in_section = line[3:].strip() == version
+		language = DEFAULT_LANGUAGE
+	elif in_section and line.startswith('### '):
+		language = line[4:].strip().lower()
 	elif in_section and line.startswith('- '):
-		changes.append(line[2:].strip())
+		changes.setdefault(language, []).append(line[2:].strip())
 
-if not changes:
+total = sum(len(items) for items in changes.values())
+if not total:
 	sys.exit('В макете нет секции версии %s или она пуста: %s' % (version, template))
 
 payload = {'product': 'maERP', 'version': version, 'changes': changes}
 io.open(out, 'w', encoding='utf-8').write(json.dumps(payload, ensure_ascii=False, indent=2) + '\n')
-print('Пунктов изменений: %d' % len(changes))
+print('Языков: %d, пунктов изменений: %d' % (len(changes), total))
 PY
 
 echo "Описание изменений: $OUT"
