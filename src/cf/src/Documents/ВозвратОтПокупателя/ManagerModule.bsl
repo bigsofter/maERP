@@ -106,7 +106,17 @@ Function PrintTicket(Док, Spreadsheet) Export
 	|	Документ.ВозвратОтПокупателя.ТЧТовары КАК Doc
 	|ГДЕ
 	|	Doc.Ссылка = &Ref
-	|ИТОГИ ПО
+	|ИТОГИ
+	|	МАКСИМУМ(Client),
+	|	МАКСИМУМ(Createur),
+	|	МАКСИМУМ(Date),
+	|	МАКСИМУМ(Number),
+	|	МАКСИМУМ(Devise),
+	|	МАКСИМУМ(TotalSomme),
+	|	МАКСИМУМ(DocRef),
+	|	МАКСИМУМ(Organisation),
+	|	МАКСИМУМ(Основание)
+	|ПО
 	|	Ссылка";
 	Query.Parameters.Insert("Ref", Док);
 	Selection = Query.Execute().Select(ОбходРезультатаЗапроса.ПоГруппировкам);

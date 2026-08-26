@@ -13,12 +13,24 @@
 ## 2.0.12.15
 ### ru
 - Исправлен счёт-фактура: способ оплаты определялся по реквизиту ручной корректировки, которого у реализации нет (он есть только у налоговых накладных), и печать обрывалась. Теперь реквизит читается только там, где он есть, а у остальных документов оплаты берутся из движений по деньгам.
+- Исправлена шапка печатных форм, где организация, клиент, номер и итог не выводились: товарная накладная прежней формы, чек, счёт-фактура Socassif, накладные возврата и налоговая накладная покупки. У накладной возврата печать чека на этом же месте обрывалась.
+- Счёт-фактура Socassif: в накладной с товарами вместо номера документа печаталась дата, а номер не выводился совсем.
+- Проверка перед сдачей стала строже: прогон печати теперь отмечает формы, в которых не нашёл номера документа, — раньше пустая шапка выглядела для него так же, как заполненная.
 ### fr
 - Correction de la facture : le mode de règlement était déterminé par l'attribut de correction manuelle, absent de la vente (il n'existe que sur les factures fiscales), et l'impression s'interrompait. L'attribut n'est désormais lu que là où il existe ; pour les autres documents, les règlements proviennent des mouvements de trésorerie.
+- Correction de l'en-tête des impressions où la société, le client, le numéro et le total n'apparaissaient pas : facture (ancien formulaire), ticket, facture Socassif, bons de retour et facture fiscale d'achat. Sur un bon de retour, l'impression du ticket s'interrompait au même endroit.
+- Facture Socassif : sur un document avec marchandises, la date était imprimée à la place du numéro, et le numéro n'apparaissait pas du tout.
+- Contrôle avant livraison renforcé : le test d'impression signale désormais les formulaires où le numéro du document est introuvable — auparavant un en-tête vide lui paraissait identique à un en-tête rempli.
 ### en
 - Fixed the invoice: the payment method was determined by the manual correction attribute, which sales documents do not have (only tax invoices do), and printing broke. The attribute is now read only where it exists; for other documents payments come from cash movements.
+- Fixed the header of printed forms where the company, customer, number and total were missing: invoice (former form), receipt, Socassif invoice, return notes and purchase tax invoice. On a return note, printing the receipt broke at that same place.
+- Socassif invoice: on a document with goods the date was printed instead of the document number, and the number was not printed at all.
+- Stricter pre-release check: the print run now flags forms in which it could not find the document number — an empty header used to look the same to it as a filled one.
 ### es
 - Corregida la factura: la forma de pago se determinaba por el atributo de corrección manual, que la venta no tiene (solo lo tienen las facturas fiscales), y la impresión se interrumpía. Ahora el atributo se lee solo donde existe y, en los demás documentos, los pagos se toman de los movimientos de tesorería.
+- Corregida la cabecera de las formas impresas donde no salían la organización, el cliente, el número y el total: albarán (formulario anterior), recibo, factura Socassif, albaranes de devolución y factura fiscal de compra. En el albarán de devolución la impresión del recibo se interrumpía en ese mismo punto.
+- Factura Socassif: en el documento con mercancías se imprimía la fecha en lugar del número, y el número no salía en absoluto.
+- Control previo a la entrega más estricto: la prueba de impresión ahora marca las formas en las que no encontró el número del documento — antes una cabecera vacía le parecía igual que una llena.
 
 ## 2.0.12.14
 ### ru

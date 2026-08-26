@@ -632,7 +632,18 @@ Function PrintFactureOld(Док, Spreadsheet) Export
 	|	Документ.ЗаказПокупателя.ТЧТовары КАК ЗаказПокупателяТЧТовары
 	|ГДЕ
 	|	ЗаказПокупателяТЧТовары.Ссылка = &Ref
-	|ИТОГИ ПО
+	|ИТОГИ
+	|	МАКСИМУМ(DocRef),
+	|	МАКСИМУМ(Client),
+	|	МАКСИМУМ(Createur),
+	|	МАКСИМУМ(Date),
+	|	МАКСИМУМ(Number),
+	|	МАКСИМУМ(Devise),
+	|	МАКСИМУМ(TotalSomme),
+	|	МАКСИМУМ(TotalSommeTVA),
+	|	МАКСИМУМ(Organisation),
+	|	МАКСИМУМ(Основание)
+	|ПО
 	|	Ссылка";
 	Query.Parameters.Insert("Ref", Док);
 	Selection = Query.Execute().Select(ОбходРезультатаЗапроса.ПоГруппировкам);
@@ -1359,12 +1370,12 @@ Function PrintFactureSocassif(Док, Spreadsheet, СФоном = Ложь) Expo
 	"ВЫБРАТЬ
 	|	Doc.Ссылка.Контрагент КАК Client,
 	|	Doc.Ссылка.Ответственный КАК Createur,
-	|	Doc.Ссылка.Дата КАК DocumentDate,
 	|	ВЫБОР
 	|		КОГДА Doc.Ссылка.ДатаИнвойса = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
 	|			ТОГДА Doc.Ссылка.Дата
 	|		ИНАЧЕ Doc.Ссылка.ДатаИнвойса
-	|	КОНЕЦ КАК DocumentNumber,
+	|	КОНЕЦ КАК DocumentDate,
+	|	Doc.Ссылка.Номер КАК DocumentNumber,
 	|	Doc.Ссылка.Договор.ВалютаВзаиморасчётов КАК Devise,
 	|	Doc.Ссылка.Сумма КАК TotalSomme,
 	|	Doc.Ссылка.СуммаНДС КАК TotalSommeTVA,
@@ -1424,7 +1435,18 @@ Function PrintFactureSocassif(Док, Spreadsheet, СФоном = Ложь) Expo
 	|
 	|УПОРЯДОЧИТЬ ПО
 	|	BL
-	|ИТОГИ ПО
+	|ИТОГИ
+	|	МАКСИМУМ(DocRef),
+	|	МАКСИМУМ(Client),
+	|	МАКСИМУМ(Createur),
+	|	МАКСИМУМ(DocumentDate),
+	|	МАКСИМУМ(DocumentNumber),
+	|	МАКСИМУМ(Devise),
+	|	МАКСИМУМ(TotalSomme),
+	|	МАКСИМУМ(TotalSommeTVA),
+	|	МАКСИМУМ(Organisation),
+	|	МАКСИМУМ(Основание)
+	|ПО
 	|	Ссылка";
 	Query.Parameters.Insert("Ref", Док);
 	Selection = Query.Execute().Select(ОбходРезультатаЗапроса.ПоГруппировкам);
@@ -2207,7 +2229,18 @@ Function PrintTicket(Док, Spreadsheet) Export
 	|	Документ.РеализацияТоваровУслуг.ТЧУслуги КАК Doc
 	|ГДЕ
 	|	Doc.Ссылка = &Ref
-	|ИТОГИ ПО
+	|ИТОГИ
+	|	МАКСИМУМ(DocRef),
+	|	МАКСИМУМ(Client),
+	|	МАКСИМУМ(Createur),
+	|	МАКСИМУМ(Date),
+	|	МАКСИМУМ(Number),
+	|	МАКСИМУМ(Devise),
+	|	МАКСИМУМ(TotalSomme),
+	|	МАКСИМУМ(TotalSommeTVA),
+	|	МАКСИМУМ(Organisation),
+	|	МАКСИМУМ(Основание)
+	|ПО
 	|	Ссылка";
 	Query.Parameters.Insert("Ref", Док);
 	Selection = Query.Execute().Select(ОбходРезультатаЗапроса.ПоГруппировкам);
