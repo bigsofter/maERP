@@ -53,7 +53,13 @@
 Процедура ПриОткрытии(Отказ)
 
 	ЗаполнитьПараметрыФормыПоУмолчанию();
-	ПрисоединённыеФайлыКлиент.УстановитьПодключитьРасширениеРаботыСФайлами(Истина);
+	// Изображения и присоединённые файлы товара берутся с диска компьютера: в веб-клиенте
+	// это возможно только через расширение для работы с 1С:Предприятием.
+	РасширениеРаботыС1СПредприятиемКлиент.Подключить(Неопределено,
+		НСтр("ru = 'Для работы с изображениями и файлами товара установите расширение для работы с 1С:Предприятием.';
+			|fr = 'Pour travailler avec les images et les fichiers de l''article, installez l''extension pour travailler avec 1C:Entreprise.';
+			|en = 'To work with item images and files, install the 1C:Enterprise extension.';
+			|es = 'Para trabajar con las imágenes y los archivos del artículo, instale la extensión para trabajar con 1C:Empresa.'"));
 	УстановитьВидимостьЭлементов(); 
 	
 КонецПроцедуры
