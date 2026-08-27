@@ -41,20 +41,20 @@ if ! wait_client_start "ТестовыеДанные;$REPORT" "$REPORT"; then
 	exit 1
 fi
 
-if ! wait_report_mark "ТестовыеДанные;$REPORT" "$REPORT" "^ИТОГ;"; then
+if ! wait_report_mark "ТестовыеДанные;$REPORT" "$REPORT" "ИТОГ;"; then
 	echo "Заполнение не отработало: нет строки ИТОГ в $REPORT (клиентский лог: $CLIENT_LOG)"
 	[ -f "$CLIENT_LOG" ] && cat "$CLIENT_LOG"
 	exit 1
 fi
 
-grep '^ИТОГ;' "$REPORT"
-if grep -q '^СОЗДАН;' "$REPORT"; then
+grep 'ИТОГ;' "$REPORT"
+if grep -q 'СОЗДАН;' "$REPORT"; then
 	echo "--- Заведены образцы:"
-	grep '^СОЗДАН;' "$REPORT"
+	grep 'СОЗДАН;' "$REPORT"
 fi
-if grep -q '^ОШИБКА;' "$REPORT"; then
+if grep -q 'ОШИБКА;' "$REPORT"; then
 	echo "--- Не удалось завести ($REPORT):"
-	grep '^ОШИБКА;' "$REPORT"
+	grep 'ОШИБКА;' "$REPORT"
 	echo "ЗАПОЛНЕНИЕ НЕ ЗАВЕРШЕНО"
 	exit 1
 fi

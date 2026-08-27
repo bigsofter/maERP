@@ -70,20 +70,20 @@ if ! wait_client_start "СмокТест;$REPORT" "$REPORT"; then
 	exit 1
 fi
 
-if wait_report_mark "СмокТест;$REPORT" "$REPORT" "^ИТОГ;"; then
-	grep '^ИТОГ;' "$REPORT"
-	SKIPPED=$(grep -c '^ПРОПУСК;' "$REPORT" || true)
-	EMPTY=$(grep -c '^ПУСТО;' "$REPORT" || true)
-	SUSPECT=$(grep -c '^ПОДОЗРЕНИЕ;' "$REPORT" || true)
+if wait_report_mark "СмокТест;$REPORT" "$REPORT" "ИТОГ;"; then
+	grep 'ИТОГ;' "$REPORT"
+	SKIPPED=$(grep -c 'ПРОПУСК;' "$REPORT" || true)
+	EMPTY=$(grep -c 'ПУСТО;' "$REPORT" || true)
+	SUSPECT=$(grep -c 'ПОДОЗРЕНИЕ;' "$REPORT" || true)
 	echo "Пропущено проверок: ${SKIPPED:-0}; пустых печатных форм: ${EMPTY:-0} (подробности в $REPORT)"
 	if [ "${SUSPECT:-0}" -ne 0 ]; then
 		# Не ошибка прогона: печатная форма сформировалась, но номера документа в ней нет.
 		echo "--- Печатные формы под подозрением (смотреть глазами):"
-		grep '^ПОДОЗРЕНИЕ;' "$REPORT"
+		grep 'ПОДОЗРЕНИЕ;' "$REPORT"
 	fi
-	if grep -q '^ОШИБКА;' "$REPORT"; then
+	if grep -q 'ОШИБКА;' "$REPORT"; then
 		echo "--- Ошибки прогона ($REPORT):"
-		grep '^ОШИБКА;' "$REPORT"
+		grep 'ОШИБКА;' "$REPORT"
 		FAILED=1
 	fi
 else
