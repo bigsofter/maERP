@@ -10,61 +10,43 @@
     <visibilityFragments>
       <command>Catalog.Контрагенты.StandardCommand.OpenList</command>
       <visible>
-        <for>
-          <role>Role.PDV</role>
-        </for>
+        <common>true</common>
       </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.Контрагенты.Command.Перевозчики</command>
       <visible>
-        <for>
-          <role>Role.PDV</role>
-        </for>
+        <common>true</common>
       </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.Контрагенты.Command.Поставщики</command>
       <visible>
-        <for>
-          <role>Role.PDV</role>
-        </for>
+        <common>true</common>
       </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.ПричиныВозвратов.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
-        <for>
-          <role>Role.PDV</role>
-        </for>
       </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.КатегорииКонтрагентов.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
-        <for>
-          <role>Role.PDV</role>
-        </for>
       </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.РодыДеятельности.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
-        <for>
-          <role>Role.PDV</role>
-        </for>
       </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.УсловияОплаты.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
-        <for>
-          <role>Role.PDV</role>
-        </for>
       </visible>
     </visibilityFragments>
   </commandsVisibility>
@@ -72,23 +54,44 @@
     <placementFragments>
       <group>NavigationPanelImportant</group>
       <commands>Catalog.Контрагенты.Command.Покупатели</commands>
+      <commands>Catalog.Номенклатура.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Catalog.Контрагенты.StandardCommand.OpenList</commands>
+      <commands>Catalog.КатегорииКонтрагентов.StandardCommand.OpenList</commands>
+      <commands>Catalog.УсловияОплаты.StandardCommand.OpenList</commands>
+      <commands>Catalog.ПричиныВозвратов.StandardCommand.OpenList</commands>
+      <commands>Catalog.ДоговорыСКонтрагентами.StandardCommand.OpenList</commands>
+      <commands>Catalog.ТоварныеГруппы.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>Catalog.РодыДеятельности.StandardCommand.OpenList</commands>
+      <commands>Catalog.Контрагенты.Command.Поставщики</commands>
+      <commands>Catalog.Контрагенты.Command.Перевозчики</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelImportant</group>
       <commands>Catalog.Контрагенты.Command.Покупатели</commands>
+      <commands>Catalog.Номенклатура.StandardCommand.OpenList</commands>
     </orderFragments>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
-      <commands>Catalog.Номенклатура.StandardCommand.OpenList</commands>
       <commands>Catalog.Контрагенты.StandardCommand.OpenList</commands>
-      <commands>Catalog.Контрагенты.Command.Перевозчики</commands>
-      <commands>Catalog.Контрагенты.Command.Поставщики</commands>
-      <commands>Catalog.ПричиныВозвратов.StandardCommand.OpenList</commands>
       <commands>Catalog.КатегорииКонтрагентов.StandardCommand.OpenList</commands>
-      <commands>Catalog.РодыДеятельности.StandardCommand.OpenList</commands>
       <commands>Catalog.УсловияОплаты.StandardCommand.OpenList</commands>
+      <commands>Catalog.ПричиныВозвратов.StandardCommand.OpenList</commands>
+      <commands>Catalog.ДоговорыСКонтрагентами.StandardCommand.OpenList</commands>
+      <commands>Catalog.ТоварныеГруппы.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>Catalog.РодыДеятельности.StandardCommand.OpenList</commands>
+      <commands>Catalog.Контрагенты.Command.Поставщики</commands>
+      <commands>Catalog.Контрагенты.Command.Перевозчики</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>

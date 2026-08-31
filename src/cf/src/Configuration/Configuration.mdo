@@ -29,7 +29,7 @@
   <scriptVariant>Russian</scriptVariant>
   <defaultRoles>Role.Администратор</defaultRoles>
   <vendor>6</vendor>
-  <version>1.0.11.1</version>
+  <version>2.0.12.18</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -204,6 +204,7 @@
     <languageCode>es</languageCode>
   </languages>
   <subsystems>Subsystem.ECommerce</subsystems>
+  <subsystems>Subsystem.Автотесты</subsystems>
   <subsystems>Subsystem.Бухгалтерия</subsystems>
   <subsystems>Subsystem.Закупки</subsystems>
   <subsystems>Subsystem.ЗарплатаИКадры</subsystems>
@@ -211,6 +212,8 @@
   <subsystems>Subsystem.МультиКонфигурация</subsystems>
   <subsystems>Subsystem.Продажи</subsystems>
   <subsystems>Subsystem.Производство</subsystems>
+  <subsystems>Subsystem.ОбновлениеПрограммы</subsystems>
+  <subsystems>Subsystem.ПечатныеФормы</subsystems>
   <subsystems>Subsystem.Сервис</subsystems>
   <subsystems>Subsystem.Склад</subsystems>
   <styleItems>StyleItem.ВажнаяНадписьШрифт</styleItems>
@@ -368,6 +371,7 @@
   <roles>Role.ЛичныйКабинет</roles>
   <commonTemplates>CommonTemplate.Драйвер1СЭквайринговыеТерминалыСбербанк</commonTemplates>
   <commonTemplates>CommonTemplate.ОбщиеОбластиСтандартногоОтчета</commonTemplates>
+  <commonTemplates>CommonTemplate.ОписаниеИзменений</commonTemplates>
   <commonTemplates>CommonTemplate.АктОбОказанииУслуг</commonTemplates>
   <commonTemplates>CommonTemplate.ДрайверARCUS2ЭквайринговыеТерминалыIngenico</commonTemplates>
   <commonTemplates>CommonTemplate.ДрайверIboxProПоддержкаMPosЭквайринга</commonTemplates>
@@ -388,6 +392,8 @@
   <commonTemplates>CommonTemplate.КодЗаполнения</commonTemplates>
   <commonTemplates>CommonTemplate.ПраздничныеДни</commonTemplates>
   <filterCriteria>FilterCriterion.СвязанныеДокументы</filterCriteria>
+  <commonModules>CommonModule.ABCАнализ</commonModules>
+  <commonModules>CommonModule.АвтотестыКлиент</commonModules>
   <commonModules>CommonModule.БрендированиеВызовСервера</commonModules>
   <commonModules>CommonModule.БрендированиеКлиент</commonModules>
   <commonModules>CommonModule.БрендированиеКлиентСервер</commonModules>
@@ -406,8 +412,6 @@
   <commonModules>CommonModule.БухгалтерскийУчетКлиентСерверПереопределяемый</commonModules>
   <commonModules>CommonModule.БухгалтерскийУчетПовтИсп</commonModules>
   <commonModules>CommonModule.ВнешнееСоединение</commonModules>
-  <commonModules>CommonModule.ВыводПечатныхФорм</commonModules>
-  <commonModules>CommonModule.ВыводПечатныхФормКлиент</commonModules>
   <commonModules>CommonModule.ВычисленияКлиентСервер</commonModules>
   <commonModules>CommonModule.ГенерацияШтрихкода</commonModules>
   <commonModules>CommonModule.ГенерацияШтрихкодаСерверПовтИсп</commonModules>
@@ -432,8 +436,15 @@
   <commonModules>CommonModule.МенеджерОборудованияМаркировкаКлиентСервер</commonModules>
   <commonModules>CommonModule.МенеджерОборудованияМаркировкаКлиентСерверПовтИсп</commonModules>
   <commonModules>CommonModule.МенеджерОборудованияСерверПовтИсп</commonModules>
-  <commonModules>CommonModule.ОбновлениеДанныхВызовСервера</commonModules>
   <commonModules>CommonModule.ОбновлениеИнформационнойБазыБПО</commonModules>
+  <commonModules>CommonModule.ОбновлениеПрограммы</commonModules>
+  <commonModules>CommonModule.ОбновлениеПрограммыВызовСервера</commonModules>
+  <commonModules>CommonModule.ОбновлениеПрограммыКлиент</commonModules>
+  <commonModules>CommonModule.ОбновлениеПрограммыОбработчики</commonModules>
+  <commonModules>CommonModule.ПечатныеФормы</commonModules>
+  <commonModules>CommonModule.ПечатныеФормыВызовСервера</commonModules>
+  <commonModules>CommonModule.ПечатныеФормыКлиент</commonModules>
+  <commonModules>CommonModule.РасширениеРаботыС1СПредприятиемКлиент</commonModules>
   <commonModules>CommonModule.ОбщегоНазначения</commonModules>
   <commonModules>CommonModule.ОбщегоНазначенияВызовСервера</commonModules>
   <commonModules>CommonModule.ОбщегоНазначенияВызовСервераПовтИсп</commonModules>
@@ -576,7 +587,6 @@
   <commonForms>CommonForm.ВыборЗначений</commonForms>
   <commonForms>CommonForm.ИнтерфейсКлиент</commonForms>
   <commonForms>CommonForm.ВыборСвязанныхДанных</commonForms>
-  <commonForms>CommonForm.ПредварительныйПросмотр</commonForms>
   <commonForms>CommonForm.Параметры</commonForms>
   <commonForms>CommonForm.ПодборОбъектовРасчётовПоОстаткам</commonForms>
   <commonForms>CommonForm.ПараметрыЧека</commonForms>
@@ -587,6 +597,9 @@
   <commonForms>CommonForm.ФормаНастройкиУниверсальныйДрайвер</commonForms>
   <commonForms>CommonForm.ФормаРМКУправляемаяИнформацииОбОшибке</commonForms>
   <commonForms>CommonForm.ФормаПервогоЗапуска</commonForms>
+  <commonForms>CommonForm.ЧтоНового</commonForms>
+  <commonForms>CommonForm.ПечатьДокументов</commonForms>
+  <commonForms>CommonForm.ВопросОбУстановкеРасширения</commonForms>
   <catalogs>Catalog.TypesDePayment</catalogs>
   <catalogs>Catalog.Банки</catalogs>
   <catalogs>Catalog.БанковскиеСчета</catalogs>
@@ -829,6 +842,7 @@
   <reports>Report.СтоимостьСклада</reports>
   <dataProcessors>DataProcessor.MobileMenu</dataProcessors>
   <dataProcessors>DataProcessor.VentesEnDetail</dataProcessors>
+  <dataProcessors>DataProcessor.АРМПроизводство</dataProcessors>
   <dataProcessors>DataProcessor.ГрупповоеИзменениеРеквизитов</dataProcessors>
   <dataProcessors>DataProcessor.ГрупповоеСозданиеДокументов</dataProcessors>
   <dataProcessors>DataProcessor.Дашборд</dataProcessors>
@@ -840,10 +854,14 @@
   <dataProcessors>DataProcessor.ПечатьЭтикеток</dataProcessors>
   <dataProcessors>DataProcessor.РегистрацияИзмененийДляОбменаДанными</dataProcessors>
   <dataProcessors>DataProcessor.РегламентныеИФоновыеЗадания</dataProcessors>
+  <dataProcessors>DataProcessor.СмокТест</dataProcessors>
+  <dataProcessors>DataProcessor.ТестовыеДанные</dataProcessors>
   <dataProcessors>DataProcessor.ФормированиеЗаказовПоставщику</dataProcessors>
   <informationRegisters>InformationRegister.ДатыЗапретаРедактирования</informationRegisters>
   <informationRegisters>InformationRegister.ДинамическаяКорзинаЛКП</informationRegisters>
   <informationRegisters>InformationRegister.ДополнительныеСведенияНоменклатуры</informationRegisters>
+  <informationRegisters>InformationRegister.ВерсииПодсистем</informationRegisters>
+  <informationRegisters>InformationRegister.ПользовательскиеМакетыПечати</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияОбменаДанными</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияПоискаВЛКП</informationRegisters>

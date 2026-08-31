@@ -14,10 +14,6 @@
       </visible>
     </visibilityFragments>
     <visibilityFragments>
-      <command>Document.ОтгрузкаТовара.StandardCommand.OpenList</command>
-      <visible/>
-    </visibilityFragments>
-    <visibilityFragments>
       <command>Document.ВозвратОтПокупателя.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
@@ -26,23 +22,43 @@
         </for>
       </visible>
     </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ОтгрузкаТовара.StandardCommand.OpenList</command>
+      <visible/>
+    </visibilityFragments>
   </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
       <group>NavigationPanelImportant</group>
       <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаявкаНаПоискТовара.StandardCommand.OpenList</commands>
+      <commands>Document.ОтгрузкаТовара.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelImportant</group>
       <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
     </orderFragments>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
-      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
-      <commands>Document.ОтгрузкаТовара.StandardCommand.OpenList</commands>
       <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаявкаНаПоискТовара.StandardCommand.OpenList</commands>
+      <commands>Document.ОтгрузкаТовара.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам.StandardCommand.OpenList</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>

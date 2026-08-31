@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
+  <commandsVisibility>
+    <visibilityFragments>
+      <command>Document.ВыпускПродукции.Command.ВыпускПродукции</command>
+      <visible/>
+    </visibilityFragments>
+  </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
       <group>NavigationPanelImportant</group>
       <commands>Document.ВыпускПродукции.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.ПередачаВПереработку.StandardCommand.OpenList</commands>
+      <commands>Document.ПоступлениеИзПереработки.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>AccumulationRegister.ТоварыВПереработке.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
@@ -15,6 +30,10 @@
       <group>NavigationPanelOrdinary</group>
       <commands>Document.ПередачаВПереработку.StandardCommand.OpenList</commands>
       <commands>Document.ПоступлениеИзПереработки.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>AccumulationRegister.ТоварыВПереработке.StandardCommand.OpenList</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>

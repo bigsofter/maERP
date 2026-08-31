@@ -2,41 +2,34 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>Document.НалоговаяНакладная.StandardCommand.OpenList</command>
-      <visible>
-        <common>true</common>
-      </visible>
-    </visibilityFragments>
-    <visibilityFragments>
       <command>Report.ПросроченныеДолгиПокупателей.StandardCommand.Open</command>
       <visible/>
     </visibilityFragments>
   </commandsVisibility>
-  <commandsPlacement>
-    <placementFragments>
-      <group>NavigationPanelImportant</group>
-      <commands>Document.НалоговаяНакладная.StandardCommand.OpenList</commands>
-    </placementFragments>
-  </commandsPlacement>
   <commandsOrder>
-    <orderFragments>
-      <group>NavigationPanelImportant</group>
-      <commands>Document.НалоговаяНакладная.StandardCommand.OpenList</commands>
-    </orderFragments>
     <orderFragments>
       <group>ActionsPanelReports</group>
       <commands>Report.ВедомостьПоПродажам.StandardCommand.Open</commands>
+      <commands>Report.ДолгиПокупателей.StandardCommand.Open</commands>
       <commands>Report.ВедомостьРасчётовСПокупателями.StandardCommand.Open</commands>
+      <commands>Report.НеоплаченныеПродажи.StandardCommand.Open</commands>
       <commands>Report.НеотгруженныеЗаказы.StandardCommand.Open</commands>
-      <commands>Report.ПросроченныеДолгиПокупателей.StandardCommand.Open</commands>
-      <commands>Report.ЦеныНоменклатуры.StandardCommand.Open</commands>
+      <commands>Report.СтатистикаДневныхПродаж.StandardCommand.Open</commands>
+      <commands>Report.ABCАнализПродаж.StandardCommand.Open</commands>
       <commands>Report.ИсторияКлиента.StandardCommand.Open</commands>
+      <commands>Report.ИсторияТовара.StandardCommand.Open</commands>
+      <commands>Report.ЦеныНоменклатуры.StandardCommand.Open</commands>
+      <commands>Report.РасчетыСПокупателями.StandardCommand.Open</commands>
+      <commands>Report.ВедомостьПоПродажамНалоговая.StandardCommand.Open</commands>
+      <commands>Report.ОтчетПоНедостаткамТовара.StandardCommand.Open</commands>
+      <commands>Report.ПроданныйТоварБезНакладной.StandardCommand.Open</commands>
+      <commands>Report.ПросроченныеДолгиПокупателей.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
   <subsystemsOrder>
     <subsystems>Subsystem.Продажи.Subsystem.РаботаСПокупателями</subsystems>
+    <subsystems>Subsystem.Продажи.Subsystem.РозничныеПродажи</subsystems>
     <subsystems>Subsystem.Продажи.Subsystem.Ценообразование</subsystems>
     <subsystems>Subsystem.Продажи.Subsystem.Справочники</subsystems>
-    <subsystems>Subsystem.Продажи.Subsystem.РозничныеПродажи</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>

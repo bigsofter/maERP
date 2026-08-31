@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
+  <items xsi:type="form:Decoration">
+    <name>Пояснение</name>
+    <id>1</id>
+    <title>
+      <key>ru</key>
+      <value>Для удобной работы с программой предлагается установить расширение для работы с 1С:Предприятием. Установить?</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Pour un travail confortable avec le programme, il est proposé d'installer l'extension pour travailler avec 1C:Entreprise. Installer ?</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>For convenient work with the application, it is suggested to install the 1C:Enterprise extension. Install?</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Para trabajar cómodamente con el programa se propone instalar la extensión para trabajar con 1C:Empresa. ¿Instalar?</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <extendedTooltip>
+      <name>ПояснениеРасширеннаяПодсказка</name>
+      <id>2</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ПояснениеКонтекстноеМеню</name>
+      <id>3</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxWidth>false</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <skipOnInput>false</skipOnInput>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <verticalAlign>Top</verticalAlign>
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>УстановитьИПродолжить</name>
+      <id>4</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>УстановитьИПродолжитьРасширеннаяПодсказка</name>
+        <id>5</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.УстановитьИПродолжить</commandName>
+      <representation>Auto</representation>
+      <defaultButton>true</defaultButton>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+      <buttonImportance>Main</buttonImportance>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ПродолжитьБезУстановки</name>
+      <id>6</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ПродолжитьБезУстановкиРасширеннаяПодсказка</name>
+        <id>7</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ПродолжитьБезУстановки</commandName>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+      <buttonImportance>Normal</buttonImportance>
+    </items>
+    <horizontalAlign>Right</horizontalAlign>
+  </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
+  <width>60</width>
+  <windowOpeningMode>LockOwner</windowOpeningMode>
+  <autoUrl>true</autoUrl>
+  <group>Vertical</group>
+  <autoFillCheck>true</autoFillCheck>
+  <enabled>true</enabled>
+  <showTitle>auto</showTitle>
+  <showCloseButton>true</showCloseButton>
+  <parameters>
+    <name>ТекстПредложения</name>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <keyParameter>true</keyParameter>
+  </parameters>
+  <parameters>
+    <name>ВозможноПродолжениеБезУстановки</name>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+  </parameters>
+  <formCommands>
+    <name>УстановитьИПродолжить</name>
+    <title>
+      <key>ru</key>
+      <value>Установить и продолжить</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Installer et continuer</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Install and continue</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Instalar y continuar</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Установить расширение для работы с 1С:Предприятием и продолжить</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Installer l'extension pour travailler avec 1C:Entreprise et continuer</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Install the 1C:Enterprise extension and continue</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Instalar la extensión para trabajar con 1C:Empresa y continuar</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>УстановитьИПродолжить</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>DontUse</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ПродолжитьБезУстановки</name>
+    <title>
+      <key>ru</key>
+      <value>Продолжить без установки</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Continuer sans installer</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Continue without installing</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Continuar sin instalar</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Продолжить без установки расширения</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Continuer sans installer l'extension</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Continue without installing the extension</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Continuar sin instalar la extensión</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ПродолжитьБезУстановки</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>DontUse</selectedRowsUse>
+  </formCommands>
+  <commandInterface>
+    <navigationPanel/>
+    <commandBar/>
+  </commandInterface>
+</form:Form>

@@ -5,21 +5,33 @@
       <command>Document.КассоваяСмена.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
-        <for>
-          <role>Role.PDV</role>
-        </for>
-        <for>
-          <role>Role.МенеджерПоЗакупкам</role>
-        </for>
       </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Document.КассоваяСмена.StandardCommand.Create</command>
       <visible>
-        <for>
-          <role>Role.PDV</role>
-        </for>
+        <common>true</common>
       </visible>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.КассоваяСмена.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>Catalog.TypesDePayment.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
+  <commandsOrder>
+    <orderFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.КассоваяСмена.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>NavigationPanelSeeAlso</group>
+      <commands>Catalog.TypesDePayment.StandardCommand.OpenList</commands>
+    </orderFragments>
+  </commandsOrder>
 </cmi:CommandInterface>

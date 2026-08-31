@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b05f4787-fbfd-45b9-92bf-973f8040ab45">
+  <producedTypes>
+    <selectionType typeId="479f0d01-0572-4aa9-8eb2-259f28898203" valueTypeId="1f94b1da-7d76-4c58-bd4c-2f141607d82a"/>
+    <listType typeId="bd19bbaa-d147-460f-9470-cfcf861acd47" valueTypeId="183401c5-e979-4463-ae72-64d48ab94250"/>
+    <managerType typeId="81f493f1-8eda-462e-a2d1-be21d24aec9c" valueTypeId="1b3529f8-4306-4750-b141-87ac19c979fb"/>
+    <recordSetType typeId="b2b0a05d-9d8d-499e-9e0e-a4b260a6c523" valueTypeId="2f445eec-ef6e-4fec-a489-555b8a346136"/>
+    <recordKeyType typeId="8ea1e4f7-8b9f-49dd-a2b0-9c624a529903" valueTypeId="2e4a95f5-a88a-4c69-86e5-e8fbc8c92004"/>
+    <recordType typeId="8e9e8c69-27a7-4bd0-bdeb-5c7182687d92" valueTypeId="37853c8c-be76-4e47-978e-9327bbb13d63"/>
+    <recordManagerType typeId="ce19bb0e-fd63-4df7-9688-c0b48b6496ef" valueTypeId="ef877d21-bdcd-4cb0-b320-d52d08fcf3a9"/>
+  </producedTypes>
+  <name>ПользовательскиеМакетыПечати</name>
+  <synonym>
+    <key>ru</key>
+    <value>Пользовательские макеты печати</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Modèles d'impression personnalisés</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Custom print templates</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Plantillas de impresión personalizadas</value>
+  </synonym>
+  <comment>Макеты печатных форм, изменённые пользователем; при включённом использовании подменяют поставляемые</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultListForm>InformationRegister.ПользовательскиеМакетыПечати.Form.МакетыПечатныхФорм</defaultListForm>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="31963746-b377-492e-a830-8ed8ab912db4">
+    <name>Макет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Макет</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Modèle</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Template</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Plantilla</value>
+    </synonym>
+    <comment>Табличный документ, изменённый пользователем</comment>
+    <type>
+      <types>ValueStorage</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="fc2109d0-ecd9-4f77-a2a9-0055272bee1c">
+    <name>Использование</name>
+    <synonym>
+      <key>ru</key>
+      <value>Использование</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Utilisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Usage</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Uso</value>
+    </synonym>
+    <comment>Печатать по изменённому макету; иначе используется поставляемый</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:BooleanValue"/>
+  </resources>
+  <resources uuid="55d33f72-2b18-454d-9a63-50e9019f2b6b">
+    <name>ВерсияКонфигурации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Версия конфигурации</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Version de la configuration</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Configuration version</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Versión de la configuración</value>
+    </synonym>
+    <comment>Версия конфигурации на момент правки макета: если она младше текущей, поставляемый макет мог измениться</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>25</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+  </resources>
+  <dimensions uuid="c68d82b4-aab4-4bbf-afb0-cf271457cdf9">
+    <name>Объект</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объект</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Objet</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Object</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Objeto</value>
+    </synonym>
+    <comment>Владелец макета: полное имя объекта метаданных («Документ.РеализацияТоваровУслуг») или «ОбщийМакет»</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <mainFilter>true</mainFilter>
+    <fillValue xsi:type="core:StringValue"/>
+  </dimensions>
+  <dimensions uuid="4d173bd2-c63c-40ad-b0d5-e39994d3e995">
+    <name>ИмяМакета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Имя макета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nom du modèle</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Template name</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nombre de la plantilla</value>
+    </synonym>
+    <comment>Имя макета в метаданных владельца</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <mainFilter>true</mainFilter>
+    <fillValue xsi:type="core:StringValue"/>
+  </dimensions>
+  <forms uuid="a4238761-917b-4792-a9f2-720867dcf73f">
+    <name>МакетыПечатныхФорм</name>
+    <synonym>
+      <key>ru</key>
+      <value>Макеты печатных форм</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Modèles des formulaires imprimables</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Print form templates</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Plantillas de formularios de impresión</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+  </forms>
+  <forms uuid="a203c80f-3206-4156-9df3-371c102a50de">
+    <name>РедактированиеМакета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Редактирование макета</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Modification du modèle</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Template editing</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Edición de la plantilla</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+  </forms>
+</mdclass:InformationRegister>
