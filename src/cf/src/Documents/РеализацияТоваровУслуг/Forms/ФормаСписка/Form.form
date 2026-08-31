@@ -1,5 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form" xmlns:schema="http://g5.1c.ru/v8/dt/data-composition-system/schema">
+  <items xsi:type="form:FormField">
+    <name>ФильтрОперации</name>
+    <id>85</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <titleLocation>None</titleLocation>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ФильтрОперации</segments>
+    </dataPath>
+    <handlers>
+      <event>OnChange</event>
+      <name>ФильтрОперацииПриИзменении</name>
+    </handlers>
+    <extendedTooltip>
+      <name>ФильтрОперацииРасширеннаяПодсказка</name>
+      <id>86</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ФильтрОперацииКонтекстноеМеню</name>
+      <id>87</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>RadioButtonField</type>
+    <editMode>Enter</editMode>
+    <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
+      <radioButtonsType>Tumbler</radioButtonsType>
+      <equalElementsWidth>true</equalElementsWidth>
+      <choiceList>
+        <presentation>
+          <key>ru</key>
+          <value>Все</value>
+        </presentation>
+        <presentation>
+          <key>fr</key>
+          <value>Toutes</value>
+        </presentation>
+        <presentation>
+          <key>en</key>
+          <value>All</value>
+        </presentation>
+        <presentation>
+          <key>es</key>
+          <value>Todas</value>
+        </presentation>
+        <value xsi:type="core:NumberValue">
+          <value>0</value>
+        </value>
+      </choiceList>
+      <choiceList>
+        <presentation>
+          <key>ru</key>
+          <value>Продажи</value>
+        </presentation>
+        <presentation>
+          <key>fr</key>
+          <value>Ventes</value>
+        </presentation>
+        <presentation>
+          <key>en</key>
+          <value>Sales</value>
+        </presentation>
+        <presentation>
+          <key>es</key>
+          <value>Ventas</value>
+        </presentation>
+        <value xsi:type="core:NumberValue">
+          <value>1</value>
+        </value>
+      </choiceList>
+      <choiceList>
+        <presentation>
+          <key>ru</key>
+          <value>По отгрузкам</value>
+        </presentation>
+        <presentation>
+          <key>fr</key>
+          <value>Sur expéditions</value>
+        </presentation>
+        <presentation>
+          <key>en</key>
+          <value>By shipments</value>
+        </presentation>
+        <presentation>
+          <key>es</key>
+          <value>Por expediciones</value>
+        </presentation>
+        <value xsi:type="core:NumberValue">
+          <value>2</value>
+        </value>
+      </choiceList>
+    </extInfo>
+  </items>
   <items xsi:type="form:FormGroup">
     <name>СписокКомпоновщикНастроекПользовательскиеНастройки</name>
     <id>1</id>
@@ -967,6 +1068,38 @@
         <useRestriction>true</useRestriction>
       </parameters>
     </extInfo>
+  </attributes>
+  <attributes>
+    <name>ФильтрОперации</name>
+    <title>
+      <key>ru</key>
+      <value>Вид операции</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Type d'opération</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Operation type</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tipo de operación</value>
+    </title>
+    <id>88</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <commandInterface>
     <navigationPanel/>
