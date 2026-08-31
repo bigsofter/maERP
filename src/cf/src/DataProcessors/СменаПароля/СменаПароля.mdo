@@ -5,6 +5,7 @@
     <managerType typeId="2e4ae629-5ac5-4cd5-8065-f19c43e43541" valueTypeId="27799cf8-200c-491e-935c-1ece0774b70f"/>
   </producedTypes>
   <name>СменаПароля</name>
+  <useStandardCommands>true</useStandardCommands>
   <synonym>
     <key>ru</key>
     <value>Смена пароля</value>
@@ -21,7 +22,7 @@
     <key>es</key>
     <value>Cambiar la contraseña</value>
   </synonym>
-  <comment>Пользователь меняет свой пароль сам. В подсистемы не включена намеренно: раздел «Главное» - это основной раздел, его состав задаётся в Configuration/MainSectionCommandInterface.cmi, где команда обработки размещена явно. Права выданы всем ролям, кроме обменных: пароль меняет любой пользователь.</comment>
+  <comment>Пользователь меняет свой пароль сам. Размещена в разделе «Сервис» рядом с загрузкой из Excel: состав раздела плюс запись в его CommandInterface.cmi. Флаг useStandardCommands обязателен - без него у обработки нет команды «Открыть» и разместить её негде. Права выданы всем ролям, кроме обменных.</comment>
   <defaultForm>DataProcessor.СменаПароля.Form.Форма</defaultForm>
   <forms uuid="a1f5b0d2-6c3e-4f18-9a77-2b4c8e5d1f60">
     <name>Форма</name>
