@@ -1,0 +1,395 @@
+# Список изменений maERP
+
+Секции переносятся сюда из общего макета `ОписаниеИзменений` при публикации CF
+(правило в `docs/RELEASING.md`). Внутри релиза секции идут по сборкам, от новых
+к старым, на всех языках конфигурации — ровно так, как их видел владелец в окне
+«Что нового».
+
+# Релиз 2.0.12.18 (2026-08-28)
+
+Первая публикация CF после 1.0.11.1. Поставка: `maERP-2.0.12.18.cf`,
+обновление с 1.0.11.1 — `maERP-2.0.12.18.cfu`.
+
+## 2.0.12.18
+### ru
+- Исправлено открытие карточки товара из табличной части документа: команда обрывалась ошибкой запроса при проверке того, использован ли комплект в документах.
+- В веб-клиенте программа сама предлагает установить расширение для работы с 1С:Предприятием, когда оно нужно: при печати на принтер, сохранении печатной формы в файл, звонке из карточки лида и работе с изображениями товара. Раньше в браузере такие действия молча зависали или ничего не делали. Отказ запоминается, повторно программа не спрашивает.
+- Автопроверка перед сборкой стала строже: формы объектов теперь открываются не только пустыми, но и на существующих объектах базы — так ловятся ошибки, которые видны только в заполненной карточке.
+### fr
+- Correction de l'ouverture de la fiche article depuis la partie tabulaire d'un document : la commande s'interrompait sur une erreur de requête lors de la vérification de l'utilisation du kit dans les documents.
+- Dans le client web, le programme propose lui-même d'installer l'extension pour travailler avec 1C:Entreprise lorsqu'elle est nécessaire : impression sur une imprimante, enregistrement du formulaire imprimable dans un fichier, appel depuis la fiche du prospect et travail avec les images des articles. Auparavant, dans le navigateur, ces actions restaient bloquées ou sans effet. Le refus est mémorisé, le programme ne redemande plus.
+- La vérification automatique avant l'assemblage est devenue plus stricte : les formulaires d'objets sont désormais ouverts non seulement vides, mais aussi sur des objets existants de la base — cela permet de détecter les erreurs visibles uniquement dans une fiche remplie.
+### en
+- Fixed opening the item card from a document's table: the command failed with a query error while checking whether the kit had been used in documents.
+- In the web client, the application now offers to install the 1C:Enterprise extension when it is required: printing to a printer, saving a print form to a file, calling from a lead card, and working with item images. Previously such actions silently hung or did nothing in the browser. A refusal is remembered, so the application does not ask again.
+- The pre-build self-check got stricter: object forms are now opened not only empty but also on existing objects from the database, which catches errors visible only in a filled-in card.
+### es
+- Corregida la apertura de la ficha del artículo desde la parte tabular del documento: el comando fallaba con un error de consulta al comprobar si el kit ya se había usado en documentos.
+- En el cliente web, el programa propone instalar la extensión para trabajar con 1C:Empresa cuando hace falta: impresión en una impresora, guardado del formulario de impresión en un archivo, llamada desde la ficha del cliente potencial y trabajo con las imágenes de los artículos. Antes, en el navegador, esas acciones se quedaban colgadas o no hacían nada. El rechazo se recuerda y el programa no vuelve a preguntar.
+- La comprobación automática antes del ensamblaje es más estricta: los formularios de objetos ahora se abren no solo vacíos, sino también sobre objetos existentes de la base, lo que detecta errores visibles solo en una ficha rellenada.
+## 2.0.12.17
+### ru
+- Исправлена печать акта передачи в переработку и акта приёмки из переработки: подзаголовки таблиц («Передано сырьё и полуфабрикаты», «Ожидаемая продукция») были в макете обычным текстом, а не полем, и печать обрывалась с ошибкой.
+- Исправлена печать табеля учёта рабочего времени: она обращалась к реквизитам, которых у документа нет, и не формировалась вовсе. Вариант учёта печатается графиком работы сотрудника; строка «Группа» в шапке остаётся пустой - такого реквизита у табеля нет.
+- Печать накладной возврата от покупателя: образец возврата теперь заводится по реализации-основанию, без которого документ вообще не записывался.
+### fr
+- Correction de l'impression du bon de transfert en sous-traitance et du bon de réception : les sous-titres des tableaux (« Matières premières et semi-finis transférés », « Produits attendus ») étaient du texte ordinaire dans le modèle et non un champ, et l'impression s'interrompait sur une erreur.
+- Correction de l'impression de la feuille de présence : elle utilisait des attributs absents du document et ne se formait pas du tout. Le mode de suivi est imprimé d'après l'horaire de travail du salarié ; la ligne « Groupe » de l'en-tête reste vide - cet attribut n'existe pas.
+- Impression du bon de retour client : l'exemple de retour est désormais créé à partir de la vente d'origine, sans laquelle le document ne s'enregistrait pas du tout.
+### en
+- Fixed printing of the transfer-for-processing act and the acceptance act: the table subtitles ("Raw materials and semi-finished products transferred", "Expected products") were plain text in the template rather than a field, and printing broke with an error.
+- Fixed printing of the timesheet: it referenced attributes the document does not have and did not print at all. The accounting mode is printed from the employee's work schedule; the "Group" line in the header stays empty - the timesheet has no such attribute.
+- Customer return note printing: the sample return is now created from the sales document it is based on, without which the document would not save at all.
+### es
+- Corregida la impresión del acta de transferencia a procesamiento y del acta de recepción: los subtítulos de las tablas («Materias primas y semielaborados transferidos», «Productos esperados») eran texto normal en la plantilla y no un campo, y la impresión se interrumpía con error.
+- Corregida la impresión del parte de horas: usaba atributos que el documento no tiene y no se generaba en absoluto. El modo de registro se imprime según el horario de trabajo del empleado; la línea «Grupo» de la cabecera queda vacía - ese atributo no existe.
+- Impresión del albarán de devolución del cliente: la muestra de devolución ahora se crea a partir de la venta de origen, sin la cual el documento no se guardaba.
+
+## 2.0.12.16
+### ru
+- Исправлено открытие налоговой накладной и налоговой накладной покупки: форма падала при открытии, потому что состав реквизитов документа определялся способом, который на форме не работает.
+- Тестовая база теперь заполняется образцами документов автоматически: печать каждого документа конфигурации — возвратов, ордеров, ведомостей, табеля, актов — стало на чём проверять. Раньше проверка не доходила до 22 документов из 25: в базе не было ни одного такого документа.
+### fr
+- Correction de l'ouverture de la facture fiscale et de la facture fiscale d'achat : le formulaire s'interrompait à l'ouverture, car la composition des attributs du document était déterminée d'une manière qui ne fonctionne pas sur un formulaire.
+- La base de test se remplit désormais automatiquement d'exemples de documents : l'impression de chaque document de la configuration — retours, bons de caisse, états de paie, feuille de présence, actes — peut enfin être vérifiée. Auparavant 22 documents sur 25 échappaient au contrôle, faute d'exemplaire en base.
+### en
+- Fixed opening the tax invoice and the purchase tax invoice: the form failed to open because the document's attribute list was determined in a way that does not work on a form.
+- The test database is now filled with sample documents automatically: printing of every document in the configuration — returns, cash orders, payroll sheets, timesheet, statements — can finally be checked. Previously 22 documents out of 25 escaped the check because the database held none of them.
+### es
+- Corregida la apertura de la factura fiscal y de la factura fiscal de compra: el formulario fallaba al abrirse porque la composición de los atributos del documento se determinaba de un modo que no funciona en el formulario.
+- La base de pruebas ahora se rellena con documentos de muestra automáticamente: la impresión de cada documento de la configuración — devoluciones, órdenes de caja, nóminas, parte de horas, actas — por fin se puede comprobar. Antes 22 documentos de 25 quedaban sin control por no haber ninguno en la base.
+
+## 2.0.12.15
+### ru
+- Исправлен счёт-фактура: способ оплаты определялся по реквизиту ручной корректировки, которого у реализации нет (он есть только у налоговых накладных), и печать обрывалась. Теперь реквизит читается только там, где он есть, а у остальных документов оплаты берутся из движений по деньгам.
+- Исправлена шапка печатных форм, где организация, клиент, номер и итог не выводились: товарная накладная прежней формы, чек, счёт-фактура Socassif, накладные возврата и налоговая накладная покупки. У накладной возврата печать чека на этом же месте обрывалась.
+- Счёт-фактура Socassif: в накладной с товарами вместо номера документа печаталась дата, а номер не выводился совсем.
+- Проверка перед сдачей стала строже: прогон печати теперь отмечает формы, в которых не нашёл номера документа, — раньше пустая шапка выглядела для него так же, как заполненная.
+### fr
+- Correction de la facture : le mode de règlement était déterminé par l'attribut de correction manuelle, absent de la vente (il n'existe que sur les factures fiscales), et l'impression s'interrompait. L'attribut n'est désormais lu que là où il existe ; pour les autres documents, les règlements proviennent des mouvements de trésorerie.
+- Correction de l'en-tête des impressions où la société, le client, le numéro et le total n'apparaissaient pas : facture (ancien formulaire), ticket, facture Socassif, bons de retour et facture fiscale d'achat. Sur un bon de retour, l'impression du ticket s'interrompait au même endroit.
+- Facture Socassif : sur un document avec marchandises, la date était imprimée à la place du numéro, et le numéro n'apparaissait pas du tout.
+- Contrôle avant livraison renforcé : le test d'impression signale désormais les formulaires où le numéro du document est introuvable — auparavant un en-tête vide lui paraissait identique à un en-tête rempli.
+### en
+- Fixed the invoice: the payment method was determined by the manual correction attribute, which sales documents do not have (only tax invoices do), and printing broke. The attribute is now read only where it exists; for other documents payments come from cash movements.
+- Fixed the header of printed forms where the company, customer, number and total were missing: invoice (former form), receipt, Socassif invoice, return notes and purchase tax invoice. On a return note, printing the receipt broke at that same place.
+- Socassif invoice: on a document with goods the date was printed instead of the document number, and the number was not printed at all.
+- Stricter pre-release check: the print run now flags forms in which it could not find the document number — an empty header used to look the same to it as a filled one.
+### es
+- Corregida la factura: la forma de pago se determinaba por el atributo de corrección manual, que la venta no tiene (solo lo tienen las facturas fiscales), y la impresión se interrumpía. Ahora el atributo se lee solo donde existe y, en los demás documentos, los pagos se toman de los movimientos de tesorería.
+- Corregida la cabecera de las formas impresas donde no salían la organización, el cliente, el número y el total: albarán (formulario anterior), recibo, factura Socassif, albaranes de devolución y factura fiscal de compra. En el albarán de devolución la impresión del recibo se interrumpía en ese mismo punto.
+- Factura Socassif: en el documento con mercancías se imprimía la fecha en lugar del número, y el número no salía en absoluto.
+- Control previo a la entrega más estricto: la prueba de impresión ahora marca las formas en las que no encontró el número del documento — antes una cabecera vacía le parecía igual que una llena.
+
+## 2.0.12.14
+### ru
+- Исправлена шапка накладных, счетов, коммерческих предложений и проформы: организация, клиент, номер, дата и итоги брались из итоговой строки запроса, где их не было, - формы либо обрывались ошибкой, либо печатались с пустой шапкой. Теперь реквизиты шапки в итоговой строке есть.
+- Заказ покупателя открывается при выключенных тендерах поставщиков: кнопку и надпись тендера платформа с формы убирает, а код к ним обращался.
+### fr
+- Correction de l'en-tête des bons de livraison, factures, devis et proformas : l'organisation, le client, le numéro, la date et les totaux étaient lus dans la ligne de totaux de la requête, où ils n'existaient pas - les formulaires s'interrompaient ou s'imprimaient avec un en-tête vide. Les mentions de l'en-tête y figurent désormais.
+- La commande client s'ouvre lorsque les appels d'offres fournisseurs sont désactivés : la plateforme retire le bouton et le libellé du formulaire, alors que le code y accédait.
+### en
+- Fixed the header of delivery notes, invoices, quotations and proformas: the company, customer, number, date and totals were read from the query total row where they did not exist - the forms either broke with an error or printed an empty header. The header details are now present in the total row.
+- The customer order opens when supplier tenders are disabled: the platform removes the tender button and label from the form, while the code still addressed them.
+### es
+- Corregida la cabecera de albaranes, facturas, presupuestos y proformas: la organización, el cliente, el número, la fecha y los totales se leían de la fila de totales de la consulta, donde no existían; los formularios se interrumpían o se imprimían con la cabecera vacía. Ahora los datos de cabecera están en la fila de totales.
+- El pedido de cliente se abre con las licitaciones de proveedores desactivadas: la plataforma retira el botón y el rótulo del formulario, mientras que el código seguía accediendo a ellos.
+
+## 2.0.12.13
+### ru
+- Исправлена печать накладной без цен: признак «без цен» терялся, когда команда печати его не передавала, и формирование обрывалось. Заодно суммы оплат в подвале накладной приводятся к числу - пустые итоги больше не роняют печать.
+- Карточка бухгалтерской операции: все колонки таблицы проводок настраиваются по наличию на форме, а не вслепую - часть колонок бухгалтерского контура в maERP просто не выводится.
+### fr
+- Correction de l'impression du bon de livraison sans prix : l'indicateur « sans prix » était perdu lorsque la commande d'impression ne le transmettait pas et la génération s'interrompait. De plus, les montants des règlements en pied de bon sont convertis en nombre - les totaux vides ne cassent plus l'impression.
+- Fiche d'opération comptable : toutes les colonnes du tableau des écritures sont configurées selon leur présence sur le formulaire et non à l'aveugle - une partie des colonnes comptables n'est tout simplement pas affichée dans maERP.
+### en
+- Fixed printing the delivery note without prices: the "no prices" flag was lost when the print command did not pass it and generation broke. Payment totals in the note footer are also coerced to numbers - empty totals no longer break printing.
+- Accounting operation card: every column of the entries table is configured based on whether it exists on the form instead of blindly - some accounting columns are simply not rendered in maERP.
+### es
+- Corregida la impresión del albarán sin precios: el indicador «sin precios» se perdía cuando el comando de impresión no lo transmitía y la generación se interrumpía. Además, los importes de los pagos en el pie del albarán se convierten a número: los totales vacíos ya no rompen la impresión.
+- Ficha de operación contable: todas las columnas de la tabla de asientos se configuran según su presencia en el formulario y no a ciegas; parte de las columnas contables simplemente no se muestra en maERP.
+
+## 2.0.12.12
+### ru
+- Исправлена подстановка логотипа организации в накладные, счета и коммерческие предложения: поиск рисунка в области макета шёл несуществующим методом, и печать обрывалась на одиннадцати формах реализации и заказа покупателя.
+- Карточка бухгалтерской операции открывается до конца: колонки направлений деятельности и сумм управленческого учёта платформа на форму не выводит (реквизитов этих механизмов в maERP нет), настройка колонок теперь идёт по их наличию.
+### fr
+- Correction de l'insertion du logo de l'organisation dans les bons de livraison, les factures et les devis : la recherche de l'image dans la zone du modèle utilisait une méthode inexistante et l'impression s'interrompait sur onze formulaires de vente et de commande client.
+- La fiche d'opération comptable s'ouvre jusqu'au bout : les colonnes des axes d'activité et des montants de comptabilité de gestion ne sont pas affichées par la plateforme (les attributs de ces mécanismes n'existent pas dans maERP), la configuration des colonnes tient désormais compte de leur présence.
+### en
+- Fixed inserting the company logo into delivery notes, invoices and quotations: looking up the picture in the template area used a non-existent method and printing broke on eleven sales and customer order forms.
+- The accounting operation card now opens fully: the activity-line and management accounting amount columns are not rendered by the platform (maERP has no attributes for those mechanisms), so column setup now checks whether they exist.
+### es
+- Corregida la inserción del logotipo de la organización en albaranes, facturas y presupuestos: la búsqueda de la imagen en el área de la plantilla usaba un método inexistente y la impresión se interrumpía en once formularios de venta y de pedido de cliente.
+- La ficha de operación contable se abre por completo: las columnas de líneas de actividad y de importes de contabilidad de gestión no las muestra la plataforma (maERP no tiene atributos de esos mecanismos), por lo que la configuración de columnas comprueba ahora su existencia.
+
+## 2.0.12.11
+### ru
+- Исправлена печать накладных, счетов и заказов: если в документе не заполнена организация или контрагент удалён, печатная форма падала с ошибкой - теперь реквизиты просто остаются пустыми. Прогон нашёл это на десяти печатных формах реализации и заказа покупателя.
+- Исправлен счёт Facture: номер документа не приводился к строке, и формирование обрывалось ошибкой преобразования к числу.
+- Карточка бухгалтерской операции снова открывается: убраны обращения к функциональным опциям учёта по направлениям и управленческого учёта на плане счетов, которых в maERP нет.
+- Прогон автотестов доведён до конца на обновлённой базе: окно печати документов исключено из проверки форм (оно открывается только с параметрами команды печати), проверка конфигурации больше не считает замечанием строку «ошибок не обнаружено», а ожидание старта клиента не зависит от того, как платформа запустила процесс.
+- Сверка ссылок дополнена проверкой функциональных опций - имена в кавычках теперь тоже сверяются с конфигурацией.
+### fr
+- Correction de l'impression des bons de livraison, des factures et des commandes : si l'organisation n'est pas renseignée dans le document ou si le tiers a été supprimé, le formulaire imprimable tombait en erreur - les mentions restent désormais simplement vides. L'exécution l'a trouvé sur dix formulaires de vente et de commande client.
+- Correction de la facture Facture : le numéro du document n'était pas converti en chaîne et la génération s'interrompait par une erreur de conversion en nombre.
+- La fiche d'opération comptable s'ouvre de nouveau : suppression des appels aux options fonctionnelles de comptabilité par axe d'activité et de comptabilité de gestion sur le plan comptable, absentes de maERP.
+- Les tests automatiques vont jusqu'au bout sur la base mise à jour : la fenêtre d'impression est exclue du contrôle des formulaires (elle ne s'ouvre qu'avec les paramètres de la commande d'impression), la vérification de la configuration ne considère plus la ligne « aucune erreur » comme une remarque, et l'attente du démarrage du client ne dépend plus de la façon dont la plateforme a lancé le processus.
+- Le contrôle des références vérifie aussi les options fonctionnelles : les noms entre guillemets sont désormais confrontés à la configuration.
+### en
+- Fixed printing of delivery notes, invoices and orders: when the document has no company filled in or the counterparty was deleted, the print form failed with an error - now the details simply stay empty. The run found this on ten print forms of sales and customer orders.
+- Fixed the Facture invoice: the document number was not converted to a string and generation broke with a number conversion error.
+- The accounting operation card opens again: calls to functional options for activity-line accounting and management accounting on the chart of accounts, which maERP does not have, are removed.
+- The automated run completes on the updated base: the print window is excluded from the form check (it only opens with print command parameters), the configuration check no longer treats the "no errors found" line as a remark, and waiting for the client start no longer depends on how the platform launched the process.
+- The reference check also covers functional options: names in quotes are now verified against the configuration.
+### es
+- Corregida la impresión de albaranes, facturas y pedidos: si en el documento no está rellenada la organización o la contraparte se ha eliminado, el formulario de impresión fallaba con error; ahora los datos simplemente quedan vacíos. La ejecución lo encontró en diez formularios de venta y de pedido de cliente.
+- Corregida la factura Facture: el número del documento no se convertía a cadena y la generación se interrumpía con un error de conversión a número.
+- La ficha de operación contable vuelve a abrirse: se han eliminado las llamadas a opciones funcionales de contabilidad por líneas de actividad y de contabilidad de gestión en el plan de cuentas, que maERP no tiene.
+- La ejecución automática llega hasta el final en la base actualizada: la ventana de impresión se excluye de la comprobación de formularios (solo se abre con los parámetros del comando de impresión), la comprobación de la configuración ya no considera una observación la línea «no se han encontrado errores» y la espera del arranque del cliente no depende de cómo la plataforma haya lanzado el proceso.
+- El control de referencias abarca también las opciones funcionales: los nombres entre comillas se contrastan ahora con la configuración.
+
+## 2.0.12.10
+### ru
+- Исправлена ошибка печати: модуль печатных форм не запускался из-за неверного обращения к типу макета, а в модуле печати лидов осталась лишняя директива области - реестр макетов и печать снова работают.
+- Исправлена карточка бухгалтерской операции: форма не открывалась из-за обращения к несуществующим константам валют управленческого учёта и финансовой отчётности; в maERP валюта учёта одна.
+- Прогон автотестов доведён до конца: проверка конфигурации больше не выдаёт замечаний - убраны битые ссылки в справке бухгалтерских объектов, отсутствующая картинка в справке группового изменения реквизитов и несуществующий цвет в макете накладной FactureSocassif.
+- Карточка бухгалтерской операции очищена от остатков чужой библиотеки: убраны обращения к неперенесённым механизмам (управление доступом, подключаемые команды, форма редактирования комментария, учёт налоговых разниц), исправлен тип склада в подборе субконто и сообщение о незаполненном сторнируемом документе.
+- Автотесты дополнены вторым проходом: после «открыть все формы» прогон формирует каждую печатную форму каждого документа - раньше печать не проверялась ничем.
+- Автотесты выделены в отдельную подсистему «Автотесты»: обработка прогона и её клиентский модуль собраны в одном месте и не показываются в разделах программы.
+
+### fr
+- Correction d'une erreur d'impression : le module des formulaires imprimables ne démarrait pas à cause d'un accès incorrect au type de modèle, et le module d'impression des pistes contenait une directive de région superflue - le registre des modèles et l'impression fonctionnent de nouveau.
+- Correction de la fiche d'opération comptable : le formulaire ne s'ouvrait pas à cause de constantes de devises (comptabilité de gestion et états financiers) inexistantes ; dans maERP la devise comptable est unique.
+- Les tests automatiques passent jusqu'au bout : la vérification de la configuration ne signale plus rien - liens rompus dans l'aide des objets comptables, image manquante dans l'aide de la modification groupée et couleur inexistante dans le modèle FactureSocassif ont été supprimés.
+- La fiche d'opération comptable est débarrassée des restes d'une bibliothèque étrangère : suppression des appels aux mécanismes non repris (gestion des accès, commandes enfichables, fenêtre d'édition du commentaire, comptabilisation des écarts fiscaux), correction du type d'entrepôt dans la sélection des sous-comptes et du message sur le document annulable non renseigné.
+- Les tests automatiques reçoivent une seconde passe : après « ouvrir tous les formulaires », l'exécution génère chaque formulaire imprimable de chaque document - l'impression n'était vérifiée par rien auparavant.
+- Les tests automatiques sont regroupés dans un sous-système « Tests automatiques » : le traitement d'exécution et son module client sont réunis au même endroit et n'apparaissent pas dans les sections du programme.
+
+### en
+- Fixed a printing error: the print forms module failed to start because of an incorrect reference to the template type, and the lead printing module had a stray region directive - the template registry and printing work again.
+- Fixed the accounting operation card: the form did not open because of references to non-existent management and financial reporting currency constants; maERP uses a single accounting currency.
+- The automated test run now completes: the configuration check reports nothing - broken links in the help of accounting objects, a missing image in the bulk attribute change help and a non-existent color in the FactureSocassif template have been removed.
+- The accounting operation card is cleared of leftovers from a foreign library: calls to mechanisms that were never ported (access management, plug-in commands, the comment editing window, tax difference accounting) are removed, the warehouse type in subconto selection and the message about an empty document being cancelled are fixed.
+- The automated tests get a second pass: after "open all forms" the run generates every print form of every document - printing was previously checked by nothing.
+- The automated tests are extracted into a separate "Automated tests" subsystem: the run processor and its client module live in one place and are not shown in the application sections.
+
+### es
+- Corregido un error de impresión: el módulo de formularios de impresión no arrancaba por una referencia incorrecta al tipo de plantilla y el módulo de impresión de leads tenía una directiva de región sobrante - el registro de plantillas y la impresión vuelven a funcionar.
+- Corregida la ficha de operación contable: el formulario no se abría por referencias a constantes de moneda de gestión y de estados financieros inexistentes; en maERP la moneda contable es única.
+- La ejecución de las pruebas automáticas llega hasta el final: la comprobación de la configuración ya no informa nada - se han eliminado los enlaces rotos en la ayuda de los objetos contables, la imagen que faltaba en la ayuda del cambio masivo de atributos y el color inexistente en la plantilla FactureSocassif.
+- La ficha de operación contable se ha limpiado de restos de una biblioteca ajena: se han eliminado las llamadas a mecanismos no trasladados (gestión de accesos, comandos conectables, ventana de edición del comentario, contabilidad de diferencias fiscales), se han corregido el tipo de almacén en la selección de subcuentas y el mensaje sobre el documento revertido sin rellenar.
+- Las pruebas automáticas incorporan una segunda pasada: tras «abrir todos los formularios», la ejecución genera cada formulario de impresión de cada documento; antes la impresión no la comprobaba nada.
+- Las pruebas automáticas se han extraído a un subsistema aparte «Pruebas automáticas»: el procesamiento de ejecución y su módulo cliente están en un solo lugar y no se muestran en las secciones del programa.
+
+## 2.0.12.9
+### ru
+- Служебные помощники печати (реквизиты организации в подвале, добивка страницы пустыми строками, сумма прописью, логотип и размеры печатей-подписей, дополнение таблицы товаров) собраны в подсистеме печатных форм: печать целиком живёт в одном месте.
+- ABC-классификация выделена в отдельный модуль: она нужна отчёту «ABC-анализ продаж» и к печати отношения не имеет.
+- Убраны устаревшее окно предварительного просмотра и старые модули печати - все печатные формы открываются в общем окне печати.
+### fr
+- Les utilitaires d'impression (mentions de l'organisation en pied de page, remplissage de la page par des lignes vides, montant en toutes lettres, logo et dimensions des cachets et signatures, complément du tableau des articles) sont regroupés dans le sous-système des formulaires imprimables : l'impression vit désormais en un seul endroit.
+- La classification ABC est extraite dans un module distinct : elle sert au rapport « Analyse ABC des ventes » et n'a rien à voir avec l'impression.
+- L'ancienne fenêtre d'aperçu et les anciens modules d'impression sont supprimés - tous les formulaires imprimables s'ouvrent dans la fenêtre d'impression commune.
+### en
+- The printing utilities (company details in the footer, filling the page with empty rows, amount in words, logo and the size of stamps and signatures, extending the goods table) are gathered in the print forms subsystem: printing now lives in one place.
+- The ABC classification is extracted into a separate module: it serves the "ABC sales analysis" report and has nothing to do with printing.
+- The obsolete preview window and the old printing modules are removed - all print forms open in the common print window.
+### es
+- Las utilidades de impresión (datos de la organización en el pie, relleno de la página con líneas vacías, importe en letras, logotipo y tamaño de sellos y firmas, complemento de la tabla de artículos) se reúnen en el subsistema de formularios de impresión: la impresión vive ahora en un solo lugar.
+- La clasificación ABC se ha extraído a un módulo aparte: sirve al informe «Análisis ABC de ventas» y no tiene relación con la impresión.
+- Se han eliminado la antigua ventana de vista previa y los módulos de impresión antiguos: todos los formularios de impresión se abren en la ventana común.
+
+## 2.0.12.8
+### ru
+- Рабочее место кассира печатает через общее окно печати: чек уходит на чековый принтер или показывается перед печатью, накладная и возврат открываются в окне печати, Z-отчёт кассовой смены печатается одной командой.
+- В режиме ПДВ накладная из кассы по-прежнему печатается без цен.
+- Этикетки: макет стикера теперь виден в реестре макетов и правится как остальные печатные формы, печать на принтер этикеток перенесена в подсистему печати и сообщает об отсутствующем принтере понятным текстом на четырёх языках.
+- Лиды интернет-магазина: заказ покупателя и накладная на доставку печатаются через общее окно, телефон и почта покупателя подставляются в форму как раньше.
+- При сохранении из окна печати имя файла берётся из печатной формы - например, «Bon de livraison № 5 du 26.08.2026».
+### fr
+- Le poste de caisse imprime via la fenêtre d'impression commune : le ticket part sur l'imprimante à tickets ou s'affiche avant l'impression, le bon de livraison et l'avoir s'ouvrent dans la fenêtre d'impression, l'état Z de la session de caisse s'imprime en une commande.
+- En mode PDV, le bon de livraison de la caisse s'imprime toujours sans les prix.
+- Étiquettes : le modèle d'étiquette apparaît désormais dans le registre des modèles et se modifie comme les autres formulaires imprimables ; l'impression sur l'imprimante d'étiquettes est passée dans le sous-système d'impression et signale l'imprimante manquante dans les quatre langues.
+- Prospects de la boutique en ligne : la commande client et le bon de livraison s'impriment via la fenêtre commune, le téléphone et l'e-mail de l'acheteur sont repris comme avant.
+- Lors de l'enregistrement depuis la fenêtre d'impression, le nom du fichier provient du formulaire imprimable - par exemple « Bon de livraison № 5 du 26.08.2026 ».
+### en
+- The cashier workplace prints through the common print window: the receipt goes to the receipt printer or is shown before printing, the delivery note and the credit note open in the print window, and the cash session Z-report is printed by a single command.
+- In POS mode the delivery note from the cash desk is still printed without prices.
+- Labels: the sticker template now appears in the template registry and is edited like other print forms; printing to the label printer moved into the print subsystem and reports a missing printer in all four languages.
+- Online store leads: the customer order and the delivery note are printed through the common window, the buyer's phone and e-mail are filled in as before.
+- When saving from the print window, the file name comes from the print form - for example, "Bon de livraison № 5 du 26.08.2026".
+### es
+- El puesto de caja imprime a través de la ventana de impresión común: el recibo se envía a la impresora de tickets o se muestra antes de imprimir, el albarán y la devolución se abren en la ventana de impresión, y el informe Z de la sesión de caja se imprime con un solo comando.
+- En modo TPV el albarán de la caja se sigue imprimiendo sin precios.
+- Etiquetas: la plantilla del adhesivo ahora aparece en el registro de plantillas y se edita como los demás formularios de impresión; la impresión en la impresora de etiquetas pasó al subsistema de impresión e informa de la impresora ausente en los cuatro idiomas.
+- Prospectos de la tienda en línea: el pedido de cliente y el albarán de entrega se imprimen por la ventana común, el teléfono y el correo del comprador se rellenan como antes.
+- Al guardar desde la ventana de impresión, el nombre del archivo procede del formulario de impresión, por ejemplo «Bon de livraison № 5 du 26.08.2026».
+
+## 2.0.12.7
+### ru
+- На общее окно печати переведены все оставшиеся документы: реализация товаров и услуг с её накладными, счётом, чеком и актом, заказ покупателя с коммерческими предложениями и проформой, налоговая накладная, отгрузка товара, возвраты от покупателя, приходный и расходный кассовые ордера, кассовая смена, сверка взаиморасчётов, предложение поставщика, табель и прайс-лист.
+- В окне печати любого из этих документов можно отметить сразу несколько форм, задать число копий, сохранить в файл и поправить макет под себя.
+- Печать чека на чековый принтер осталась в одну команду, а настройки страницы чека теперь заданы в самой печатной форме и одинаковы при просмотре и при печати.
+- Прайс-лист, как и раньше, спрашивает перед печатью иерархию и НДС, а табель формируется документом, и сокращения дней недели переведены на все языки программы.
+### fr
+- Tous les documents restants passent à la fenêtre d'impression commune : vente de biens et services avec ses bons de livraison, sa facture proforma, son ticket et son acte, commande client avec devis et proforma, facture de vente, bon de livraison, retours client, bons d'encaissement et de décaissement, session de caisse, acte de rapprochement, offre du fournisseur, feuille de temps et liste de prix.
+- Dans la fenêtre d'impression de ces documents, on peut cocher plusieurs formulaires à la fois, indiquer le nombre de copies, enregistrer dans un fichier et adapter le modèle.
+- L'impression du ticket sur l'imprimante à tickets reste en une seule commande, et la mise en page du ticket est désormais définie dans le formulaire imprimable : elle est identique à l'aperçu et à l'impression.
+- La liste de prix demande toujours la hiérarchie et la TVA avant l'impression, la feuille de temps est produite par le document lui-même et les abréviations des jours de la semaine sont traduites dans toutes les langues du programme.
+### en
+- All remaining documents are switched to the common print window: sales of goods and services with its delivery notes, invoice for payment, receipt and act, customer order with quotations and proforma, tax invoice, goods shipment, customer returns, cash receipt and payment orders, cash session, reconciliation act, supplier offer, timesheet and price list.
+- In the print window of these documents you can select several forms at once, set the number of copies, save to a file and adjust the template.
+- Printing a receipt on the receipt printer is still a single command, and the receipt page setup now lives in the print form itself, so it is the same in preview and in printing.
+- The price list still asks for hierarchy and VAT before printing, the timesheet is produced by the document itself, and the weekday abbreviations are translated into all languages of the application.
+### es
+- Todos los documentos restantes pasan a la ventana de impresión común: venta de bienes y servicios con sus albaranes, factura para pago, recibo y acta, pedido de cliente con presupuestos y proforma, factura de venta, albarán de salida, devoluciones de cliente, órdenes de ingreso y de pago de caja, sesión de caja, acta de conciliación, oferta del proveedor, hoja de horas y lista de precios.
+- En la ventana de impresión de estos documentos se pueden marcar varios formularios a la vez, indicar el número de copias, guardar en un archivo y ajustar la plantilla.
+- La impresión del recibo en la impresora de tickets sigue siendo un solo comando, y la configuración de página del recibo ahora está en el propio formulario de impresión: es la misma en la vista previa y en la impresión.
+- La lista de precios sigue preguntando la jerarquía y el IVA antes de imprimir, la hoja de horas la genera el propio documento y las abreviaturas de los días de la semana están traducidas a todos los idiomas del programa.
+
+## 2.0.12.6
+### ru
+- Исправлено проведение поступления товаров и услуг, оприходования товаров и налоговой накладной покупки: документы падали с ошибкой «Неверное имя колонки» из-за повторного добавления колонки партии, появившейся вместе со списанием по указанной партии.
+### fr
+- Correction de la validation de la réception de biens et services, de l'entrée de marchandises et de la facture d'achat : les documents échouaient avec l'erreur « Nom de colonne incorrect » à cause de l'ajout en double de la colonne de lot apparue avec la sortie par lot désigné.
+### en
+- Fixed posting of the receipt of goods and services, goods receipt and purchase tax invoice: the documents failed with the "Invalid column name" error because the batch column, introduced together with write-off by a chosen batch, was added twice.
+### es
+- Corregida la contabilización de la recepción de bienes y servicios, del alta de mercancías y de la factura de compra: los documentos fallaban con el error «Nombre de columna incorrecto» por añadir dos veces la columna de lote, aparecida junto con la baja por lote indicado.
+
+## 2.0.12.5
+### ru
+- Исправлена ошибка при входе в программу: окно «Что нового» с закладками языков не открывалось из-за неверного имени свойства формы.
+- Сбой окна «Что нового» больше не мешает начать работу: программа запускается, а окно можно открыть вручную в разделе Сервис.
+### fr
+- Correction d'une erreur à la connexion : la fenêtre « Nouveautés » avec les onglets de langue ne s'ouvrait pas à cause d'un nom de propriété de formulaire incorrect.
+- Une défaillance de la fenêtre « Nouveautés » n'empêche plus de commencer le travail : le programme démarre et la fenêtre peut être ouverte manuellement dans la section Service.
+### en
+- Fixed an error at sign-in: the "What's new" window with language tabs did not open because of an incorrect form property name.
+- A failure of the "What's new" window no longer prevents starting work: the application starts and the window can be opened manually in the Service section.
+### es
+- Corregido un error al iniciar sesión: la ventana «Novedades» con pestañas de idioma no se abría por un nombre incorrecto de propiedad del formulario.
+- Un fallo de la ventana «Novedades» ya no impide empezar a trabajar: el programa arranca y la ventana se puede abrir manualmente en la sección Servicio.
+
+## 2.0.12.4
+### ru
+- В окне «Что нового» появились закладки по языкам: список изменений ведётся и показывается на русском, французском, английском и испанском.
+- При открытии окна сразу выбирается закладка языка текущего сеанса.
+### fr
+- La fenêtre « Nouveautés » comporte désormais des onglets de langue : la liste des modifications est tenue et affichée en russe, français, anglais et espagnol.
+- À l'ouverture de la fenêtre, l'onglet de la langue de la session en cours est sélectionné automatiquement.
+### en
+- The "What's new" window now has language tabs: the list of changes is maintained and shown in Russian, French, English and Spanish.
+- When the window opens, the tab of the current session language is selected automatically.
+### es
+- La ventana «Novedades» ahora tiene pestañas de idioma: la lista de cambios se mantiene y se muestra en ruso, francés, inglés y español.
+- Al abrir la ventana se selecciona automáticamente la pestaña del idioma de la sesión actual.
+
+## 2.0.12.3
+### ru
+- Окно «Что нового» открывалось пустым: текст переведён на HTML-документ, как в типовых конфигурациях, и теперь показывается со списком пунктов по каждой версии.
+- Окно «Что нового» показывает все изменения, накопленные с прошлой публикации программы, а не только последнюю правку: список версий виден целиком, заголовок окна называет текущую версию.
+### fr
+- La fenêtre « Nouveautés » s'ouvrait vide : le texte est désormais affiché comme un document HTML, comme dans les configurations standard, avec la liste des points de chaque version.
+- La fenêtre « Nouveautés » affiche toutes les modifications accumulées depuis la publication précédente du programme, et non seulement la dernière correction : la liste des versions est visible en entier et le titre de la fenêtre indique la version actuelle.
+### en
+- The "What's new" window opened empty: the text is now shown as an HTML document, as in standard configurations, with the list of items for each version.
+- The "What's new" window shows all changes accumulated since the previous release of the application, not only the latest fix: the whole list of versions is visible and the window title names the current version.
+### es
+- La ventana «Novedades» se abría vacía: ahora el texto se muestra como un documento HTML, igual que en las configuraciones estándar, con la lista de puntos de cada versión.
+- La ventana «Novedades» muestra todos los cambios acumulados desde la publicación anterior del programa, y no solo la última corrección: la lista de versiones se ve completa y el título de la ventana indica la versión actual.
+
+## 2.0.12.2
+### ru
+- Печать документов переведена на общее окно: слева список печатных форм документа с флажками, справа просмотр, число копий, сохранение в PDF, Excel или табличный документ.
+- Макет любой печатной формы можно изменить под себя: реестр макетов открывается в разделе Сервис — Управление данными, там же видно, какие макеты изменены и в какой версии программы, и одной командой возвращается поставляемый макет.
+- Логотип и печать организации подставляются в печатные формы автоматически из карточки организации.
+- На новое окно печати переведены: перемещение, списание и оприходование товаров, передача в переработку и поступление из переработки, корректировка долга, платёжная ведомость на аванс, поступление товаров и услуг, выплата зарплаты, заказ поставщику, налоговая накладная покупки.
+- Окно «Что нового»: исправлен пустой отступ в начале текста.
+- Новая схема нумерации версий: линейка 2.0, номер сборки растёт при каждой передаче на проверку, и все изменения сборки перечисляются в этом окне.
+### fr
+- L'impression des documents passe par une fenêtre commune : à gauche la liste des formulaires imprimables du document avec des cases à cocher, à droite l'aperçu, le nombre de copies et l'enregistrement en PDF, Excel ou document tabulaire.
+- Le modèle de tout formulaire imprimable peut être adapté : le registre des modèles s'ouvre dans la section Service — Gestion de données, on y voit quels modèles ont été modifiés et dans quelle version du programme, et une seule commande restaure le modèle fourni.
+- Le logo et le cachet de l'organisation sont insérés automatiquement dans les formulaires imprimables depuis la fiche de l'organisation.
+- Sont passés à la nouvelle fenêtre d'impression : transfert, sortie et entrée de marchandises, transfert en sous-traitance et réception de sous-traitance, correction de dette, paiement anticipé, bon de réception, paiement des salaires, commande au fournisseur, facture d'achat.
+- Fenêtre « Nouveautés » : le retrait vide en début de texte est corrigé.
+- Nouveau schéma de numérotation des versions : ligne 2.0, le numéro de build augmente à chaque remise pour vérification et toutes les modifications du build sont listées dans cette fenêtre.
+### en
+- Document printing now goes through a common window: the list of the document's print forms with check boxes on the left, preview, number of copies and saving to PDF, Excel or a spreadsheet document on the right.
+- The template of any print form can be customized: the template registry opens in the Service — Data management section, it shows which templates were changed and in which version of the application, and a single command restores the supplied template.
+- The company logo and stamp are inserted into print forms automatically from the company card.
+- Switched to the new print window: transfer, write-off and receipt of goods, transfer for processing and receipt from processing, debt adjustment, advance payroll sheet, receipt of goods and services, salary payment, order to supplier, purchase tax invoice.
+- "What's new" window: the empty indent at the beginning of the text is fixed.
+- New version numbering scheme: line 2.0, the build number increases with every handover for testing, and all changes of the build are listed in this window.
+### es
+- La impresión de documentos pasa por una ventana común: a la izquierda la lista de formularios de impresión del documento con casillas, a la derecha la vista previa, el número de copias y el guardado en PDF, Excel o documento tabular.
+- La plantilla de cualquier formulario de impresión se puede adaptar: el registro de plantillas se abre en la sección Servicio — Gestión de datos, allí se ve qué plantillas se han modificado y en qué versión del programa, y un solo comando restaura la plantilla suministrada.
+- El logotipo y el sello de la organización se insertan automáticamente en los formularios de impresión desde la ficha de la organización.
+- Pasan a la nueva ventana de impresión: traslado, baja y alta de mercancías, transferencia a procesamiento y recepción de procesamiento, corrección de deuda, pago anticipado, recepción de bienes y servicios, pago de salarios, pedido al proveedor y factura de compra.
+- Ventana «Novedades»: se ha corregido el espacio vacío al inicio del texto.
+- Nuevo esquema de numeración de versiones: línea 2.0, el número de compilación aumenta en cada entrega para revisión y todos los cambios de la compilación se enumeran en esta ventana.
+
+## 1.0.12.1
+### ru
+- Производственный контур: статусы заказов «В производстве», «Передан субподрядчику» и «Получен от субподрядчика» пересчитываются по связанным документам.
+- Выпуск продукции: несколько позиций готовой продукции в одном документе, себестоимость и НДС распределяются по весам технологических карт.
+- Поступление из переработки: стоимость услуг переработчика капитализируется в себестоимость продукции, долг переработчику попадает во взаиморасчёты.
+- Товары в переработке ведутся в разрезе заказа покупателя, в отчёте появился отбор по заказу.
+- Рабочее место «Заказы в производстве»: заказы со статусами, товары заказа и связанные документы в одном окне.
+- Начальная страница: дашборды продаж, склада и производства с показателями дня, месяца и рекордами.
+- Роль «Оператор производства» больше не видит цены и суммы в документах товародвижения и производства.
+- По одному заказу покупателя допускается несколько реализаций (частичные отгрузки).
+- Меню перегруппировано по бизнес-процессам: главные документы раздела выделены в «Важное», второстепенные команды убраны в «См. также».
+- Элементы меню переведены на французский, английский и испанский языки.
+- Механизм обновления данных: версия базы, обработчики обновления и окно «Что нового» с описанием изменений.
+- Исправлено падение при открытии реализации товаров и услуг, а также ряд ошибок в запросах и печатных формах.
+### fr
+- Circuit de production : les statuts des commandes « En production », « Transmis au sous-traitant » et « Reçu du sous-traitant » sont recalculés d'après les documents liés.
+- Fabrication : plusieurs articles de produits finis dans un même document, le coût de revient et la TVA sont répartis selon les poids des fiches techniques.
+- Réception de sous-traitance : le coût des services du sous-traitant est capitalisé dans le coût de revient des produits, la dette envers le sous-traitant entre dans les règlements mutuels.
+- Les marchandises en sous-traitance sont suivies par commande client, et le rapport dispose d'un filtre par commande.
+- Poste de travail « Commandes en production » : les commandes avec leurs statuts, les articles de la commande et les documents liés dans une seule fenêtre.
+- Page d'accueil : tableaux de bord des ventes, du stock et de la production avec les indicateurs du jour, du mois et les records.
+- Le rôle « Opérateur de production » ne voit plus les prix ni les montants dans les documents de mouvement de marchandises et de production.
+- Une même commande client peut donner lieu à plusieurs ventes (livraisons partielles).
+- Le menu est réorganisé par processus métier : les documents principaux de chaque section sont placés dans « Important », les commandes secondaires dans « Voir aussi ».
+- Les éléments de menu sont traduits en français, en anglais et en espagnol.
+- Mécanisme de mise à jour des données : version de la base, gestionnaires de mise à jour et fenêtre « Nouveautés » avec la description des modifications.
+- Correction du plantage à l'ouverture de la vente de biens et services, ainsi que de plusieurs erreurs dans les requêtes et les formulaires imprimables.
+### en
+- Production circuit: the order statuses "In production", "Transferred to subcontractor" and "Received from subcontractor" are recalculated from the related documents.
+- Production output: several finished product items in one document, cost and VAT are distributed by the weights of the technological charts.
+- Receipt from processing: the processor's service cost is capitalized into the product cost, and the debt to the processor goes into mutual settlements.
+- Goods in processing are tracked by customer order, and the report now has a filter by order.
+- "Orders in production" workplace: orders with statuses, order items and related documents in one window.
+- Home page: sales, warehouse and production dashboards with daily and monthly indicators and records.
+- The "Production operator" role no longer sees prices and amounts in goods movement and production documents.
+- One customer order can have several sales documents (partial shipments).
+- The menu is regrouped by business processes: the main documents of each section are placed in "Important", secondary commands in "See also".
+- Menu items are translated into French, English and Spanish.
+- Data update mechanism: infobase version, update handlers and the "What's new" window with the description of changes.
+- Fixed the crash when opening a sales document, as well as a number of errors in queries and print forms.
+### es
+- Circuito de producción: los estados de los pedidos «En producción», «Transferido al subcontratista» y «Recibido del subcontratista» se recalculan según los documentos vinculados.
+- Fabricación: varias posiciones de productos terminados en un mismo documento, el coste y el IVA se distribuyen según los pesos de las fichas técnicas.
+- Recepción de procesamiento: el coste de los servicios del procesador se capitaliza en el coste del producto y la deuda con el procesador entra en las liquidaciones mutuas.
+- Las mercancías en procesamiento se llevan por pedido de cliente y el informe tiene un filtro por pedido.
+- Puesto de trabajo «Pedidos en producción»: pedidos con sus estados, artículos del pedido y documentos vinculados en una sola ventana.
+- Página de inicio: paneles de ventas, almacén y producción con indicadores del día, del mes y récords.
+- El rol «Operador de producción» ya no ve precios ni importes en los documentos de movimiento de mercancías y de producción.
+- Un mismo pedido de cliente admite varias ventas (envíos parciales).
+- El menú se ha reagrupado por procesos de negocio: los documentos principales de cada sección están en «Importante» y los comandos secundarios en «Véase también».
+- Los elementos del menú están traducidos al francés, inglés y español.
+- Mecanismo de actualización de datos: versión de la base, controladores de actualización y ventana «Novedades» con la descripción de los cambios.
+- Corregido el fallo al abrir la venta de bienes y servicios, así como varios errores en consultas y formularios de impresión.
+
+## 1.0.11.1
+### ru
+- Первый релиз maERP: продажи, закупки, склад, производство, казначейство, зарплата и кадры, бухгалтерия.
+### fr
+- Première version de maERP : ventes, achats, stock, production, trésorerie, paie et RH, comptabilité.
+### en
+- First maERP release: sales, purchases, warehouse, production, treasury, payroll and HR, accounting.
+### es
+- Primera versión de maERP: ventas, compras, almacén, producción, tesorería, nóminas y RR. HH., contabilidad.
