@@ -73,6 +73,11 @@ def правки_формы(текст):
                 правки.append((s, e, 'representation', 'WeakSeparation', 'None'))
 
         if значение(фрагмент, 'group') == 'AlwaysHorizontal':
+            # Исключение стандарта: короткие пары фиксированной ширины (номер + дата)
+            # остаются AlwaysHorizontal - см. docs/FORMS-STYLE.md, правило 3.
+            имя_группы = re.search(r'<name>([^<]+)</name>', текст[начало:начало + 200])
+            if имя_группы and 'НомерИДата' in имя_группы.group(1):
+                continue
             правки.append((s, e, 'group', 'AlwaysHorizontal', 'AutoScreenTypeSensitive'))
 
     return sorted(правки, key=lambda p: -p[0])
