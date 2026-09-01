@@ -486,7 +486,7 @@
                             <userVisible>
                               <common>true</common>
                             </userVisible>
-                            <titleLocation>None</titleLocation>
+                            <titleLocation>Left</titleLocation>
                               <dataPath xsi:type="form:DataPath">
                               <segments>Объект.ХозяйственнаяОперация</segments>
                             </dataPath>
@@ -509,57 +509,38 @@
                               <id>165</id>
                               <autoFill>true</autoFill>
                             </contextMenu>
-                            <type>RadioButtonField</type>
-                            <editMode>Enter</editMode>
-                            <showInHeader>true</showInHeader>
-                            <headerHorizontalAlign>Left</headerHorizontalAlign>
-                            <showInFooter>true</showInFooter>
-                            <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
-                                <radioButtonsType>Tumbler</radioButtonsType>
-                                <equalElementsWidth>true</equalElementsWidth>
-                                <choiceList>
-                                  <presentation>
-                                    <key>ru</key>
-                                    <value>Продажа</value>
-                                  </presentation>
-                                  <presentation>
-                                    <key>fr</key>
-                                    <value>Vente</value>
-                                  </presentation>
-                                  <presentation>
-                                    <key>en</key>
-                                    <value>Sale</value>
-                                  </presentation>
-                                  <presentation>
-                                    <key>es</key>
-                                    <value>Venta</value>
-                                  </presentation>
-                                  <value xsi:type="core:ReferenceValue">
-                                    <value>Enum.ХозяйственныеОперации.EnumValue.РеализацияКлиенту</value>
-                                  </value>
-                                </choiceList>
-                                <choiceList>
-                                  <presentation>
-                                    <key>ru</key>
-                                    <value>По отгрузкам</value>
-                                  </presentation>
-                                  <presentation>
-                                    <key>fr</key>
-                                    <value>Sur expéditions</value>
-                                  </presentation>
-                                  <presentation>
-                                    <key>en</key>
-                                    <value>By shipments</value>
-                                  </presentation>
-                                  <presentation>
-                                    <key>es</key>
-                                    <value>Por expediciones</value>
-                                  </presentation>
-                                  <value xsi:type="core:ReferenceValue">
-                                    <value>Enum.ХозяйственныеОперации.EnumValue.НакладнаяПоОтгрузкамТовара</value>
-                                  </value>
-                                </choiceList>
-                              </extInfo>
+                                                <type>InputField</type>
+                          <editMode>Enter</editMode>
+                          <showInHeader>true</showInHeader>
+                          <headerHorizontalAlign>Left</headerHorizontalAlign>
+                          <showInFooter>true</showInFooter>
+                          <extInfo xsi:type="form:InputFieldExtInfo">
+                            <autoMaxWidth>true</autoMaxWidth>
+                            <autoMaxHeight>true</autoMaxHeight>
+                            <wrap>true</wrap>
+                            <listChoiceMode>true</listChoiceMode>
+                            <chooseType>true</chooseType>
+                            <typeDomainEnabled>true</typeDomainEnabled>
+                            <choiceList>
+                              <value xsi:type="core:ReferenceValue">
+                                <value>Enum.ХозяйственныеОперации.EnumValue.РеализацияКлиенту</value>
+                              </value>
+                            </choiceList>
+                            <choiceList>
+                              <value xsi:type="core:ReferenceValue">
+                                <value>Enum.ХозяйственныеОперации.EnumValue.ПродажаВКредит</value>
+                              </value>
+                            </choiceList>
+                            <choiceList>
+                              <value xsi:type="core:ReferenceValue">
+                                <value>Enum.ХозяйственныеОперации.EnumValue.НакладнаяПоОтгрузкамТовара</value>
+                              </value>
+                            </choiceList>
+                            <textSize>Normal</textSize>
+                            <font xsi:type="core:FontRef">
+                              <font>Style.Шрифт_Основной</font>
+                            </font>
+                          </extInfo>
                             </items>
           <items xsi:type="form:FormField">
                                 <name>МестоХранения</name>
