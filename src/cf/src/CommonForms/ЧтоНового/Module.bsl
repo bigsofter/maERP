@@ -95,13 +95,18 @@
 Функция HTMLОписанияИзменений(Секции)
 
 	Части = Новый Массив;
+	// Поле HTML-документа не наследует тему клиента, поэтому фон и текст задаются явно:
+	// светлая пара - фирменные крем и тёплый текст, тёмная подключается media-запросом.
 	Части.Добавить("<html><head><meta charset=""utf-8""><style>");
 	Части.Добавить("body { font-family: -apple-system, ""Segoe UI"", Arial, sans-serif; font-size: 13px;");
-	Части.Добавить(" color: #1f2328; margin: 12px 16px; }");
-	Части.Добавить("h3 { font-size: 14px; margin: 18px 0 6px; color: #16794c; }");
+	Части.Добавить(" background: #FAF4E6; color: #453B2E; margin: 12px 16px; }");
+	Части.Добавить("h3 { font-size: 14px; margin: 18px 0 6px; color: #B4762A; }");
 	Части.Добавить("h3:first-child { margin-top: 0; }");
 	Части.Добавить("ul { margin: 0; padding-left: 20px; }");
 	Части.Добавить("li { margin: 4px 0; }");
+	Части.Добавить("@media (prefers-color-scheme: dark) {");
+	Части.Добавить(" body { background: #26221C; color: #EDE5D8; }");
+	Части.Добавить(" h3 { color: #E8A44E; } }");
 	Части.Добавить("</style></head><body>");
 
 	Если Секции.Количество() = 0 Тогда
