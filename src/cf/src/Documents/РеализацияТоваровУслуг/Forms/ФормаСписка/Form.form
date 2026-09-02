@@ -1439,6 +1439,7 @@
         <userVisible>
           <common>true</common>
         </userVisible>
+        <verticalStretch>true</verticalStretch>
         <extendedTooltip>
           <name>ГруппаСтраницыСведенийРасширеннаяПодсказка</name>
           <id>147</id>
@@ -1824,7 +1825,41 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
-          <items xsi:type="form:FormField">
+                <items xsi:type="form:FormGroup">
+        <name>ГруппаОтборСумма</name>
+        <id>202</id>
+        <title>
+          <key>ru</key>
+          <value>Сумма</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Montant</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Amount</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Importe</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ГруппаОтборСуммаРасширеннаяПодсказка</name>
+          <id>203</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+<items xsi:type="form:FormField">
             <name>ОтборСуммаУсловие</name>
             <id>190</id>
             <title>
@@ -1851,7 +1886,7 @@
             <dataPath xsi:type="form:DataPath">
               <segments>ОтборСуммаУсловие</segments>
             </dataPath>
-            <titleLocation>Top</titleLocation>
+            <titleLocation>None</titleLocation>
             <handlers>
               <event>OnChange</event>
               <name>ОтборПриИзменении</name>
@@ -1881,6 +1916,18 @@
                     <key>ru</key>
                     <value>&gt;</value>
                   </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>&gt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>&gt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>&gt;</value>
+                  </presentation>
                   <value xsi:type="core:NumberValue">
                     <value>0</value>
                   </value>
@@ -1888,6 +1935,18 @@
                 <choiceList>
                   <presentation>
                     <key>ru</key>
+                    <value>&lt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>&lt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>&lt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
                     <value>&lt;</value>
                   </presentation>
                   <value xsi:type="core:NumberValue">
@@ -1899,13 +1958,25 @@
                     <key>ru</key>
                     <value>=</value>
                   </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>=</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>=</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>=</value>
+                  </presentation>
                   <value xsi:type="core:NumberValue">
                     <value>2</value>
                   </value>
                 </choiceList>
             </extInfo>
           </items>
-          <items xsi:type="form:FormField">
+<items xsi:type="form:FormField">
             <name>ОтборСумма</name>
             <id>193</id>
             <visible>true</visible>
@@ -1945,7 +2016,52 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
-          <items xsi:type="form:FormField">
+        <type>UsualGroup</type>
+        <extInfo xsi:type="form:UsualGroupExtInfo">
+          <group>AlwaysHorizontal</group>
+          <representation>None</representation>
+          <showLeftMargin>false</showLeftMargin>
+          <united>true</united>
+          <showTitle>true</showTitle>
+          <throughAlign>Auto</throughAlign>
+          <currentRowUse>Auto</currentRowUse>
+        </extInfo>
+      </items>
+                <items xsi:type="form:FormGroup">
+        <name>ГруппаОтборДолг</name>
+        <id>204</id>
+        <title>
+          <key>ru</key>
+          <value>Долг</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Dette</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Debt</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Deuda</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ГруппаОтборДолгРасширеннаяПодсказка</name>
+          <id>205</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+<items xsi:type="form:FormField">
             <name>ОтборДолгУсловие</name>
             <id>196</id>
             <title>
@@ -1972,7 +2088,7 @@
             <dataPath xsi:type="form:DataPath">
               <segments>ОтборДолгУсловие</segments>
             </dataPath>
-            <titleLocation>Top</titleLocation>
+            <titleLocation>None</titleLocation>
             <handlers>
               <event>OnChange</event>
               <name>ОтборПриИзменении</name>
@@ -2002,6 +2118,18 @@
                     <key>ru</key>
                     <value>&gt;</value>
                   </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>&gt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>&gt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>&gt;</value>
+                  </presentation>
                   <value xsi:type="core:NumberValue">
                     <value>0</value>
                   </value>
@@ -2009,6 +2137,18 @@
                 <choiceList>
                   <presentation>
                     <key>ru</key>
+                    <value>&lt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>&lt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>&lt;</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
                     <value>&lt;</value>
                   </presentation>
                   <value xsi:type="core:NumberValue">
@@ -2020,13 +2160,25 @@
                     <key>ru</key>
                     <value>=</value>
                   </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>=</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>=</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>=</value>
+                  </presentation>
                   <value xsi:type="core:NumberValue">
                     <value>2</value>
                   </value>
                 </choiceList>
             </extInfo>
           </items>
-          <items xsi:type="form:FormField">
+<items xsi:type="form:FormField">
             <name>ОтборДолг</name>
             <id>199</id>
             <visible>true</visible>
@@ -2066,6 +2218,17 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
+        <type>UsualGroup</type>
+        <extInfo xsi:type="form:UsualGroupExtInfo">
+          <group>AlwaysHorizontal</group>
+          <representation>None</representation>
+          <showLeftMargin>false</showLeftMargin>
+          <united>true</united>
+          <showTitle>true</showTitle>
+          <throughAlign>Auto</throughAlign>
+          <currentRowUse>Auto</currentRowUse>
+        </extInfo>
+      </items>
           <type>Page</type>
           <extInfo xsi:type="form:PageGroupExtInfo">
             <group>Vertical</group>
