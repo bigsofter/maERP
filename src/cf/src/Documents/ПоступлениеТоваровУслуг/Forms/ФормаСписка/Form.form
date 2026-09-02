@@ -1060,7 +1060,6 @@
       <topLevelParent xsi:type="core:UndefinedValue"/>
       <showRoot>true</showRoot>
       <allowGettingCurrentRowURL>true</allowGettingCurrentRowURL>
-      <userSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</userSettingsGroup>
     </extInfo>
   </items>
 <items xsi:type="form:FormGroup">
@@ -1217,6 +1216,50 @@
                 <horizontalAlign>Left</horizontalAlign>
               </extInfo>
             </extendedTooltip>
+
+            <items xsi:type="form:Button">
+              <name>КнопкаОформитьПоступление</name>
+              <id>155</id>
+              <title>
+                <key>ru</key>
+                <value>Оформить поступление</value>
+              </title>
+              <title>
+                <key>fr</key>
+                <value>Créer la réception</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Create receipt</value>
+              </title>
+              <title>
+                <key>es</key>
+                <value>Crear la recepción</value>
+              </title>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>КнопкаОформитьПоступлениеРасширеннаяПодсказка</name>
+                <id>156</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.ОформитьПоступление</commandName>
+              <representation>Auto</representation>
+              <defaultButton>true</defaultButton>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+              <buttonImportance>Main</buttonImportance>
+            </items>
             <items xsi:type="form:Table">
               <name>СписокЗаказы</name>
               <id>157</id>
@@ -1254,33 +1297,6 @@
                 <horizontalAlign>Left</horizontalAlign>
                 <autoFill>true</autoFill>
               </autoCommandBar>
-
-            <items xsi:type="form:Button">
-              <name>КнопкаОформитьПоступление</name>
-              <id>155</id>
-              <visible>true</visible>
-              <enabled>true</enabled>
-              <userVisible>
-                <common>true</common>
-              </userVisible>
-              <extendedTooltip>
-                <name>КнопкаОформитьПоступлениеРасширеннаяПодсказка</name>
-                <id>156</id>
-                <type>Label</type>
-                <autoMaxWidth>true</autoMaxWidth>
-                <autoMaxHeight>true</autoMaxHeight>
-                <extInfo xsi:type="form:LabelDecorationExtInfo">
-                  <horizontalAlign>Left</horizontalAlign>
-                </extInfo>
-              </extendedTooltip>
-              <commandName>Form.Command.ОформитьПоступление</commandName>
-              <representation>Text</representation>
-              <defaultButton>true</defaultButton>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <placementArea>UserCmds</placementArea>
-              <representationInContextMenu>Auto</representationInContextMenu>
-            </items>
               <items xsi:type="form:FormField">
                 <name>СписокЗаказыДата</name>
                 <id>161</id>
@@ -2555,36 +2571,25 @@
     <main>true</main>
     <extInfo xsi:type="form:DynamicListExtInfo">
       <queryText>ВЫБРАТЬ
-	ДокументПоступлениеТоваровУслуг.Ссылка КАК Ссылка,
-	ДокументПоступлениеТоваровУслуг.ПометкаУдаления КАК ПометкаУдаления,
-	ДокументПоступлениеТоваровУслуг.Номер КАК Номер,
-	ДокументПоступлениеТоваровУслуг.Дата КАК Дата,
-	ДокументПоступлениеТоваровУслуг.Проведен КАК Проведен,
-	ДокументПоступлениеТоваровУслуг.ДатаВходящегоДокумента КАК ДатаВходящегоДокумента,
-	ДокументПоступлениеТоваровУслуг.Договор КАК Договор,
-	ДокументПоступлениеТоваровУслуг.Комментарий КАК Комментарий,
-	ДокументПоступлениеТоваровУслуг.Контрагент КАК Контрагент,
-	ДокументПоступлениеТоваровУслуг.МестоХранения КАК МестоХранения,
-	ДокументПоступлениеТоваровУслуг.НомерВходящегоДокумента КАК НомерВходящегоДокумента,
-	ДокументПоступлениеТоваровУслуг.Организация КАК Организация,
-	ДокументПоступлениеТоваровУслуг.Основание КАК Основание,
-	ДокументПоступлениеТоваровУслуг.Ответственный КАК Ответственный,
-	ДокументПоступлениеТоваровУслуг.Сумма КАК Сумма,
-	ДокументПоступлениеТоваровУслуг.СуммаНДС КАК СуммаНДС,
-	ДокументПоступлениеТоваровУслуг.СуммаБезНДС КАК СуммаБезНДС,
-	ДокументПоступлениеТоваровУслуг.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
-	ДокументПоступлениеТоваровУслуг.ЦенаВключаетНДС КАК ЦенаВключаетНДС,
-	ДокументПоступлениеТоваровУслуг.Статус КАК Статус,
-	ДокументПоступлениеТоваровУслуг.ТипЦеныПоТипуЦен КАК ТипЦеныПоТипуЦен,
-	ДокументПоступлениеТоваровУслуг.МоментВремени КАК МоментВремени,
-	ЕСТЬNULL(ПрисоединённыеФайлыНаличие.ЕстьФайлы, ЛОЖЬ) КАК ЕстьФайлы,
-	ДокументПоступлениеТоваровУслуг.ДатаОтгрузочногоДокумента КАК ДатаОтгрузочногоДокумента,
-	ДокументПоступлениеТоваровУслуг.Дата КАК СрокОплаты,
-	ДокументПоступлениеТоваровУслуг.НомерОтгрузочногоДокумента КАК НомерОтгрузочногоДокумента
+	Заказ.Ссылка КАК Ссылка,
+	Заказ.Дата КАК Дата,
+	Заказ.Номер КАК Номер,
+	Заказ.Контрагент КАК Контрагент,
+	Заказ.Организация КАК Организация,
+	Заказ.ДатаПоставки КАК ДатаПоставки,
+	Заказ.Сумма КАК Сумма
 ИЗ
-	Документ.ПоступлениеТоваровУслуг КАК ДокументПоступлениеТоваровУслуг
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПрисоединённыеФайлыНаличие КАК ПрисоединённыеФайлыНаличие
-		ПО ДокументПоступлениеТоваровУслуг.Ссылка = ПрисоединённыеФайлыНаличие.Объект</queryText>
+	Документ.ЗаказПоставщику КАК Заказ
+ГДЕ
+	Заказ.Проведен
+	И НЕ Заказ.ПометкаУдаления
+	И Заказ.Ссылка В
+			(ВЫБРАТЬ
+				Остатки.ЗаказПоставщику КАК ЗаказПоставщику
+			ИЗ
+				РегистрНакопления.ЗаказыПоставщикам.Остатки КАК Остатки
+			ГДЕ
+				Остатки.КоличествоОстаток &gt; 0)</queryText>
       <mainTable>Document.ПоступлениеТоваровУслуг</mainTable>
       <dynamicDataRead>true</dynamicDataRead>
       <autoFillAvailableFields>true</autoFillAvailableFields>
@@ -3032,10 +3037,6 @@
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Сумма</dataPath>
         <field>Сумма</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>КоличествоКПоступлению</dataPath>
-        <field>КоличествоКПоступлению</field>
       </fields>
     </extInfo>
   </attributes>
