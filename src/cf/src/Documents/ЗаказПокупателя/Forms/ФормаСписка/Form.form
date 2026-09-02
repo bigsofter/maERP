@@ -150,6 +150,56 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>НомерКартинкиОтгрузки</name>
+      <id>190</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.НомерКартинкиОтгрузки</segments>
+      </dataPath>
+      <titleLocation>None</titleLocation>
+      <extendedTooltip>
+        <name>НомерКартинкиОтгрузкиРасширеннаяПодсказка</name>
+        <id>191</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>НомерКартинкиОтгрузкиКонтекстноеМеню</name>
+        <id>192</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>PictureField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerPicture xsi:type="core:PictureRef">
+        <picture>CommonPicture.СтатусОтгрузки</picture>
+      </headerPicture>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:ImageFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>true</horizontalStretch>
+        <verticalStretch>true</verticalStretch>
+        <valuesPicture xsi:type="core:PictureRef">
+          <picture>CommonPicture.СтатусОтгрузки</picture>
+        </valuesPicture>
+        <border xsi:type="core:BorderDef">
+          <style>Single</style>
+          <width>1</width>
+        </border>
+        <fileDragMode>AsFileRef</fileDragMode>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>Дата</name>
       <id>16</id>
       <visible>true</visible>
@@ -1143,6 +1193,303 @@
             </extInfo>
           </extendedTooltip>
           <items xsi:type="form:FormField">
+            <name>ФильтрОплаты</name>
+            <id>193</id>
+            <title>
+              <key>ru</key>
+              <value>Оплата</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Paiement</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Payment</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Pago</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ФильтрОплаты</segments>
+            </dataPath>
+            <titleLocation>Top</titleLocation>
+            <handlers>
+              <event>OnChange</event>
+              <name>ОтборПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ФильтрОплатыРасширеннаяПодсказка</name>
+              <id>194</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ФильтрОплатыКонтекстноеМеню</name>
+              <id>195</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>RadioButtonField</type>
+            <editMode>Enter</editMode>
+            <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
+              <radioButtonsType>Tumbler</radioButtonsType>
+              <equalElementsWidth>true</equalElementsWidth>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Все</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Toutes</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>All</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Todos</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>0</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Не оплачен</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Impayé</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Unpaid</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>No pagado</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>1</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Частично</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Partiel</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Partial</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Parcial</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>2</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Оплачен</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Payé</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Paid</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Pagado</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>3</value>
+                  </value>
+                </choiceList>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>ФильтрОтгрузки</name>
+            <id>196</id>
+            <title>
+              <key>ru</key>
+              <value>Отгрузка</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Expédition</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Shipment</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Expedición</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ФильтрОтгрузки</segments>
+            </dataPath>
+            <titleLocation>Top</titleLocation>
+            <handlers>
+              <event>OnChange</event>
+              <name>ОтборПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ФильтрОтгрузкиРасширеннаяПодсказка</name>
+              <id>197</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ФильтрОтгрузкиКонтекстноеМеню</name>
+              <id>198</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>RadioButtonField</type>
+            <editMode>Enter</editMode>
+            <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
+              <radioButtonsType>Tumbler</radioButtonsType>
+              <equalElementsWidth>true</equalElementsWidth>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Все</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Toutes</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>All</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Todos</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>0</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Не отгружен</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Non expédié</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Not shipped</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>No expedido</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>1</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>В работе</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>En cours</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>In progress</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>En curso</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>2</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Отгружен</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Expédié</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Shipped</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Expedido</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>3</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Доставлен</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Livré</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Delivered</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Entregado</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>4</value>
+                  </value>
+                </choiceList>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
             <name>ОтборКонтрагент</name>
             <id>138</id>
             <title>
@@ -2075,6 +2422,22 @@
 	ДокументЗаказПокупателя.МоментВремени КАК МоментВремени,
 	ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СтатусЗаказаПокупателя КАК Статус,
 	ВЫБОР
+		КОГДА ДокументЗаказПокупателя.ПометкаУдаления
+			ТОГДА 4
+		КОГДА ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СтатусЗаказаПокупателя = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.Доставлен)
+			ТОГДА 3
+		КОГДА ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СтатусЗаказаПокупателя = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.Отгружен)
+			ТОГДА 2
+		КОГДА ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СтатусЗаказаПокупателя В (
+				ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.ВРаботе),
+				ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.ВПроизводстве),
+				ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.ПереданСубподрядчику),
+				ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.ПолученОтСубподрядчика),
+				ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.Собран))
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК НомерКартинкиОтгрузки,
+	ВЫБОР
 		КОГДА ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СтатусЗаказаПокупателя = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.Собран)
 				ИЛИ ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СтатусЗаказаПокупателя = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.Доставлен)
 				ИЛИ ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СтатусЗаказаПокупателя = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПокупателя.Отгружен)
@@ -2090,7 +2453,7 @@
 									КОНЕЦ
 							КОНЕЦ
 					ИНАЧЕ ВЫБОР
-							КОГДА &amp;ТекущаяДата > ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СрокОплаты
+							КОГДА &amp;ТекущаяДата &gt; ИсторияЗаказовПокупателейПоСтатусамСрезПоследних.СрокОплаты
 								ТОГДА ВЫБОР
 										КОГДА ЕСТЬNULL(ВзаиморасчётыСПокупателямиОстатки.СуммаОстаток, 0) = 0
 											ТОГДА ВЫБОР
@@ -2306,6 +2669,10 @@
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>ЗаказПокупателя</dataPath>
         <field>ЗаказПокупателя</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>НомерКартинкиОтгрузки</dataPath>
+        <field>НомерКартинкиОтгрузки</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>НомерКартинкиОплаты</dataPath>
@@ -2620,6 +2987,38 @@
         <common>true</common>
       </edit>
     </columns>
+  </attributes>
+  <attributes>
+    <name>ФильтрОплаты</name>
+    <id>15</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ФильтрОтгрузки</name>
+    <id>16</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <formCommands>
     <name>СвернутьПанель</name>
