@@ -49,6 +49,33 @@ else
 	echo "CheckConfig: ошибок нет"
 fi
 
+# Шаг 1б. Расширенная проверка модулей: разбирает модули форм и ловит обращения к
+# несуществующим методам (например, ЕстьNULL вне запроса - урок bsl-006). Даёт и
+# ложные срабатывания на живом коде, поэтому сравнивается с базой известных строк
+# build/checkconfig-baseline.txt: новых строк быть не должно.
+EXT_LOG="$BUILD/check-modules.log"
+EXT_BASE="$BUILD/checkconfig-baseline.txt"
+echo "== Шаг 1б. Расширенная проверка модулей =="
+rm -f "$EXT_LOG"
+"$V8" DESIGNER /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /CheckConfig \
+	-ThinClient -Server -ExtendedModulesCheck \
+	"${V8_BATCH[@]}" /Out "$EXT_LOG" || true
+wait_process_end "CheckConfig" || true
+if [ ! -f "$EXT_BASE" ]; then
+	echo "Базы известных замечаний нет — создана: $EXT_BASE"
+	sort -u "$EXT_LOG" > "$EXT_BASE"
+elif [ -s "$EXT_LOG" ]; then
+	NEW_LINES=$(sort -u "$EXT_LOG" | comm -13 "$EXT_BASE" - | sed '/^[[:space:]]*$/d')
+	if [ -n "$NEW_LINES" ]; then
+		echo "--- Новые замечания расширенной проверки:"
+		echo "$NEW_LINES"
+		FAILED=1
+		COMPILE_ERROR=1
+	else
+		echo "Расширенная проверка: новых замечаний нет"
+	fi
+fi
+
 if [ "$COMPILE_ERROR" -ne 0 ]; then
 	echo "Есть ошибки компиляции модулей — шаг 2 пропущен: клиент с ними не запустится."
 	echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"
