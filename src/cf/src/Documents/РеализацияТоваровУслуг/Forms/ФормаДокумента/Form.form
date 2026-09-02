@@ -531,11 +531,6 @@
                                 <value>Enum.ХозяйственныеОперации.EnumValue.ПродажаВКредит</value>
                               </value>
                             </choiceList>
-                            <choiceList>
-                              <value xsi:type="core:ReferenceValue">
-                                <value>Enum.ХозяйственныеОперации.EnumValue.НакладнаяПоОтгрузкамТовара</value>
-                              </value>
-                            </choiceList>
                             <textSize>Normal</textSize>
                             <font xsi:type="core:FontRef">
                               <font>Style.Шрифт_Основной</font>
@@ -3282,48 +3277,6 @@
             <showInCard>true</showInCard>
           </extInfo>
         </items>
-        <items xsi:type="form:FormField">
-          <name>ТЧТоварыОтгрузкаТовара</name>
-          <id>438</id>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Объект.ТЧТовары.ОтгрузкаТовара</segments>
-          </dataPath>
-          <extendedTooltip>
-            <name>ТЧТоварыОтгрузкаТовараРасширеннаяПодсказка</name>
-            <id>440</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <contextMenu>
-            <name>ТЧТоварыОтгрузкаТовараКонтекстноеМеню</name>
-            <id>439</id>
-            <autoFill>true</autoFill>
-          </contextMenu>
-          <type>InputField</type>
-          <editMode>Auto</editMode>
-          <showInHeader>true</showInHeader>
-          <headerHorizontalAlign>Center</headerHorizontalAlign>
-          <showInFooter>true</showInFooter>
-          <extInfo xsi:type="form:InputFieldExtInfo">
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <wrap>true</wrap>
-            <extendedEditMultipleValues>true</extendedEditMultipleValues>
-            <chooseType>true</chooseType>
-            <typeDomainEnabled>true</typeDomainEnabled>
-            <textEdit>true</textEdit>
-            <textSize>Normal</textSize>
-          </extInfo>
-        </items>
         <autoCommandBar>
           <name>ТЧТоварыКоманднаяПанель</name>
           <id>30</id>
@@ -3562,31 +3515,6 @@
               </extInfo>
             </extendedTooltip>
             <commandName>Form.Command.ЗаполнитьИзExcel</commandName>
-            <buttonImportance>Normal</buttonImportance>
-            <representation>Auto</representation>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <placementArea>UserCmds</placementArea>
-            <representationInContextMenu>Auto</representationInContextMenu>
-          </items>
-          <items xsi:type="form:Button">
-            <name>ТЧТоварыЗаполнитьПоОтгрузкам</name>
-            <id>436</id>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <extendedTooltip>
-              <name>ТЧТоварыЗаполнитьПоОтгрузкамРасширеннаяПодсказка</name>
-              <id>437</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <commandName>Form.Command.ЗаполнитьПоОтгрузкам</commandName>
             <buttonImportance>Normal</buttonImportance>
             <representation>Auto</representation>
             <autoMaxWidth>true</autoMaxWidth>
@@ -6900,52 +6828,6 @@
       </handler>
     </action>
     <modifiesStoredData>true</modifiesStoredData>
-    <currentRowUse>Auto</currentRowUse>
-    <selectedRowsUse>Auto</selectedRowsUse>
-  </formCommands>
-  <formCommands>
-    <name>ЗаполнитьПоОтгрузкам</name>
-    <title>
-      <key>ru</key>
-      <value>Заполнить по отгрузкам</value>
-    </title>
-    <title>
-      <key>fr</key>
-      <value>Remplir par expédition</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Fill in the shipping information</value>
-    </title>
-    <title>
-      <key>es</key>
-      <value>Llenar en envíos</value>
-    </title>
-    <id>4</id>
-    <toolTip>
-      <key>ru</key>
-      <value>Заполнить по отгрузкам</value>
-    </toolTip>
-    <toolTip>
-      <key>fr</key>
-      <value>Remplir par expédition</value>
-    </toolTip>
-    <toolTip>
-      <key>en</key>
-      <value>Fill in the shipping information</value>
-    </toolTip>
-    <toolTip>
-      <key>es</key>
-      <value>Llenar en envíos</value>
-    </toolTip>
-    <use>
-      <common>true</common>
-    </use>
-    <action xsi:type="form:FormCommandHandlerContainer">
-      <handler>
-        <name>ЗаполнитьПоОтгрузкам</name>
-      </handler>
-    </action>
     <currentRowUse>Auto</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>

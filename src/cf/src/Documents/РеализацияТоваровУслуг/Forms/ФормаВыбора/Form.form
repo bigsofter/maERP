@@ -516,7 +516,6 @@
 		СуммаСНДС КАК СуммаСНДС,
 		СтавкаНДС КАК СтавкаНДС,
 		СуммаНДС КАК СуммаНДС,
-		ОтгрузкаТовара КАК ОтгрузкаТовара,
 		СкидкаНаЦену КАК СкидкаНаЦену
 	) КАК ТЧТовары,
 	ДокументРеализацияТоваровУслуг.ТЧСерии.(
@@ -536,8 +535,7 @@
 		Сумма КАК Сумма,
 		СтавкаНДС КАК СтавкаНДС,
 		СуммаНДС КАК СуммаНДС,
-		СуммаСНДС КАК СуммаСНДС,
-		ОтгрузкаТовара КАК ОтгрузкаТовара
+		СуммаСНДС КАК СуммаСНДС
 	) КАК ТЧУслуги,
 	ДокументРеализацияТоваровУслуг.ТЧДополнительныеРасходы.(
 		Ссылка КАК Ссылка,
@@ -551,8 +549,7 @@
 		Сумма КАК Сумма,
 		СуммаНДС КАК СуммаНДС,
 		СуммаСНДС КАК СуммаСНДС,
-		Характеристика КАК Характеристика,
-		ОтгрузкаТовара КАК ОтгрузкаТовара
+		Характеристика КАК Характеристика
 	) КАК ТЧДополнительныеРасходы,
 	ДокументРеализацияТоваровУслуг.ТЧЗачётАвансов.(
 		Ссылка КАК Ссылка,
@@ -577,10 +574,6 @@
       <customQuery>true</customQuery>
       <autoSaveUserSettings>true</autoSaveUserSettings>
       <getInvisibleFieldPresentations>true</getInvisibleFieldPresentations>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>ТЧУслуги.ОтгрузкаТовара</dataPath>
-        <field>ТЧУслуги.ОтгрузкаТовара</field>
-      </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Комментарий</dataPath>
         <field>Комментарий</field>
@@ -790,10 +783,6 @@
         <field>ТЧДополнительныеРасходы.Ссылка</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>ТЧТовары.ОтгрузкаТовара</dataPath>
-        <field>ТЧТовары.ОтгрузкаТовара</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>ТЧТовары.СкидкаНаЦену</dataPath>
         <field>ТЧТовары.СкидкаНаЦену</field>
       </fields>
@@ -856,10 +845,6 @@
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>ТЧДополнительныеРасходы.Характеристика</dataPath>
         <field>ТЧДополнительныеРасходы.Характеристика</field>
-      </fields>
-      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
-        <dataPath>ТЧДополнительныеРасходы.ОтгрузкаТовара</dataPath>
-        <field>ТЧДополнительныеРасходы.ОтгрузкаТовара</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaNestedDataSet">
         <dataPath>ТЧДополнительныеРасходы</dataPath>
