@@ -4,6 +4,8 @@ id: forms-008
 серьёзность: критично
 заголовок: "userSettingsGroup у списка внутри страниц роняет клиента 8.5 (SIGSEGV)"
 ключи: [userSettingsGroup, SIGSEGV, краш, динамический список, Pages, пользовательские настройки, бисекция]
+платформы: [8.5]
+check: ["src/cf/src/DataProcessors/СмокТест/Forms/Форма/Module.bsl::Проход 1, «открыть все формы»"]
 ---
 
 # userSettingsGroup у списка внутри страниц роняет клиента 8.5 (SIGSEGV)

@@ -4,6 +4,9 @@ id: forms-004
 серьёзность: важно
 заголовок: "Обработчики формы обязаны быть объявлены в <handlers> Form.form"
 ключи: [handlers, UnusedLocalMethod, обработчик, событие]
+платформы: [8.3, 8.5]
+check: ["scripts/lint.sh"]
+ручная_проверка: "замечание UnusedLocalMethod на обработчике разбирается вручную: сверить пару event/name в Form.form"
 ---
 
 # Обработчики формы обязаны быть объявлены в <handlers> Form.form

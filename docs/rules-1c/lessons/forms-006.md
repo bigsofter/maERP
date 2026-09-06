@@ -4,6 +4,9 @@ id: forms-006
 серьёзность: справка
 заголовок: "Тумблер: RadioButtonField + choiceList; значения перечислений - ReferenceValue"
 ключи: [Tumbler, RadioButtonField, choiceList, перечисление, EnumValue]
+платформы: [8.3, 8.5]
+check: []
+ручная_проверка: "рецепт сборки; ошибка проявляется как неработающий тумблер на клиенте"
 ---
 
 # Тумблер: RadioButtonField + choiceList; значения перечислений - ReferenceValue

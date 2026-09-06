@@ -4,6 +4,9 @@ id: forms-005
 серьёзность: важно
 заголовок: "Сворачиваемой группе - collapsedRepresentationTitle на всех языках"
 ключи: [Collapsible, collapsedRepresentationTitle, сворачивание, многоязычность]
+платформы: [8.3, 8.5]
+check: []
+ручная_проверка: "свёрнутый заголовок группы на живом клиенте — глазами"
 ---
 
 # Сворачиваемой группе - collapsedRepresentationTitle на всех языках
