@@ -201,8 +201,8 @@
 	элементы.ТаблицаЗаказовНомерЗаказа.Заголовок  = Нстр("en = 'Number'; es = 'Habitación'; fr = 'Numéro'; ru = 'Номер'"); 
 	элементы.ТаблицаЗаказовДатаЗаказа.Заголовок  = Нстр("en = 'Date'; es = 'Fecha'; fr = 'Date'; ru = 'Дата'"); 
 	элементы.ТаблицаЗаказовСтатусЗаказа.Заголовок  = Нстр("fr = 'Statut'; ru = 'Статус'; en = 'Status'; es = 'Estatus'"); 
-	элементы.ТаблицаЗаказовСумма.Заголовок  = Нстр("fr = 'Somme'; ru = 'Сумма'; en = 'The amount'; es = 'Suma'"); 
-	элементы.ТаблицаЗаказовОплачено.Заголовок  = Нстр("fr = 'Pour acquit'; ru = 'Оплачено'; en = 'Paid for'; es = 'Pagado'"); 
+	элементы.ТаблицаЗаказовСумма.Заголовок  = Нстр("fr = 'Montant'; ru = 'Сумма'; en = 'The amount'; es = 'Suma'"); 
+	элементы.ТаблицаЗаказовОплачено.Заголовок  = Нстр("fr = 'Payé'; ru = 'Оплачено'; en = 'Paid for'; es = 'Pagado'"); 
 	элементы.ТаблицаЗаказовДолг.Заголовок  = Нстр("fr = 'Dette'; ru = 'Долг'; en = 'Debt'; es = 'Deuda'"); 
 	
 	элементы.ТаблицаЗаказовКнопкаПовтора.Подсказка  = Нстр("fr = 'Remplir le panier avec les marchandises de commande'; ru = 'Заполнить корзину товарами заказа'; en = 'Fill the shopping cart with the order items'; es = 'Llenar el carrito con los productos del pedido'");
