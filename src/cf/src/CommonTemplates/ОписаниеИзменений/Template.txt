@@ -10,6 +10,24 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.14.15
+### ru
+- Автотесты: добавлен прогон жизненного цикла документов — закупка, заказ с реализацией и оплатой, возврат от покупателя, выпуск продукции по техкарте, переработка, начисление и выплата зарплаты, безналичные поступление и списание, дополнительные реквизиты и отрасль. Каждый сценарий выполняется в транзакции с откатом и данных базы не меняет.
+- Исправлен долг перед переработчиком за услуги в поступлении из переработки: оплата поставщику теперь закрывает его, а не удваивает.
+- Смок-тест открывает на образцах и формы для роли ECommerce, формы единицы и упаковки.
+### fr
+- Tests automatiques : ajout du cycle de vie des documents — achat, commande avec vente et paiement, retour client, production selon la nomenclature, sous-traitance, calcul et paiement des salaires, encaissement et décaissement bancaires, attributs supplémentaires et secteur d'activité. Chaque scénario s'exécute dans une transaction annulée et ne modifie pas les données.
+- Correction de la dette envers le sous-traitant pour ses services dans la réception de sous-traitance : le paiement au fournisseur la solde désormais au lieu de la doubler.
+- Le test de fumée ouvre aussi sur des exemples les formulaires du rôle ECommerce et les formulaires d'unité et d'emballage.
+### en
+- Automated tests: added the document life cycle run — purchase, order with sale and payment, customer return, production by the bill of materials, subcontracting, payroll accrual and payment, bank receipt and payment, additional attributes and industry. Each scenario runs in a rolled-back transaction and leaves the data unchanged.
+- Fixed the debt to the processor for services in the receipt from processing: a supplier payment now closes it instead of doubling it.
+- The smoke test also opens the ECommerce role forms and the unit and package forms on samples.
+### es
+- Pruebas automáticas: se añadió el ciclo de vida de los documentos: compra, pedido con venta y pago, devolución del cliente, producción según la lista de materiales, subcontratación, cálculo y pago de salarios, cobro y pago bancarios, atributos adicionales y sector. Cada escenario se ejecuta en una transacción revertida y no modifica los datos.
+- Corregida la deuda con el subcontratista por sus servicios en la recepción de subcontratación: el pago al proveedor ahora la cierra en lugar de duplicarla.
+- La prueba de humo también abre sobre ejemplos los formularios del rol ECommerce y los formularios de unidad y embalaje.
+
 ## 2.0.14.14
 ### ru
 - Цены в заказе покупателя подставляются на дату документа, как в остальных документах продаж (раньше — на дату отгрузки).
