@@ -3,7 +3,9 @@
   <commandsVisibility>
     <visibilityFragments>
       <command>Catalog.ДрайверыОборудования.StandardCommand.OpenList</command>
-      <visible/>
+      <visible>
+        <common>true</common>
+      </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.ПодключаемоеОборудование.StandardCommand.OpenList</command>
@@ -11,7 +13,9 @@
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.РабочиеМеста.StandardCommand.OpenList</command>
-      <visible/>
+      <visible>
+        <common>true</common>
+      </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>CommonCommand.ВыбратьРМТекущегоСеанса</command>
@@ -26,7 +30,19 @@
       <visible/>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Catalog.РабочиеМеста.StandardCommand.OpenList</commands>
+      <commands>Catalog.ДрайверыОборудования.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
+    <orderFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Catalog.РабочиеМеста.StandardCommand.OpenList</commands>
+      <commands>Catalog.ДрайверыОборудования.StandardCommand.OpenList</commands>
+    </orderFragments>
     <orderFragments>
       <group>NavigationPanelImportant</group>
       <commands>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</commands>
