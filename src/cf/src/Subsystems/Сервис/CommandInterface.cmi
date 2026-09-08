@@ -2,11 +2,23 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>InformationRegister.ПараметрыОбменаДанными.StandardCommand.OpenList</command>
+      <command>Catalog.Пользователи.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.ПодключаемоеОборудование.StandardCommand.OpenList</command>
       <visible/>
     </visibilityFragments>
     <visibilityFragments>
-      <command>Catalog.СтраныМира.StandardCommand.OpenList</command>
+      <command>DataProcessor.СменаПароля.StandardCommand.Open</command>
       <visible>
         <common>true</common>
       </visible>
@@ -14,28 +26,27 @@
   </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
-      <group>NavigationPanelSeeAlso</group>
-      <commands>InformationRegister.ПараметрыОбменаДанными.StandardCommand.OpenList</commands>
-      <commands>Catalog.СтраныМира.StandardCommand.OpenList</commands>
+      <group>NavigationPanelImportant</group>
+      <commands>Catalog.Пользователи.StandardCommand.OpenList</commands>
+      <commands>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</commands>
+      <commands>DataProcessor.СменаПароля.StandardCommand.Open</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
-      <group>NavigationPanelSeeAlso</group>
-      <commands>InformationRegister.ПараметрыОбменаДанными.StandardCommand.OpenList</commands>
-      <commands>Catalog.СтраныМира.StandardCommand.OpenList</commands>
+      <group>NavigationPanelImportant</group>
+      <commands>Catalog.Пользователи.StandardCommand.OpenList</commands>
+      <commands>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</commands>
+      <commands>DataProcessor.СменаПароля.StandardCommand.Open</commands>
     </orderFragments>
     <orderFragments>
       <group>ActionsPanelTools</group>
-      <commands>CommonForm.Параметры.StandardCommand.Open</commands>
-      <commands>DataProcessor.ЗагрузкаИзExcel.StandardCommand.Open</commands>
       <commands>CommonForm.ЧтоНового.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
   <subsystemsOrder>
-    <subsystems>Subsystem.Сервис.Subsystem.Предприятие</subsystems>
-    <subsystems>Subsystem.Сервис.Subsystem.НастройкиПользователейИПрав</subsystems>
-    <subsystems>Subsystem.Сервис.Subsystem.УправлениеДанными</subsystems>
+    <subsystems>Subsystem.Сервис.Subsystem.НастройкиПрограммы</subsystems>
+    <subsystems>Subsystem.Сервис.Subsystem.ПользователиИПрава</subsystems>
     <subsystems>Subsystem.Сервис.Subsystem.ПодключаемоеОборудование</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdclass:Configuration xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="cc4f250d-2e3b-41ed-b6af-2c20613f24ca">
+<mdclass:Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="cc4f250d-2e3b-41ed-b6af-2c20613f24ca">
   <name>maERP</name>
   <synonym>
     <key>ru</key>
@@ -28,8 +28,8 @@
   <usePurposes>PersonalComputer</usePurposes>
   <scriptVariant>Russian</scriptVariant>
   <defaultRoles>Role.Администратор</defaultRoles>
-  <vendor>6</vendor>
-  <version>2.0.12.18</version>
+  <vendor>TinyCIO</vendor>
+  <version>2.0.14.26</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -47,7 +47,9 @@
       <use>true</use>
     </functionality>
   </usedMobileApplicationFunctionalities>
-  <mainSectionPicture/>
+  <mainSectionPicture xsi:type="core:PictureRef">
+    <picture>CommonPicture.Главное128</picture>
+  </mainSectionPicture>
   <defaultStyle>Style.Основной</defaultStyle>
   <defaultLanguage>Language.Русский</defaultLanguage>
   <briefInformation>
@@ -86,35 +88,35 @@
   <splash/>
   <copyright>
     <key>ru</key>
-    <value>3</value>
+    <value>© TinyCIO</value>
   </copyright>
   <copyright>
     <key>fr</key>
-    <value>33</value>
+    <value>© TinyCIO</value>
   </copyright>
   <copyright>
     <key>en</key>
-    <value>333</value>
+    <value>© TinyCIO</value>
   </copyright>
   <copyright>
     <key>es</key>
-    <value>3333</value>
+    <value>© TinyCIO</value>
   </copyright>
   <vendorInformationAddress>
     <key>ru</key>
-    <value>4</value>
+    <value>https://tinycio.com</value>
   </vendorInformationAddress>
   <vendorInformationAddress>
     <key>fr</key>
-    <value>44</value>
+    <value>https://tinycio.com</value>
   </vendorInformationAddress>
   <vendorInformationAddress>
     <key>en</key>
-    <value>444</value>
+    <value>https://tinycio.com</value>
   </vendorInformationAddress>
   <vendorInformationAddress>
     <key>es</key>
-    <value>4444</value>
+    <value>https://tinycio.com</value>
   </vendorInformationAddress>
   <dataLockControlMode>Managed</dataLockControlMode>
   <objectAutonumerationMode>NotAutoFree</objectAutonumerationMode>
@@ -234,6 +236,7 @@
   <styleItems>StyleItem.ТекстИнформационнойНадписи</styleItems>
   <styles>Style.Основной</styles>
   <commonPictures>CommonPicture.Галочка16</commonPictures>
+  <commonPictures>CommonPicture.ЗначокСтроки</commonPictures>
   <commonPictures>CommonPicture.Вес16</commonPictures>
   <commonPictures>CommonPicture.БанковскаяКарта16</commonPictures>
   <commonPictures>CommonPicture.ВидыРеквизитовКонтрагентов16</commonPictures>
@@ -284,6 +287,7 @@
   <commonPictures>CommonPicture.Продажи128</commonPictures>
   <commonPictures>CommonPicture.Реквизиты16</commonPictures>
   <commonPictures>CommonPicture.Сервис128</commonPictures>
+  <commonPictures>CommonPicture.Главное128</commonPictures>
   <commonPictures>CommonPicture.Сервис16</commonPictures>
   <commonPictures>CommonPicture.Сертификат16</commonPictures>
   <commonPictures>CommonPicture.СостоянияПользователей</commonPictures>
@@ -344,6 +348,12 @@
   <commonPictures>CommonPicture.Оплачено</commonPictures>
   <commonPictures>CommonPicture.ВыгрузкаФайловКонфигурации</commonPictures>
   <commonPictures>CommonPicture.ВыгрузкаФайловЗавершена</commonPictures>
+  <commonPictures>CommonPicture.ПанельФильтры</commonPictures>
+  <commonPictures>CommonPicture.ПанельКлиент</commonPictures>
+  <commonPictures>CommonPicture.ПанельДетали</commonPictures>
+  <commonPictures>CommonPicture.ПанельСвернуть</commonPictures>
+  <commonPictures>CommonPicture.ПанельРазвернуть</commonPictures>
+  <commonPictures>CommonPicture.СтатусОтгрузки</commonPictures>
   <sessionParameters>SessionParameter.Контрагент</sessionParameters>
   <sessionParameters>SessionParameter.ПараметрыПользователя</sessionParameters>
   <sessionParameters>SessionParameter.Пользователь</sessionParameters>
@@ -436,6 +446,7 @@
   <commonModules>CommonModule.МенеджерОборудованияМаркировкаКлиентСервер</commonModules>
   <commonModules>CommonModule.МенеджерОборудованияМаркировкаКлиентСерверПовтИсп</commonModules>
   <commonModules>CommonModule.МенеджерОборудованияСерверПовтИсп</commonModules>
+  <commonModules>CommonModule.НачальноеЗаполнениеВызовСервера</commonModules>
   <commonModules>CommonModule.ОбновлениеИнформационнойБазыБПО</commonModules>
   <commonModules>CommonModule.ОбновлениеПрограммы</commonModules>
   <commonModules>CommonModule.ОбновлениеПрограммыВызовСервера</commonModules>
@@ -475,6 +486,7 @@
   <commonModules>CommonModule.СерииИРазмещение</commonModules>
   <commonModules>CommonModule.СерииИРазмещениеКлиент</commonModules>
   <commonModules>CommonModule.УправляемыеБлокировки</commonModules>
+  <commonModules>CommonModule.УправлениеСвойствами</commonModules>
   <commonModules>CommonModule.ФорматноЛогическийКонтрольВызовСервера</commonModules>
   <commonModules>CommonModule.ФорматноЛогическийКонтрольКлиентСервер</commonModules>
   <commonModules>CommonModule.ФорматноЛогическийКонтрольКлиентСерверПереопределяемый</commonModules>
@@ -575,6 +587,8 @@
   <constants>Constant.КаталогХраненияФайлов</constants>
   <constants>Constant.КатегорияКлиентаПоУмолчанию</constants>
   <constants>Constant.ОсновноеМестоХранения</constants>
+  <constants>Constant.Отрасль</constants>
+  <constants>Constant.ЧасовойПояс</constants>
   <constants>Constant.ПарольКластера</constants>
   <constants>Constant.ПечататьЦенуНаЭтикетке</constants>
   <constants>Constant.РозничныйДоговор</constants>
@@ -587,7 +601,6 @@
   <commonForms>CommonForm.ВыборЗначений</commonForms>
   <commonForms>CommonForm.ИнтерфейсКлиент</commonForms>
   <commonForms>CommonForm.ВыборСвязанныхДанных</commonForms>
-  <commonForms>CommonForm.Параметры</commonForms>
   <commonForms>CommonForm.ПодборОбъектовРасчётовПоОстаткам</commonForms>
   <commonForms>CommonForm.ПараметрыЧека</commonForms>
   <commonForms>CommonForm.РедактированиеНДСПлатёжногоДокумента</commonForms>
@@ -618,6 +631,7 @@
   <catalogs>Catalog.Должности</catalogs>
   <catalogs>Catalog.ДрайверыОборудования</catalogs>
   <catalogs>Catalog.ЗначенияСвойствНоменклатуры</catalogs>
+  <catalogs>Catalog.ЗначенияДополнительныхРеквизитов</catalogs>
   <catalogs>Catalog.Каналы</catalogs>
   <catalogs>Catalog.Кассы</catalogs>
   <catalogs>Catalog.КатегорииКонтрагентов</catalogs>
@@ -626,6 +640,7 @@
   <catalogs>Catalog.Контрагенты</catalogs>
   <catalogs>Catalog.МестаХранения</catalogs>
   <catalogs>Catalog.НаборыУпаковок</catalogs>
+  <catalogs>Catalog.НаборыДополнительныхРеквизитов</catalogs>
   <catalogs>Catalog.Номенклатура</catalogs>
   <catalogs>Catalog.НоменклатураКонтрагентов</catalogs>
   <catalogs>Catalog.НомераГТД</catalogs>
@@ -672,7 +687,6 @@
   <documents>Document.НачислениеЗарплаты</documents>
   <documents>Document.ОперацияБух</documents>
   <documents>Document.ОприходованиеТоваров</documents>
-  <documents>Document.ОтгрузкаТовара</documents>
   <documents>Document.ПередачаВПереработку</documents>
   <documents>Document.ПеремещениеТоваров</documents>
   <documents>Document.ПересортицаТоваров</documents>
@@ -729,6 +743,7 @@
   <enums>Enum.ОписаниеМонотоварности</enums>
   <enums>Enum.ОснованияПраваПодписи</enums>
   <enums>Enum.ОсновыРасчётаНаценок</enums>
+  <enums>Enum.Отрасли</enums>
   <enums>Enum.ПоказателиДвиженияТоваров</enums>
   <enums>Enum.ПоказателиПродаж</enums>
   <enums>Enum.ПолФизическогоЛица</enums>
@@ -856,10 +871,15 @@
   <dataProcessors>DataProcessor.РегламентныеИФоновыеЗадания</dataProcessors>
   <dataProcessors>DataProcessor.СмокТест</dataProcessors>
   <dataProcessors>DataProcessor.ТестовыеДанные</dataProcessors>
+  <dataProcessors>DataProcessor.ТестыДокументов</dataProcessors>
+  <dataProcessors>DataProcessor.НастройкиПрограммы</dataProcessors>
+  <dataProcessors>DataProcessor.НачальноеЗаполнение</dataProcessors>
+  <dataProcessors>DataProcessor.СменаПароля</dataProcessors>
   <dataProcessors>DataProcessor.ФормированиеЗаказовПоставщику</dataProcessors>
   <informationRegisters>InformationRegister.ДатыЗапретаРедактирования</informationRegisters>
   <informationRegisters>InformationRegister.ДинамическаяКорзинаЛКП</informationRegisters>
   <informationRegisters>InformationRegister.ДополнительныеСведенияНоменклатуры</informationRegisters>
+  <informationRegisters>InformationRegister.ДополнительныеСведения</informationRegisters>
   <informationRegisters>InformationRegister.ВерсииПодсистем</informationRegisters>
   <informationRegisters>InformationRegister.ПользовательскиеМакетыПечати</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам</informationRegisters>
@@ -911,7 +931,6 @@
   <accumulationRegisters>AccumulationRegister.ЗаказыПоставщикам</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Зарплата</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ОплатыЧеками</accumulationRegisters>
-  <accumulationRegisters>AccumulationRegister.ОтгрузкиТоваров</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Продажи</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ТоварыВНаличии</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ТоварыВПереработке</accumulationRegisters>
@@ -920,6 +939,7 @@
   <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ВидыНастроекПользователей</chartsOfCharacteristicTypes>
   <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ВидыРеквизитовКонтрагентов</chartsOfCharacteristicTypes>
   <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ВидыСубконтоХозрасчетные</chartsOfCharacteristicTypes>
+  <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ДополнительныеРеквизиты</chartsOfCharacteristicTypes>
   <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ПоказателиРасчётаПремий</chartsOfCharacteristicTypes>
   <chartsOfAccounts>ChartOfAccounts.Хозрасчетный</chartsOfAccounts>
   <accountingRegisters>AccountingRegister.Хозрасчетный</accountingRegisters>

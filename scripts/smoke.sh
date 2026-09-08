@@ -34,6 +34,14 @@ wait_process_end "CheckConfig" || { echo "CheckConfig не завершился 
 # Платформа пишет в лог строку «ошибок не обнаружено» на своём языке интерфейса —
 # для скрипта это чистый результат, а не замечание.
 CHECK_CLEAN_LINE='Ошибок не обнаружено|Errores no encontrados|No errors found|Aucune erreur'
+# Отказ в авторизации (локализован): дальше идти нельзя — шаг 1б завёл бы базу известных
+# замечаний из этой строки, а смок ждал бы клиента впустую.
+AUTH_ERROR_LINE='Идентификация пользователя не выполнена|no identificado|not identified|non identifié'
+if [ -s "$CHECK_LOG" ] && grep -qE "$AUTH_ERROR_LINE" "$CHECK_LOG"; then
+	echo "Платформа не пустила в базу: $(tr -d '\357\273\277' < "$CHECK_LOG" | head -1)"
+	echo "Нужны переменные SMOKE_USER и SMOKE_PWD (см. шапку скрипта)."
+	exit 1
+fi
 COMPILE_ERROR=0
 if [ -s "$CHECK_LOG" ] && grep -qvE "^[[:space:]]*$|$CHECK_CLEAN_LINE" "$CHECK_LOG"; then
 	echo "--- Замечания CheckConfig ($CHECK_LOG):"
@@ -47,6 +55,33 @@ if [ -s "$CHECK_LOG" ] && grep -qvE "^[[:space:]]*$|$CHECK_CLEAN_LINE" "$CHECK_L
 	fi
 else
 	echo "CheckConfig: ошибок нет"
+fi
+
+# Шаг 1б. Расширенная проверка модулей: разбирает модули форм и ловит обращения к
+# несуществующим методам (например, ЕстьNULL вне запроса - урок bsl-006). Даёт и
+# ложные срабатывания на живом коде, поэтому сравнивается с базой известных строк
+# build/checkconfig-baseline.txt: новых строк быть не должно.
+EXT_LOG="$BUILD/check-modules.log"
+EXT_BASE="$BUILD/checkconfig-baseline.txt"
+echo "== Шаг 1б. Расширенная проверка модулей =="
+rm -f "$EXT_LOG"
+"$V8" DESIGNER /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /CheckConfig \
+	-ThinClient -Server -ExtendedModulesCheck \
+	"${V8_BATCH[@]}" /Out "$EXT_LOG" || true
+wait_process_end "CheckConfig" || true
+if [ ! -f "$EXT_BASE" ]; then
+	echo "Базы известных замечаний нет — создана: $EXT_BASE"
+	sort -u "$EXT_LOG" > "$EXT_BASE"
+elif [ -s "$EXT_LOG" ]; then
+	NEW_LINES=$(sort -u "$EXT_LOG" | comm -13 "$EXT_BASE" - | sed '/^[[:space:]]*$/d')
+	if [ -n "$NEW_LINES" ]; then
+		echo "--- Новые замечания расширенной проверки:"
+		echo "$NEW_LINES"
+		FAILED=1
+		COMPILE_ERROR=1
+	else
+		echo "Расширенная проверка: новых замечаний нет"
+	fi
 fi
 
 if [ "$COMPILE_ERROR" -ne 0 ]; then

@@ -7,13 +7,17 @@
 # процессов по паттерну командной строки и читаем файлы результатов.
 #
 # Вызывающий скрипт задаёт TIMEOUT (секунд на шаг) и START_TIMEOUT (секунд на старт клиента).
+#
+# Паттерн ищется только в командных строках 1cv8: голый pgrep -f по слову вроде
+# «CheckConfig» цеплял посторонние процессы с той же подстрокой (наблюдатель логов,
+# редактор), шаг ждал их до таймаута и снимал pkill-ом.
 
 wait_process_end() { # $1 — паттерн командной строки процесса
 	local elapsed=0
 	sleep 2
-	while pgrep -f "$1" >/dev/null; do
+	while pgrep -f "1cv8.*$1" >/dev/null; do
 		if [ "$elapsed" -ge "$TIMEOUT" ]; then
-			pkill -f "$1" 2>/dev/null || true
+			pkill -f "1cv8.*$1" 2>/dev/null || true
 			return 1
 		fi
 		sleep 5; elapsed=$((elapsed + 5))
@@ -36,7 +40,7 @@ wait_client_start() { # $1 — паттерн процесса, $2 — файл 
 		fi
 		sleep 3; elapsed=$((elapsed + 3))
 	done
-	pkill -f "$1" 2>/dev/null || true
+	pkill -f "1cv8.*$1" 2>/dev/null || true
 	return 1
 }
 
@@ -48,13 +52,13 @@ wait_report_mark() { # $1 — паттерн процесса, $2 — файл �
 		if [ -f "$2" ] && grep -q "$3" "$2"; then
 			return 0
 		fi
-		if ! pgrep -f "$1" >/dev/null; then
+		if ! pgrep -f "1cv8.*$1" >/dev/null; then
 			sleep 3
 			[ -f "$2" ] && grep -q "$3" "$2"
 			return $?
 		fi
 		sleep 5; elapsed=$((elapsed + 5))
 	done
-	pkill -f "$1" 2>/dev/null || true
+	pkill -f "1cv8.*$1" 2>/dev/null || true
 	return 1
 }
