@@ -2,67 +2,76 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</command>
+      <command>Catalog.Организации.StandardCommand.OpenList</command>
       <visible>
-        <for>
-          <role>Role.Администратор</role>
-        </for>
-        <for>
-          <role>Role.БухгалтерПоЗарплате</role>
-        </for>
-        <for>
-          <role>Role.Казначей</role>
-        </for>
-        <for>
-          <role>Role.Кладовщик</role>
-        </for>
-        <for>
-          <role>Role.Клиент</role>
-        </for>
-        <for>
-          <role>Role.Логист</role>
-        </for>
-        <for>
-          <role>Role.МенеджерПоЗакупкам</role>
-        </for>
-        <for>
-          <role>Role.МенеджерПоПродажам</role>
-        </for>
-        <for>
-          <role>Role.ОбменМобильнаяДоставка</role>
-        </for>
-        <for>
-          <role>Role.Оператор</role>
-        </for>
-        <for>
-          <role>Role.РедактированиеКонтрагентов</role>
-        </for>
-        <for>
-          <role>Role.РедактированиеНоменклатуры</role>
-        </for>
-        <for>
-          <role>Role.РедактированиеТабеляУчетаРабочегоВремени</role>
-        </for>
-        <for>
-          <role>Role.Руководитель</role>
-        </for>
-        <for>
-          <value>true</value>
-          <role>Role.MobileClient</role>
-        </for>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>DataProcessor.Дашборд.Command.БазовыйДашборд</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.СтруктураПредприятия.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.ФизическиеЛица.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.СтавкиНДС.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.СтраныМира.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Валюты.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
       </visible>
     </visibilityFragments>
   </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Catalog.Организации.StandardCommand.OpenList</commands>
+      <commands>DataProcessor.Дашборд.Command.БазовыйДашборд</commands>
+    </placementFragments>
+    <placementFragments>
       <group>NavigationPanelOrdinary</group>
-      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Catalog.СтруктураПредприятия.StandardCommand.OpenList</commands>
+      <commands>Catalog.ФизическиеЛица.StandardCommand.OpenList</commands>
+      <commands>Catalog.СтавкиНДС.StandardCommand.OpenList</commands>
+      <commands>Catalog.СтраныМира.StandardCommand.OpenList</commands>
+      <commands>Catalog.Валюты.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Catalog.Организации.StandardCommand.OpenList</commands>
+      <commands>DataProcessor.Дашборд.Command.БазовыйДашборд</commands>
+    </orderFragments>
+    <orderFragments>
       <group>NavigationPanelOrdinary</group>
-      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Catalog.СтруктураПредприятия.StandardCommand.OpenList</commands>
+      <commands>Catalog.ФизическиеЛица.StandardCommand.OpenList</commands>
+      <commands>Catalog.СтавкиНДС.StandardCommand.OpenList</commands>
+      <commands>Catalog.СтраныМира.StandardCommand.OpenList</commands>
+      <commands>Catalog.Валюты.StandardCommand.OpenList</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>
