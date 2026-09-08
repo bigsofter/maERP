@@ -34,6 +34,14 @@ wait_process_end "CheckConfig" || { echo "CheckConfig не завершился 
 # Платформа пишет в лог строку «ошибок не обнаружено» на своём языке интерфейса —
 # для скрипта это чистый результат, а не замечание.
 CHECK_CLEAN_LINE='Ошибок не обнаружено|Errores no encontrados|No errors found|Aucune erreur'
+# Отказ в авторизации (локализован): дальше идти нельзя — шаг 1б завёл бы базу известных
+# замечаний из этой строки, а смок ждал бы клиента впустую.
+AUTH_ERROR_LINE='Идентификация пользователя не выполнена|no identificado|not identified|non identifié'
+if [ -s "$CHECK_LOG" ] && grep -qE "$AUTH_ERROR_LINE" "$CHECK_LOG"; then
+	echo "Платформа не пустила в базу: $(tr -d '\357\273\277' < "$CHECK_LOG" | head -1)"
+	echo "Нужны переменные SMOKE_USER и SMOKE_PWD (см. шапку скрипта)."
+	exit 1
+fi
 COMPILE_ERROR=0
 if [ -s "$CHECK_LOG" ] && grep -qvE "^[[:space:]]*$|$CHECK_CLEAN_LINE" "$CHECK_LOG"; then
 	echo "--- Замечания CheckConfig ($CHECK_LOG):"
