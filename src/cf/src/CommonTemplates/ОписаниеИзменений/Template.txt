@@ -10,6 +10,20 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.14.25
+### ru
+- Исправлено проведение выпуска продукции и поступления из переработки: расчёт коэффициентов техкарт падал на неоднозначном поле запроса.
+- Реализация по заказу и заказ покупателя: статус заказа, записанный в ту же секунду, что и предыдущий, больше не обрывает запись ошибкой дублирующего ключа истории статусов.
+### fr
+- Corrigée la validation de la production et de la réception de sous-traitance : le calcul des coefficients de nomenclature échouait sur un champ de requête ambigu.
+- Vente sur commande et commande client : un statut de commande enregistré la même seconde que le précédent n'interrompt plus l'enregistrement par une erreur de clé en double dans l'historique des statuts.
+### en
+- Fixed posting of production output and receipt from processing: the tech card coefficient calculation failed on an ambiguous query field.
+- Sale by order and customer order: an order status written in the same second as the previous one no longer aborts saving with a duplicate key error in the status history.
+### es
+- Corregida la contabilización de la producción y la recepción de maquila: el cálculo de coeficientes de fichas técnicas fallaba por un campo ambiguo de la consulta.
+- Venta por pedido y pedido de cliente: un estado de pedido registrado en el mismo segundo que el anterior ya no interrumpe el guardado con un error de clave duplicada en el historial de estados.
+
 ## 2.0.14.24
 ### ru
 - Автотесты документов: тестовый договор создаётся с описанием, а не наименованием (у договоров наименование отключено); прогон уровня 3 снова проходит стадию подготовки данных.
