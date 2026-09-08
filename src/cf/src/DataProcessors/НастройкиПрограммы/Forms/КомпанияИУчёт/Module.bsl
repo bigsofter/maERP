@@ -1,7 +1,63 @@
 // Блок настроек «Компания и учёт»: отрасль, валюта учёта, основной склад, закрытие периода,
 // календарь, бухгалтерия. Константы записываются сразу при изменении поля.
+// Смена отрасли - тот же сценарий, что в визарде первого запуска
+// (НачальноеЗаполнениеВызовСервера.ПрименитьОтрасль), после подтверждения пользователем.
 
 #Область ОбработчикиСобытийЭлементовШапкиФормы
+
+&НаКлиенте
+Асинх Процедура ОтрасльПриИзменении(Элемент)
+
+	Прежняя = ТекущаяОтрасль();
+	Если НаборКонстант.Отрасль = Прежняя Тогда
+		Возврат;
+	КонецЕсли;
+
+	Текст = НСтр("ru = 'Смена отрасли перенастраивает базу, как при первом запуске: заводит отраслевые
+		|дополнительные реквизиты номенклатуры и настройки отрасли. Уже заведённые реквизиты
+		|и данные не удаляются, автоматически откатить операцию нельзя.
+		|
+		|Сменить отрасль на «%1»?';
+		|fr = 'Changer de secteur reconfigure la base comme au premier lancement : attributs
+		|supplémentaires d''articles et paramètres du secteur. Les attributs et données déjà saisis
+		|ne sont pas supprimés, l''opération ne peut pas être annulée automatiquement.
+		|
+		|Passer au secteur « %1 » ?';
+		|en = 'Changing the industry reconfigures the database as at first start: industry item
+		|attributes and settings are created. Existing attributes and data are not removed,
+		|the operation cannot be rolled back automatically.
+		|
+		|Switch the industry to ""%1""?';
+		|es = 'Cambiar el sector reconfigura la base como en el primer inicio: se crean atributos
+		|adicionales de artículos y ajustes del sector. Los atributos y datos existentes no se
+		|eliminan, la operación no se puede deshacer automáticamente.
+		|
+		|¿Cambiar el sector a «%1»?'");
+	Текст = СтрШаблон(Текст, НаборКонстант.Отрасль);
+	Заголовок = НСтр("ru = 'Опасная операция: перенастройка базы';
+		|fr = 'Opération risquée : reconfiguration de la base';
+		|en = 'Risky operation: database reconfiguration';
+		|es = 'Operación peligrosa: reconfiguración de la base'");
+	Ответ = Ждать ВопросАсинх(Текст, РежимДиалогаВопрос.ДаНет, , КодВозвратаДиалога.Нет, Заголовок);
+	Если Ответ <> КодВозвратаДиалога.Да Тогда
+		НаборКонстант.Отрасль = Прежняя;
+		Модифицированность = Ложь;
+		Возврат;
+	КонецЕсли;
+
+	Создано = ПрименитьОтрасльНаСервере();
+	Модифицированность = Ложь;
+	ОбновитьПовторноИспользуемыеЗначения();
+	ОбновитьИнтерфейс();
+	Пояснение = НСтр("ru = 'Заведено реквизитов номенклатуры: %1';
+		|fr = 'Attributs d''articles créés : %1';
+		|en = 'Item attributes created: %1';
+		|es = 'Atributos de artículos creados: %1'");
+	Пояснение = СтрШаблон(Пояснение, Создано);
+	ПоказатьОповещениеПользователя(НСтр("ru = 'Отрасль изменена'; fr = 'Secteur modifié';
+		|en = 'Industry changed'; es = 'Sector cambiado'"), , Пояснение);
+
+КонецПроцедуры
 
 &НаКлиенте
 Процедура НастройкаПриИзменении(Элемент)
@@ -18,6 +74,24 @@
 #КонецОбласти
 
 #Область СлужебныеПроцедурыИФункции
+
+&НаСервереБезКонтекста
+Функция ТекущаяОтрасль()
+
+	Возврат Константы.Отрасль.Получить();
+
+КонецФункции
+
+&НаСервере
+Функция ПрименитьОтрасльНаСервере()
+
+	// Модуль привилегированный: тот же сценарий, что ставит отрасль в визарде первого запуска;
+	// команда доступна из настроек только администратору.
+	// BSLLS:PrivilegedModuleMethodCall-off
+	Возврат НачальноеЗаполнениеВызовСервера.ПрименитьОтрасль(НаборКонстант.Отрасль);
+	// BSLLS:PrivilegedModuleMethodCall-on
+
+КонецФункции
 
 &НаСервере
 Функция ЗаписатьНастройкуНаСервере(Знач ИмяЭлемента)

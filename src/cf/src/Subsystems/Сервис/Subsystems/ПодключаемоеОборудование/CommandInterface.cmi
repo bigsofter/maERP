@@ -2,10 +2,18 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>Catalog.ДрайверыОборудования.StandardCommand.OpenList</command>
+      <command>Catalog.ДрайверыОборудования.Command.ОткрытьДрайверыОборудования</command>
       <visible>
         <common>true</common>
       </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.ДрайверыОборудования.StandardCommand.OpenList</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</command>
+      <visible/>
     </visibilityFragments>
     <visibilityFragments>
       <command>Catalog.ПодключаемоеОборудование.StandardCommand.OpenList</command>
@@ -34,18 +42,14 @@
     <placementFragments>
       <group>NavigationPanelOrdinary</group>
       <commands>Catalog.РабочиеМеста.StandardCommand.OpenList</commands>
-      <commands>Catalog.ДрайверыОборудования.StandardCommand.OpenList</commands>
+      <commands>Catalog.ДрайверыОборудования.Command.ОткрытьДрайверыОборудования</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
       <commands>Catalog.РабочиеМеста.StandardCommand.OpenList</commands>
-      <commands>Catalog.ДрайверыОборудования.StandardCommand.OpenList</commands>
-    </orderFragments>
-    <orderFragments>
-      <group>NavigationPanelImportant</group>
-      <commands>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</commands>
+      <commands>Catalog.ДрайверыОборудования.Command.ОткрытьДрайверыОборудования</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>
