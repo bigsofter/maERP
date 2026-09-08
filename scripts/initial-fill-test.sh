@@ -41,12 +41,16 @@ data["support_admin"]["password"] = os.environ["SUPPORT_PWD"]
 json.dump(data, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 EOF
 
-check_result() { # $1 — result-файл, $2 — ожидаемое organization_created (true|false)
-	python3 - "$1" "$2" <<'EOF'
+check_result() { # $1 — result-файл, $2 — ожидаемое organization_created (true|false), $3 — ожидаемое industry_attributes_created
+	python3 - "$1" "$2" "$3" <<'EOF'
 import json, sys
-path, expected = sys.argv[1], sys.argv[2] == "true"
+path, expected, expected_industry = sys.argv[1], sys.argv[2] == "true", int(sys.argv[3])
 data = json.load(open(path, encoding="utf-8"))
 problems = []
+# Образец payload - отрасль «Строительство»: первое заполнение заводит 4 реквизита
+# недвижимости у номенклатуры, повтор - ни одного (docs/DEPLOY.md, раздел «Отрасль»).
+if data.get("industry_attributes_created") != expected_industry:
+    problems.append("industry_attributes_created=%r, ожидалось %r" % (data.get("industry_attributes_created"), expected_industry))
 if not data.get("success"):
     problems.append("success != true")
 if data.get("organization_created") != expected:
@@ -65,9 +69,9 @@ for key in ("password", "Пароль"):
 if problems:
     print("\n".join("  " + p for p in problems))
     sys.exit(1)
-print("  organization_created=%s users=%d organizations_total=%s users_total=%s warnings=%d" % (
+print("  organization_created=%s users=%d organizations_total=%s users_total=%s industry_attributes_created=%s warnings=%d" % (
     data["organization_created"], len(data.get("users", [])), data["organizations_total"],
-    data["users_total"], len(data.get("warnings", []))))
+    data["users_total"], data.get("industry_attributes_created"), len(data.get("warnings", []))))
 EOF
 }
 
@@ -80,7 +84,7 @@ echo "== Шаг 2. Первое заполнение =="
 unset SMOKE_USER SMOKE_PWD
 "$ROOT/scripts/initial-fill.sh" "$IB" "$PAYLOAD" "$RESULT1" || FAILED=1
 if [ "$FAILED" -eq 0 ]; then
-	check_result "$RESULT1" true || FAILED=1
+	check_result "$RESULT1" true 4 || FAILED=1
 fi
 if [ "$FAILED" -ne 0 ]; then
 	echo "ТЕСТ НЕ ПРОЙДЕН: первое заполнение"
@@ -91,7 +95,7 @@ echo "== Шаг 3. Повторное заполнение (идемпотент
 export SMOKE_USER="$ADMIN_LOGIN" SMOKE_PWD="$ADMIN_PWD"
 "$ROOT/scripts/initial-fill.sh" "$IB" "$PAYLOAD" "$RESULT2" || FAILED=1
 if [ "$FAILED" -eq 0 ]; then
-	check_result "$RESULT2" false || FAILED=1
+	check_result "$RESULT2" false 0 || FAILED=1
 fi
 if [ "$FAILED" -ne 0 ]; then
 	echo "ТЕСТ НЕ ПРОЙДЕН: повторное заполнение"
