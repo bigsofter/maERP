@@ -70,10 +70,14 @@
 «Побочные дефекты на нашей стороне».
 
 - **Свойства конфигурации**: описание (`BriefInformation`,
-  `DetailedInformation` на 4 языках), `Version` (схема `1.0.X.Y`), заставка,
-  логотип и картинка главного раздела заполнены волной 11. `Vendor`,
-  `Copyright`, `VendorInformationAddress` — по решению 2026-08-24 пока
-  заглушки, заполнить на этапе 12 (интеграция с хабом tinycio).
+  `DetailedInformation` на 4 языках), `Version` (схема `1.0.X.Y`) заполнены
+  волной 11. Заставка и логотип лежат файлами в `Configuration/` (`Logo.jpg`,
+  `Splash.jpg`, `MainSectionPicture.png`), но в `Configuration.mdo` элементы
+  `<logo/>` и `<splash/>` пусты — файлы ни к чему не привязаны; картинка
+  главного раздела с 2.0.14.17 задаётся общей картинкой `Главное128`
+  (`<mainSectionPicture>`), `MainSectionPicture.png` после проверки в EDT
+  удалить. `Vendor`, `Copyright`, `VendorInformationAddress` заполнены
+  этапом 12а (TinyCIO).
 
 ## Найдено при переносе волны 2 (2026-08-22)
 
