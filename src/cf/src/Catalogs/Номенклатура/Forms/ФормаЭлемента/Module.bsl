@@ -419,12 +419,12 @@
 Процедура УстановитьНадписьВерсииТехкарты(Версия)
 
 	Если Версия = Неопределено Тогда
-		ВерсияТехкарты = НСтр("ru = 'Карта не задана'; fr = 'Gamme non définie'; en = 'No routing defined'; es = 'Sin ficha técnica'");
+		ВерсияТехкарты = НСтр("ru = 'Карта не задана'; fr = 'Gamme non définie'; en = 'No routing defined'; es = 'Sin ruta de fabricación'");
 	Иначе
 		ДатаВерсии = Формат(Версия.ДействуетС, "ДЛФ=D");
 		ВерсияТехкарты = ОбщегоНазначенияКлиентСервер.ПодставитьПараметрыВСтроку(
 			НСтр("ru = 'Действующая карта № %1 от %2'; fr = 'Gamme en vigueur : %1 du %2';
-			|en = 'Effective routing %1 dated %2'; es = 'Ficha vigente %1 del %2'"),
+			|en = 'Effective routing %1 dated %2'; es = 'Ruta vigente %1 del %2'"),
 			Версия.Версия.Номер, ДатаВерсии);
 	КонецЕсли;
 
