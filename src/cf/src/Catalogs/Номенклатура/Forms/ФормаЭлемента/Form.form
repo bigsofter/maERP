@@ -5161,124 +5161,6 @@
             </font>
           </extInfo>
         </items>
-        <items xsi:type="form:FormField">
-          <name>ВерсияТехкарты</name>
-          <id>737</id>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ВерсияТехкарты</segments>
-          </dataPath>
-          <titleLocation>None</titleLocation>
-          <extendedTooltip>
-            <name>ВерсияТехкартыРасширеннаяПодсказка</name>
-            <id>739</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <contextMenu>
-            <name>ВерсияТехкартыКонтекстноеМеню</name>
-            <id>738</id>
-            <autoFill>true</autoFill>
-          </contextMenu>
-          <type>LabelField</type>
-          <editMode>Enter</editMode>
-          <showInHeader>true</showInHeader>
-          <headerHorizontalAlign>Left</headerHorizontalAlign>
-          <showInFooter>true</showInFooter>
-          <extInfo xsi:type="form:LabelFieldExtInfo">
-            <autoMaxHeight>true</autoMaxHeight>
-            <horizontalStretch>true</horizontalStretch>
-            <textColor xsi:type="core:ColorRef">
-              <color>Style.AccentColor</color>
-            </textColor>
-            <font xsi:type="core:FontRef">
-              <font>Style.NormalTextFont</font>
-              <bold>true</bold>
-              <italic>false</italic>
-              <underline>false</underline>
-              <strikeout>false</strikeout>
-              <scale>100</scale>
-            </font>
-          </extInfo>
-        </items>
-        <items xsi:type="form:FormField">
-          <name>ДействуетС</name>
-          <id>734</id>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>ДействуетС</segments>
-          </dataPath>
-          <extendedTooltip>
-            <name>ДействуетСРасширеннаяПодсказка</name>
-            <id>735</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <contextMenu>
-            <name>ДействуетСКонтекстноеМеню</name>
-            <id>736</id>
-            <autoFill>true</autoFill>
-          </contextMenu>
-          <type>InputField</type>
-          <editMode>Enter</editMode>
-          <showInHeader>true</showInHeader>
-          <headerHorizontalAlign>Left</headerHorizontalAlign>
-          <showInFooter>true</showInFooter>
-          <extInfo xsi:type="form:InputFieldExtInfo">
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <horizontalStretch>false</horizontalStretch>
-            <wrap>true</wrap>
-            <extendedEditMultipleValues>true</extendedEditMultipleValues>
-            <chooseType>true</chooseType>
-            <typeDomainEnabled>true</typeDomainEnabled>
-            <textEdit>true</textEdit>
-            <textSize>Normal</textSize>
-          </extInfo>
-        </items>
-        <items xsi:type="form:Button">
-          <name>ИсторияТехкарт</name>
-          <id>740</id>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <extendedTooltip>
-            <name>ИсторияТехкартРасширеннаяПодсказка</name>
-            <id>741</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <type>UsualButton</type>
-          <commandName>Form.Command.ИсторияТехкарт</commandName>
-          <buttonImportance>Normal</buttonImportance>
-          <representation>Auto</representation>
-          <autoMaxWidth>true</autoMaxWidth>
-          <autoMaxHeight>true</autoMaxHeight>
-          <placementArea>UserCmds</placementArea>
-          <representationInContextMenu>Auto</representationInContextMenu>
-        </items>
         <items xsi:type="form:Table">
           <name>ТехнологическаяКарта</name>
           <id>658</id>
@@ -5348,6 +5230,10 @@
             <dataPath xsi:type="form:DataPath">
               <segments>ТЗТехкарта.Характеристика</segments>
             </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>СоставТехкартыПриИзменении</name>
+            </handlers>
             <extendedTooltip>
               <name>ТехнологическаяКартаХарактеристикаРасширеннаяПодсказка</name>
               <id>744</id>
@@ -5390,6 +5276,10 @@
             <dataPath xsi:type="form:DataPath">
               <segments>ТЗТехкарта.Упаковка</segments>
             </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>СоставТехкартыПриИзменении</name>
+            </handlers>
             <extendedTooltip>
               <name>ТехнологическаяКартаЕИРасширеннаяПодсказка</name>
               <id>693</id>
@@ -5422,6 +5312,61 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
+            <items xsi:type="form:FormField">
+              <name>ТехнологическаяКартаЕдиница</name>
+              <id>745</id>
+              <title>
+              <key>ru</key>
+              <value>Ед. изм.</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Unité</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Unit</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Unidad</value>
+            </title>
+            <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>ТЗТехкарта.Номенклатура.Единица</segments>
+              </dataPath>
+              <extendedTooltip>
+                <name>ТехнологическаяКартаЕдиницаРасширеннаяПодсказка</name>
+                <id>746</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ТехнологическаяКартаЕдиницаКонтекстноеМеню</name>
+                <id>747</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>LabelField</type>
+              <horizontalAlign>Center</horizontalAlign>
+              <editMode>Auto</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Center</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <extInfo xsi:type="form:LabelFieldExtInfo">
+                <width>5</width>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <horizontalStretch>false</horizontalStretch>
+              </extInfo>
+            </items>
           <items xsi:type="form:FormField">
             <name>ТехнологическаяКартаКоличество</name>
             <id>687</id>
@@ -5433,6 +5378,10 @@
             <dataPath xsi:type="form:DataPath">
               <segments>ТЗТехкарта.Количество</segments>
             </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>СоставТехкартыПриИзменении</name>
+            </handlers>
             <extendedTooltip>
               <name>ТехнологическаяКартаКоличествоРасширеннаяПодсказка</name>
               <id>689</id>
@@ -5453,6 +5402,9 @@
             <showInHeader>true</showInHeader>
             <headerHorizontalAlign>Left</headerHorizontalAlign>
             <showInFooter>true</showInFooter>
+            <footerDataPath xsi:type="form:DataPath">
+              <segments>ИтогоКоличествоТехкарты</segments>
+            </footerDataPath>
             <extInfo xsi:type="form:InputFieldExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
@@ -5464,12 +5416,141 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
+            <items xsi:type="form:FormField">
+              <name>ТехнологическаяКартаЦена</name>
+              <id>748</id>
+              <title>
+              <key>ru</key>
+              <value>Цена</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Prix</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Price</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Precio</value>
+            </title>
+            <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>ТЗТехкарта.Цена</segments>
+              </dataPath>
+              <extendedTooltip>
+                <name>ТехнологическаяКартаЦенаРасширеннаяПодсказка</name>
+                <id>749</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ТехнологическаяКартаЦенаКонтекстноеМеню</name>
+                <id>750</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>LabelField</type>
+              <horizontalAlign>Right</horizontalAlign>
+              <editMode>Auto</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Center</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <extInfo xsi:type="form:LabelFieldExtInfo">
+                <width>12</width>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <horizontalStretch>false</horizontalStretch>
+              </extInfo>
+            </items>
+            <items xsi:type="form:FormField">
+              <name>ТехнологическаяКартаСумма</name>
+              <id>751</id>
+              <title>
+              <key>ru</key>
+              <value>Сумма</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Montant</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Amount</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Importe</value>
+            </title>
+            <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>ТЗТехкарта.Сумма</segments>
+              </dataPath>
+              <extendedTooltip>
+                <name>ТехнологическаяКартаСуммаРасширеннаяПодсказка</name>
+                <id>752</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ТехнологическаяКартаСуммаКонтекстноеМеню</name>
+                <id>753</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>LabelField</type>
+              <horizontalAlign>Right</horizontalAlign>
+              <editMode>Auto</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Center</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <footerDataPath xsi:type="form:DataPath">
+              <segments>ИтогоСуммаТехкарты</segments>
+            </footerDataPath>
+            <extInfo xsi:type="form:LabelFieldExtInfo">
+                <width>12</width>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <horizontalStretch>false</horizontalStretch>
+              </extInfo>
+            </items>
           <autoCommandBar>
             <name>ТехнологическаяКартаКоманднаяПанель</name>
             <id>660</id>
             <horizontalAlign>Left</horizontalAlign>
             <autoFill>true</autoFill>
           </autoCommandBar>
+          <handlers>
+            <event>OnStartEdit</event>
+            <name>ТехнологическаяКартаПриНачалеРедактирования</name>
+          </handlers>
+          <handlers>
+            <event>OnEditEnd</event>
+            <name>ТехнологическаяКартаПриОкончанииРедактирования</name>
+          </handlers>
+          <handlers>
+            <event>BeforeDeleteRow</event>
+            <name>ТехнологическаяКартаПередУдалением</name>
+          </handlers>
+          <handlers>
+            <event>AfterDeleteRow</event>
+            <name>ТехнологическаяКартаПослеУдаления</name>
+          </handlers>
           <searchStringAddition>
             <name>ТехнологическаяКартаСтрокаПоиска</name>
             <id>662</id>
@@ -5560,12 +5641,14 @@
           <changeRowSet>true</changeRowSet>
           <changeRowOrder>true</changeRowOrder>
           <autoMaxWidth>true</autoMaxWidth>
-          <autoMaxHeight>true</autoMaxHeight>
-          <autoMaxRowsCount>true</autoMaxRowsCount>
+          <autoMaxHeight>false</autoMaxHeight>
+          <heightInTableRows>8</heightInTableRows>
+          <autoMaxRowsCount>false</autoMaxRowsCount>
           <selectionMode>MultiRow</selectionMode>
           <rowSelectionMode>Auto</rowSelectionMode>
           <header>true</header>
           <headerHeight>1</headerHeight>
+          <footer>true</footer>
           <footerHeight>1</footerHeight>
           <horizontalScrollBar>AutoUse</horizontalScrollBar>
           <verticalScrollBar>AutoUse</verticalScrollBar>
@@ -5575,13 +5658,397 @@
           <searchOnInput>Auto</searchOnInput>
           <initialListView>Auto</initialListView>
           <horizontalStretch>true</horizontalStretch>
-          <verticalStretch>true</verticalStretch>
+          <verticalStretch>false</verticalStretch>
           <enableStartDrag>true</enableStartDrag>
           <enableDrag>true</enableDrag>
           <fileDragMode>AsFileRef</fileDragMode>
           <autoMaxCardHeight>true</autoMaxCardHeight>
           <rowFilter xsi:type="core:UndefinedValue"/>
           <showCommandBarNeedDereferenced>true</showCommandBarNeedDereferenced>
+        </items>
+        <items xsi:type="form:FormGroup">
+          <name>СтрокаВерсииТехкарты</name>
+          <id>754</id>
+          <items xsi:type="form:FormField">
+            <name>ВерсияТехкарты</name>
+            <id>737</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ВерсияТехкарты</segments>
+            </dataPath>
+            <titleLocation>None</titleLocation>
+            <extendedTooltip>
+              <name>ВерсияТехкартыРасширеннаяПодсказка</name>
+              <id>739</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ВерсияТехкартыКонтекстноеМеню</name>
+              <id>738</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>LabelField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:LabelFieldExtInfo">
+              <autoMaxHeight>true</autoMaxHeight>
+              <horizontalStretch>false</horizontalStretch>
+              <textColor xsi:type="core:ColorRef">
+                <color>Style.AccentColor</color>
+              </textColor>
+              <font xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>true</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </font>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>ДействуетС</name>
+            <id>734</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ДействуетС</segments>
+            </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>ДействуетСПриИзменении</name>
+            </handlers>
+            <titleLocation>None</titleLocation>
+            <extendedTooltip>
+              <name>ДействуетСРасширеннаяПодсказка</name>
+              <id>735</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ДействуетСКонтекстноеМеню</name>
+              <id>736</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>InputField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:InputFieldExtInfo">
+              <width>12</width>
+              <autoMaxWidth>false</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <horizontalStretch>false</horizontalStretch>
+              <wrap>true</wrap>
+              <extendedEditMultipleValues>true</extendedEditMultipleValues>
+              <chooseType>true</chooseType>
+              <typeDomainEnabled>true</typeDomainEnabled>
+              <textEdit>true</textEdit>
+              <textSize>Normal</textSize>
+            </extInfo>
+          </items>
+          <items xsi:type="form:Button">
+            <name>ИсторияТехкарт</name>
+            <id>740</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>ИсторияТехкартРасширеннаяПодсказка</name>
+              <id>741</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <type>UsualButton</type>
+            <commandName>Form.Command.ИсторияТехкарт</commandName>
+            <buttonImportance>Normal</buttonImportance>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
+          <type>UsualGroup</type>
+          <extInfo xsi:type="form:UsualGroupExtInfo">
+            <group>AlwaysHorizontal</group>
+            <representation>None</representation>
+            <showTitle>false</showTitle>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormGroup">
+          <name>СтатистикаТехкарты</name>
+          <id>770</id>
+          <items xsi:type="form:FormField">
+            <name>ПредупреждениеВыпусковТехкарты</name>
+            <id>755</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ПредупреждениеВыпусковТехкарты</segments>
+            </dataPath>
+            <titleLocation>None</titleLocation>
+            <extendedTooltip>
+              <name>ПредупреждениеВыпусковТехкартыРасширеннаяПодсказка</name>
+              <id>756</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ПредупреждениеВыпусковТехкартыКонтекстноеМеню</name>
+              <id>757</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>LabelField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:LabelFieldExtInfo">
+              <autoMaxHeight>true</autoMaxHeight>
+              <horizontalStretch>true</horizontalStretch>
+              <textColor xsi:type="core:ColorRef">
+                <color>Style.AccentColor</color>
+              </textColor>
+              <font xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>true</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </font>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>ПлановаяСебестоимостьТехкарты</name>
+            <id>758</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ПлановаяСебестоимостьТехкарты</segments>
+            </dataPath>
+            <titleLocation>None</titleLocation>
+            <extendedTooltip>
+              <name>ПлановаяСебестоимостьТехкартыРасширеннаяПодсказка</name>
+              <id>759</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ПлановаяСебестоимостьТехкартыКонтекстноеМеню</name>
+              <id>760</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>LabelField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:LabelFieldExtInfo">
+              <autoMaxHeight>true</autoMaxHeight>
+              <horizontalStretch>true</horizontalStretch>
+              <textColor xsi:type="core:ColorRef">
+                <color>Style.AccentColor</color>
+              </textColor>
+              <font xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>true</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </font>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>ДоступныйВыпускТехкарты</name>
+            <id>761</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ДоступныйВыпускТехкарты</segments>
+            </dataPath>
+            <titleLocation>None</titleLocation>
+            <extendedTooltip>
+              <name>ДоступныйВыпускТехкартыРасширеннаяПодсказка</name>
+              <id>762</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ДоступныйВыпускТехкартыКонтекстноеМеню</name>
+              <id>763</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>LabelField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:LabelFieldExtInfo">
+              <autoMaxHeight>true</autoMaxHeight>
+              <horizontalStretch>true</horizontalStretch>
+              <textColor xsi:type="core:ColorRef">
+                <color>Style.AccentColor</color>
+              </textColor>
+              <font xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>true</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </font>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>ПотенциальнаяМаржаТехкарты</name>
+            <id>764</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ПотенциальнаяМаржаТехкарты</segments>
+            </dataPath>
+            <titleLocation>None</titleLocation>
+            <extendedTooltip>
+              <name>ПотенциальнаяМаржаТехкартыРасширеннаяПодсказка</name>
+              <id>765</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ПотенциальнаяМаржаТехкартыКонтекстноеМеню</name>
+              <id>766</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>LabelField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:LabelFieldExtInfo">
+              <autoMaxHeight>true</autoMaxHeight>
+              <horizontalStretch>true</horizontalStretch>
+              <textColor xsi:type="core:ColorRef">
+                <color>Style.AccentColor</color>
+              </textColor>
+              <font xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>true</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </font>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>ПредупреждениеЦенТехкарты</name>
+            <id>767</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ПредупреждениеЦенТехкарты</segments>
+            </dataPath>
+            <titleLocation>None</titleLocation>
+            <extendedTooltip>
+              <name>ПредупреждениеЦенТехкартыРасширеннаяПодсказка</name>
+              <id>768</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ПредупреждениеЦенТехкартыКонтекстноеМеню</name>
+              <id>769</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>LabelField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:LabelFieldExtInfo">
+              <autoMaxHeight>true</autoMaxHeight>
+              <horizontalStretch>true</horizontalStretch>
+              <textColor xsi:type="core:ColorRef">
+                <color>Style.AccentColor</color>
+              </textColor>
+              <font xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>true</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </font>
+            </extInfo>
+          </items>
+          <type>UsualGroup</type>
+          <extInfo xsi:type="form:UsualGroupExtInfo">
+            <group>Vertical</group>
+            <representation>None</representation>
+            <showTitle>false</showTitle>
+          </extInfo>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -7008,6 +7475,56 @@
         <common>true</common>
       </edit>
     </columns>
+    <columns>
+      <name>Цена</name>
+      <title>
+        <key>ru</key>
+        <value>Цена</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Prix</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Price</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Precio</value>
+      </title>
+      <id>5</id>
+      <valueType>
+        <types>DefinedType.Сумма</types>
+      </valueType>
+      <view><common>true</common></view>
+      <edit><common>false</common></edit>
+    </columns>
+    <columns>
+      <name>Сумма</name>
+      <title>
+        <key>ru</key>
+        <value>Сумма</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Montant</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Amount</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Importe</value>
+      </title>
+      <id>6</id>
+      <valueType>
+        <types>DefinedType.Сумма</types>
+      </valueType>
+      <view><common>true</common></view>
+      <edit><common>false</common></edit>
+    </columns>
   </attributes>
   <attributes>
     <name>ДействуетС</name>
@@ -7030,7 +7547,9 @@
     <id>731</id>
     <valueType>
       <types>Date</types>
-      <dateQualifiers/>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
     </valueType>
     <view>
       <common>true</common>
@@ -7070,6 +7589,281 @@
     <edit>
       <common>true</common>
     </edit>
+  </attributes>
+  <attributes>
+    <name>ВыбраннаяТехкарта</name>
+    <title>
+      <key>ru</key>
+      <value>ВыбраннаяТехкарта</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>ВыбраннаяТехкарта</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>ВыбраннаяТехкарта</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>ВыбраннаяТехкарта</value>
+    </title>
+    <id>771</id>
+    <valueType>
+      <types>DocumentRef.ТехнологическаяКарта</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ИсходнаяТехкарта</name>
+    <title>
+      <key>ru</key>
+      <value>ИсходнаяТехкарта</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>ИсходнаяТехкарта</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>ИсходнаяТехкарта</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>ИсходнаяТехкарта</value>
+    </title>
+    <id>772</id>
+    <valueType>
+      <types>DocumentRef.ТехнологическаяКарта</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>РедактированиеТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>РедактированиеТехкарты</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>РедактированиеТехкарты</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>РедактированиеТехкарты</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>РедактированиеТехкарты</value>
+    </title>
+    <id>773</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ДатаТехкартыВыбранаВручную</name>
+    <title>
+      <key>ru</key>
+      <value>ДатаТехкартыВыбранаВручную</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>ДатаТехкартыВыбранаВручную</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>ДатаТехкартыВыбранаВручную</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>ДатаТехкартыВыбранаВручную</value>
+    </title>
+    <id>774</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ИтогоКоличествоТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>ИтогоКоличествоТехкарты</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>ИтогоКоличествоТехкарты</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>ИтогоКоличествоТехкарты</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>ИтогоКоличествоТехкарты</value>
+    </title>
+    <id>775</id>
+    <valueType>
+      <types>DefinedType.Количество</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ИтогоСуммаТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>ИтогоСуммаТехкарты</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>ИтогоСуммаТехкарты</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>ИтогоСуммаТехкарты</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>ИтогоСуммаТехкарты</value>
+    </title>
+    <id>776</id>
+    <valueType>
+      <types>DefinedType.Сумма</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ПредупреждениеВыпусковТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>Выпуски</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Productions</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Production issues</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Producciones</value>
+    </title>
+    <id>777</id>
+    <valueType>
+      <types>String</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ПлановаяСебестоимостьТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>Плановая себестоимость</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Coût prévisionnel</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Planned cost</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Coste previsto</value>
+    </title>
+    <id>778</id>
+    <valueType>
+      <types>String</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ДоступныйВыпускТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>Можно произвести</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Production possible</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Can produce</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Producción posible</value>
+    </title>
+    <id>779</id>
+    <valueType>
+      <types>String</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ПотенциальнаяМаржаТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>Потенциальная маржа</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Marge potentielle</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Potential margin</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Margen potencial</value>
+    </title>
+    <id>780</id>
+    <valueType>
+      <types>String</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
+  </attributes>
+  <attributes>
+    <name>ПредупреждениеЦенТехкарты</name>
+    <title>
+      <key>ru</key>
+      <value>Цены материалов</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Prix des matières</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Material prices</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Precios de materiales</value>
+    </title>
+    <id>781</id>
+    <valueType>
+      <types>String</types>
+    </valueType>
+    <view><common>true</common></view>
+    <edit><common>true</common></edit>
   </attributes>
   <formCommands>
     <name>УдалитьИзображение</name>
