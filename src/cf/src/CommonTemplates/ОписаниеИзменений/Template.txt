@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.2
+### ru
+- Технологические карты хранят историю состава. В карточке номенклатуры можно задать дату действия, просмотреть версию и открыть историю; очистка состава отменяет карту, запись без изменения состава не создаёт новую версию.
+- При обновлении прежние карты номенклатуры автоматически переносятся в документы с датой создания товара (если дата отсутствует — с 01.01.2000). Повторный запуск не создаёт дубли и сохраняет уже заведённые карты, включая будущие версии, отмены и черновики.
+- Выпуск продукции и распределение себестоимости используют карту на дату документа. Исправлено заполнение материалов выпуска по техкарте при работе с характеристиками.
+- В настройках номенклатуры добавлен переключатель «Использовать упаковку». По умолчанию он выключен: упаковка из техкарты не подставляется в выпуск. Колонки упаковки и характеристик состава показываются по соответствующим настройкам.
+- Карточка номенклатуры стала единой для всех ролей, включая ECommerce: страница «Технологическая карта» доступна при включённом производстве для продукции и полуфабрикатов. Страница и команды переведены на все языки интерфейса.
+### fr
+- Les gammes de fabrication conservent l'historique de leur composition. La fiche article permet de définir la date d'effet, de consulter la version et d'ouvrir l'historique. Vider la composition annule la gamme de fabrication ; enregistrer sans modifier la composition ne crée pas de nouvelle version.
+- Lors de la mise à jour, les anciennes gammes de fabrication sont transférées automatiquement vers des documents datés de la création de l'article (ou du 01/01/2000 si la date manque). Une nouvelle exécution ne crée pas de doublons et préserve les versions existantes, y compris futures, annulées et les brouillons.
+- La production et la répartition du coût utilisent la gamme de fabrication applicable à la date du document. Le remplissage des matières à partir de la gamme de fabrication a été corrigé pour les caractéristiques.
+- L'option « Utiliser les conditionnements » a été ajoutée aux paramètres des articles. Désactivée par défaut, elle empêche la reprise du conditionnement de la gamme de fabrication dans la production. Les colonnes de conditionnement et de caractéristiques suivent leurs paramètres respectifs.
+- La fiche article est commune à tous les rôles, y compris ECommerce. La page « Gamme de fabrication » est disponible pour les produits finis et semi-finis lorsque la production est activée. La page et ses commandes sont traduites dans toutes les langues de l'interface.
+### en
+- Production routings now keep version history. The item card lets you set an effective date, view the version and open its history. Clearing the materials cancels the production routing; saving an unchanged composition does not create another version.
+- On update, existing item production routings are automatically transferred to documents dated from the item's creation (or January 1, 2000 if no date is available). Rerunning the migration creates no duplicates and preserves existing versions, including future versions, cancellations and drafts.
+- Production issues and cost allocation use the production routing effective on the document date. Material filling from production routings has been corrected for item characteristics.
+- A “Use packaging” option has been added to item settings. It is off by default, so packaging from the production routing is not filled into production issues. Packaging and characteristic columns follow their respective settings.
+- The item card is shared by all roles, including ECommerce. The “Production routing” page is available for finished and semi-finished products when production is enabled. The page and its commands are translated into all interface languages.
+### es
+- Las rutas de fabricación conservan el historial de su composición. La ficha del artículo permite indicar la fecha de vigencia, consultar la versión y abrir el historial. Vaciar la composición anula la ruta de fabricación; guardar sin modificarla no crea una nueva versión.
+- Al actualizar, las rutas de fabricación existentes se trasladan automáticamente a documentos con la fecha de creación del artículo (o el 01/01/2000 si falta la fecha). Repetir el traslado no crea duplicados y conserva las versiones existentes, incluidas las futuras, las anulaciones y los borradores.
+- La producción y el reparto del coste utilizan la ruta de fabricación vigente en la fecha del documento. Se ha corregido el llenado de materiales desde la ruta de fabricación al utilizar características.
+- Se ha añadido la opción «Usar embalajes» en los ajustes de artículos. Está desactivada por defecto, por lo que el embalaje de la ruta de fabricación no se rellena en la producción. Las columnas de embalaje y características siguen sus respectivos ajustes.
+- La ficha del artículo es común para todos los roles, incluido ECommerce. La página «Ruta de fabricación» está disponible para productos terminados y semielaborados cuando la producción está activada. La página y sus comandos están traducidos a todos los idiomas de la interfaz.
+
 ## 2.0.15.1
 ### ru
 - Список поступлений товаров и услуг снова показывает поступления: запрос списка был подменён запросом соседней закладки заказов поставщику, из-за чего колонки списка оставались без данных.
