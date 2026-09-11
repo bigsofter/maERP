@@ -5421,19 +5421,19 @@
               <id>748</id>
               <title>
               <key>ru</key>
-              <value>Цена</value>
+              <value>Закупочная цена*</value>
             </title>
             <title>
               <key>fr</key>
-              <value>Prix</value>
+              <value>Prix d’achat*</value>
             </title>
             <title>
               <key>en</key>
-              <value>Price</value>
+              <value>Purchase price*</value>
             </title>
             <title>
               <key>es</key>
-              <value>Precio</value>
+              <value>Precio de compra*</value>
             </title>
             <visible>true</visible>
               <enabled>true</enabled>
@@ -5476,19 +5476,19 @@
               <id>751</id>
               <title>
               <key>ru</key>
-              <value>Сумма</value>
+              <value>Себестоимость*</value>
             </title>
             <title>
               <key>fr</key>
-              <value>Montant</value>
+              <value>Coût*</value>
             </title>
             <title>
               <key>en</key>
-              <value>Amount</value>
+              <value>Cost*</value>
             </title>
             <title>
               <key>es</key>
-              <value>Importe</value>
+              <value>Coste*</value>
             </title>
             <visible>true</visible>
               <enabled>true</enabled>
@@ -5702,8 +5702,13 @@
             <headerHorizontalAlign>Left</headerHorizontalAlign>
             <showInFooter>true</showInFooter>
             <extInfo xsi:type="form:LabelFieldExtInfo">
+              <handlers>
+                <event>Click</event>
+                <name>ВерсияТехкартыНажатие</name>
+              </handlers>
               <autoMaxHeight>true</autoMaxHeight>
               <horizontalStretch>false</horizontalStretch>
+              <hyperlink>true</hyperlink>
               <textColor xsi:type="core:ColorRef">
                 <color>Style.AccentColor</color>
               </textColor>
@@ -5766,26 +5771,6 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
-          <items xsi:type="form:FormField">
-            <name>ДокументТехкарты</name>
-            <id>782</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <dataPath xsi:type="form:DataPath">
-              <segments>ВыбраннаяТехкарта</segments>
-            </dataPath>
-            <titleLocation>None</titleLocation>
-            <type>LabelField</type>
-            <editMode>Enter</editMode>
-            <extInfo xsi:type="form:LabelFieldExtInfo">
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <hyperlink>true</hyperlink>
-            </extInfo>
-          </items>
           <items xsi:type="form:Button">
             <name>ИсторияТехкарт</name>
             <id>740</id>
@@ -5820,7 +5805,7 @@
           </userVisible>
           <type>UsualGroup</type>
           <extInfo xsi:type="form:UsualGroupExtInfo">
-            <group>HorizontalIfPossible</group>
+            <group>AlwaysHorizontal</group>
             <representation>None</representation>
             <showTitle>false</showTitle>
           </extInfo>
@@ -6078,6 +6063,53 @@
             <group>Vertical</group>
             <representation>None</representation>
             <showTitle>false</showTitle>
+          </extInfo>
+        </items>
+        <items xsi:type="form:Decoration">
+          <name>СноскаСебестоимостиТехкарты</name>
+          <id>782</id>
+          <title>
+            <key>ru</key>
+            <value>* Ориентировочная себестоимость по последней закупочной цене, с НДС, в валюте учёта.</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>* Coût indicatif selon le dernier prix d’achat, TVA comprise, en devise comptable.</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>* Estimated cost based on the latest purchase price, including VAT, in the accounting currency.</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>* Coste orientativo según el último precio de compra, IVA incluido, en la moneda contable.</value>
+          </title>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <extendedTooltip>
+            <name>СноскаСебестоимостиТехкартыРасширеннаяПодсказка</name>
+            <id>783</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>СноскаСебестоимостиТехкартыКонтекстноеМеню</name>
+            <id>784</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>Label</type>
+          <autoMaxWidth>false</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <skipOnInput>false</skipOnInput>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </items>
         <visible>true</visible>
