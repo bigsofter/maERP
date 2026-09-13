@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# ai-database <task-slug> [--base <branch> | --commit <sha> | --uncommitted] [--with-docs]
+#
+# Schema/migration/transaction review. Tries OpenCode's `database` agent
+# (free zen tier) first, falls back to Codex read-only. Mandatory whenever a
+# change touches schema, migrations, transactions, or complex SQL.
+set -uo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
+
+if [ $# -lt 1 ]; then
+  echo "usage: ai-database <task-slug> [--base <branch> | --commit <sha> | --uncommitted] [--with-docs]" >&2
+  exit 64
+fi
+SLUG=$(ai_slugify "$1"); shift
+DIFF_MODE="working"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --base) DIFF_MODE="base:$2"; shift 2 ;;
+    --commit) DIFF_MODE="commit:$2"; shift 2 ;;
+    --uncommitted) DIFF_MODE="working"; shift ;;
+    # Док-дифф ревьюеру кода не нужен (см. ai_collect_diff) — только по просьбе.
+    --with-docs) export AI_DIFF_WITH_DOCS=1; shift ;;
+    *) echo "unknown arg: $1" >&2; exit 64 ;;
+  esac
+done
+ai_task_dirs "$SLUG"
+
+DIFF_CONTENT=$(ai_collect_diff "$DIFF_MODE")
+diff_rc=$?
+if [ "$diff_rc" -ne 0 ]; then
+  echo "ERROR: could not collect diff (mode: $DIFF_MODE) — git itself failed, see stderr above. This is NOT \"nothing changed\" — the mandatory review did not run. Check the branch/sha exists." >&2
+  exit 1
+fi
+if [ -z "$DIFF_CONTENT" ]; then
+  echo "no diff to review (mode: $DIFF_MODE) — nothing changed. NB: docs/** и .ai/** исключены по умолчанию; если менялись только они, перезапусти с --with-docs." >&2
+  exit 0
+fi
+
+PROMPT_FILE="$AI_TASK_STATE_DIR/database-prompt.md"
+{
+  cat "$AI_PROMPTS/database.md"
+  echo
+  echo "## Diff under review (mode: $DIFF_MODE)"
+  echo '```diff'
+  printf '%s\n' "$DIFF_CONTENT"
+  echo '```'
+} > "$PROMPT_FILE"
+
+RESULT_JSON="$AI_TASK_REVIEW_DIR/04-database-review.json"
+EVENTS_PREFIX="$AI_TASK_STATE_DIR/database-$(ai_timestamp)"
+
+out=$(ai_run_specialist_review "database" "database" "$PROMPT_FILE" "$RESULT_JSON" "$EVENTS_PREFIX")
+rc=$?
+if [ "$rc" -eq 2 ]; then
+  echo "BACKEND_UNAVAILABLE: neither opencode nor codex is usable. Database review is mandatory for schema/migration/transaction changes — tell the user it did not run." >&2
+  exit 2
+elif [ "$rc" -ne 0 ]; then
+  echo "database review failed on both backends — see $EVENTS_PREFIX-*.stderr" >&2
+  exit 1
+fi
+
+ai_log "database review -> $out"
+if [[ "$out" == *.json ]]; then ai_print_findings_summary "$out"; else cat "$out"; fi

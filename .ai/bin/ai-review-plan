@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# ai-review-plan <task-slug> <plan-file-or--for-stdin>
+#
+# Sends an implementation plan to Codex (read-only sandbox) for adversarial
+# architecture review. Codex never writes to the repo during this step.
+# Exit codes: 0 = ran, verdict in JSON (check it, don't assume approve).
+#             2 = BACKEND_UNAVAILABLE — codex missing/not logged in.
+#             1 = codex itself failed (timeout, API error) — see events log.
+set -uo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
+
+if [ $# -lt 2 ]; then
+  echo "usage: ai-review-plan <task-slug> <plan-file|->" >&2
+  exit 64
+fi
+SLUG=$(ai_slugify "$1"); shift
+PLAN_SRC="$1"
+ai_task_dirs "$SLUG"
+
+if ! ai_codex_available; then
+  echo "BACKEND_UNAVAILABLE: codex missing or not logged in (run: codex login). Required for ai-review-plan — this is a mandatory quality gate for non-trivial changes; tell the user it did not run." >&2
+  exit 2
+fi
+
+PROMPT_FILE="$AI_TASK_STATE_DIR/plan-review-prompt.md"
+{
+  cat "$AI_PROMPTS/plan-critic.md"
+  echo
+  echo "## Plan under review"
+  if [ "$PLAN_SRC" = "-" ]; then cat -; else cat "$PLAN_SRC"; fi
+} > "$PROMPT_FILE"
+
+RESULT_JSON="$AI_TASK_REVIEW_DIR/02-plan-review.json"
+EVENTS_OUT="$AI_TASK_STATE_DIR/plan-review-$(ai_timestamp).jsonl"
+
+if ! ai_run_codex "$PROMPT_FILE" "$RESULT_JSON" "$EVENTS_OUT" --output-schema "$AI_SCHEMAS/findings.schema.json"; then
+  echo "codex exec failed — see ${EVENTS_OUT}.stderr. Do not treat this as an approved plan." >&2
+  exit 1
+fi
+
+ai_log "plan review -> $RESULT_JSON"
+ai_print_findings_summary "$RESULT_JSON"

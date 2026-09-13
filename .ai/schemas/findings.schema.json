@@ -1,0 +1,37 @@
+{
+  "$comment": "Contract for codex exec --output-schema. OpenAI strict mode requires EVERY property in an object to be listed in `required` when additionalProperties:false, even ones that may be empty — verified 2026-09-11 against codex-cli 0.154.0 (omitting one field on findings.items 400'd with invalid_json_schema). Use empty string \"\" / empty array, never omit a key.",
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "1-3 sentences: what was reviewed and the overall verdict rationale."
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["approve", "approve_with_changes", "reject"],
+      "description": "approve = no P0/P1; approve_with_changes = only P2/P3; reject = at least one P0 or P1."
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "enum": ["P0", "P1", "P2", "P3"],
+            "description": "P0=security/data-loss/catastrophic, P1=serious functional bug, P2=functional/maintainability, P3=minor improvement."
+          },
+          "file": { "type": "string", "description": "Repo-relative path. Empty string if not applicable (e.g. plan-level finding)." },
+          "location": { "type": "string", "description": "Function/line/section. Empty string if not applicable." },
+          "problem": { "type": "string", "description": "What is wrong, stated as a claim." },
+          "scenario": { "type": "string", "description": "Concrete failing scenario: inputs/state -> wrong output/crash/data loss." },
+          "recommended_fix": { "type": "string", "description": "Concrete suggested fix, not just 'handle this better'." }
+        },
+        "required": ["severity", "file", "location", "problem", "scenario", "recommended_fix"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["summary", "verdict", "findings"],
+  "additionalProperties": false
+}

@@ -1,0 +1,341 @@
+#!/usr/bin/env bash
+# ai-final-check <task-slug> [--db]
+#
+# Runs the REAL quality gates that exist in maERP (only those — no invented
+# commands), scoped to what actually changed, then checks git hygiene. Writes
+# .ai/reports/<slug>-final-check.md. This is NOT the master task report
+# (Task/Plan/Agents used/... — Claude composes that in .ai/reports/<slug>.md by
+# hand, this file is one input to it).
+#
+# Гейты (CLAUDE.md «Проверка себя», docs/TESTING.md, docs/RELEASING.md):
+#   src/cf/**.bsl  → scripts/lint.sh + «нет новых замечаний против
+#                    build/bsl-json-baseline.json» по парам (файл, код) в
+#                    изменённых модулях (процедура RELEASING.md, шаг 2)
+#   src/cf/**      → scripts/refcheck.py, scripts/listcheck.py,
+#                    секция текущей версии в ОписаниеИзменений на ru/fr/en/es
+#                    (scripts/changelog.sh + проверка языков из CLAUDE.md)
+#   --db           → scripts/smoke.sh, scripts/doctests.sh на build/ib
+# Синтаксис и ссылочную целостность метаданных проверяет EDT у владельца —
+# отсюда не запускается и в «Gates run» так и пишется.
+set -uo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
+
+usage() { echo "usage: ai-final-check <task-slug> [--db]" >&2; }
+if [ $# -lt 1 ]; then usage; exit 64; fi
+SLUG=$(ai_slugify "$1"); shift
+WITH_DB=0
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --db) WITH_DB=1; shift ;;
+    *) echo "unknown arg: $1" >&2; usage; exit 64 ;;
+  esac
+done
+ai_task_dirs "$SLUG"
+cd "$AI_REPO_ROOT" || exit 1
+
+REPORT="$AI_REPORTS/${SLUG}-final-check.md"
+mkdir -p "$AI_REPORTS"
+overall_rc=0
+{
+  echo "# Final check — $SLUG"
+  echo "_$(ai_timestamp)_"
+  echo
+} > "$REPORT"
+
+section() { printf '\n## %s\n\n' "$1" >> "$REPORT"; }
+# Учёт запущенного/пропущенного: молча пропущенный гейт читается как «всё
+# хорошо» и стоит потом ручного перепрогона (см. раздел «Gates run» в конце).
+GATES_OK=0
+GATES_FAIL=0
+GATES_FAILED_LIST=""
+GATES_SKIPPED_LIST=""
+gate_skipped() { GATES_SKIPPED_LIST+="  - $1"$'\n'; }
+run_gate() {
+  # run_gate "label" cmd...  (cmd может быть функцией этого скрипта)
+  local label="$1"; shift
+  echo "--- $label ---"
+  echo "### $label" >> "$REPORT"
+  echo '```' >> "$REPORT"
+  local out
+  if out=$("$@" 2>&1); then
+    printf '%s\n' "$out" | tail -60 >> "$REPORT"
+    echo '```' >> "$REPORT"
+    echo "**PASS**" >> "$REPORT"
+    GATES_OK=$((GATES_OK + 1))
+  else
+    printf '%s\n' "$out" | tail -100 >> "$REPORT"
+    echo '```' >> "$REPORT"
+    echo "**FAIL**" >> "$REPORT"
+    GATES_FAIL=$((GATES_FAIL + 1))
+    GATES_FAILED_LIST+="  - $label"$'\n'
+    overall_rc=1
+  fi
+}
+
+# --- функции гейтов --------------------------------------------------------
+
+# Сверка отчёта BSL LS с baseline в ИЗМЕНЁННЫХ модулях. Пары (файл, код) со
+# счётчиками: замечание того же кода в том же файле сверх baseline — новое.
+# ГОЧА (память проекта, 2026-09-06): пути в bsl-json.json — file-URI с
+# percent-encoding; без unquote фильтр по кириллическому имени молча находит 0.
+# Плюс NFC: macOS отдаёт имена каталогов в NFD.
+# Список модулей — через env, НЕ через пайп: `printf | python3 - <<'PY'` отдаёт
+# stdin heredoc'у с программой, пайп молча теряется, список пуст — и гейт
+# «новых замечаний нет» зеленеет, ничего не сверив (поймано при переносе).
+lint_new_issues() {
+  AI_CHANGED_BSL="$CHANGED_BSL" python3 - "$AI_REPO_ROOT/build/bsl-json.json" "$AI_REPO_ROOT/build/bsl-json-baseline.json" <<'PY'
+import collections, json, os, sys, unicodedata, urllib.parse
+
+cur_path, base_path = sys.argv[1], sys.argv[2]
+MARK = '/src/cf/src/'
+
+def key(p):
+    p = unicodedata.normalize('NFC', urllib.parse.unquote(p))
+    i = p.find(MARK)
+    return p[i + len(MARK):] if i >= 0 else p
+
+def load(path):
+    counts, msgs = collections.Counter(), collections.defaultdict(list)
+    for fi in json.load(open(path, encoding='utf-8'))['fileinfos']:
+        k = key(fi['path'])
+        for d in fi.get('diagnostics') or []:
+            counts[(k, d['code'])] += 1
+            line = ((d.get('range') or {}).get('start') or {}).get('line', -1) + 1
+            msgs[(k, d['code'])].append('%d: %s' % (line, d.get('message', '')))
+    return counts, msgs
+
+for p in (cur_path, base_path):
+    if not os.path.isfile(p):
+        sys.exit('нет файла %s — сверять не с чем' % p)
+changed = [key('/' + l.strip()) for l in os.environ.get('AI_CHANGED_BSL', '').splitlines() if l.strip()]
+if not changed:
+    sys.exit('список изменённых модулей пуст — сверять нечего, это ошибка вызова, а не «чисто»')
+cur, cur_msgs = load(cur_path)
+base, _ = load(base_path)
+base_date = json.load(open(base_path, encoding='utf-8')).get('date', '?')
+new = []
+for f in changed:
+    for (k, code), n in sorted(cur.items()):
+        if k == f and n > base.get((k, code), 0):
+            new.append((k, code, base.get((k, code), 0), n))
+print('baseline: %s; изменённых модулей: %d' % (base_date, len(changed)))
+if not new:
+    print('новых замечаний нет')
+    sys.exit(0)
+for k, code, was, now in new:
+    print('%s: %s +%d (было %d, стало %d)' % (k, code, now - was, was, now))
+    for m in cur_msgs[(k, code)][:3]:
+        print('    ' + m)
+sys.exit(1)
+PY
+}
+
+# Секция текущей версии в ОписаниеИзменений: scripts/changelog.sh проверяет
+# только «секция есть и не пуста», CLAUDE.md требует все четыре языка —
+# пустая закладка в «Что нового» у владельца это ошибка сдачи.
+changelog_section() {
+  local version
+  version=$(sed -n 's:.*<version>\(.*\)</version>.*:\1:p' src/cf/src/Configuration/Configuration.mdo | head -1)
+  [ -n "$version" ] || { echo "не удалось прочитать <version> из Configuration.mdo"; return 1; }
+  scripts/changelog.sh "$version" || return 1
+  python3 - "build/changelog-$version.json" <<'PY'
+import json, sys
+d = json.load(open(sys.argv[1], encoding='utf-8'))
+missing = [l for l in ('ru', 'fr', 'en', 'es') if not d['changes'].get(l)]
+print('версия %s: %s' % (d['version'], ', '.join('%s=%d' % (l, len(v)) for l, v in d['changes'].items())))
+if missing:
+    sys.exit('нет пунктов на языках: %s (CLAUDE.md: пункты на всех четырёх)' % ', '.join(missing))
+PY
+}
+
+CHANGED=$(ai_changed_files)
+NEW=$(ai_new_files)
+CHANGED_BSL=$(printf '%s\n' "$CHANGED" | grep -E '^src/cf/src/.+\.bsl$' || true)
+section "Scope"
+{ echo '```'; printf '%s\n' "$CHANGED"; echo '```'; } >> "$REPORT"
+
+section "Gates"
+# Проверки состава — БЕЗ пайпа (ai_changed_has): `printf | grep -q` под
+# pipefail — гонка SIGPIPE, из-за которой в эталоне гейты молча пропускались.
+if [ -n "$CHANGED_BSL" ]; then
+  fails_before=$GATES_FAIL
+  run_gate "уровень 0: scripts/lint.sh (BSL LS)" scripts/lint.sh
+  if [ "$GATES_FAIL" -eq "$fails_before" ]; then
+    run_gate "уровень 0: нет новых замечаний BSL LS против baseline в изменённых модулях" lint_new_issues
+  else
+    gate_skipped "сверка линта с baseline — scripts/lint.sh упал, свежего отчёта нет (сам lint.sh уже FAIL)"
+  fi
+else
+  echo "(no src/cf/**.bsl changes — BSL LS skipped)" >> "$REPORT"
+  gate_skipped "уровень 0 (BSL LS) — в диффе нет модулей src/cf/**.bsl"
+fi
+
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/refcheck"; then
+  run_gate "уровень 0.5: scripts/refcheck.py" python3 scripts/refcheck.py
+else
+  gate_skipped "уровень 0.5 (refcheck) — в диффе нет src/cf/** и scripts/refcheck*"
+fi
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/listcheck"; then
+  run_gate "уровень 0.7: scripts/listcheck.py" python3 scripts/listcheck.py
+else
+  gate_skipped "уровень 0.7 (listcheck) — в диффе нет src/cf/** и scripts/listcheck*"
+fi
+
+if ai_changed_has "$CHANGED" "src/cf/"; then
+  run_gate "ОписаниеИзменений: секция текущей версии на ru/fr/en/es" changelog_section
+  gate_skipped "EDT: синтаксический контроль и ссылочная целостность метаданных — только у владельца после Refresh (CLAUDE.md), отсюда не запускается"
+else
+  gate_skipped "секция ОписаниеИзменений — в диффе нет src/cf/**"
+fi
+
+if [ "$WITH_DB" -eq 1 ]; then
+  if [ -z "${SMOKE_USER:-}" ] || [ -z "${SMOKE_PWD:-}" ]; then
+    echo "--db: SMOKE_USER/SMOKE_PWD не заданы" >> "$REPORT"
+    GATES_FAIL=$((GATES_FAIL + 1))
+    GATES_FAILED_LIST+="  - уровни 1–3 — SMOKE_USER/SMOKE_PWD не заданы, база не пустит"$'\n'
+    overall_rc=1
+  else
+    run_gate "уровни 1–2: scripts/smoke.sh (CheckConfig + смок)" scripts/smoke.sh
+    run_gate "уровень 3: scripts/doctests.sh" scripts/doctests.sh
+  fi
+else
+  gate_skipped "уровни 1–3 (smoke.sh, doctests.sh) — без --db: проверяют build/ib, которую обновляет из EDT владелец; без обновления гоняли бы код прошлой сборки"
+fi
+
+section "Git hygiene"
+{
+  echo "### git status"
+  echo '```'
+  ai_git status --short
+  echo '```'
+} >> "$REPORT"
+
+# CLAUDE.md «Не трогаю»: build/, DT-INF/, файлы XML-выгрузки.
+FORBIDDEN=$(printf '%s\n' "$CHANGED" | grep -E '^build/|/DT-INF/|ConfigDumpInfo\.xml$' || true)
+echo -e "\n### Запретные пути (CLAUDE.md «Не трогаю»)" >> "$REPORT"
+if [ -n "$FORBIDDEN" ]; then
+  { echo '```'; printf '%s\n' "$FORBIDDEN"; echo '```'; echo "**Правка сгенерированного/служебного — откатить.**"; } >> "$REPORT"
+  overall_rc=1
+else
+  echo "нет" >> "$REPORT"
+fi
+
+# Бинарники в git не попадают (CLAUDE.md «Git»). Игнорируются .gitignore'ом —
+# сюда попадёт только то, что проскочило (force-add, чужое расширение регистра).
+BINARIES=$( { ai_git diff --cached --name-only; ai_git ls-files --others --exclude-standard; } | grep -iE '\.(cf|cfe|cfu|epf|erf|dt|1cd)$' || true)
+echo -e "\n### Бинарники 1С в индексе/untracked" >> "$REPORT"
+if [ -n "$BINARIES" ]; then
+  { echo '```'; printf '%s\n' "$BINARIES"; echo '```'; echo "**Бинарники не коммитятся — релизные файлы в GitHub Releases.**"; } >> "$REPORT"
+  overall_rc=1
+else
+  echo "нет" >> "$REPORT"
+fi
+
+# ГОЧА workflow-007 (инцидент 2026-09-08): `git add` набранного пути с «ё»/«й»
+# кладёт в индекс NFC-дубликат рядом с отслеживаемым NFD-путём — в коммит уходит
+# файл целиком. Для файловой системы это один файл, для git — два.
+NFD_DUPES=$( { ai_git ls-files; ai_git ls-files --others --exclude-standard; } | python3 -c '
+import sys, unicodedata, collections
+seen = collections.defaultdict(set)
+for l in sys.stdin:
+    l = l.rstrip("\n")
+    if l:
+        seen[unicodedata.normalize("NFC", l)].add(l)
+for k, v in sorted(seen.items()):
+    if len(v) > 1:
+        print(k)
+')
+echo -e "\n### NFC/NFD-дубликаты путей (tiny1C workflow-007)" >> "$REPORT"
+if [ -n "$NFD_DUPES" ]; then
+  { echo '```'; printf '%s\n' "$NFD_DUPES"; echo '```'; echo "**Один файл под двумя путями: стейджить через \`git add -u\`, лишний путь убрать из индекса.**"; } >> "$REPORT"
+  overall_rc=1
+else
+  echo "нет" >> "$REPORT"
+fi
+
+# Секреты. Репозиторий bigsofter/maERP ПУБЛИЧНЫЙ. Грубая эвристика по
+# изменённым файлам + точный поиск пароля тестовой базы, если он есть в env:
+# печатаются только имена файлов, значение — никогда.
+SECRET_HITS=""
+if [ -n "$CHANGED" ]; then
+  SECRET_HITS=$(printf '%s\n' "$CHANGED" | while IFS= read -r f; do
+    [ -f "$f" ] || continue
+    grep -lIE 'BEGIN (RSA|EC|OPENSSH|PGP) PRIVATE KEY|AKIA[0-9A-Z]{16}|xox[baprs]-[0-9A-Za-z-]{10,48}|gh[pousr]_[0-9A-Za-z]{36}|sk-[0-9A-Za-z_-]{20,}' "$f" 2>/dev/null
+    if [ -n "${SMOKE_PWD:-}" ]; then
+      grep -lIF -- "$SMOKE_PWD" "$f" 2>/dev/null | sed 's/$/  (значение SMOKE_PWD)/'
+    fi
+  done)
+fi
+echo -e "\n### Secret heuristic (grep + значение SMOKE_PWD из env; не сканер секретов)" >> "$REPORT"
+if [ -n "$SECRET_HITS" ]; then
+  { echo '```'; printf '%s\n' "$SECRET_HITS"; echo '```'; echo "**Похоже на секрет в файлах публичного репозитория — разобрать до коммита.**"; } >> "$REPORT"
+  overall_rc=1
+else
+  echo "no hits (grep heuristic only — not a real secret scanner)" >> "$REPORT"
+fi
+
+# Добавленные строки: TODO/FIXME и новые подавления BSL LS (`// BSLLS:Код-off`).
+# Подавление — легальный приём, но оно прячет замечание от гейта линта, поэтому
+# выводится на глаза. Не FAIL.
+DIFF_ADDED=$(ai_git diff HEAD -- . ':!*.md' ':!docs/**' ':!.ai/**' 2>/dev/null | grep -E '^\+[^+]' || true)
+TODO_HITS=$(printf '%s\n' "$DIFF_ADDED" | grep -E 'TODO|FIXME' || true)
+BSLLS_HITS=$(printf '%s\n' "$DIFF_ADDED" | grep -E 'BSLLS:' || true)
+echo -e "\n### New TODO/FIXME introduced (added lines only)" >> "$REPORT"
+if [ -n "$TODO_HITS" ]; then
+  { echo '```'; printf '%s\n' "$TODO_HITS" | head -30; echo '```'; } >> "$REPORT"
+else
+  echo "none found" >> "$REPORT"
+fi
+echo -e "\n### Новые подавления BSL LS (added lines only)" >> "$REPORT"
+if [ -n "$BSLLS_HITS" ]; then
+  { echo '```'; printf '%s\n' "$BSLLS_HITS" | head -30; echo '```'; echo "Каждое подавление — осознанное: проверь, что оно не прячет настоящую ошибку."; } >> "$REPORT"
+else
+  echo "none found" >> "$REPORT"
+fi
+
+# Версия: Y растёт при каждой передаче на тест (CLAUDE.md). Когда передача —
+# скрипт не знает, поэтому это напоминание, а не FAIL.
+if ai_changed_has "$CHANGED" "src/cf/"; then
+  V_NOW=$(sed -n 's:.*<version>\(.*\)</version>.*:\1:p' src/cf/src/Configuration/Configuration.mdo | head -1)
+  V_HEAD=$(ai_git show HEAD:src/cf/src/Configuration/Configuration.mdo 2>/dev/null | sed -n 's:.*<version>\(.*\)</version>.*:\1:p' | head -1)
+  echo -e "\n### Версия конфигурации" >> "$REPORT"
+  if [ "$V_NOW" = "$V_HEAD" ]; then
+    echo "версия $V_NOW не поднималась относительно HEAD — если это передача владельцу на тест, подними Y и заведи секцию (CLAUDE.md «Версия и список изменений»)" >> "$REPORT"
+  else
+    echo "$V_HEAD → $V_NOW" >> "$REPORT"
+  fi
+fi
+
+REGIMEN=$(ai_regimen_warnings "$CHANGED" "$NEW")
+echo -e "\n### Регламент тестов (docs/TESTING.md, п. 2) — напоминания, не FAIL" >> "$REPORT"
+if [ -n "$REGIMEN" ]; then
+  printf '%s\n' "$REGIMEN" | sed 's/^/- /' >> "$REPORT"
+else
+  echo "замечаний нет" >> "$REPORT"
+fi
+
+section "Gates run"
+{
+  echo "Запущено гейтов: $((GATES_OK + GATES_FAIL)) (PASS: $GATES_OK, FAIL: $GATES_FAIL)"
+  if [ -n "$GATES_FAILED_LIST" ]; then
+    echo
+    echo "Провалились:"
+    printf '%s' "$GATES_FAILED_LIST"
+  fi
+  if [ -n "$GATES_SKIPPED_LIST" ]; then
+    echo
+    echo "Пропущены (по составу диффа или по месту запуска — сверь со «Scope» выше, пропуск НЕ равен «прошло»):"
+    printf '%s' "$GATES_SKIPPED_LIST"
+  fi
+} >> "$REPORT"
+
+section "Verdict"
+if [ "$overall_rc" -eq 0 ]; then
+  echo "**ALL GATES PASSED** — no hygiene issues flagged." >> "$REPORT"
+else
+  echo "**FAILURES ABOVE** — do not report the task done until resolved." >> "$REPORT"
+fi
+
+ai_log "final check report -> $REPORT"
+cat "$REPORT"
+exit "$overall_rc"

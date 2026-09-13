@@ -1,0 +1,225 @@
+#!/usr/bin/env bash
+# ai-review <task-slug> [--base <branch> | --commit <sha> | --uncommitted]
+#                       [--verify] [--force] [--tier auto|free|codex] [--with-docs]
+#
+# Независимое ревью диффа. Ревьюер всегда read-only: ни Codex, ни OpenCode не
+# правят код на этом шаге — применение находок это отдельное явное действие.
+#
+# Три вещи, которые тут экономят деньги (замеры — .ai/README.md, «Token budget»):
+#   --verify  инкрементальный круг: только дифф С ПРОШЛОГО ревью + прошлые
+#             находки («закрыты ли»), вместо полного перечитывания всего диффа.
+#   --tier    какой бэкенд: auto (полный круг → Codex, verify → сначала
+#             бесплатный OpenCode с фоллбэком на Codex), free, codex.
+#   порог     тривиальный дифф (мало строк, ни данных/проведения/прав/денег) не
+#             зовёт платного ревьюера вовсе — `--force` заставляет.
+#
+# Exit: 0 = отработало (смотри verdict) либо осознанно пропущено по порогу,
+#       1 = бэкенд упал, 2 = BACKEND_UNAVAILABLE, 64 = ошибка вызова.
+set -uo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
+
+usage() {
+  echo "usage: ai-review <task-slug> [--base <branch>|--commit <sha>|--uncommitted] [--verify] [--force] [--tier auto|free|codex] [--with-docs]" >&2
+}
+
+if [ $# -lt 1 ]; then usage; exit 64; fi
+SLUG=$(ai_slugify "$1"); shift
+DIFF_MODE="working"
+VERIFY=0
+FORCE=0
+TIER="auto"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --base) DIFF_MODE="base:$2"; shift 2 ;;
+    --commit) DIFF_MODE="commit:$2"; shift 2 ;;
+    --uncommitted) DIFF_MODE="working"; shift ;;
+    # Док-дифф в ревью кода не нужен (см. ai_collect_diff) — только по просьбе.
+    --with-docs) export AI_DIFF_WITH_DOCS=1; shift ;;
+    --verify) VERIFY=1; shift ;;
+    --force) FORCE=1; shift ;;
+    --tier)
+      TIER="${2:-}"
+      case "$TIER" in auto|free|codex) ;; *) echo "--tier: auto|free|codex" >&2; exit 64 ;; esac
+      shift 2 ;;
+    *) echo "unknown arg: $1" >&2; usage; exit 64 ;;
+  esac
+done
+ai_task_dirs "$SLUG"
+
+RESULT_JSON="$AI_TASK_REVIEW_DIR/03-code-review.json"
+TREE_FILE="$AI_TASK_STATE_DIR/reviewed-tree"
+
+# ---------------------------------------------------------------------------
+# Режим 1 — инкрементальная верификация фиксов.
+# ---------------------------------------------------------------------------
+if [ "$VERIFY" -eq 1 ]; then
+  PREV_REPORT=""
+  [ -f "$RESULT_JSON" ] && PREV_REPORT="$RESULT_JSON"
+  [ -z "$PREV_REPORT" ] && [ -f "${RESULT_JSON%.json}.md" ] && PREV_REPORT="${RESULT_JSON%.json}.md"
+  if [ -z "$PREV_REPORT" ]; then
+    echo "ERROR: у слага '$SLUG' нет предыдущего ревью ($RESULT_JSON) — верифицировать нечего. Сначала полный круг: ai-review $SLUG" >&2
+    exit 64
+  fi
+  if [ ! -f "$TREE_FILE" ]; then
+    echo "ERROR: нет снимка дерева на момент прошлого ревью ($TREE_FILE) — дельту не посчитать (ревью было до появления --verify, либо .ai/state чистили). Прогони полный круг: ai-review $SLUG" >&2
+    exit 64
+  fi
+  PREV_TREE=$(cat "$TREE_FILE")
+  NEW_TREE=$(ai_snapshot_tree) || { echo "ERROR: не удалось снять снимок дерева (git)" >&2; exit 1; }
+  DELTA=$(ai_tree_delta "$PREV_TREE" "$NEW_TREE") || { echo "ERROR: git diff-tree упал — верификация НЕ прошла" >&2; exit 1; }
+  if [ -z "$DELTA" ]; then
+    echo "с прошлого ревью код не менялся — верифицировать нечего. Если находки были, они по-прежнему ОТКРЫТЫ." >&2
+    exit 0
+  fi
+
+  PROMPT_FILE="$AI_TASK_STATE_DIR/review-verify-prompt.md"
+  {
+    cat "$AI_PROMPTS/reviewer-verify.md"
+    echo
+    echo "## Находки прошлого круга (проверяем именно их)"
+    # Прошлый круг мог отработать на бесплатном тире и оставить markdown вместо
+    # JSON — не помечаем его как json, иначе ревьюер поверит форме, а не тексту.
+    case "$PREV_REPORT" in
+      *.json) echo '```json' ;;
+      *) echo '```markdown' ;;
+    esac
+    cat "$PREV_REPORT"
+    echo '```'
+    echo
+    echo "## Дельта: что изменилось С ТОГО ревью (и только она)"
+    echo '```diff'
+    printf '%s\n' "$DELTA"
+    echo '```'
+  } > "$PROMPT_FILE"
+  ai_log "verify prompt: $(wc -c < "$PROMPT_FILE" | tr -d ' ') bytes (дельта вместо полного диффа)"
+
+  VERIFY_JSON="$AI_TASK_REVIEW_DIR/03b-code-review-verify.json"
+  EVENTS_PREFIX="$AI_TASK_STATE_DIR/review-verify-$(ai_timestamp)"
+  if [ "$TIER" = "codex" ]; then
+    if ! ai_codex_available; then
+      echo "BACKEND_UNAVAILABLE: codex недоступен, а --tier codex задан явно — верификация НЕ прошла." >&2
+      exit 2
+    fi
+    if ! ai_run_codex "$PROMPT_FILE" "$VERIFY_JSON" "${EVENTS_PREFIX}-codex.jsonl" \
+        --output-schema "$AI_SCHEMAS/findings.schema.json"; then
+      echo "codex exec failed — см. ${EVENTS_PREFIX}-codex.jsonl.stderr. Это НЕ «фиксы подтверждены»." >&2
+      exit 1
+    fi
+    ai_print_findings_summary "$VERIFY_JSON"
+  else
+    # auto/free: сначала бесплатный OpenCode, фоллбэк на Codex (внутри
+    # ai_run_specialist_review). Подтвердить закрытие известных находок —
+    # задача заметно проще первичного ревью, платить за неё полную цену незачем.
+    out=$(ai_run_specialist_review "code-review-verify" "reviewer" "$PROMPT_FILE" "$VERIFY_JSON" "$EVENTS_PREFIX")
+    rc=$?
+    if [ "$rc" -eq 2 ]; then
+      echo "BACKEND_UNAVAILABLE: ни opencode, ни codex не доступны — верификация НЕ прошла." >&2
+      exit 2
+    elif [ "$rc" -ne 0 ]; then
+      echo "верификация упала на обоих бэкендах — см. ${EVENTS_PREFIX}-*.stderr" >&2
+      exit 1
+    fi
+    ai_log "verify report -> $out"
+    case "$out" in
+      *.json) ai_print_findings_summary "$out" ;;
+      *) sed -n '1,80p' "$out" ;;
+    esac
+  fi
+  printf '%s\n' "$NEW_TREE" > "$TREE_FILE"
+  exit 0
+fi
+
+# ---------------------------------------------------------------------------
+# Режим 2 — полный круг.
+# ---------------------------------------------------------------------------
+DIFF_CONTENT=$(ai_collect_diff "$DIFF_MODE")
+diff_rc=$?
+if [ "$diff_rc" -ne 0 ]; then
+  echo "ERROR: could not collect diff (mode: $DIFF_MODE) — git itself failed, see stderr above. This is NOT \"nothing changed\" — the mandatory review did not run. Check the branch/sha exists." >&2
+  exit 1
+fi
+if [ -z "$DIFF_CONTENT" ]; then
+  echo "no diff to review (mode: $DIFF_MODE) — nothing changed. NB: docs/** и .ai/** исключены по умолчанию; если менялись только они, перезапусти с --with-docs." >&2
+  exit 0
+fi
+
+# Порог тривиальности. Маркеры риска перевешивают размер — см. ai_diff_tier.
+DIFF_TIER=$(ai_diff_tier "$DIFF_CONTENT")
+ai_log "diff tier: $DIFF_TIER"
+if [ "$DIFF_TIER" = "trivial" ] && [ "$FORCE" -eq 0 ]; then
+  SKIP_NOTE="$AI_TASK_REVIEW_DIR/03-code-review-skipped.md"
+  {
+    echo "# Ревью НЕ запускалось: дифф классифицирован как trivial"
+    echo "_$(ai_timestamp)_"
+    echo
+    echo "Порог: <= $AI_TRIVIAL_MAX_FILES файлов и <= $AI_TRIVIAL_MAX_LINES строк,"
+    echo "без маркеров риска (структура хранения данных/типы в .mdo/проведение/транзакции/права/деньги/"
+    echo "обработчики обновления/запрос динсписка/внешний код/сборка поставки — см. ai_diff_tier)."
+    echo "Правило .ai/README.md «When to escalate»: тривиальную правку закрывают"
+    echo "ai-test + ai-final-check, платный ревьюер тут не нужен."
+    echo
+    echo "Нужно всё равно — \`ai-review $SLUG --force\`."
+    echo
+    echo "ВАЖНО: это НЕ «ревью пройдено». Это «ревью сознательно не звали»."
+  } > "$SKIP_NOTE"
+  echo "SKIPPED_TRIVIAL: дифф тривиальный ($DIFF_TIER) — платный ревьюер не зван. Это НЕ одобренный дифф: закрывай задачу через ai-test + ai-final-check, либо перезапусти с --force. Заметка: $SKIP_NOTE" >&2
+  exit 0
+fi
+
+USE_FREE=0
+[ "$TIER" = "free" ] && USE_FREE=1
+if [ "$USE_FREE" -eq 0 ] && ! ai_codex_available; then
+  echo "BACKEND_UNAVAILABLE: codex missing or not logged in (run: codex login). Required for ai-review — this is a mandatory quality gate for non-trivial changes; tell the user it did not run." >&2
+  exit 2
+fi
+
+PROMPT_FILE="$AI_TASK_STATE_DIR/review-prompt.md"
+# Файлы диффа берём ИЗ САМОГО ДИФФА, а не из рабочего дерева: при --base/--commit
+# `git status` показал бы не тот набор, и паёк собрался бы не по тем каталогам.
+DIFF_FILES=$(printf '%s\n' "$DIFF_CONTENT" | sed -n 's|^+++ b/||p' | sort -u)
+{
+  cat "$AI_PROMPTS/reviewer.md"
+  echo
+  ai_context_pack "$DIFF_FILES"
+  echo
+  echo "## Diff under review (mode: $DIFF_MODE, tier: $DIFF_TIER)"
+  echo '```diff'
+  printf '%s\n' "$DIFF_CONTENT"
+  echo '```'
+} > "$PROMPT_FILE"
+ai_log "review prompt: $(wc -c < "$PROMPT_FILE" | tr -d ' ') bytes (контекстный паёк вместо чтения CLAUDE.md/RULES.md ревьюером)"
+
+EVENTS_OUT="$AI_TASK_STATE_DIR/review-$(ai_timestamp).jsonl"
+
+if [ "$USE_FREE" -eq 1 ]; then
+  out=$(ai_run_specialist_review "code-review" "reviewer" "$PROMPT_FILE" "$RESULT_JSON" "${EVENTS_OUT%.jsonl}")
+  rc=$?
+  if [ "$rc" -eq 2 ]; then
+    echo "BACKEND_UNAVAILABLE: ни opencode, ни codex не доступны — ревью не прошло." >&2
+    exit 2
+  elif [ "$rc" -ne 0 ]; then
+    echo "ревью упало на обоих бэкендах — см. ${EVENTS_OUT%.jsonl}-*.stderr" >&2
+    exit 1
+  fi
+  ai_log "code review (free tier) -> $out"
+  case "$out" in
+    *.json) ai_print_findings_summary "$out" ;;
+    *) sed -n '1,80p' "$out" ;;
+  esac
+else
+  if ! ai_run_codex "$PROMPT_FILE" "$RESULT_JSON" "$EVENTS_OUT" --output-schema "$AI_SCHEMAS/findings.schema.json"; then
+    echo "codex exec failed — see ${EVENTS_OUT}.stderr. Do not treat this as an approved diff." >&2
+    exit 1
+  fi
+  ai_log "code review -> $RESULT_JSON"
+  ai_print_findings_summary "$RESULT_JSON"
+fi
+
+# Снимок дерева — база для следующего `--verify`. Пишем ТОЛЬКО после успешного
+# ревью: иначе упавший круг «съел» бы дельту, и следующая верификация проверяла
+# бы фиксы относительно кода, который никто не ревьюил.
+if NEW_TREE=$(ai_snapshot_tree); then
+  printf '%s\n' "$NEW_TREE" > "$TREE_FILE"
+else
+  ai_warn "не удалось сохранить снимок дерева — следующий --verify потребует полного круга"
+fi

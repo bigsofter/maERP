@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+# ai-test <task-slug> [--analyze "<what changed / expected behavior>"] [--db]
+#
+# Always runs the REAL maERP test commands scoped to what changed — AI analysis
+# never substitutes for actually executing tests. --analyze additionally asks
+# OpenCode's `tester` agent for a coverage gap analysis first; if unavailable,
+# that part is skipped with a warning (the real test run below still happens).
+#
+# Уровни тестов (docs/TESTING.md, «Состав тестов»):
+#   0.5 scripts/refcheck.py, 0.7 scripts/listcheck.py — на исходниках, всегда
+#       при правке src/cf/**; секунды.
+#   1–3 scripts/smoke.sh (CheckConfig + смок), scripts/doctests.sh — только с
+#       --db: они проверяют базу build/ib, а её обновляет из EDT владелец. Без
+#       Refresh и обновления базы смок молча гоняет код ПРОШЛОЙ сборки, поэтому
+#       по умолчанию не запускаются — и об этом печатается явная строка.
+# Уровень 0 (BSL LS против baseline) — гейт, а не тест: он в ai-final-check.
+set -uo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
+
+usage() { echo "usage: ai-test <task-slug> [--analyze \"<expected behavior / what changed>\"] [--db]" >&2; }
+if [ $# -lt 1 ]; then usage; exit 64; fi
+SLUG=$(ai_slugify "$1"); shift
+ANALYZE_DESC=""
+WITH_DB=0
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --analyze) ANALYZE_DESC="${2:-}"; shift 2 || shift ;;
+    --db) WITH_DB=1; shift ;;
+    *) echo "unknown arg: $1" >&2; usage; exit 64 ;;
+  esac
+done
+ai_task_dirs "$SLUG"
+cd "$AI_REPO_ROOT" || exit 1
+
+CHANGED=$(ai_changed_files)
+NEW=$(ai_new_files)
+if [ -z "$CHANGED" ] && [ "$WITH_DB" -eq 0 ]; then
+  echo "no changed files — nothing to scope tests to. Полный прогон: scripts/refcheck.py, scripts/listcheck.py, scripts/smoke.sh, scripts/doctests.sh (или ai-test $SLUG --db)." >&2
+  exit 0
+fi
+
+# --- optional: coverage analysis via OpenCode tester agent ---------------
+if [ -n "$ANALYZE_DESC" ]; then
+  if ai_opencode_available; then
+    PROMPT_FILE="$AI_TASK_STATE_DIR/test-analyze-prompt.md"
+    {
+      cat "$AI_PROMPTS/tester.md"
+      echo
+      echo "## Changed files"
+      printf '%s\n' "$CHANGED"
+      echo
+      echo "## Task / expected behavior"
+      echo "$ANALYZE_DESC"
+    } > "$PROMPT_FILE"
+    EVENTS_OUT="$AI_TASK_STATE_DIR/test-analyze-$(ai_timestamp).jsonl"
+    ANALYSIS_OUT="$AI_TASK_REVIEW_DIR/06-test-analysis.md"
+    if ai_run_opencode tester "$(cat "$PROMPT_FILE")" "$EVENTS_OUT" > "$ANALYSIS_OUT.tmp"; then
+      mv "$ANALYSIS_OUT.tmp" "$ANALYSIS_OUT"
+      ai_log "test coverage analysis -> $ANALYSIS_OUT"
+      cat "$ANALYSIS_OUT"
+    else
+      rm -f "$ANALYSIS_OUT.tmp"
+      ai_warn "opencode tester analysis failed — continuing to the real test run below (fallback: test-analyzer Claude subagent)"
+    fi
+  else
+    ai_warn "--analyze requested but opencode unavailable — skipping coverage analysis, running real tests only (fallback: test-analyzer Claude subagent)"
+  fi
+fi
+
+# --- real test execution, scoped by what changed --------------------------
+echo
+echo "=== Real test execution ==="
+overall_rc=0
+ran=0
+
+# Проверки состава — через ai_changed_has (БЕЗ пайпа): `printf | grep -q` под
+# `set -o pipefail` — гонка SIGPIPE, шаг молча пропускается и выглядит как
+# пройденный (см. ai-lib.sh, ai_changed_has).
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/refcheck"; then
+  echo "--- уровень 0.5: scripts/refcheck.py ---"
+  ran=$((ran + 1))
+  python3 scripts/refcheck.py || overall_rc=1
+fi
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/listcheck"; then
+  echo "--- уровень 0.7: scripts/listcheck.py ---"
+  ran=$((ran + 1))
+  python3 scripts/listcheck.py || overall_rc=1
+fi
+
+if [ "$WITH_DB" -eq 1 ]; then
+  if [ -z "${SMOKE_USER:-}" ] || [ -z "${SMOKE_PWD:-}" ]; then
+    echo "--db: SMOKE_USER/SMOKE_PWD не заданы — build/ib не пустит. Уровни 1–3 НЕ запускались." >&2
+    overall_rc=1
+  else
+    echo "--- уровни 1–2: scripts/smoke.sh ---"
+    ran=$((ran + 1))
+    scripts/smoke.sh || overall_rc=1
+    echo "--- уровень 3: scripts/doctests.sh ---"
+    ran=$((ran + 1))
+    scripts/doctests.sh || overall_rc=1
+  fi
+elif ai_changed_has "$CHANGED" "src/cf/"; then
+  ai_warn "уровни 1–3 (smoke.sh, doctests.sh) НЕ запускались: нужен --db и build/ib, обновлённая из EDT. Это пропуск, а не «прошли»."
+fi
+
+if [ "$ran" -eq 0 ]; then
+  ai_warn "ни один тест не применим к составу изменений (нет src/cf/** и scripts/refcheck|listcheck) — запускать было нечего"
+fi
+
+REGIMEN=$(ai_regimen_warnings "$CHANGED" "$NEW")
+if [ -n "$REGIMEN" ]; then
+  while IFS= read -r line; do ai_warn "регламент: $line"; done <<< "$REGIMEN"
+fi
+
+if [ "$overall_rc" -eq 0 ]; then
+  echo "=== ai-test: запущено $ran, все прошли ==="
+else
+  echo "=== ai-test: FAILURES above — do not report done until fixed ===" >&2
+fi
+exit "$overall_rc"
