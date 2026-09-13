@@ -206,6 +206,11 @@ if [ "$USE_FREE" -eq 1 ]; then
     *.json) ai_print_findings_summary "$out" ;;
     *) sed -n '1,80p' "$out" ;;
   esac
+  # Полный круг только на OpenCode — не обязательный гейт (замер 2026-09-13,
+  # .ai/reports/model-bench-2026-09-13.md). Снимок дерева не пишем: следующий --verify
+  # должен сверяться с кодом, который прошёл настоящее ревью.
+  echo "GATE_NOT_PASSED: полное ревью выполнил только OpenCode. Для обязательного гейта — Codex (--tier codex) или субагент Claude; в отчёте владельцу написать прямо." >&2
+  exit 3
 else
   if ! ai_run_codex "$PROMPT_FILE" "$RESULT_JSON" "$EVENTS_OUT" --output-schema "$AI_SCHEMAS/findings.schema.json"; then
     echo "codex exec failed — see ${EVENTS_OUT}.stderr. Do not treat this as an approved diff." >&2

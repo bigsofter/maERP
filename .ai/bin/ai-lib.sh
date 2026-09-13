@@ -536,6 +536,37 @@ ai_diff_tier() {
 # ---------------------------------------------------------------------------
 ai_run_specialist_review() {
   local role="$1" opencode_agent="$2" prompt_file="$3" result_out="$4" events_prefix="$5"
+  local order="${6:-opencode-first}"
+
+  # codex-first — обязательные ревью (данные, безопасность). Замер 2026-09-13
+  # (.ai/reports/model-bench-2026-09-13.md): на сложном диффе модели OpenCode нашли 0 из 8
+  # подтверждённых находок, gpt-6-astra — 1, субагент Claude — 8. Поэтому отчёт одного
+  # OpenCode для обязательного гейта недостаточен: rc 3 = отчёт есть, гейт НЕ пройден.
+  if [ "$order" = "codex-first" ]; then
+    if ai_codex_available; then
+      ai_log "$role: trying codex (read-only)"
+      local cx_first="${events_prefix}-codex.jsonl"
+      if ai_run_codex "$prompt_file" "$result_out" "$cx_first" --output-schema "$AI_SCHEMAS/findings.schema.json"; then
+        ai_log "$role: codex report -> $result_out"
+        echo "$result_out"
+        return 0
+      fi
+      ai_warn "$role: codex failed (limit or error) — OpenCode даст только предварительный отчёт"
+    fi
+    if ai_opencode_available; then
+      local oc_first="${events_prefix}-opencode.jsonl"
+      local oc_first_md="${result_out%.json}.md"
+      if ai_run_opencode "$opencode_agent" "$(cat "$prompt_file")" "$oc_first" > "$oc_first_md.tmp"; then
+        mv "$oc_first_md.tmp" "$oc_first_md"
+        ai_warn "$role: GATE_NOT_PASSED — отчёт только OpenCode ($oc_first_md); обязательный гейт — субагент Claude"
+        echo "$oc_first_md"
+        return 3
+      fi
+      rm -f "$oc_first_md.tmp"
+    fi
+    echo "BACKEND_UNAVAILABLE" >&2
+    return 2
+  fi
 
   if ai_opencode_available; then
     ai_log "$role: trying opencode/$opencode_agent"

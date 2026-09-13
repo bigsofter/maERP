@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # ai-database <task-slug> [--base <branch> | --commit <sha> | --uncommitted] [--with-docs]
 #
-# Schema/migration/transaction review. Tries OpenCode's `database` agent
-# (free zen tier) first, falls back to Codex read-only. Mandatory whenever a
+# Schema/migration/transaction review. Codex read-only first (mandatory gate); OpenCode `database`
+# only as a preliminary report when Codex is unavailable (exit 3 = GATE_NOT_PASSED). Mandatory whenever a
 # change touches schema, migrations, transactions, or complex SQL.
 set -uo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
@@ -49,8 +49,13 @@ PROMPT_FILE="$AI_TASK_STATE_DIR/database-prompt.md"
 RESULT_JSON="$AI_TASK_REVIEW_DIR/04-database-review.json"
 EVENTS_PREFIX="$AI_TASK_STATE_DIR/database-$(ai_timestamp)"
 
-out=$(ai_run_specialist_review "database" "database" "$PROMPT_FILE" "$RESULT_JSON" "$EVENTS_PREFIX")
+out=$(ai_run_specialist_review "database" "database" "$PROMPT_FILE" "$RESULT_JSON" "$EVENTS_PREFIX" codex-first)
 rc=$?
+if [ "$rc" -eq 3 ]; then
+  cat "$out"
+  echo "GATE_NOT_PASSED: database-ревью выполнил только OpenCode (Codex недоступен). Для обязательного гейта — субагент Claude; в отчёте владельцу написать прямо." >&2
+  exit 3
+fi
 if [ "$rc" -eq 2 ]; then
   echo "BACKEND_UNAVAILABLE: neither opencode nor codex is usable. Database review is mandatory for schema/migration/transaction changes — tell the user it did not run." >&2
   exit 2

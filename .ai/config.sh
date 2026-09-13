@@ -36,7 +36,11 @@ AI_CODEX_TIMEOUT_SECS="${AI_CODEX_TIMEOUT_SECS:-600}"
 # those are Zen, billed from credits). Set it in .ai/config.local.sh, not
 # here — see «OpenCode Go» in .ai/README.md.
 AI_OPENCODE_BIN="${AI_OPENCODE_BIN:-opencode}"
-AI_OPENCODE_MODEL="${AI_OPENCODE_MODEL:-opencode/big-pickle}"
+# Решение владельца 2026-09-13 по замеру .ai/reports/model-bench-2026-09-13.md: помощники на
+# OpenCode Zen (кредиты), основная — glm-5.3 (качество kimi-k3 при цене вдвое ниже), запасная —
+# kimi-k3. big-pickle из цепочки убрана: на больших промптах не укладывается в таймаут.
+# Обязательные ревью OpenCode одному не доверяются — см. ai_run_specialist_review, codex-first.
+AI_OPENCODE_MODEL="${AI_OPENCODE_MODEL:-opencode/glm-5.3}"
 # 600s not 300s: observed a real timeout at 300s reviewing a genuinely large
 # diff (34 files/1881 lines) on the free-tier model — it correctly fell back
 # to Codex per FAILURE HANDLING rather than fabricating anything, but a
@@ -47,9 +51,8 @@ AI_OPENCODE_TIMEOUT_SECS="${AI_OPENCODE_TIMEOUT_SECS:-600}"
 # и обёртка переходит к следующей модели. 0 — сторож выключен.
 AI_OPENCODE_FIRST_EVENT_SECS="${AI_OPENCODE_FIRST_EVENT_SECS:-90}"
 # Запасные модели через пробел: пробуются по порядку, если основная упала, зависла или
-# вернула пустой ответ. opencode/big-pickle — бесплатный Zen (cost:0, проверено
-# 2026-09-13 при исчерпанном лимите Go). Пустая строка — без запасных моделей.
-AI_OPENCODE_FALLBACK_MODELS="${AI_OPENCODE_FALLBACK_MODELS-opencode/big-pickle}"
+# вернула пустой ответ. Пустая строка — без запасных моделей.
+AI_OPENCODE_FALLBACK_MODELS="${AI_OPENCODE_FALLBACK_MODELS-opencode/kimi-k3}"
 
 # --- Backend availability (probed lazily by ai-lib.sh, not here) --------
 # AI_OPENCODE_ENABLED lets a human hard-disable the OpenCode path without
