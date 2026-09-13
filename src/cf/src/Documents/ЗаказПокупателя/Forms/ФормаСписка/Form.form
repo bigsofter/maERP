@@ -3,6 +3,21 @@
 <items xsi:type="form:FormGroup">
   <name>ГруппаСтраницыДокументов</name>
   <id>700</id>
+  <visible>true</visible>
+  <enabled>true</enabled>
+  <userVisible>
+    <common>true</common>
+  </userVisible>
+  <extendedTooltip>
+    <name>ГруппаСтраницыДокументовРасширеннаяПодсказка</name>
+    <id>806</id>
+    <type>Label</type>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </extendedTooltip>
   <items xsi:type="form:FormGroup">
     <name>СтраницаЗаказы</name>
     <id>701</id>
@@ -10,6 +25,21 @@
     <title><key>fr</key><value>Commandes</value></title>
     <title><key>en</key><value>Orders</value></title>
     <title><key>es</key><value>Pedidos</value></title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <extendedTooltip>
+      <name>СтраницаЗаказыРасширеннаяПодсказка</name>
+      <id>807</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
 <items xsi:type="form:FormGroup">
     <name>ГруппаГлавная</name>
     <id>186</id>
@@ -2664,7 +2694,7 @@
     </extInfo>
   </items>
   <type>Page</type>
-    <extInfo xsi:type="form:PageGroupExtInfo"><group>Vertical</group><showTitle>auto</showTitle><scrollOnCompress>false</scrollOnCompress></extInfo>
+    <extInfo xsi:type="form:PageGroupExtInfo"><group>Vertical</group><showTitle>true</showTitle><scrollOnCompress>false</scrollOnCompress></extInfo>
   </items>
   <items xsi:type="form:FormGroup">
     <name>СтраницаКоммерческиеПредложения</name>
@@ -2673,6 +2703,63 @@
     <title><key>fr</key><value>Devis</value></title>
     <title><key>en</key><value>Quotations</value></title>
     <title><key>es</key><value>Presupuestos</value></title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <extendedTooltip>
+      <name>СтраницаКоммерческиеПредложенияРасширеннаяПодсказка</name>
+      <id>808</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+      <items xsi:type="form:Button">
+        <name>КнопкаСоздатьЗаказПоПредложению</name>
+        <id>755</id>
+        <title>
+          <key>ru</key>
+          <value>Создать заказ</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Créer la commande</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Create order</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Crear el pedido</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаСоздатьЗаказПоПредложениюРасширеннаяПодсказка</name>
+          <id>756</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СоздатьЗаказПоПредложению</commandName>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+        <buttonImportance>Main</buttonImportance>
+      </items>
 <items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="form:Table">
         <name>СписокКоммерческихПредложений</name>
         <id>720</id>
@@ -3107,32 +3194,6 @@
         <autoCommandBar>
           <name>СписокКоммерческихПредложенийКоманднаяПанель</name>
           <id>754</id>
-          <items xsi:type="form:Button">
-            <name>СписокКоммерческихПредложенийКнопкаСоздатьЗаказ</name>
-            <id>755</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <extendedTooltip>
-              <name>СписокКоммерческихПредложенийКнопкаСоздатьЗаказРасширеннаяПодсказка</name>
-              <id>756</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <commandName>Form.Command.СоздатьЗаказПоПредложению</commandName>
-            <buttonImportance>Normal</buttonImportance>
-            <representation>Auto</representation>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <placementArea>UserCmds</placementArea>
-            <representationInContextMenu>Auto</representationInContextMenu>
-          </items>
           <horizontalAlign>Left</horizontalAlign>
         </autoCommandBar>
         <searchStringAddition>
@@ -3261,9 +3322,8 @@
       </items>
 
     <type>Page</type>
-    <extInfo xsi:type="form:PageGroupExtInfo"><group>Vertical</group><showTitle>auto</showTitle><scrollOnCompress>false</scrollOnCompress></extInfo>
+    <extInfo xsi:type="form:PageGroupExtInfo"><group>Vertical</group><showTitle>true</showTitle><scrollOnCompress>false</scrollOnCompress></extInfo>
   </items>
-  <visible>true</visible><enabled>true</enabled><userVisible><common>true</common></userVisible>
   <type>Pages</type>
   <extInfo xsi:type="form:PagesGroupExtInfo"><pagesRepresentation>TabsOnTop</pagesRepresentation></extInfo>
 </items>
