@@ -285,6 +285,44 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>ВидОперации</name>
+      <id>800</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.ВидОперации</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ВидОперацииРасширеннаяПодсказка</name>
+        <id>802</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ВидОперацииКонтекстноеМеню</name>
+        <id>801</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <width>10</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>Статус</name>
       <id>95</id>
       <visible>true</visible>
@@ -1202,6 +1240,123 @@
               <horizontalAlign>Left</horizontalAlign>
             </extInfo>
           </extendedTooltip>
+          <items xsi:type="form:FormField">
+            <name>ФильтрВидаОперации</name>
+            <id>803</id>
+            <title>
+              <key>ru</key>
+              <value>Операция</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Opération</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Operation</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Operación</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ФильтрВидаОперации</segments>
+            </dataPath>
+            <titleLocation>Top</titleLocation>
+            <handlers>
+              <event>OnChange</event>
+              <name>ОтборПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ФильтрВидаОперацииРасширеннаяПодсказка</name>
+              <id>804</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ФильтрВидаОперацииКонтекстноеМеню</name>
+              <id>805</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>RadioButtonField</type>
+            <editMode>Enter</editMode>
+            <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
+              <radioButtonsType>Tumbler</radioButtonsType>
+              <equalElementsWidth>true</equalElementsWidth>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Все</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Toutes</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>All</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Todas</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>0</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Продажа</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Vente</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Sale</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Venta</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>1</value>
+                  </value>
+                </choiceList>
+                <choiceList>
+                  <presentation>
+                    <key>ru</key>
+                    <value>Производство</value>
+                  </presentation>
+                  <presentation>
+                    <key>fr</key>
+                    <value>Production</value>
+                  </presentation>
+                  <presentation>
+                    <key>en</key>
+                    <value>Production</value>
+                  </presentation>
+                  <presentation>
+                    <key>es</key>
+                    <value>Producción</value>
+                  </presentation>
+                  <value xsi:type="core:NumberValue">
+                    <value>2</value>
+                  </value>
+                </choiceList>
+            </extInfo>
+          </items>
           <items xsi:type="form:FormField">
             <name>ФильтрОплаты</name>
             <id>193</id>
@@ -3175,6 +3330,7 @@
 	ДокументЗаказПокупателя.ДатаВходящегоДокументаЭлектронногоОбмена КАК ДатаВходящегоДокументаЭлектронногоОбмена,
 	ДокументЗаказПокупателя.МенеджерПодтвердилПроверилОстаток КАК МенеджерПодтвердилПроверилОстаток,
 	ДокументЗаказПокупателя.АвторОбщий КАК АвторОбщий,
+	ДокументЗаказПокупателя.ВидОперации КАК ВидОперации,
 	ДокументЗаказПокупателя.ТЧТовары.(
 		Ссылка КАК Ссылка,
 		НомерСтроки КАК НомерСтроки,
@@ -3783,6 +3939,22 @@
   <attributes>
     <name>ФильтрОтгрузки</name>
     <id>16</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ФильтрВидаОперации</name>
+    <id>18</id>
     <valueType>
       <types>Number</types>
       <numberQualifiers>
