@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.13
+### ru
+- В заказе клиента на производство появился состав материалов: таблица «Материалы» под товарами на закладке «Товары и услуги». По умолчанию она показывает материалы текущей строки товаров, переключатель «Все материалы» — весь состав заказа.
+- Кнопки «Заполнить по техкарте» (текущая строка) и «Заполнить все по техкартам» заполняют материалы по технологической карте, действующей на дату заказа. Количество материала считается от количества продукции и пересчитывается при его изменении; о производимой позиции без карты выводится сообщение.
+- Заказ на производство, введённый на основании коммерческого предложения, получает материалы сразу.
+- При смене номенклатуры или удалении строки товаров её материалы удаляются, копия строки получает копию материалов. Одна продукция в двух строках заказа может иметь только одинаковый состав — иначе заказ не записывается.
+- Если заказ перевести из производства в продажу, материалы очищаются при записи. У заказов на продажу форма не изменилась.
+- Версия технологической карты строки хранится в колонке «Техкарта»; её можно показать через «Ещё → Изменить форму».
+### fr
+- La commande client en production reçoit une composition de matières : le tableau « Matières » sous les articles, dans l’onglet « Marchandises et services ». Par défaut, il affiche les matières de la ligne d’articles courante ; le sélecteur « Toutes les matières » affiche toute la composition de la commande.
+- Les boutons « Remplir selon la gamme de fabrication » (ligne courante) et « Tout remplir selon les gammes de fabrication » remplissent les matières selon la gamme en vigueur à la date de la commande. La quantité de matière est calculée à partir de la quantité de produit et recalculée quand celle-ci change ; un article fabriqué sans gamme fait l’objet d’un message.
+- Une commande en production créée à partir d’un devis reçoit ses matières immédiatement.
+- Quand l’article d’une ligne change ou que la ligne est supprimée, ses matières sont supprimées ; une ligne copiée reçoit une copie des matières. Un même produit sur deux lignes d’une commande doit avoir la même composition, sinon la commande n’est pas enregistrée.
+- Si une commande en production repasse en vente, ses matières sont effacées à l’enregistrement. Le formulaire des commandes de vente est inchangé.
+- La version de la gamme de fabrication de la ligne est conservée dans la colonne « Gamme de fabrication », affichable via « Plus → Modifier le formulaire ».
+### en
+- Customer production orders now have a materials list: the Materials table below the products on the Goods and services tab. By default it shows the materials of the current product line; the All materials switch shows the whole order composition.
+- The Fill from production routing (current line) and Fill all from production routings buttons fill materials from the routing valid on the order date. Material quantity is calculated from the product quantity and recalculated when it changes; a manufactured item without a routing gets a message.
+- A production order created from a quotation gets its materials straight away.
+- When a line's product changes or the line is deleted, its materials are removed; a copied line gets a copy of the materials. The same product on two order lines must have the same composition, otherwise the order is not saved.
+- If an order is switched from production back to sale, its materials are cleared on save. The sales order form is unchanged.
+- The routing version of a line is kept in the Production routing column, which can be shown via More → Change form.
+### es
+- El pedido de cliente para producción tiene ahora composición de materiales: la tabla «Materiales» bajo los artículos, en la pestaña «Bienes y servicios». Por defecto muestra los materiales de la línea de artículos actual; el conmutador «Todos los materiales» muestra toda la composición del pedido.
+- Los botones «Rellenar según ruta de fabricación» (línea actual) y «Rellenar todo según rutas de fabricación» rellenan los materiales según la ruta vigente en la fecha del pedido. La cantidad de material se calcula a partir de la cantidad de producto y se recalcula cuando esta cambia; un artículo fabricado sin ruta recibe un mensaje.
+- Un pedido para producción creado a partir de un presupuesto recibe los materiales de inmediato.
+- Al cambiar el artículo de una línea o eliminar la línea, sus materiales se eliminan; una línea copiada recibe una copia de los materiales. Un mismo producto en dos líneas del pedido debe tener la misma composición; de lo contrario, el pedido no se guarda.
+- Si un pedido pasa de producción a venta, sus materiales se borran al guardar. El formulario de los pedidos de venta no cambia.
+- La versión de la ruta de fabricación de la línea se guarda en la columna «Ruta de fabricación», que puede mostrarse con «Más → Cambiar formulario».
+
 ## 2.0.15.12
 ### ru
 - Колонки «Статус» и «Долг» в списках заказов клиентов и реализаций подписаны на языке интерфейса, а не только по-русски.
