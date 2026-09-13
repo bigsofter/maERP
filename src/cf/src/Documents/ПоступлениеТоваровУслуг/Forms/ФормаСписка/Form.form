@@ -440,6 +440,60 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>ЗаказКлиента</name>
+      <id>184</id>
+      <title>
+        <key>ru</key>
+        <value>Заказ клиента</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Commande client</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Customer order</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Pedido de cliente</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.ЗаказКлиента</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ЗаказКлиентаРасширеннаяПодсказка</name>
+        <id>186</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ЗаказКлиентаКонтекстноеМеню</name>
+        <id>185</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <editMode>Enter</editMode>
+      <autoCellHeight>true</autoCellHeight>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <width>20</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>МестоХранения</name>
       <id>57</id>
       <visible>false</visible>
@@ -2678,7 +2732,13 @@
 	ЕСТЬNULL(ПрисоединённыеФайлыНаличие.ЕстьФайлы, ЛОЖЬ) КАК ЕстьФайлы,
 	ДокументПоступлениеТоваровУслуг.ДатаОтгрузочногоДокумента КАК ДатаОтгрузочногоДокумента,
 	ДокументПоступлениеТоваровУслуг.Дата КАК СрокОплаты,
-	ДокументПоступлениеТоваровУслуг.НомерОтгрузочногоДокумента КАК НомерОтгрузочногоДокумента
+	ДокументПоступлениеТоваровУслуг.НомерОтгрузочногоДокумента КАК НомерОтгрузочногоДокумента,
+	ВЫБОР
+		КОГДА ДокументПоступлениеТоваровУслуг.Основание ССЫЛКА Документ.ЗаказПокупателя
+			ТОГДА ДокументПоступлениеТоваровУслуг.Основание
+		КОГДА ДокументПоступлениеТоваровУслуг.Основание ССЫЛКА Документ.ЗаказПоставщику
+			ТОГДА ВЫРАЗИТЬ(ДокументПоступлениеТоваровУслуг.Основание КАК Документ.ЗаказПоставщику).Основание
+	КОНЕЦ КАК ЗаказКлиента
 ИЗ
 	Документ.ПоступлениеТоваровУслуг КАК ДокументПоступлениеТоваровУслуг
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПрисоединённыеФайлыНаличие КАК ПрисоединённыеФайлыНаличие
@@ -2744,6 +2804,10 @@
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Основание</dataPath>
         <field>Основание</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>ЗаказКлиента</dataPath>
+        <field>ЗаказКлиента</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Ответственный</dataPath>
