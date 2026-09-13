@@ -168,6 +168,62 @@ ai_opencode_available() {
   # credentials probe.
 }
 
+# ai_with_timeout_first_output <secs> <first_output_secs> <watch_file> <stdin_file|-> <cmd...>
+# Как ai_with_timeout, но дополнительно снимает процесс, если <watch_file> остаётся пустым
+# дольше <first_output_secs> — тогда код возврата 125.
+#
+# Зачем (проверено 2026-09-13): исчерпанный лимит подписки OpenCode Go не даёт ни ошибки,
+# ни события — `opencode run` молча висит без единого байта в stdout и stderr до общего
+# таймаута. Ревью ждало 600 с вместо того, чтобы сразу перейти на запасную модель.
+# 0 в <first_output_secs> отключает сторож.
+ai_with_timeout_first_output() {
+  local secs="$1" first_secs="$2" watch_file="$3" stdin_file="$4"; shift 4
+  local out_rc_file stall_file
+  out_rc_file=$(mktemp)
+  stall_file=$(mktemp)
+  rm -f "$stall_file"
+  if [ "$stdin_file" = "-" ]; then
+    (
+      "$@"
+      echo $? > "$out_rc_file"
+    ) &
+  else
+    (
+      "$@" < "$stdin_file"
+      echo $? > "$out_rc_file"
+    ) &
+  fi
+  local cmd_pid=$!
+  (
+    local waited=0
+    while kill -0 "$cmd_pid" 2>/dev/null; do
+      if [ "$waited" -ge "$secs" ]; then
+        break
+      fi
+      if [ "$first_secs" -gt 0 ] && [ "$waited" -ge "$first_secs" ] && [ ! -s "$watch_file" ]; then
+        : > "$stall_file"
+        break
+      fi
+      sleep 2
+      waited=$((waited + 2))
+    done
+    if kill -0 "$cmd_pid" 2>/dev/null; then
+      ai_kill_tree "$cmd_pid" TERM
+      sleep 2
+      ai_kill_tree "$cmd_pid" KILL
+    fi
+  ) &
+  local watcher_pid=$!
+  wait "$cmd_pid" 2>/dev/null
+  local rc=124
+  [ -s "$out_rc_file" ] && rc=$(cat "$out_rc_file")
+  [ -e "$stall_file" ] && rc=125
+  kill "$watcher_pid" 2>/dev/null
+  wait "$watcher_pid" 2>/dev/null
+  rm -f "$out_rc_file" "$stall_file"
+  return "$rc"
+}
+
 # ---------------------------------------------------------------------------
 # Codex runner. ALWAYS read-only unless a caller explicitly overrides
 # AI_CODEX_SANDBOX — reviewers must never be able to write to the repo.
@@ -210,18 +266,61 @@ ai_run_codex() {
 ai_run_opencode() {
   local agent="$1" message="$2" events_out="$3"
   shift 3
+  # Основная модель, затем запасные (AI_OPENCODE_FALLBACK_MODELS): лимит подписки Go
+  # не должен останавливать ревью, пока жива бесплатная модель Zen. Транскрипт каждой
+  # попытки — свой файл; итоговый <events_json_out> — транскрипт успешной модели.
+  local models="$AI_OPENCODE_MODEL $AI_OPENCODE_FALLBACK_MODELS"
+  local model attempt_events rc=1 tried=""
+  for model in $models; do
+    case " $tried " in *" $model "*) continue ;; esac
+    tried="$tried $model"
+    if [ "$model" = "$AI_OPENCODE_MODEL" ]; then
+      attempt_events="$events_out"
+    else
+      attempt_events="${events_out%.jsonl}-$(printf '%s' "$model" | tr '/:' '__').jsonl"
+      ai_warn "opencode: switching to fallback model $model"
+    fi
+    local text
+    text=$(ai_run_opencode_model "$agent" "$model" "$message" "$attempt_events" "$@")
+    rc=$?
+    if [ "$rc" -eq 0 ]; then
+      [ "$attempt_events" != "$events_out" ] && cp "$attempt_events" "$events_out"
+      # Модель — первой строкой отчёта: ревью запасной бесплатной моделью слабее, и это
+      # должно быть видно в самом артефакте, а не только в логе обёртки.
+      if [ "$model" = "$AI_OPENCODE_MODEL" ]; then
+        printf '_OpenCode: модель %s._\n\n' "$model"
+      else
+        printf '_OpenCode: запасная модель %s — основная %s не ответила (лимит, зависание или ошибка)._\n\n' \
+          "$model" "$AI_OPENCODE_MODEL"
+      fi
+      printf '%s\n' "$text"
+      return 0
+    fi
+  done
+  return "$rc"
+}
+
+# ai_run_opencode_model <agent_name> <model> <message> <events_json_out> [file_to_attach]
+# Один прогон OpenCode на одной модели; контракт возврата — как у ai_run_opencode.
+ai_run_opencode_model() {
+  local agent="$1" model="$2" message="$3" events_out="$4"
+  shift 4
   local file_args=()
   for f in "$@"; do file_args+=(-f "$f"); done
 
-  ai_log "opencode run --agent $agent -m $AI_OPENCODE_MODEL -> $events_out"
-  ai_with_timeout "$AI_OPENCODE_TIMEOUT_SECS" - \
-    "$AI_OPENCODE_BIN" run --format json --agent "$agent" -m "$AI_OPENCODE_MODEL" \
+  ai_log "opencode run --agent $agent -m $model -> $events_out"
+  ai_with_timeout_first_output "$AI_OPENCODE_TIMEOUT_SECS" "$AI_OPENCODE_FIRST_EVENT_SECS" "$events_out" - \
+    "$AI_OPENCODE_BIN" run --format json --agent "$agent" -m "$model" \
       "${file_args[@]+"${file_args[@]}"}" "$message" \
       --dir "$AI_REPO_ROOT" \
       > "$events_out" 2>"${events_out}.stderr"
   local rc=$?
+  if [ "$rc" -eq 125 ]; then
+    ai_warn "opencode run ($model): no output in ${AI_OPENCODE_FIRST_EVENT_SECS}s — stalled (likely subscription limit)"
+    return "$rc"
+  fi
   if [ "$rc" -eq 124 ]; then
-    ai_warn "opencode run timed out after ${AI_OPENCODE_TIMEOUT_SECS}s"
+    ai_warn "opencode run ($model) timed out after ${AI_OPENCODE_TIMEOUT_SECS}s"
     return "$rc"
   fi
   if [ "$rc" -ne 0 ]; then

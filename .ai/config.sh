@@ -42,6 +42,14 @@ AI_OPENCODE_MODEL="${AI_OPENCODE_MODEL:-opencode/big-pickle}"
 # to Codex per FAILURE HANDLING rather than fabricating anything, but a
 # larger default avoids paying the fallback tax for merely-large diffs.
 AI_OPENCODE_TIMEOUT_SECS="${AI_OPENCODE_TIMEOUT_SECS:-600}"
+# Сторож первого вывода: исчерпанный лимит Go не даёт ошибки, `opencode run` молча висит
+# (проверено 2026-09-13). Нет ни байта событий за это время — попытка снимается (rc 125)
+# и обёртка переходит к следующей модели. 0 — сторож выключен.
+AI_OPENCODE_FIRST_EVENT_SECS="${AI_OPENCODE_FIRST_EVENT_SECS:-90}"
+# Запасные модели через пробел: пробуются по порядку, если основная упала, зависла или
+# вернула пустой ответ. opencode/big-pickle — бесплатный Zen (cost:0, проверено
+# 2026-09-13 при исчерпанном лимите Go). Пустая строка — без запасных моделей.
+AI_OPENCODE_FALLBACK_MODELS="${AI_OPENCODE_FALLBACK_MODELS-opencode/big-pickle}"
 
 # --- Backend availability (probed lazily by ai-lib.sh, not here) --------
 # AI_OPENCODE_ENABLED lets a human hard-disable the OpenCode path without
