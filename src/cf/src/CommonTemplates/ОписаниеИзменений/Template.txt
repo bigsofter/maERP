@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.23
+### ru
+- Выпуск продукции: заполнение материалов по технологической карте — кнопкой «Заполнить техкарту» и при выборе продукции — выполняется одним обращением к серверу; раньше форма обращалась к серверу ещё и на каждую строку материалов. Из формы убран неработающий код прежней конфигурации (проверка веса, доли стоимости, подстановка цены закупки), остальное поведение формы не меняется.
+- Выпуск продукции: над колонкой «Стоимость» в таблице материалов больше нет заголовка «Доля стоимости» — сама доля никогда не рассчитывалась. Колонки «Цена» и «Стоимость» остались на своих местах.
+- Удалена константа «Упрощённый выпуск ГП»: она ни на что не влияла и в настройках не показывалась. После обновления база перестраивается.
+- Предупреждение о необходимости перезаполнить выпуски при смене технологической карты — в карточке номенклатуры и при проведении заказа на производство — больше не учитывает выпуски, созданные автоматически при отгрузке: их перезаполняет перепроведение реализации.
+- Встроенные автотесты: новый сценарий ручного выпуска — материалы по технологической карте на дату документа, одна и несколько позиций продукции, продукция без карты, предупреждение о выпусках без учёта автоматических.
+### fr
+- Fabrication : le remplissage des matières selon la gamme de fabrication — par le bouton du tableau des matières et au choix du produit — se fait en un seul appel au serveur ; auparavant, le formulaire appelait aussi le serveur pour chaque ligne de matières. Le code inopérant hérité de la configuration d'origine (contrôle du poids, parts de coût, prix d'achat proposé) est retiré, le reste du comportement du formulaire ne change pas.
+- Fabrication : la colonne « Montant » du tableau des matières n'est plus regroupée sous un en-tête de part du coût — cette part n'a jamais été calculée. Les colonnes du prix et du montant restent à leur place.
+- La constante « Fabrication simplifiée » est supprimée : elle n'avait aucun effet et n'apparaissait pas dans les paramètres. Après la mise à jour, la base est restructurée.
+- L'avertissement invitant à remplir à nouveau les fabrications lors d'un changement de gamme — dans la fiche article et à la validation d'une commande en production — ne tient plus compte des fabrications créées automatiquement à l'expédition : la revalidation de la vente les remplit à nouveau.
+- Tests automatiques intégrés : nouveau scénario de fabrication manuelle — matières selon la gamme à la date du document, un ou plusieurs produits, produit sans gamme, avertissement sur les fabrications sans les fabrications automatiques.
+### en
+- Production output: filling materials by production routing — with the button of the materials table and when choosing a product — takes a single server call; previously the form also called the server for every material line. Dead code inherited from the original configuration (weight check, cost shares, purchase price lookup) is removed; the rest of the form behaves as before.
+- Production output: the cost column of the materials table is no longer grouped under a cost share header — the share was never calculated. The price and cost columns stay where they were.
+- The "Simplified production output" constant is removed: it had no effect and was not shown in the settings. After the update, the infobase is restructured.
+- The warning to refill production outputs when a production routing changes — in the item card and when posting a production order — no longer counts outputs created automatically on shipment: reposting the sale refills them.
+- Built-in automated tests: a new manual production output scenario — materials by routing on the document date, one and several products, a product without a routing, and the output warning without automatic outputs.
+### es
+- Fabricación: el relleno de materiales según la ruta de fabricación — con el botón de la tabla de materiales y al elegir el producto — se hace con una sola llamada al servidor; antes el formulario llamaba además al servidor por cada línea de materiales. Se retira el código inoperante heredado de la configuración original (control de peso, partes del coste, precio de compra propuesto); el resto del formulario se comporta igual.
+- Fabricación: la columna del coste en la tabla de materiales ya no se agrupa bajo un encabezado de parte del coste — esa parte nunca se calculó. Las columnas del precio y del coste siguen en su sitio.
+- Se elimina la constante «Fabricación simplificada»: no tenía ningún efecto y no aparecía en los ajustes. Tras la actualización, la base se reestructura.
+- El aviso de volver a rellenar las fabricaciones al cambiar la ruta de fabricación — en la ficha del artículo y al contabilizar un pedido de producción — ya no tiene en cuenta las fabricaciones creadas automáticamente al enviar: las rellena la recontabilización de la venta.
+- Pruebas automáticas integradas: nuevo escenario de fabricación manual — materiales por ruta en la fecha del documento, uno y varios productos, producto sin ruta y aviso de fabricaciones sin las automáticas.
+
 ## 2.0.15.22
 ### ru
 - Автоматический выпуск при отгрузке: если материалов не хватает, реализация снова отказывает с перечнем недостающего. В 2.0.15.21 вместо этого сообщения возникала ошибка, когда в ту же секунду по этим материалам были проведены другие документы.

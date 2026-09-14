@@ -541,14 +541,6 @@
         <headerHorizontalAlign>Left</headerHorizontalAlign>
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:InputFieldExtInfo">
-          <handlers>
-            <event>AutoComplete</event>
-            <name>НоменклатураАвтоПодбор</name>
-          </handlers>
-          <handlers>
-            <event>ChoiceProcessing</event>
-            <name>НоменклатураОбработкаВыбора</name>
-          </handlers>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <wrap>true</wrap>
@@ -2142,10 +2134,6 @@
         <dataPath xsi:type="form:DataPath">
           <segments>Объект.ТЧТовары.Номенклатура</segments>
         </dataPath>
-        <handlers>
-          <event>OnChange</event>
-          <name>ТЧТоварыНоменклатураПриИзменении</name>
-        </handlers>
         <extendedTooltip>
           <name>ТЧТоварыНоменклатураРасширеннаяПодсказка</name>
           <id>71</id>
@@ -2168,14 +2156,6 @@
         <headerHorizontalAlign>Center</headerHorizontalAlign>
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:InputFieldExtInfo">
-          <handlers>
-            <event>AutoComplete</event>
-            <name>ТЧТоварыНоменклатураАвтоПодбор</name>
-          </handlers>
-          <handlers>
-            <event>ChoiceProcessing</event>
-            <name>ТЧТоварыНоменклатураОбработкаВыбора</name>
-          </handlers>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
           <wrap>true</wrap>
@@ -2196,10 +2176,6 @@
         <dataPath xsi:type="form:DataPath">
           <segments>Объект.ТЧТовары.Характеристика</segments>
         </dataPath>
-        <handlers>
-          <event>OnChange</event>
-          <name>ТЧТоварыХарактеристикаПриИзменении</name>
-        </handlers>
         <extendedTooltip>
           <name>ТЧТоварыХарактеристикаРасширеннаяПодсказка</name>
           <id>141</id>
@@ -2584,129 +2560,28 @@
           <textSize>Normal</textSize>
         </extInfo>
       </items>
-      <items xsi:type="form:FormGroup">
-        <name>ТЧТоварыГруппаДоляСтоимости</name>
-        <id>99</id>
-        <items xsi:type="form:FormField">
-          <name>ТЧТоварыСтоимость</name>
-          <id>96</id>
-          <title>
-            <key>ru</key>
-            <value>Стоимость</value>
-          </title>
-          <title>
-            <key>fr</key>
-            <value>Montant</value>
-          </title>
-          <visible>true</visible>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Объект.ТЧТовары.Себестоимость</segments>
-          </dataPath>
-          <extendedTooltip>
-            <name>ТЧТоварыСтоимостьРасширеннаяПодсказка</name>
-            <id>98</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <contextMenu>
-            <name>ТЧТоварыСтоимостьКонтекстноеМеню</name>
-            <id>97</id>
-            <autoFill>true</autoFill>
-          </contextMenu>
-          <type>InputField</type>
-          <editMode>Auto</editMode>
-          <headerHorizontalAlign>Center</headerHorizontalAlign>
-          <showInFooter>true</showInFooter>
-          <extInfo xsi:type="form:InputFieldExtInfo">
-            <width>6</width>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <horizontalStretch>false</horizontalStretch>
-            <wrap>true</wrap>
-            <chooseType>true</chooseType>
-            <typeDomainEnabled>true</typeDomainEnabled>
-            <textEdit>true</textEdit>
-            <textSize>Normal</textSize>
-          </extInfo>
-        </items>
-        <items xsi:type="form:FormField">
-          <name>ТЧТоварыДоляСтоимостиПроцент</name>
-          <id>101</id>
-          <enabled>true</enabled>
-          <userVisible>
-            <common>true</common>
-          </userVisible>
-          <dataPath xsi:type="form:DataPath">
-            <segments>Объект.ТЧТовары.ДоляСтоимостиПроцент</segments>
-          </dataPath>
-          <extendedTooltip>
-            <name>ТЧТоварыДоляСтоимостиПроцентРасширеннаяПодсказка</name>
-            <id>103</id>
-            <type>Label</type>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <extInfo xsi:type="form:LabelDecorationExtInfo">
-              <horizontalAlign>Left</horizontalAlign>
-            </extInfo>
-          </extendedTooltip>
-          <contextMenu>
-            <name>ТЧТоварыДоляСтоимостиПроцентКонтекстноеМеню</name>
-            <id>102</id>
-            <autoFill>true</autoFill>
-          </contextMenu>
-          <type>InputField</type>
-          <readOnly>true</readOnly>
-          <editMode>Auto</editMode>
-          <headerHorizontalAlign>Center</headerHorizontalAlign>
-          <showInFooter>true</showInFooter>
-          <extInfo xsi:type="form:InputFieldExtInfo">
-            <width>6</width>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <horizontalStretch>false</horizontalStretch>
-            <wrap>true</wrap>
-            <format>
-              <key>ru</key>
-              <value>ЧФ=Ч%</value>
-            </format>
-            <editFormat>
-              <key>ru</key>
-              <value>ЧФ=Ч%</value>
-            </editFormat>
-            <chooseType>true</chooseType>
-            <typeDomainEnabled>true</typeDomainEnabled>
-            <textEdit>true</textEdit>
-            <textSize>Normal</textSize>
-          </extInfo>
-        </items>
-        <visible>true</visible>
-        <enabled>true</enabled>
-        <userVisible>
-          <common>true</common>
-        </userVisible>
+      <items xsi:type="form:FormField">
+        <name>ТЧТоварыСтоимость</name>
+        <id>96</id>
         <title>
           <key>ru</key>
-          <value>Доля стоимости</value>
+          <value>Стоимость</value>
         </title>
         <title>
           <key>fr</key>
           <value>Montant</value>
         </title>
-        <toolTip>
-          <key>ru</key>
-          <value>Доля стоимости</value>
-        </toolTip>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Объект.ТЧТовары.Себестоимость</segments>
+        </dataPath>
         <extendedTooltip>
-          <name>ТЧТоварыГруппаДоляСтоимостиРасширеннаяПодсказка</name>
-          <id>100</id>
+          <name>ТЧТоварыСтоимостьРасширеннаяПодсказка</name>
+          <id>98</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -2714,12 +2589,25 @@
             <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </extendedTooltip>
-        <type>ColumnGroup</type>
-        <extInfo xsi:type="form:ColumnGroupExtInfo">
-          <showTitle>auto</showTitle>
-          <showInHeader>true</showInHeader>
-          <headerHorizontalAlign>Center</headerHorizontalAlign>
-          <showInCard>true</showInCard>
+        <contextMenu>
+          <name>ТЧТоварыСтоимостьКонтекстноеМеню</name>
+          <id>97</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Auto</editMode>
+        <headerHorizontalAlign>Center</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <width>6</width>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <horizontalStretch>false</horizontalStretch>
+          <wrap>true</wrap>
+          <chooseType>true</chooseType>
+          <typeDomainEnabled>true</typeDomainEnabled>
+          <textEdit>true</textEdit>
+          <textSize>Normal</textSize>
         </extInfo>
       </items>
       <autoCommandBar>
@@ -2839,16 +2727,8 @@
         <autoFill>true</autoFill>
       </autoCommandBar>
       <handlers>
-        <event>OnEditEnd</event>
-        <name>ТЧТоварыПриОкончанииРедактирования</name>
-      </handlers>
-      <handlers>
         <event>OnStartEdit</event>
         <name>ТЧТоварыПриНачалеРедактирования</name>
-      </handlers>
-      <handlers>
-        <event>AfterDeleteRow</event>
-        <name>ТЧТоварыПослеУдаления</name>
       </handlers>
       <searchStringAddition>
         <name>ТЧТоварыСтрокаПоиска</name>
@@ -3132,33 +3012,6 @@
     </notDefaultUseAlwaysAttributes>
     <main>true</main>
     <savedData>true</savedData>
-    <additionalColumns>
-      <tablePath xsi:type="form:DataPath">
-        <segments>Объект.ТЧТовары</segments>
-      </tablePath>
-      <columns>
-        <name>ДоляСтоимостиПроцент</name>
-        <title>
-          <key>ru</key>
-          <value>%</value>
-        </title>
-        <id>1</id>
-        <valueType>
-          <types>Number</types>
-          <numberQualifiers>
-            <precision>5</precision>
-            <scale>2</scale>
-            <nonNegative>true</nonNegative>
-          </numberQualifiers>
-        </valueType>
-        <view>
-          <common>true</common>
-        </view>
-        <edit>
-          <common>true</common>
-        </edit>
-      </columns>
-    </additionalColumns>
   </attributes>
   <attributes>
     <name>НесколькоСтрокГП</name>
@@ -3205,20 +3058,12 @@
   </commandInterface>
   <extInfo xsi:type="form:DocumentFormExtInfo">
     <handlers>
-      <event>AfterWrite</event>
-      <name>ПослеЗаписи</name>
-    </handlers>
-    <handlers>
       <event>AfterWriteAtServer</event>
       <name>ПослеЗаписиНаСервере</name>
     </handlers>
     <handlers>
       <event>OnReadAtServer</event>
       <name>ПриЧтенииНаСервере</name>
-    </handlers>
-    <handlers>
-      <event>BeforeWrite</event>
-      <name>ПередЗаписью</name>
     </handlers>
     <handlers>
       <event>BeforeWriteAtServer</event>
