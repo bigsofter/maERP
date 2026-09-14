@@ -541,6 +541,32 @@
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
+          <items xsi:type="form:Button">
+            <name>КнопкаСоздатьЗаказНаПроизводство</name>
+            <id>213</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>КнопкаСоздатьЗаказНаПроизводствоРасширеннаяПодсказка</name>
+              <id>214</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <commandName>Form.Command.СоздатьЗаказНаПроизводство</commandName>
+            <buttonImportance>Normal</buttonImportance>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
           <horizontalAlign>Left</horizontalAlign>
         </autoCommandBar>
         <searchStringAddition>
@@ -2188,36 +2214,36 @@
     <name>СоздатьЗаказ</name>
     <title>
       <key>ru</key>
-      <value>Создать заказ</value>
+      <value>Создать заказ клиента</value>
     </title>
     <title>
       <key>fr</key>
-      <value>Créer une commande</value>
+      <value>Créer une commande client</value>
     </title>
     <title>
       <key>en</key>
-      <value>Create order</value>
+      <value>Create customer order</value>
     </title>
     <title>
       <key>es</key>
-      <value>Crear pedido</value>
+      <value>Crear pedido de cliente</value>
     </title>
     <id>5</id>
     <toolTip>
       <key>ru</key>
-      <value>Детали документа</value>
+      <value>Создать заказ клиента на продажу по предложению</value>
     </toolTip>
     <toolTip>
       <key>fr</key>
-      <value>Détails du document</value>
+      <value>Créer une commande client de vente selon le devis</value>
     </toolTip>
     <toolTip>
       <key>en</key>
-      <value>Document details</value>
+      <value>Create a customer sales order from the quotation</value>
     </toolTip>
     <toolTip>
       <key>es</key>
-      <value>Detalles del documento</value>
+      <value>Crear un pedido de cliente de venta según el presupuesto</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -2225,6 +2251,52 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>СоздатьЗаказ</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СоздатьЗаказНаПроизводство</name>
+    <title>
+      <key>ru</key>
+      <value>Создать заказ на производство</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Créer une commande en production</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create production order</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Crear pedido para producción</value>
+    </title>
+    <id>6</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Создать заказ клиента на производство по предложению</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer une commande client en production selon le devis</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create a customer production order from the quotation</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear un pedido de cliente para producción según el presupuesto</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьЗаказНаПроизводство</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>

@@ -107,8 +107,9 @@
           <headerHorizontalAlign>Left</headerHorizontalAlign>
           <showInFooter>true</showInFooter>
           <extInfo xsi:type="form:InputFieldExtInfo">
-            <autoMaxWidth>true</autoMaxWidth>
+            <width>15</width>
             <autoMaxHeight>true</autoMaxHeight>
+            <horizontalStretch>false</horizontalStretch>
             <wrap>true</wrap>
             <chooseType>true</chooseType>
             <typeDomainEnabled>true</typeDomainEnabled>
@@ -157,7 +158,7 @@
           <headerHorizontalAlign>Left</headerHorizontalAlign>
           <showInFooter>true</showInFooter>
           <extInfo xsi:type="form:InputFieldExtInfo">
-            <width>8</width>
+            <width>11</width>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>false</horizontalStretch>
@@ -225,7 +226,7 @@
           <headerHorizontalAlign>Left</headerHorizontalAlign>
           <showInFooter>true</showInFooter>
           <extInfo xsi:type="form:InputFieldExtInfo">
-            <width>8</width>
+            <width>12</width>
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>false</horizontalStretch>
@@ -2295,6 +2296,114 @@
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
+    <items xsi:type="form:FormGroup">
+      <name>ФормаГруппаСоздатьНаОсновании</name>
+      <id>596</id>
+      <items xsi:type="form:Button">
+        <name>ФормаСоздатьЗаказКлиента</name>
+        <id>597</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ФормаСоздатьЗаказКлиентаРасширеннаяПодсказка</name>
+          <id>598</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СоздатьЗаказКлиента</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <items xsi:type="form:Button">
+        <name>ФормаСоздатьЗаказНаПроизводство</name>
+        <id>599</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ФормаСоздатьЗаказНаПроизводствоРасширеннаяПодсказка</name>
+          <id>600</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СоздатьЗаказНаПроизводство</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>ru</key>
+        <value>Создать на основании</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Créer sur la base de</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Create based on</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Crear en base a</value>
+      </title>
+      <toolTip>
+        <key>ru</key>
+        <value>Создать на основании</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Créer sur la base de</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Create based on</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Crear en base a</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ФормаГруппаСоздатьНаОснованииРасширеннаяПодсказка</name>
+        <id>601</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>Popup</type>
+      <extInfo xsi:type="form:PopupGroupExtInfo">
+        <representation>Auto</representation>
+        <importance>Normal</importance>
+      </extInfo>
+    </items>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
@@ -2445,6 +2554,98 @@
       </handler>
     </action>
     <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СоздатьЗаказКлиента</name>
+    <title>
+      <key>ru</key>
+      <value>Заказ клиента</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Commande client</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Customer order</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Pedido de cliente</value>
+    </title>
+    <id>4</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Создать заказ клиента на продажу по предложению</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer une commande client de vente selon le devis</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create a customer sales order from the quotation</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear un pedido de cliente de venta según el presupuesto</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьЗаказКлиента</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СоздатьЗаказНаПроизводство</name>
+    <title>
+      <key>ru</key>
+      <value>Заказ клиента на производство</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Commande client en production</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Customer production order</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Pedido de cliente para producción</value>
+    </title>
+    <id>5</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Создать заказ клиента на производство по предложению</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer une commande client en production selon le devis</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create a customer production order from the quotation</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear un pedido de cliente para producción según el presupuesto</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьЗаказНаПроизводство</name>
+      </handler>
+    </action>
     <currentRowUse>Auto</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
