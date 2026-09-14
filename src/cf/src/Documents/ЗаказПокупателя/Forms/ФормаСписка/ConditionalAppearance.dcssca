@@ -3,17 +3,40 @@
 	<item>
 		<selection>
 			<item>
-				<field>Отгружено</field>
+				<field>Статус</field>
 			</item>
 			<item>
-				<field>ОтгруженоСумма</field>
+				<field>Индикатор</field>
 			</item>
 		</selection>
 		<filter>
 			<item xsi:type="FilterItemComparison">
-				<left xsi:type="dcscor:Field">Список.ОтгруженоСумма</left>
-				<comparisonType>Less</comparisonType>
-				<right xsi:type="dcscor:Field">Список.Сумма</right>
+				<left xsi:type="dcscor:Field">Список.Статус</left>
+				<comparisonType>Equal</comparisonType>
+				<right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЗаказовПокупателя.Черновик</right>
+			</item>
+		</filter>
+		<appearance>
+			<dcscor:item xsi:type="SettingsParameterValue">
+				<dcscor:parameter>TextColor</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:Color">style:Цвет_ПоясняющийТекст</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</item>
+	<item>
+		<selection>
+			<item>
+				<field>Статус</field>
+			</item>
+			<item>
+				<field>Индикатор</field>
+			</item>
+		</selection>
+		<filter>
+			<item xsi:type="FilterItemComparison">
+				<left xsi:type="dcscor:Field">Список.Статус</left>
+				<comparisonType>Equal</comparisonType>
+				<right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЗаказовПокупателя.ОжидаетОплаты</right>
 			</item>
 		</filter>
 		<appearance>
@@ -26,23 +49,23 @@
 	<item>
 		<selection>
 			<item>
-				<field>Оплачено</field>
+				<field>Статус</field>
 			</item>
 			<item>
-				<field>ОплаченоСумма</field>
+				<field>Индикатор</field>
 			</item>
 		</selection>
 		<filter>
 			<item xsi:type="FilterItemComparison">
-				<left xsi:type="dcscor:Field">Список.ОплаченоСумма</left>
-				<comparisonType>Less</comparisonType>
-				<right xsi:type="dcscor:Field">Список.Сумма</right>
+				<left xsi:type="dcscor:Field">Список.Статус</left>
+				<comparisonType>Equal</comparisonType>
+				<right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЗаказовПокупателя.Выполнен</right>
 			</item>
 		</filter>
 		<appearance>
 			<dcscor:item xsi:type="SettingsParameterValue">
 				<dcscor:parameter>TextColor</dcscor:parameter>
-				<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+				<dcscor:value xsi:type="v8ui:Color">style:Цвет_Зелёный</dcscor:value>
 			</dcscor:item>
 		</appearance>
 	</item>
