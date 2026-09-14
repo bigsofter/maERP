@@ -10,6 +10,40 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.25
+### ru
+- Формы заказа клиента, коммерческого предложения, заказа поставщику, поступления товаров, выпуска продукции и технологической карты разложены по закладкам: на первой закладке «Основное» — все реквизиты шапки, комментарий и ответственный, на следующих — табличные части с числом строк в заголовке. Материалы заказа на производство остаются на закладке товаров, рядом с продукцией.
+- В шапке этих форм заголовок поля стоит слева от поля, а не над ним — форма стала компактнее.
+- Исправлена ошибка «Поле не найдено» при выборе строки в списках выпусков продукции и актов разбора: панель «Детали» справа снова показывает сведения о документе. В той же панели у уценки товаров показывается новая цена, у поступления дополнительных расходов — сумма товара.
+- Фильтры на правой панели списков: у двадцати видов документов без суммы (выпуск продукции, акт разбора, перемещение, списание, пересчёт товаров, установка цен и других) убран фильтр «Сумма», который приводил к ошибке и не давал отбирать список.
+- Заказ, созданный на закладке «Коммерческие предложения» списка «Заказы клиентов на производство», сразу получает вид операции «Производство» и материалы по техкартам — даже если в предложении только закупаемые позиции.
+- «Связанные документы» открываются и из выпуска продукции, а в дереве связей видны документы, введённые на основании выпуска и возврата поставщику.
+- Форма выпуска продукции переведена на французский, английский и испанский: подписи полей, колонок и кнопка заполнения по техкарте. Заголовок формы документа («№ … от …: Проведён») показывается на языке пользователя.
+### fr
+- Les formulaires de commande client, de devis, de commande fournisseur, de réception, de fabrication et de gamme sont organisés en onglets : le premier onglet « Principal » regroupe tous les champs d'en-tête, le commentaire et le responsable, les suivants les tableaux avec le nombre de lignes dans le titre. Les matières d'une commande en production restent dans l'onglet des articles, à côté des produits.
+- Dans l'en-tête de ces formulaires, le libellé du champ est à gauche du champ et non au-dessus — le formulaire est plus compact.
+- Correction de l'erreur « Champ introuvable » à la sélection d'une ligne dans les listes de fabrications et d'actes de démontage : le panneau « Détails » affiche de nouveau les informations du document. Dans ce panneau, la dépréciation affiche le nouveau prix et la réception de frais supplémentaires le montant de l'article.
+- Filtres du panneau droit des listes : pour vingt types de documents sans montant (fabrication, acte de démontage, transfert, sortie, inventaire, fixation des prix et autres), le filtre « Montant », qui provoquait une erreur et empêchait de filtrer la liste, est retiré.
+- Une commande créée depuis l'onglet « Devis » de la liste « Commandes clients en production » reçoit directement le type d'opération « Production » et les matières selon les gammes — même si le devis ne contient que des articles achetés.
+- « Documents liés » s'ouvre aussi depuis une fabrication, et l'arbre des liens montre les documents saisis sur la base d'une fabrication et d'un retour fournisseur.
+- Le formulaire de fabrication est traduit en français, anglais et espagnol : libellés des champs, des colonnes et bouton de remplissage selon la gamme. Le titre du formulaire de document (« n° … du … : Reporté ») s'affiche dans la langue de l'utilisateur.
+### en
+- Customer order, commercial offer, supplier order, goods receipt, production output and production routing forms are arranged on tabs: the first "Main" tab holds all header fields, the comment and the person responsible; the following tabs hold the tables with the row count in the title. Production order materials stay on the goods tab next to the products.
+- In the header of these forms, field titles are to the left of the field instead of above it — the form is more compact.
+- Fixed the "Field not found" error when selecting a row in the production output and disassembly lists: the "Details" panel shows the document information again. In the same panel, a markdown shows the new price and an additional costs receipt shows the item amount.
+- Filters on the right panel of lists: for twenty document types without an amount (production output, disassembly, transfer, write-off, stocktaking, price setting and others) the "Amount" filter, which caused an error and blocked filtering, is removed.
+- An order created on the "Commercial offers" tab of the "Customer production orders" list gets the "Production" operation type and materials by routing right away — even if the offer holds only purchased items.
+- "Related documents" also opens from a production output, and the link tree shows documents entered based on a production output and a supplier return.
+- The production output form is translated into French, English and Spanish: field and column titles and the fill-by-routing button. The document form title ("No. … of …: Posted") is shown in the user's language.
+### es
+- Los formularios de pedido de cliente, oferta comercial, pedido a proveedor, recepción de mercancías, fabricación y ruta de fabricación se organizan en pestañas: la primera pestaña «Principal» reúne todos los campos de la cabecera, el comentario y el responsable; las siguientes, las tablas con el número de filas en el título. Los materiales de un pedido de producción siguen en la pestaña de artículos, junto a los productos.
+- En la cabecera de estos formularios, el título del campo está a la izquierda del campo y no encima — el formulario es más compacto.
+- Corregido el error «Campo no encontrado» al seleccionar una fila en las listas de fabricaciones y actas de desmontaje: el panel «Detalles» vuelve a mostrar la información del documento. En ese panel, la depreciación muestra el precio nuevo y la recepción de gastos adicionales, el importe del artículo.
+- Filtros del panel derecho de las listas: en veinte tipos de documentos sin importe (fabricación, acta de desmontaje, traslado, baja, recuento, fijación de precios y otros) se quita el filtro «Importe», que provocaba un error e impedía filtrar la lista.
+- Un pedido creado en la pestaña «Ofertas comerciales» de la lista «Pedidos de clientes para producción» recibe enseguida el tipo de operación «Producción» y los materiales por ruta, aunque la oferta solo tenga artículos comprados.
+- «Documentos relacionados» también se abre desde una fabricación, y el árbol de vínculos muestra los documentos introducidos a partir de una fabricación y de una devolución a proveedor.
+- El formulario de fabricación está traducido al francés, inglés y español: títulos de campos, columnas y el botón de relleno por ruta. El título del formulario del documento («n.º … del …: Contabilizado») se muestra en el idioma del usuario.
+
 ## 2.0.15.24
 ### ru
 - Демо-данные для тестовой базы: команда `scripts/fixtures.sh --demo` заводит заказы клиента на производство по всем схемам — под заказ без своего остатка, из своего остатка материалов, ручной выпуск по заказу, изделие с составом в заказе, закупка пришла частично, материалы ещё не заказаны, черновик, частичная отгрузка, производство на склад и новая версия технологической карты — так, что в списке заказов видна каждая стадия от «Черновика» до «Выполнен».

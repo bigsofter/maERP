@@ -7,7 +7,7 @@
 # that part is skipped with a warning (the real test run below still happens).
 #
 # Уровни тестов (docs/TESTING.md, «Состав тестов»):
-#   0.5 scripts/refcheck.py, 0.7 scripts/listcheck.py — на исходниках, всегда
+#   0.5 scripts/refcheck.py, 0.7 scripts/listcheck.py, 0.8 scripts/queryfields.py — на исходниках, всегда
 #       при правке src/cf/**; секунды.
 #   1–3 scripts/smoke.sh (CheckConfig + смок), scripts/doctests.sh — только с
 #       --db: они проверяют базу build/ib, а её обновляет из EDT владелец. Без
@@ -85,6 +85,12 @@ if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/lis
   echo "--- уровень 0.7: scripts/listcheck.py ---"
   ran=$((ran + 1))
   python3 scripts/listcheck.py || overall_rc=1
+fi
+
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/queryfields"; then
+  echo "--- уровень 0.8: scripts/queryfields.py ---"
+  ran=$((ran + 1))
+  python3 scripts/queryfields.py || overall_rc=1
 fi
 
 if [ "$WITH_DB" -eq 1 ]; then

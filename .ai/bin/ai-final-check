@@ -180,6 +180,11 @@ if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/lis
 else
   gate_skipped "уровень 0.7 (listcheck) — в диффе нет src/cf/** и scripts/listcheck*"
 fi
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/queryfields"; then
+  run_gate "уровень 0.8: scripts/queryfields.py" python3 scripts/queryfields.py
+else
+  gate_skipped "уровень 0.8 (queryfields) — в диффе нет src/cf/** и scripts/queryfields*"
+fi
 
 if ai_changed_has "$CHANGED" "src/cf/"; then
   run_gate "ОписаниеИзменений: секция текущей версии на ru/fr/en/es" changelog_section
