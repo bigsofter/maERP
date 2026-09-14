@@ -10,6 +10,24 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.24
+### ru
+- Демо-данные для тестовой базы: команда `scripts/fixtures.sh --demo` заводит заказы клиента на производство по всем схемам — под заказ без своего остатка, из своего остатка материалов, ручной выпуск по заказу, изделие с составом в заказе, закупка пришла частично, материалы ещё не заказаны, черновик, частичная отгрузка, производство на склад и новая версия технологической карты — так, что в списке заказов видна каждая стадия от «Черновика» до «Выполнен».
+- В тот же набор входят коммерческие предложения, заказы-продажи, договоры, лиды и заявки на поиск товара во всех статусах, закупки, реализации, возвраты и оплаты. Набор заводится одной транзакцией в текущем дне и повторно не дублируется. Только для тестовых баз.
+- Встроенные автотесты: новый сценарий проверяет демо-набор — стадии и индикаторы заказов на производство, статусы продаж, предложений и договоров, автоматические выпуски.
+### fr
+- Données de démonstration pour la base de test : la commande `scripts/fixtures.sh --demo` crée des commandes client en production selon tous les schémas — sur commande sans stock propre, à partir du stock de matières, fabrication manuelle sur commande, article avec composition dans la commande, achat reçu en partie, matières pas encore commandées, brouillon, expédition partielle, production pour le stock et nouvelle version de gamme — de sorte que chaque étape, du « Brouillon » à « Terminée », apparaisse dans la liste des commandes.
+- Le même jeu comprend des devis, des commandes de vente, des contrats, des leads et des demandes de recherche d'article dans tous les statuts, ainsi que des achats, des ventes, des retours et des paiements. Il est créé en une seule transaction sur la journée en cours et n'est pas dupliqué à la relance. Réservé aux bases de test.
+- Tests automatiques intégrés : un nouveau scénario vérifie le jeu de démonstration — étapes et indicateurs des commandes en production, statuts des ventes, des devis et des contrats, fabrications automatiques.
+### en
+- Demo data for the test infobase: the `scripts/fixtures.sh --demo` command creates customer production orders for every scheme — made to order without own stock, from own material stock, manual output for an order, an item with its composition in the order, a partially received purchase, materials not yet ordered, a draft, a partial shipment, production to stock and a new routing version — so that every stage from "Draft" to "Completed" shows in the order list.
+- The same set includes commercial offers, sales orders, contracts, leads and item search requests in every status, plus purchases, sales, returns and payments. It is created in one transaction within the current day and is not duplicated on a rerun. Test infobases only.
+- Built-in automated tests: a new scenario checks the demo set — production order stages and indicators, sales, offer and contract statuses, automatic outputs.
+### es
+- Datos de demostración para la base de pruebas: el comando `scripts/fixtures.sh --demo` crea pedidos de cliente de producción según todos los esquemas — bajo pedido sin stock propio, desde el stock propio de materiales, fabricación manual por pedido, artículo con composición en el pedido, compra recibida en parte, materiales aún no pedidos, borrador, envío parcial, producción para stock y nueva versión de la ruta — de modo que cada etapa, del «Borrador» a «Completado», aparezca en la lista de pedidos.
+- El mismo conjunto incluye ofertas comerciales, pedidos de venta, contratos, leads y solicitudes de búsqueda de artículos en todos los estados, además de compras, ventas, devoluciones y pagos. Se crea en una sola transacción dentro del día actual y no se duplica al volver a ejecutarlo. Solo para bases de prueba.
+- Pruebas automáticas integradas: un nuevo escenario comprueba el conjunto de demostración — etapas e indicadores de los pedidos de producción, estados de ventas, ofertas y contratos, fabricaciones automáticas.
+
 ## 2.0.15.23
 ### ru
 - Выпуск продукции: заполнение материалов по технологической карте — кнопкой «Заполнить техкарту» и при выборе продукции — выполняется одним обращением к серверу; раньше форма обращалась к серверу ещё и на каждую строку материалов. Из формы убран неработающий код прежней конфигурации (проверка веса, доли стоимости, подстановка цены закупки), остальное поведение формы не меняется.
