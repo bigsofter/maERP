@@ -10,6 +10,28 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.28
+### ru
+- Реквизит «Автор» больше не используется: в документах и справочниках остаётся один реквизит «Ответственный». Поле «Автор» убрано с форм заказа клиента, коммерческого предложения и заявки на поиск товара и из списка заказов клиентов.
+- При обновлении программа переносит заполненного автора в пустого ответственного у документов и справочников с реквизитом «Ответственный». Где ответственный уже указан, он не меняется. Записи, у которых автор не перенесён, перечислены в журнале регистрации (событие обновления программы).
+- У проектов и шаблонов конфигураций появился реквизит «Ответственный» вместо «Автора»: при создании в него подставляется текущий пользователь.
+- Запись документов оплаты при обновлении программы и при групповом изменении реквизитов больше не перепроводит связанные налоговые накладные.
+### fr
+- L'attribut « Auteur » n'est plus utilisé : les documents et les référentiels n'ont plus qu'un attribut « Responsable ». Le champ « Auteur » est retiré des formulaires de commande client, de devis et de demande de recherche d'article, ainsi que de la liste des commandes clients.
+- Lors de la mise à jour, le programme reporte l'auteur renseigné dans le responsable vide des documents et référentiels qui ont un attribut « Responsable ». Un responsable déjà indiqué n'est pas modifié. Les enregistrements dont l'auteur n'est pas reporté sont listés dans le journal d'enregistrement (événement de mise à jour du programme).
+- Les projets et modèles de configuration ont un attribut « Responsable » au lieu de l'« Auteur » : à la création, l'utilisateur courant y est renseigné.
+- L'enregistrement des documents de paiement lors de la mise à jour du programme et de la modification groupée des attributs ne reporte plus les factures fiscales liées.
+### en
+- The "Author" attribute is no longer used: documents and catalogs keep a single "Person responsible" attribute. The "Author" field is removed from the customer order, commercial offer and item search request forms and from the customer order list.
+- During the update, the application moves a filled author into an empty person responsible for documents and catalogs that have the "Person responsible" attribute. A person responsible that is already set is not changed. Records whose author was not moved are listed in the event log (application update event).
+- Configuration projects and templates now have a "Person responsible" attribute instead of "Author": the current user is filled in on creation.
+- Writing payment documents during the application update and during group attribute changes no longer reposts related tax invoices.
+### es
+- El atributo «Autor» ya no se usa: los documentos y catálogos conservan un único atributo «Responsable». El campo «Autor» se quita de los formularios de pedido de cliente, oferta comercial y solicitud de búsqueda de artículo, y de la lista de pedidos de clientes.
+- Durante la actualización, el programa traslada el autor rellenado al responsable vacío de los documentos y catálogos que tienen el atributo «Responsable». Un responsable ya indicado no se cambia. Los registros cuyo autor no se trasladó se enumeran en el registro de eventos (evento de actualización del programa).
+- Los proyectos y plantillas de configuración tienen un atributo «Responsable» en lugar de «Autor»: al crearlos se rellena con el usuario actual.
+- La grabación de documentos de pago durante la actualización del programa y el cambio masivo de atributos ya no vuelve a contabilizar las facturas fiscales relacionadas.
+
 ## 2.0.15.27
 ### ru
 - Исправлена ошибка «Метод объекта не обнаружен (Найти)» при открытии списка коммерческих предложений: список открывается, фильтры на правой панели работают.
