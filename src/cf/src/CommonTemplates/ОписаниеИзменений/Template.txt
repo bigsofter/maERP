@@ -10,6 +10,20 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.22
+### ru
+- Автоматический выпуск при отгрузке: если материалов не хватает, реализация снова отказывает с перечнем недостающего. В 2.0.15.21 вместо этого сообщения возникала ошибка, когда в ту же секунду по этим материалам были проведены другие документы.
+- Встроенные автотесты: сценарий автовыпуска проверяет выпуск по техкарте на записанном заказе — проведённый заказ не пропускает продукцию со способом «Производство» без материалов.
+### fr
+- Fabrication automatique à l'expédition : en cas de matières insuffisantes, la vente est de nouveau refusée avec la liste de ce qui manque. En 2.0.15.21, une erreur apparaissait à la place de ce message lorsque d'autres documents avaient été validés sur ces matières dans la même seconde.
+- Tests automatiques intégrés : le scénario de fabrication automatique vérifie la fabrication selon la gamme sur une commande enregistrée — une commande validée n'accepte pas un produit en mode « Production » sans matières.
+### en
+- Automatic production output on shipment: when materials are short, the sale is again refused with the list of what is missing. In 2.0.15.21, an error appeared instead of this message when other documents had been posted for these materials in the same second.
+- Built-in automated tests: the automatic output scenario checks output by production routing on a saved order — a posted order does not accept a product with the "Production" method without materials.
+### es
+- Fabricación automática al enviar: si faltan materiales, la venta vuelve a rechazarse con la lista de lo que falta. En 2.0.15.21 aparecía un error en lugar de este mensaje cuando en el mismo segundo se habían contabilizado otros documentos con esos materiales.
+- Pruebas automáticas integradas: el escenario de fabricación automática comprueba la fabricación según la ruta en un pedido guardado — un pedido contabilizado no admite un producto con el método «Producción» sin materiales.
+
 ## 2.0.15.21
 ### ru
 - Автоматический выпуск при отгрузке. Проведение реализации по заказу клиента на производство само создаёт и проводит выпуск продукции на отгружаемое количество — на секунду раньше реализации, поэтому реализация списывает готовую продукцию по ФИФО уже с себестоимостью этого выпуска. На одну реализацию — один выпуск, одинаковые позиции сводятся в одну строку.
