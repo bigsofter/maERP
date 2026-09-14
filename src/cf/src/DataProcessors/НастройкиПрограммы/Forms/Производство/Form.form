@@ -104,6 +104,62 @@
         <checkBoxType>Switcher</checkBoxType>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьВыпускПродукцииПриПродаже</name>
+      <id>9</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьВыпускПродукцииПриПродаже</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Проведение реализации по заказу клиента на производство само создаёт и проводит выпуск отгружаемой продукции на секунду раньше реализации: материалы списываются по составу заказа, по возможности из партий закупок под этот заказ. Включение влияет и на перепроведение прежних реализаций по таким заказам</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>La validation d'une vente sur une commande client en production crée et valide elle-même la fabrication des produits expédiés une seconde avant la vente : les matières sont consommées selon la composition de la commande, si possible sur les lots achetés pour cette commande. L'activation concerne aussi la revalidation des ventes existantes sur ces commandes</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Posting a sale for a customer production order creates and posts the production output of the shipped products one second before the sale: materials are consumed by the order composition, from batches purchased for this order where possible. Enabling it also affects reposting of existing sales for such orders</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Al contabilizar una venta de un pedido de cliente de producción se crea y contabiliza la fabricación de los productos enviados un segundo antes de la venta: los materiales se consumen según la composición del pedido, cuando es posible de los lotes comprados para ese pedido. La activación también afecta a la recontabilización de las ventas existentes de esos pedidos</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьВыпускПродукцииПриПродажеРасширеннаяПодсказка</name>
+        <id>10</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьВыпускПродукцииПриПродажеКонтекстноеМеню</name>
+        <id>11</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -151,6 +207,10 @@
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
