@@ -1,23 +1,16 @@
 # Final check — production-2mzl-e12-1
-_20260915T072353Z_
+_20260915T115111Z_
 
 
 ## Scope
 
 ```
-.ai/plans/production-2mzl-e12-1.md
 .ai/reports/production-2mzl-e12-1-final-check.md
-.ai/reviews/production-2mzl-e12-1/01-architecture-critic.md
-.ai/reviews/production-2mzl-e12-1/02-plan-review-astra.md
-.ai/reviews/production-2mzl-e12-1/03-code-review-claude.md
-.ai/reviews/production-2mzl-e12-1/03-code-review.md
-.ai/reviews/production-2mzl-e12-1/03b-code-review-verify-claude.md
-.ai/reviews/production-2mzl-e12-1/04-database-security-review-claude.md
+.ai/reports/production-2mzl-e12-1.md
+.ai/reviews/production-2mzl-e12-1/06-feedback31-review-claude.md
 docs/plans/production-2mzl.md
-docs/ROADMAP.md
 docs/TECHDEBT.md
 docs/TESTING.md
-docs/TESTS.xlsx
 src/cf/src/CommonTemplates/ОписаниеИзменений/Template.txt
 src/cf/src/Configuration/Configuration.mdo
 src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Form.form
@@ -31,9 +24,9 @@ src/cf/src/DataProcessors/АРМПроизводство/ManagerModule.bsl
 ```
 line 1:0 token recognition error at: '﻿'
 line 1:0 token recognition error at: '﻿'
-2026-09-15T10:23:59.551+03:00  INFO 93161 --- [BSL Language Server] [-types-warmup-1] _.b.l.t.r.PlatformContextProviderFactory : Loaded 2614 platform contexts from 1C syntax helper
-Analyzing files...   0% [                              ]   0/741 (0:00:00 / ?) Analyzing files...   3% [                        ]  25/741 (0:00:01 / 0:00:28) Analyzing files...  28% [======                  ] 209/741 (0:00:02 / 0:00:05) Analyzing files...  56% [=============           ] 417/741 (0:00:03 / 0:00:02) Analyzing files...  84% [====================    ] 623/741 (0:00:04 / 0:00:00) Analyzing files... 100% [========================] 741/741 (0:00:04 / 0:00:00) Analyzing files... 100% [========================] 741/741 (0:00:04 / 0:00:00) 
-2026-09-15T10:24:07.822+03:00  INFO 93161 --- [BSL Language Server] [           main] c.g._.b.l.reporters.JsonReporter         : JSON report saved to /Users/ivan-gurkin/Dev/maERP/build/./bsl-json.json
+2026-09-15T14:51:24.683+03:00  INFO 66935 --- [BSL Language Server] [-types-warmup-1] _.b.l.t.r.PlatformContextProviderFactory : Loaded 2614 platform contexts from 1C syntax helper
+Analyzing files...   0% [                              ]   0/741 (0:00:00 / ?) Analyzing files...   1% [                        ]   9/741 (0:00:01 / 0:01:21) Analyzing files...   9% [==                      ]  74/741 (0:00:02 / 0:00:18) Analyzing files...  24% [=====                   ] 179/741 (0:00:03 / 0:00:09) Analyzing files...  37% [=========               ] 279/741 (0:00:04 / 0:00:06) Analyzing files...  43% [==========              ] 323/741 (0:00:05 / 0:00:06) Analyzing files...  51% [============            ] 379/741 (0:00:06 / 0:00:05) Analyzing files...  72% [=================       ] 540/741 (0:00:07 / 0:00:02) Analyzing files...  84% [====================    ] 625/741 (0:00:08 / 0:00:01) Analyzing files...  90% [=====================   ] 670/741 (0:00:09 / 0:00:00) Analyzing files...  96% [======================= ] 715/741 (0:00:10 / 0:00:00) Analyzing files... 100% [========================] 741/741 (0:00:10 / 0:00:00) Analyzing files... 100% [========================] 741/741 (0:00:10 / 0:00:00) 
+2026-09-15T14:51:40.941+03:00  INFO 66935 --- [BSL Language Server] [           main] c.g._.b.l.reporters.JsonReporter         : JSON report saved to /Users/ivan-gurkin/Dev/maERP/build/./bsl-json.json
 Отчёт: /Users/ivan-gurkin/Dev/maERP/build/bsl-json.json
 ```
 **PASS**
@@ -61,8 +54,8 @@ baseline: 2026-08-26 14:06:31; изменённых модулей: 2
 ### ОписаниеИзменений: секция текущей версии на ru/fr/en/es
 ```
 Языков: 4, пунктов изменений: 24
-Описание изменений: /Users/ivan-gurkin/Dev/maERP/build/changelog-2.0.15.29.json
-версия 2.0.15.29: ru=6, fr=6, en=6, es=6
+Описание изменений: /Users/ivan-gurkin/Dev/maERP/build/changelog-2.0.15.31.json
+версия 2.0.15.31: ru=6, fr=6, en=6, es=6
 ```
 **PASS**
 
@@ -70,25 +63,18 @@ baseline: 2026-08-26 14:06:31; изменённых модулей: 2
 
 ### git status
 ```
-A  .ai/plans/production-2mzl-e12-1.md
-A  .ai/reviews/production-2mzl-e12-1/01-architecture-critic.md
-A  .ai/reviews/production-2mzl-e12-1/02-plan-review-astra.md
-A  .ai/reviews/production-2mzl-e12-1/03-code-review-claude.md
-A  .ai/reviews/production-2mzl-e12-1/03-code-review.md
-A  .ai/reviews/production-2mzl-e12-1/03b-code-review-verify-claude.md
-A  .ai/reviews/production-2mzl-e12-1/04-database-security-review-claude.md
-M  docs/ROADMAP.md
-M  docs/TECHDEBT.md
-M  docs/TESTING.md
-M  docs/TESTS.xlsx
-M  docs/plans/production-2mzl.md
-M  src/cf/src/CommonTemplates/ОписаниеИзменений/Template.txt
-M  src/cf/src/Configuration/Configuration.mdo
-M  src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Form.form
-M  src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Module.bsl
-A  src/cf/src/DataProcessors/АРМПроизводство/ManagerModule.bsl
-M  src/cf/src/DataProcessors/ТестыДокументов/ManagerModule.bsl
-?? .ai/reports/production-2mzl-e12-1-final-check.md
+ M .ai/reports/production-2mzl-e12-1-final-check.md
+ M .ai/reports/production-2mzl-e12-1.md
+ M docs/TECHDEBT.md
+ M docs/TESTING.md
+ M docs/plans/production-2mzl.md
+ M src/cf/src/CommonTemplates/ОписаниеИзменений/Template.txt
+ M src/cf/src/Configuration/Configuration.mdo
+ M src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Form.form
+ M src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Module.bsl
+ M src/cf/src/DataProcessors/АРМПроизводство/ManagerModule.bsl
+ M src/cf/src/DataProcessors/ТестыДокументов/ManagerModule.bsl
+?? .ai/reviews/production-2mzl-e12-1/06-feedback31-review-claude.md
 ```
 
 ### Запретные пути (CLAUDE.md «Не трогаю»)
@@ -107,26 +93,10 @@ no hits (grep heuristic only — not a real secret scanner)
 none found
 
 ### Новые подавления BSL LS (added lines only)
-```
-+	// BSLLS:IsInRoleMethod-off - скрытие сумм интерфейсное и привязано именно к роли, а не к праву
-+	// BSLLS:IsInRoleMethod-on
-+	// Имя таблицы подставляется из метаданных. BSLLS:QueryParseError-off
-+	// BSLLS:QueryParseError-on
-+	// Имя таблицы и условие подставляются. BSLLS:QueryParseError-off
-+	// BSLLS:QueryParseError-on
-+	// BSLLS:MagicNumber-off - дата и числа примера из решения владельца 2026-09-15.
-+	// BSLLS:MagicNumber-on
-+	// BSLLS:MagicNumber-off - количества строк сценария: 2 и 3 упаковки, правка до 4, устаревшая правка 9.
-+	// BSLLS:MagicNumber-on
-+	// BSLLS:MagicNumber-off - количества строк сценария: 2 и 3 упаковки, правка до 4, устаревшая правка 9.
-+	// BSLLS:MagicNumber-on
-+	// BSLLS:MagicNumber-off - количества строк сценария: 2 и 3 упаковки, правка до 4, устаревшая правка 9.
-+	// BSLLS:MagicNumber-on
-```
-Каждое подавление — осознанное: проверь, что оно не прячет настоящую ошибку.
+none found
 
 ### Версия конфигурации
-2.0.15.28 → 2.0.15.29
+2.0.15.30 → 2.0.15.31
 
 ### Регламент тестов (docs/TESTING.md, п. 2) — напоминания, не FAIL
 - уровни 1–3 проверяют build/ib, а её обновляет из EDT владелец: без Refresh и обновления базы смок гоняет код прошлой сборки
