@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.35
+### ru
+- Рабочее место производства: в заголовке каждой нижней закладки показывается число строк — «Поступления (3)», «Переработка (0)».
+- Кнопки ввода на основании переехали в командную панель своей закладки: «Заказ поставщику» — над «Заказами поставщику», «Поступление» — над «Поступлениями», «Выпуск по заказу» — над «Выпуском», «Отгрузка» — над «Отгрузками», «Передача в переработку» — над «Переработкой». Кнопка появляется, когда выбран ровно один заказ на производство, по которому разрешён ввод на основании. Над верхними таблицами остались «Статус» и «Потребности».
+- Колонки строк документов получили постоянную ширину: «Поступления» помещаются в ширину экрана, колонка «Статус» больше не занимает половину таблицы.
+- На закладке «Документы» две новые колонки — «Продукция» и «Материалы». В них движение документа со знаком: приход зелёным, расход красным; в подвале таблицы итог «поступило − списано = остаток». Движение показывают только проведённые непомеченные документы, количество берётся по документу целиком, поэтому документ со строками других заказов попадает в итог полностью.
+- В подсказке индикатора к процентам добавились количества: по заказу — сколько материалов пришло и сколько ожидается; по документам заказа целиком — сколько материалов списано, сколько продукции пришло и отгружено. Легенда кружков и цифры открываются значком подсказки у заголовка колонки «Индикатор».
+### fr
+- Poste de production : l'en-tête de chaque onglet du bas affiche le nombre de lignes — « Réceptions (3) », « Sous-traitance (0) ».
+- Les boutons de saisie sur la base ont rejoint la barre de commandes de leur onglet : « Commande fournisseur » au-dessus des « Commandes fournisseur », « Réception » au-dessus des « Réceptions », « Production par commande » au-dessus de « Production », « Expédition » au-dessus des « Expéditions », « Envoi en sous-traitance » au-dessus de « Sous-traitance ». Le bouton apparaît quand une seule commande en production autorisant la saisie sur la base est choisie. Au-dessus des tableaux du haut restent « Statut » et « Besoins ».
+- Les colonnes des lignes de documents ont une largeur fixe : les « Réceptions » tiennent dans la largeur de l'écran et la colonne « Statut » ne prend plus la moitié du tableau.
+- L'onglet « Documents » reçoit deux colonnes — « Produits » et « Matières ». Elles portent le mouvement du document avec son signe : entrée en vert, sortie en rouge ; le pied du tableau donne le total « entré − sorti = reste ». Seuls les documents validés et non marqués comptent, et la quantité est celle du document entier : un document contenant des lignes d'autres commandes y entre en totalité.
+- L'infobulle de l'indicateur ajoute les quantités aux pourcentages : pour la commande — matières reçues et attendues ; pour les documents de la commande en entier — matières sorties, produits entrés et expédiés. La légende des pastilles et les chiffres s'ouvrent par l'icône d'infobulle près de l'en-tête de la colonne « Indicateur ».
+### en
+- Production workstation: the header of every bottom tab shows the number of rows — "Receipts (3)", "Subcontracting (0)".
+- The based-on buttons moved to the command bar of their own tab: "Supplier order" above "Supplier orders", "Receipt" above "Receipts", "Output by order" above "Output", "Shipment" above "Shipments", "Send to subcontractor" above "Subcontracting". A button appears when exactly one production order that allows based-on entry is chosen. "Status" and "Requirements" stay above the upper tables.
+- Document line columns got a fixed width: "Receipts" now fit the screen width and the "Status" column no longer takes half the table.
+- The "Documents" tab gets two new columns — "Products" and "Materials". They show the document's movement with its sign: receipts in green, write-offs in red; the table footer gives the total "received − written off = balance". Only posted and unmarked documents count, and the quantity is that of the whole document, so a document with lines of other orders enters the total in full.
+- The indicator tooltip now adds quantities to the percentages: for the order — materials received and expected; for the whole documents of the order — materials written off, products received and shipped. The circle legend and the figures open from the tooltip icon next to the "Indicator" column header.
+### es
+- Puesto de producción: el título de cada pestaña inferior muestra el número de líneas — «Recepciones (3)», «Subcontratación (0)».
+- Los botones de entrada sobre la base se han trasladado a la barra de comandos de su pestaña: «Pedido a proveedor» sobre «Pedidos a proveedor», «Recepción» sobre «Recepciones», «Producción por pedido» sobre «Producción», «Envío» sobre «Envíos», «Envío a subcontratista» sobre «Subcontratación». El botón aparece cuando hay elegido exactamente un pedido para producción que admite la entrada sobre la base. Sobre las tablas superiores quedan «Estado» y «Necesidades».
+- Las columnas de las líneas de documentos tienen ancho fijo: las «Recepciones» caben en el ancho de la pantalla y la columna «Estado» ya no ocupa media tabla.
+- La pestaña «Documentos» recibe dos columnas nuevas: «Productos» y «Materiales». Muestran el movimiento del documento con su signo: la entrada en verde, la salida en rojo; el pie de la tabla da el total «entrado − dado de baja = resto». Solo cuentan los documentos contabilizados y no marcados, y la cantidad es la del documento completo, así que un documento con líneas de otros pedidos entra entero en el total.
+- La ayuda del indicador añade cantidades a los porcentajes: del pedido — materiales recibidos y esperados; de los documentos del pedido completos — materiales dados de baja, productos entrados y enviados. La leyenda de los círculos y las cifras se abren con el icono de ayuda junto al título de la columna «Indicador».
+
 ## 2.0.15.34
 ### ru
 - Рабочее место производства: новая нижняя закладка «Переработка» — строки сырья передач в переработку выбранного заказа на производство. Введённая строка создаёт или меняет передачу и проводит новую и проведённую; новая передача сразу получает ожидаемую продукцию заказа. Переработчиком выбирается только контрагент с признаком «Субподрядчик», количество по умолчанию — потребность материала.
