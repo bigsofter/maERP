@@ -12,13 +12,19 @@
                      решить, кто из них виден (tiny1C mdo-005);
   МЁРТВАЯ КОМАНДА  - своя команда открывает тот же список без отбора, что стандартная -
                      удалять вместе с модулем;
-  РЕГИСТР В МЕНЮ   - регистр накопления или сведений виден в панели навигации;
-  СОЗДАНИЕ         - видимая StandardCommand.Create у документа, который вводится
-                     только на основании другого (<basedOn> в .mdo);
+  РЕГИСТР В МЕНЮ   - регистр накопления виден в панели навигации: это служебные
+                     данные, а не рабочий список. Регистры сведений и бухгалтерии
+                     тут не в счёт - конфигурация выводит их осознанно (цены,
+                     календарь, премии, даты запрета, журнал проводок);
   ВИСЯЧАЯ ССЫЛКА   - фрагмент .cmi ссылается на объект вне <content> подсистемы.
 
-Запуск: scripts/menucheck.py [--section Имя] [--quiet]
-Выход: 0 - расхождений нет; 1 - есть.
+Команд, видимых по умолчанию, в конфигурации много и они осознанны, поэтому принятое
+состояние хранится в scripts/menucheck-baseline.txt (в git, а не в build: база в
+артефактах сборки устаревает молча - на этом уже обожглись с baseline линтера).
+Проверка показывает только то, чего в базе нет, и строки базы, которые протухли.
+
+Запуск: scripts/menucheck.py [--section Имя] [--quiet] [--update-baseline]
+Выход: 0 - расхождений сверх базы нет; 1 - есть.
 """
 
 import argparse
@@ -29,6 +35,7 @@ from xml.etree import ElementTree
 
 SRC = Path(__file__).resolve().parent.parent / "src" / "cf" / "src"
 SUBSYSTEMS = SRC / "Subsystems"
+BASELINE = Path(__file__).resolve().parent / "menucheck-baseline.txt"
 
 # Корневой элемент .mdo и .cmi идёт с префиксом, а дочерние - без него и потому
 # вне пространства имён: искать их надо голыми именами.
@@ -82,7 +89,9 @@ LIST_COMMAND = {
 
 CREATE_KINDS = {"Catalog", "Document", "Task", "BusinessProcess", "ExchangePlan",
                 "ChartOfCharacteristicTypes"}
-REGISTER_KINDS = {"AccumulationRegister", "InformationRegister", "AccountingRegister"}
+# Регистр сведений в «См. также» - обычная практика; накопления и бухгалтерии в меню
+# не место: это служебные данные, а не рабочий список.
+REGISTER_KINDS = {"AccumulationRegister"}
 # Перечисления и общие модули команд в панели раздела не дают.
 SILENT_KINDS = {"Enum", "CommonModule", "Sequence", "ScheduledJob"}
 
@@ -230,9 +239,6 @@ def check_subsystem(entry, findings):
             shown = True
         if not shown:
             continue
-        if kind == "create" and meta.based_on:
-            findings.append((name, "СОЗДАНИЕ", command,
-                             f"документ вводится на основании: {', '.join(meta.based_on)}"))
         if kind == "standard" and meta.kind in REGISTER_KINDS:
             findings.append((name, "РЕГИСТР В МЕНЮ", command,
                              f"{meta.kind} виден в панели навигации"))
@@ -295,12 +301,27 @@ def main():
     parser = argparse.ArgumentParser(description="Сверка меню разделов с составом подсистем")
     parser.add_argument("--section", help="проверить один раздел")
     parser.add_argument("--quiet", action="store_true", help="только итог")
+    parser.add_argument("--update-baseline", action="store_true",
+                        help="записать принятое состояние в scripts/menucheck-baseline.txt")
     args = parser.parse_args()
 
     findings = []
     entries = collect(args.section)
     for entry in entries:
         check_subsystem(entry, findings)
+
+    keys = {f"{subsystem}\t{kind}\t{command}" for subsystem, kind, command, _note in findings}
+    if args.update_baseline:
+        BASELINE.write_text("\n".join(sorted(keys)) + "\n", encoding="utf-8")
+        print(f"База принятого состояния записана: {len(keys)} строк")
+        return 0
+
+    accepted = set()
+    if BASELINE.exists():
+        accepted = {line for line in BASELINE.read_text(encoding="utf-8").splitlines() if line.strip()}
+    stale = sorted(accepted - keys) if not args.section else []
+    findings = [f for f in findings
+                if f"{f[0]}\t{f[1]}\t{f[2]}" not in accepted]
 
     if not args.quiet:
         current = None
@@ -310,8 +331,14 @@ def main():
                 current = subsystem
             print(f"  {kind:17} {command}\n  {'':17} {note}")
 
-    print(f"\nСверка меню: подсистем {len(entries)}, расхождений {len(findings)}")
-    return 1 if findings else 0
+    if stale and not args.quiet:
+        print("\nПротухшие строки базы (объекта или команды больше нет):")
+        for line in stale:
+            print("  " + line.replace("\t", "  "))
+
+    print(f"\nСверка меню: подсистем {len(entries)}, расхождений сверх базы {len(findings)}"
+          f", протухших строк базы {len(stale)}")
+    return 1 if findings or stale else 0
 
 
 if __name__ == "__main__":
