@@ -1,19 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
+  <commandsVisibility>
+    <visibilityFragments>
+      <command>DataProcessor.АРМПроизводство.Command.АРМПроизводство</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>CommonCommand.ЗаказыНаПроизводство</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВыпускПродукции.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВыпускПродукции.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ПотребностиПроизводства.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.СебестоимостьПродукции.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ТоварыВПереработке.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+  </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>DataProcessor.АРМПроизводство.Command.АРМПроизводство</commands>
+      <commands>CommonCommand.ЗаказыНаПроизводство</commands>
+      <commands>Document.ВыпускПродукции.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelImportant</group>
       <commands>DataProcessor.АРМПроизводство.Command.АРМПроизводство</commands>
       <commands>CommonCommand.ЗаказыНаПроизводство</commands>
+      <commands>Document.ВыпускПродукции.StandardCommand.OpenList</commands>
     </orderFragments>
     <orderFragments>
       <group>ActionsPanelReports</group>
-      <commands>Report.ТоварыВПереработке.StandardCommand.Open</commands>
       <commands>Report.ПотребностиПроизводства.StandardCommand.Open</commands>
+      <commands>Report.СебестоимостьПродукции.StandardCommand.Open</commands>
+      <commands>Report.ТоварыВПереработке.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
   <subsystemsOrder>
-    <subsystems>Subsystem.Производство.Subsystem.ПроизводственныеОперации</subsystems>
-    <subsystems>Subsystem.Производство.Subsystem.Справочники</subsystems>
+    <subsystems>Subsystem.Производство.Subsystem.Переработка</subsystems>
+    <subsystems>Subsystem.Производство.Subsystem.Нормативы</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>
