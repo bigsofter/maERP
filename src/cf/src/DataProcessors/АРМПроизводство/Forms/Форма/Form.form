@@ -2536,6 +2536,10 @@
                 <event>Selection</event>
                 <name>ЗаказыПоставщикуВыбор</name>
               </handlers>
+              <handlers>
+                <event>OnActivateRow</event>
+                <name>ЗаказыПоставщикуПриАктивизацииСтроки</name>
+              </handlers>
               <items xsi:type="form:FormField">
                 <name>ЗаказыПоставщикуСтатус</name>
                 <id>144</id>
@@ -3417,6 +3421,10 @@
               <handlers>
                 <event>Selection</event>
                 <name>ПоступленияВыбор</name>
+              </handlers>
+              <handlers>
+                <event>OnActivateRow</event>
+                <name>ПоступленияПриАктивизацииСтроки</name>
               </handlers>
               <items xsi:type="form:FormField">
                 <name>ПоступленияСтатус</name>
@@ -4366,6 +4374,10 @@
                 <event>Selection</event>
                 <name>ВыпускиВыбор</name>
               </handlers>
+              <handlers>
+                <event>OnActivateRow</event>
+                <name>ВыпускиПриАктивизацииСтроки</name>
+              </handlers>
               <items xsi:type="form:FormField">
                 <name>ВыпускиСтатус</name>
                 <id>245</id>
@@ -5075,6 +5087,10 @@
               <handlers>
                 <event>Selection</event>
                 <name>ОтгрузкиВыбор</name>
+              </handlers>
+              <handlers>
+                <event>OnActivateRow</event>
+                <name>ОтгрузкиПриАктивизацииСтроки</name>
               </handlers>
               <items xsi:type="form:FormField">
                 <name>ОтгрузкиСтатус</name>
@@ -5871,6 +5887,10 @@
                 <event>Selection</event>
                 <name>ПереработкиВыбор</name>
               </handlers>
+              <handlers>
+                <event>OnActivateRow</event>
+                <name>ПереработкиПриАктивизацииСтроки</name>
+              </handlers>
               <items xsi:type="form:FormField">
                 <name>ПереработкиСтатус</name>
                 <id>328</id>
@@ -6232,7 +6252,6 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <readOnly>true</readOnly>
                 <dataPath xsi:type="form:DataPath">
                   <segments>Переработки.Склад</segments>
                 </dataPath>
@@ -6251,15 +6270,17 @@
                   <id>348</id>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <type>LabelField</type>
+                <type>InputField</type>
                 <editMode>Enter</editMode>
                 <showInHeader>true</showInHeader>
                 <headerHorizontalAlign>Left</headerHorizontalAlign>
                 <showInFooter>true</showInFooter>
-                <extInfo xsi:type="form:LabelFieldExtInfo">
+                <extInfo xsi:type="form:InputFieldExtInfo">
                   <width>14</width>
                   <autoMaxWidth>false</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
+                  <textEdit>true</textEdit>
+                  <textSize>Normal</textSize>
                 </extInfo>
               </items>
               <items xsi:type="form:FormField">

@@ -10,6 +10,24 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.38
+### ru
+- Рабочее место производства: замечание «строка не записана» больше не повторяется на каждое нажатие Enter во время ввода. Пока вы в строке, рабочее место молчит и только помечает её как незаписанную; сказать о незаполненном оно может один раз — когда вы действительно уйдёте со строки. Так теперь во всех нижних закладках: «Заказы поставщику», «Поступления», «Выпуск», «Отгрузки», «Переработка».
+- При выводе сообщения прежние сообщения очищаются: в окне остаётся то, что относится к текущему действию, а не список замечаний за всю работу.
+- На закладке «Переработка» колонка «Склад» стала редактируемой, пока строка не записана: склад уходит в шапку новой передачи в переработку. Раньше поле показывалось только для чтения, а без склада передачу записать нельзя — если ни склад пользователя, ни основное место хранения в настройках не заданы, ввод упирался в тупик. У записанной строки склад по-прежнему меняется только в самом документе: смена склада переписала бы списанные партии.
+### fr
+- Poste de production : la remarque « ligne non enregistrée » ne se répète plus à chaque appui sur Entrée pendant la saisie. Tant que vous êtes dans la ligne, le poste se tait et se contente de la marquer comme non enregistrée ; il ne signale les champs manquants qu'une fois, quand vous quittez réellement la ligne. Il en va de même dans tous les onglets du bas : « Commandes fournisseur », « Réceptions », « Production », « Expéditions », « Sous-traitance ».
+- À l'affichage d'un message, les messages précédents sont effacés : la fenêtre ne garde que ce qui concerne l'action en cours, et non la liste des remarques de toute la séance.
+- Dans l'onglet « Sous-traitance », la colonne « Entrepôt » devient modifiable tant que la ligne n'est pas enregistrée : l'entrepôt passe dans l'en-tête du nouvel envoi en sous-traitance. Auparavant le champ était en lecture seule, et sans entrepôt l'envoi ne peut pas être enregistré — si ni l'entrepôt de l'utilisateur ni le lieu de stockage principal ne sont renseignés, la saisie était bloquée. Pour une ligne enregistrée, l'entrepôt se change toujours dans le document lui-même : le changer réécrirait les lots sortis.
+### en
+- Production workstation: the "line not saved" notice no longer repeats on every Enter while you type. As long as you stay in the line the workstation keeps quiet and only marks it as unsaved; it reports the missing fields once, when you actually leave the line. This now holds in every bottom tab: "Supplier orders", "Receipts", "Output", "Shipments", "Subcontracting".
+- Showing a message clears the previous ones: the window keeps what belongs to the current action instead of a list of notices from the whole session.
+- On the "Subcontracting" tab the "Warehouse" column is editable while the line is unsaved: the warehouse goes into the header of the new transfer to the subcontractor. The field used to be read-only, and without a warehouse the transfer cannot be saved — if neither the user's warehouse nor the main storage location is set, entry hit a dead end. For a saved line the warehouse still changes only in the document itself: changing it would rewrite the batches written off.
+### es
+- Puesto de producción: el aviso «línea no guardada» ya no se repite con cada pulsación de Intro durante la entrada. Mientras esté en la línea, el puesto calla y solo la marca como no guardada; informa de los campos vacíos una vez, cuando abandona realmente la línea. Así ocurre ahora en todas las pestañas inferiores: «Pedidos a proveedor», «Recepciones», «Fabricación», «Expediciones», «Subcontratación».
+- Al mostrar un mensaje se borran los anteriores: la ventana conserva lo que corresponde a la acción actual y no la lista de avisos de toda la sesión.
+- En la pestaña «Subcontratación» la columna «Almacén» se puede editar mientras la línea no esté guardada: el almacén pasa a la cabecera del nuevo envío a subcontratación. Antes el campo era de solo lectura y sin almacén el envío no se puede guardar; si no están indicados ni el almacén del usuario ni el lugar de almacenamiento principal, la entrada quedaba bloqueada. En una línea guardada el almacén se cambia solo en el propio documento: cambiarlo reescribiría los lotes dados de baja.
+
 ## 2.0.15.37
 ### ru
 - Из меню убраны пункты, которые показывались дважды. «Рабочее место производства» в разделе «Производство», «Настройки программы» в разделе «Настройка» и «Ventes en détail» в розничных продажах открывались двумя разными пунктами с одним названием — остался один, рабочий.
