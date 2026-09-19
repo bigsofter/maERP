@@ -1757,58 +1757,6 @@
                 <autoFill>false</autoFill>
               </autoCommandBar>
               <items xsi:type="form:FormField">
-                <name>МатериалыПродукция</name>
-                <id>108</id>
-                <title>
-                  <key>ru</key>
-                  <value>Продукция</value>
-                </title>
-                <title>
-                  <key>fr</key>
-                  <value>Produit</value>
-                </title>
-                <title>
-                  <key>en</key>
-                  <value>Product</value>
-                </title>
-                <title>
-                  <key>es</key>
-                  <value>Producto</value>
-                </title>
-                <visible>true</visible>
-                <enabled>true</enabled>
-                <userVisible>
-                  <common>true</common>
-                </userVisible>
-                <dataPath xsi:type="form:DataPath">
-                  <segments>Материалы.Продукция</segments>
-                </dataPath>
-                <extendedTooltip>
-                  <name>МатериалыПродукцияРасширеннаяПодсказка</name>
-                  <id>109</id>
-                  <type>Label</type>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <extInfo xsi:type="form:LabelDecorationExtInfo">
-                    <horizontalAlign>Left</horizontalAlign>
-                  </extInfo>
-                </extendedTooltip>
-                <contextMenu>
-                  <name>МатериалыПродукцияКонтекстноеМеню</name>
-                  <id>110</id>
-                  <autoFill>true</autoFill>
-                </contextMenu>
-                <type>LabelField</type>
-                <editMode>Enter</editMode>
-                <showInHeader>true</showInHeader>
-                <headerHorizontalAlign>Left</headerHorizontalAlign>
-                <showInFooter>true</showInFooter>
-                <extInfo xsi:type="form:LabelFieldExtInfo">
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                </extInfo>
-              </items>
-              <items xsi:type="form:FormField">
                 <name>МатериалыМатериал</name>
                 <id>111</id>
                 <title>
@@ -1848,6 +1796,58 @@
                 <contextMenu>
                   <name>МатериалыМатериалКонтекстноеМеню</name>
                   <id>113</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>LabelField</type>
+                <editMode>Enter</editMode>
+                <showInHeader>true</showInHeader>
+                <headerHorizontalAlign>Left</headerHorizontalAlign>
+                <showInFooter>true</showInFooter>
+                <extInfo xsi:type="form:LabelFieldExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                </extInfo>
+              </items>
+              <items xsi:type="form:FormField">
+                <name>МатериалыПродукция</name>
+                <id>108</id>
+                <title>
+                  <key>ru</key>
+                  <value>Продукция</value>
+                </title>
+                <title>
+                  <key>fr</key>
+                  <value>Produit</value>
+                </title>
+                <title>
+                  <key>en</key>
+                  <value>Product</value>
+                </title>
+                <title>
+                  <key>es</key>
+                  <value>Producto</value>
+                </title>
+                <visible>true</visible>
+                <enabled>true</enabled>
+                <userVisible>
+                  <common>true</common>
+                </userVisible>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>Материалы.Продукция</segments>
+                </dataPath>
+                <extendedTooltip>
+                  <name>МатериалыПродукцияРасширеннаяПодсказка</name>
+                  <id>109</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>МатериалыПродукцияКонтекстноеМеню</name>
+                  <id>110</id>
                   <autoFill>true</autoFill>
                 </contextMenu>
                 <type>LabelField</type>
@@ -2328,6 +2328,7 @@
                   <autoMaxHeight>true</autoMaxHeight>
                 </extInfo>
               </items>
+              <representation>Tree</representation>
               <changeRowSet>false</changeRowSet>
               <changeRowOrder>false</changeRowOrder>
               <autoMaxWidth>true</autoMaxWidth>
@@ -8311,7 +8312,7 @@
     <name>Материалы</name>
     <id>5</id>
     <valueType>
-      <types>ValueTable</types>
+      <types>ValueTree</types>
     </valueType>
     <view>
       <common>true</common>
@@ -8658,6 +8659,38 @@
       <id>11</id>
       <valueType>
         <types>EnumRef.СпособыИзготовления</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Уровень</name>
+      <title>
+        <key>ru</key>
+        <value>Уровень</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Niveau</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Level</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Nivel</value>
+      </title>
+      <id>12</id>
+      <valueType>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>2</precision>
+        </numberQualifiers>
       </valueType>
       <view>
         <common>true</common>
