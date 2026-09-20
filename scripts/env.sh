@@ -24,10 +24,20 @@ DIST="${BUILD}/dist"             # готовые CF/CFU для поставки
 
 # Воркспейс EDT держим вне репозитория, иначе Eclipse-мусор полезет в git.
 EDT_WS="${EDT_WS:-$HOME/EDT/ws-maERP}"
-# Путь к 1cedtcli. Файл на месте, но без зарегистрированной в системе JVM
-# не запускается — подробности в docs/EDT-SETUP.md.
 EDT_VERSION="${EDT_VERSION:-1C_EDT 2026.1}"
 EDT_CLI="${EDT_CLI:-$HOME/Library/Application Support/1C/1cedtstart/installations/$EDT_VERSION/1cedt.app/Contents/Eclipse/1cedtcli}"
+
+# 1cedtcli на macOS — исполняемый файл x86_64, и ему нужна JDK 17+ ТОЙ ЖЕ архитектуры.
+# arm64-JDK (та, на которой работает BSL LS) не подходит: лаунчер падает с
+# «JVM shared library ... does not contain the JNI_CreateJavaVM symbol», причём
+# в stdout ничего не пишет — ошибка уходит в <EDT_WS>/.metadata/1cedtcli.log,
+# а наружу виден только пустой вывод и rc=254. Ключа -vm у 1cedtcli нет,
+# версия JVM берётся из JAVA_HOME/PATH, поэтому её задаём здесь.
+# Автоопределение: первая x86_64-JDK из зарегистрированных в системе.
+if [ -z "${EDT_JAVA_HOME:-}" ] && [ -x /usr/libexec/java_home ]; then
+  EDT_JAVA_HOME="$(/usr/libexec/java_home -V 2>&1 | awk '/x86_64/ {sub(/.*" /, ""); print; exit}')"
+fi
+EDT_JAVA_HOME="${EDT_JAVA_HOME:-}"
 
 # Общие ключи пакетного режима: без диалогов и без интерактивных сообщений.
 V8_BATCH=(/DisableStartupDialogs /DisableStartupMessages)

@@ -104,12 +104,42 @@ scripts/xml-dump.sh build/ib build/xml   # база -> XML конфигурат�
 
 затем в EDT: Файл → Импорт → Конфигурация из файлов, указать `build/xml`.
 
+## Обновление базы сборки без IDE (headless)
+
+Заработало 2026-09-20. Одна команда синхронизирует `build/ib` с `src/cf`:
+
+```bash
+scripts/ib-sync.sh          # edt-export.sh -> xml-load.sh, ~6 минут
+scripts/smoke.sh && scripts/doctests.sh
+```
+
+Два условия, без которых цепочка не идёт:
+
+1. **`1cedtcli` — исполняемый файл x86_64, и ему нужна JDK 17+ той же архитектуры.**
+   arm64-JDK (та, на которой работает BSL LS) не подходит: лаунчер падает с
+   «JVM shared library … does not contain the JNI_CreateJavaVM symbol», причём **в stdout не
+   пишет ничего** — наружу видны только пустой вывод и `rc=254`, а настоящая ошибка уходит в
+   `<EDT_WS>/.metadata/1cedtcli.log`. Ключа `-vm` у `1cedtcli` нет, JVM берётся из
+   `JAVA_HOME`/`PATH`. `scripts/env.sh` подбирает первую x86_64-JDK из
+   `/usr/libexec/java_home -V`; переопределяется переменной `EDT_JAVA_HOME`.
+2. **Рабочая область CLI — отдельная** (`EDT_WS`, по умолчанию `~/EDT/ws-maERP`): Eclipse держит
+   свою эксклюзивно. Проект, которого в ней нет, команда `export` импортирует сама.
+   И **база не должна быть открыта в Designer** — иначе `CheckConfig` не захватит её
+   («Es posible que la base de información esté abierta por Designer»), и шаг 2 смока молча
+   пропускается.
+
+`xml-load.sh` с 2026-09-20 применяет конфигурацию к данным (`-UpdateDBCfg`). До этого
+`/UpdateDBCfg` был только в `cf-load.sh`, и цепочка «EDT → XML → база» молча оставляла базу с
+прежней структурой данных.
+
 ## Цикл разработки
 
 1. Я правлю `.bsl` / `.mdo` в `src/cf` и коммичу в `develop`.
-2. Ты в EDT делаешь Refresh (F5) и смотришь проверку модулей.
-3. Отладка — запуск из EDT на базе разработки.
-4. Сборка поставки — см. [RELEASE.md](RELEASE.md).
+2. Базу сборки обновляю сам — `scripts/ib-sync.sh`; IDE для этого не нужна.
+3. Ты в EDT делаешь Refresh (F5) и смотришь проверку модулей — синтаксический контроль и
+   ссылочную целостность метаданных headless не заменить.
+4. Отладка — запуск из EDT на базе разработки.
+5. Сборка поставки — см. [RELEASE.md](RELEASE.md).
 
 Конфигуратор для сборки не нужен: пакетный режим `1cv8 DESIGNER` работает
 headless, это проверено.
