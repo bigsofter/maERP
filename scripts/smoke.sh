@@ -69,11 +69,18 @@ rm -f "$EXT_LOG"
 	-ThinClient -Server -ExtendedModulesCheck \
 	"${V8_BATCH[@]}" /Out "$EXT_LOG" || true
 wait_process_end "CheckConfig" || true
+# Отчёт 1С приходит с BOM и CRLF, а база известных замечаний сортировалась когда-то в другой
+# локали. comm на несортированном входе выдаёт мусор: 2026-09-20 гейт показал 66 «новых» строк при
+# нулевой реальной разнице и срезал прогон. Поэтому обе стороны нормализуются одинаково -
+# снимается BOM и \r, пустые строки выбрасываются, сортировка в фиксированной локали C.
+normalize_check_lines() {
+	sed -e '1s/^\xEF\xBB\xBF//' -e 's/\r$//' "$1" | sed '/^[[:space:]]*$/d' | LC_ALL=C sort -u
+}
 if [ ! -f "$EXT_BASE" ]; then
 	echo "Базы известных замечаний нет — создана: $EXT_BASE"
-	sort -u "$EXT_LOG" > "$EXT_BASE"
+	normalize_check_lines "$EXT_LOG" > "$EXT_BASE"
 elif [ -s "$EXT_LOG" ]; then
-	NEW_LINES=$(sort -u "$EXT_LOG" | comm -13 "$EXT_BASE" - | sed '/^[[:space:]]*$/d')
+	NEW_LINES=$(comm -13 <(normalize_check_lines "$EXT_BASE") <(normalize_check_lines "$EXT_LOG"))
 	if [ -n "$NEW_LINES" ]; then
 		echo "--- Новые замечания расширенной проверки:"
 		echo "$NEW_LINES"
