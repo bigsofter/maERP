@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.41
+### ru
+- Нормы расхода в технологических картах теперь хранятся с десятью знаками после запятой, а количества — с шестью вместо трёх. Раньше цепочка из трёх уровней с нормами по 0,05 давала 0,000125, число не помещалось в три знака и записывалось нулём: материал молча исчезал и из потребности, и из списания.
+- Количество материала считается из точной нормы одним действием. Раньше оно сначала округлялось в упаковках и только потом пересчитывалось по коэффициенту упаковки, из-за чего мелкая норма обнулялась ещё до пересчёта.
+- Если материал всё же теряется — его количество на заданный объём продукции меньше точности количества, — заказ больше не заполняется молча. Материалы такой строки не заполняются, документ не проводится, а сообщение называет материал и предлагает увеличить количество продукции или укрупнить норму в карте. Прежняя версия обещала предупреждение, но оно не срабатывало никогда.
+- Технологическая карта разворачивается не глубже трёх уровней вместо четырёх. На четвёртом уровне норма не обнулялась, но считалась с заметной погрешностью, и заметить это было нельзя: теперь заполнение прямо отказывает и называет цепочку.
+- В торговых документах количество на форме показывается тремя знаками, как и раньше: выросшая точность нужна производству и в накладных только мешала бы. В заказе и выпуске норма расхода показывается шестью знаками, а хранится с десятью.
+- Размер присоединённого файла перестал считаться количеством: он всегда им не был, а теперь не зависит от точности количеств.
+### fr
+- Les normes de consommation des gammes de fabrication sont désormais stockées avec dix décimales, et les quantités avec six au lieu de trois. Auparavant une chaîne de trois niveaux avec des normes de 0,05 donnait 0,000125, valeur qui n'entrait pas dans trois décimales et s'enregistrait à zéro : la matière disparaissait silencieusement du besoin et de la sortie.
+- La quantité de matière est calculée à partir de la norme exacte en une seule opération. Auparavant elle était d'abord arrondie en conditionnements puis recalculée selon le coefficient, ce qui annulait une norme fine avant même le recalcul.
+- Si la matière est malgré tout perdue — sa quantité pour le volume de production indiqué est inférieure à la précision des quantités —, la commande n'est plus remplie en silence. Les matières de cette ligne ne sont pas remplies, le document n'est pas validé, et le message nomme la matière et propose d'augmenter la quantité de production ou d'arrondir la norme. La version précédente promettait un avertissement qui ne se déclenchait jamais.
+- La gamme n'est plus développée au-delà de trois niveaux au lieu de quatre. Au quatrième niveau la norme ne s'annulait pas mais se calculait avec une erreur sensible et invisible : le remplissage refuse désormais explicitement en nommant la chaîne.
+- Dans les documents commerciaux la quantité s'affiche avec trois décimales comme auparavant : la précision accrue sert à la production et ne ferait qu'encombrer les factures. Dans la commande et la production, la norme s'affiche avec six décimales et se stocke avec dix.
+- La taille d'un fichier joint n'est plus traitée comme une quantité : elle ne l'a jamais été, et ne dépend plus de la précision des quantités.
+### en
+- Consumption norms in production routings are now stored with ten decimal places, and quantities with six instead of three. Previously a three-level chain with norms of 0.05 produced 0.000125, which did not fit into three decimals and was stored as zero: the material silently vanished from both the requirement and the write-off.
+- Material quantity is computed from the exact norm in a single step. It used to be rounded in packages first and only then recalculated by the package coefficient, so a fine norm was zeroed before the recalculation.
+- If a material is lost anyway — its quantity for the given production volume is below the quantity precision — the order is no longer filled silently. The materials of such a line are not filled, the document is not posted, and the message names the material and suggests increasing the production quantity or coarsening the norm. The previous version promised a warning that never fired.
+- A routing is expanded no deeper than three levels instead of four. At the fourth level the norm was not zeroed but was computed with a noticeable and invisible error: filling now refuses explicitly and names the chain.
+- In trade documents the quantity is shown with three decimals as before: the increased precision serves production and would only clutter invoices. In the order and the production release the norm is shown with six decimals and stored with ten.
+- The size of an attached file is no longer treated as a quantity: it never was one, and no longer depends on quantity precision.
+### es
+- Las normas de consumo de las rutas de fabricación se almacenan ahora con diez decimales, y las cantidades con seis en lugar de tres. Antes, una cadena de tres niveles con normas de 0,05 daba 0,000125, valor que no cabía en tres decimales y se guardaba como cero: el material desaparecía en silencio de la necesidad y de la baja.
+- La cantidad de material se calcula a partir de la norma exacta en un solo paso. Antes se redondeaba primero en envases y solo después se recalculaba por el coeficiente, de modo que una norma fina se anulaba antes del recálculo.
+- Si aun así el material se pierde — su cantidad para el volumen de producción indicado es inferior a la precisión de cantidades —, el pedido ya no se rellena en silencio. Los materiales de esa línea no se rellenan, el documento no se registra y el mensaje nombra el material y propone aumentar la cantidad de producción o redondear la norma. La versión anterior prometía un aviso que nunca se activaba.
+- La ruta no se desarrolla más allá de tres niveles en lugar de cuatro. En el cuarto nivel la norma no se anulaba, pero se calculaba con un error apreciable e invisible: ahora el relleno rechaza explícitamente y nombra la cadena.
+- En los documentos comerciales la cantidad se muestra con tres decimales como antes: la mayor precisión sirve a producción y en las facturas solo estorbaría. En el pedido y en la producción la norma se muestra con seis decimales y se almacena con diez.
+- El tamaño de un archivo adjunto ha dejado de tratarse como cantidad: nunca lo fue y ya no depende de la precisión de las cantidades.
+
 ## 2.0.15.40
 ### ru
 - На закладке «Материалы» рабочего места производства состав заказа теперь показывается деревом: под изделием стоят его полуфабрикаты, а под каждым полуфабрикатом — материалы, из которых его делают. Раньше это был плоский список, и по нему нельзя было понять, к чему относится материал. Узлы раскрываются и сворачиваются, а в заголовке закладки считаются все строки дерева, а не только верхний уровень.
