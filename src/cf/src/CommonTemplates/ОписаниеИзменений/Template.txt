@@ -10,6 +10,24 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.42
+### ru
+- У выпуска продукции появился признак «Создан автоматически». Раньше выпуск, сделанный программой при отгрузке, отличался от вашего собственного только тем, что в основании у него стояла расходная накладная. Теперь это отдельный признак документа: при обновлении он проставляется всем выпускам, созданным программой до этой сборки.
+- Поведение выпусков не изменилось: автоматический по-прежнему правится только перепроведением своей накладной, а ваш собственный остаётся полностью в вашем распоряжении. Изменился только способ, которым программа их различает — и теперь он не сломается, когда выпуск начнёт создаваться не только при отгрузке.
+- Это подготовка к автоматическому выпуску полуфабриката при передаче в переработку: он придёт следующей сборкой.
+### fr
+- La production porte désormais un indicateur « Créé automatiquement ». Auparavant, une production faite par le programme lors de l'expédition ne se distinguait de la vôtre que par le document de base, un bon de livraison. C'est maintenant un attribut à part : lors de la mise à jour, il est apposé à toutes les productions créées par le programme avant cette version.
+- Le comportement ne change pas : la production automatique ne se modifie toujours que par la revalidation de son bon de livraison, et la vôtre reste entièrement à votre main. Seule change la façon dont le programme les distingue — et elle ne cassera plus quand la production sera créée ailleurs qu'à l'expédition.
+- C'est la préparation de la production automatique du semi-fini lors du transfert en sous-traitance, qui arrivera à la version suivante.
+### en
+- A production output now carries a "Created automatically" flag. Previously an output made by the program on shipment differed from your own only by having a delivery note as its basis. It is now a separate attribute: on update it is set on every output the program created before this build.
+- Behaviour is unchanged: an automatic output is still modified only by reposting its delivery note, and your own output remains entirely yours. Only the way the program tells them apart has changed — and it will no longer break once outputs start being created somewhere other than shipment.
+- This prepares the automatic output of a semi-finished product when it is transferred to a subcontractor, which arrives in the next build.
+### es
+- La producción tiene ahora un indicador «Creado automáticamente». Antes, una producción hecha por el programa al enviar solo se distinguía de la suya por tener un albarán como base. Ahora es un atributo aparte: al actualizar se marca en todas las producciones que el programa creó antes de esta versión.
+- El comportamiento no cambia: la producción automática sigue modificándose solo al volver a contabilizar su albarán, y la suya sigue siendo enteramente suya. Solo cambia la forma en que el programa las distingue — y ya no se romperá cuando la producción empiece a crearse fuera del envío.
+- Es la preparación de la producción automática del semielaborado al transferirlo a subcontratación, que llegará en la siguiente versión.
+
 ## 2.0.15.41
 ### ru
 - Нормы расхода в технологических картах теперь хранятся с десятью знаками после запятой, а количества — с шестью вместо трёх. Раньше цепочка из трёх уровней с нормами по 0,05 давала 0,000125, число не помещалось в три знака и записывалось нулём: материал молча исчезал и из потребности, и из списания.
