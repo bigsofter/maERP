@@ -35,7 +35,9 @@ JAVA_HOME="$EDT_JAVA_HOME" PATH="$EDT_JAVA_HOME/bin:$PATH" \
   --project "$PROJECT" \
   --configuration-files "$OUT" > "$LOG" 2>&1
 RC=$?
-grep -v "^WARNING" "$LOG" | grep -v '^$' | tail -20
+# Чистый экспорт пишет пустой лог: grep без совпадений вернул бы 1 и под pipefail (env.sh) оборвал скрипт
+# молча, хотя выгрузка удалась. Итог решает проверка RC и каталога ниже.
+grep -v "^WARNING" "$LOG" | grep -v '^$' | tail -20 || true
 if [ $RC -ne 0 ] || [ ! -d "$OUT/Documents" ]; then
   echo "Экспорт EDT не удался (rc=$RC). Лог: $LOG; журнал EDT: $EDT_WS/.metadata/1cedtcli.log" >&2
   exit 1
