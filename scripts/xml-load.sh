@@ -14,6 +14,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/env.sh"
 IN="${1:-$XML_OUT}"
 IB="${2:-$IB_BUILD}"
 LOG="$BUILD/xml-load.log"
+LOG_APPLY="$BUILD/xml-apply.log"
 
 AUTH=()
 [ -n "${SMOKE_USER:-}" ] && AUTH+=(/N "$SMOKE_USER")
@@ -28,6 +29,19 @@ RC=$?
 cat "$LOG"
 if [ $RC -ne 0 ]; then
   echo "Загрузка XML в базу не удалась (rc=$RC): $IB" >&2
+  exit 1
+fi
+
+# Применение отдельным запуском, хотя -UpdateDBCfg уже стоит выше. Ключ в одной команде с
+# /LoadConfigFromFiles конфигурацию базы НЕ применяет: 2026-09-20 загрузка отрабатывала с rc=0, а
+# тесты продолжали гонять модули прошлой сборки, и следующий отдельный /UpdateDBCfg каждый раз
+# рапортовал «Обработка структуры базы данных...», то есть работа для него оставалась. Шаг
+# идемпотентный: применять нечего - команда просто отвечает успехом.
+"$V8" DESIGNER /F "$IB" "${AUTH[@]}" /UpdateDBCfg "${V8_BATCH[@]}" /Out "$LOG_APPLY"
+RC=$?
+cat "$LOG_APPLY"
+if [ $RC -ne 0 ]; then
+  echo "Применение конфигурации к базе не удалось (rc=$RC): $IB" >&2
   exit 1
 fi
 echo "XML загружен и применён к базе: $IB"
