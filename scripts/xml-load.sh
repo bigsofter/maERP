@@ -22,10 +22,12 @@ AUTH=()
 
 [ -d "$IN" ] || { echo "Нет каталога выгрузки: $IN" >&2; exit 1; }
 
+# «|| RC=$?»: под set -e из env.sh ненулевой код 1cv8 обрывал скрипт до сообщения ниже - ошибка (например,
+# «база открыта в Конфигураторе») пропадала молча, а ib-sync.sh выходил с 1 без объяснения.
+RC=0
 "$V8" DESIGNER /F "$IB" "${AUTH[@]}" \
   /LoadConfigFromFiles "$IN" -Format Hierarchical -UpdateDBCfg \
-  "${V8_BATCH[@]}" /Out "$LOG"
-RC=$?
+  "${V8_BATCH[@]}" /Out "$LOG" || RC=$?
 cat "$LOG"
 if [ $RC -ne 0 ]; then
   echo "Загрузка XML в базу не удалась (rc=$RC): $IB" >&2
@@ -37,8 +39,8 @@ fi
 # тесты продолжали гонять модули прошлой сборки, и следующий отдельный /UpdateDBCfg каждый раз
 # рапортовал «Обработка структуры базы данных...», то есть работа для него оставалась. Шаг
 # идемпотентный: применять нечего - команда просто отвечает успехом.
-"$V8" DESIGNER /F "$IB" "${AUTH[@]}" /UpdateDBCfg "${V8_BATCH[@]}" /Out "$LOG_APPLY"
-RC=$?
+RC=0
+"$V8" DESIGNER /F "$IB" "${AUTH[@]}" /UpdateDBCfg "${V8_BATCH[@]}" /Out "$LOG_APPLY" || RC=$?
 cat "$LOG_APPLY"
 if [ $RC -ne 0 ]; then
   echo "Применение конфигурации к базе не удалось (rc=$RC): $IB" >&2
