@@ -30,11 +30,12 @@ LOG="$BUILD/edt-export.log"
 rm -rf "$OUT"; mkdir -p "$OUT" "$EDT_WS" "$BUILD"
 # Рабочая область CLI — своя, не та, что открыта в IDE: Eclipse держит её эксклюзивно.
 # Проект, которого в ней нет, команда export импортирует сама.
+# «|| RC=$?»: под set -e из env.sh упавший 1cedtcli обрывал бы скрипт до сообщения с путём к логу ниже.
+RC=0
 JAVA_HOME="$EDT_JAVA_HOME" PATH="$EDT_JAVA_HOME/bin:$PATH" \
 "$EDT_CLI" -data "$EDT_WS" -nl ru_RU -command export \
   --project "$PROJECT" \
-  --configuration-files "$OUT" > "$LOG" 2>&1
-RC=$?
+  --configuration-files "$OUT" > "$LOG" 2>&1 || RC=$?
 # Чистый экспорт пишет пустой лог: grep без совпадений вернул бы 1 и под pipefail (env.sh) оборвал скрипт
 # молча, хотя выгрузка удалась. Итог решает проверка RC и каталога ниже.
 grep -v "^WARNING" "$LOG" | grep -v '^$' | tail -20 || true
