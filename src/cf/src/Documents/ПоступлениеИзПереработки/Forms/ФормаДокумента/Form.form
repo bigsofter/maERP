@@ -459,6 +459,43 @@
           </font>
         </extInfo>
       </items>
+      <items xsi:type="form:FormField">
+        <name>СырьеИзмененоВручную</name>
+        <id>421</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Объект.СырьеИзмененоВручную</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <extendedTooltip>
+          <name>СырьеИзмененоВручнуюРасширеннаяПодсказка</name>
+          <id>422</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>СырьеИзмененоВручнуюКонтекстноеМеню</name>
+          <id>423</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <readOnly>true</readOnly>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+          <checkBoxType>Switcher</checkBoxType>
+        </extInfo>
+      </items>
         <items xsi:type="form:FormField">
           <name>СтоимостьУслуг</name>
           <id>404</id>
@@ -2020,6 +2057,52 @@
           <textSize>Normal</textSize>
         </extInfo>
       </items>
+      <items xsi:type="form:FormField">
+        <name>ТЧГотоваяПродукцияСтоимостьУслуг</name>
+        <id>418</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Объект.ТЧГотоваяПродукция.СтоимостьУслуг</segments>
+        </dataPath>
+        <handlers>
+          <event>OnChange</event>
+          <name>ТЧГотоваяПродукцияСтоимостьУслугПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>ТЧГотоваяПродукцияСтоимостьУслугРасширеннаяПодсказка</name>
+          <id>419</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ТЧГотоваяПродукцияСтоимостьУслугКонтекстноеМеню</name>
+          <id>420</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Auto</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Center</headerHorizontalAlign>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <width>10</width>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <horizontalStretch>false</horizontalStretch>
+          <wrap>true</wrap>
+          <chooseType>true</chooseType>
+          <typeDomainEnabled>true</typeDomainEnabled>
+          <textEdit>true</textEdit>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
       <autoCommandBar>
         <name>ТЧГотоваяПродукцияКоманднаяПанель</name>
         <id>218</id>
@@ -2137,6 +2220,10 @@
       <handlers>
         <event>OnStartEdit</event>
         <name>ТЧГотоваяПродукцияПриНачалеРедактирования</name>
+      </handlers>
+      <handlers>
+        <event>AfterDeleteRow</event>
+        <name>ТЧГотоваяПродукцияПослеУдаления</name>
       </handlers>
       <searchStringAddition>
         <name>ТЧГотоваяПродукцияСтрокаПоиска</name>
