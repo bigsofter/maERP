@@ -25,10 +25,12 @@ AUTH=()
 # «|| RC=$?»: под set -e из env.sh ненулевой код 1cv8 обрывал скрипт до сообщения ниже - ошибка (например,
 # «база открыта в Конфигураторе») пропадала молча, а ib-sync.sh выходил с 1 без объяснения.
 RC=0
+# Лог прошлого запуска не должен выдать себя за текущий, а отсутствующий лог - оборвать скрипт в cat.
+rm -f "$LOG" "$LOG_APPLY"
 "$V8" DESIGNER /F "$IB" "${AUTH[@]}" \
   /LoadConfigFromFiles "$IN" -Format Hierarchical -UpdateDBCfg \
   "${V8_BATCH[@]}" /Out "$LOG" || RC=$?
-cat "$LOG"
+cat "$LOG" 2>/dev/null || true
 if [ $RC -ne 0 ]; then
   echo "Загрузка XML в базу не удалась (rc=$RC): $IB" >&2
   exit 1
@@ -41,7 +43,7 @@ fi
 # идемпотентный: применять нечего - команда просто отвечает успехом.
 RC=0
 "$V8" DESIGNER /F "$IB" "${AUTH[@]}" /UpdateDBCfg "${V8_BATCH[@]}" /Out "$LOG_APPLY" || RC=$?
-cat "$LOG_APPLY"
+cat "$LOG_APPLY" 2>/dev/null || true
 if [ $RC -ne 0 ]; then
   echo "Применение конфигурации к базе не удалось (rc=$RC): $IB" >&2
   exit 1
