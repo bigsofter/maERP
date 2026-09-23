@@ -10,6 +10,28 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.50
+### ru
+- Кнопка «Подбор товара» в заказе на производство теперь предлагает только готовую продукцию и полуфабрикаты, списком без групп — как и выбор в колонке «Номенклатура». В заказе на продажу подбор остался прежним, по всей номенклатуре.
+- Акт приёмки из переработки печатает строку «В том числе услуги переработчика» с суммой и НДС: услуги входят в себестоимость принятой продукции, поэтому они показаны как часть итога, а не добавляются к нему.
+- Мелкие правки: в печати запроса котировок номер документа не ищется — его там и не должно быть (запрос адресован поставщику); в подборе номенклатуры разрядность поля количества читается один раз, а не при каждом вводе; в операции валютные суммы проводки приводятся по типу регистра, а не по более широкому литералу.
+- Обновление добавит индекс по дате создания номенклатуры: на большой базе первый запуск после обновления займёт на несколько минут дольше.
+### fr
+- Le bouton « Sélection des articles » de la commande de production ne propose désormais que les produits finis et les produits semi-finis, en liste sans groupes — comme le choix dans la colonne « Nomenclature ». Dans une commande de vente, la sélection reste inchangée, sur toute la nomenclature.
+- Le bon de réception de sous-traitance imprime la ligne « Dont services du sous-traitant » avec le montant et la TVA : ces services entrent dans le coût des produits reçus, ils sont donc montrés comme une part du total et non ajoutés à celui-ci.
+- Petites corrections : l'impression de la demande de prix ne cherche plus le numéro du document — il n'y a pas lieu d'y figurer (la demande s'adresse au fournisseur) ; dans la sélection des articles, la précision du champ de quantité est lue une seule fois et non à chaque saisie ; dans l'opération, les montants en devise des écritures sont ramenés au type du registre et non à un littéral plus large.
+- La mise à jour ajoutera un index sur la date de création de la nomenclature : sur une grande base, le premier lancement après la mise à jour prendra quelques minutes de plus.
+### en
+- The "Product picking" button in a production order now offers only finished and semi-finished products, as a flat list without groups — like the choice in the "Item" column. In a sales order, picking stays as before, over all items.
+- The subcontracting acceptance act prints the line "Including processor services" with the amount and VAT: these services are part of the cost of the received products, so they are shown as a share of the total rather than added to it.
+- Small fixes: the quotation request printout no longer looks for the document number — it does not belong there (the request is addressed to the supplier); in item picking the quantity field precision is read once instead of on every entry; in the operation document the currency amounts of the entries are coerced to the register type rather than to a wider literal.
+- The update will add an index on the item creation date: on a large database the first start after the update takes a few minutes longer.
+### es
+- El botón «Selección de artículos» en el pedido para producción ahora ofrece solo productos terminados y semielaborados, como lista sin grupos, igual que la selección en la columna «Nomenclatura». En el pedido de venta la selección sigue igual, sobre toda la nomenclatura.
+- El acta de recepción de subcontratación imprime la línea «Incluidos los servicios del procesador» con el importe y el IVA: esos servicios entran en el coste de los productos recibidos, por eso se muestran como parte del total y no se suman a él.
+- Correcciones menores: la impresión de la solicitud de cotización ya no busca el número del documento — no corresponde que esté (la solicitud se dirige al proveedor); en la selección de artículos la precisión del campo de cantidad se lee una sola vez y no en cada entrada; en la operación los importes en divisa de los asientos se ajustan al tipo del registro y no a un literal más amplio.
+- La actualización añadirá un índice por la fecha de creación de la nomenclatura: en una base grande el primer arranque tras la actualización tardará unos minutos más.
+
 ## 2.0.15.49
 ### ru
 - Подбор номенклатуры в рабочем месте производства и в заказе на производство теперь предлагает только подходящие позиции. В колонке «Продукция» рабочего места и в товарах заказа на производство — готовая продукция и полуфабрикаты. В колонке «Материал» закупок и переработки рабочего места и в материалах заказа — сырьё, полуфабрикаты и товары. Услуги и комплекты в эти колонки не предлагаются.
