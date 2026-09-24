@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="f5919bd5-8ab9-4b78-8fbe-02b939ab10ac">
+  <producedTypes>
+    <selectionType typeId="539b6e31-9192-492f-a636-eabf03b113eb" valueTypeId="2090be9d-10ce-4df9-b4cb-3dbca7f577bb"/>
+    <listType typeId="241b8127-7a7f-4783-9b37-508ba255259e" valueTypeId="7d37afdb-8d12-46be-a526-e2066a2c3c53"/>
+    <managerType typeId="8ba04420-6297-41a1-9bc9-6435702a0ee1" valueTypeId="405d4280-8bcc-4168-bde4-44a4b85473eb"/>
+    <recordSetType typeId="5aa7be62-ac64-41ab-8514-a7f63e378536" valueTypeId="cfa359fe-876c-40bd-baf3-67f721adad94"/>
+    <recordKeyType typeId="1428e595-09d1-4ca4-a07a-20aee829dd4e" valueTypeId="51116be1-1f6a-475a-acc1-9f4332a4c972"/>
+    <recordType typeId="be504354-bdc4-4bb8-93c4-04106d5a49d5" valueTypeId="0c7cec3a-713a-4885-b7c7-2cdd2337f57a"/>
+    <recordManagerType typeId="609af3ff-7880-42ab-969f-98f30e720ad0" valueTypeId="8b4d3ea9-1b47-445d-9387-4052909def50"/>
+  </producedTypes>
+  <name>ИзбраннаяНоменклатураРМК</name>
+  <synonym>
+    <key>ru</key>
+    <value>Избранная номенклатура РМК</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Articles favoris de la caisse</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Cashier favourite products</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Artículos favoritos de la caja</value>
+  </synonym>
+  <comment>Избранные позиции кассира для быстрого выбора в РМК без сканирования. Ключ - пользователь, номенклатура, характеристика.</comment>
+  <useStandardCommands>false</useStandardCommands>
+  <editType>InDialog</editType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="7e2cebeb-c0db-40e7-ae67-020f44e1b4fa">
+    <name>Порядок</name>
+    <synonym>
+      <key>ru</key>
+      <value>Порядок</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Ordre</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Order</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Orden</value>
+    </synonym>
+    <comment>Порядок вывода плитки в окне избранного.</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>5</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="e80034f7-bd61-4126-b7b9-cde88d109452">
+    <name>Пользователь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Пользователь</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Utilisateur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>User</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Usuario</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="73c8b862-ae67-4190-9553-540706b47c95">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Article</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Product</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Artículo</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="21be061f-c4ce-4080-b9c6-6f6fb5a5cbbd">
+    <name>Характеристика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Caractéristique</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Characteristic</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Característica</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

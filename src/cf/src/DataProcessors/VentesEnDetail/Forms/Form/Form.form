@@ -408,6 +408,45 @@
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <items xsi:type="form:Button">
+          <name>Избранное</name>
+          <id>292</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <extendedTooltip>
+            <name>ИзбранноеРасширеннаяПодсказка</name>
+            <id>293</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <type>UsualButton</type>
+          <commandName>Form.Command.Избранное</commandName>
+          <buttonImportance>Normal</buttonImportance>
+          <representation>PictureAndText</representation>
+          <width>10</width>
+          <height>3</height>
+          <autoMaxHeight>true</autoMaxHeight>
+          <horizontalStretch>true</horizontalStretch>
+          <placementArea>UserCmds</placementArea>
+          <font xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>true</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+          </font>
+          <picture xsi:type="core:PictureRef">
+            <picture>StdPicture.ChooseValue</picture>
+          </picture>
+          <representationInContextMenu>Auto</representationInContextMenu>
+        </items>
+        <items xsi:type="form:Button">
           <name>BarCode</name>
           <id>98</id>
           <enabled>true</enabled>
@@ -2718,6 +2757,58 @@
       <contextMenu>
         <name>TabularSectionContextMenu</name>
         <id>2</id>
+        <items xsi:type="form:Button">
+          <name>TabularSectionКонтекстноеМенюВИзбранное</name>
+          <id>294</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <extendedTooltip>
+            <name>TabularSectionКонтекстноеМенюВИзбранноеРасширеннаяПодсказка</name>
+            <id>295</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <commandName>Form.Command.ВИзбранное</commandName>
+          <buttonImportance>Normal</buttonImportance>
+          <representation>Auto</representation>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <placementArea>UserCmds</placementArea>
+          <representationInContextMenu>Auto</representationInContextMenu>
+        </items>
+        <items xsi:type="form:Button">
+          <name>TabularSectionКонтекстноеМенюУбратьИзИзбранного</name>
+          <id>296</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <extendedTooltip>
+            <name>TabularSectionКонтекстноеМенюУбратьИзИзбранногоРасширеннаяПодсказка</name>
+            <id>297</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <commandName>Form.Command.УбратьИзИзбранного</commandName>
+          <buttonImportance>Normal</buttonImportance>
+          <representation>Auto</representation>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <placementArea>UserCmds</placementArea>
+          <representationInContextMenu>Auto</representationInContextMenu>
+        </items>
         <autoFill>true</autoFill>
       </contextMenu>
       <representation>HierarchicalList</representation>
@@ -6266,6 +6357,144 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>ОтменитьПродажу</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>Избранное</name>
+    <title>
+      <key>ru</key>
+      <value>Избранное</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Favoris</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Favourites</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Favoritos</value>
+    </title>
+    <id>24</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Быстрый выбор избранной номенклатуры</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Choix rapide des articles favoris</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Quick pick of favourite products</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Selección rápida de artículos favoritos</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>Избранное</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ВИзбранное</name>
+    <title>
+      <key>ru</key>
+      <value>В избранное</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Ajouter aux favoris</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Add to favourites</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Agregar a favoritos</value>
+    </title>
+    <id>25</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Добавить товар строки в избранное</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Ajouter l’article de la ligne aux favoris</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Add the product of the row to favourites</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Agregar el artículo de la línea a favoritos</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ВИзбранное</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>УбратьИзИзбранного</name>
+    <title>
+      <key>ru</key>
+      <value>Убрать из избранного</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Retirer des favoris</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Remove from favourites</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Quitar de favoritos</value>
+    </title>
+    <id>26</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Убрать товар строки из избранного</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Retirer l’article de la ligne des favoris</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Remove the product of the row from favourites</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Quitar el artículo de la línea de favoritos</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>УбратьИзИзбранного</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
