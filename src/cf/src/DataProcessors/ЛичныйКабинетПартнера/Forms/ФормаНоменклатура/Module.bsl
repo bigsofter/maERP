@@ -189,7 +189,7 @@
 	Командаоформления = Команды.Найти("ОформитьЗаказаПокупателя"); 
     Командаоформления.Подсказка  = Нстр("fr = 'Paiement de la commande'; ru = 'Оформление заказа'; en = 'Making an order'; es = 'Pago'");  
 	
-	элементы.СписокНоменклатурыАртикул.Заголовок  = Нстр("es = 'Articulo'; fr = 'Article'; ru = 'Артикул'"); 
+	элементы.СписокНоменклатурыАртикул.Заголовок  = Нстр("es = 'Articulo'; fr = 'Référence'; ru = 'Артикул'"); 
 	элементы.СписокНоменклатурыАртикул.Подсказка  = Нстр("fr = 'Référence du produit'; ru = 'Артикул номенклатуры'; en = 'Article of the nomenclature'; es = 'Artículo nomenclatura'"); 
 	элементы.СписокНоменклатурыНаименование.Заголовок  = Нстр("en = 'Nomenclature'; es = 'Nomenclatura'; fr = 'Marchandise'; ru = 'Товар'"); 
 	элементы.СписокНоменклатурыНаименование.Подсказка  = Нстр("en = 'Nomenclature'; es = 'Nomenclatura'; fr = 'Marchandise'; ru = 'Товар'"); 
