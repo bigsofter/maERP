@@ -56,49 +56,63 @@
 	Обработчик.НачальноеЗаполнение = Истина;
 	Обработчик.РежимВыполнения = "Оперативно";
 	Обработчик.Процедура = "ОбновлениеИнформационнойБазыБПО.ОбновитьПоставляемыеДрайвера";
-	Обработчик.Комментарий = НСтр("ru = 'Обновление поставляемых драйверов подключаемого оборудования.'; fr = 'Mise à jour des pilotes fournis pour le matériel enfichable.'; en = 'Updating the supplied drivers of the connected hardware.'; es = 'Actualización de los controladores de hardware de conexión suministrados.'");
+	Обработчик.Комментарий = НСтр("ru = 'Обновление поставляемых драйверов подключаемого оборудования.';
+		|fr = 'Mise à jour des pilotes fournis pour le matériel enfichable.'; en = 'Updating the supplied drivers of the connected hardware.';
+		|es = 'Actualización de los controladores de hardware de conexión suministrados.'");
 	
 	Обработчик = Обработчики.Добавить();
 	Обработчик.Версия = МенеджерОборудованияВызовСервера.ВерсияБиблиотеки();
 	Обработчик.НачальноеЗаполнение = Истина;
 	Обработчик.РежимВыполнения = "Оперативно";
 	Обработчик.Процедура = "ОбновлениеИнформационнойБазыБПО.ОбновитьПоставляемыеДрайвера";
-	Обработчик.Комментарий = НСтр("ru = 'Обновление поставляемых драйверов подключаемого оборудования.'; fr = 'Mise à jour des pilotes fournis pour le matériel enfichable.'; en = 'Updating the supplied drivers of the connected hardware.'; es = 'Actualización de los controladores de hardware de conexión suministrados.'");
+	Обработчик.Комментарий = НСтр("ru = 'Обновление поставляемых драйверов подключаемого оборудования.';
+		|fr = 'Mise à jour des pilotes fournis pour le matériel enfichable.'; en = 'Updating the supplied drivers of the connected hardware.';
+		|es = 'Actualización de los controladores de hardware de conexión suministrados.'");
 	
 	Обработчик = Обработчики.Добавить();
 	Обработчик.Версия = МенеджерОборудованияВызовСервера.ВерсияБиблиотеки();
 	Обработчик.НачальноеЗаполнение = Истина;
 	Обработчик.РежимВыполнения = "Оперативно";
 	Обработчик.Процедура = "ОбновлениеИнформационнойБазыБПО.УстановитьПоследнююВерсиюФорматаОфлайнОборудование";
-	Обработчик.Комментарий = НСтр("ru = 'Обновление версии формата ""1С:Офлайн оборудование""'; fr = 'Mise à jour de la version ""1C: matériel hors Ligne""'; en = 'Updating the version of the 1C:Offline Equipment format'; es = 'Actualización de la versión del formato ""1C:equipo Fuera de línea""'");
+	Обработчик.Комментарий = НСтр("ru = 'Обновление версии формата ""1С:Офлайн оборудование""';
+		|fr = 'Mise à jour de la version ""1C: matériel hors Ligne""'; en = 'Updating the version of the 1C:Offline Equipment format';
+		|es = 'Actualización de la versión del formato ""1C:equipo Fuera de línea""'");
 	
 	Обработчик = Обработчики.Добавить();
 	Обработчик.Версия = "2.0.5.2";
 	Обработчик.НачальноеЗаполнение = Истина;
 	Обработчик.РежимВыполнения = "Оперативно";
 	Обработчик.Процедура = "ОбновлениеИнформационнойБазыБПО.ОбновитьПараметрыККМОфлайн205";
-	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.'; es = 'Actualización de la configuración de ccm Fuera de línea.'");
+	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.';
+		|es = 'Actualización de la configuración de ccm Fuera de línea.';
+		|en = 'Updating offline POS parameters.'");
 	
 	Обработчик = Обработчики.Добавить();
 	Обработчик.Версия = "2.0.5.26";
 	Обработчик.НачальноеЗаполнение = Истина;
 	Обработчик.РежимВыполнения = "Оперативно";
 	Обработчик.Процедура = "ОбновлениеИнформационнойБазыБПО.ОбновитьПараметрыККМОфлайнЭвотор";
-	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.'; es = 'Actualización de la configuración de ccm Fuera de línea.'");
+	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.';
+		|es = 'Actualización de la configuración de ccm Fuera de línea.';
+		|en = 'Updating offline POS parameters.'");
 	
 	Обработчик = Обработчики.Добавить();
 	Обработчик.Версия = "2.0.5.27";
 	Обработчик.НачальноеЗаполнение = Истина;
 	Обработчик.РежимВыполнения = "Оперативно";
 	Обработчик.Процедура = "ОбновлениеИнформационнойБазыБПО.ОбновитьПараметрыДатыЗагрузкиККМОфлайнЭвотор";
-	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.'; es = 'Actualización de la configuración de ccm Fuera de línea.'");
+	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.';
+		|es = 'Actualización de la configuración de ccm Fuera de línea.';
+		|en = 'Updating offline POS parameters.'");
 	
 	Обработчик = Обработчики.Добавить();
 	Обработчик.Версия = "2.1.1.4";
 	Обработчик.НачальноеЗаполнение = Истина;
 	Обработчик.РежимВыполнения = "Оперативно";
 	Обработчик.Процедура = "ОбновлениеИнформационнойБазыБПО.ОбновитьПараметрыККМОфлайн211";
-	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.'; es = 'Actualización de la configuración de ccm Fuera de línea.'");
+	Обработчик.Комментарий = НСтр("ru = 'Обновление параметров ККМ Офлайн.'; fr = 'Mise à jour des paramètres ccm Hors ligne.';
+		|es = 'Actualización de la configuración de ccm Fuera de línea.';
+		|en = 'Updating offline POS parameters.'");
 	
 КонецПроцедуры
 

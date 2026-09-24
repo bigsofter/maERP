@@ -87,7 +87,7 @@
 		
 		ФормаОтчета.ТекущийЭлемент = ФормаОтчета.Элементы.СформироватьОтчет;
 		ПоказатьПредупреждение( , НСтр("fr = 'Cliquez sur Générer pour obtenir le rapport'; ru = 'Нажмите ""Сформировать"" для получения отчета'; en = 'Click ""Generate"" to receive the report.'; es = 'Haga clic en Generar para obtener el informe'"),
-								, НСтр("fr = ""Le rapport n'est pas généré""; ru = 'Отчет не сформирован'; en = 'The report has not been generated'; es = 'Informe no generado'"));
+								, НСтр("fr = 'Le rapport n''est pas généré'; ru = 'Отчет не сформирован'; en = 'The report has not been generated'; es = 'Informe no generado'"));
 		Возврат;
 		
 	КонецЕсли;

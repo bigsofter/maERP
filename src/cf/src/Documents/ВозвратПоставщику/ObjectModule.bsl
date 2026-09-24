@@ -1,7 +1,7 @@
 
 Процедура ОбработкаЗаполнения(ДанныеЗаполнения, ТекстЗаполнения, СтандартнаяОбработка)
 	Если Не ЗначениеЗаполнено(ДанныеЗаполнения) Тогда
-		ВызватьИсключение(НСтр("fr = ""Le document ne peut être créé que sur la base d'Achat""; ru = 'Документ можно создавать только на основании'; en = 'A document can only be created based on'; es = 'Solo puede crear un documento basándose en'"));
+		ВызватьИсключение(НСтр("fr = 'Le document ne peut être créé que sur la base d''Achat'; ru = 'Документ можно создавать только на основании'; en = 'A document can only be created based on'; es = 'Solo puede crear un documento basándose en'"));
 		Возврат;
 	КонецЕсли;
 	ТЧТовары.Очистить(); 

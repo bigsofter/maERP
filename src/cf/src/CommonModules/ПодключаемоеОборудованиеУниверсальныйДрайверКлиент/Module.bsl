@@ -36,7 +36,7 @@
 			ОбъектДрайвера.УстановитьПараметр("EquipmentType", ТипОборудованияИспользуемый) 
 		Исключение
 			Результат = Ложь;
-			ОписаниеОшибки = НСтр("ru = 'Ошибка обращения к драйверу.'; fr = ""Erreur d'accès au pilote.""; en = 'Error accessing the driver.'; es = 'Error al acceder al controlador.'");
+			ОписаниеОшибки = НСтр("ru = 'Ошибка обращения к драйверу.'; fr = 'Erreur d''accès au pilote.'; en = 'Error accessing the driver.'; es = 'Error al acceder al controlador.'");
 			СформироватьОшибку(ВыходныеПараметры, ОписаниеОшибки);
 			Возврат Результат;
 		КонецПопытки;
@@ -441,7 +441,7 @@
 		
 	// Указанная команда не поддерживается данным драйвером
 	Иначе
-		СообщениеОбОшибке = НСтр("ru = 'Команда ""%Команда%"" не поддерживается данным драйвером.'; fr = ""La commande %Команда% n'est pas prise en charge par ce pilote.""; en = 'The team ""%Команда%"" command is not supported by this driver.'; es = 'El comando %Команда% no es compatible con este controlador.'");
+		СообщениеОбОшибке = НСтр("ru = 'Команда ""%Команда%"" не поддерживается данным драйвером.'; fr = 'La commande %Команда% n''est pas prise en charge par ce pilote.'; en = 'The team ""%Команда%"" command is not supported by this driver.'; es = 'El comando %Команда% no es compatible con este controlador.'");
 		СообщениеОбОшибке = СтрЗаменить(СообщениеОбОшибке, "%Команда%", Команда);
 		СформироватьОшибку(ВыходныеПараметры, СообщениеОбОшибке);
 		Результат = Ложь;
@@ -653,7 +653,7 @@
 		ОписаниеОшибки = "";
 		Если НЕ МенеджерОборудованияКлиентСервер.ИННСоответствуетТребованиям(ВходныеПараметры.КассирИНН, Ложь, ОписаниеОшибки) Тогда
 			Результат = Ложь;
-			ОписаниеОшибки = НСтр("ru = 'ИНН кассира некорректен (%Ошибка%)'; fr = ""Le numéro d'identification du caissier est incorrect (%Ошибка%)""; en = ""The cashier's INN is incorrect (%Ошибка%)""; es = 'El Tin del Cajero es incorrecto (%Ошибка%)'");
+			ОписаниеОшибки = НСтр("ru = 'ИНН кассира некорректен (%Ошибка%)'; fr = 'Le numéro d''identification du caissier est incorrect (%Ошибка%)'; en = 'The cashier''s INN is incorrect (%Ошибка%)'; es = 'El Tin del Cajero es incorrecto (%Ошибка%)'");
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Ошибка%", ОписаниеОшибки);
 			СформироватьОшибку(ВыходныеПараметры, ОписаниеОшибки);
 			Возврат Результат;
@@ -669,7 +669,7 @@
 		
 		Если ПараметрыПодключения.СнятСПоддержки Тогда
 			ТекстСообщения = НСтр("ru = 'Используется драйвер ККТ снятый с поддержки.'; fr = 'Le pilote CCT retiré du support est utilisé.'; en = 'The CCT driver has been removed from support.'; es = 'Se utiliza el controlador CCT retirado del soporte.'") + Символы.ПС +  
-				НСтр("ru = 'Это может проводить к ошибкам учета и замедлению выполнения фискальных операций.'; fr = ""Cela peut conduire à des erreurs comptables et ralentir l'exécution des opérations fiscales.""; en = 'This can lead to accounting errors and slow down the execution of fiscal operations.'; es = 'Esto puede conducir a errores contables y ralentizar la ejecución de las operaciones fiscales.'") + Символы.ПС + 
+				НСтр("ru = 'Это может проводить к ошибкам учета и замедлению выполнения фискальных операций.'; fr = 'Cela peut conduire à des erreurs comptables et ralentir l''exécution des opérations fiscales.'; en = 'This can lead to accounting errors and slow down the execution of fiscal operations.'; es = 'Esto puede conducir a errores contables y ralentizar la ejecución de las operaciones fiscales.'") + Символы.ПС + 
 				НСтр("ru = 'Пожалуйста, обновите драйвер до последней доступной версии.'; fr = 'Veuillez mettre à jour le pilote vers la Dernière version disponible.'; en = 'Please update the driver to the latest available version.'; es = 'Por favor, actualice el controlador a la Última versión disponible.'");
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		КонецЕсли;
@@ -781,7 +781,7 @@
 		ОписаниеОшибки = "";
 		Если НЕ МенеджерОборудованияКлиентСервер.ИННСоответствуетТребованиям(ВходныеПараметры.КассирИНН, Ложь, ОписаниеОшибки) Тогда
 			Результат = Ложь;
-			Сообщение = НСтр("ru = 'ИНН кассира некорректен (%Ошибка%)'; fr = ""Le numéro d'identification du caissier est incorrect (%Ошибка%)""; en = ""The cashier's INN is incorrect (%Ошибка%)""; es = 'El Tin del Cajero es incorrecto (%Ошибка%)'");
+			Сообщение = НСтр("ru = 'ИНН кассира некорректен (%Ошибка%)'; fr = 'Le numéro d''identification du caissier est incorrect (%Ошибка%)'; en = 'The cashier''s INN is incorrect (%Ошибка%)'; es = 'El Tin del Cajero es incorrecto (%Ошибка%)'");
 			ОписаниеОшибки = СтрЗаменить(Сообщение, "%Ошибка%", ОписаниеОшибки);
 			СформироватьОшибку(ВыходныеПараметры, ОписаниеОшибки);
 			Возврат Результат;
@@ -1896,7 +1896,7 @@
 	Если НЕ (Сумма > 0) Тогда
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		Результат = Ложь;
-		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
+		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
 		СформироватьОшибку(ВыходныеПараметры, ТекстОшибки);
 		Возврат Результат;
 	КонецЕсли;
@@ -1946,7 +1946,7 @@
 	Если НЕ (Сумма > 0) Тогда
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		Результат = Ложь;
-		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
+		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
 		СформироватьОшибку(ВыходныеПараметры, ТекстОшибки);
 		Возврат Результат;
 	КонецЕсли;
@@ -1995,7 +1995,7 @@
 	Если НЕ (Сумма > 0) Тогда
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		Результат = Ложь;
-		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
+		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
 		СформироватьОшибку(ВыходныеПараметры, ТекстОшибки);
 		Возврат Результат;
 	КонецЕсли;
@@ -2063,7 +2063,7 @@
 	Если НЕ (Сумма > 0) Тогда
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		Результат = Ложь;
-		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
+		ТекстОшибки = НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'");
 		СформироватьОшибку(ВыходныеПараметры, ТекстОшибки);
 		Возврат Результат;
 	КонецЕсли;
@@ -2419,7 +2419,7 @@
 	
 	Результат = Истина;
 	
-	МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Выполнение операции...'; fr = ""Exécution de l'opération...""; en = 'Performing the operation...'; es = 'Ejecución de la operación...'"));	
+	МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Выполнение операции...'; fr = 'Exécution de l''opération...'; en = 'Performing the operation...'; es = 'Ejecución de la operación...'"));	
 	
 	Попытка
 		Ответ = ОбъектДрайвера.ОчиститьТаблицу(ПараметрыПодключения.ИДУстройства);
@@ -2661,7 +2661,7 @@
 	СтатусПакета     = "first";
 
 	ТекущийПроцент = 0;
-	МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Инициализация печати этикеток...'; fr = ""Initialisation de l'impression d'étiquettes...""; en = 'Initialization of label printing...'; es = 'Inicialización de la impresión de etiquetas...'"), Окр(ТекущийПроцент));
+	МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Инициализация печати этикеток...'; fr = 'Initialisation de l''impression d''étiquettes...'; en = 'Initialization of label printing...'; es = 'Inicialización de la impresión de etiquetas...'"), Окр(ТекущийПроцент));
 	ПроцентИнкремент = 100 / (ЗаписейВсего / РазмерПакета);
 
 	МассивТоваров = Новый Массив;
@@ -2701,7 +2701,7 @@
 			ТекущийПакет = ТекущийПакет + 1;
 
 			ТекущийПроцент = ТекущийПроцент + ПроцентИнкремент;
-			МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Печать этикеток...'; fr = ""Impression d'étiquettes...""; en = 'Label printing...'; es = 'Impresión de etiquetas...'"), Окр(ТекущийПроцент));
+			МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Печать этикеток...'; fr = 'Impression d''étiquettes...'; en = 'Label printing...'; es = 'Impresión de etiquetas...'"), Окр(ТекущийПроцент));
 
 		 КонецЕсли;
 
@@ -2984,7 +2984,7 @@
 			РевизияИнтерфейса = ОбъектДрайвера.ПолучитьРевизиюИнтерфейса();
 		Исключение
 			ИсключениеРезультат = Ложь;
-			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера'; fr = ""Erreur lors de l'obtention de la Description du pilote""; en = 'Error getting the driver description'; es = 'Error al obtener la descripción del controlador'") + Символы.ПС + ОписаниеОшибки());
+			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера'; fr = 'Erreur lors de l''obtention de la Description du pilote'; en = 'Error getting the driver description'; es = 'Error al obtener la descripción del controlador'") + Символы.ПС + ОписаниеОшибки());
 		КонецПопытки
 	КонецПопытки;
 	
@@ -3017,10 +3017,10 @@
 Процедура СформироватьОшибкуДрайвера(ВыходныеПараметры, ИмяМетода = Неопределено, ОписаниеОшибки = Неопределено)
 	
 	Если НЕ ПустаяСтрока(ИмяМетода) Тогда
-		СообщениеОбОшибке = НСтр("ru = 'Ошибка вызова метода драйвера <%1>.'; fr = ""Échec de l'appel de la méthode du pilote \u003c%1\u003e.""; en = 'Error calling the driver method \u003c%1\u003e.'; es = 'Error al llamar al método del controlador \u003c%1\u003e.'");
+		СообщениеОбОшибке = НСтр("ru = 'Ошибка вызова метода драйвера <%1>.'; fr = 'Échec de l''appel de la méthode du pilote \u003c%1\u003e.'; en = 'Error calling the driver method \u003c%1\u003e.'; es = 'Error al llamar al método del controlador \u003c%1\u003e.'");
 		СообщениеОбОшибке = СтрШаблон(СообщениеОбОшибке, ИмяМетода); 
 	Иначе
-		СообщениеОбОшибке = НСтр("ru = 'Данный тип оборудование не поддерживает данную команду.'; fr = ""Ce type d'équipement ne prend pas en charge cette commande.""; en = 'This type of hardware does not support this command.'; es = 'Este tipo de equipo no Admite este comando.'");
+		СообщениеОбОшибке = НСтр("ru = 'Данный тип оборудование не поддерживает данную команду.'; fr = 'Ce type d''équipement ne prend pas en charge cette commande.'; en = 'This type of hardware does not support this command.'; es = 'Este tipo de equipo no Admite este comando.'");
 	КонецЕсли;
 	
 	Если НЕ ПустаяСтрока(ОписаниеОшибки) Тогда

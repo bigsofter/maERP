@@ -20,7 +20,7 @@
 	Доступность = Истина;
 	
 	Если РезультатВыполнения.Результат Тогда
-		ТекстСообщения = НСтр("ru = 'Операция выполнена успешно.'; fr = ""L'opération a réussi.""; en = 'The operation was completed successfully.'; es = 'La operación fue exitosa.'");
+		ТекстСообщения = НСтр("ru = 'Операция выполнена успешно.'; fr = 'L''opération a réussi.'; en = 'The operation was completed successfully.'; es = 'La operación fue exitosa.'");
 	Иначе
 		ТекстСообщения = РезультатВыполнения.ОписаниеОшибки;
 	КонецЕсли;
@@ -49,7 +49,7 @@
 	Если ТипЗнч(Результат) = Тип("Структура") Тогда
 		
 		Если НЕ Параметры.Свойство("ТипТранзакции") Тогда
-			ТекстСообщения = НСтр("ru = 'Не указан тип транзакции.'; fr = ""Aucun type de transaction n'est spécifié.""; en = 'The transaction type is not specified.'; es = 'No se especifica el tipo de transacción.'");
+			ТекстСообщения = НСтр("ru = 'Не указан тип транзакции.'; fr = 'Aucun type de transaction n''est spécifié.'; en = 'The transaction type is not specified.'; es = 'No se especifica el tipo de transacción.'");
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 			Возврат;
 		КонецЕсли;

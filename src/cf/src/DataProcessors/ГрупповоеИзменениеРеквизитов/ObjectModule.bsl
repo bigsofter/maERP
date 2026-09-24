@@ -24,7 +24,7 @@
 		ПараметрыРегистрации.БезопасныйРежим = Ложь;
 		
 		НоваяКоманда = ПараметрыРегистрации.Команды.Добавить();
-		НоваяКоманда.Представление = НСтр("fr = ""Changement de groupe d'accessoires""; ru = 'Групповое изменение реквизитов'; en = 'Group change of banking details'; es = 'Cambio grupal de accesorios'");
+		НоваяКоманда.Представление = НСтр("fr = 'Changement de groupe d''accessoires'; ru = 'Групповое изменение реквизитов'; en = 'Group change of banking details'; es = 'Cambio grupal de accesorios'");
 		НоваяКоманда.Идентификатор = "ОткрытьГлобально";
 		НоваяКоманда.Использование = МодульДополнительныеОтчетыИОбработкиКлиентСервер.ТипКомандыОткрытиеФормы();
 		НоваяКоманда.ПоказыватьОповещение = Ложь;
@@ -772,7 +772,7 @@
 				// Перерасчет
 				Менеджер = РегистрыРасчета[ИмяОМ].Перерасчеты;
 			Иначе
-				ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = ""Type d'objet de métadonnées inconnu '%1'""; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
+				ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = 'Type d''objet de métadonnées inconnu ''%1'''; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
 			КонецЕсли;
 		КонецЕсли;
 		
@@ -797,7 +797,7 @@
 		КонецПопытки;
 	КонецЕсли;
 	
-	ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = ""Type d'objet de métadonnées inconnu '%1'""; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
+	ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = 'Type d''objet de métadonnées inconnu ''%1'''; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
 	
 КонецФункции
 

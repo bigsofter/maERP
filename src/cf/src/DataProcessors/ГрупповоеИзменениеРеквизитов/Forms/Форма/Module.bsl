@@ -22,7 +22,7 @@
 	Если КонтекстныйВызов Тогда
 		ВыполнитьДействияПриКонтекстномОткрытии();
 	Иначе
-		Заголовок = НСтр("fr = ""Changement de groupe d'accessoires""; ru = 'Групповое изменение реквизитов'; en = 'Group change of banking details'; es = 'Cambio grupal de accesorios'");
+		Заголовок = НСтр("fr = 'Changement de groupe d''accessoires'; ru = 'Групповое изменение реквизитов'; en = 'Group change of banking details'; es = 'Cambio grupal de accesorios'");
 		ЗаполнитьСписокТиповОбъектов();
 	КонецЕсли;
 	
@@ -277,9 +277,9 @@
 		Если ЕстьНастроенныеОтборы() Тогда
 			ВыполнитьИзменениеПроверкаОтбораВыполнена();
 		Иначе
-			ТекстВопроса = НСтр("fr = ""La sélection n'est pas donnée. Modifier tous les éléments?""; ru = 'Отбор не задан. Изменить все элементы?'; en = 'The selection is not set. Change all the elements?'; es = 'No hay selección. ¿Cambiar todos los elementos?'");
+			ТекстВопроса = НСтр("fr = 'La sélection n''est pas donnée. Modifier tous les éléments?'; ru = 'Отбор не задан. Изменить все элементы?'; en = 'The selection is not set. Change all the elements?'; es = 'No hay selección. ¿Cambiar todos los elementos?'");
 			ОписаниеОповещения = Новый ОписаниеОповещения("ВыполнитьИзменениеПроверкаОтбораВыполнена", ЭтотОбъект);
-			ПоказатьВопрос(ОписаниеОповещения, ТекстВопроса, РежимДиалогаВопрос.ОКОтмена, , , НСтр("fr = ""Modification d'éléments""; ru = 'Изменение элементов'; en = 'Changing the elements'; es = 'Cambiar elementos'"));
+			ПоказатьВопрос(ОписаниеОповещения, ТекстВопроса, РежимДиалогаВопрос.ОКОтмена, , , НСтр("fr = 'Modification d''éléments'; ru = 'Изменение элементов'; en = 'Changing the elements'; es = 'Cambiar elementos'"));
 		КонецЕсли;
 		
 		Возврат;
@@ -520,7 +520,7 @@
 	Если Не ЕстьНастроенныеИзменения() И Объект.ТипОперации = "ВвестиЗначения" Тогда
 		ТекстВопроса = НСтр("fr = 'Les modifications ne sont pas configurées. Remplacer les éléments sans modification?'; ru = 'Изменения не настроены. Выполнить перезапись элементов без изменений?'; en = 'The changes are not configured. Should I overwrite the elements without changes?'; es = 'Los cambios no están configurados. ¿Sobrescribir los elementos sin cambios?'");
 		ОписаниеОповещения = Новый ОписаниеОповещения("ВыполнитьИзменениеПроверкиВыполнены", ЭтотОбъект);
-		ПоказатьВопрос(ОписаниеОповещения, ТекстВопроса, РежимДиалогаВопрос.ОКОтмена, , , НСтр("fr = ""Modification d'éléments""; ru = 'Изменение элементов'; en = 'Changing the elements'; es = 'Cambiar elementos'"));
+		ПоказатьВопрос(ОписаниеОповещения, ТекстВопроса, РежимДиалогаВопрос.ОКОтмена, , , НСтр("fr = 'Modification d''éléments'; ru = 'Изменение элементов'; en = 'Changing the elements'; es = 'Cambiar elementos'"));
 	Иначе
 		ВыполнитьИзменениеПроверкиВыполнены();
 	КонецЕсли;
@@ -1082,10 +1082,10 @@
 		Кнопки = Новый СписокЗначений;
 		Кнопки.Добавить(КодВозвратаДиалога.Прервать, НСтр("fr = 'Interrompre'; ru = 'Прервать'; en = 'Abort'; es = 'Interrumpir'"));
 		Кнопки.Добавить(КодВозвратаДиалога.Пропустить, НСтр("fr = 'Continuer'; ru = 'Продолжить'; en = 'Continue'; es = 'Continuar'"));
-		Кнопки.Добавить(КодВозвратаДиалога.Нет, НСтр("fr = 'Ne plus demander'; ru = 'Больше не спрашивать'; en = ""Don't ask anymore""; es = 'No preguntes más'"));
+		Кнопки.Добавить(КодВозвратаДиалога.Нет, НСтр("fr = 'Ne plus demander'; ru = 'Больше не спрашивать'; en = 'Don''t ask anymore'; es = 'No preguntes más'"));
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("ОбработатьРезультатИзмененияОтветПолучен", ЭтотОбъект, РезультатИзменения);
-		ПоказатьВопрос(ОписаниеОповещения, ТекстВопроса, Кнопки, , КодВозвратаДиалога.Прервать, НСтр("fr = ""Erreurs lors de la modification d'éléments""; ru = 'Ошибки при изменении элементов'; en = 'Errors when changing elements'; es = 'Errores al cambiar elementos'"));
+		ПоказатьВопрос(ОписаниеОповещения, ТекстВопроса, Кнопки, , КодВозвратаДиалога.Прервать, НСтр("fr = 'Erreurs lors de la modification d''éléments'; ru = 'Ошибки при изменении элементов'; en = 'Errors when changing elements'; es = 'Errores al cambiar elementos'"));
 		Возврат;
 	КонецЦикла;
 	
@@ -1135,7 +1135,7 @@
 	
 	ОбработкаЗавершена = ТекущееСостояниеИзменения.КоличествоИзмененных = ТекущееСостояниеИзменения.КоличествоОбъектовДляОбработки;
 	Если ОбработкаЗавершена Тогда
-		ПоказатьОповещениеПользователя(НСтр("fr = ""Modification des accessoires d'élément""; ru = 'Изменение реквизитов элементов'; en = 'Changing the details of the elements'; es = 'Cambiar los accesorios de los elementos'"), , 
+		ПоказатьОповещениеПользователя(НСтр("fr = 'Modification des accessoires d''élément'; ru = 'Изменение реквизитов элементов'; en = 'Changing the details of the elements'; es = 'Cambiar los accesorios de los elementos'"), , 
 			ПодставитьПараметрыВСтроку(НСтр("fr = 'Éléments modifiés (%1).'; ru = 'Изменены элементы (%1).'; en = 'The elements have been changed (%1).'; es = 'Elementos modificados (%1).'"), ТекущееСостояниеИзменения.КоличествоИзмененных));
 		ПерейтиНаСтраницуВсеГотово();
 		Возврат;
@@ -1147,7 +1147,7 @@
 		ШаблонСообщения = НСтр("fr = 'Les modifications ont été apportées à tous les éléments sélectionnés (%2).'; ru = 'Изменения выполнены во всех выбранных элементах (%2).'; en = 'The changes are made in all selected elements (%2).'; es = 'Se han realizado cambios en todos los elementos seleccionados (%2).'");
 	Иначе
 		Если Объект.ИзменятьВТранзакции Или ТекущееСостояниеИзменения.КоличествоИзмененных = 0 Тогда
-			ШаблонСообщения = НСтр("fr = ""Aucune modification n'a été apportée.""; ru = 'Изменения не выполнены.'; en = 'The changes have not been completed.'; es = 'No se han realizado cambios.'");
+			ШаблонСообщения = НСтр("fr = 'Aucune modification n''a été apportée.'; ru = 'Изменения не выполнены.'; en = 'The changes have not been completed.'; es = 'No se han realizado cambios.'");
 		Иначе
 			ШаблонСообщения = НСтр("fr = 'Modifications apportées en partie."
 "Modifié & # 160;: %1; impossible de modifier & # 160;: %3'; ru = 'Изменения выполнены частично."
@@ -1162,7 +1162,7 @@
 		Если КоличествоПропущенных > 0 И Не ТекущееСостояниеИзменения.ПрерватьИзменение Тогда
 			СтрокаТаблицы = ОбъектыКоторыеНеУдалосьИзменить.Добавить();
 			СтрокаТаблицы.Объект = ПодставитьПараметрыВСтроку(НСтр("fr = '... et autres éléments (%1)'; ru = '... и другие элементы (%1)'; en = '... and other elements (%1)'; es = '... y otros elementos (%1)'"), КоличествоПропущенных);
-			СтрокаТаблицы.Причина = НСтр("fr = ""Ignorés car un ou plusieurs éléments n'ont pas été modifiés.""; ru = 'Пропущены, так как не были изменены один или более элементов.'; en = 'Skipped because one or more elements were not changed.'; es = 'Omitido porque uno o más elementos no se han modificado.'");
+			СтрокаТаблицы.Причина = НСтр("fr = 'Ignorés car un ou plusieurs éléments n''ont pas été modifiés.'; ru = 'Пропущены, так как не были изменены один или более элементов.'; en = 'Skipped because one or more elements were not changed.'; es = 'Omitido porque uno o más elementos no se han modificado.'");
 		КонецЕсли;
 	КонецЕсли;
 	
@@ -1188,7 +1188,7 @@
 	Элементы.ФормаНазад.Видимость = Ложь;
 	Если Объект.ТипОперации = "ВыполнитьАлгоритм" Тогда
 		Элементы.ФормаИзменить.Заголовок = НСтр("fr = 'Exécuter'; ru = 'Выполнить'; en = 'To perform'; es = 'Ejecutar'");
-		Элементы.ФормаИзменить.РасширеннаяПодсказка.Заголовок = НСтр("fr = ""Exécuter l'algorithme""; ru = 'Выполнить алгоритм'; en = 'Execute the algorithm'; es = 'Ejecutar algoritmo'");
+		Элементы.ФормаИзменить.РасширеннаяПодсказка.Заголовок = НСтр("fr = 'Exécuter l''algorithme'; ru = 'Выполнить алгоритм'; en = 'Execute the algorithm'; es = 'Ejecutar algoritmo'");
 	Иначе
 		Элементы.ФормаИзменить.Заголовок = НСтр("fr = 'Modifier les détails'; ru = 'Изменить реквизиты'; en = 'Change banking details'; es = 'Cambiar detalles'");
 	КонецЕсли;
@@ -1419,7 +1419,7 @@
 	Иначе
 		МодульДлительныеОперации = ОбщийМодуль("ДлительныеОперации");
 		ПараметрыВыполнения = МодульДлительныеОперации.ПараметрыВыполненияВФоне(УникальныйИдентификатор);
-		ПараметрыВыполнения.НаименованиеФоновогоЗадания = НСтр("fr = ""Modification de groupe d'éléments""; ru = 'Групповое изменение элементов'; en = 'Group modification of elements'; es = 'Cambio de grupo de elementos'");
+		ПараметрыВыполнения.НаименованиеФоновогоЗадания = НСтр("fr = 'Modification de groupe d''éléments'; ru = 'Групповое изменение элементов'; en = 'Group modification of elements'; es = 'Cambio de grupo de elementos'");
 		ИмяПроцедуры = ОбработкаОбъект.Метаданные().ПолноеИмя() + ".МодульОбъекта.ИзменитьОбъекты";
 		ДлительнаяОперация = МодульДлительныеОперации.ВыполнитьВФоне(ИмяПроцедуры, ПараметрыЗадания, ПараметрыВыполнения);
 	КонецЕсли;
@@ -2692,7 +2692,7 @@
 	Если Не ПустаяСтрока(Пояснение) Тогда
 		Если ИзменяемыеТабличныеЧасти.Количество() > 0 Тогда
 			Если ЕстьОтборПоСтрокам Тогда 
-				Пояснение = Пояснение + " " + НСтр("fr = ""dans les lignes d'éléments sélectionnés qui répondent aux critères de sélection""; ru = 'в тех строках выбранных элементов, которые удовлетворяют условиям отбора'; en = 'in those rows of selected items that meet the selection conditions'; es = 'en las filas de elementos seleccionados que cumplen las condiciones de selección'")
+				Пояснение = Пояснение + " " + НСтр("fr = 'dans les lignes d''éléments sélectionnés qui répondent aux critères de sélection'; ru = 'в тех строках выбранных элементов, которые удовлетворяют условиям отбора'; en = 'in those rows of selected items that meet the selection conditions'; es = 'en las filas de elementos seleccionados que cumplen las condiciones de selección'")
 			Иначе
 				Пояснение = Пояснение + " " + НСтр("fr = '\u003cb \u003e dans toutes les lignes\u003c / b\u003e des éléments sélectionnés'; ru = '<b>во всех строках</b> выбранных элементов'; en = '\u003cb\u003ein all lines\u003c/b\u003e of the selected elements'; es = '\u003cB \u003e en todas las filas \u003c /B\u003e de los elementos seleccionados'")
 			КонецЕсли;
@@ -2861,7 +2861,7 @@
 	КонецЦикла;
 	
 	Если ЕстьЗаблокированные Тогда
-		ПоказатьПредупреждение(, НСтр("fr = ""Certains accessoires sont verrouillés pour modification, aucune modification n'est définie.""; ru = 'Некоторые реквизиты заблокированы для изменения, изменения не установлены.'; en = 'Some banking details are blocked for modification, the changes have not been installed.'; es = 'Algunos accesorios están bloqueados para cambiar, los cambios no están configurados.'"));
+		ПоказатьПредупреждение(, НСтр("fr = 'Certains accessoires sont verrouillés pour modification, aucune modification n''est définie.'; ru = 'Некоторые реквизиты заблокированы для изменения, изменения не установлены.'; en = 'Some banking details are blocked for modification, the changes have not been installed.'; es = 'Algunos accesorios están bloqueados para cambiar, los cambios no están configurados.'"));
 	КонецЕсли;
 	
 	ОбновитьСчетчикиИзменяемыхРеквизитов();
@@ -3142,7 +3142,7 @@
 				// Перерасчет
 				Менеджер = РегистрыРасчета[ИмяОМ].Перерасчеты;
 			Иначе
-				ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = ""Type d'objet de métadonnées inconnu '%1'""; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
+				ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = 'Type d''objet de métadonnées inconnu ''%1'''; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
 			КонецЕсли;
 		КонецЕсли;
 		
@@ -3167,7 +3167,7 @@
 		КонецПопытки;
 	КонецЕсли;
 	
-	ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = ""Type d'objet de métadonnées inconnu '%1'""; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
+	ВызватьИсключение ПодставитьПараметрыВСтроку(НСтр("fr = 'Type d''objet de métadonnées inconnu ''%1'''; ru = 'Неизвестный тип объекта метаданных ""%1""'; en = 'Unknown type of metadata object ""%1""'; es = 'Tipo de objeto de metadatos desconocido ""%1""'"), ПолноеИмя);
 	
 КонецФункции
 

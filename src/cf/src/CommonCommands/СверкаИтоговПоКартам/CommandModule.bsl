@@ -13,7 +13,7 @@
 Процедура ВыполнитьОперациюЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
 	Если РезультатВыполнения.Результат Тогда
-		ТекстСообщения = НСтр("ru = 'Операция выполнена успешно.'; fr = ""L'opération a réussi.""; en = 'The operation was completed successfully.'; es = 'La operación fue exitosa.'");
+		ТекстСообщения = НСтр("ru = 'Операция выполнена успешно.'; fr = 'L''opération a réussi.'; en = 'The operation was completed successfully.'; es = 'La operación fue exitosa.'");
 	Иначе
 		ТекстСообщения = РезультатВыполнения.ОписаниеОшибки;
 	КонецЕсли;

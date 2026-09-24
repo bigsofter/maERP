@@ -450,7 +450,7 @@
 		
 	Иначе
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Команда ""%Команда%"" не поддерживается данным драйвером.'; fr = ""La commande %Команда% n'est pas prise en charge par ce pilote.""; en = 'The team ""%Команда%"" command is not supported by this driver.'; es = 'El comando %Команда% no es compatible con este controlador.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Команда ""%Команда%"" не поддерживается данным драйвером.'; fr = 'La commande %Команда% n''est pas prise en charge par ce pilote.'; en = 'The team ""%Команда%"" command is not supported by this driver.'; es = 'El comando %Команда% no es compatible con este controlador.'"));
 		ВыходныеПараметры[1] = СтрЗаменить(ВыходныеПараметры[1], "%Команда%", Команда);
 		Если ОповещениеПриЗавершении <> Неопределено Тогда
 			Результат = Новый Структура("Результат, ВыходныеПараметры", Ложь, ВыходныеПараметры);
@@ -1616,7 +1616,7 @@
 			Иначе
 				ВыходныеПараметры.Очистить();
 				ВыходныеПараметры.Добавить(999);
-				ВыходныеПараметры.Добавить(НСтр("ru = 'Тип строки шаблона чека не поддерживается.'; fr = ""Le type de ligne du modèle de chèque n'est pas pris en charge.""; en = 'The line type of the receipt template is not supported.'; es = 'No se Admite el tipo de cadena de plantilla de cheque.'"));
+				ВыходныеПараметры.Добавить(НСтр("ru = 'Тип строки шаблона чека не поддерживается.'; fr = 'Le type de ligne du modèle de chèque n''est pas pris en charge.'; en = 'The line type of the receipt template is not supported.'; es = 'No se Admite el tipo de cadena de plantilla de cheque.'"));
 				НачатьОтменуЧека(ДополнительныеПараметры.ОповещениеПриЗавершении, ДополнительныеПараметры.ОбъектДрайвера, ДополнительныеПараметры.Параметры,
 					ДополнительныеПараметры.ПараметрыПодключения, ВыходныеПараметры)
 			КонецЕсли
@@ -2150,7 +2150,7 @@
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		ВыходныеПараметры.Очистить();
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
 		Если ОповещениеПриЗавершении <> Неопределено Тогда
 			Результат = Новый Структура("Результат, ВыходныеПараметры", Ложь, ВыходныеПараметры);
 			ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, Результат);
@@ -2192,7 +2192,7 @@
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		ВыходныеПараметры.Очистить();
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
 		Если ОповещениеПриЗавершении <> Неопределено Тогда
 			Результат = Новый Структура("Результат, ВыходныеПараметры", Ложь, ВыходныеПараметры);
 			ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, Результат);
@@ -2234,7 +2234,7 @@
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		ВыходныеПараметры.Очистить();
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
 		Если ОповещениеПриЗавершении <> Неопределено Тогда
 			Результат = Новый Структура("Результат, ВыходныеПараметры", Ложь, ВыходныеПараметры);
 			ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, Результат);
@@ -2277,7 +2277,7 @@
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		ВыходныеПараметры.Очистить();
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
 		Если ОповещениеПриЗавершении <> Неопределено Тогда
 			Результат = Новый Структура("Результат, ВыходныеПараметры", Ложь, ВыходныеПараметры);
 			ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, Результат);
@@ -2321,7 +2321,7 @@
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		ВыходныеПараметры.Очистить();
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
 		Если ОповещениеПриЗавершении <> Неопределено Тогда
 			Результат = Новый Структура("Результат, ВыходныеПараметры", Ложь, ВыходныеПараметры);
 			ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, Результат);
@@ -2364,7 +2364,7 @@
 		ПараметрыПодключения.ТипТранзакции = НСтр("ru = 'Отказ'; fr = 'Refus'; en = 'Refusal'; es = 'Denegación'");
 		ВыходныеПараметры.Очистить();
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = ""Pas le montant correct de l'opération.""; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Не корректная сумма операции.'; fr = 'Pas le montant correct de l''opération.'; en = 'Incorrect transaction amount.'; es = 'No es la cantidad correcta de la operación.'"));
 		Если ОповещениеПриЗавершении <> Неопределено Тогда
 			Результат = Новый Структура("Результат, ВыходныеПараметры", Ложь, ВыходныеПараметры);
 			ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, Результат);
@@ -2873,7 +2873,7 @@
 		ДополнительныеПараметры.Вставить("ТекущийПакет"           , ТекущийПакет);
 		ДополнительныеПараметры.Вставить("ПроцентИнкремент"       , ПроцентИнкремент);
 		
-		МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Печать этикеток...'; fr = ""Impression d'étiquettes...""; en = 'Label printing...'; es = 'Impresión de etiquetas...'"), Окр(ТекущийПакет * ПроцентИнкремент));
+		МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Печать этикеток...'; fr = 'Impression d''étiquettes...'; en = 'Label printing...'; es = 'Impresión de etiquetas...'"), Окр(ТекущийПакет * ПроцентИнкремент));
 		Оповещение = Новый ОписаниеОповещения("НачатьПечатьЭтикеток_Завершение", ЭтотОбъект, ДополнительныеПараметры);
 		ОбъектДрайвера.НачатьВызовПечатьЭтикеток(Оповещение, ПараметрыПодключения.ИДУстройства, ДанныеДляВыгрузки, СтатусПакета);
 	Исключение
@@ -2900,7 +2900,7 @@
 			ДанныеДляВыгрузки = ДополнительныеПараметры.ПакетыДляВыгрузки[ДополнительныеПараметры.ТекущийПакет - 1];
 			СтатусПакета = ?(ДополнительныеПараметры.ТекущийПакет < ДополнительныеПараметры.КоличествоПакетов , "regular", "last");
 			Оповещение = Новый ОписаниеОповещения("НачатьПечатьЭтикеток_Завершение", ЭтотОбъект, ДополнительныеПараметры);
-			МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Печать этикеток...'; fr = ""Impression d'étiquettes...""; en = 'Label printing...'; es = 'Impresión de etiquetas...'"), Окр(ДополнительныеПараметры.ТекущийПакет * ДополнительныеПараметры.ПроцентИнкремент));
+			МенеджерОборудованияКлиент.СостояниеПроцесса(НСтр("ru = 'Печать этикеток...'; fr = 'Impression d''étiquettes...'; en = 'Label printing...'; es = 'Impresión de etiquetas...'"), Окр(ДополнительныеПараметры.ТекущийПакет * ДополнительныеПараметры.ПроцентИнкремент));
 			ДополнительныеПараметры.ОбъектДрайвера.НачатьВызовПечатьЭтикеток(Оповещение, ДополнительныеПараметры.ПараметрыПодключения.ИДУстройства, ДанныеДляВыгрузки, СтатусПакета);
 			
 		Иначе
@@ -3120,7 +3120,7 @@
 			ТекстОшибки = "";
 			ДополнительныеПараметры.ОбъектДрайвера.НачатьВызовПолучитьОшибку(ОповещениеПриЗавершении, ТекстОшибки)
 		Исключение
-			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка дополнительного действия драйвера.'; fr = ""Erreur d'action de pilote supplémentaire.""; en = 'Additional driver action error.'; es = 'Error de acción adicional del controlador.'"));
+			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка дополнительного действия драйвера.'; fr = 'Erreur d''action de pilote supplémentaire.'; en = 'Additional driver action error.'; es = 'Error de acción adicional del controlador.'"));
 		КонецПопытки;
 	КонецЕсли
 	
@@ -3154,7 +3154,8 @@
 	Попытка
 		ОбъектДрайвера.НачатьВызовПолучитьНомерВерсии(ОповещениеМетода);
 	Исключение
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = ""Erreur lors de l'obtention de la Description du pilote.""; es = 'Error al obtener la descripción del controlador.'"));
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = 'Erreur lors de l''obtention de la Description du pilote.'; es = 'Error al obtener la descripción del controlador.';
+			|en = 'Error getting the driver description.'"));
 	КонецПопытки;
 	
 КонецПроцедуры
@@ -3177,7 +3178,8 @@
 		ДополнительныеПараметры.ОбъектДрайвера.НачатьВызовПолучитьОписание(ОповещениеМетода, НаименованиеДрайвера, ОписаниеДрайвера, ТипОборудования, РевизияИнтерфейса, 
 									ИнтеграционныйКомпонент, ОсновнойДрайверУстановлен, URLЗагрузкиДрайвера);
 	Исключение
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = ""Erreur lors de l'obtention de la Description du pilote.""; es = 'Error al obtener la descripción del controlador.'"));
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = 'Erreur lors de l''obtention de la Description du pilote.'; es = 'Error al obtener la descripción del controlador.';
+			|en = 'Error getting the driver description.'"));
 	КонецПопытки;
 
 КонецПроцедуры
@@ -3198,7 +3200,8 @@
 	Попытка
 		ДополнительныеПараметры.ОбъектДрайвера.НачатьВызовПолучитьПараметры(ОповещениеМетода, ПараметрыДрайвера);
 	Исключение
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = ""Erreur lors de l'obtention de la Description du pilote.""; es = 'Error al obtener la descripción del controlador.'"));
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = 'Erreur lors de l''obtention de la Description du pilote.'; es = 'Error al obtener la descripción del controlador.';
+			|en = 'Error getting the driver description.'"));
 	КонецПопытки;
 	
 КонецПроцедуры
@@ -3213,7 +3216,8 @@
 	Попытка                                    
 		ДополнительныеПараметры.ОбъектДрайвера.НачатьВызовПолучитьДополнительныеДействия(ОповещениеМетода, ДополнительныеДействия);
 	Исключение
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = ""Erreur lors de l'obtention de la Description du pilote.""; es = 'Error al obtener la descripción del controlador.'"));
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Ошибка получения описания драйвера.'; fr = 'Erreur lors de l''obtention de la Description du pilote.'; es = 'Error al obtener la descripción del controlador.';
+			|en = 'Error getting the driver description.'"));
 	КонецПопытки;
 	
 КонецПроцедуры
@@ -3246,10 +3250,10 @@
 Процедура СформироватьОшибкуДрайвера(ВыходныеПараметры, ИмяМетода = Неопределено, ОписаниеОшибки = Неопределено)
 	
 	Если НЕ ПустаяСтрока(ИмяМетода) Тогда
-		СообщениеОбОшибке = НСтр("ru = 'Ошибка вызова метода драйвера <%1>.'; fr = ""Échec de l'appel de la méthode du pilote \u003c%1\u003e.""; en = 'Error calling the driver method \u003c%1\u003e.'; es = 'Error al llamar al método del controlador \u003c%1\u003e.'");
+		СообщениеОбОшибке = НСтр("ru = 'Ошибка вызова метода драйвера <%1>.'; fr = 'Échec de l''appel de la méthode du pilote \u003c%1\u003e.'; en = 'Error calling the driver method \u003c%1\u003e.'; es = 'Error al llamar al método del controlador \u003c%1\u003e.'");
 		СообщениеОбОшибке = СтрШаблон(СообщениеОбОшибке, ИмяМетода); 
 	Иначе
-		СообщениеОбОшибке = НСтр("ru = 'Данный тип оборудование не поддерживает данную команду.'; fr = ""Ce type d'équipement ne prend pas en charge cette commande.""; en = 'This type of hardware does not support this command.'; es = 'Este tipo de equipo no Admite este comando.'");
+		СообщениеОбОшибке = НСтр("ru = 'Данный тип оборудование не поддерживает данную команду.'; fr = 'Ce type d''équipement ne prend pas en charge cette commande.'; en = 'This type of hardware does not support this command.'; es = 'Este tipo de equipo no Admite este comando.'");
 	КонецЕсли;
 	
 	Если НЕ ПустаяСтрока(ОписаниеОшибки) Тогда

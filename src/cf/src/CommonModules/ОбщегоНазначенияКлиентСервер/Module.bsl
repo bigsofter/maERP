@@ -1365,10 +1365,10 @@
 			//ОтображениеСостояния.Картинка                       = БиблиотекаКартинок.ДлительнаяОперация48;
 			ОтображениеСостояния.Текст                          = НСтр("fr = 'Le rapport est en cours de génération...'; ru = 'Отчет формируется...'; en = 'The report is being generated...'; es = 'Se genera un informe...'");
 		Иначе
-			ВызватьИсключение(НСтр("fr = ""Valeur de paramètre invalide (numéro de paramètre '2')""; ru = ""Недопустимое значение параметра (параметр номер '2')""; en = ""Invalid parameter value (parameter number '2')""; es = ""Valor de parámetro no válido (parámetro número '2')"""));
+			ВызватьИсключение(НСтр("fr = 'Valeur de paramètre invalide (numéro de paramètre ''2'')'; ru = 'Недопустимое значение параметра (параметр номер ''2'')'; en = 'Invalid parameter value (parameter number ''2'')'; es = 'Valor de parámetro no válido (parámetro número ''2'')'"));
 		КонецЕсли;
 	Иначе
-		ВызватьИсключение(НСтр("fr = ""Valeur de paramètre invalide (numéro de paramètre '1')""; ru = ""Недопустимое значение параметра (параметр номер '1')""; en = ""Invalid parameter value (parameter number '1')""; es = ""Valor de parámetro no válido (parámetro número '1')"""));
+		ВызватьИсключение(НСтр("fr = 'Valeur de paramètre invalide (numéro de paramètre ''1'')'; ru = 'Недопустимое значение параметра (параметр номер ''1'')'; en = 'Invalid parameter value (parameter number ''1'')'; es = 'Valor de parámetro no válido (parámetro número ''1'')'"));
 	КонецЕсли;
 	
 КонецПроцедуры

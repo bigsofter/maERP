@@ -137,8 +137,8 @@
 
 	Колво = ИзменениеРегистрацииПоУзлам(ДеревоУзловОбмена);
 	Если Колво > 0 Тогда
-		Текст = НСтр("fr = ""L'inscription %1 a été modifiée sur les nœuds %2""; ru = 'Регистрация %1 была изменена на %2 узлах'; en = 'Registration of %1 has been changed to %2 nodes'; es = 'El registro de %1 se ha cambiado a % 2 nodos'");
-		ЗаголовокОповещения = НСтр("fr = ""Modification de l'inscription:""; ru = 'Изменение регистрации:'; en = 'Registration change:'; es = 'Cambio de registro:'");
+		Текст = НСтр("fr = 'L''inscription %1 a été modifiée sur les nœuds %2'; ru = 'Регистрация %1 была изменена на %2 узлах'; en = 'Registration of %1 has been changed to %2 nodes'; es = 'El registro de %1 se ha cambiado a % 2 nodos'");
+		ЗаголовокОповещения = НСтр("fr = 'Modification de l''inscription:'; ru = 'Изменение регистрации:'; en = 'Registration change:'; es = 'Cambio de registro:'");
 
 		Текст = СтрЗаменить(Текст, "%1", ОбъектРегистрации);
 		Текст = СтрЗаменить(Текст, "%2", Колво);

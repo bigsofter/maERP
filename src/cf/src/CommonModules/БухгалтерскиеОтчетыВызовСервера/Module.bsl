@@ -1133,7 +1133,7 @@
 		Пока ИнформацияОбОшибке.Причина <> Неопределено Цикл
 			ИнформацияОбОшибке = ИнформацияОбОшибке.Причина;
 		КонецЦикла;
-		ТекстСообщения = СтрШаблон(НСтр("fr = ""Le rapport n'est pas généré! %1""; ru = 'Отчет не сформирован! %1'; en = 'The report has not been generated! %1'; es = '¡No hay informe! %1'"), ИнформацияОбОшибке.Описание);
+		ТекстСообщения = СтрШаблон(НСтр("fr = 'Le rapport n''est pas généré! %1'; ru = 'Отчет не сформирован! %1'; en = 'The report has not been generated! %1'; es = '¡No hay informe! %1'"), ИнформацияОбОшибке.Описание);
 		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		
 		РезультатФормированияОтчета.Выполнено                    = Ложь;
@@ -2098,9 +2098,9 @@
 		ПредставлениеДляОСВПоСчету            = НСтр("fr = 'SV compte %Счет%'; ru = 'ОСВ по счету %Счет%'; en = 'OSV account %Счет%'; es = 'OSV cuenta %Счет%'");
 		ПредставлениеДляКарточкиСчета         = НСтр("fr = 'Carte de compte %Счет%'; ru = 'Карточка счета %Счет%'; en = 'Account Card %Счет%'; es = 'Tarjeta de cuenta %Счет%'");
 		ПредставлениеДляАнализаСчета          = НСтр("fr = 'Analyse du compte %Счет%'; ru = 'Анализ счета %Счет%'; en = 'Account Analysis %Счет%'; es = 'Análisis de cuenta %Счет%'");
-		ПредставлениеДляОборотыСчета          = НСтр("fr = ""Chiffre d'affaires du compte %Счет%""; ru = 'Обороты счета %Счет%'; en = 'Account turnover %Счет%'; es = 'Facturación %Счет%'");
-		ПредставлениеДляОборотыСчетаПоМесяцам = НСтр("fr = ""Chiffre d'affaires du compte %Счет% par mois""; ru = 'Обороты счета %Счет% по месяцам'; en = 'Account turnover %Счет% by month'; es = 'Facturación de la cuenta %Счет% por mes'");
-		ПредставлениеДляОборотыСчетаПоДням    = НСтр("fr = ""Chiffre d'affaires du compte %Счет% par jour""; ru = 'Обороты счета %Счет% по дням'; en = 'Account turnover %Счет% by day'; es = 'Facturación de la cuenta %Счет% por día'");
+		ПредставлениеДляОборотыСчета          = НСтр("fr = 'Chiffre d''affaires du compte %Счет%'; ru = 'Обороты счета %Счет%'; en = 'Account turnover %Счет%'; es = 'Facturación %Счет%'");
+		ПредставлениеДляОборотыСчетаПоМесяцам = НСтр("fr = 'Chiffre d''affaires du compte %Счет% par mois'; ru = 'Обороты счета %Счет% по месяцам'; en = 'Account turnover %Счет% by month'; es = 'Facturación de la cuenta %Счет% por mes'");
+		ПредставлениеДляОборотыСчетаПоДням    = НСтр("fr = 'Chiffre d''affaires du compte %Счет% par jour'; ru = 'Обороты счета %Счет% по дням'; en = 'Account turnover %Счет% by day'; es = 'Facturación de la cuenta %Счет% por día'");
 		ПредставлениеДляКарточкиСубконто      = НСтр("fr = 'Extrait de subconto'; ru = 'Карточка субконто'; en = 'Subconto card'; es = 'Tarjeta de subconto'");
 		ПредставлениеДляОтчетаПоПроводкам     = НСтр("fr = 'Rapport sur les ecritures'; ru = 'Отчет по проводкам'; en = 'Transaction Report'; es = 'Informe de transacciones'");
 		ПредставлениеОткрытьОбъект 			  = НСтр("fr = 'Ouvrir %Значение%'; ru = 'Открыть ""%Значение%""'; en = 'Open ""%Значение%""'; es = 'Abrir ""%Значение%""'");

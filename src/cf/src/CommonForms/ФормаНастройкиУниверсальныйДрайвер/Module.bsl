@@ -137,7 +137,7 @@
 		ИначеЕсли НастроеноДорожек > 0 И Не ДорожкаСПустымСуффиксом Тогда
 			Закрыть(ВремНастройки);  
 		ИначеЕсли НастроеноДорожек = 0 Тогда
-			ТекстСообщения = НСтр("ru = 'Необходимо указать использование хотя бы одной дорожки для считывателя'; fr = ""Vous devez spécifier l'utilisation d'au moins une piste pour le lecteur""; en = 'You must specify the use of at least one track for the reader.'; es = 'Debe especificar el uso de al menos una pista para el lector'");
+			ТекстСообщения = НСтр("ru = 'Необходимо указать использование хотя бы одной дорожки для считывателя'; fr = 'Vous devez spécifier l''utilisation d''au moins une piste pour le lecteur'; en = 'You must specify the use of at least one track for the reader.'; es = 'Debe especificar el uso de al menos una pista para el lector'");
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		ИначеЕсли ДорожкаСПустымСуффиксом Тогда
 			ТекстСообщения = НСтр("ru = 'Для каждой используемой дорожки должен быть указан суффикс'; fr = 'Un suffixe doit être spécifié pour chaque piste utilisée'; en = 'A suffix must be specified for each track used.'; es = 'Se debe especificar un sufijo para cada pista utilizada'");
@@ -199,7 +199,7 @@
 &НаКлиенте
 Процедура УстановитьДрайверИзАрхиваПриЗавершении(Результат) Экспорт 
 	
-	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = ""L'installation du pilote est terminée.""; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
+	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = 'L''installation du pilote est terminée.'; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
 	ОбновитьИнформациюОДрайвере(Истина);
 	
 КонецПроцедуры 
@@ -208,10 +208,10 @@
 Процедура УстановитьДрайверИзДистрибутиваПриЗавершении(Результат, Параметры) Экспорт 
 	
 	Если Результат Тогда
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = ""L'installation du pilote est terminée.""; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = 'L''installation du pilote est terminée.'; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
 		ОбновитьИнформациюОДрайвере(Истина);
 	Иначе
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'При установке драйвера из дистрибутива произошла ошибка.'; fr = ""Une erreur s'est produite lors de l'installation du pilote à partir de la distribution.""; en = 'An error occurred when installing the driver from the distribution.'; es = 'Se produjo un error al instalar el controlador desde la distribución.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'При установке драйвера из дистрибутива произошла ошибка.'; fr = 'Une erreur s''est produite lors de l''installation du pilote à partir de la distribution.'; en = 'An error occurred when installing the driver from the distribution.'; es = 'Se produjo un error al instalar el controlador desde la distribución.'")); 
 	КонецЕсли;
 
 КонецПроцедуры 
@@ -268,8 +268,8 @@
 &НаКлиенте
 Процедура ДополнительноеДействиеЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
-	ТекстСообщения = ?(РезультатВыполнения.Результат,  НСтр("ru = 'Операция выполнена успешно.'; fr = ""L'opération a réussi.""; en = 'The operation was completed successfully.'; es = 'La operación fue exitosa.'"),
-	                               НСтр("ru = 'Ошибка выполнения операции.'; fr = ""L'opération a échoué.""; en = 'Operation execution error.'; es = 'Error al realizar la operación.'") + Символы.НПП + РезультатВыполнения.ВыходныеПараметры[1]);
+	ТекстСообщения = ?(РезультатВыполнения.Результат,  НСтр("ru = 'Операция выполнена успешно.'; fr = 'L''opération a réussi.'; en = 'The operation was completed successfully.'; es = 'La operación fue exitosa.'"),
+	                               НСтр("ru = 'Ошибка выполнения операции.'; fr = 'L''opération a échoué.'; en = 'Operation execution error.'; es = 'Error al realizar la operación.'") + Символы.НПП + РезультатВыполнения.ВыходныеПараметры[1]);
 	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 	
 	ОчиститьНастраиваемыйИнтерфейс();
@@ -577,7 +577,7 @@
 		КонецЕсли;
 		
 		Если ИнтеграционныйКомпонент И НЕ ОсновнойДрайверУстановлен Тогда
-			ДрайверУстановлен = НСтр("ru = 'Установлен интеграционный компонент'; fr = ""Le composant d'intégration est installé""; en = 'The integration component is installed'; es = 'Componente de integración instalado'");
+			ДрайверУстановлен = НСтр("ru = 'Установлен интеграционный компонент'; fr = 'Le composant d''intégration est installé'; en = 'The integration component is installed'; es = 'Componente de integración instalado'");
 			ВерсияДрайвера = НСтр("ru = 'Не определена'; fr = 'Non défini'; en = 'Not defined'; es = 'No definido'");
 			Элементы.ДрайверНаименования.Видимость = НЕ ПустаяСтрока(НаименованиеДрайвера); 
 			Элементы.ДрайверНаименования.Заголовок = СтрЗаменить(Элементы.ДрайверНаименования.Заголовок, "%Наименование%", НаименованиеДрайвера);

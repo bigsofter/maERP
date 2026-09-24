@@ -64,7 +64,7 @@
 	// Передать на обработку данные.
 	Результат = МенеджерОборудованияКлиент.ОбработатьСобытиеОтУстройства(ОписаниеСобытия, ОписаниеОшибки);
 	Если Не Результат Тогда
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("fr = ""Une erreur s'est produite lors du traitement d'un événement externe du périphérique.""; ru = 'При обработке внешнего события от устройства произошла ошибка.'; en = 'An error occurred while processing an external event from the device.'; es = 'Se produjo un error al procesar un evento externo del dispositivo.'") + Символы.ПС + ОписаниеОшибки);
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("fr = 'Une erreur s''est produite lors du traitement d''un événement externe du périphérique.'; ru = 'При обработке внешнего события от устройства произошла ошибка.'; en = 'An error occurred while processing an external event from the device.'; es = 'Se produjo un error al procesar un evento externo del dispositivo.'") + Символы.ПС + ОписаниеОшибки);
 	КонецЕсли;
 КонецПроцедуры
 

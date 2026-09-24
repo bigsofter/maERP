@@ -284,7 +284,7 @@
 		КоличествоНовыхЭлементов  = 0;
 		ОбработкаПодбораВыполнена = Ложь;
 		
-		ТекстСообщения = Нстр("fr = ""Impossible de sélectionner l'unité de mesure dans le classificateur.""; ru = 'Не удалось подобрать единицу измерения из классификатора.'; en = ""Couldn't find the unit of measurement from the classifier.""; es = 'No se pudo recoger la unidad de medida del clasificador.'");
+		ТекстСообщения = Нстр("fr = 'Impossible de sélectionner l''unité de mesure dans le classificateur.'; ru = 'Не удалось подобрать единицу измерения из классификатора.'; en = 'Couldn''t find the unit of measurement from the classifier.'; es = 'No se pudo recoger la unidad de medida del clasificador.'");
 		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 	КонецПопытки;
 	

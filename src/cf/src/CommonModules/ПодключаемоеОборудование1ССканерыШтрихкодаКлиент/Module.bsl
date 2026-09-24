@@ -203,7 +203,7 @@
 	// Указанная команда не поддерживается данным драйвером.
 	Иначе
 		ВыходныеПараметры.Добавить(999);
-		ВыходныеПараметры.Добавить(НСтр("ru = 'Команда ""%Команда%"" не поддерживается данным драйвером.'; fr = ""La commande %Команда% n'est pas prise en charge par ce pilote.""; en = 'The team ""%Команда%"" command is not supported by this driver.'; es = 'El comando %Команда% no es compatible con este controlador.'"));
+		ВыходныеПараметры.Добавить(НСтр("ru = 'Команда ""%Команда%"" не поддерживается данным драйвером.'; fr = 'La commande %Команда% n''est pas prise en charge par ce pilote.'; en = 'The team ""%Команда%"" command is not supported by this driver.'; es = 'El comando %Команда% no es compatible con este controlador.'"));
 		ВыходныеПараметры[1] = СтрЗаменить(ВыходныеПараметры[1], "%Команда%", Команда);
 
 		Результат = Ложь;

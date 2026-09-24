@@ -959,7 +959,7 @@
 	Попытка
 		Результат = ЧтениеXML.Прочитать();
 	Исключение
-		ТекстСообщенияОбОшибке = НСтр("ru = 'При чтении XML-описания макета произошла ошибка.'; fr = ""Une erreur s'est produite lors de la lecture de la Description XML de la mise en page.""; en = 'An error occurred when reading the XML description of the layout.'; es = 'Se produjo un error al Leer la descripción XML del diseño.'");
+		ТекстСообщенияОбОшибке = НСтр("ru = 'При чтении XML-описания макета произошла ошибка.'; fr = 'Une erreur s''est produite lors de la lecture de la Description XML de la mise en page.'; en = 'An error occurred when reading the XML description of the layout.'; es = 'Se produjo un error al Leer la descripción XML del diseño.'");
 		Результат = Ложь;
 	КонецПопытки;
 	
@@ -994,7 +994,7 @@
 	ПараметрыЧтения = Новый ПараметрыЧтенияXML("1.0");
 	ЧтениеXML.УстановитьСтроку(Источник, ПараметрыЧтения);
 	
-	ШаблонСообщенияОбОшибке = НСтр("ru = 'При чтении файла атрибута %1 элемента %2 произошла ошибка.'; fr = ""Une erreur s'est produite lors de la lecture du fichier d'attribut %1 de l'élément %2.""; en = 'An error occurred while reading the %1 attribute file of the %2 element.'; es = 'Se produjo un error al Leer el archivo de atributo %1 del elemento %2.'");
+	ШаблонСообщенияОбОшибке = НСтр("ru = 'При чтении файла атрибута %1 элемента %2 произошла ошибка.'; fr = 'Une erreur s''est produite lors de la lecture du fichier d''attribut %1 de l''élément %2.'; en = 'An error occurred while reading the %1 attribute file of the %2 element.'; es = 'Se produjo un error al Leer el archivo de atributo %1 del elemento %2.'");
 	ТекстСообщенияОбОшибке = "";
 	
 	Пока ПрочитатьЭлементXML(ЧтениеXML, ТекстСообщенияОбОшибке) Цикл
@@ -1162,7 +1162,7 @@
 					Если ПрочитатьАтрибут(ЧтениеXML, "FontSize", ЗначениеАтрибута) Тогда
 						Если ПодписьШтрихкода И ЗначениеАтрибута=Неопределено Тогда
 							СообщениеОбОшибке = СтрШаблон(ШаблонСообщенияОбОшибке, "FontSize", "Barcode");
-							ШаблонДополнение = НСтр("ru = 'При значении атрибута %1 = %2 указание значения атрибута %3 обязательно.'; fr = ""Pour la valeur de l'attribut %1 = %2, la spécification de la valeur de l'attribut %3 est obligatoire.""; en = 'If the attribute value is %1 = %2, the %3 attribute value must be specified.'; es = 'Si el valor del atributo %1 = %2 es necesario especificar el valor del atributo %3.'");
+							ШаблонДополнение = НСтр("ru = 'При значении атрибута %1 = %2 указание значения атрибута %3 обязательно.'; fr = 'Pour la valeur de l''attribut %1 = %2, la spécification de la valeur de l''attribut %3 est obligatoire.'; en = 'If the attribute value is %1 = %2, the %3 attribute value must be specified.'; es = 'Si el valor del atributo %1 = %2 es necesario especificar el valor del atributo %3.'");
 							СообщениеОбОшибке = СообщениеОбОшибке + Символы.НПП + СтрШаблон(ШаблонДополнение, "PrintHRI", "True", "FontSize");
 							Возврат Ложь;
 						КонецЕсли;
@@ -1837,7 +1837,7 @@
 			ТекстСодержания = ЧтениеТекста.Прочитать();
 		Исключение
 			
-			ТекстСообщения =  НСтр("ru = 'При чтении файла %ИмяФайла% произошла ошибка'; fr = ""Une erreur s'est produite lors de la lecture du fichier %ИмяФайла% ""; en = 'An error occurred while reading the %ИмяФайла% file'; es = 'Error al Leer el archivo %ИмяФайла% '");
+			ТекстСообщения =  НСтр("ru = 'При чтении файла %ИмяФайла% произошла ошибка'; fr = 'Une erreur s''est produite lors de la lecture du fichier %ИмяФайла% '; en = 'An error occurred while reading the %ИмяФайла% file'; es = 'Error al Leer el archivo %ИмяФайла% '");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ИмяФайла%", Файл.Имя);
 			
 			РезультатЧтенияФайлов.ТекстОшибки = ТекстСообщения + Символы.ПС + ОписаниеОшибки();
@@ -3862,7 +3862,7 @@
 						КонецЕсли;
 						ЗаписьXML.ЗаписатьКонецЭлемента();
 					Иначе
-						ТекстОшибки = НСтр("ru = 'Не определен тип позиции чека.'; fr = ""Aucun type de poste de chèque n'est défini.""; en = 'The type of the receipt position is not defined.'; es = 'No se ha definido el tipo de posición del cheque.'"); 
+						ТекстОшибки = НСтр("ru = 'Не определен тип позиции чека.'; fr = 'Aucun type de poste de chèque n''est défini.'; en = 'The type of the receipt position is not defined.'; es = 'No se ha definido el tipo de posición del cheque.'"); 
 						ВыходныеПараметры.Очистить();
 						ВыходныеПараметры.Вставить("ТекстОшибки", ТекстОшибки);
 						Результат = Ложь;  
@@ -4189,7 +4189,7 @@
 		// Сценарий 2 - исправление нарушений применения ККТ.
 		Если ПустаяСтрока(ОбщиеПараметры.КорректируемыйДокумент) Тогда
 			ПараметрыФискализации.Результат = Ложь; 
-			ПараметрыФискализации.ТекстОшибки = НСтр("ru = 'Корректируемый документ не указан для формирования чека коррекции.'; fr = ""Le document à corriger n'est pas spécifié pour la génération du chèque de correction.""; en = 'The document to be corrected is not specified for generating a correction receipt.'; es = 'El documento de corrección no está especificado para generar un cheque de corrección.'");
+			ПараметрыФискализации.ТекстОшибки = НСтр("ru = 'Корректируемый документ не указан для формирования чека коррекции.'; fr = 'Le document à corriger n''est pas spécifié pour la génération du chèque de correction.'; en = 'The document to be corrected is not specified for generating a correction receipt.'; es = 'El documento de corrección no está especificado para generar un cheque de corrección.'");
 			Возврат ПараметрыФискализации;
 		КонецЕсли;
 		
@@ -4200,7 +4200,7 @@
 		КорректируемыйДокументОперация = МенеджерОборудованияВызовСервера.ДанныеФискальнойОперации(ОбщиеПараметры.КорректируемыйДокумент, ,ТипыДокументов, ОбщиеПараметры.ТипРасчета); 
 		Если КорректируемыйДокументОперация = Неопределено Тогда
 			ПараметрыФискализации.Результат = Ложь; 
-			ПараметрыФискализации.ТекстОшибки = НСтр("ru = 'Не найден ранее фискализиронный кассовый чек для формирования чека коррекции.'; fr = ""Aucun chèque de caisse fiscal n'a été trouvé auparavant pour former un chèque de correction.""; en = 'The fiscalized cash receipt for generating the correction receipt was not found earlier.'; es = 'No se ha encontrado un cheque de Caja fiscal anterior para formar un cheque de corrección.'");
+			ПараметрыФискализации.ТекстОшибки = НСтр("ru = 'Не найден ранее фискализиронный кассовый чек для формирования чека коррекции.'; fr = 'Aucun chèque de caisse fiscal n''a été trouvé auparavant pour former un chèque de correction.'; en = 'The fiscalized cash receipt for generating the correction receipt was not found earlier.'; es = 'No se ha encontrado un cheque de Caja fiscal anterior para formar un cheque de corrección.'");
 			Возврат ПараметрыФискализации;
 		Иначе
 			// В зависимости от версии ФФД формируем "Кассовый чек" или "Кассовый чек коррекции".

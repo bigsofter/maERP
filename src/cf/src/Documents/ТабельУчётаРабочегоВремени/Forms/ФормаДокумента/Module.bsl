@@ -110,7 +110,9 @@
 	Если ДанныеГрафика.ЭтоСменныйГрафик Тогда
 		ПервыйРабочийДень = ПолучитьПервыйРабочийДеньПоТабелю(ДанныеГрафика.Сотрудник);
 		Если ПервыйРабочийДень = 0 Тогда
-			Сообщить(Нстр("ru = 'Укажите первый рабочий день для '; fr = 'Spécifiez le premier jour de travail pour'") + СокрЛП(ДанныеГрафика.Сотрудник) + Нстр("fr = ""et cliquez sur le bouton Remplir selon l'établi""; ru = ' и нажмите на кнопку Заполнить по установленным'; en = ' and click on the Fill In according to the set parameters button.'; es = ' y haga clic en el botón Llenar en la configuración'"));
+			ТекстСообщения = Нстр("ru = 'Укажите первый рабочий день для '; fr = 'Spécifiez le premier jour de travail pour';
+				|en = 'Specify the first working day for'; es = 'Indique el primer día laborable para'") + СокрЛП(ДанныеГрафика.Сотрудник) + Нстр("fr = 'et cliquez sur le bouton Remplir selon l''établi'; ru = ' и нажмите на кнопку Заполнить по установленным'; en = ' and click on the Fill In according to the set parameters button.'; es = ' y haga clic en el botón Llenar en la configuración'");
+			Сообщить(ТекстСообщения);
 		Иначе
 			РабочихДней = 0;
 			ВыходныхДней = 0;

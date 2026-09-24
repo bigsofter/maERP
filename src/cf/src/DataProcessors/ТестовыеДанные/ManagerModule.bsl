@@ -373,7 +373,10 @@
 
 	// Появится печать у объекта другого вида - правило для него добавляется сюда осознанно,
 	// а не угадывается.
-	ВызватьИсключение НСтр("ru = 'Образец объекта этого вида обработка заводить не умеет'");
+	ВызватьИсключение НСтр("ru = 'Образец объекта этого вида обработка заводить не умеет';
+		|fr = 'Le traitement ne sait pas créer d''exemple pour ce type d''objet';
+		|en = 'The data processor cannot create a sample for this object kind';
+		|es = 'El procesamiento no sabe crear un ejemplo para este tipo de objeto'");
 
 КонецФункции
 
@@ -890,7 +893,10 @@
 
 	Заказ = ПервыйДокумент("ЗаказПокупателя");
 	Если Не ЗначениеЗаполнено(Заказ) Тогда
-		ВызватьИсключение НСтр("ru = 'В базе нет ни одного заказа покупателя: лид печатается по заказу'");
+		ВызватьИсключение НСтр("ru = 'В базе нет ни одного заказа покупателя: лид печатается по заказу';
+			|fr = 'La base ne contient aucune commande client : le lead s''imprime à partir d''une commande';
+			|en = 'There is no customer order in the database: the lead is printed from an order';
+			|es = 'La base no contiene ningún pedido de cliente: el lead se imprime a partir de un pedido'");
 	КонецЕсли;
 
 	Запись = РегистрыСведений.Лиды.СоздатьМенеджерЗаписи();

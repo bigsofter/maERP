@@ -259,11 +259,11 @@
 		ЗначениеПараметра     = ПараметрРегистрации.ЗначениеПараметра;
 		
 		Если НаименованиеПараметра = "РегистрационныйНомерККТ" Тогда
-			НаименованиеПараметра = НСтр("ru = 'Регистрационный номер ККТ'; fr = ""Numéro d'enregistrement CCT""; en = 'CCT Registration Number'; es = 'Número de registro del CCT'")
+			НаименованиеПараметра = НСтр("ru = 'Регистрационный номер ККТ'; fr = 'Numéro d''enregistrement CCT'; en = 'CCT Registration Number'; es = 'Número de registro del CCT'")
 		ИначеЕсли НаименованиеПараметра = "ОрганизацияНазвание" Тогда
 			НаименованиеПараметра = НСтр("ru = 'Название организации'; fr = 'Nom de l & apos; organisation'; en = 'Name of the organization'; es = 'Nombre de la organización'")
 		ИначеЕсли НаименованиеПараметра = "ОрганизацияИНН" Тогда
-			НаименованиеПараметра = НСтр("ru = 'ИНН организации'; fr = ""Inn de l'organisation""; en = 'INN of the organization'; es = 'NIF organización'")
+			НаименованиеПараметра = НСтр("ru = 'ИНН организации'; fr = 'Inn de l''organisation'; en = 'INN of the organization'; es = 'NIF organización'")
 		ИначеЕсли НаименованиеПараметра = "АдресПроведенияРасчетов" Тогда
 			НаименованиеПараметра = НСтр("ru = 'Адрес проведения расчетов'; fr = 'Adresse de règlement'; en = 'Settlement address'; es = 'Dirección de liquidación'")
 		ИначеЕсли НаименованиеПараметра = "КодыСистемыНалогообложения" Тогда
@@ -295,11 +295,11 @@
 		ИначеЕсли НаименованиеПараметра = "ОрганизацияОФДНазвание" Тогда
 			НаименованиеПараметра = НСтр("ru = 'Наименование ОФД'; fr = 'Nom du CRF'; en = 'Name of the OFD'; es = 'Nombre del FCI'")
 		ИначеЕсли НаименованиеПараметра = "ЗаводскойНомерККТ" Тогда
-			НаименованиеПараметра = НСтр("ru = 'Заводской номер ККТ'; fr = ""Numéro d'usine CCT""; en = 'KKT Factory Number'; es = 'Número de fábrica CCT'")
+			НаименованиеПараметра = НСтр("ru = 'Заводской номер ККТ'; fr = 'Numéro d''usine CCT'; en = 'KKT Factory Number'; es = 'Número de fábrica CCT'")
 		ИначеЕсли НаименованиеПараметра = "ПризнакФискализации" Тогда
 			НаименованиеПараметра = НСтр("ru = 'Признак фискализации'; fr = 'Signe de la fiscalisation'; en = 'A sign of fiscalization'; es = 'Signo de fiscalización'")
 		ИначеЕсли НаименованиеПараметра = "ЗаводскойНомерФН" Тогда
-			НаименованиеПараметра = НСтр("ru = 'Заводской номер ФН'; fr = ""Numéro d'usine FN""; en = 'Factory number FN'; es = 'Número de fábrica FN'")
+			НаименованиеПараметра = НСтр("ru = 'Заводской номер ФН'; fr = 'Numéro d''usine FN'; en = 'Factory number FN'; es = 'Número de fábrica FN'")
 		ИначеЕсли НаименованиеПараметра = "НомерДокументаФискализации" Тогда
 			НаименованиеПараметра = НСтр("ru = 'Номер документа фискализации'; fr = 'Numéro du document fiscal'; en = 'Fiscalization document number'; es = 'Número de documento de fiscalización'")
 		ИначеЕсли НаименованиеПараметра = "ДатаВремяФискализации" Тогда
@@ -318,9 +318,9 @@
 		ИначеЕсли НаименованиеПараметра = "ПроведенияЛотерей" Тогда
 			НаименованиеПараметра = НСтр("ru = 'Проведения лотерей'; fr = 'Loteries'; en = 'Conducting lotteries'; es = 'Loterías'")
 		ИначеЕсли НаименованиеПараметра = "ПризнакиАгента" Тогда
-			НаименованиеПараметра = НСтр("ru = 'Признаки агента'; fr = ""Signes d'agent""; en = 'Signs of an agent'; es = 'Signos del agente'")
+			НаименованиеПараметра = НСтр("ru = 'Признаки агента'; fr = 'Signes d''agent'; en = 'Signs of an agent'; es = 'Signos del agente'")
 		ИначеЕсли НаименованиеПараметра = "УстановкаПринтераВАвтомате" Тогда
-			НаименованиеПараметра = НСтр("ru = 'Установка принтера в автомате'; fr = ""Installation de l'imprimante dans la machine""; en = 'Installing the printer in the machine'; es = 'Instalación de la impresora en la máquina'")
+			НаименованиеПараметра = НСтр("ru = 'Установка принтера в автомате'; fr = 'Installation de l''imprimante dans la machine'; en = 'Installing the printer in the machine'; es = 'Instalación de la impresora en la máquina'")
 		КонецЕсли;
 			
 		Параметр.НаименованиеПараметра = НаименованиеПараметра;
@@ -350,7 +350,7 @@
 	ОчиститьСообщения();
 	
 	Если РезультатВыполнения.Результат Тогда
-		ТекстСообщения = НСтр("ru = 'Операция завершена.'; fr = ""L'opération est terminée.""; en = 'The operation is completed.'; es = 'La operación se ha completado.'");
+		ТекстСообщения = НСтр("ru = 'Операция завершена.'; fr = 'L''opération est terminée.'; en = 'The operation is completed.'; es = 'La operación se ha completado.'");
 	Иначе
 		ТекстСообщения = РезультатВыполнения.ОписаниеОшибки;
 	КонецЕсли;

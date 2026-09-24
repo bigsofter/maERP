@@ -227,7 +227,7 @@
 		СтруктураТОвара = ОбщегоНазначенияВызовСервера.ПолучитьНоменклатуруПоШтрихкоду(Штрихкод);
 	КонецЕсли;
 	Если СтруктураТОвара = Неопределено Тогда
-		ТекстОшибки = Нстр("fr = 'Erreur ('; ru = 'Ошибка ('; en = 'Error ('; es = 'Error ('") + Штрихкод + Нстр("fr = ""); contacter l'administrateur!""; ru = '); обратитесь к администратору!'; en = '); contact the administrator!'; es = '); ¡póngase en contacto con el administrador!'");
+		ТекстОшибки = Нстр("fr = 'Erreur ('; ru = 'Ошибка ('; en = 'Error ('; es = 'Error ('") + Штрихкод + Нстр("fr = '); contacter l''administrateur!'; ru = '); обратитесь к администратору!'; en = '); contact the administrator!'; es = '); ¡póngase en contacto con el administrador!'");
 		Возврат;
 	КонецЕсли;
 	ЦенаВключаетНДС = ЦенаВключаетНДСДокумента(Объект);

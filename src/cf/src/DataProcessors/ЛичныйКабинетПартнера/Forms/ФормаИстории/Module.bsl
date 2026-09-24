@@ -162,17 +162,17 @@
 	ИначеЕсли мес = 5 тогда
 		Возврат Нстр("fr = 'mai'; ru = 'мая'; en = 'May'; es = 'mayo'");  
 	ИначеЕсли мес = 6 тогда
-		Возврат Нстр("fr = 'juin'; ru = 'июля'; en = ""July's""; es = 'julio'");  
+		Возврат Нстр("fr = 'juin'; ru = 'июля'; en = 'July''s'; es = 'julio'");  
 	ИначеЕсли мес = 7 тогда
-		Возврат Нстр("fr = 'juillet'; ru = 'июня'; en = ""June's""; es = 'junio'");  
+		Возврат Нстр("fr = 'juillet'; ru = 'июня'; en = 'June''s'; es = 'junio'");  
 	ИначеЕсли мес = 8 тогда
 		Возврат Нстр("fr = 'août'; ru = 'августа'; en = 'august'; es = 'agosto'");  
 	ИначеЕсли мес = 9 тогда
 		Возврат Нстр("fr = 'septembre'; ru = 'сентября'; en = 'september'; es = 'septiembre'"); 
 	ИначеЕсли мес = 10 тогда
-		Возврат Нстр("fr = 'octobre'; ru = 'октября'; en = ""October's""; es = 'octubre'");  
+		Возврат Нстр("fr = 'octobre'; ru = 'октября'; en = 'October''s'; es = 'octubre'");  
 	ИначеЕсли мес = 11 тогда
-		Возврат Нстр("fr = 'novembre'; ru = 'ноября'; en = ""November's""; es = 'noviembre'");  
+		Возврат Нстр("fr = 'novembre'; ru = 'ноября'; en = 'November''s'; es = 'noviembre'");  
 	ИначеЕсли мес = 12 тогда
 		Возврат Нстр("fr = 'décembre'; ru = 'декабря'; en = 'december'; es = 'diciembre'");  
 	КонецЕсли;

@@ -1051,7 +1051,7 @@
 	Если Объект.Движения.Хозрасчетный.Количество() > 0 Тогда
 		Состояние = НСтр("fr = 'Le document est reflété dans la comptabilité réglementée.'; ru = 'Документ отражен в регламентированном учете.'; en = 'The document is reflected in the regulated accounting.'; es = 'El documento se refleja en la contabilidad regulada.'");
 	Иначе
-		Состояние = НСтр("fr = ""Le document n'a pas été publié.""; ru = 'Документ не проведен.'; en = 'The document has not been completed.'; es = 'Documento no realizado.'");
+		Состояние = НСтр("fr = 'Le document n''a pas été publié.'; ru = 'Документ не проведен.'; en = 'The document has not been completed.'; es = 'Documento no realizado.'");
 	КонецЕсли;
 
 КонецПроцедуры
@@ -1189,7 +1189,7 @@
 			КонецЦикла;
 			
 			Если СторнируемыйНаборЗаписей.Количество() = 0 И ЭтоРегистрБухгалтерии Тогда
-				ТекстСообщения = НСтр("fr = ""Il n'y a pas de transactions à annuler pour le document %1!""; ru = 'Для документа %1 нет проводок для сторнирования!'; en = 'There are no transactions for cancellation for the %1 document!'; es = '¡No hay transacciones de reversión para el documento %1!'");
+				ТекстСообщения = НСтр("fr = 'Il n''y a pas de transactions à annuler pour le document %1!'; ru = 'Для документа %1 нет проводок для сторнирования!'; en = 'There are no transactions for cancellation for the %1 document!'; es = '¡No hay transacciones de reversión para el documento %1!'");
 				ТекстСообщения = ОбщегоНазначенияКлиентСервер.ПодставитьПараметрыВСтроку(ТекстСообщения, Документ);
 				ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения, Объект.Ссылка, , "Объект");
 			КонецЕсли;

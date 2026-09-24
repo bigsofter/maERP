@@ -226,7 +226,7 @@
 			СообщениеПроверки, "ДлительныеОперацииКлиент.ОжидатьЗавершение");
 			
 		СообщениеПроверки = ОбщегоНазначенияКлиентСервер.ПодставитьПараметрыВСтроку(
-			НСтр("fr = ""Si le paramètre %1 est défini sur %2, alors le paramètre %3 n'est pas pris en charge""; ru = 'Если параметр %1 установлен в %2, то параметр %3 не поддерживается'; en = 'If the %1 parameter is set to %2, then the %3 parameter is not supported.'; es = 'Si el parámetro %1 se establece en %2, el parámetro %3 no es compatible'"),
+			НСтр("fr = 'Si le paramètre %1 est défini sur %2, alors le paramètre %3 n''est pas pris en charge'; ru = 'Если параметр %1 установлен в %2, то параметр %3 не поддерживается'; en = 'If the %1 parameter is set to %2, then the %3 parameter is not supported.'; es = 'Si el parámetro %1 se establece en %2, el parámetro %3 no es compatible'"),
 			"ПараметрыОжидания.ВыводитьОкноОжидания",
 			"Истина",
 			"ПараметрыОжидания.ОповещениеОПрогрессеВыполнения");

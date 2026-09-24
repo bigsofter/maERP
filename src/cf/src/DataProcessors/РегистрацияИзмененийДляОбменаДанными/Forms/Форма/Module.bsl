@@ -53,7 +53,7 @@
 
 		Иначе
 			ВызватьИсключение СтрЗаменить(
-				НСтр("fr = ""Les paramètres de la commande d'ouverture '%1 ' ne sont pas valides""; ru = 'Неверные параметры команды открытия ""%1""'; en = 'Incorrect parameters of the %1 opening command'; es = 'Configuración incorrecta del comando de apertura ""%1""'"), "%1", Параметры.ИдентификаторКоманды);
+				НСтр("fr = 'Les paramètres de la commande d''ouverture ''%1 '' ne sont pas valides'; ru = 'Неверные параметры команды открытия ""%1""'; en = 'Incorrect parameters of the %1 opening command'; es = 'Configuración incorrecta del comando de apertura ""%1""'"), "%1", Параметры.ИдентификаторКоманды);
 
 		КонецЕсли;
 
@@ -112,7 +112,9 @@
 	Если ТипЗнч(ВыбранноеЗначение) <> Тип("Структура") Или (Не ВыбранноеЗначение.Свойство("ДействиеВыбора"))
 		Или (Не ВыбранноеЗначение.Свойство("ДанныеВыбора")) Или ТипЗнч(ВыбранноеЗначение.ДействиеВыбора) <> Тип("Булево")
 		Или ТипЗнч(ВыбранноеЗначение.ДанныеВыбора) <> Тип("Строка") Тогда
-		Ошибка = НСтр("fr = 'Résultat inattendu de la sélection à partir de la console de requête'; ru = 'Неожиданный результат выбора из консоли запросов'; en = 'Unexpected selection result from the query console'; es = 'Resultado inesperado de la selección de la consola de consultas'");
+		Ошибка = НСтр("fr = 'Résultat inattendu de la sélection à partir de la console de requête';
+			|ru = 'Неожиданный результат выбора из консоли запросов'; en = 'Unexpected selection result from the query console';
+			|es = 'Resultado inesperado de la selección de la consola de consultas'");
 	Иначе
 		Ошибка = КонтрольСсылокДляВыбораЗапросом(ВыбранноеЗначение.ДанныеВыбора);
 	КонецЕсли;
@@ -437,7 +439,8 @@
 
 	Если Сериализация.Количество() > 0 Тогда
 		Текст = ТекстСериализации(Сериализация);
-		ЗаголовокТекста = НСтр("fr = 'Résultat du déchargement standard (RIB)'; ru = 'Результат стандартной выгрузки (РИБ)'; es = 'Resultado de descarga estándar (RIB)'");
+		ЗаголовокТекста = НСтр("fr = 'Résultat du déchargement standard (RIB)'; ru = 'Результат стандартной выгрузки (РИБ)'; es = 'Resultado de descarga estándar (RIB)';
+			|en = 'Standard unloading result (RIB)'");
 		Текст.Показать(ЗаголовокТекста);
 	КонецЕсли;
 
@@ -1274,7 +1277,7 @@
 		Если КомандаОперации Тогда
 			Текст = НСтр("fr = 'Enregistrement des modifications apportées au résultat de la requête'; ru = 'Регистрация изменений результата запроса'; en = 'Registering changes to the query result'; es = 'Registrar cambios en el resultado de la consulta'");
 		Иначе
-			Текст = НСтр("fr = ""Annulation de l'enregistrement des modifications apportées au résultat de la requête""; ru = 'Отмена регистрации изменений результата запроса'; en = 'Cancellation of registration of changes in the query result'; es = 'Cancelar el registro de cambios en el resultado de la consulta'");
+			Текст = НСтр("fr = 'Annulation de l''enregistrement des modifications apportées au résultat de la requête'; ru = 'Отмена регистрации изменений результата запроса'; en = 'Cancellation of registration of changes in the query result'; es = 'Cancelar el registro de cambios en el resultado de la consulta'");
 		КонецЕсли;
 		ОткрытьФорму(ТекИмяФормы, Новый Структура("Заголовок, ДействиеВыбора, РежимВыбора, ЗакрыватьПриВыборе, ",
 			Текст, КомандаОперации, Истина, Ложь), ЭтотОбъект);
@@ -1469,7 +1472,7 @@
 			Возврат НСтр("fr = 'Dans le dernier résultat de la requête, il n''y a pas de colonne ""Lien""'; ru = 'В последнем результате запроса отсутствует колонка ""Ссылка""'; en = 'The ""Link"" column is missing in the last query result'; es = 'El último resultado de la consulta carece de la columna ""Referencia""'");
 		КонецЕсли;
 	Иначе
-		Возврат НСтр("fr = ""Échec de l'obtention des données de résultat de la requête""; ru = 'Ошибка получения данных результата запроса'; en = 'Error receiving request result data'; es = 'Error al obtener los datos del resultado de la consulta'");
+		Возврат НСтр("fr = 'Échec de l''obtention des données de résultat de la requête'; ru = 'Ошибка получения данных результата запроса'; en = 'Error receiving request result data'; es = 'Error al obtener los datos del resultado de la consulta'");
 	КонецЕсли;
 
 	Возврат "";
@@ -1660,13 +1663,7 @@
 		Дерево = РеквизитФормыВЗначение("ДеревоМетаданных");
 		Строка = Дерево.Строки.Найти(ИмяТаблицы, "МетаПолноеИмя", Истина);
 		Если Строка <> Неопределено Тогда
-			ТекстКоличеств = НСтр("ru = 'Зарегистрировано объектов: %1"
-"Выгружено объектов: %2"
-"Не выгружено объектов: %3"
-"'; fr = 'Зарегистрировано объектов: %1"
-"Выгружено объектов: %2"
-"Не выгружено объектов: %3"
-"'");
+			ТекстКоличеств = НСтр("ru = 'Зарегистрировано объектов: %1Выгружено объектов: %2Не выгружено объектов: %3'; fr = 'Objets enregistrés : %1Objets exportés : %2Objets non exportés : %3'; en = 'Objects registered: %1Objects exported: %2Objects not exported: %3'; es = 'Objetos registrados: %1Objetos exportados: %2Objetos no exportados: %3'");
 
 			ТекстКоличеств = СтрЗаменить(ТекстКоличеств, "%1", Формат(Строка.КоличествоИзменений, "ЧДЦ=0; ЧН="));
 			ТекстКоличеств = СтрЗаменить(ТекстКоличеств, "%2", Формат(Строка.КоличествоВыгруженных, "ЧДЦ=0; ЧН="));
@@ -1905,14 +1902,14 @@
 
 	Иначе
 		// Указаны и группа и узел, рассматриваем как имена метаданных
-		Текст = НСтр("fr = ""tous les objets de type '%3' %1""; ru = 'все объекты типа ""%3"" %1'; en = 'all objects of type ""%3"" %1'; es = 'todos los objetos del tipo ""%3 "" %1'");
+		Текст = НСтр("fr = 'tous les objets de type ''%3'' %1'; ru = 'все объекты типа ""%3"" %1'; en = 'all objects of type ""%3"" %1'; es = 'todos los objetos del tipo ""%3 "" %1'");
 
 	КонецЕсли;
 
 	Если БезУчетаАвторегистрации Тогда
 		ТекстФлага = "";
 	Иначе
-		ТекстФлага = НСтр("fr = ""avec le signe d'enregistrement automatique""; ru = 'с признаком авторегистрации'; en = 'with the sign of auto-registration'; es = 'con signo de registro automático'");
+		ТекстФлага = НСтр("fr = 'avec le signe d''enregistrement automatique'; ru = 'с признаком авторегистрации'; en = 'with the sign of auto-registration'; es = 'con signo de registro automático'");
 	КонецЕсли;
 
 	Представление = "";
@@ -2048,10 +2045,10 @@
 
 	Если ОперацииРазрешены Тогда
 		Элементы.УзелОбменаСсылка.Видимость = Истина;
-		Заголовок = НСтр("fr = ""Enregistrement des modifications pour l'échange de données""; ru = 'Регистрация изменений для обмена данными'; en = 'Registration of changes for data exchange'; es = 'Registrar cambios para compartir datos'");
+		Заголовок = НСтр("fr = 'Enregistrement des modifications pour l''échange de données'; ru = 'Регистрация изменений для обмена данными'; en = 'Registration of changes for data exchange'; es = 'Registrar cambios para compartir datos'");
 	Иначе
 		Элементы.УзелОбменаСсылка.Видимость = Ложь;
-		Заголовок = СтрЗаменить(НСтр("fr = ""Enregistrer les modifications pour l'échange avec '%1'""; ru = 'Регистрация изменений для обмена с  ""%1""'; en = 'Registration of changes for exchange with %1'; es = 'Registrar cambios para intercambiar con ""%1""'"), "%1", Строка(УзелОбменаСсылка));
+		Заголовок = СтрЗаменить(НСтр("fr = 'Enregistrer les modifications pour l''échange avec ''%1'''; ru = 'Регистрация изменений для обмена с  ""%1""'; en = 'Registration of changes for exchange with %1'; es = 'Registrar cambios para intercambiar con ""%1""'"), "%1", Строка(УзелОбменаСсылка));
 	КонецЕсли;
 
 	Элементы.ФормаОткрытьФормуРегистрацииНаУзлах.Видимость = ОперацииРазрешены;

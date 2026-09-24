@@ -12,7 +12,8 @@
 	Кассир = "";
 	ВыполненаСтандартнаяОбработка = Истина;
 	МенеджерОборудованияКлиентСерверПереопределяемый.ОбработкаЗаполненияИмяКассира(Кассир, ВыполненаСтандартнаяОбработка); 
-	ПараметрКассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur'; en = 'Administrator'; es = 'Administrador'")); 
+	ПараметрКассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur'; en = 'Administrator';
+		|es = 'Administrador'"));
 	
 	КассирИНН = "";
 	ВыполненаСтандартнаяОбработка = Истина;
@@ -30,7 +31,8 @@
 	
 	Доступность = Истина;
 	
-	ТекстСообщения = ?(РезультатВыполнения.Результат, НСтр("ru = 'Операция успешно завершена.'; fr = ""L'opération est terminée avec succès.""; en = 'The operation has been completed successfully.'; es = 'La operación se completó con éxito.'"), РезультатВыполнения.ОписаниеОшибки);
+	ТекстСообщения = ?(РезультатВыполнения.Результат, НСтр("ru = 'Операция успешно завершена.'; fr = 'L''opération est terminée avec succès.';
+		|en = 'The operation has been completed successfully.'; es = 'La operación se completó con éxito.'"), РезультатВыполнения.ОписаниеОшибки);
 	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 	
 КонецПроцедуры
@@ -47,9 +49,12 @@
 	
 	ОписаниеОповещения = Новый ОписаниеОповещения("ОткрытьСменуПослеВыбораУстройства", ЭтотОбъект);
 	МенеджерОборудованияКлиент.ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-		НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-		НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-		НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"), 
+		НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+			|en = 'Select a fiscal device'"), 
+		НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+			|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+		НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+			|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 		Истина);
 	
 КонецПроцедуры
@@ -91,9 +96,12 @@
 	
 	ОписаниеОповещения = Новый ОписаниеОповещения("ЗакрытьСменуПослеВыбораУстройства", ЭтотОбъект);
 	МенеджерОборудованияКлиент.ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-		НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-		НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-		НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"), 
+		НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+			|en = 'Select a fiscal device'"), 
+		НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+			|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+		НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+			|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 		Истина);
 	
 КонецПроцедуры
