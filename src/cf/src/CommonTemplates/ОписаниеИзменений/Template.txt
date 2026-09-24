@@ -10,6 +10,20 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.62
+### ru
+- Из печати налоговой накладной убран лишний вариант — в меню он назывался «Товарная накладная (новая форма)», на кнопке формы «Товарная накладная (Socassif)»: это был экземпляр накладной одного клиента, а не отдельная форма. Печать накладных ведётся общими формами — «Товарная накладная» и «Товарная накладная на бланке»; сама структура накладной сохранена, лишним был только дубль в меню. Макет и код печати Socassif удалены из конфигурации.
+- В списках документов убран второй, типовой набор стрелок перехода по страницам — он стоял в правом нижнем углу таблицы и дублировал наш пагинатор «‹ 1/1 ›» внизу слева. Листание страниц осталось одно, наше. Приведены к одному виду все списки документов с постраничным просмотром.
+### fr
+- Une variante d'impression superflue a été retirée de la facture comptable — « Facture (nouveau formulaire) » dans le menu, « Facture Socassif » sur le bouton du formulaire : il s'agissait de l'exemplaire d'un seul client, et non d'un formulaire distinct. Les factures s'impriment avec les formes communes — « Facture » et « Facture (papier à en-tête) » ; la structure de la facture est conservée, seul le doublon du menu était de trop. Le modèle et le code d'impression Socassif ont été supprimés de la configuration.
+- Dans les listes de documents, le second jeu de flèches de pagination, celui de la plateforme, a été retiré : il occupait le coin inférieur droit du tableau et faisait double emploi avec notre pagination « ‹ 1/1 › » en bas à gauche. Il ne reste qu'une seule pagination, la nôtre. Toutes les listes de documents avec consultation par pages sont désormais uniformes.
+### en
+- A redundant print variant has been removed from the tax invoice — "Invoice (new form)" in the menu, "Socassif Invoice" on the form button: it was one customer's own copy, not a separate form. Invoices are printed with the common forms — "Invoice" and "Invoice on letterhead"; the invoice structure itself is kept, only the duplicate menu entry was redundant. The Socassif template and printing code have been removed from the configuration.
+- In document lists the second, platform set of page arrows has been removed: it sat in the bottom right corner of the table and duplicated our "‹ 1/1 ›" paginator at the bottom left. Only one pagination remains, ours. All document lists with page-by-page viewing are now consistent.
+### es
+- Se ha quitado una variante de impresión sobrante de la factura fiscal: «Factura (formulario nuevo)» en el menú y «Factura Socassif» en el botón del formulario. Era el ejemplar de un solo cliente, no un formulario aparte. Las facturas se imprimen con las formas comunes — «Factura» y «Factura en papel con membrete»; la estructura de la factura se mantiene, solo sobraba el duplicado en el menú. La plantilla y el código de impresión Socassif se han eliminado de la configuración.
+- En las listas de documentos se ha quitado el segundo juego de flechas de páginas, el de la plataforma: estaba en la esquina inferior derecha de la tabla y duplicaba nuestro paginador «‹ 1/1 ›» de abajo a la izquierda. Queda una sola paginación, la nuestra. Todas las listas de documentos con vista por páginas quedan uniformes.
+
 ## 2.0.15.61
 ### ru
 - Фильтр «Оплата» в списке заказов клиентов больше не показывает пустой список. Позиции «Не оплачен», «Частично» и «Оплачен» не находили ни одного заказа: пока по заказу нет проведённой реализации, состояние оплаты не определялось вовсе — и значок в колонке оплаты не показывался, и фильтру было нечего искать. Теперь состояние есть у каждого заказа: оно считается по расчётам с клиентом, привязанным к этому заказу, — приходным кассовым ордерам, введённым на основании заказа, и реализациям по нему. Аванс наличными, полученный по заказу, виден как «частично» или «оплачен» ещё до отгрузки.
