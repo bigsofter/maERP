@@ -70,10 +70,11 @@
 	ОперацияНеВыполнена = Истина;
 	ПоказатьПолныйТекстОшибки = Ложь;
 	Если Задание = Неопределено Тогда
-		ЗаписьЖурналаРегистрации(НСтр("ru = 'Длительные операции.Фоновое задание не найдено';
+		КодЯзыка = ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка();
+		ТекстСобытия = НСтр("ru = 'Длительные операции.Фоновое задание не найдено';
 			|fr = 'Opérations longues.Tâche en arrière-plan introuvable'; en = 'Long operations.Background job not found';
-			|es = 'Operaciones largas.Tarea en segundo plano no encontrada'", ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка()),
-			УровеньЖурналаРегистрации.Ошибка, , , Строка(ИдентификаторЗадания));
+			|es = 'Operaciones largas.Tarea en segundo plano no encontrada'", КодЯзыка);
+		ЗаписьЖурналаРегистрации(ТекстСобытия, УровеньЖурналаРегистрации.Ошибка, , , Строка(ИдентификаторЗадания));
 	Иначе
 		Если Задание.Состояние = СостояниеФоновогоЗадания.ЗавершеноАварийно Тогда
 			ОшибкаЗадания = Задание.ИнформацияОбОшибке;
@@ -81,16 +82,15 @@
 				ПоказатьПолныйТекстОшибки = Истина;
 			КонецЕсли;
 		ИначеЕсли Задание.Состояние = СостояниеФоновогоЗадания.Отменено Тогда
-			ЗаписьЖурналаРегистрации(
-				НСтр("ru = 'Длительные операции.Фоновое задание отменено администратором';
-					|fr = 'Opérations longues.Tâche en arrière-plan annulée par l''administrateur';
-					|en = 'Long operations.Background job cancelled by the administrator';
-					|es = 'Operaciones largas.Tarea en segundo plano cancelada por el administrador'", ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка()),
-				УровеньЖурналаРегистрации.Ошибка,
-				,
-				,
-				НСтр("ru = 'Задание завершилось с неизвестной ошибкой.'; fr = 'La tâche s''est terminée avec une erreur inconnue.';
-					|en = 'The job finished with an unknown error.'; es = 'La tarea finalizó con un error desconocido.'"));
+			КодЯзыка = ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка();
+			ТекстСобытия = НСтр("ru = 'Длительные операции.Фоновое задание отменено администратором';
+				|fr = 'Opérations longues.Tâche en arrière-plan annulée par l''administrateur';
+				|en = 'Long operations.Background job cancelled by the administrator';
+				|es = 'Operaciones largas.Tarea en segundo plano cancelada por el administrador'", КодЯзыка);
+			Комментарий = НСтр("ru = 'Задание завершилось с неизвестной ошибкой.';
+				|fr = 'La tâche s''est terminée avec une erreur inconnue.';
+				|en = 'The job finished with an unknown error.'; es = 'La tarea finalizó con un error desconocido.'");
+			ЗаписьЖурналаРегистрации(ТекстСобытия, УровеньЖурналаРегистрации.Ошибка, , , Комментарий);
 		Иначе
 			Возврат Истина;
 		КонецЕсли;

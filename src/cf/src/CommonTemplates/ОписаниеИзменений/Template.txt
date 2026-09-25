@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.70
+### ru
+- Документ «Пересчёт товаров» и ещё 27 форм документов не открывались бы на тонком клиенте: колонка «Единица» в табличной части товаров обращалась к настройке «Использовать упаковку» способом, который тонкому клиенту недоступен. Ошибка появилась вместе с самой колонкой и найдена проверкой конфигурации до передачи.
+- В приходном кассовом ордере меню «Печать» стало одним и в форме документа, и в списке: пункт «Чек» размещался в панели отдельно от остальных, из-за чего кнопок печати было две. Теперь все печатные формы ордера собраны в одно меню.
+- В форме подбора двойной щелчок по группе снова открывает её. Список показан иерархически, и войти в папку можно только так; прежде щелчок по группе не делал ничего, и до товаров внутри групп нельзя было добраться иначе как поиском.
+
+### fr
+- Le document « Recomptage des marchandises » et 27 autres formulaires de documents n'auraient pas pu s'ouvrir sur le client léger : la colonne « Unité » du tableau des marchandises interrogeait le paramètre « Utiliser le conditionnement » d'une manière indisponible sur le client léger. L'erreur est apparue avec la colonne elle-même et a été détectée par la vérification de la configuration avant la livraison.
+- Dans l'entrée de caisse, le menu « Impression » est désormais unique dans le formulaire du document comme dans la liste : l'élément « Ticket » était placé séparément des autres, ce qui donnait deux boutons d'impression. Toutes les impressions de l'entrée de caisse sont maintenant réunies dans un seul menu.
+- Dans le formulaire de sélection, un double-clic sur un groupe l'ouvre de nouveau. La liste est hiérarchique et c'est le seul moyen d'entrer dans un dossier ; auparavant le clic sur un groupe ne faisait rien et les articles à l'intérieur des groupes n'étaient accessibles que par la recherche.
+
+### en
+- The Goods recount document and 27 other document forms would have failed to open on the thin client: the Unit column of the goods table queried the "Use packaging" setting in a way unavailable on the thin client. The defect arrived together with the column itself and was caught by the configuration check before handover.
+- In the cash receipt order the Print menu is now a single one both in the document form and in the list: the Receipt entry was placed separately from the rest, which produced two print buttons. All print forms of the order are now gathered in one menu.
+- In the picking form a double click on a folder opens it again. The list is hierarchical and that is the only way into a folder; previously clicking a folder did nothing, and items inside folders could be reached only by search.
+
+### es
+- El documento «Recuento de mercancías» y otros 27 formularios de documentos no se habrían abierto en el cliente ligero: la columna «Unidad» de la tabla de mercancías consultaba el ajuste «Usar embalaje» de una forma no disponible en el cliente ligero. El error apareció junto con la propia columna y se detectó con la comprobación de la configuración antes de la entrega.
+- En la orden de caja de entrada el menú «Impresión» ahora es único tanto en el formulario del documento como en la lista: el elemento «Ticket» estaba colocado aparte de los demás, lo que producía dos botones de impresión. Todas las impresiones de la orden están ahora reunidas en un solo menú.
+- En el formulario de selección, el doble clic en un grupo vuelve a abrirlo. La lista es jerárquica y es la única forma de entrar en una carpeta; antes el clic en un grupo no hacía nada y los artículos dentro de los grupos solo se alcanzaban con la búsqueda.
+
 ## 2.0.15.69
 ### ru
 - Подбор товара в документах больше не падает с ошибкой «Поле объекта не обнаружено (ЭтоГруппа)». Двойной щелчок по строке в форме подбора снова добавляет товар в документ, щелчок по группе, как и раньше, товар не добавляет.
