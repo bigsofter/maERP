@@ -101,10 +101,10 @@
 Процедура ОбработкаПроверкиЗаполнения(Отказ, ПроверяемыеРеквизиты)
 	Если ЗначениеЗаполнено(Контрагент)
 		И ОбщегоНазначения.ЗначениеРеквизитаОбъекта(Контрагент, "Субподрядчик") <> Истина Тогда
-		ТекстОшибки = НСтр("ru = 'Контрагент не помечен как субподрядчик (переработчик)';
-			|fr = 'Le partenaire n''est pas marqué comme sous-traitant';
-			|en = 'The counterparty is not marked as a subcontractor (processor)';
-			|es = 'La contraparte no está marcada como subcontratista (procesador)'");
+		ТекстОшибки = НСтр("ru = 'В карточке контрагента не установлен признак «Субподрядчик»';
+			|fr = 'La case « Sous-traitant » n''est pas cochée dans la fiche du tiers';
+			|en = 'The ""Subcontractor"" flag is not set in the counterparty card';
+			|es = 'La casilla «Subcontratista» no está marcada en la ficha de la contraparte'");
 		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстОшибки, ЭтотОбъект, "Контрагент", , Отказ);
 	КонецЕсли;
 КонецПроцедуры

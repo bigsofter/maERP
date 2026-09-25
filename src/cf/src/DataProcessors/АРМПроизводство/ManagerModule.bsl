@@ -6957,10 +6957,10 @@
 			|es = 'Línea no guardada: indique el procesador, el material y la cantidad.'");
 	КонецЕсли;
 	Если ОбщегоНазначения.ЗначениеРеквизитаОбъекта(ДанныеСтроки.Поставщик, "Субподрядчик") <> Истина Тогда
-		Возврат НСтр("ru = 'Контрагент не помечен как субподрядчик (переработчик): выберите переработчика.';
-			|fr = 'Le partenaire n''est pas marqué comme sous-traitant : choisissez un sous-traitant.';
-			|en = 'The counterparty is not marked as a subcontractor (processor): select a processor.';
-			|es = 'La contraparte no está marcada como subcontratista (procesador): elija un procesador.'");
+		Возврат НСтр("ru = 'В карточке контрагента не установлен признак «Субподрядчик»: выберите переработчика.';
+			|fr = 'La case « Sous-traitant » n''est pas cochée dans la fiche du tiers : choisissez un sous-traitant.';
+			|en = 'The ""Subcontractor"" flag is not set in the counterparty card: select a processor.';
+			|es = 'La casilla «Subcontratista» no está marcada en la ficha de la contraparte: elija un procesador.'");
 	КонецЕсли;
 	Возврат ТекстЗапретаЗначенийСтрокиЗакупки(ДанныеСтроки);
 
