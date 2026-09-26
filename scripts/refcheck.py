@@ -17,7 +17,11 @@
      и ОткрытьФорму;
   4. вызовы общих модулей: ОбщийМодуль.Метод() — метод должен существовать
      и быть экспортным;
-  5. функциональные опции: ПолучитьФункциональнуюОпцию("Х").
+  5. функциональные опции: ПолучитьФункциональнуюОпцию("Х");
+  6. стандартные команды форм документов против свойства «Проведение» документа:
+     у проводимого документа нет WriteAndClose, у непроводимого — Post, PostAndClose,
+     UndoPosting. Такая команда в Form.form не даёт загрузить конфигурацию в базу
+     («Неверное имя команды элемента формы»), а EDT и CheckConfig по исходникам молчат.
 
 Известные и осознанно принятые расхождения (стандартные картинки платформы,
 наследие бухгалтерского контура и прочее из docs/TECHDEBT.md) лежат в
@@ -300,7 +304,33 @@ class Checker:
             self.add("%s.%s.%s.%s" % (single, owner, kind, child), where,
                      "у объекта нет такого подчинённого объекта")
 
+    def check_document_form_commands(self):
+        documents = os.path.join(self.src, "Documents")
+        if not os.path.isdir(documents):
+            return
+        for name in sorted(os.listdir(documents)):
+            mdo = os.path.join(documents, name, name + ".mdo")
+            forms = os.path.join(documents, name, "Forms")
+            if not os.path.isfile(mdo) or not os.path.isdir(forms):
+                continue
+            # Умолчание EDT для «Проведение» - Allow: тег пишется только у Deny.
+            posting = "<posting>Deny</posting>" not in open(mdo, encoding="utf-8").read()
+            wrong = {"WriteAndClose"} if posting else {"Post", "PostAndClose", "UndoPosting"}
+            note = ("у проводимого документа нет такой стандартной команды формы" if posting
+                    else "у непроводимого документа нет такой стандартной команды формы")
+            for form in sorted(os.listdir(forms)):
+                path = os.path.join(forms, form, "Form.form")
+                if not os.path.isfile(path):
+                    continue
+                text = open(path, encoding="utf-8").read()
+                for number, line in enumerate(text.split("\n"), 1):
+                    for command in re.findall(r"<commandName>Form\.StandardCommand\.(\w+)</commandName>", line):
+                        if command in wrong:
+                            where = "%s:%d" % (os.path.relpath(path, ROOT), number)
+                            self.add(nfc("Документ.%s.Форма.%s.%s" % (name, form, command)), where, note)
+
     def run(self):
+        self.check_document_form_commands()
         for root, dirs, files in os.walk(self.src):
             dirs[:] = [d for d in dirs if d not in (".git", "DT-INF")]
             for name in files:

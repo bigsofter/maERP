@@ -46,9 +46,9 @@
 	КонецЦикла;
 
 	СписокСтопБит = Элементы.СтопБит.СписокВыбора;
-	СписокСтопБит.Добавить(0, НСтр("ru = '1 стоп-бит'; fr = ""1 bit d'arrêt""; en = '1 stop bit'; es = '1 bit de parada'"));
-	СписокСтопБит.Добавить(1, НСтр("ru = '1.5 стоп-бита'; fr = ""1.5 bits d'arrêt""; en = '1.5 stop bits'; es = '1.5 bits de parada'"));
-	СписокСтопБит.Добавить(2, НСтр("ru = '2 стоп-бита'; fr = ""2 bits d'arrêt""; en = '2 stop bits'; es = '2 bits de parada'"));
+	СписокСтопБит.Добавить(0, НСтр("ru = '1 стоп-бит'; fr = '1 bit d''arrêt'; en = '1 stop bit'; es = '1 bit de parada'"));
+	СписокСтопБит.Добавить(1, НСтр("ru = '1.5 стоп-бита'; fr = '1.5 bits d''arrêt'; en = '1.5 stop bits'; es = '1.5 bits de parada'"));
+	СписокСтопБит.Добавить(2, НСтр("ru = '2 стоп-бита'; fr = '2 bits d''arrêt'; en = '2 stop bits'; es = '2 bits de parada'"));
 	
 	СписокКодировка = Элементы.COMКодировка.СписокВыбора;
 	СписокКодировка.Добавить("UTF-8");
@@ -245,7 +245,7 @@
 	времПараметрыУстройства.Свойство("ТаймаутCOM" , ТаймаутCOM);
  
 	Если Не Результат Тогда
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ВыходныеПараметры[1] + "(" + НСтр("ru = 'Код ошибки:'; fr = ""Code d'erreur:""; en = 'Error code:'; es = 'Código de error:'") + ВыходныеПараметры[0] + ")");
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ВыходныеПараметры[1] + "(" + НСтр("ru = 'Код ошибки:'; fr = 'Code d''erreur:'; en = 'Error code:'; es = 'Código de error:'") + ВыходныеПараметры[0] + ")");
 	КонецЕсли;
 
 КонецПроцедуры
@@ -253,7 +253,7 @@
 &НаКлиенте
 Процедура УстановитьДрайверИзАрхиваПриЗавершении(Результат) Экспорт 
 	
-	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = ""L'installation du pilote est terminée.""; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
+	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = 'L''installation du pilote est terminée.'; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
 	ОбновитьИнформациюОДрайвере();
 	
 КонецПроцедуры 
@@ -262,10 +262,10 @@
 Процедура УстановитьДрайверИзДистрибутиваПриЗавершении(Результат, Параметры) Экспорт 
 	
 	Если Результат Тогда
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = ""L'installation du pilote est terminée.""; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = 'L''installation du pilote est terminée.'; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
 		ОбновитьИнформациюОДрайвере();
 	Иначе
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'При установке драйвера из дистрибутива произошла ошибка.'; fr = ""Une erreur s'est produite lors de l'installation du pilote à partir de la distribution.""; en = 'An error occurred when installing the driver from the distribution.'; es = 'Se produjo un error al instalar el controlador desde la distribución.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'При установке драйвера из дистрибутива произошла ошибка.'; fr = 'Une erreur s''est produite lors de l''installation du pilote à partir de la distribution.'; en = 'An error occurred when installing the driver from the distribution.'; es = 'Se produjo un error al instalar el controlador desde la distribución.'")); 
 	КонецЕсли;
 
 КонецПроцедуры 
@@ -356,7 +356,7 @@
 		
 		// Проверка на соответствие номера версии драйвера в БПО и номера, который сообщает сам драйвер.
 		Если ВерсияИзБПОСтр > ВерсияСтр Тогда
-			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установленная на компьютере версия драйвера устарела. Необходимо обновление до версии:'; fr = ""La version du pilote installée sur l'ordinateur est obsolète. Mise à niveau vers la version requise:""; en = 'The driver version installed on the computer is outdated. You need to upgrade to the version:'; es = 'La versión del controlador instalada en el equipo está desactualizada. Necesita actualizar a la versión:'") + Символы.НПП + ВерсияИзБПО);
+			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установленная на компьютере версия драйвера устарела. Необходимо обновление до версии:'; fr = 'La version du pilote installée sur l''ordinateur est obsolète. Mise à niveau vers la version requise:'; en = 'The driver version installed on the computer is outdated. You need to upgrade to the version:'; es = 'La versión del controlador instalada en el equipo está desactualizada. Necesita actualizar a la versión:'") + Символы.НПП + ВерсияИзБПО);
 		КонецЕсли;
 		
 	Иначе

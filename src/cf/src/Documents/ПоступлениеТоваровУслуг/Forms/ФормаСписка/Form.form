@@ -440,6 +440,60 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>ЗаказКлиента</name>
+      <id>184</id>
+      <title>
+        <key>ru</key>
+        <value>Заказ клиента</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Commande client</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Customer order</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Pedido de cliente</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.ЗаказКлиента</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ЗаказКлиентаРасширеннаяПодсказка</name>
+        <id>186</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ЗаказКлиентаКонтекстноеМеню</name>
+        <id>185</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <editMode>Enter</editMode>
+      <autoCellHeight>true</autoCellHeight>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <width>20</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>МестоХранения</name>
       <id>57</id>
       <visible>false</visible>
@@ -1046,6 +1100,7 @@
     <borderColor xsi:type="core:ColorRef">
       <color>Style.FormBackColor</color>
     </borderColor>
+    <viewStatusLocation>None</viewStatusLocation>
     <autoMaxCardHeight>true</autoMaxCardHeight>
     <extInfo xsi:type="form:DynamicListTableExtInfo">
       <handlers>
@@ -1081,6 +1136,31 @@
           </extInfo>
         </extendedTooltip>
                   <items xsi:type="form:Button">
+        <name>КнопкаСтраницаПервая</name>
+        <id>187</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаСтраницаПерваяРасширеннаяПодсказка</name>
+          <id>188</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СтраницаПервая</commandName>
+        <representation>Text</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+                  <items xsi:type="form:Button">
         <name>КнопкаСтраницаНазад</name>
         <id>83</id>
         <visible>true</visible>
@@ -1110,6 +1190,18 @@
                     <id>85</id>
                     <title>
                       <key>ru</key>
+                      <value>1 / 1</value>
+                    </title>
+                    <title>
+                      <key>fr</key>
+                      <value>1 / 1</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>1 / 1</value>
+                    </title>
+                    <title>
+                      <key>es</key>
                       <value>1 / 1</value>
                     </title>
                     <visible>true</visible>
@@ -1165,6 +1257,78 @@
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
+                  <items xsi:type="form:Button">
+        <name>КнопкаСтраницаПоследняя</name>
+        <id>189</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаСтраницаПоследняяРасширеннаяПодсказка</name>
+          <id>190</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СтраницаПоследняя</commandName>
+        <representation>Text</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+                  <items xsi:type="form:Decoration">
+                    <name>НадписьЗаписей</name>
+                    <id>191</id>
+                    <title>
+                      <key>ru</key>
+                      <value>Нет записей</value>
+                    </title>
+                    <title>
+                      <key>fr</key>
+                      <value>Aucun enregistrement</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>No records</value>
+                    </title>
+                    <title>
+                      <key>es</key>
+                      <value>Sin registros</value>
+                    </title>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <extendedTooltip>
+          <name>НадписьЗаписейРасширеннаяПодсказка</name>
+          <id>192</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+                    <contextMenu>
+                      <name>НадписьЗаписейКонтекстноеМеню</name>
+                      <id>193</id>
+                      <autoFill>true</autoFill>
+                    </contextMenu>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <skipOnInput>false</skipOnInput>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </items>
                   <type>UsualGroup</type>
                   <extInfo xsi:type="form:UsualGroupExtInfo">
                     <group>AlwaysHorizontal</group>
@@ -2606,6 +2770,68 @@
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
+    <items xsi:type="form:FormGroup">
+      <name>ПодменюПечать</name>
+      <id>194</id>
+      <title>
+        <key>ru</key>
+        <value>Печать</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Impression</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Print</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Impresión</value>
+      </title>
+      <items xsi:type="form:Button">
+        <name>КнопкаАктОбОказанииУслуг</name>
+        <id>195</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаАктОбОказанииУслугРасширеннаяПодсказка</name>
+          <id>196</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Document.ПоступлениеТоваровУслуг.Command.АктОбОказанииУслуг</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ПодменюПечатьРасширеннаяПодсказка</name>
+        <id>197</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <extInfo xsi:type="form:ButtonGroupExtInfo"/>
+    </items>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
@@ -2653,25 +2879,42 @@
     <main>true</main>
     <extInfo xsi:type="form:DynamicListExtInfo">
       <queryText>ВЫБРАТЬ
-	Заказ.Ссылка КАК Ссылка,
-	Заказ.Дата КАК Дата,
-	Заказ.Номер КАК Номер,
-	Заказ.Контрагент КАК Контрагент,
-	Заказ.Организация КАК Организация,
-	Заказ.ДатаПоставки КАК ДатаПоставки,
-	Заказ.Сумма КАК Сумма
+	ДокументПоступлениеТоваровУслуг.Ссылка КАК Ссылка,
+	ДокументПоступлениеТоваровУслуг.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументПоступлениеТоваровУслуг.Номер КАК Номер,
+	ДокументПоступлениеТоваровУслуг.Дата КАК Дата,
+	ДокументПоступлениеТоваровУслуг.Проведен КАК Проведен,
+	ДокументПоступлениеТоваровУслуг.ДатаВходящегоДокумента КАК ДатаВходящегоДокумента,
+	ДокументПоступлениеТоваровУслуг.Договор КАК Договор,
+	ДокументПоступлениеТоваровУслуг.Комментарий КАК Комментарий,
+	ДокументПоступлениеТоваровУслуг.Контрагент КАК Контрагент,
+	ДокументПоступлениеТоваровУслуг.МестоХранения КАК МестоХранения,
+	ДокументПоступлениеТоваровУслуг.НомерВходящегоДокумента КАК НомерВходящегоДокумента,
+	ДокументПоступлениеТоваровУслуг.Организация КАК Организация,
+	ДокументПоступлениеТоваровУслуг.Основание КАК Основание,
+	ДокументПоступлениеТоваровУслуг.Ответственный КАК Ответственный,
+	ДокументПоступлениеТоваровУслуг.Сумма КАК Сумма,
+	ДокументПоступлениеТоваровУслуг.СуммаНДС КАК СуммаНДС,
+	ДокументПоступлениеТоваровУслуг.СуммаБезНДС КАК СуммаБезНДС,
+	ДокументПоступлениеТоваровУслуг.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	ДокументПоступлениеТоваровУслуг.ЦенаВключаетНДС КАК ЦенаВключаетНДС,
+	ДокументПоступлениеТоваровУслуг.Статус КАК Статус,
+	ДокументПоступлениеТоваровУслуг.ТипЦеныПоТипуЦен КАК ТипЦеныПоТипуЦен,
+	ДокументПоступлениеТоваровУслуг.МоментВремени КАК МоментВремени,
+	ЕСТЬNULL(ПрисоединённыеФайлыНаличие.ЕстьФайлы, ЛОЖЬ) КАК ЕстьФайлы,
+	ДокументПоступлениеТоваровУслуг.ДатаОтгрузочногоДокумента КАК ДатаОтгрузочногоДокумента,
+	ДокументПоступлениеТоваровУслуг.Дата КАК СрокОплаты,
+	ДокументПоступлениеТоваровУслуг.НомерОтгрузочногоДокумента КАК НомерОтгрузочногоДокумента,
+	ВЫБОР
+		КОГДА ДокументПоступлениеТоваровУслуг.Основание ССЫЛКА Документ.ЗаказПокупателя
+			ТОГДА ДокументПоступлениеТоваровУслуг.Основание
+		КОГДА ДокументПоступлениеТоваровУслуг.Основание ССЫЛКА Документ.ЗаказПоставщику
+			ТОГДА ВЫРАЗИТЬ(ДокументПоступлениеТоваровУслуг.Основание КАК Документ.ЗаказПоставщику).Основание
+	КОНЕЦ КАК ЗаказКлиента
 ИЗ
-	Документ.ЗаказПоставщику КАК Заказ
-ГДЕ
-	Заказ.Проведен
-	И НЕ Заказ.ПометкаУдаления
-	И Заказ.Ссылка В
-			(ВЫБРАТЬ
-				Остатки.ЗаказПоставщику КАК ЗаказПоставщику
-			ИЗ
-				РегистрНакопления.ЗаказыПоставщикам.Остатки КАК Остатки
-			ГДЕ
-				Остатки.КоличествоОстаток &gt; 0)</queryText>
+	Документ.ПоступлениеТоваровУслуг КАК ДокументПоступлениеТоваровУслуг
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПрисоединённыеФайлыНаличие КАК ПрисоединённыеФайлыНаличие
+		ПО ДокументПоступлениеТоваровУслуг.Ссылка = ПрисоединённыеФайлыНаличие.Объект</queryText>
       <mainTable>Document.ПоступлениеТоваровУслуг</mainTable>
       <dynamicDataRead>true</dynamicDataRead>
       <autoFillAvailableFields>true</autoFillAvailableFields>
@@ -2735,6 +2978,10 @@
         <field>Основание</field>
       </fields>
       <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>ЗаказКлиента</dataPath>
+        <field>ЗаказКлиента</field>
+      </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
         <dataPath>Ответственный</dataPath>
         <field>Ответственный</field>
       </fields>
@@ -2787,6 +3034,18 @@
               <key>ru</key>
               <value>Есть файлы</value>
             </content>
+            <content>
+              <key>fr</key>
+              <value>Il y a des fichiers</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>There are files</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Hay archivos</value>
+            </content>
           </localValue>
         </title>
       </fields>
@@ -2814,6 +3073,18 @@
             <content>
               <key>ru</key>
               <value>Срок оплаты</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Terme de paiement</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Payment term</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Plazo de pago</value>
             </content>
           </localValue>
         </title>
@@ -3120,6 +3391,10 @@
         <dataPath>Сумма</dataPath>
         <field>Сумма</field>
       </fields>
+      <fields xsi:type="schema:DataCompositionSchemaDataSetField">
+        <dataPath>КоличествоКПоступлению</dataPath>
+        <field>КоличествоКПоступлению</field>
+      </fields>
     </extInfo>
   </attributes>
   <formCommands>
@@ -3399,6 +3674,52 @@
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
   <formCommands>
+    <name>СтраницаПервая</name>
+    <title>
+      <key>ru</key>
+      <value>◀◀</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>◀◀</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>◀◀</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>◀◀</value>
+    </title>
+    <id>9</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Первая страница</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Première page</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>First page</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Primera página</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СтраницаПервая</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
     <name>СтраницаВперед</name>
     <title>
       <key>ru</key>
@@ -3439,6 +3760,52 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>СтраницаВперед</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СтраницаПоследняя</name>
+    <title>
+      <key>ru</key>
+      <value>▶▶</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>▶▶</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>▶▶</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>▶▶</value>
+    </title>
+    <id>10</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Последняя страница</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Dernière page</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Last page</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Última página</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СтраницаПоследняя</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
@@ -3545,10 +3912,6 @@
         <command>Document.УстановкаЦенНоменклатуры.StandardCommand.CreateBasedOn</command>
         <group>FormCommandBarCreateBasedOn</group>
         <index>9</index>
-      </cmiFragmentRecord>
-      <cmiFragmentRecord>
-        <command>Document.ПоступлениеТоваровУслуг.Command.АктОбОказанииУслуг</command>
-        <userVisible/>
       </cmiFragmentRecord>
     </commandBar>
   </commandInterface>

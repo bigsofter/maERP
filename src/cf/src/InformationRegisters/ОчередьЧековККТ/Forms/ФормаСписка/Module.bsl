@@ -20,7 +20,8 @@
 	Кассир = "";
 	ВыполненаСтандартнаяОбработка = Истина; 
 	МенеджерОборудованияКлиентСерверПереопределяемый.ОбработкаЗаполненияИмяКассира(Кассир, ВыполненаСтандартнаяОбработка); 
-	Кассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur'; en = 'Administrator'; es = 'Administrador'")); 
+	Кассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur'; en = 'Administrator';
+		|es = 'Administrador'"));
 	
 	КассирИНН = "";
 	ВыполненаСтандартнаяОбработка = Истина;
@@ -139,9 +140,12 @@
 	
 	ПослеВыбратьУстройство = Новый ОписаниеОповещения("ВыбратьФискальноеУстройство_Завершение", ЭтотОбъект, Параметры);
 	МенеджерОборудованияКлиент.ПредложитьВыбратьУстройство(ПослеВыбратьУстройство, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"),
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"), Истина);
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"),
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"), Истина);
 	
 КонецПроцедуры
 
@@ -154,7 +158,9 @@
 		Элементы.ФормаПробитьВсеЧекиНаККТ.Доступность = Ложь;
 		НачатьФискализациюЧеков();
 	Иначе
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"));
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Фискальное устройство не выбрано.';
+			|fr = 'Le dispositif fiscal n''est pas sélectionné.'; en = 'The fiscal device is not selected.';
+			|es = 'No se ha elegido el dispositivo fiscal.'"));
 	КонецЕсли;
 	
 КонецПроцедуры

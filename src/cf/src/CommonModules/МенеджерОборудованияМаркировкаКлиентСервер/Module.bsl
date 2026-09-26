@@ -436,7 +436,7 @@
 			ДанныеМаркировки.Разобран = Истина;
 			
 		Иначе
-			ДанныеМаркировки.ОписаниеОшибки = НСтр("ru = 'Штрихкод не распознан.'; fr = ""Le code-barres n'est pas reconnu.""; en = 'The barcode is not recognized.'; es = 'No se reconoce el código de barras.'")
+			ДанныеМаркировки.ОписаниеОшибки = НСтр("ru = 'Штрихкод не распознан.'; fr = 'Le code-barres n''est pas reconnu.'; en = 'The barcode is not recognized.'; es = 'No se reconoce el código de barras.'")
 		КонецЕсли;
 	
 	КонецЕсли;
@@ -671,7 +671,7 @@
 		ДлинаИдентификатора = СтрДлина(ИдентификаторПрименения);
 		Если ДлинаИдентификатора < МинимальнаяДлинаИдентификатораПрименения Или ДлинаИдентификатора > МаксимальнаяДлинаИдентификатораПрименения Тогда
 			РезультатРазбора.ОписаниеОшибки = СтрШаблон(
-				НСтр("ru = 'Номер символа %1. Неизвестный идентификатор применения(AI) %2.'; fr = ""Numéro de caractère %1. ID d'application inconnu(AI) %2.""; en = 'The symbol number is %1. Unknown Application Identifier(AI) %2.'; es = 'Número de símbolo %1. Identificador de aplicación desconocido (AI) %2.'"), НомерСимвола, ИдентификаторПрименения);
+				НСтр("ru = 'Номер символа %1. Неизвестный идентификатор применения(AI) %2.'; fr = 'Numéro de caractère %1. ID d''application inconnu(AI) %2.'; en = 'The symbol number is %1. Unknown Application Identifier(AI) %2.'; es = 'Número de símbolo %1. Identificador de aplicación desconocido (AI) %2.'"), НомерСимвола, ИдентификаторПрименения);
 			Возврат;
 		КонецЕсли;
 		
@@ -686,7 +686,7 @@
 		
 		Если ОписаниеКода = Неопределено Тогда
 			РезультатРазбора.ОписаниеОшибки = СтрШаблон(
-				НСтр("ru = 'Номер символа %1. Неизвестный идентификатор применения(AI) %2.'; fr = ""Numéro de caractère %1. ID d'application inconnu(AI) %2.""; en = 'The symbol number is %1. Unknown Application Identifier(AI) %2.'; es = 'Número de símbolo %1. Identificador de aplicación desconocido (AI) %2.'"), НомерСимвола, ИдентификаторПрименения);
+				НСтр("ru = 'Номер символа %1. Неизвестный идентификатор применения(AI) %2.'; fr = 'Numéro de caractère %1. ID d''application inconnu(AI) %2.'; en = 'The symbol number is %1. Unknown Application Identifier(AI) %2.'; es = 'Número de símbolo %1. Identificador de aplicación desconocido (AI) %2.'"), НомерСимвола, ИдентификаторПрименения);
 			Возврат;
 		КонецЕсли;
 		
@@ -792,7 +792,7 @@
 				ОписаниеКода = КодыGS1[ИдентификаторПрименения];
 				Если ОписаниеКода = Неопределено Тогда
 					РезультатРазбора.ОписаниеОшибки = СтрШаблон(
-						НСтр("ru = 'Неизвестный идентификатор применения(AI) %1.'; fr = ""ID d'application inconnu(AI) %1.""; en = 'Unknown Application Identifier(AI) %1.'; es = 'Identificador de aplicación desconocido (AI) %1.'"), ИдентификаторПрименения);
+						НСтр("ru = 'Неизвестный идентификатор применения(AI) %1.'; fr = 'ID d''application inconnu(AI) %1.'; en = 'Unknown Application Identifier(AI) %1.'; es = 'Identificador de aplicación desconocido (AI) %1.'"), ИдентификаторПрименения);
 					Возврат;
 				КонецЕсли;
 			КонецЕсли;

@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+# ai-doctor — report actual availability of every backend the orchestrator can use.
+# Never simulate: this is the single source of truth other wrappers' "unavailable"
+# messages point back to. Exit 0 if the core toolchain (git, codex) is fine, exit 1
+# if a REQUIRED piece is missing, regardless of optional pieces.
+set -uo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
+
+status=0
+row() { printf '%-14s %-10s %s\n' "$1" "$2" "$3"; }
+
+echo "maERP AI orchestration — backend status ($(ai_timestamp))"
+echo "repo: $AI_REPO_ROOT"
+echo
+
+row "TOOL" "STATUS" "DETAIL"
+
+if command -v git >/dev/null 2>&1; then
+  row "git" "OK" "$(git --version)"
+else
+  row "git" "MISSING" "required — nothing works without it"
+  status=1
+fi
+
+if command -v "$AI_CODEX_BIN" >/dev/null 2>&1; then
+  ver=$("$AI_CODEX_BIN" --version 2>&1 | head -1)
+  if "$AI_CODEX_BIN" login status >/dev/null 2>&1; then
+    login=$("$AI_CODEX_BIN" login status 2>&1 | head -1)
+    row "codex" "OK" "$ver — $login"
+  else
+    row "codex" "NOT LOGGED IN" "$ver — run: codex login"
+    status=1
+  fi
+else
+  row "codex" "MISSING" "install: brew install codex — required for ai-review/ai-review-plan"
+  status=1
+fi
+
+if command -v "$AI_OPENCODE_BIN" >/dev/null 2>&1; then
+  ver=$("$AI_OPENCODE_BIN" --version 2>&1 | head -1)
+  if [ "$AI_OPENCODE_ENABLED" != "1" ]; then
+    row "opencode" "DISABLED" "AI_OPENCODE_ENABLED=0 — set to 1 to re-enable"
+  else
+    case "$AI_OPENCODE_MODEL" in
+      opencode-go/*)
+        if [ -n "${OPENCODE_API_KEY:-}" ]; then
+          row "opencode" "OK" "v$ver — $AI_OPENCODE_MODEL (подписка Go, ключ в env)"
+        else
+          row "opencode" "NO KEY" "v$ver — $AI_OPENCODE_MODEL требует OPENCODE_API_KEY (см. .ai/config.local.sh) — прогоны упадут в фоллбэк на Codex"
+        fi ;;
+      *) row "opencode" "OK" "v$ver — $AI_OPENCODE_MODEL (zen, без логина)" ;;
+    esac
+  fi
+else
+  row "opencode" "MISSING (optional)" "install: brew install opencode — ai-explore/ai-test/ai-database/ai-security fall back to Claude subagents or Codex without it"
+fi
+
+# --- Гейты maERP (ai-final-check / ai-test). Отсутствие — не «гейт прошёл»,
+# а явный FAIL/пропуск в отчёте; здесь только диагноз заранее.
+if command -v jq >/dev/null 2>&1; then
+  row "jq" "OK" "$(jq --version 2>&1)"
+else
+  row "jq" "MISSING (optional)" "находки печатаются сырым JSON; OpenCode-текст извлекается грубым grep"
+fi
+
+if command -v python3 >/dev/null 2>&1; then
+  row "python3" "OK" "$(python3 --version 2>&1) — refcheck/listcheck/changelog/сверка линта"
+else
+  row "python3" "MISSING" "гейты refcheck.py/listcheck.py/changelog.sh не запустятся"
+  status=1
+fi
+
+JAVA21=""
+for c in "${JAVA:-}" "$HOME/.local/jdk-21/Contents/Home/bin/java" "$HOME/.local/jdk-21/bin/java"; do
+  [ -n "$c" ] && [ -x "$c" ] && { JAVA21="$c"; break; }
+done
+BSL_JAR="${BSL_LS_JAR:-$HOME/.local/share/bsl-language-server/bsl-language-server.jar}"
+if [ -n "$JAVA21" ] && [ -f "$BSL_JAR" ]; then
+  row "bsl-ls" "OK" "$BSL_JAR (java: $JAVA21)"
+else
+  row "bsl-ls" "MISSING" "scripts/lint.sh не запустится: нужен JDK 21 в ~/.local/jdk-21 и jar BSL LS — гейт линта будет FAIL"
+fi
+if [ -f "$AI_REPO_ROOT/build/bsl-json-baseline.json" ]; then
+  row "lint-baseline" "OK" "build/bsl-json-baseline.json от $(date -r "$AI_REPO_ROOT/build/bsl-json-baseline.json" +%Y-%m-%d)"
+else
+  row "lint-baseline" "MISSING" "нет build/bsl-json-baseline.json — сверять линт не с чем, гейт будет FAIL"
+fi
+
+V8_LAST=$(ls -1 /opt/1cv8 2>/dev/null | grep -E '^8\.5\.1\.' | sort -V | tail -1)
+if [ -n "$V8_LAST" ] && [ -x "/opt/1cv8/$V8_LAST/1cv8" ]; then
+  row "1cv8" "OK" "/opt/1cv8/$V8_LAST — уровни 1–3 (ai-final-check --db)"
+else
+  row "1cv8" "MISSING (optional)" "нет платформы 8.5.1 в /opt/1cv8 — smoke.sh/doctests.sh (--db) не запустятся"
+fi
+if [ -n "${SMOKE_USER:-}" ] && [ -n "${SMOKE_PWD:-}" ]; then
+  row "smoke-auth" "OK" "SMOKE_USER/SMOKE_PWD заданы (значения не печатаются)"
+else
+  row "smoke-auth" "NOT SET" "без SMOKE_USER/SMOKE_PWD база build/ib не пустит — --db гейты упадут на авторизации"
+fi
+
+TINY1C="${TINY1C_HOME:-$AI_REPO_ROOT/../tiny1C}"
+if [ -d "$TINY1C/tracks/core/rules" ]; then
+  row "tiny1C" "OK" "$TINY1C — оглавление правил в пайке ревьюера"
+else
+  row "tiny1C" "MISSING (optional)" "нет клона в $TINY1C (TINY1C_HOME) — паёк ревьюера без правил tiny1C"
+fi
+
+echo
+if [ "$status" -ne 0 ]; then
+  echo "-> REQUIRED backend(s) missing or unauthenticated. Codex-gated workflow steps (ai-review, ai-review-plan) cannot run until fixed." >&2
+else
+  echo "-> Core toolchain OK."
+fi
+exit "$status"

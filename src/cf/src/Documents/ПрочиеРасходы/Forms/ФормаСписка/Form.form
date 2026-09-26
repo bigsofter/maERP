@@ -777,6 +777,7 @@
     <rowPictureDataPath xsi:type="form:DataPath">
       <segments>Список.DefaultPicture</segments>
     </rowPictureDataPath>
+    <viewStatusLocation>None</viewStatusLocation>
     <autoMaxCardHeight>true</autoMaxCardHeight>
     <extInfo xsi:type="form:DynamicListTableExtInfo">
       <autoRefreshPeriod>60</autoRefreshPeriod>
@@ -808,6 +809,31 @@
           </extInfo>
         </extendedTooltip>
                   <items xsi:type="form:Button">
+        <name>КнопкаСтраницаПервая</name>
+        <id>121</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаСтраницаПерваяРасширеннаяПодсказка</name>
+          <id>122</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СтраницаПервая</commandName>
+        <representation>Text</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+                  <items xsi:type="form:Button">
         <name>КнопкаСтраницаНазад</name>
         <id>60</id>
         <visible>true</visible>
@@ -837,6 +863,18 @@
                     <id>62</id>
                     <title>
                       <key>ru</key>
+                      <value>1 / 1</value>
+                    </title>
+                    <title>
+                      <key>fr</key>
+                      <value>1 / 1</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>1 / 1</value>
+                    </title>
+                    <title>
+                      <key>es</key>
                       <value>1 / 1</value>
                     </title>
                     <visible>true</visible>
@@ -892,6 +930,78 @@
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
+                  <items xsi:type="form:Button">
+        <name>КнопкаСтраницаПоследняя</name>
+        <id>123</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаСтраницаПоследняяРасширеннаяПодсказка</name>
+          <id>124</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СтраницаПоследняя</commandName>
+        <representation>Text</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+                  <items xsi:type="form:Decoration">
+                    <name>НадписьЗаписей</name>
+                    <id>125</id>
+                    <title>
+                      <key>ru</key>
+                      <value>Нет записей</value>
+                    </title>
+                    <title>
+                      <key>fr</key>
+                      <value>Aucun enregistrement</value>
+                    </title>
+                    <title>
+                      <key>en</key>
+                      <value>No records</value>
+                    </title>
+                    <title>
+                      <key>es</key>
+                      <value>Sin registros</value>
+                    </title>
+                    <visible>true</visible>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <extendedTooltip>
+          <name>НадписьЗаписейРасширеннаяПодсказка</name>
+          <id>126</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+                    <contextMenu>
+                      <name>НадписьЗаписейКонтекстноеМеню</name>
+                      <id>127</id>
+                      <autoFill>true</autoFill>
+                    </contextMenu>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <skipOnInput>false</skipOnInput>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </items>
                   <type>UsualGroup</type>
                   <extInfo xsi:type="form:UsualGroupExtInfo">
                     <group>AlwaysHorizontal</group>
@@ -1133,19 +1243,19 @@
             <id>83</id>
             <title>
               <key>ru</key>
-              <value>Клиент</value>
+              <value>Контрагент</value>
             </title>
             <title>
               <key>fr</key>
-              <value>Client</value>
+              <value>Contrepartie</value>
             </title>
             <title>
               <key>en</key>
-              <value>Customer</value>
+              <value>Counterparty</value>
             </title>
             <title>
               <key>es</key>
-              <value>Cliente</value>
+              <value>Contraparte</value>
             </title>
             <visible>true</visible>
             <enabled>true</enabled>
@@ -1990,6 +2100,18 @@
               <key>ru</key>
               <value>Поле картинки</value>
             </content>
+            <content>
+              <key>fr</key>
+              <value>Champ image</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Picture field</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Campo de imagen</value>
+            </content>
           </localValue>
         </title>
       </fields>
@@ -2000,6 +2122,18 @@
             <content>
               <key>ru</key>
               <value>Период</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Période</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Period</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Período</value>
             </content>
           </localValue>
         </title>
@@ -2449,6 +2583,52 @@
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
   <formCommands>
+    <name>СтраницаПервая</name>
+    <title>
+      <key>ru</key>
+      <value>◀◀</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>◀◀</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>◀◀</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>◀◀</value>
+    </title>
+    <id>8</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Первая страница</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Première page</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>First page</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Primera página</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СтраницаПервая</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
     <name>СтраницаВперед</name>
     <title>
       <key>ru</key>
@@ -2489,6 +2669,52 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>СтраницаВперед</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СтраницаПоследняя</name>
+    <title>
+      <key>ru</key>
+      <value>▶▶</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>▶▶</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>▶▶</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>▶▶</value>
+    </title>
+    <id>9</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Последняя страница</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Dernière page</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Last page</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Última página</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СтраницаПоследняя</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>

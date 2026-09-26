@@ -2,7 +2,7 @@
 &НаКлиенте
 Процедура УстановитьПароль(Команда)
 	Если СокрЛП(Пароль) <> СокрЛП(ПарольПодтверждение) Тогда
-		Сообщить(Нстр("fr = 'Les mots de passe ne correspondent pas'; ru = 'Пароли не совпадают'; en = ""Passwords don't match""; es = 'Las contraseñas no coinciden'"));
+		Сообщить(Нстр("fr = 'Les mots de passe ne correspondent pas'; ru = 'Пароли не совпадают'; en = 'Passwords don''t match'; es = 'Las contraseñas no coinciden'"));
 		Возврат;
 	КонецЕсли;
 	Закрыть(СокрЛП(Пароль));

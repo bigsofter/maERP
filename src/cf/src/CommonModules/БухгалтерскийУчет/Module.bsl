@@ -775,12 +775,12 @@
 //			
 //		Иначе
 //			
-//			ТекстСообщения = НСТр("fr = ""Impossible de déterminer la valeur du paramètre d'organisation:""; ru = 'Не удалось определить значение параметра организации:'; en = ""Couldn't determine the value of the organization parameter:""; es = 'No se pudo determinar el valor del parámetro de organización:'") + " " + ИмяПараметра;
+//			ТекстСообщения = НСТр("fr = 'Impossible de déterminer la valeur du paramètre d''organisation:'; ru = 'Не удалось определить значение параметра организации:'; en = 'Couldn''t determine the value of the organization parameter:'; es = 'No se pudo determinar el valor del parámetro de organización:'") + " " + ИмяПараметра;
 //			
 //			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 
 //			ЗаписьЖурналаРегистрации(
-//				НСтр("fr = ""Création d'informations sur l'organisation""; ru = 'Формирование сведений об организации'; en = 'Formation of information about the organization'; es = 'Creación de información sobre la organización'", ОбщегоНазначения.КодОсновногоЯзыка()), 
+//				НСтр("fr = 'Création d''informations sur l''organisation'; ru = 'Формирование сведений об организации'; en = 'Formation of information about the organization'; es = 'Creación de información sobre la organización'", ОбщегоНазначения.КодОсновногоЯзыка()), 
 //				УровеньЖурналаРегистрации.Ошибка,
 //				Метаданные.Справочники.Организации,, 
 //				ТекстСообщения + Символы.ПС + ПодробноеПредставлениеОшибки(ИнформацияОбОшибке()));

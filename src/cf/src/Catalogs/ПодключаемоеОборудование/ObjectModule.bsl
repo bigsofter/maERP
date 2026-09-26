@@ -37,7 +37,7 @@
 		Запрос.УстановитьПараметр("Ссылка"      , Ссылка);
 		
 		Если Не Запрос.Выполнить().Пустой() Тогда
-			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Указано неуникальное наименование элемента. Укажите уникальное наименование.'; fr = ""Un nom d'élément non unique est spécifié. Indiquez un nom unique.""; en = 'A non-unique element name is specified. Specify a unique name.'; es = 'Nombre no exclusivo del elemento. Especifique un nombre único.'"), ЭтотОбъект, , , Отказ);
+			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Указано неуникальное наименование элемента. Укажите уникальное наименование.'; fr = 'Un nom d''élément non unique est spécifié. Indiquez un nom unique.'; en = 'A non-unique element name is specified. Specify a unique name.'; es = 'Nombre no exclusivo del elemento. Especifique un nombre único.'"), ЭтотОбъект, , , Отказ);
 		КонецЕсли;
 	КонецЕсли;
 	

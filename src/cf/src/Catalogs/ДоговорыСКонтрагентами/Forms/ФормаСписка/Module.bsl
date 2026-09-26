@@ -53,7 +53,7 @@
 		ЗафиксироватьТранзакцию();
 	Исключение
 		ОтменитьТранзакцию();
-		Сообщить(Нстр("fr = 'Impossible de faire le principal'; ru = 'Не удалось сделать основным'; en = ""Couldn't make it basic""; es = 'No se puede hacer principal'"), СтатусСообщения.ОченьВажное);
+		Сообщить(Нстр("fr = 'Impossible de faire le principal'; ru = 'Не удалось сделать основным'; en = 'Couldn''t make it basic'; es = 'No se puede hacer principal'"), СтатусСообщения.ОченьВажное);
 		ВызватьИсключение;	
 	КонецПопытки;
 КонецПроцедуры

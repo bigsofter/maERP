@@ -5,6 +5,498 @@
 к старым, на всех языках конфигурации — ровно так, как их видел владелец в окне
 «Что нового».
 
+# Релиз 2.0.14.26 (2026-09-08)
+
+Поставка: `maERP-2.0.14.26.cf`; обновление с 1.0.11.1, 2.0.12.14, 2.0.12.17,
+2.0.12.18 и 2.0.14.3 — `maERP-2.0.14.26.cfu`. Меню «Главное» и раздел «Настройка»
+по образцу УНФ, панель настроек по блокам, автотесты документов уровня 3.
+
+## 2.0.14.26
+### ru
+- Выпуск продукции и поступление из переработки: устранена вторая неоднозначность в запросе коэффициентов техкарт, проведение проходит.
+### fr
+- Production et réception de sous-traitance : seconde ambiguïté supprimée dans la requête des coefficients de nomenclature, la validation passe.
+### en
+- Production output and receipt from processing: the second ambiguity in the tech card coefficient query is removed, posting succeeds.
+### es
+- Producción y recepción de maquila: eliminada la segunda ambigüedad en la consulta de coeficientes de fichas técnicas, la contabilización pasa.
+
+## 2.0.14.25
+### ru
+- Исправлено проведение выпуска продукции и поступления из переработки: расчёт коэффициентов техкарт падал на неоднозначном поле запроса.
+- Реализация по заказу и заказ покупателя: статус заказа, записанный в ту же секунду, что и предыдущий, больше не обрывает запись ошибкой дублирующего ключа истории статусов.
+### fr
+- Corrigée la validation de la production et de la réception de sous-traitance : le calcul des coefficients de nomenclature échouait sur un champ de requête ambigu.
+- Vente sur commande et commande client : un statut de commande enregistré la même seconde que le précédent n'interrompt plus l'enregistrement par une erreur de clé en double dans l'historique des statuts.
+### en
+- Fixed posting of production output and receipt from processing: the tech card coefficient calculation failed on an ambiguous query field.
+- Sale by order and customer order: an order status written in the same second as the previous one no longer aborts saving with a duplicate key error in the status history.
+### es
+- Corregida la contabilización de la producción y la recepción de maquila: el cálculo de coeficientes de fichas técnicas fallaba por un campo ambiguo de la consulta.
+- Venta por pedido y pedido de cliente: un estado de pedido registrado en el mismo segundo que el anterior ya no interrumpe el guardado con un error de clave duplicada en el historial de estados.
+
+## 2.0.14.24
+### ru
+- Автотесты документов: тестовый договор создаётся с описанием, а не наименованием (у договоров наименование отключено); прогон уровня 3 снова проходит стадию подготовки данных.
+### fr
+- Autotests des documents : le contrat de test est créé avec une description et non un nom (le nom est désactivé pour les contrats) ; le passage de niveau 3 franchit de nouveau la préparation des données.
+### en
+- Document autotests: the test contract is created with a description instead of a name (names are disabled for contracts); the level 3 run passes data preparation again.
+### es
+- Autotests de documentos: el contrato de prueba se crea con descripción y no con nombre (el nombre está desactivado en contratos); la ejecución de nivel 3 vuelve a superar la preparación de datos.
+
+## 2.0.14.23
+### ru
+- Исправлена ошибка применения отрасли «Строительство»: реквизит «Площадь» не записывался из-за типа шире, чем у плана видов характеристик; типы реквизитов приведены к типу плана.
+### fr
+- Corrigée l'erreur d'application du secteur « Construction » : l'attribut « Surface » ne s'enregistrait pas à cause d'un type plus large que celui du plan des types de caractéristiques ; types alignés sur le plan.
+### en
+- Fixed applying the "Construction" industry: the "Surface" attribute failed to save because its type was wider than the chart of characteristic types allows; attribute types aligned with the chart.
+### es
+- Corregido el error al aplicar el sector «Construcción»: el atributo «Superficie» no se guardaba por un tipo más amplio que el del plan de tipos de características; tipos alineados con el plan.
+
+## 2.0.14.22
+### ru
+- Настройка → Компания и учёт: смена отрасли перенастраивает базу как при первом запуске (заводит отраслевые реквизиты номенклатуры) после предупреждения об опасной операции.
+- Меню «Настройка»: «Общее» первым в группе «Настройки программы», регламентные задания только со страницы «Обслуживание»; в группе «Оборудование» убраны повторы «Подключаемое оборудование» и «Драйверы оборудования».
+- Исправлена ошибка открытия карточки номенклатуры «Неоднозначное поле Представления.Ссылка».
+### fr
+- Paramètres → Entreprise et comptabilité : changer de secteur reconfigure la base comme au premier lancement (attributs d'articles du secteur) après un avertissement sur l'opération risquée.
+- Menu « Paramètres » : « Général » en premier dans « Paramètres du programme », les tâches réglementaires uniquement depuis la page « Maintenance » ; doublons « Matériel enfichable » et « Pilotes matériels » retirés du groupe « Matériel ».
+- Corrigée l'erreur d'ouverture de la fiche article « Champ ambigu Представления.Ссылка ».
+### en
+- Settings → Company and accounting: changing the industry reconfigures the database as at first start (industry item attributes) after a warning about the risky operation.
+- "Settings" menu: "General" first in "Program settings", scheduled jobs only from the "Maintenance" page; duplicate "Connected equipment" and "Equipment drivers" removed from the "Equipment" group.
+- Fixed the item card opening error "Ambiguous field Представления.Ссылка".
+### es
+- Configuración → Empresa y contabilidad: cambiar el sector reconfigura la base como en el primer inicio (atributos de artículos del sector) tras una advertencia sobre la operación peligrosa.
+- Menú «Configuración»: «General» primero en «Ajustes del programa», tareas programadas solo desde la página «Mantenimiento»; eliminados los duplicados «Equipo conectable» y «Controladores de equipos» del grupo «Equipo».
+- Corregido el error al abrir la ficha de artículo «Campo ambiguo Представления.Ссылка».
+
+## 2.0.14.21
+### ru
+- Автотесты проверяют панель настроек: запись настройки, признак включения раздела, список часовых поясов, заголовок окна.
+- Значки разделов собираются из исходников `design/icons` одним скриптом; добавлен значок раздела «Главное».
+### fr
+- Les tests automatiques vérifient le panneau de paramètres : enregistrement d'un paramètre, indicateur d'activation de section, liste des fuseaux horaires, titre de la fenêtre.
+- Les icônes des sections sont assemblées depuis les sources `design/icons` par un seul script ; ajout de l'icône de la section « Principal ».
+### en
+- Automated tests check the settings panel: saving a setting, the section-enabling flag, the time zone list, the window title.
+- Section icons are built from the `design/icons` sources by one script; the "Main" section icon is added.
+### es
+- Las pruebas automáticas verifican el panel de configuración: guardado de un ajuste, indicador de activación de sección, lista de zonas horarias, título de la ventana.
+- Los iconos de las secciones se generan desde las fuentes `design/icons` con un solo script; se añadió el icono de la sección «Principal».
+
+## 2.0.14.20
+### ru
+- Раздел «Сервис» переименован в «Настройка» и перестроен: сверху пользователи, подключаемое оборудование и смена пароля, ниже группы «Настройки программы», «Пользователи и права» и «Оборудование» (рабочие места, драйверы). Группы «Предприятие», «Управление данными» и «Настройки пользователей и прав» упразднены, инструменты администратора открываются со страницы «Обслуживание». Пустые пункты «Фискальные регистраторы» и «Эквайринговые терминалы» из меню убраны.
+### fr
+- La section « Service » est renommée « Paramètres » et réorganisée : en haut les utilisateurs, le matériel connecté et le changement de mot de passe, en dessous les groupes « Paramètres du programme », « Utilisateurs et droits » et « Matériel » (postes de travail, pilotes). Les groupes « Entreprise », « Gestion de données » et « Paramètres utilisateur et droits » sont supprimés, les outils d'administration s'ouvrent depuis la page « Maintenance ». Les entrées vides « Registres fiscaux » et « Terminaux d'acquisition » sont retirées du menu.
+### en
+- The "Service" section is renamed "Settings" and reorganized: users, connected equipment and password change at the top, then the groups "Program settings", "Users and rights" and "Equipment" (workplaces, drivers). The groups "Company", "Data management" and "User settings and rights" are dissolved; admin tools open from the "Maintenance" page. The empty "Fiscal registers" and "Acquiring terminals" entries are removed from the menu.
+### es
+- La sección «Servicio» se renombró «Configuración» y se reorganizó: arriba usuarios, equipo conectado y cambio de contraseña; debajo los grupos «Configuración del programa», «Usuarios y derechos» y «Equipo» (puestos de trabajo, controladores). Los grupos «Compañía», «Gestión de datos» y «Parámetros de usuario y derechos» se suprimieron; las herramientas de administración se abren desde la página «Mantenimiento». Las entradas vacías «Registros fiscales» y «Terminales de adquisición» se quitaron del menú.
+
+## 2.0.14.19
+### ru
+- Настройки программы: добавлены формы «Номенклатура», «Дополнительные реквизиты», «Продажи», «Закупки», «Производство», «Зарплата и кадры», «Обслуживание». Старая форма «Параметры» с закладками удалена, константы больше не выводятся отдельными командами в меню. Настройки «Печатать накладную (розница)», «Оповещать за кол. дней до запрета отгрузок» и «Страна производственного календаря» впервые доступны из интерфейса.
+### fr
+- Paramètres du programme : ajout des formulaires « Articles », « Attributs supplémentaires », « Ventes », « Achats », « Production », « Paie et personnel », « Maintenance ». L'ancien formulaire « Paramètres » à onglets est supprimé, les constantes ne figurent plus comme commandes séparées dans le menu. Les paramètres « Imprimer le bon de livraison (détail) », « Prévenir N jours avant le blocage des expéditions » et « Pays du calendrier de production » sont pour la première fois accessibles depuis l'interface.
+### en
+- Program settings: added the forms "Items", "Additional attributes", "Sales", "Purchases", "Production", "Payroll and HR", "Maintenance". The old tabbed "Parameters" form is removed and constants no longer appear as separate menu commands. The settings "Print delivery note (retail)", "Warn N days before the shipment ban" and "Production calendar country" are available from the interface for the first time.
+### es
+- Configuración del programa: se añadieron los formularios «Artículos», «Atributos adicionales», «Ventas», «Compras», «Producción», «Nómina y personal», «Mantenimiento». El antiguo formulario «Parámetros» con pestañas se eliminó y las constantes ya no aparecen como comandos separados en el menú. Las configuraciones «Imprimir albarán (minorista)», «Avisar N días antes del bloqueo de envíos» y «País del calendario de producción» están disponibles desde la interfaz por primera vez.
+
+## 2.0.14.18
+### ru
+- Настройки программы по блокам: в разделе «Сервис» появилась группа «Настройки программы» с формами «Общее» (заголовок окна, часовой пояс базы с кнопкой применения, время сеанса, файлы, почта рассылки) и «Компания и учёт» (отрасль, валюта учёта, основной склад, автозакрытие периода, календарь, бухгалтерия). Каждое поле сохраняется сразу при изменении, включение бухгалтерии показывает раздел без перезапуска.
+- Новая настройка «Часовой пояс базы».
+### fr
+- Paramètres du programme par blocs : la section « Service » a un groupe « Paramètres du programme » avec les formulaires « Général » (titre de la fenêtre, fuseau horaire de la base avec bouton d'application, heure de la session, fichiers, messagerie d'envoi) et « Entreprise et comptabilité » (secteur, devise comptable, entrepôt principal, clôture automatique, calendrier, comptabilité). Chaque champ est enregistré dès sa modification ; activer la comptabilité affiche la section sans redémarrage.
+- Nouveau paramètre « Fuseau horaire de la base ».
+### en
+- Program settings by blocks: the "Service" section has a "Program settings" group with the forms "General" (window title, database time zone with an apply button, session time, files, mailing account) and "Company and accounting" (industry, accounting currency, main warehouse, automatic period closing, calendar, accounting). Every field is saved as soon as it changes; enabling accounting shows the section without a restart.
+- New setting "Database time zone".
+### es
+- Configuración del programa por bloques: la sección «Servicio» tiene un grupo «Configuración del programa» con los formularios «General» (título de la ventana, zona horaria de la base con botón de aplicación, hora de la sesión, archivos, correo de envío) y «Empresa y contabilidad» (sector, moneda contable, almacén principal, cierre automático del período, calendario, contabilidad). Cada campo se guarda al cambiarlo; activar la contabilidad muestra la sección sin reiniciar.
+- Nueva configuración «Zona horaria de la base».
+
+## 2.0.14.17
+### ru
+- Раздел «Главное»: значок «три точки», в нём организации, структура предприятия, физические лица, ставки НДС, страны, валюты и базовый дашборд; список реализаций из него убран.
+- Из раздела «Сервис» ушли операционные справочники: бренды — в «Закупки → Справочники», задачи заказов, виды и настройки заданий — в «Продажи → Работа с покупателями».
+### fr
+- Section « Principal » : icône « trois points », avec les entreprises, la structure de l'entreprise, les personnes physiques, les taux de TVA, les pays, les devises et le tableau de bord de base ; la liste des ventes en a été retirée.
+- Les catalogues opérationnels ont quitté la section « Service » : les marques vont dans « Achats → Catalogues », les tâches des commandes, les types et paramètres des tâches dans « Ventes → Opération de vente ».
+### en
+- "Main" section: "three dots" icon, containing companies, company structure, individuals, VAT rates, countries, currencies and the basic dashboard; the sales list was removed from it.
+- Operational catalogs left the "Service" section: brands go to "Purchases → Reference books", order tasks, task types and task settings to "Sales → Sales operation".
+### es
+- Sección «Principal»: icono de «tres puntos», con empresas, estructura de la empresa, personas físicas, tipos de IVA, países, monedas y el panel básico; la lista de ventas se quitó de ella.
+- Los catálogos operativos salieron de la sección «Servicio»: las marcas van a «Compras → Manuales», las tareas de pedidos, tipos y configuración de tareas a «Ventas → Operación de ventas».
+
+## 2.0.14.16
+### ru
+- Исправлено открытие карточки номенклатуры: подбор дополнительных реквизитов обращался к несуществующему полю и валил форму с ошибкой.
+### fr
+- Correction de l'ouverture de la fiche article : la sélection des attributs supplémentaires utilisait un champ inexistant et provoquait une erreur du formulaire.
+### en
+- Fixed opening the item card: the additional attributes lookup referenced a non-existent field and broke the form with an error.
+### es
+- Corregida la apertura de la ficha del artículo: la selección de atributos adicionales usaba un campo inexistente y provocaba un error del formulario.
+
+## 2.0.14.15
+### ru
+- Автотесты: добавлен прогон жизненного цикла документов — закупка, заказ с реализацией и оплатой, возврат от покупателя, выпуск продукции по техкарте, переработка, начисление и выплата зарплаты, безналичные поступление и списание, дополнительные реквизиты и отрасль. Каждый сценарий выполняется в транзакции с откатом и данных базы не меняет.
+- Исправлен долг перед переработчиком за услуги в поступлении из переработки: оплата поставщику теперь закрывает его, а не удваивает.
+- Смок-тест открывает на образцах и формы для роли ECommerce, формы единицы и упаковки.
+### fr
+- Tests automatiques : ajout du cycle de vie des documents — achat, commande avec vente et paiement, retour client, production selon la nomenclature, sous-traitance, calcul et paiement des salaires, encaissement et décaissement bancaires, attributs supplémentaires et secteur d'activité. Chaque scénario s'exécute dans une transaction annulée et ne modifie pas les données.
+- Correction de la dette envers le sous-traitant pour ses services dans la réception de sous-traitance : le paiement au fournisseur la solde désormais au lieu de la doubler.
+- Le test de fumée ouvre aussi sur des exemples les formulaires du rôle ECommerce et les formulaires d'unité et d'emballage.
+### en
+- Automated tests: added the document life cycle run — purchase, order with sale and payment, customer return, production by the bill of materials, subcontracting, payroll accrual and payment, bank receipt and payment, additional attributes and industry. Each scenario runs in a rolled-back transaction and leaves the data unchanged.
+- Fixed the debt to the processor for services in the receipt from processing: a supplier payment now closes it instead of doubling it.
+- The smoke test also opens the ECommerce role forms and the unit and package forms on samples.
+### es
+- Pruebas automáticas: se añadió el ciclo de vida de los documentos: compra, pedido con venta y pago, devolución del cliente, producción según la lista de materiales, subcontratación, cálculo y pago de salarios, cobro y pago bancarios, atributos adicionales y sector. Cada escenario se ejecuta en una transacción revertida y no modifica los datos.
+- Corregida la deuda con el subcontratista por sus servicios en la recepción de subcontratación: el pago al proveedor ahora la cierra en lugar de duplicarla.
+- La prueba de humo también abre sobre ejemplos los formularios del rol ECommerce y los formularios de unidad y embalaje.
+
+## 2.0.14.14
+### ru
+- Цены в заказе покупателя подставляются на дату документа, как в остальных документах продаж (раньше — на дату отгрузки).
+- В карточке номенклатуры типы «Продукция», «Полуфабрикат» и «Сырьё» предлагаются только при включённом производстве.
+- Исправлена выборка цен номенклатуры: цена без характеристики больше не теряется.
+### fr
+- Dans la commande client, les prix sont repris à la date du document, comme dans les autres documents de vente (auparavant à la date d'expédition).
+- Dans la fiche article, les types « Produit fini », « Semi-fini » et « Matière première » ne sont proposés que si la production est activée.
+- Correction de la sélection des prix des articles : un prix sans caractéristique n'est plus perdu.
+### en
+- In the customer order, prices are taken as of the document date, like in the other sales documents (previously as of the shipment date).
+- In the item card, the types "Finished product", "Semi-finished product" and "Raw material" are offered only when production is enabled.
+- Fixed the item price selection: a price without a characteristic is no longer lost.
+### es
+- En el pedido del cliente, los precios se toman a la fecha del documento, como en los demás documentos de venta (antes a la fecha de expedición).
+- En la ficha del artículo, los tipos «Producto terminado», «Semielaborado» y «Materia prima» se ofrecen solo con la producción activada.
+- Corregida la selección de precios de artículos: un precio sin característica ya no se pierde.
+
+## 2.0.14.13
+### ru
+- Дополнительные реквизиты и сведения: администратор заводит свои поля для номенклатуры без изменения программы (раздел «Сервис → Управление данными → Дополнительные реквизиты»). Поля показываются на закладке «Дополнительно» карточки номенклатуры; заголовки задаются на каждом языке.
+- Мастер первого запуска спрашивает отрасль: «Торговля», «Строительство и недвижимость», «Прочее». Для строительства сразу создаются реквизиты объекта недвижимости: признак объекта, этаж, площадь, номер права собственности.
+- Отрасль передаётся и при автоматическом развёртывании базы (поле industry начального заполнения).
+### fr
+- Attributs et informations supplémentaires : l'administrateur ajoute ses propres champs aux articles sans modifier le programme (section « Service → Gestion des données → Attributs supplémentaires »). Les champs apparaissent sur l'onglet « Complément » de la fiche article ; les titres se définissent dans chaque langue.
+- L'assistant de premier lancement demande le secteur d'activité : « Commerce », « Immobilier et construction », « Autre ». Pour l'immobilier, les attributs du bien sont créés d'emblée : indicateur de bien immobilier, étage, surface, titre foncier.
+- Le secteur est aussi transmis lors du déploiement automatique de la base (champ industry du remplissage initial).
+### en
+- Additional attributes and information: the administrator adds custom fields to items without changing the application (section "Service → Data management → Additional attributes"). The fields are shown on the "Additional" tab of the item card; titles are set per language.
+- The first-launch wizard asks for the industry: "Trade", "Construction and real estate", "Other". For real estate the property attributes are created at once: real estate flag, floor, surface, land title.
+- The industry is also passed during automatic database deployment (the industry field of the initial fill).
+### es
+- Atributos e información adicionales: el administrador añade sus propios campos a los artículos sin modificar el programa (sección «Servicio → Gestión de datos → Atributos adicionales»). Los campos se muestran en la pestaña «Adicional» de la ficha del artículo; los títulos se definen en cada idioma.
+- El asistente de primer inicio pregunta el sector de actividad: «Comercio», «Construcción e inmuebles», «Otro». Para inmuebles se crean de inmediato los atributos del bien: indicador de inmueble, piso, superficie, título de propiedad.
+- El sector también se transmite en el despliegue automático de la base (campo industry del relleno inicial).
+
+## 2.0.14.12
+### ru
+- Французский интерфейс выверен: «Место хранения» везде переводится как Entrepôt (раньше — Résidence), «Сумма» — Montant, «Количество» — Quantité, справочник «Номенклатура» — Articles, «Оплачено» — Payé, «Заказ покупателя» — Commande client. Внесено 90 правок из проверки французского языка от 31.08.2026: опечатки, отсутствующие диакритики, кальки с русского.
+- Английский и испанский приведены к тем же терминам: Warehouse / Almacén для места хранения, Amount / Importe для суммы, Item(s) / Artículo(s) для номенклатуры.
+- Убраны искажённые апострофы (« & apos; ») в бухгалтерских отчётах и макете договора.
+### fr
+- Interface française révisée : « Lieu de stockage » se traduit partout par Entrepôt (auparavant Résidence), « Montant » remplace « Somme », « Quantité » remplace « Nombre », le catalogue « Articles » remplace « Nomenclature », « Payé » remplace « Pour acquit », « Commande client » remplace « Commande de l'acheteur ». 90 corrections issues de la relecture du 31/08/2026 : fautes de frappe, accents manquants, calques du russe.
+- L'anglais et l'espagnol sont alignés sur les mêmes termes : Warehouse / Almacén, Amount / Importe, Item(s) / Artículo(s).
+- Les apostrophes déformées (« & apos; ») ont été corrigées dans les rapports comptables et le modèle de contrat.
+### en
+- French interface reviewed: "Storage location" is now Entrepôt everywhere (was Résidence), "Amount" is Montant, "Quantity" is Quantité, the "Items" catalog is Articles, "Paid" is Payé, "Customer order" is Commande client. 90 corrections from the French review of 31 Aug 2026 applied: typos, missing accents, calques from Russian.
+- English and Spanish aligned to the same terms: Warehouse / Almacén for storage location, Amount / Importe for amount, Item(s) / Artículo(s) for items.
+- Broken apostrophes ("& apos;") fixed in accounting reports and the contract template.
+### es
+- Interfaz francesa revisada: «Lugar de almacenamiento» se traduce siempre como Entrepôt (antes Résidence), «Importe» es Montant, «Cantidad» es Quantité, el catálogo «Artículos» es Articles, «Pagado» es Payé, «Pedido del cliente» es Commande client. Se aplicaron 90 correcciones de la revisión del francés del 31/08/2026: erratas, acentos ausentes, calcos del ruso.
+- El inglés y el español se alinearon con los mismos términos: Warehouse / Almacén para el lugar de almacenamiento, Amount / Importe para el importe, Item(s) / Artículo(s) para los artículos.
+- Se corrigieron los apóstrofos deformados (« & apos; ») en los informes contables y en la plantilla de contrato.
+
+## 2.0.14.11
+### ru
+- Первый запуск: пароль служебного администратора tinycio-1c больше не задан заранее — он создаётся случайным при первом запуске и показывается один раз на последнем шаге мастера. Сохраните его: повторно он не выводится.
+- Новая обработка «Начальное заполнение»: организацию, пользователей и служебного администратора можно завести из файла без мастера первого запуска — так базы клиентов разворачиваются автоматически через tinycio.
+- Регламентное задание «Закрытие сеансов» больше не содержит встроенных учётных данных; оно завершает сеансы через администратора кластера.
+- В свойствах программы указан поставщик TinyCIO, авторские права и адрес tinycio.com.
+### fr
+- Premier lancement : le mot de passe de l'administrateur de service tinycio-1c n'est plus prédéfini — il est généré aléatoirement au premier lancement et affiché une seule fois à la dernière étape de l'assistant. Notez-le : il ne sera plus affiché.
+- Nouveau traitement « Remplissage initial » : l'organisation, les utilisateurs et l'administrateur de service peuvent être créés à partir d'un fichier sans l'assistant de premier lancement — c'est ainsi que les bases des clients sont déployées automatiquement via tinycio.
+- La tâche planifiée « Fermeture des sessions » ne contient plus d'identifiants intégrés ; elle termine les sessions via l'administrateur du cluster.
+- Les propriétés du programme indiquent l'éditeur TinyCIO, les droits d'auteur et l'adresse tinycio.com.
+### en
+- First launch: the password of the service administrator tinycio-1c is no longer preset — it is generated randomly at first launch and shown once on the last step of the wizard. Save it: it is not shown again.
+- New data processor "Initial fill": the organization, users and the service administrator can be created from a file without the first-launch wizard — this is how client databases are deployed automatically via tinycio.
+- The scheduled job "Close sessions" no longer contains built-in credentials; it terminates sessions via the cluster administrator.
+- The application properties now show the vendor TinyCIO, the copyright and the address tinycio.com.
+### es
+- Primer inicio: la contraseña del administrador de servicio tinycio-1c ya no está predefinida — se genera aleatoriamente en el primer inicio y se muestra una sola vez en el último paso del asistente. Guárdela: no se vuelve a mostrar.
+- Nuevo procesamiento «Relleno inicial»: la organización, los usuarios y el administrador de servicio pueden crearse desde un archivo sin el asistente de primer inicio — así se despliegan automáticamente las bases de los clientes a través de tinycio.
+- La tarea programada «Cierre de sesiones» ya no contiene credenciales integradas; finaliza las sesiones a través del administrador del clúster.
+- En las propiedades del programa figuran el proveedor TinyCIO, los derechos de autor y la dirección tinycio.com.
+
+## 2.0.14.10
+### ru
+- Исправлено: списки продаж, кассовых ордеров, прочих расходов, сверок и списаний безналичных не открывались после обновления — ошибка в расчёте долга на закладке «Клиент». Списки открываются штатно.
+### fr
+- Correction : les listes des ventes, des ordres de caisse, des autres dépenses, des réconciliations et des décaissements bancaires ne s'ouvraient plus après la mise à jour — une erreur dans le calcul de la dette sur l'onglet « Client ». Les listes s'ouvrent normalement.
+### en
+- Fixed: the lists of sales, cash orders, other expenses, reconciliations and outgoing bank payments failed to open after the update — an error in the debt calculation on the "Customer" tab. The lists open normally.
+### es
+- Corregido: las listas de ventas, órdenes de caja, otros gastos, conciliaciones y pagos bancarios no se abrían tras la actualización — un error en el cálculo de la deuda en la pestaña «Cliente». Las listas se abren con normalidad.
+
+## 2.0.14.9
+### ru
+- В панелях сведений всех списков знаки фильтров по сумме и долгу теперь показываются как «>», «<» и «=» на любом языке программы (раньше на французском виднелись цифры 0, 1, 2), а знак и поле ввода стоят одной строкой.
+- Кнопка сворачивания панели переехала в самый низ панели.
+- На закладке «Клиент» выводится карточка контрагента целиком: вид и категория, род деятельности, налоговые номера (NIF, RC, ICE, CIN), тип и условия оплаты, отсрочка, тип цены, кредитный лимит и запрет отгрузок, контактные данные и общий долг.
+### fr
+- Dans les panneaux d'informations de toutes les listes, les signes des filtres par montant et par dette s'affichent désormais « > », « < » et « = » dans toutes les langues du programme (auparavant, en français, on voyait les chiffres 0, 1, 2), et le signe et le champ de saisie sont sur une seule ligne.
+- Le bouton de réduction du panneau est descendu tout en bas du panneau.
+- L'onglet « Client » affiche la fiche du tiers en entier : type et catégorie, activité, numéros fiscaux (NIF, RC, ICE, CIN), mode et conditions de paiement, délai, type de prix, limite de crédit et blocage des expéditions, coordonnées et dette totale.
+### en
+- In the details panels of all lists, the amount and debt filter signs are now shown as ">", "<" and "=" in every program language (previously French showed the numbers 0, 1, 2), and the sign and the input field sit on one line.
+- The panel collapse button moved to the very bottom of the panel.
+- The "Customer" tab shows the whole counterparty card: kind and category, line of business, tax numbers (NIF, RC, ICE, CIN), payment type and terms, deferral, price type, credit limit and shipment block, contact details and total debt.
+### es
+- En los paneles de información de todas las listas, los signos de los filtros por importe y por deuda se muestran ahora como «>», «<» y «=» en cualquier idioma del programa (antes en francés se veían los números 0, 1, 2), y el signo y el campo de entrada van en una sola línea.
+- El botón para contraer el panel se trasladó a la parte más baja del panel.
+- La pestaña «Cliente» muestra la ficha de la contraparte completa: tipo y categoría, actividad, números fiscales (NIF, RC, ICE, CIN), tipo y condiciones de pago, aplazamiento, tipo de precio, límite de crédito y bloqueo de expediciones, datos de contacto y deuda total.
+
+## 2.0.14.8
+### ru
+- Списки цен и планов переведены на новое оформление: установка цен номенклатуры, установка цен вручную, правило ценообразования и установка плановых показателей. Справа — панель со страницами «Фильтры» и «Детали», под списком — постраничный просмотр по 50 документов.
+- На странице «Детали» видно содержимое документа: в установке цен — товары с ценой, при ручной установке — виды цен с ценой, в плановых показателях — сотрудники с планом.
+- Этим завершён перевод списков документов на новое оформление: панель сведений, пагинация и колонки без горизонтальной прокрутки теперь во всех разделах программы, кроме кассовой смены и бухгалтерской операции.
+### fr
+- Les listes de prix et de plans passent à la nouvelle présentation : fixation des prix des articles, saisie manuelle des prix, règle de tarification et fixation des indicateurs prévisionnels. À droite, un panneau avec les pages « Filtres » et « Détails » ; sous la liste, un affichage par pages de 50 documents.
+- La page « Détails » montre le contenu du document : pour la fixation des prix, les articles avec leur prix ; pour la saisie manuelle, les types de prix ; pour les indicateurs, les employés avec leur plan.
+- Ainsi s'achève le passage des listes de documents à la nouvelle présentation : le panneau d'informations, la pagination et les colonnes sans défilement horizontal sont désormais dans toutes les sections, hormis la journée de caisse et l'opération comptable.
+### en
+- Price and plan lists moved to the new look: item price setting, manual price setting, pricing rule and target setting. On the right is a panel with the "Filters" and "Details" pages; below the list, paging by 50 documents.
+- The "Details" page shows the document contents: items with prices for price setting, price types for manual setting, and employees with their targets for planning.
+- This completes moving document lists to the new look: the details panel, pagination and columns without horizontal scrolling are now in every section except the cash session and the accounting entry.
+### es
+- Las listas de precios y planes pasan al nuevo diseño: fijación de precios de artículos, fijación manual de precios, regla de tarificación y fijación de indicadores previstos. A la derecha, un panel con las páginas «Filtros» y «Detalles»; bajo la lista, paginación de 50 documentos.
+- La página «Detalles» muestra el contenido del documento: los artículos con su precio en la fijación de precios, los tipos de precio en la fijación manual y los empleados con su plan en los indicadores.
+- Con esto concluye el paso de las listas de documentos al nuevo diseño: el panel de información, la paginación y las columnas sin desplazamiento horizontal están ya en todas las secciones, salvo la jornada de caja y el asiento contable.
+
+## 2.0.14.7
+### ru
+- Зарплатные и кадровые списки переведены на новое оформление: начисление зарплаты, выплата зарплаты, платёжная ведомость на аванс, кадровый приказ, приказ на начисление-удержание и табель учёта рабочего времени. Справа — панель со страницами «Фильтры» и «Детали», под списком — постраничный просмотр по 50 документов.
+- На странице «Детали» виден состав документа по сотрудникам: кто указан в документе и на какую сумму — по начислениям, выплатам и авансам.
+### fr
+- Les listes de paie et du personnel passent à la nouvelle présentation : calcul de la paie, versement des salaires, bordereau d'acompte, ordre du personnel, ordre de retenue ou de gain et feuille de temps. À droite, un panneau avec les pages « Filtres » et « Détails » ; sous la liste, un affichage par pages de 50 documents.
+- La page « Détails » montre le contenu du document par employé : qui figure dans le document et pour quel montant — pour les calculs, les versements et les acomptes.
+### en
+- Payroll and HR lists moved to the new look: payroll calculation, salary payment, advance payroll sheet, HR order, accrual/deduction order and timesheet. On the right is a panel with the "Filters" and "Details" pages; below the list, paging by 50 documents.
+- The "Details" page shows the document contents by employee: who is listed in the document and for how much — for calculations, payments and advances.
+### es
+- Las listas de nómina y personal pasan al nuevo diseño: cálculo de nómina, pago de salarios, nómina de anticipo, orden de personal, orden de devengo o retención y parte de horas. A la derecha, un panel con las páginas «Filtros» y «Detalles»; bajo la lista, paginación de 50 documentos.
+- La página «Detalles» muestra el contenido del documento por empleado: quién figura en el documento y por qué importe — para cálculos, pagos y anticipos.
+
+## 2.0.14.6
+### ru
+- Производственные списки переведены на новое оформление: выпуск продукции, передача в переработку и поступление из переработки. Справа — панель со страницами «Фильтры» (переработчик, наша компания, склад, ответственный) и «Детали» с составом документа, под списком — постраничный просмотр по 50 документов.
+- Суммы и себестоимость в эти списки и в панель сведений не выводятся: оператор производства работает с составом документов, но цен не видит.
+### fr
+- Les listes de production passent à la nouvelle présentation : sortie de production, transfert en sous-traitance et réception de sous-traitance. À droite, un panneau avec les pages « Filtres » (sous-traitant, notre société, entrepôt, responsable) et « Détails » avec le contenu du document ; sous la liste, un affichage par pages de 50 documents.
+- Les montants et le coût de revient n'apparaissent ni dans ces listes ni dans le panneau : l'opérateur de production travaille avec le contenu des documents, mais ne voit pas les prix.
+### en
+- Production lists moved to the new look: product output, transfer for processing and receipt from processing. On the right is a panel with the "Filters" (processor, our company, warehouse, responsible) and "Details" pages with the document contents; below the list, paging by 50 documents.
+- Amounts and cost are shown neither in these lists nor in the panel: the production operator works with document contents but does not see prices.
+### es
+- Las listas de producción pasan al nuevo diseño: salida de producción, entrega a procesamiento y recepción de procesamiento. A la derecha, un panel con las páginas «Filtros» (procesador, nuestra empresa, almacén, responsable) y «Detalles» con el contenido del documento; bajo la lista, paginación de 50 documentos.
+- Los importes y el coste no se muestran ni en estas listas ni en el panel: el operador de producción trabaja con el contenido de los documentos, pero no ve los precios.
+
+## 2.0.14.5
+### ru
+- Денежные и налоговые списки переведены на новое оформление: поступление и списание безналичных, приходный и расходный кассовые ордера, корректировка долга, сверка взаиморасчётов, прочие расходы и их возврат, налоговые возвраты от покупателя и поставщику. Справа — панель со страницами «Фильтры» (контрагент, наша компания, склад, ответственный), «Контрагент» и «Детали», под списком — постраничный просмотр по 50 документов.
+- Из этих списков убрана горизонтальная прокрутка: назначение платежа, статья ДДС, реквизиты платёжного поручения и прочие редко нужные колонки перенесены на страницу «Детали».
+- В списке сверок взаиморасчётов сохранена кнопка группового формирования актов.
+### fr
+- Les listes de trésorerie et de fiscalité passent à la nouvelle présentation : encaissements et décaissements bancaires, entrées et sorties de caisse, correction de dette, réconciliation des comptes, autres dépenses et leur retour, retours fiscaux du client et au fournisseur. À droite, un panneau avec les pages « Filtres » (tiers, notre société, entrepôt, responsable), « Tiers » et « Détails » ; sous la liste, un affichage par pages de 50 documents.
+- Le défilement horizontal a disparu de ces listes : l'objet du paiement, le poste de trésorerie, les références de l'ordre de paiement et les autres colonnes rarement utiles sont passés sur la page « Détails ».
+- Le bouton de création groupée des actes est conservé dans la liste des réconciliations.
+### en
+- Cash and tax lists moved to the new look: incoming and outgoing bank payments, cash receipt and payment orders, debt adjustment, settlement reconciliation, other expenses and their return, tax returns from the customer and to the supplier. On the right is a panel with the "Filters" (counterparty, our company, warehouse, responsible), "Counterparty" and "Details" pages; below the list, paging by 50 documents.
+- Horizontal scrolling is gone from these lists: payment purpose, cash flow item, payment order details and other rarely needed columns moved to the "Details" page.
+- The bulk act creation button is kept in the reconciliation list.
+### es
+- Las listas de tesorería y fiscalidad pasan al nuevo diseño: cobros y pagos bancarios, órdenes de ingreso y de pago en efectivo, corrección de deuda, conciliación de cuentas, otros gastos y su devolución, devoluciones fiscales del cliente y al proveedor. A la derecha, un panel con las páginas «Filtros» (contraparte, nuestra empresa, almacén, responsable), «Contraparte» y «Detalles»; bajo la lista, paginación de 50 documentos.
+- El desplazamiento horizontal desapareció de estas listas: el concepto del pago, la partida de tesorería, los datos de la orden de pago y otras columnas poco necesarias pasaron a la página «Detalles».
+- En la lista de conciliaciones se conserva el botón de creación agrupada de actas.
+
+## 2.0.14.4
+### ru
+- Складские списки переведены на новое оформление: перемещение, оприходование, списание, пересортица, пересчёт товаров, задание на пересчёт, уценка и акт разбора. Справа — скрываемая панель со страницами «Фильтры» (склад, наша компания, ответственный) и «Детали» (реквизиты документа и его состав), под списком — постраничный просмотр по 50 документов.
+- В этих списках убрана горизонтальная прокрутка: редко нужные колонки перенесены на страницу «Детали», список открывается на высоту экрана.
+### fr
+- Les listes d'entrepôt passent à la nouvelle présentation : transfert, mise en stock, sortie, reclassement, recomptage des marchandises, ordre de recomptage, démarque et acte de démontage. À droite, un panneau masquable avec les pages « Filtres » (entrepôt, notre société, responsable) et « Détails » (attributs du document et son contenu) ; sous la liste, un affichage par pages de 50 documents.
+- Le défilement horizontal a disparu de ces listes : les colonnes rarement utiles sont passées sur la page « Détails », et la liste s'ouvre sur la hauteur de l'écran.
+### en
+- Warehouse lists moved to the new look: transfer, stock-in, write-off, re-grading, recount of goods, recount task, markdown and disassembly act. On the right is a collapsible panel with the "Filters" (warehouse, our company, responsible) and "Details" (document attributes and contents) pages; below the list, paging by 50 documents.
+- Horizontal scrolling is gone from these lists: rarely needed columns moved to the "Details" page, and the list opens to the screen height.
+### es
+- Las listas de almacén pasan al nuevo diseño: traslado, entrada en stock, baja, reclasificación, recuento de mercancías, orden de recuento, rebaja y acta de despiece. A la derecha, un panel ocultable con las páginas «Filtros» (almacén, nuestra empresa, responsable) y «Detalles» (atributos del documento y su contenido); bajo la lista, paginación de 50 documentos.
+- El desplazamiento horizontal desapareció de estas listas: las columnas poco necesarias pasaron a la página «Detalles» y la lista se abre a la altura de la pantalla.
+
+## 2.0.14.3
+### ru
+- Исправлено падение программы при открытии списка поступлений: кнопка «Оформить поступление» перенесена из таблицы заказов на саму закладку. Список открывается штатно.
+### fr
+- Correction du plantage du programme à l'ouverture de la liste des réceptions : le bouton « Créer la réception » a été déplacé du tableau des commandes vers l'onglet lui-même. La liste s'ouvre normalement.
+### en
+- Fixed the program crash when opening the receipt list: the "Create receipt" button moved from the orders table onto the tab itself. The list opens normally.
+### es
+- Corregido el fallo del programa al abrir la lista de recepciones: el botón «Crear la recepción» se trasladó de la tabla de pedidos a la propia pestaña. La lista se abre con normalidad.
+
+## 2.0.14.2
+### ru
+- Списки закупок приведены к новому виду: поступления, заказы поставщикам, возвраты поставщику, налоговые накладные покупки, поступления доп. расходов и предложения поставщиков получили панель сведений (закладки «Фильтры», «Поставщик», «Детали» с составом), сворачивание в значки, пагинацию по 50 документов и колонки без горизонтальной прокрутки.
+- В списке поступлений появилась закладка «Заказы поставщикам»: заказы с неполученным остатком видны прямо в списке, и по выделенным одной кнопкой оформляются поступления.
+- В списке налоговых накладных покупки добавлена закладка «Поступления»: проведённые поступления без возможности добавления, уже выписанные показываются приглушённо. В сведениях накладной видно поступление-основание, а в сведениях поступления — выписанные по нему накладные и состав.
+### fr
+- Les listes des achats ont été mises au nouveau format : réceptions, commandes fournisseurs, retours au fournisseur, factures comptables d'achat, réceptions de frais supplémentaires et offres des fournisseurs ont reçu le panneau d'informations (onglets « Filtres », « Fournisseur », « Détails » avec le contenu), la réduction en icônes, la pagination par 50 documents et des colonnes sans défilement horizontal.
+- Dans la liste des réceptions est apparu l'onglet « Commandes fournisseurs » : les commandes dont le reste n'est pas reçu sont visibles directement dans la liste, et un seul bouton crée les réceptions pour celles sélectionnées.
+- Dans la liste des factures comptables d'achat a été ajouté l'onglet « Réceptions » : les réceptions validées sans possibilité d'ajout, celles déjà facturées s'affichent en grisé. Les informations de la facture montrent la réception d'origine, et celles de la réception — les factures émises et le contenu.
+### en
+- The purchase lists have been brought to the new look: receipts, supplier orders, returns to supplier, purchase accounting invoices, receipts of additional expenses and supplier offers got the details panel (the "Filters", "Supplier" and "Details" tabs with contents), collapsing into icons, pagination by 50 documents and columns without horizontal scrolling.
+- The receipt list has a new "Supplier orders" tab: orders with an outstanding balance are visible right in the list, and one button creates receipts for the selected ones.
+- The purchase accounting invoice list has a new "Receipts" tab: posted receipts with no way to add, and already invoiced ones shown dimmed. The invoice details show the source receipt, and the receipt details show the invoices issued for it and its contents.
+### es
+- Las listas de compras se han llevado al nuevo aspecto: recepciones, pedidos a proveedores, devoluciones al proveedor, facturas contables de compra, recepciones de gastos adicionales y ofertas de proveedores recibieron el panel de información (pestañas «Filtros», «Proveedor» y «Detalles» con el contenido), la contracción en iconos, la paginación por 50 documentos y columnas sin desplazamiento horizontal.
+- En la lista de recepciones apareció la pestaña «Pedidos a proveedores»: los pedidos con saldo pendiente se ven directamente en la lista, y un solo botón crea las recepciones para los seleccionados.
+- En la lista de facturas contables de compra se añadió la pestaña «Recepciones»: las recepciones validadas sin posibilidad de añadir, y las ya facturadas se muestran atenuadas. Los detalles de la factura muestran la recepción de origen, y los de la recepción, las facturas emitidas y su contenido.
+
+## 2.0.14.1
+### ru
+- Документ «Отгрузка товара» удалён из программы: продажи оформляются продажей напрямую, вид операции «Накладная по отгрузкам товара» и регистр отгрузок больше не используются. Данные прежних отгрузок в новых документах не участвуют.
+- «Сертификат на оплату» убран из меню и из ввода на основании: документ остаётся в системе для истории, но новые не создаются.
+- Списки заказов покупателей, возвратов, сертификатов и налоговых накладных получили ту же панель сведений, что и список продаж: закладки «Фильтры», «Клиент», «Детали» с составом документа, сворачивание в значки, пагинация и колонки без горизонтальной прокрутки.
+- В списке заказов появился значок статуса отгрузки рядом со значком оплаты: не отгружен, в работе, отгружен, доставлен, отменён. В фильтрах — переключатели по оплате и по отгрузке.
+- В списке налоговых накладных добавлена закладка «Продажи»: проведённые продажи без возможности добавления, уже выписанные показываются приглушённо. В сведениях накладной видно продажу-основание, а в сведениях продажи — выписанные по ней накладные и состав.
+### fr
+- Le document « Bon de livraison » a été supprimé du programme : les ventes se font directement par la vente, le type d'opération « Facture sur la base des bons de livraison » et le registre des expéditions ne sont plus utilisés. Les anciennes expéditions n'interviennent plus dans les nouveaux documents.
+- Le « Bon d'achat » est retiré du menu et de la saisie sur la base : le document reste dans le système pour l'historique, mais on n'en crée plus.
+- Les listes des commandes clients, des retours, des bons d'achat et des factures comptables ont reçu le même panneau d'informations que la liste des ventes : onglets « Filtres », « Client », « Détails » avec le contenu du document, réduction en icônes, pagination et colonnes sans défilement horizontal.
+- Dans la liste des commandes est apparue une icône de statut d'expédition à côté de celle du paiement : non expédié, en cours, expédié, livré, annulé. Dans les filtres — des bascules par paiement et par expédition.
+- Dans la liste des factures comptables a été ajouté l'onglet « Ventes » : les ventes validées sans possibilité d'ajout, celles déjà facturées s'affichent en grisé. Les informations de la facture montrent la vente d'origine, et celles de la vente — les factures émises et le contenu.
+### en
+- The "Delivery note" document has been removed from the program: sales are made directly by the sale, the "Invoice based on delivery notes" operation type and the shipments register are no longer used. Data of former delivery notes no longer takes part in new documents.
+- The "Purchase voucher" is removed from the menu and from entry on the basis: the document stays in the system for history, but new ones are not created.
+- The lists of customer orders, returns, vouchers and accounting invoices got the same details panel as the sales list: "Filters", "Customer" and "Details" tabs with the document contents, collapsing into icons, pagination and columns without horizontal scrolling.
+- The order list now shows a shipment status icon next to the payment one: not shipped, in progress, shipped, delivered, cancelled. The filters have toggles by payment and by shipment.
+- The accounting invoice list has a new "Sales" tab: posted sales with no way to add, and already invoiced ones shown dimmed. The invoice details show the source sale, and the sale details show the invoices issued for it and its contents.
+### es
+- El documento «Nota de entrega» se ha eliminado del programa: las ventas se hacen directamente por la venta, el tipo de operación «Factura basada en albaranes» y el registro de expediciones ya no se usan. Los datos de las antiguas expediciones ya no participan en los nuevos documentos.
+- El «Vale de compra» se quitó del menú y de la entrada sobre la base: el documento permanece en el sistema para el historial, pero no se crean nuevos.
+- Las listas de pedidos de clientes, devoluciones, vales y facturas contables recibieron el mismo panel de información que la lista de ventas: pestañas «Filtros», «Cliente» y «Detalles» con el contenido del documento, contracción en iconos, paginación y columnas sin desplazamiento horizontal.
+- En la lista de pedidos apareció un icono de estado de expedición junto al de pago: no expedido, en curso, expedido, entregado, cancelado. En los filtros hay conmutadores por pago y por expedición.
+- En la lista de facturas contables se añadió la pestaña «Ventas»: las ventas validadas sin posibilidad de añadir, y las ya facturadas se muestran atenuadas. Los detalles de la factura muestran la venta de origen, y los de la venta, las facturas emitidas y su contenido.
+
+## 2.0.13.5
+### ru
+- Кнопка сворачивания панели сведений перенесена в низ панели; в фильтрах появились отборы по сумме и долгу с выбором знака (больше / меньше / равно), а у фильтра операции вернулась позиция «В кредит».
+- Панель сведений и список прокручиваются каждый по отдельности, форма списка больше не растягивается за пределы экрана.
+- Счётчик строк на закладках документа показывается фирменным янтарным цветом вместо зелёного.
+### fr
+- Le bouton de réduction du panneau d'informations est déplacé en bas du panneau ; les filtres ont reçu des sélections par montant et par dette avec choix du signe (supérieur / inférieur / égal), et le filtre d'opération a retrouvé la position « À crédit ».
+- Le panneau d'informations et la liste défilent chacun séparément, le formulaire de liste ne dépasse plus les limites de l'écran.
+- Le compteur de lignes sur les onglets du document s'affiche en ambre de la marque au lieu du vert.
+### en
+- The details panel collapse button moved to the bottom of the panel; the filters got amount and debt selections with a sign choice (greater / less / equal), and the operation filter got its "On credit" position back.
+- The details panel and the list scroll independently, and the list form no longer stretches beyond the screen.
+- The row counter on document tabs is shown in the brand amber instead of green.
+### es
+- El botón para contraer el panel de información se trasladó a la parte inferior del panel; los filtros recibieron selecciones por importe y por deuda con elección de signo (mayor / menor / igual), y el filtro de operación recuperó la posición «A crédito».
+- El panel de información y la lista se desplazan por separado, y el formulario de lista ya no se extiende más allá de la pantalla.
+- El contador de filas en las pestañas del documento se muestra en ámbar corporativo en lugar de verde.
+
+## 2.0.13.4
+### ru
+- Панель сведений списка продаж работает как в УНФ: кнопкой она сворачивается в узкий столбик значков, а щелчок по значку раскрывает её сразу на нужной странице. Страниц три: «Фильтры», «Клиент» — контакты покупателя и его общий долг, «Детали» — операция, наша компания, склад, суммы, ответственный, комментарий и состав документа.
+- Список продаж выводится страницами по 50 документов: под списком кнопки ◀ ▶ и счётчик «страница / всего». Страницы считаются с учётом установленных фильтров.
+- Колонки списка продаж уместились без горизонтальной прокрутки: операция и склад ушли на страницу «Детали», список открывается на высоту экрана.
+- Значки статуса оплаты в списках стали одноцветными в стиле программы: оплачено — галочка, частично — полукруг, не оплачено — кольцо, просрочено — с пометкой внимания.
+### fr
+- Le panneau d'informations de la liste des ventes fonctionne comme dans UNF : un bouton le réduit en une colonne étroite d'icônes, et un clic sur une icône l'ouvre directement sur la bonne page. Trois pages : « Filtres », « Client » — les contacts de l'acheteur et sa dette totale, « Détails » — l'opération, notre société, l'entrepôt, les montants, le responsable, le commentaire et le contenu du document.
+- La liste des ventes s'affiche par pages de 50 documents : sous la liste, les boutons ◀ ▶ et le compteur « page / total ». Les pages tiennent compte des filtres posés.
+- Les colonnes de la liste des ventes tiennent sans défilement horizontal : l'opération et l'entrepôt sont passés sur la page « Détails », la liste s'ouvre sur la hauteur de l'écran.
+- Les icônes de statut de paiement dans les listes sont désormais monochromes dans le style du programme : payé — une coche, partiellement — un demi-cercle, non payé — un anneau, en retard — avec une marque d'attention.
+### en
+- The details panel of the sales list works like in UNF: a button collapses it into a narrow column of icons, and clicking an icon opens it right on the needed page. There are three pages: "Filters", "Customer" — the buyer's contacts and total debt, "Details" — the operation, our company, warehouse, amounts, responsible person, comment and document contents.
+- The sales list is shown in pages of 50 documents: below the list are ◀ ▶ buttons and a "page / total" counter. Pages respect the applied filters.
+- The sales list columns now fit without horizontal scrolling: the operation and warehouse moved to the "Details" page, and the list opens to the screen height.
+- Payment status icons in lists are now monochrome in the program style: paid — a check mark, partial — a half circle, unpaid — a ring, overdue — with an attention mark.
+### es
+- El panel de información de la lista de ventas funciona como en UNF: un botón lo contrae en una columna estrecha de iconos, y un clic en un icono lo abre directamente en la página necesaria. Hay tres páginas: «Filtros», «Cliente» — los contactos del comprador y su deuda total, «Detalles» — la operación, nuestra empresa, el almacén, los importes, el responsable, el comentario y el contenido del documento.
+- La lista de ventas se muestra por páginas de 50 documentos: bajo la lista hay botones ◀ ▶ y un contador «página / total». Las páginas tienen en cuenta los filtros aplicados.
+- Las columnas de la lista de ventas caben sin desplazamiento horizontal: la operación y el almacén pasaron a la página «Detalles», y la lista se abre a la altura de la pantalla.
+- Los iconos de estado de pago en las listas ahora son monocromos al estilo del programa: pagado — una marca de verificación, parcial — un semicírculo, no pagado — un anillo, vencido — con una marca de atención.
+
+## 2.0.13.3
+### ru
+- Окно «Что нового» теперь читаемо в тёмной теме: фон и текст подстраиваются под тему, заголовки версий — в фирменном янтарном цвете вместо зелёного.
+### fr
+- La fenêtre « Nouveautés » est désormais lisible dans le thème sombre : le fond et le texte s'adaptent au thème, les titres de versions sont en ambre de la marque au lieu du vert.
+### en
+- The "What's new" window is now readable in the dark theme: the background and text adapt to the theme, and version headings are in the brand amber instead of green.
+### es
+- La ventana «Novedades» ahora es legible en el tema oscuro: el fondo y el texto se adaptan al tema, y los títulos de versión van en el ámbar corporativo en lugar del verde.
+
+## 2.0.13.2
+### ru
+- Фирменный стиль maERP: янтарный акцентный цвет кнопок, ссылок и выделений — одинаковый в светлой и тёмной темах, кремовый фон форм и тёплый цвет текста.
+- Иконки разделов главного меню перерисованы: они стали контрастнее и перекрашиваются программой под выбранную тему, поэтому одинаково хорошо читаются и на светлом, и на тёмном фоне.
+- В списке продаж появилась закладка «Заказы покупателей (к отгрузке)»: заказы, которые ещё не отгружены, видны прямо в списке, и по выделенным заказам одной кнопкой оформляются реализации.
+- Справа в списке продаж — скрываемая панель сведений: закладка «Фильтры» с отборами по виду операции (переключателем), контрагенту, организации, складу и ответственному; закладка «Инфо» с реквизитами выбранного документа; закладка «Состав» с его товарами.
+- Шапка формы продажи скомпонована компактнее: номер и дата в одну строку, вид операции выбирается из списка, кнопки печати перенесены вниз к кнопкам записи. В заголовке окна — номер без лидирующих нулей, клиент, наша компания и дата.
+### fr
+- Style de marque maERP : couleur d'accent ambre pour les boutons, liens et sélections — identique dans les thèmes clair et sombre, fond crème des formulaires et couleur de texte chaleureuse.
+- Les icônes des sections du menu principal ont été redessinées : plus contrastées, elles sont recolorées par le programme selon le thème choisi et restent bien lisibles sur fond clair comme sur fond sombre.
+- La liste des ventes a un nouvel onglet « Commandes clients (à expédier) » : les commandes non expédiées y sont visibles directement, et un seul bouton crée les ventes pour les commandes sélectionnées.
+- À droite de la liste des ventes — un panneau d'informations masquable : l'onglet « Filtres » avec les sélections par type d'opération (bascule), client, société, entrepôt et responsable ; l'onglet « Infos » avec les attributs du document choisi ; l'onglet « Contenu » avec ses marchandises.
+- L'en-tête du formulaire de vente est plus compact : le numéro et la date sur une seule ligne, le type d'opération se choisit dans une liste, les boutons d'impression sont déplacés en bas près des boutons d'enregistrement. Le titre de la fenêtre affiche le numéro sans zéros de tête, le client, notre société et la date.
+### en
+- maERP brand style: an amber accent color for buttons, links and selections — the same in the light and dark themes, a cream form background and a warm text color.
+- The main menu section icons have been redrawn: they are more contrasty and are recolored by the program to match the chosen theme, so they read equally well on light and dark backgrounds.
+- The sales list has a new tab, "Customer orders (to ship)": orders not yet shipped are visible right in the list, and one button creates sales for the selected orders.
+- On the right of the sales list is a collapsible details panel: the "Filters" tab with selections by operation type (toggle), customer, company, warehouse and responsible person; the "Info" tab with the attributes of the chosen document; the "Contents" tab with its goods.
+- The sales form header is more compact: the number and date on one line, the operation type is chosen from a list, and the print buttons moved down next to the save buttons. The window title shows the number without leading zeros, the customer, our company and the date.
+### es
+- Estilo corporativo maERP: color de acento ámbar para botones, enlaces y selecciones — el mismo en los temas claro y oscuro, fondo crema de los formularios y color de texto cálido.
+- Los iconos de las secciones del menú principal se han redibujado: son más contrastados y el programa los recolorea según el tema elegido, por lo que se leen igual de bien sobre fondo claro y oscuro.
+- La lista de ventas tiene una nueva pestaña «Pedidos de clientes (por expedir)»: los pedidos aún no expedidos se ven directamente en la lista, y un solo botón crea las ventas para los pedidos seleccionados.
+- A la derecha de la lista de ventas hay un panel de información ocultable: la pestaña «Filtros» con selecciones por tipo de operación (conmutador), cliente, empresa, almacén y responsable; la pestaña «Info» con los atributos del documento elegido; la pestaña «Contenido» con sus mercancías.
+- El encabezado del formulario de venta es más compacto: el número y la fecha en una sola línea, el tipo de operación se elige de una lista y los botones de impresión se trasladaron abajo junto a los botones de guardado. El título de la ventana muestra el número sin ceros iniciales, el cliente, nuestra empresa y la fecha.
+
+## 2.0.13.1
+### ru
+- Обновлён вид форм продажи товаров, карточки и списка номенклатуры: убраны рамки вокруг блоков полей, шапка и итоги перестраиваются под ширину окна. Это первые формы нового оформления — остальные будут приводиться к тому же виду постепенно.
+- Пароль можно сменить самому: в разделе «Сервис» появилась обработка «Смена пароля» — она спросит текущий пароль и дважды новый. Раньше пароль менял только администратор в карточке пользователя.
+- Продолжено обновление вида форм: без рамок вокруг блоков полей и с перестройкой под ширину окна теперь работают документы продаж — возврат от покупателя, отгрузка, заказ покупателя, кассовая смена, установка цен и правило ценообразования.
+- Форма продажи собрана заново: сверху вид операции переключателем, номер убран в свёрнутый раздел «Нумерация», реквизиты вынесены на закладку «Операция» — заказ клиента сразу за клиентом, наша компания рядом со складом, цены, НДС и зачёт авансов в одной группе. В заголовке окна теперь видно, кто кому и на какую сумму продаёт.
+### fr
+- Aspect renouvelé des formulaires de vente de marchandises, de la fiche et de la liste des articles : les cadres autour des blocs de champs ont été supprimés, l'en-tête et les totaux s'adaptent à la largeur de la fenêtre. Ce sont les premiers formulaires de la nouvelle présentation, les autres suivront progressivement.
+- Vous pouvez changer votre mot de passe vous-même : le traitement « Changer le mot de passe » est apparu dans la section « Service » : il demande le mot de passe actuel et deux fois le nouveau. Auparavant, seul l'administrateur le changeait dans la fiche de l'utilisateur.
+- Poursuite de la mise à jour de l'aspect des formulaires : les documents de vente — retour client, expédition, commande client, journée de caisse, fixation des prix et règle de tarification — sont désormais sans cadres autour des blocs de champs et s'adaptent à la largeur de la fenêtre.
+- Le formulaire de vente a été réorganisé : le type d'opération en haut sous forme de bascule, le numéro déplacé dans la section repliée « Numérotation », les attributs regroupés dans l'onglet « Opération » — la commande du client juste après le client, notre société à côté de l'entrepôt, les prix, la TVA et l'imputation des acomptes dans un seul groupe. Le titre de la fenêtre indique désormais qui vend à qui et pour quel montant.
+### en
+- Refreshed the look of the goods sale form and of the item card and list: frames around field blocks are gone, and the header and totals adapt to the window width. These are the first forms in the new style; the rest will follow gradually.
+- You can change your own password: the "Change password" data processor is now in the "Service" section: it asks for the current password and the new one twice. Previously only an administrator could change it from the user card.
+- The form refresh continues: sales documents — customer return, shipment, sales order, cash session, price setting and pricing rule — now come without frames around field blocks and adapt to the window width.
+- The sales form has been rebuilt: the operation type is a toggle at the top, the number moved into the collapsed "Numbering" section, and the attributes gathered on the "Operation" tab — the customer order right after the customer, our company next to the warehouse, prices, VAT and advance offsets in one group. The window title now shows who sells to whom and for how much.
+### es
+- Renovado el aspecto del formulario de venta de mercancías y de la ficha y la lista de artículos: se han quitado los marcos alrededor de los bloques de campos, y el encabezado y los totales se adaptan al ancho de la ventana. Son los primeros formularios del nuevo diseño; el resto seguirá poco a poco.
+- Puede cambiar su contraseña usted mismo: en la sección «Servicio» apareció el procesamiento «Cambiar la contraseña»: pide la contraseña actual y dos veces la nueva. Antes solo el administrador la cambiaba en la ficha del usuario.
+- Continúa la renovación del aspecto de los formularios: los documentos de ventas — devolución del cliente, expedición, pedido de cliente, jornada de caja, fijación de precios y regla de tarificación — ya no tienen marcos alrededor de los bloques de campos y se adaptan al ancho de la ventana.
+- El formulario de venta se ha rehecho: el tipo de operación arriba como conmutador, el número trasladado a la sección plegada «Numeración» y los atributos reunidos en la pestaña «Operación»: el pedido del cliente justo después del cliente, nuestra empresa junto al almacén, precios, IVA y compensación de anticipos en un solo grupo. El título de la ventana muestra ahora quién vende a quién y por cuánto.
+
 # Релиз 2.0.12.18 (2026-08-28)
 
 Первая публикация CF после 1.0.11.1. Поставка: `maERP-2.0.12.18.cf`,

@@ -77,14 +77,14 @@
 	//	//	Если ВидОперации = ПредопределенноеЗначение("Перечисление.ВидыОперацийЧекККМ.Продажа") Тогда
 	//	//		
 	//	//		ЗаголовокИнформации = НСтр("en = 'The payment information has been sent to the bank.'; fr = 'Les détails de paiement sont envoyés à la banque.'; ru = 'Данные об оплате отправлены в банк.'; es = 'Los datos de pago se envían al banco.'");
-	//	//		ТекстВопроса =  НСтр("en = 'It is necessary to perform the reverse of the performed operations.'; fr = ""Il est nécessaire d'effectuer les opérations effectuées à l'avance.""; ru = 'Необходимо выполнить сторно произведенных операций.'; es = 'Es necesario realizar las operaciones realizadas.'"); 
+	//	//		ТекстВопроса =  НСтр("en = 'It is necessary to perform the reverse of the performed operations.'; fr = 'Il est nécessaire d''effectuer les opérations effectuées à l''avance.'; ru = 'Необходимо выполнить сторно произведенных операций.'; es = 'Es necesario realizar las operaciones realizadas.'"); 
 	//	//		
 	//	//		ОбщегоНазначенияРТКлиент.ВывестиИнформациюДляРМКУправляемой(ЗаголовокИнформации, ТекстВопроса);
 	//	//		Отказ = Истина;
 	//	//		
 	//	//	Иначе
 	//	//		
-	//	//		ЗаголовокИнформации = НСтр("en = 'The cancellation information has been sent to the bank.'; fr = ""Les données d'annulation sont envoyées à la banque.""; ru = 'Данные об отмене отправлены в банк.'; es = 'Los datos de cancelación se envían al banco.'");
+	//	//		ЗаголовокИнформации = НСтр("en = 'The cancellation information has been sent to the bank.'; fr = 'Les données d''annulation sont envoyées à la banque.'; ru = 'Данные об отмене отправлены в банк.'; es = 'Los datos de cancelación se envían al banco.'");
 	//	//		ТекстВопроса =  НСтр("en = 'Do you want to close the data loss window?'; fr = 'Voulez-vous fermer la fenêtre avec la perte de données?'; ru = 'Вы хотите закрыть окно с потерей данных?'; es = '¿Desea cerrar la ventana con pérdida de datos?'"); 
 	//	//		
 	//	//		ОбработчикОповещения = Новый ОписаниеОповещения("ОповещениеОткрытьФормуВопросаОПотереДанныхПередЗакрытием", ЭтотОбъект);
@@ -851,8 +851,8 @@
 	Если Результат = Неопределено Тогда возврат; КонецЕсли;
 	СуммаСертификата = ПолучитьСуммуСертификатНаСервере(Результат);
 	Если СуммаСертификата = 0 Тогда
-		ЗаголовокИнформации = Нстр("fr = ""Bon d'achat pas trouvé!""; ru = 'Сертификат не найден!'; en = 'The certificate was not found!'; es = 'Certificado no encontrado!'");
-		ТекстОшибки = ""; //Нстр("fr = ""Bon d'achat pas trouvé!""; ru = 'Сертификат не найден!'; en = 'The certificate was not found!'; es = 'Certificado no encontrado!'");
+		ЗаголовокИнформации = Нстр("fr = 'Bon d''achat pas trouvé!'; ru = 'Сертификат не найден!'; en = 'The certificate was not found!'; es = 'Certificado no encontrado!'");
+		ТекстОшибки = ""; //Нстр("fr = 'Bon d''achat pas trouvé!'; ru = 'Сертификат не найден!'; en = 'The certificate was not found!'; es = 'Certificado no encontrado!'");
 		ОбщегоНазначенияКлиент.ВывестиИнформациюДляРМКУправляемой(ЗаголовокИнформации, ТекстОшибки);
 	Иначе
 		СтрокаОплаты = ТекущиеВидыОплат.Добавить();

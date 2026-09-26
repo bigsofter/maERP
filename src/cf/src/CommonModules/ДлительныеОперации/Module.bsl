@@ -70,8 +70,11 @@
 	ОперацияНеВыполнена = Истина;
 	ПоказатьПолныйТекстОшибки = Ложь;
 	Если Задание = Неопределено Тогда
-		ЗаписьЖурналаРегистрации(НСтр("ru = 'Длительные операции.Фоновое задание не найдено'", ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка()),
-			УровеньЖурналаРегистрации.Ошибка, , , Строка(ИдентификаторЗадания));
+		КодЯзыка = ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка();
+		ТекстСобытия = НСтр("ru = 'Длительные операции.Фоновое задание не найдено';
+			|fr = 'Opérations longues.Tâche en arrière-plan introuvable'; en = 'Long operations.Background job not found';
+			|es = 'Operaciones largas.Tarea en segundo plano no encontrada'", КодЯзыка);
+		ЗаписьЖурналаРегистрации(ТекстСобытия, УровеньЖурналаРегистрации.Ошибка, , , Строка(ИдентификаторЗадания));
 	Иначе
 		Если Задание.Состояние = СостояниеФоновогоЗадания.ЗавершеноАварийно Тогда
 			ОшибкаЗадания = Задание.ИнформацияОбОшибке;
@@ -79,12 +82,15 @@
 				ПоказатьПолныйТекстОшибки = Истина;
 			КонецЕсли;
 		ИначеЕсли Задание.Состояние = СостояниеФоновогоЗадания.Отменено Тогда
-			ЗаписьЖурналаРегистрации(
-				НСтр("ru = 'Длительные операции.Фоновое задание отменено администратором'", ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка()),
-				УровеньЖурналаРегистрации.Ошибка,
-				,
-				,
-				НСтр("ru = 'Задание завершилось с неизвестной ошибкой.'"));
+			КодЯзыка = ОбщегоНазначенияКлиентСервер.КодОсновногоЯзыка();
+			ТекстСобытия = НСтр("ru = 'Длительные операции.Фоновое задание отменено администратором';
+				|fr = 'Opérations longues.Tâche en arrière-plan annulée par l''administrateur';
+				|en = 'Long operations.Background job cancelled by the administrator';
+				|es = 'Operaciones largas.Tarea en segundo plano cancelada por el administrador'", КодЯзыка);
+			Комментарий = НСтр("ru = 'Задание завершилось с неизвестной ошибкой.';
+				|fr = 'La tâche s''est terminée avec une erreur inconnue.';
+				|en = 'The job finished with an unknown error.'; es = 'La tarea finalizó con un error desconocido.'");
+			ЗаписьЖурналаРегистрации(ТекстСобытия, УровеньЖурналаРегистрации.Ошибка, , , Комментарий);
 		Иначе
 			Возврат Истина;
 		КонецЕсли;
@@ -95,7 +101,10 @@
 		ВызватьИсключение(ТекстОшибки);
 	ИначеЕсли ОперацияНеВыполнена Тогда
 		ВызватьИсключение(НСтр("ru = 'Не удалось выполнить данную операцию. 
-		                             |Подробности см. в Журнале регистрации.'"));
+		                             |Подробности см. в Журнале регистрации.';
+			|fr = 'Impossible d''exécuter cette opération. Voir les détails dans le journal d''enregistrement.';
+			|en = 'Failed to perform this operation. See details in the event log.';
+			|es = 'No se pudo realizar esta operación. Consulte los detalles en el registro de eventos.'"));
 	КонецЕсли;
 	
 КонецФункции
@@ -200,31 +209,41 @@
 		ПараметрыВыполнения, Тип("Структура")); 
 	Если ПараметрыВыполнения.ЗапуститьНеВФоне И ПараметрыВыполнения.ЗапуститьВФоне Тогда
 		ВызватьИсключение НСтр("fr = 'Paramètres ""toujours appel Téléphonique ""et""toujours appel téléphonique"""
-"ne peut pas simultanément prendre la valeur True dans les longues Opérations.Effectuer dans le téléphone.'; ru = 'Параметры ""ВсегдаНеВФоне"" и ""ВсегдаВФоне"""
+"ne peut pas simultanément prendre la valeur True dans les longues Opérations.Effectuer dans le téléphone.';
+	|ru = 'Параметры ""ВсегдаНеВФоне"" и ""ВсегдаВФоне"""
 "не могут одновременно принимать значение Истина в ДлительныеОперации.ВыполнитьВФоне.'; en = 'The parameters ""Always on"" and ""Always on"""
 "cannot simultaneously take the value True in a long-term operation.Perform on the Phone.'; es = 'Parámetros ""Siempre "" y""siempre"""
 "no pueden aceptar simultáneamente el valor Verdadero en operaciones Largas.Ejecutarvphone.'");
 	КонецЕсли;
 	Если ПараметрыВыполнения.БезРасширений И ПараметрыВыполнения.СРасширениямиБазыДанных Тогда
 		ВызватьИсключение НСтр("fr = 'Options ""Sans extensions"" et ""Avec extensions de base de données"""
-"ne peut pas accepter simultanément la valeur True dans Long-runningOperations.ExecuteInBackground.'; ru = 'Параметры ""БезРасширений"" и ""СРасширениямиБазыДанных"""
-"не могут одновременно принимать значение Истина в ДлительныеОперации.ВыполнитьВФоне.'; en = 'The parameters ""without extensions"" and ""Without data extensions"""
-"cannot simultaneously take the value True in a long-term operation.Perform on the Phone.'; es = 'Opciones ""sin Extensiones"" y ""con extensiones"""
+"ne peut pas accepter simultanément la valeur True dans Long-runningOperations.ExecuteInBackground.';
+	|ru = 'Параметры ""БезРасширений"" и ""СРасширениямиБазыДанных"""
+"не могут одновременно принимать значение Истина в ДлительныеОперации.ВыполнитьВФоне.';
+	|en = 'The parameters ""without extensions"" and ""Without data extensions"""
+"cannot simultaneously take the value True in a long-term operation.Perform on the Phone.';
+	|es = 'Opciones ""sin Extensiones"" y ""con extensiones"""
 "no pueden aceptar simultáneamente el valor Verdadero en operaciones Largas.Ejecutarvphone.'");
 	КонецЕсли;
 #Если ВнешнееСоединение Тогда
 	ИнформационнаяБазаФайловая = ОбщегоНазначения.ИнформационнаяБазаФайловая();
 	Если ПараметрыВыполнения.БезРасширений И ИнформационнаяБазаФайловая Тогда
 		ВызватьИсключение НСтр("fr = ""La tâche en arrière-plan ne peut pas être démarrée avec l'option sans Extension"
-"dans la base de données de fichiers dans les opérations de Longue durée.Effectuer dans le téléphone.""; ru = 'Фоновое задание не может быть запущено с параметром ""БезРасширений"""
-"в файловой информационной базе в ДлительныеОперации.ВыполнитьВФоне.'; en = 'A background task cannot be started with the ""No extensions"" parameter"
-"in the file information database in a long-term operation.Perform on the Phone.'; es = 'El trabajo en segundo plano no se puede ejecutar con la opción ""sin Extensiones"""
+"dans la base de données de fichiers dans les opérations de Longue durée.Effectuer dans le téléphone."";
+	|ru = 'Фоновое задание не может быть запущено с параметром ""БезРасширений"""
+"в файловой информационной базе в ДлительныеОперации.ВыполнитьВФоне.';
+	|en = 'A background task cannot be started with the ""No extensions"" parameter"
+"in the file information database in a long-term operation.Perform on the Phone.';
+	|es = 'El trabajo en segundo plano no se puede ejecutar con la opción ""sin Extensiones"""
 "en la base de datos de archivos de larga Duración.Ejecutarvphone.'");
 	ИначеЕсли ПараметрыВыполнения.СРасширениямиБазыДанных И ИнформационнаяБазаФайловая Тогда
 		ВызватьИсключение НСтр("fr = 'La tâche en arrière-plan ne peut pas être démarrée avec l''option""extensions de données"""
-"dans la base de données de fichiers dans les opérations de Longue durée.Effectuer dans le téléphone.'; ru = 'Фоновое задание не может быть запущено с параметром ""СРасширениямиБазыДанных"""
-"в файловой информационной базе в ДлительныеОперации.ВыполнитьВФоне.'; en = 'A background task cannot be started with the ""Database Expansion"" parameter"
-"in the file information database in a long-term operation.Perform on the Phone.'; es = 'El trabajo en segundo plano no se puede ejecutar con el parámetro ""extensiones"""
+"dans la base de données de fichiers dans les opérations de Longue durée.Effectuer dans le téléphone.';
+	|ru = 'Фоновое задание не может быть запущено с параметром ""СРасширениямиБазыДанных"""
+"в файловой информационной базе в ДлительныеОперации.ВыполнитьВФоне.';
+	|en = 'A background task cannot be started with the ""Database Expansion"" parameter"
+"in the file information database in a long-term operation.Perform on the Phone.';
+	|es = 'El trabajo en segundo plano no se puede ejecutar con el parámetro ""extensiones"""
 "en la base de datos de archivos de larga Duración.Ejecutarvphone.'");
 	КонецЕсли;
 #КонецЕсли
@@ -238,11 +257,14 @@
 				Попытка
 					ВызватьИсключение НСтр("fr = ""Aucun identifiant de formulaire unique n'est spécifié dans le paramètre Execution Parameters.FormIdentifier."
 "ni l'adresse de stockage temporaire dans Execution Parameters.ResultAddress dans Long-runningOperations.ExecuteInBackground."
-"Assurez-vous que lors du traitement du résultat, le stockage temporaire est effacé explicitement à l'aide de la méthode RemoveFromTemporaryStorage.""; ru = 'Не указан ни уникальный идентификатор формы в параметре ПараметрыВыполнения.ИдентификаторФормы,"
+"Assurez-vous que lors du traitement du résultat, le stockage temporaire est effacé explicitement à l'aide de la méthode RemoveFromTemporaryStorage."";
+	|ru = 'Не указан ни уникальный идентификатор формы в параметре ПараметрыВыполнения.ИдентификаторФормы,"
 "ни адрес временного хранилища в ПараметрыВыполнения.АдресРезультата в ДлительныеОперации.ВыполнитьВФоне."
-"Убедиться, что при обработке результата временное хранилище очищается явно методом УдалитьИзВременногоХранилища.'; en = 'No unique form identifier is specified in the Execution parameter.The ID of the form,"
+"Убедиться, что при обработке результата временное хранилище очищается явно методом УдалитьИзВременногоХранилища.';
+	|en = 'No unique form identifier is specified in the Execution parameter.The ID of the form,"
 "nor the address of the temporary storage in the execution parameter.The address of the result in a long-term operation.Perform on the Phone."
-"Make sure that when processing the result, the temporary storage is explicitly cleared using the Delete Temporary Storage method.'; es = 'No se especifica ningún identificador de formulario único en el parámetro de ejecución.Idforma,"
+"Make sure that when processing the result, the temporary storage is explicitly cleared using the Delete Temporary Storage method.';
+	|es = 'No se especifica ningún identificador de formulario único en el parámetro de ejecución.Idforma,"
 "ni la dirección de almacenamiento temporal en los parámetros de Ejecución.Direcciónresultados en Largooperaciones.Ejecutarvphone."
 "Asegúrese de que, al procesar el resultado, el almacenamiento temporal se borre explícitamente mediante el método eliminar almacenamiento Temporal.'");
 				Исключение
@@ -257,7 +279,8 @@
 			ВызватьИсключение НСтр("fr = ""L'adresse de stockage temporaire n'est pas spécifiée dans le paramètre Execution Parameters.ResultAddress"
 "aux opérations à long terme.RunInBackground.""; ru = 'Не указан адрес временного хранилища в параметре ПараметрыВыполнения.АдресРезультата"
 "в ДлительныеОперации.ВыполнитьВФоне.'; en = 'The address of the temporary storage is not specified in the Execution parameter.The"
-"address of the result in a long-term operation.Perform on the Phone.'; es = 'No se especifica la dirección de almacenamiento temporal en el parámetro de ejecución.Direcciónresultado"
+"address of the result in a long-term operation.Perform on the Phone.';
+	|es = 'No se especifica la dirección de almacenamiento temporal en el parámetro de ejecución.Direcciónresultado"
 "en una operación de Larga Duración.Ejecutarvphone.'");
 		КонецЕсли;	
 		Результат.Вставить("АдресРезультата", ПараметрыВыполнения.АдресРезультата);
@@ -460,10 +483,14 @@
 		ЗаписьЖурналаРегистрации("Длительные операции.Ошибка выполнения",
 			УровеньЖурналаРегистрации.Ошибка, , , Пояснение);
 		Если ИсключениеПриОшибке Тогда
-			ВызватьИсключение(НСтр("fr = ""Impossible d'effectuer cette opération.""; ru = 'Не удалось выполнить данную операцию.'; en = 'This operation could not be performed.'; es = 'No se pudo realizar esta operación.'"));
+			ВызватьИсключение(НСтр("fr = 'Impossible d''effectuer cette opération.'; ru = 'Не удалось выполнить данную операцию.';
+				|en = 'This operation could not be performed.'; es = 'No se pudo realizar esta operación.'"));
 		КонецЕсли;
 		Результат.Статус = "Ошибка";
-		Результат.КраткоеПредставлениеОшибки = НСтр("fr = ""L'opération a échoué en raison de l'échec de la tâche en arrière-plan.""; ru = 'Операция не выполнена из-за аварийного завершения фонового задания.'; en = 'The operation was not completed due to an emergency shutdown of the background task.'; es = 'La operación no se realizó debido a la finalización de emergencia del trabajo en segundo plano.'");
+		Результат.КраткоеПредставлениеОшибки = НСтр("fr = 'L''opération a échoué en raison de l''échec de la tâche en arrière-plan.';
+			|ru = 'Операция не выполнена из-за аварийного завершения фонового задания.';
+			|en = 'The operation was not completed due to an emergency shutdown of the background task.';
+			|es = 'La operación no se realizó debido a la finalización de emergencia del trabajo en segundo plano.'");
 		Возврат Результат;
 	КонецЕсли;
 	
@@ -486,14 +513,17 @@
 		Если ПараметрыСеанса.ОтмененныеДлительныеОперации.Найти(ИдентификаторЗадания) = Неопределено Тогда
 			Результат.Статус = "Ошибка";
 			Если Задание.ИнформацияОбОшибке <> Неопределено Тогда
-				Результат.КраткоеПредставлениеОшибки   = НСтр("fr = ""L'opération a été annulée par l'administrateur.""; ru = 'Операция отменена администратором.'; en = 'The operation was canceled by the administrator.'; es = 'La operación ha sido cancelada por el administrador.'");
+				Результат.КраткоеПредставлениеОшибки   = НСтр("fr = 'L''opération a été annulée par l''administrateur.';
+					|ru = 'Операция отменена администратором.'; en = 'The operation was canceled by the administrator.';
+					|es = 'La operación ha sido cancelada por el administrador.'");
 				Результат.ПодробноеПредставлениеОшибки = Результат.КраткоеПредставлениеОшибки;
 			КонецЕсли;
 			Если ИсключениеПриОшибке Тогда
 				Если Не ПустаяСтрока(Результат.КраткоеПредставлениеОшибки) Тогда
 					ТекстСообщения = Результат.КраткоеПредставлениеОшибки;
 				Иначе
-					ТекстСообщения = НСтр("fr = ""Impossible d'effectuer cette opération.""; ru = 'Не удалось выполнить данную операцию.'; en = 'This operation could not be performed.'; es = 'No se pudo realizar esta operación.'");
+					ТекстСообщения = НСтр("fr = 'Impossible d''effectuer cette opération.'; ru = 'Не удалось выполнить данную операцию.';
+						|en = 'This operation could not be performed.'; es = 'No se pudo realizar esta operación.'");
 				КонецЕсли;
 				ВызватьИсключение ТекстСообщения;
 			КонецЕсли;
@@ -516,7 +546,8 @@
 			Если Не ПустаяСтрока(Результат.КраткоеПредставлениеОшибки) Тогда
 				ТекстСообщения = Результат.КраткоеПредставлениеОшибки;
 			Иначе
-				ТекстСообщения = НСтр("fr = ""Impossible d'effectuer cette opération.""; ru = 'Не удалось выполнить данную операцию.'; en = 'This operation could not be performed.'; es = 'No se pudo realizar esta operación.'");
+				ТекстСообщения = НСтр("fr = 'Impossible d''effectuer cette opération.'; ru = 'Не удалось выполнить данную операцию.';
+					|en = 'This operation could not be performed.'; es = 'No se pudo realizar esta operación.'");
 			КонецЕсли;
 			ВызватьИсключение ТекстСообщения;
 		КонецЕсли;
@@ -608,7 +639,10 @@
 	КонецЕсли;
 	
 	ВызватьИсключение ОбщегоНазначенияКлиентСервер.ПодставитьПараметрыВСтроку(
-		НСтр("fr = 'Format non valide du paramètre ProcedureName (valeur transmise : %1)'; ru = 'Неверный формат параметра ИмяПроцедуры (переданное значение: %1)'; en = 'Invalid format of the Procedure parameter name (passed value: %1)'; es = 'Formato de parámetro no válido nombre del Procedimiento (valor pasado: %1)'"), ИмяПроцедуры);
+		НСтр("fr = 'Format non valide du paramètre ProcedureName (valeur transmise : %1)';
+			|ru = 'Неверный формат параметра ИмяПроцедуры (переданное значение: %1)';
+			|en = 'Invalid format of the Procedure parameter name (passed value: %1)';
+			|es = 'Formato de parámetro no válido nombre del Procedimiento (valor pasado: %1)'"), ИмяПроцедуры);
 	
 КонецПроцедуры
 
@@ -700,9 +734,15 @@
 		
 		Сеанс = ПолучитьТекущийСеансИнформационнойБазы();
 		Если ПараметрыВыполнения.ОжидатьЗавершение = Неопределено И Сеанс.ИмяПриложения = "BackgroundJob" Тогда
-			ВызватьИсключение НСтр("fr = ""Il n'est pas possible d'exécuter simultanément plusieurs tâches en arrière-plan dans une infobase de fichiers.""; ru = 'В файловой информационной базе невозможно одновременно выполнять более одного фонового задания'; en = 'It is not possible to run more than one background task at the same time in the file information database.'; es = 'No se puede ejecutar más de un trabajo en segundo plano a la vez en la base de datos de archivos'");
+			ВызватьИсключение НСтр("fr = 'Il n''est pas possible d''exécuter simultanément plusieurs tâches en arrière-plan dans une infobase de fichiers.';
+				|ru = 'В файловой информационной базе невозможно одновременно выполнять более одного фонового задания';
+				|en = 'It is not possible to run more than one background task at the same time in the file information database.';
+				|es = 'No se puede ejecutar más de un trabajo en segundo plano a la vez en la base de datos de archivos'");
 		ИначеЕсли Сеанс.ИмяПриложения = "COMConnection" Тогда
-			ВызватьИсключение НСтр("fr = ""Dans une infobase de fichiers, vous pouvez exécuter un travail en arrière-plan uniquement à partir d'une application cliente""; ru = 'В файловой информационной базе можно запустить фоновое задание только из клиентского приложения'; en = 'In the file information database, you can run a background task only from the client application.'; es = 'En la base de datos de archivos, solo puede ejecutar un trabajo en segundo plano desde la aplicación cliente'");
+			ВызватьИсключение НСтр("fr = 'Dans une infobase de fichiers, vous pouvez exécuter un travail en arrière-plan uniquement à partir d''une application cliente';
+				|ru = 'В файловой информационной базе можно запустить фоновое задание только из клиентского приложения';
+				|en = 'In the file information database, you can run a background task only from the client application.';
+				|es = 'En la base de datos de archivos, solo puede ejecutar un trabajo en segundo plano desde la aplicación cliente'");
 		КонецЕсли;
 		
 	КонецЕсли;

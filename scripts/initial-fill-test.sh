@@ -24,7 +24,12 @@ PAYLOAD="$(mktemp "$BUILD/initial-fill-test.XXXXXX")"
 chmod 600 "$PAYLOAD"
 trap 'rm -f "$PAYLOAD"' EXIT
 
-random_password() { LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 20; }
+# Порцию случайных байт отмеряет dd, а последний элемент конвейера читает вход до конца.
+# Прежняя идиома `tr -dc … </dev/urandom | head -c 20` с env.sh несовместима: head закрывает
+# канал, tr получает SIGPIPE и выходит с 141, при set -o pipefail это статус всего конвейера,
+# и set -e валит скрипт на генерации пароля - до первого шага теста (поймано 2026-09-26,
+# воспроизводилось 5 из 5). 512 байт дают около 120 подходящих символов, с запасом на 20.
+random_password() { LC_ALL=C dd if=/dev/urandom bs=512 count=1 2>/dev/null | LC_ALL=C tr -dc 'A-Za-z0-9' | cut -c1-20; }
 ADMIN_LOGIN="fatima"
 ADMIN_PWD="$(random_password)"
 OTHER_PWD="$(random_password)"
@@ -45,7 +50,8 @@ check_result() { # $1 — result-файл, $2 — ожидаемое organizatio
 	python3 - "$1" "$2" "$3" <<'EOF'
 import json, sys
 path, expected, expected_industry = sys.argv[1], sys.argv[2] == "true", int(sys.argv[3])
-data = json.load(open(path, encoding="utf-8"))
+# Отчёт пишет 1С, а она ставит BOM: utf-8 на таком файле падает с «Unexpected UTF-8 BOM».
+data = json.load(open(path, encoding="utf-8-sig"))
 problems = []
 # Образец payload - отрасль «Строительство»: первое заполнение заводит 4 реквизита
 # недвижимости у номенклатуры, повтор - ни одного (docs/DEPLOY.md, раздел «Отрасль»).
@@ -64,7 +70,7 @@ if not data.get("organizations_total", 0) > 0 or not data.get("users_total", 0) 
     problems.append("organizations_total=%r, users_total=%r - визард первого запуска откроется"
                     % (data.get("organizations_total"), data.get("users_total")))
 for key in ("password", "Пароль"):
-    if key in open(path, encoding="utf-8").read():
+    if key in open(path, encoding="utf-8-sig").read():
         problems.append("в result-файле есть слово %s" % key)
 if problems:
     print("\n".join("  " + p for p in problems))

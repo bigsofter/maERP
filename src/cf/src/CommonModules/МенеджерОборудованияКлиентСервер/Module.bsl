@@ -537,7 +537,7 @@
 		
 	Иначе
 		
-		РезультатВыполнения.ОписаниеОшибки = НСтр("ru = 'Генерация серийного номера для чипа производителя указанного в TID не поддерживается.'; fr = ""La génération du numéro de série pour la puce du Fabricant spécifiée dans le TID n'est pas prise en charge.""; en = ""The generation of a serial number for the manufacturer's chip specified in the TID is not supported.""; es = 'La generación del número de serie para el chip del fabricante especificado en el TID no es compatible.'");
+		РезультатВыполнения.ОписаниеОшибки = НСтр("ru = 'Генерация серийного номера для чипа производителя указанного в TID не поддерживается.'; fr = 'La génération du numéro de série pour la puce du Fabricant spécifiée dans le TID n''est pas prise en charge.'; en = 'The generation of a serial number for the manufacturer''s chip specified in the TID is not supported.'; es = 'La generación del número de serie para el chip del fabricante especificado en el TID no es compatible.'");
 		Возврат РезультатВыполнения;
 		
 	КонецЕсли;
@@ -789,11 +789,11 @@
 	Если  ЭтоЮридическоеЛицо И ДлинаИНН <> 10 Тогда
 		СоответствуетТребованиям = Ложь;
 		ТекстСообщения = ТекстСообщения + ?(ЗначениеЗаполнено(ТекстСообщения), Символы.ПС, "")
-			+ НСтр("ru = 'ИНН юридического лица должен состоять из 10 цифр'; fr = ""Le tin d'une personne morale doit être composé de 10 chiffres""; en = 'The INN of a legal entity must consist of 10 digits.'; es = 'El Tin de la persona jurídica debe constar de 10 dígitos'");
+			+ НСтр("ru = 'ИНН юридического лица должен состоять из 10 цифр'; fr = 'Le tin d''une personne morale doit être composé de 10 chiffres'; en = 'The INN of a legal entity must consist of 10 digits.'; es = 'El Tin de la persona jurídica debe constar de 10 dígitos'");
 	ИначеЕсли НЕ ЭтоЮридическоеЛицо И ДлинаИНН <> 12 Тогда
 		СоответствуетТребованиям = Ложь;
 		ТекстСообщения = ТекстСообщения + ?(ЗначениеЗаполнено(ТекстСообщения), Символы.ПС, "")
-			+ НСтр("ru = 'ИНН физического лица должен состоять из 12 цифр'; fr = ""Le numéro d'identification d'une personne physique doit être composé de 12 chiffres""; en = 'The INN of an individual must consist of 12 digits.'; es = 'El Tin de una persona física debe constar de 12 dígitos'");
+			+ НСтр("ru = 'ИНН физического лица должен состоять из 12 цифр'; fr = 'Le numéro d''identification d''une personne physique doit être composé de 12 chiffres'; en = 'The INN of an individual must consist of 12 digits.'; es = 'El Tin de una persona física debe constar de 12 dígitos'");
 	КонецЕсли;
 	
 	Если СоответствуетТребованиям Тогда
@@ -936,7 +936,7 @@
 	ИначеЕсли ТипДокумента = 4 Тогда
 		ТипЧека = НСтр("ru = 'ОТЧЕТ БЕЗ ГАШЕНИЯ'; fr = 'RAPPORT SANS EXTINCTION'; en = 'REPORT WITHOUT CANCELLATION'; es = 'INFORME SIN EXTINCIÓN'");   
 	ИначеЕсли ТипДокумента = 5 Тогда
-		ТипЧека = НСтр("ru = 'ОТЧЕТ С ГАШЕНИЕМ'; fr = ""RAPPORT D'EXTINCTION""; en = 'CANCELLATION REPORT'; es = 'INFORME DE EXTINCIÓN'");  
+		ТипЧека = НСтр("ru = 'ОТЧЕТ С ГАШЕНИЕМ'; fr = 'RAPPORT D''EXTINCTION'; en = 'CANCELLATION REPORT'; es = 'INFORME DE EXTINCIÓN'");  
 	КонецЕсли;
 	
 	ПечатьКлише = Истина;
@@ -973,7 +973,7 @@
 		КонецЕсли;
 		
 		ОрганизацияИНН = ?(ОбщиеПараметры.Свойство("ОрганизацияИНН") И НЕ ПустаяСтрока(ОбщиеПараметры.ОрганизацияИНН), 
-			НСтр("ru = 'ИНН'; fr = ""NUMÉRO D'IDENTIFICATION FISCAL""; en = 'INN'; es = 'Inn'") + Символы.НПП + ОбщиеПараметры.ОрганизацияИНН, "");
+			НСтр("ru = 'ИНН'; fr = 'NUMÉRO D''IDENTIFICATION FISCAL'; en = 'INN'; es = 'Inn'") + Символы.НПП + ОбщиеПараметры.ОрганизацияИНН, "");
 			
 		НомерЧека = ?(ОбщиеПараметры.Свойство("НомерЧека") И НЕ ПустаяСтрока(ОбщиеПараметры.НомерЧека),
 			НСтр("ru = 'ЧЕК №'; fr = 'CHÈQUE №'; en = 'RECEIPT No.'; es = 'CHEQUE №'") + ОбщиеПараметры.НомерЧека, "");
@@ -994,7 +994,7 @@
 				Текст = Текст + ПостроитьПолеПереносом(НСтр("ru = 'ПОКУПАТЕЛЬ:'; fr = 'ACHETEUR:'; en = 'buyer:'; es = 'COMPRADOR:'") + ОбщиеПараметры.Получатель, ШиринаСтроки) + Символы.ПС;
 			КонецЕсли;
 			Если НЕ ПустаяСтрока(ОбщиеПараметры.ПолучательИНН) Тогда
-				Текст = Текст + ПостроитьПоле(НСтр("ru = 'ИНН ПОКУПАТЕЛЯ:'; fr = 'TIN DE L & APOS; ACHETEUR:'; en = ""BUYER'S INN:""; es = 'NIF DEL COMPRADOR:'") + ОбщиеПараметры.ПолучательИНН, ШиринаСтроки) + Символы.ПС;
+				Текст = Текст + ПостроитьПоле(НСтр("ru = 'ИНН ПОКУПАТЕЛЯ:'; fr = 'TIN DE L & APOS; ACHETEUR:'; en = 'BUYER''S INN:'; es = 'NIF DEL COMPRADOR:'") + ОбщиеПараметры.ПолучательИНН, ШиринаСтроки) + Символы.ПС;
 			КонецЕсли;
 		
 			Если НЕ ПустаяСтрока(ОбщиеПараметры.ПризнакАгента) Тогда
@@ -1008,7 +1008,7 @@
 				Текст = Текст + ВыстроитьПоля(НСтр("ru = 'ТЛФ.ПОСТ.:'; fr = 'TLF.JEÛNE.:'; en = 'TLF.post.:'; es = 'TLF.AYUNO.:'"), ОбщиеПараметры.ДанныеПоставщика.Телефон, ШиринаСтроки) + Символы.ПС;
 			КонецЕсли;
 			Если НЕ ПустаяСтрока(ОбщиеПараметры.ДанныеПоставщика.ИНН) Тогда
-				Текст = Текст + ВыстроитьПоля(НСтр("ru = 'ИНН ПОСТАВЩИКА:'; fr = ""NUMÉRO D'IDENTIFICATION DU FOURNISSEUR:""; en = ""SUPPLIER'S INN:""; es = 'TIN DEL PROVEEDOR:'"), ОбщиеПараметры.ДанныеПоставщика.ИНН, ШиринаСтроки) + Символы.ПС;
+				Текст = Текст + ВыстроитьПоля(НСтр("ru = 'ИНН ПОСТАВЩИКА:'; fr = 'NUMÉRO D''IDENTIFICATION DU FOURNISSEUR:'; en = 'SUPPLIER''S INN:'; es = 'TIN DEL PROVEEDOR:'"), ОбщиеПараметры.ДанныеПоставщика.ИНН, ШиринаСтроки) + Символы.ПС;
 			КонецЕсли;
 			
 			Если НЕ ПустаяСтрока(ОбщиеПараметры.ДанныеАгента.ПлатежныйАгент.Операция) Тогда
@@ -1186,7 +1186,7 @@
 					Текст = Текст + ВыстроитьПоля(НСтр("ru = 'ТЛФ.ПОСТ.:'; fr = 'TLF.JEÛNE.:'; en = 'TLF.post.:'; es = 'TLF.AYUNO.:'"), ПозицияЧека.ДанныеПоставщика.Телефон, ШиринаСтроки) + Символы.ПС;
 				КонецЕсли;
 				Если НЕ ПустаяСтрока(ПозицияЧека.ДанныеПоставщика.ИНН) Тогда
-					Текст = Текст + ВыстроитьПоля(НСтр("ru = 'ИНН ПОСТАВЩИКА:'; fr = ""NUMÉRO D'IDENTIFICATION DU FOURNISSEUR:""; en = ""SUPPLIER'S INN:""; es = 'TIN DEL PROVEEDOR:'"), ПозицияЧека.ДанныеПоставщика.ИНН, ШиринаСтроки) + Символы.ПС;
+					Текст = Текст + ВыстроитьПоля(НСтр("ru = 'ИНН ПОСТАВЩИКА:'; fr = 'NUMÉRO D''IDENTIFICATION DU FOURNISSEUR:'; en = 'SUPPLIER''S INN:'; es = 'TIN DEL PROVEEDOR:'"), ПозицияЧека.ДанныеПоставщика.ИНН, ШиринаСтроки) + Символы.ПС;
 				КонецЕсли;
 				
 				Если НЕ ПустаяСтрока(ПозицияЧека.ДанныеАгента.ПлатежныйАгент.Операция) Тогда
@@ -1291,7 +1291,8 @@
 		
 		Если СуммаОплаты - СуммаЧека > 0 Тогда
 			Текст = Текст + ВыстроитьПоля(НСтр("ru = 'ПОЛУЧЕНО'; fr = 'REÇU'; en = 'RECEIVED'; es = 'RECIBÍ'"), "=" + Формат(СуммаОплаты, ФорматЧисла), ШиринаСтроки) + Символы.ПС;
-			Текст = Текст + ВыстроитьПоля(" " + НСтр("ru = 'СДАЧА'; en = 'change'; es = 'DEPÓSITO'"), "=" + Формат(СуммаОплаты - СуммаЧека, ФорматЧисла), ШиринаСтроки) + Символы.ПС;
+			Текст = Текст + ВыстроитьПоля(" " + НСтр("ru = 'СДАЧА'; en = 'change'; es = 'DEPÓSITO';
+				|fr = 'RETOUR'"), "=" + Формат(СуммаОплаты - СуммаЧека, ФорматЧисла), ШиринаСтроки) + Символы.ПС;
 		КонецЕсли; 
 		
 		Если ОбщиеПараметры.Свойство("СистемаНалогообложения") Тогда

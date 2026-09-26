@@ -6,7 +6,7 @@
 		Если ЗначениеЗаполнено(Чек) Тогда 
 			Закрыть(Новый Структура("Чек,СуммаЧека",Чек,СуммаЧека));
 		Иначе
-			ОбщегоНазначенияКлиент.ВывестиИнформациюДляРМКУправляемой("", Нстр("fr = ""Erreur lors de la création du chèque. Contactez l'administrateur !""; ru = 'Ошибка создания чека. Обратитесь к администратору!'; en = 'Error creating the receipt. Contact the administrator!'; es = 'Error al generar el cheque. ¡Póngase en contacto con el administrador!'"));
+			ОбщегоНазначенияКлиент.ВывестиИнформациюДляРМКУправляемой("", Нстр("fr = 'Erreur lors de la création du chèque. Contactez l''administrateur !'; ru = 'Ошибка создания чека. Обратитесь к администратору!'; en = 'Error creating the receipt. Contact the administrator!'; es = 'Error al generar el cheque. ¡Póngase en contacto con el administrador!'"));
 			Элементы.СтраницыИнформации.ТекущаяСтраница = Элементы.СтраницаИнформации;
 		КонецЕсли;
 	КонецЕсли;

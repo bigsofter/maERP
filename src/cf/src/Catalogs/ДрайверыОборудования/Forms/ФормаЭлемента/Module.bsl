@@ -116,7 +116,7 @@
 	
 	Если ПустаяСтрока(Объект.ТипОборудования) Тогда 
 		Отказ = Истина;
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Тип оборудования не указан.'; fr = ""Le type d'équipement n'est pas spécifié.""; en = 'The type of equipment is not specified.'; es = 'No se especifica el tipo de equipo.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Тип оборудования не указан.'; fr = 'Le type d''équipement n''est pas spécifié.'; en = 'The type of equipment is not specified.'; es = 'No se especifica el tipo de equipo.'")); 
 		Возврат;
 	КонецЕсли;
 	
@@ -167,7 +167,7 @@
 	Если ПоставляемыйВСоставеКонфигурации Тогда
 		
 		Если ПустаяСтрока(Объект.ИмяМакетаДрайвера) Тогда
-			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Имя макета драйвера не указано.'; fr = ""Le nom de la disposition du pilote n'est pas spécifié.""; en = 'The name of the driver layout is not specified.'; es = 'No se especifica el nombre del diseño del controlador.'"));
+			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Имя макета драйвера не указано.'; fr = 'Le nom de la disposition du pilote n''est pas spécifié.'; en = 'The name of the driver layout is not specified.'; es = 'No se especifica el nombre del diseño del controlador.'"));
 			Возврат;
 		Иначе
 			ВыгрузитьМакетДрайвера();
@@ -176,7 +176,7 @@
 	Иначе 
 		
 		Если ПустаяСтрока(Объект.ИмяФайлаДрайвера) Тогда
-			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Файл драйвера не загружен.'; fr = ""Le fichier du pilote n'est pas chargé.""; en = 'The driver file is not loaded.'; es = 'El archivo del controlador no está cargado.'"));
+			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Файл драйвера не загружен.'; fr = 'Le fichier du pilote n''est pas chargé.'; en = 'The driver file is not loaded.'; es = 'El archivo del controlador no está cargado.'"));
 			Возврат;
 		КонецЕсли;
 		
@@ -391,11 +391,11 @@
 Процедура ОбновитьТекущийСтатусДрайвера()
 	
 	Если НоваяАрхитектура И ИнтеграционныйКомпонент Тогда
-		ТекущийСтатусДрайвера = НСтр("ru = 'Установлен интеграционный компонент.'; fr = ""Le composant d'intégration est installé.""; en = 'The integration component is installed.'; es = 'Se ha instalado un componente de integración.'") + Символы.НПП;
+		ТекущийСтатусДрайвера = НСтр("ru = 'Установлен интеграционный компонент.'; fr = 'Le composant d''intégration est installé.'; en = 'The integration component is installed.'; es = 'Se ha instalado un componente de integración.'") + Символы.НПП;
 		ТекущийСтатусДрайвера = ТекущийСтатусДрайвера + ?(ОсновнойДрайверУстановлен, НСтр("ru = 'Установлена основная поставка драйвера.'; fr = 'La Livraison principale du pilote est installée.'; en = 'The main driver supply has been installed.'; es = 'Instalado el suministro principal del controlador.'"),
-																					 НСтр("ru = 'Основная поставка драйвера не установлена.'; fr = ""La Livraison principale du pilote n'est pas installée.""; en = 'The main driver supply is not installed.'; es = 'El suministro principal del controlador no está instalado.'")); 
+																					 НСтр("ru = 'Основная поставка драйвера не установлена.'; fr = 'La Livraison principale du pilote n''est pas installée.'; en = 'The main driver supply is not installed.'; es = 'El suministro principal del controlador no está instalado.'")); 
 	Иначе
-		ТекущийСтатусДрайвера = НСтр("ru = 'Установлен на текущем компьютере.'; fr = ""Installé sur l'ordinateur actuel.""; en = 'Installed on the current computer.'; es = 'Instalado en el equipo actual.'");
+		ТекущийСтатусДрайвера = НСтр("ru = 'Установлен на текущем компьютере.'; fr = 'Installé sur l''ordinateur actuel.'; en = 'Installed on the current computer.'; es = 'Instalado en el equipo actual.'");
 	КонецЕсли;
 	
 	Если Не ПустаяСтрока(ТекущаяВерсия) Тогда
@@ -473,9 +473,9 @@
 Процедура ПолучениеОбъектаДрайвераЗавершение(ОбъектДрайвера, Параметры) Экспорт
 	
 	Если ПустаяСтрока(Объект.ИдентификаторОбъекта) И ПоставляемыйВСоставеКонфигурации Тогда
-		ТекущийСтатусДрайвера = НСтр("ru = 'Установка драйвера не требуется.'; fr = ""Aucune installation de pilote n'est requise.""; en = 'No driver installation is required.'; es = 'No se requiere instalación del controlador.'");
+		ТекущийСтатусДрайвера = НСтр("ru = 'Установка драйвера не требуется.'; fr = 'Aucune installation de pilote n''est requise.'; en = 'No driver installation is required.'; es = 'No se requiere instalación del controlador.'");
 	ИначеЕсли ПустаяСтрока(ОбъектДрайвера) Тогда
-		ТекущийСтатусДрайвера = НСтр("ru = 'Не установлен на текущем компьютере. Не определен тип:'; fr = ""Non installé sur l'ordinateur actuel. Type non défini:""; en = 'It is not installed on the current computer. The type is not defined:'; es = 'No está instalado en el equipo actual. Tipo no definido:'") + Символы.НПП + Объект.ИдентификаторОбъекта;
+		ТекущийСтатусДрайвера = НСтр("ru = 'Не установлен на текущем компьютере. Не определен тип:'; fr = 'Non installé sur l''ordinateur actuel. Type non défini:'; en = 'It is not installed on the current computer. The type is not defined:'; es = 'No está instalado en el equipo actual. Tipo no definido:'") + Символы.НПП + Объект.ИдентификаторОбъекта;
 		Элементы.ТекущийСтатусДрайвера.ЦветТекста = ЦветОшибки;
 		Элементы.УстановленнаяВерсия.ЦветТекста = ЦветОшибки;
 	Иначе
@@ -552,13 +552,13 @@
 	
 	Если НЕ ПустаяСтрока(ИмяФайлДрайвераНаФорме) Или ПоставляемыйВСоставеКонфигурации Тогда
 		Если ПустаяСтрока(Объект.ИдентификаторОбъекта) Тогда
-			ДополнительнаяИнформация = НСтр("ru = 'Не указан %s% компоненты или установка драйвера не требуется.'; fr = ""Aucun composant %s% n'est spécifié ou aucune installation de pilote n'est requise.""; en = '%s% components are not specified, or no driver installation is required.'; es = 'No se especifica %s% componentes o no se requiere instalación del controlador.'");
+			ДополнительнаяИнформация = НСтр("ru = 'Не указан %s% компоненты или установка драйвера не требуется.'; fr = 'Aucun composant %s% n''est spécifié ou aucune installation de pilote n''est requise.'; en = '%s% components are not specified, or no driver installation is required.'; es = 'No se especifica %s% componentes o no se requiere instalación del controlador.'");
 			ДополнительнаяИнформация = СтрЗаменить(ДополнительнаяИнформация, "%s%", "ProgID");
 		ИначеЕсли Объект.ПоставляетсяДистрибутивом Тогда
-			ДополнительнаяИнформация = НСтр("ru = 'Драйвер поставляется в виде дистрибутива поставщика.'; fr = ""Le pilote est fourni sous la forme d'une distribution de Fournisseur.""; en = 'The driver is supplied as a vendor distribution package.'; es = 'El controlador viene como una distribución de proveedor.'");
+			ДополнительнаяИнформация = НСтр("ru = 'Драйвер поставляется в виде дистрибутива поставщика.'; fr = 'Le pilote est fourni sous la forme d''une distribution de Fournisseur.'; en = 'The driver is supplied as a vendor distribution package.'; es = 'El controlador viene como una distribución de proveedor.'");
 		Иначе
-			ДополнительнаяИнформация = НСтр("ru = 'Драйвер поставляется в виде архива.'; fr = ""Le pilote est fourni sous forme d'archive.""; en = 'The driver is supplied as an archive.'; es = 'El controlador viene como un archivo.'")
-				+ ?(ПустаяСтрока(Объект.ВерсияДрайвера), "", Символы.ПС + НСтр("ru = 'Версия драйвера в архиве:'; fr = ""Version du pilote dans l'archive:""; en = 'The driver version is archived:'; es = 'Versión del controlador en el archivo:'")
+			ДополнительнаяИнформация = НСтр("ru = 'Драйвер поставляется в виде архива.'; fr = 'Le pilote est fourni sous forme d''archive.'; en = 'The driver is supplied as an archive.'; es = 'El controlador viene como un archivo.'")
+				+ ?(ПустаяСтрока(Объект.ВерсияДрайвера), "", Символы.ПС + НСтр("ru = 'Версия драйвера в архиве:'; fr = 'Version du pilote dans l''archive:'; en = 'The driver version is archived:'; es = 'Versión del controlador en el archivo:'")
 				+ Символы.НПП + Объект.ВерсияДрайвера);
 		КонецЕсли;
 	Иначе
@@ -590,7 +590,7 @@
 &НаКлиенте
 Процедура УстановитьДрайверИзАрхиваПриЗавершении(Результат) Экспорт 
 	
-	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = ""L'installation du pilote est terminée.""; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
+	ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = 'L''installation du pilote est terminée.'; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
 	ОбновитьСтатусДрайвера();
 	
 КонецПроцедуры 
@@ -599,10 +599,10 @@
 Процедура УстановитьДрайверИзДистрибутиваПриЗавершении(Результат, Параметры) Экспорт 
 	
 	Если Результат Тогда
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = ""L'installation du pilote est terminée.""; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Установка драйвера завершена.'; fr = 'L''installation du pilote est terminée.'; en = 'The driver installation is complete.'; es = 'La instalación del controlador se ha completado.'")); 
 		ОбновитьСтатусДрайвера();
 	Иначе
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'При установке драйвера из дистрибутива произошла ошибка.'; fr = ""Une erreur s'est produite lors de l'installation du pilote à partir de la distribution.""; en = 'An error occurred when installing the driver from the distribution.'; es = 'Se produjo un error al instalar el controlador desde la distribución.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'При установке драйвера из дистрибутива произошла ошибка.'; fr = 'Une erreur s''est produite lors de l''installation du pilote à partir de la distribution.'; en = 'An error occurred when installing the driver from the distribution.'; es = 'Se produjo un error al instalar el controlador desde la distribución.'")); 
 	КонецЕсли;
 
 КонецПроцедуры 

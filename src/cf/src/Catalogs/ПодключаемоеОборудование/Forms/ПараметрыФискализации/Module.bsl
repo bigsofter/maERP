@@ -22,11 +22,17 @@
 	Если Параметры.Свойство("ТипОперации") Тогда
 		ТипОперации = Параметры.ТипОперации;
 		Если ТипОперации = 1 Тогда
-			Заголовок = НСтр("ru = 'Регистрация фискального накопителя'; fr = ""Enregistrement d'un accumulateur fiscal""; es = 'Registro de la unidad fiscal'")
+			Заголовок = НСтр("ru = 'Регистрация фискального накопителя'; fr = 'Enregistrement d''un accumulateur fiscal';
+				|es = 'Registro de la unidad fiscal';
+				|en = 'Registration of a tax accumulator'")
 		ИначеЕсли ТипОперации = 3 Тогда
-			Заголовок = НСтр("ru = 'Закрытие фискального накопителя'; fr = ""Fermeture de l'accumulateur fiscal""; en = 'Closing the fiscal storage'; es = 'Cierre de la unidad fiscal'");
+			Заголовок = НСтр("ru = 'Закрытие фискального накопителя'; fr = 'Fermeture de l''accumulateur fiscal'; en = 'Closing the fiscal storage';
+				|es = 'Cierre de la unidad fiscal'");
 		Иначе
-			Заголовок = НСтр("ru = 'Изменение параметров регистрации фискального накопителя'; fr = ""Modification des paramètres d'enregistrement de la comptabilité fiscale""; en = 'Changing the registration parameters of a fiscal storage device'; es = 'Cambiar la configuración de registro de la unidad fiscal'");
+			Заголовок = НСтр("ru = 'Изменение параметров регистрации фискального накопителя';
+				|fr = 'Modification des paramètres d''enregistrement de la comptabilité fiscale';
+				|en = 'Changing the registration parameters of a fiscal storage device';
+				|es = 'Cambiar la configuración de registro de la unidad fiscal'");
 		КонецЕсли;
 		Элементы.ТипОперации.Видимость = Ложь;
 	Иначе
@@ -85,7 +91,10 @@
 		
 		Если РезультатВыполнения.Результат И ПараметрыККТ.ПризнакФискализации Тогда
 			Элементы.ОперацияПродолжить.Видимость = Ложь;
-			ТекстСообщения = НСтр("ru = 'Фискальный накопитель уже зарегистрирован. Воспользуйтесь функцией изменение параметров регистрации фискального накопителя.'; fr = ""Le stockage fiscal est déjà enregistré. Utilisez la fonction modifier les paramètres d'enregistrement du registre fiscal.""; en = 'The fiscal storage has already been registered. Use the function to change the registration parameters of the fiscal storage device.'; es = 'La unidad fiscal ya está registrada. Utilice la función cambiar los parámetros de registro de la unidad fiscal.'");
+			ТекстСообщения = НСтр("ru = 'Фискальный накопитель уже зарегистрирован. Воспользуйтесь функцией изменение параметров регистрации фискального накопителя.';
+				|fr = 'Le stockage fiscal est déjà enregistré. Utilisez la fonction modifier les paramètres d''enregistrement du registre fiscal.';
+				|en = 'The fiscal storage has already been registered. Use the function to change the registration parameters of the fiscal storage device.';
+				|es = 'La unidad fiscal ya está registrada. Utilice la función cambiar los parámetros de registro de la unidad fiscal.'");
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 			Возврат;
 		КонецЕсли;                                                            
@@ -117,7 +126,10 @@
 		СтатусСмены = РезультатВыполнения.ВыходныеПараметры[2];
 		Если СтатусСмены <> 1 Тогда
 			Элементы.ОперацияПродолжить.Видимость = Ложь;
-			ТекстСообщения = НСтр("ru = 'Операция доступна только при закрытой смене на фискальном устройстве. Закройте смену и повторите операцию.'; fr = ""L'opération n'est disponible qu'en cas de changement fermé sur l'appareil fiscal. Fermez le quart de travail et répétez l'opération.""; en = 'The operation is only available when the shift is closed on the fiscal device. Close the shift and repeat the operation.'; es = 'La operación solo está disponible con un cambio cerrado en el dispositivo fiscal. Cierre el turno y repita la operación.'");
+			ТекстСообщения = НСтр("ru = 'Операция доступна только при закрытой смене на фискальном устройстве. Закройте смену и повторите операцию.';
+				|fr = 'L''opération n''est disponible qu''en cas de changement fermé sur l''appareil fiscal. Fermez le quart de travail et répétez l''opération.';
+				|en = 'The operation is only available when the shift is closed on the fiscal device. Close the shift and repeat the operation.';
+				|es = 'La operación solo está disponible con un cambio cerrado en el dispositivo fiscal. Cierre el turno y repita la operación.'");
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		КонецЕсли; 
 	КонецЕсли; 
@@ -167,7 +179,8 @@
 		КодыСистемыУстановлен = КодыСистемыНалогообложения0 Или КодыСистемыНалогообложения1 Или КодыСистемыНалогообложения2 
 			Или КодыСистемыНалогообложения3 Или КодыСистемыНалогообложения4 Или КодыСистемыНалогообложения5;
 			Если Не КодыСистемыУстановлен Тогда
-				ПоказатьПредупреждение(, НСтр("ru = 'Не указан не один код налогообложения.'; fr = ""Aucun code fiscal n'est spécifié.""; en = 'More than one tax code is missing.'; es = 'No se especifica ningún código de impuestos.'"));
+				ПоказатьПредупреждение(, НСтр("ru = 'Не указан не один код налогообложения.'; fr = 'Aucun code fiscal n''est spécifié.';
+					|en = 'More than one tax code is missing.'; es = 'No se especifica ningún código de impuestos.'"));
 			Возврат;
 		КонецЕсли;
 	КонецЕсли;
@@ -232,7 +245,8 @@
 	Кассир = "";
 	ВыполненаСтандартнаяОбработка = Истина;
 	МенеджерОборудованияКлиентСерверПереопределяемый.ОбработкаЗаполненияИмяКассира(Кассир, ВыполненаСтандартнаяОбработка); 
-	ПараметрыНастройки.Кассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur'; en = 'Administrator'; es = 'Administrador'")); 
+	ПараметрыНастройки.Кассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur';
+		|en = 'Administrator'; es = 'Administrador'"));
 	
 	КассирИНН = "";
 	ВыполненаСтандартнаяОбработка = Истина;

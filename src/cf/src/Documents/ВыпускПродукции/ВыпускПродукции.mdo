@@ -68,6 +68,7 @@
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
   </standardAttributes>
+  <basedOn>Document.ЗаказПокупателя</basedOn>
   <createOnInput>DontUse</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
@@ -79,6 +80,14 @@
     <key>fr</key>
     <value>Fabrication</value>
   </objectPresentation>
+  <objectPresentation>
+    <key>en</key>
+    <value>Production output</value>
+  </objectPresentation>
+  <objectPresentation>
+    <key>es</key>
+    <value>Fabricación</value>
+  </objectPresentation>
   <listPresentation>
     <key>ru</key>
     <value>Выпуски продукции</value>
@@ -86,6 +95,14 @@
   <listPresentation>
     <key>fr</key>
     <value>Fabrications</value>
+  </listPresentation>
+  <listPresentation>
+    <key>en</key>
+    <value>Production outputs</value>
+  </listPresentation>
+  <listPresentation>
+    <key>es</key>
+    <value>Producciones</value>
   </listPresentation>
   <dataHistory>Use</dataHistory>
   <numberType>String</numberType>
@@ -100,6 +117,7 @@
   <registerRecords>InformationRegister.ЦеныНоменклатуры</registerRecords>
   <registerRecords>AccountingRegister.Хозрасчетный</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
+  <registerRecords>AccumulationRegister.ПотребностиПроизводства</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <choiceHistoryOnInput>DontUse</choiceHistoryOnInput>
@@ -112,6 +130,14 @@
     <synonym>
       <key>fr</key>
       <value>Quantité</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quantity</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad</value>
     </synonym>
     <type>
       <types>DefinedType.КоличествоНеотрицательное</types>
@@ -131,6 +157,14 @@
     <synonym>
       <key>fr</key>
       <value>Quantité d'emballages</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Number of packages</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Número de paquetes</value>
     </synonym>
     <type>
       <types>DefinedType.КоличествоНеотрицательное</types>
@@ -152,6 +186,14 @@
       <key>fr</key>
       <value>Commentaire</value>
     </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Comment</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comentario</value>
+    </synonym>
     <type>
       <types>DefinedType.Комментарий</types>
     </type>
@@ -166,11 +208,19 @@
     <name>МестоХранения</name>
     <synonym>
       <key>ru</key>
-      <value>Место хранения</value>
+      <value>Списать с</value>
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Entrepôt</value>
+      <value>Radier de</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Write off from</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Dar de baja de</value>
     </synonym>
     <type>
       <types>CatalogRef.МестаХранения</types>
@@ -186,11 +236,19 @@
     <name>МестоХраненияОприходование</name>
     <synonym>
       <key>ru</key>
-      <value>Место хранения оприходование</value>
+      <value>Оприходовать на</value>
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Entrepôt de réception</value>
+      <value>Réceptionner à</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Receive to</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Recibir en</value>
     </synonym>
     <type>
       <types>CatalogRef.МестаХранения</types>
@@ -211,6 +269,14 @@
     <synonym>
       <key>fr</key>
       <value>Article</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Item</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Artículo</value>
     </synonym>
     <type>
       <types>CatalogRef.Номенклатура</types>
@@ -294,7 +360,15 @@
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Entreprise</value>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
     </synonym>
     <type>
       <types>CatalogRef.Организации</types>
@@ -314,7 +388,7 @@
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Document de base</value>
+      <value>Base</value>
     </synonym>
     <synonym>
       <key>en</key>
@@ -326,6 +400,8 @@
     </synonym>
     <type>
       <types>DocumentRef.ЗаказПокупателя</types>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.ПередачаВПереработку</types>
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
@@ -334,6 +410,7 @@
       <field>Document.ВыпускПродукции.Attribute.Организация</field>
     </choiceParameterLinks>
     <fillValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
@@ -345,6 +422,14 @@
     </synonym>
     <synonym>
       <key>fr</key>
+      <value>Responsable</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Responsible</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
       <value>Responsable</value>
     </synonym>
     <type>
@@ -366,12 +451,48 @@
       <key>fr</key>
       <value>Série</value>
     </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Series</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Serie</value>
+    </synonym>
     <type>
       <types>CatalogRef.СерииНоменклатуры</types>
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="3777a207-bc0c-489c-801e-f84795114cfa">
+    <name>СозданАвтоматически</name>
+    <synonym>
+      <key>ru</key>
+      <value>Создан автоматически</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Créé automatiquement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Created automatically</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Creado automáticamente</value>
+    </synonym>
+    <comment>Выпуск создан механизмом автовыпуска, а не пользователем: правится только проведением своего основания</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
@@ -384,6 +505,14 @@
     <synonym>
       <key>fr</key>
       <value>Emballage</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Packaging</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Embalaje</value>
     </synonym>
     <type>
       <types>CatalogRef.УпаковкиЕдиницыИзмерения</types>
@@ -407,6 +536,14 @@
     <synonym>
       <key>fr</key>
       <value>Caractéristique</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Characteristic</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Característica</value>
     </synonym>
     <type>
       <types>CatalogRef.ХарактеристикиНоменклатуры</types>
@@ -435,6 +572,14 @@
       <key>fr</key>
       <value>Prix de vente TTC</value>
     </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Retail price</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Precio minorista</value>
+    </synonym>
     <type>
       <types>DefinedType.СуммаНеотрицательная</types>
     </type>
@@ -450,6 +595,18 @@
       <key>ru</key>
       <value>Форма документа</value>
     </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire du document</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Document form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario del documento</value>
+    </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
@@ -458,6 +615,18 @@
     <synonym>
       <key>ru</key>
       <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
@@ -471,6 +640,18 @@
     <synonym>
       <key>ru</key>
       <value>Товары</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Articles</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Goods</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Artículos</value>
     </synonym>
     <fillChecking>ShowError</fillChecking>
     <standardAttributes>
@@ -486,6 +667,18 @@
       <synonym>
         <key>ru</key>
         <value>Код строки</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code de ligne</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Line code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código de línea</value>
       </synonym>
       <type>
         <types>DefinedType.КодСтроки</types>
@@ -504,6 +697,14 @@
       <synonym>
         <key>fr</key>
         <value>Article</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Item</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Artículo</value>
       </synonym>
       <type>
         <types>CatalogRef.Номенклатура</types>
@@ -545,6 +746,14 @@
         <key>fr</key>
         <value>Caractéristique</value>
       </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Characteristic</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Característica</value>
+      </synonym>
       <type>
         <types>CatalogRef.ХарактеристикиНоменклатуры</types>
       </type>
@@ -567,6 +776,18 @@
         <key>ru</key>
         <value>Упаковка</value>
       </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Emballage</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Package</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Paquete</value>
+      </synonym>
       <type>
         <types>CatalogRef.УпаковкиЕдиницыИзмерения</types>
       </type>
@@ -588,6 +809,14 @@
       <synonym>
         <key>fr</key>
         <value>Série</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Series</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Serie</value>
       </synonym>
       <type>
         <types>CatalogRef.СерииНоменклатуры</types>
@@ -649,6 +878,14 @@
         <key>fr</key>
         <value>Quantité d'emballages</value>
       </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number of packages</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Número de paquetes</value>
+      </synonym>
       <type>
         <types>DefinedType.КоличествоНеотрицательное</types>
       </type>
@@ -667,6 +904,14 @@
       <synonym>
         <key>fr</key>
         <value>Quantité</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Quantity</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad</value>
       </synonym>
       <type>
         <types>DefinedType.КоличествоНеотрицательное</types>
@@ -687,6 +932,14 @@
         <key>fr</key>
         <value>Prix</value>
       </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Price</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Precio</value>
+      </synonym>
       <type>
         <types>DefinedType.СуммаНеотрицательная</types>
       </type>
@@ -704,6 +957,14 @@
       <synonym>
         <key>fr</key>
         <value>Montant</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Cost</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Coste</value>
       </synonym>
       <type>
         <types>Number</types>
@@ -724,8 +985,20 @@
         <key>ru</key>
         <value>Количество за единицу</value>
       </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Quantité par unité</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Quantity per unit</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad por unidad</value>
+      </synonym>
       <type>
-        <types>DefinedType.Количество</types>
+        <types>DefinedType.НормаРасхода</types>
       </type>
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
@@ -743,6 +1016,18 @@
       <key>ru</key>
       <value>Серии</value>
     </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Séries</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Series</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Series</value>
+    </synonym>
     <standardAttributes>
       <dataHistory>Use</dataHistory>
       <name>LineNumber</name>
@@ -756,6 +1041,18 @@
       <synonym>
         <key>ru</key>
         <value>Серия</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Série</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Series</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Serie</value>
       </synonym>
       <type>
         <types>CatalogRef.СерииНоменклатуры</types>
@@ -775,6 +1072,14 @@
         <key>fr</key>
         <value>Quantité</value>
       </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Quantity</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad</value>
+      </synonym>
       <type>
         <types>DefinedType.КоличествоНеотрицательное</types>
       </type>
@@ -793,6 +1098,14 @@
       <synonym>
         <key>fr</key>
         <value>Quantité d'emballages</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Number of packages</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Número de paquetes</value>
       </synonym>
       <type>
         <types>DefinedType.КоличествоНеотрицательное</types>
@@ -1046,25 +1359,4 @@
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
   </tabularSections>
-  <commands uuid="cb5aad8e-ef88-459f-8883-37e614cbf580">
-    <name>ВыпускПродукции</name>
-    <synonym>
-      <key>fr</key>
-      <value>Fabrications</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Production outputs</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Fabricaciones</value>
-    </synonym>
-    <synonym>
-      <key>ru</key>
-      <value>Выпуск продукции</value>
-    </synonym>
-    <group>NavigationPanelImportant</group>
-    <representation>Auto</representation>
-  </commands>
 </mdclass:Document>

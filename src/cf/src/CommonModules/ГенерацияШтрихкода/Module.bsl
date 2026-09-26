@@ -104,7 +104,7 @@
 	ВнешняяКомпонента = ГенерацияШтрихкодаСерверПовтИсп.ПодключитьКомпонентуГенерацииИзображенияШтрихкода(ТипПлатформыКомпоненты);
 	
 	Если ВнешняяКомпонента = Неопределено Тогда
-		ТекстСообщения = НСтр("fr = ""Erreur de connexion du composant d'impression de codes-barres externe.""; ru = 'Ошибка подключения внешней компоненты печати штрихкода.'; en = 'Error connecting an external barcode printing component.'; es = 'Error al conectar un componente de impresión de código de barras externo.'");
+		ТекстСообщения = НСтр("fr = 'Erreur de connexion du composant d''impression de codes-barres externe.'; ru = 'Ошибка подключения внешней компоненты печати штрихкода.'; en = 'Error connecting an external barcode printing component.'; es = 'Error al conectar un componente de impresión de código de barras externo.'");
 		ЗаписьЖурналаРегистрации(НСтр("fr = 'Erreur de génération de code-barres'; ru = 'Ошибка генерации штрихкода'; en = 'Barcode generation error'; es = 'Error de generación de código de barras'", 
 			ОбщегоНазначения.КодОсновногоЯзыка()),
 			УровеньЖурналаРегистрации.Ошибка,,, 

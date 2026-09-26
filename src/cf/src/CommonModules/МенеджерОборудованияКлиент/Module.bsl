@@ -114,7 +114,10 @@
 		Обработчик = Новый ОписаниеОповещения("ВыполнитьНастройкуОборудования_Завершение", ЭтотОбъект, ПараметрыКоманды);
 		ОткрытьФорму("ОбщаяФорма." + ФормаНастройки, ПараметрыФормы,,,  ,, Обработчик, РежимОткрытияОкнаФормы.БлокироватьВесьИнтерфейс);
 	Иначе
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Произошла ошибка инициализации формы настройки драйвера.'; fr = ""Une erreur s'est produite lors de l'initialisation du formulaire de configuration du pilote.""; en = 'An error occurred initializing the driver configuration form.'; es = 'Se ha producido un error al inicializar el formulario de configuración del controlador.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Произошла ошибка инициализации формы настройки драйвера.';
+			|fr = 'Une erreur s''est produite lors de l''initialisation du formulaire de configuration du pilote.';
+			|en = 'An error occurred initializing the driver configuration form.';
+			|es = 'Se ha producido un error al inicializar el formulario de configuración del controlador.'"));
 	КонецЕсли;
 	
 КонецПроцедуры
@@ -139,7 +142,9 @@
 		Если РезультатЗавершения Тогда 
 			ОбновитьПовторноИспользуемыеЗначения();
 		Иначе
-			СообщениеОбОшибке = НСтр("ru = 'Не удалось сохранить параметры устройства.'; fr = ""Impossible d'enregistrer les paramètres du périphérique.""; en = 'Device settings could not be saved.'; es = 'No se pudo guardar la configuración del dispositivo.'");
+			СообщениеОбОшибке = НСтр("ru = 'Не удалось сохранить параметры устройства.';
+				|fr = 'Impossible d''enregistrer les paramètres du périphérique.'; en = 'Device settings could not be saved.';
+				|es = 'No se pudo guardar la configuración del dispositivo.'");
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(СообщениеОбОшибке);
 		КонецЕсли;
 		
@@ -206,7 +211,8 @@
 
 Процедура ОбработкаОповещенияСообщенийФискализации(Сообщение, ДополнительныеПараметры) ЭКспорт
 	
-	Если СтрНачинаетсяС(Сообщение.Текст, НСтр("ru = 'Фискализация чека'; fr = 'Fiscalisation du chèque'; en = 'Fiscalization of the receipt'; es = 'Fiscalizar el cheque'")) Тогда
+	Если СтрНачинаетсяС(Сообщение.Текст, НСтр("ru = 'Фискализация чека'; fr = 'Fiscalisation du chèque'; en = 'Fiscalization of the receipt';
+		|es = 'Fiscalizar el cheque'")) Тогда
 		Оповестить("ФискализацияЧека", Сообщение.Текст);
 		ФискализацияЧековВОчереди();
 	КонецЕсли;
@@ -278,7 +284,9 @@
 			
 			Если НЕ ЗначениеЗаполнено(ИдентификаторУстройстваККТ) Тогда
 				СтатусЧека = ПредопределенноеЗначение("Перечисление.СтатусЧекаККТВОчереди.Ошибка");
-				ТекстСообщения = НСтр("ru = 'Нет доступных ККТ для фискализации чека.'; fr = ""Il n'y a pas de CCT disponible pour la fiscalisation du chèque.""; en = 'There are no available CCTS for fiscalizing the receipt.'; es = 'No hay CCT disponibles para fiscalizar el cheque.'");
+				ТекстСообщения = НСтр("ru = 'Нет доступных ККТ для фискализации чека.';
+					|fr = 'Il n''y a pas de CCT disponible pour la fiscalisation du chèque.';
+					|en = 'There are no available CCTS for fiscalizing the receipt.'; es = 'No hay CCT disponibles para fiscalizar el cheque.'");
 				МенеджерОборудованияВызовСервера.ЗаписатьСтатусЧекаВОчереди(ОбщиеПараметры, СтатусЧека, Неопределено, ТекстСообщения);
 			Иначе
 				СтатусЧека = ПредопределенноеЗначение("Перечисление.СтатусЧекаККТВОчереди.Фискализируется");
@@ -318,7 +326,8 @@
 	Кассир = "";
 	ВыполненаСтандартнаяОбработка = Истина; 
 	МенеджерОборудованияКлиентСерверПереопределяемый.ОбработкаЗаполненияИмяКассира(Кассир, ВыполненаСтандартнаяОбработка); 
-	Кассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur'; en = 'Administrator'; es = 'Administrador'")); 
+	Кассир = ?(Не ВыполненаСтандартнаяОбработка, Кассир, НСтр("ru = 'Администратор'; fr = 'Administrateur'; en = 'Administrator';
+		|es = 'Administrador'"));
 	
 	КассирИНН = "";
 	ВыполненаСтандартнаяОбработка = Истина;
@@ -453,7 +462,7 @@
 
 // Заполняет структуру выполнения операции на Оборудовании.
 // 
-Функция ПараметрыВыполненияОперацииНаОборудовании(Результат = Ложь, ОписаниеОшибки = Неопределено, ИдентификаторУстройства = Неопределено) Экспорт; 
+Функция ПараметрыВыполненияОперацииНаОборудовании(Результат = Ложь, ОписаниеОшибки = Неопределено, ИдентификаторУстройства = Неопределено) Экспорт;
 	
 	РезультатВыполнения = Новый Структура();
 	РезультатВыполнения.Вставить("Результат"              , Результат);
@@ -470,7 +479,10 @@
 	СообщениеНеПодключен = "", СообщениеНеВыбран = "", БезСообщений = Ложь, ТекстСообщения = "") Экспорт
 	
 	Если Не ОбновитьРабочееМестоКлиента() Тогда
-		ТекстСообщения = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.'; fr = ""Vous devez d'abord sélectionner le poste de travail du matériel enfichable de la session en cours.""; en = 'You must first select the workplace of the connected equipment of the current session.'; es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
+		ТекстСообщения = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.';
+			|fr = 'Vous devez d''abord sélectionner le poste de travail du matériel enfichable de la session en cours.';
+			|en = 'You must first select the workplace of the connected equipment of the current session.';
+			|es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
 		Если Не БезСообщений Тогда
 		      ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		КонецЕсли;
@@ -530,8 +542,10 @@
 	
 	ДиалогОткрытияФайла = Новый ДиалогВыбораФайла(РежимДиалогаВыбораФайла.Открытие);
 	ДиалогОткрытияФайла.МножественныйВыбор = Ложь;
-	ДиалогОткрытияФайла.Заголовок = НСтр("ru = 'Выберите файл драйвера'; fr = 'Sélectionnez le fichier de pilote'; en = 'Select the driver file'; es = 'Seleccione el archivo del controlador'");
-	ДиалогОткрытияФайла.Фильтр = НСтр("ru = 'Файл драйвера'; fr = 'Fichier de pilote'; en = 'The driver file'; es = 'Archivo de controlador'") + "(*.zip)|*.zip";  
+	ДиалогОткрытияФайла.Заголовок = НСтр("ru = 'Выберите файл драйвера'; fr = 'Sélectionnez le fichier de pilote';
+		|en = 'Select the driver file'; es = 'Seleccione el archivo del controlador'");
+	ДиалогОткрытияФайла.Фильтр = НСтр("ru = 'Файл драйвера'; fr = 'Fichier de pilote'; en = 'The driver file';
+		|es = 'Archivo de controlador'") + "(*.zip)|*.zip";
 	
 	Параметры = Новый Структура("СледующееОповещение", ОповещениеПриВыборе);
 	Оповещение = Новый ОписаниеОповещения("ВыборФайлаДрайвераЗавершение", ЭтотОбъект, Параметры);
@@ -652,7 +666,10 @@
 	Результат = ОбновитьРабочееМестоКлиента();
 	Если Не Результат Тогда
 		Если ОповещениеПриПодключении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.'; fr = ""Vous devez d'abord sélectionner le poste de travail du matériel enfichable de la session en cours.""; en = 'You must first select the workplace of the connected equipment of the current session.'; es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
+			ОписаниеОшибки = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.';
+				|fr = 'Vous devez d''abord sélectionner le poste de travail du matériel enfichable de la session en cours.';
+				|en = 'You must first select the workplace of the connected equipment of the current session.';
+				|es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
 			РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Результат, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(ОповещениеПриПодключении, РезультатВыполнения);
 		КонецЕсли;
@@ -700,7 +717,8 @@
 				Если ОбработчикДрайвераМодуль = Неопределено Тогда
 					// Сообщить об ошибке, что не удалось подключить обработчик.
 					Если ОповещениеПриПодключении <> Неопределено Тогда
-						ОписаниеОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.'; en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
+						ОписаниеОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.';
+							|en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
 						РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 						ВыполнитьОбработкуОповещения(ОповещениеПриПодключении, РезультатВыполнения);
 					КонецЕсли;
@@ -720,9 +738,12 @@
 							Если ОповещениеПриПодключении <> Неопределено Тогда
 								// Сообщить об ошибке, что не удалось загрузить драйвер.
 								ОписаниеОшибки = НСтр("ru = '%Наименование%: Не удалось загрузить драйвер устройства."
-"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.'; fr = '%Наименование%: impossible de charger le pilote de périphérique."
-"Vérifiez que le pilote est correctement installé et enregistré dans le système.'; en = '%Наименование%: The device driver could not be loaded."
-"Make sure that the driver is installed correctly and registered in the system.'; es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
+"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.';
+	|fr = '%Наименование%: impossible de charger le pilote de périphérique."
+"Vérifiez que le pilote est correctement installé et enregistré dans le système.';
+	|en = '%Наименование%: The device driver could not be loaded."
+"Make sure that the driver is installed correctly and registered in the system.';
+	|es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
 "Compruebe que el controlador está instalado y registrado correctamente en el sistema.'");
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%",НовоеПодключение.Наименование);
 								РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
@@ -747,7 +768,7 @@
 								МассивПараметровПодключения.Добавить(НовоеПодключение);
 								
 								Если ОповещениеПриПодключении <> Неопределено Тогда
-									ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+									ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 									РезультатВыполнения = Новый Структура("Результат, ОписаниеОшибки, ПараметрыПодключения", Истина, ОписаниеОшибки, НовоеПодключение.ПараметрыПодключения);
 									ВыполнитьОбработкуОповещения(ОповещениеПриПодключении, РезультатВыполнения);
 								КонецЕсли;
@@ -755,7 +776,10 @@
 							Иначе
 								// Сообщим пользователю о том, что не удалось подключить устройство.
 								Если ОповещениеПриПодключении <> Неопределено Тогда
-									ОписаниеОшибки = НСтр("ru = 'Не удалось подключить устройство ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'; fr = 'Impossible de connecter le périphérique "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'; es = 'No se pudo conectar el dispositivo "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'");
+									ОписаниеОшибки = НСтр("ru = 'Не удалось подключить устройство ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)';
+										|fr = 'Impossible de connecter le périphérique "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)';
+										|es = 'No se pudo conectar el dispositivo "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)';
+										|en = 'Failed to connect device ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'");
 									ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%"  , НовоеПодключение.Наименование);
 									ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", ВыходныеПараметры[1]);
 									ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%КодОшибки%"     , ВыходныеПараметры[0]);
@@ -775,7 +799,7 @@
 				МассивКлиентов.Добавить(ИдентификаторКлиента);
 				ПодключенноеУстройство.КоличествоПодключенных = ПодключенноеУстройство.КоличествоПодключенных + 1;
 				Если ОповещениеПриПодключении <> Неопределено Тогда
-					ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+					ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 					РезультатВыполнения = Новый Структура("Результат, ОписаниеОшибки, ПараметрыПодключения", Истина, ОписаниеОшибки, ПодключенноеУстройство.ПараметрыПодключения);
 					ВыполнитьОбработкуОповещения(ОповещениеПриПодключении, РезультатВыполнения);
 				КонецЕсли;
@@ -784,11 +808,15 @@
 		КонецЦикла;
 		
 	ИначеЕсли ИдентификаторУстройства <> Неопределено И ОповещениеПриПодключении <> Неопределено Тогда
-		ОписаниеОшибки =  НСтр("ru = 'Выбранное устройство не может использоваться для подключения. Укажите другое устройство.'; fr = ""L'appareil sélectionné ne peut pas être utilisé pour la connexion. Spécifiez un autre périphérique.""; en = 'The selected device cannot be used for connection. Specify another device.'; es = 'El dispositivo seleccionado no se puede utilizar para la conexión. Especifique otro dispositivo.'");
+		ОписаниеОшибки =  НСтр("ru = 'Выбранное устройство не может использоваться для подключения. Укажите другое устройство.';
+			|fr = 'L''appareil sélectionné ne peut pas être utilisé pour la connexion. Spécifiez un autre périphérique.';
+			|en = 'The selected device cannot be used for connection. Specify another device.';
+			|es = 'El dispositivo seleccionado no se puede utilizar para la conexión. Especifique otro dispositivo.'");
 		РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 		ВыполнитьОбработкуОповещения(ОповещениеПриПодключении, РезультатВыполнения);
 	ИначеЕсли ТипыПО = Неопределено И ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки =  НСтр("ru = 'Нет доступного оборудования для подключения.'; fr = 'Aucun matériel de connexion disponible.'; en = 'There is no available hardware to connect to.'; es = 'No hay hardware disponible para conectar.'");
+		ОписаниеОшибки =  НСтр("ru = 'Нет доступного оборудования для подключения.'; fr = 'Aucun matériel de connexion disponible.';
+			|en = 'There is no available hardware to connect to.'; es = 'No hay hardware disponible para conectar.'");
 		РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 		ВыполнитьОбработкуОповещения(ОповещениеПриПодключении, РезультатВыполнения);
 	КонецЕсли;
@@ -802,9 +830,12 @@
 		Если Параметры.ОповещениеПриПодключении <> Неопределено Тогда
 			// Сообщить об ошибке, что не удалось загрузить драйвер.
 			ОписаниеОшибки = НСтр("ru = '%Наименование%: Не удалось загрузить драйвер устройства."
-"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.'; fr = '%Наименование%: impossible de charger le pilote de périphérique."
-"Vérifiez que le pilote est correctement installé et enregistré dans le système.'; en = '%Наименование%: The device driver could not be loaded."
-"Make sure that the driver is installed correctly and registered in the system.'; es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
+"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.';
+	|fr = '%Наименование%: impossible de charger le pilote de périphérique."
+"Vérifiez que le pilote est correctement installé et enregistré dans le système.';
+	|en = '%Наименование%: The device driver could not be loaded."
+"Make sure that the driver is installed correctly and registered in the system.';
+	|es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
 "Compruebe que el controlador está instalado y registrado correctamente en el sistema.'");
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%", Параметры.НовоеПодключение.Наименование);
 			РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
@@ -840,14 +871,17 @@
 		КонецЕсли;
 		глПодключаемоеОборудование.ПараметрыПодключенияПО.Добавить(Параметры.НовоеПодключение);
 		Если Параметры.ОповещениеПриПодключении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+			ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 			РезультатВыполнения = Новый Структура("Результат, ОписаниеОшибки, ПараметрыПодключения", Истина, ОписаниеОшибки, Параметры.НовоеПодключение.ПараметрыПодключения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриПодключении, РезультатВыполнения);
 		КонецЕсли;
 	Иначе
 		// Сообщим пользователю о том, что не удалось подключить устройство.
 		Если Параметры.ОповещениеПриПодключении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Не удалось подключить устройство ""%Наименование%"": %ОписаниеОшибки%'; fr = 'Impossible de connecter le périphérique "" %Наименование%"": %ОписаниеОшибки%'; en = 'Failed to connect the device ""%Наименование%"": %ОписаниеОшибки%'; es = 'No se pudo conectar el dispositivo "" %Наименование%"": %ОписаниеОшибки%'");
+			ОписаниеОшибки = НСтр("ru = 'Не удалось подключить устройство ""%Наименование%"": %ОписаниеОшибки%';
+				|fr = 'Impossible de connecter le périphérique "" %Наименование%"": %ОписаниеОшибки%';
+				|en = 'Failed to connect the device ""%Наименование%"": %ОписаниеОшибки%';
+				|es = 'No se pudo conectar el dispositivo "" %Наименование%"": %ОписаниеОшибки%'");
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%"  , Параметры.НовоеПодключение.Наименование);
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", РезультатВыполнения.ВыходныеПараметры[1]);
 			РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
@@ -895,7 +929,8 @@
 					Если ОбработчикДрайвераМодуль = Неопределено Тогда
 						// Сообщить об ошибке, что не удалось подключить обработчик.
 						Если ОповещениеПриОтключении <> Неопределено Тогда
-							ОписаниеОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.'; en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
+							ОписаниеОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.';
+								|en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
 							РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 							ВыполнитьОбработкуОповещения(ОповещениеПриОтключении, РезультатВыполнения);
 						КонецЕсли;
@@ -905,9 +940,12 @@
 							Если ОповещениеПриОтключении <> Неопределено Тогда
 								// Сообщить об ошибке, что не удалось загрузить драйвер.
 								ОписаниеОшибки = НСтр("ru = '%Наименование%: Не удалось загрузить драйвер устройства."
-"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.'; fr = '%Наименование%: impossible de charger le pilote de périphérique."
-"Vérifiez que le pilote est correctement installé et enregistré dans le système.'; en = '%Наименование%: The device driver could not be loaded."
-"Make sure that the driver is installed correctly and registered in the system.'; es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
+"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.';
+	|fr = '%Наименование%: impossible de charger le pilote de périphérique."
+"Vérifiez que le pilote est correctement installé et enregistré dans le système.';
+	|en = '%Наименование%: The device driver could not be loaded."
+"Make sure that the driver is installed correctly and registered in the system.';
+	|es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
 "Compruebe que el controlador está instalado y registrado correctamente en el sistema.'");
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%", ПодключенноеУстройство.Наименование);
 								РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
@@ -929,7 +967,10 @@
 								Если НЕ Результат Тогда
 									// Сообщим пользователю о том, что не удалось подключить устройство.
 									Если ОповещениеПриОтключении <> Неопределено Тогда
-										ОписаниеОшибки = НСтр("ru = 'При отключении устройства ""%Наименование%"" произошла ошибка: %ОписаниеОшибки%'; fr = 'Une erreur s''est produite lors de la déconnexion de l''appareil ""%Наименование%"": % Descriptionerreur%'; en = 'An error occurred when disconnecting the device ""%Наименование%"": %ОписаниеОшибкиreferences%'; es = 'Se produjo un error al desconectar el dispositivo ""%Наименование%"": %ОписаниеОшибки%'");
+										ОписаниеОшибки = НСтр("ru = 'При отключении устройства ""%Наименование%"" произошла ошибка: %ОписаниеОшибки%';
+											|fr = 'Une erreur s''est produite lors de la déconnexion de l''appareil ""%Наименование%"": % Descriptionerreur%';
+											|en = 'An error occurred when disconnecting the device ""%Наименование%"": %ОписаниеОшибкиreferences%';
+											|es = 'Se produjo un error al desconectar el dispositivo ""%Наименование%"": %ОписаниеОшибки%'");
 										ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%"  , ПодключенноеУстройство.Наименование);
 										ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", ВыходныеПараметры[1]);
 										РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
@@ -945,7 +986,7 @@
 								КонецЕсли;
 								
 								Если ОповещениеПриОтключении <> Неопределено Тогда
-									ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+									ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 									РезультатВыполнения = Новый Структура("Результат, ОписаниеОшибки", Истина, ОписаниеОшибки);
 									ВыполнитьОбработкуОповещения(ОповещениеПриОтключении, РезультатВыполнения);
 								КонецЕсли;
@@ -981,14 +1022,17 @@
 			глПодключаемоеОборудование.ПараметрыПодключенияПО.Удалить(НомерСтрокиМассива);
 		КонецЕсли;
 		Если Параметры.ОповещениеПриОтключении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+			ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 			РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Истина, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриОтключении, РезультатВыполнения);
 		КонецЕсли;
 	Иначе
 		// Сообщим пользователю о том, что не удалось подключить устройство.
 		Если Параметры.ОповещениеПриОтключении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'При отключении устройства ""%Наименование%"" произошла ошибка.'; fr = 'Une erreur s''est produite lors de la déconnexion de l''appareil ""%Наименование%"".'; en = 'An error occurred when disconnecting the device ""%Наименование%"".'; es = 'Se produjo un error al desconectar el dispositivo ""%Наименование%"".'");
+			ОписаниеОшибки = НСтр("ru = 'При отключении устройства ""%Наименование%"" произошла ошибка.';
+				|fr = 'Une erreur s''est produite lors de la déconnexion de l''appareil ""%Наименование%"".';
+				|en = 'An error occurred when disconnecting the device ""%Наименование%"".';
+				|es = 'Se produjo un error al desconectar el dispositivo ""%Наименование%"".'");
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%"  , Параметры.ПодключенноеУстройство.Наименование);
 			РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриОтключении, РезультатВыполнения);
@@ -1043,7 +1087,10 @@
 Процедура НачатьОтключениеВсегоОборудованияЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
 	Если НЕ РезультатВыполнения.Результат Тогда
-		ТекстСообщения = НСтр("ru = 'При отключении оборудования произошла ошибка: ""%ОписаниеОшибки%"".'; fr = 'Une erreur s''est produite lors de la déconnexion du matériel: ""%ОписаниеОшибки%"".'; es = 'Se produjo un error al desconectar el hardware: ""%ОписаниеОшибки%"".'");
+		ТекстСообщения = НСтр("ru = 'При отключении оборудования произошла ошибка: ""%ОписаниеОшибки%"".';
+			|fr = 'Une erreur s''est produite lors de la déconnexion du matériel: ""%ОписаниеОшибки%"".';
+			|es = 'Se produjo un error al desconectar el hardware: ""%ОписаниеОшибки%"".';
+			|en = 'An error occurred when disconnecting the equipment: ""%ОписаниеОшибки%"".'");
 		ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ОписаниеОшибки%" , РезультатВыполнения.ОписаниеОшибки);
 		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 	КонецЕсли;
@@ -1076,7 +1123,10 @@
 
 	Результат = ОбновитьРабочееМестоКлиента();
 	Если Не Результат Тогда
-		ОписаниеОшибки = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.'; fr = ""Vous devez d'abord sélectionner le poste de travail du matériel enfichable de la session en cours.""; en = 'You must first select the workplace of the connected equipment of the current session.'; es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
+		ОписаниеОшибки = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.';
+			|fr = 'Vous devez d''abord sélectionner le poste de travail du matériel enfichable de la session en cours.';
+			|en = 'You must first select the workplace of the connected equipment of the current session.';
+			|es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
 		Возврат Ложь;
 	КонецЕсли;
 	
@@ -1094,9 +1144,12 @@
 					// Сообщить об ошибке, что не удалось загрузить драйвер.
 					ОписаниеОшибки = ОписаниеОшибки + ?(ПустаяСтрока(ОписаниеОшибки), "", Символы.ПС)
 								   + НСтр("ru = '%Наименование%: Не удалось загрузить драйвер устройства."
-"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.'; fr = '%Наименование%: impossible de charger le pilote de périphérique."
-"Vérifiez que le pilote est correctement installé et enregistré dans le système.'; en = '%Наименование%: The device driver could not be loaded."
-"Make sure that the driver is installed correctly and registered in the system.'; es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
+"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.';
+	|fr = '%Наименование%: impossible de charger le pilote de périphérique."
+"Vérifiez que le pilote est correctement installé et enregistré dans le système.';
+	|en = '%Наименование%: The device driver could not be loaded."
+"Make sure that the driver is installed correctly and registered in the system.';
+	|es = '%Наименование%: No se pudo cargar el controlador del dispositivo."
 "Compruebe que el controlador está instalado y registrado correctamente en el sistema.'");
 					ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%", Устройство.Наименование);
 					КонечныйРезультат = Ложь;
@@ -1130,7 +1183,9 @@
 				
 				Если ОбработчикДрайвераМодуль = Неопределено Тогда
 					// Сообщить об ошибке, что не удалось загрузить драйвер.
-					ОписаниеОшибки = ОписаниеОшибки +  НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.'; en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
+					ОписаниеОшибки = ОписаниеОшибки +  НСтр("ru = 'Не удалось подключить обработчик драйвера.';
+						|fr = 'Impossible de monter le gestionnaire de pilote.'; en = 'The driver handler could not be connected.';
+						|es = 'No se pudo conectar el controlador del controlador.'");
 					КонечныйРезультат = Ложь;
 					Продолжить;
 				Иначе
@@ -1159,7 +1214,10 @@
 				Иначе
 					// Сообщим пользователю о том, что не удалось подключить устройство.
 					ОписаниеОшибки = ОписаниеОшибки + ?(ПустаяСтрока(ОписаниеОшибки), "", Символы.ПС)
-								   + НСтр("ru = 'Не удалось подключить устройство ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'; fr = 'Impossible de connecter le périphérique "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'; es = 'No se pudo conectar el dispositivo "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'");
+								   + НСтр("ru = 'Не удалось подключить устройство ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)';
+								   	|fr = 'Impossible de connecter le périphérique "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)';
+								   	|es = 'No se pudo conectar el dispositivo "" %Наименование%"": %ОписаниеОшибки% (%КодОшибки%)';
+								   	|en = 'Failed to connect device ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'");
 					ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%"  , Устройство.Наименование);
 					ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", ВыходныеПараметры[1]);
 					ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%КодОшибки%"     , ВыходныеПараметры[0]);
@@ -1182,7 +1240,8 @@
 "Especifique otro dispositivo.'");
 		КонечныйРезультат = Ложь;
 	ИначеЕсли ТипыПО = Неопределено И ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Нет доступного оборудования для подключения.'; fr = 'Aucun matériel de connexion disponible.'; en = 'There is no available hardware to connect to.'; es = 'No hay hardware disponible para conectar.'");
+		ОписаниеОшибки = НСтр("ru = 'Нет доступного оборудования для подключения.'; fr = 'Aucun matériel de connexion disponible.';
+			|en = 'There is no available hardware to connect to.'; es = 'No hay hardware disponible para conectar.'");
 		КонечныйРезультат = Ложь;
 	КонецЕсли;
 	
@@ -1211,7 +1270,7 @@
 		КоличествоУстройств = глПодключаемоеОборудование.ПараметрыПодключенияПО.Количество();
 		Для Индекс = 1 По КоличествоУстройств Цикл
 			
-			ПодключенноеУстройство = глПодключаемоеОборудование.ПараметрыПодключенияПО[КоличествоУстройств - Индекс]; //СправочникСсылка.ПодключаемоеОборудование - 
+			ПодключенноеУстройство = глПодключаемоеОборудование.ПараметрыПодключенияПО[КоличествоУстройств - Индекс]; //СправочникСсылка.ПодключаемоеОборудование -
 			КлиентПодключения = ПодключенноеУстройство.Клиенты.Найти(ИдентификаторКлиента);
 			
 			Если КлиентПодключения <> Неопределено  И (ТипыПО = Неопределено Или ТипыПО.Найти(ПодключенноеУстройство.ТипОборудованияИмя) <> Неопределено)
@@ -1222,9 +1281,12 @@
 					Если ПодключенноеУстройство.ОбъектДрайвера = Неопределено Тогда
 						// Сообщить об ошибке, что не удалось загрузить драйвер.
 						ОписаниеОшибки = НСтр("ru = '""%Наименование%"": Не удалось загрузить драйвер устройства."
-"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.'; fr = '""%Наименование%"": impossible de charger le pilote de périphérique."
-"Vérifiez que le pilote est correctement installé et enregistré dans le système.'; en = '""%Наименование%"": The device driver could not be loaded."
-"Make sure that the driver is installed correctly and registered in the system.'; es = '""%Наименование%"": No se pudo cargar el controlador del dispositivo."
+"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.';
+	|fr = '""%Наименование%"": impossible de charger le pilote de périphérique."
+"Vérifiez que le pilote est correctement installé et enregistré dans le système.';
+	|en = '""%Наименование%"": The device driver could not be loaded."
+"Make sure that the driver is installed correctly and registered in the system.';
+	|es = '""%Наименование%"": No se pudo cargar el controlador del dispositivo."
 "Compruebe que el controlador está instalado y registrado correctamente en el sistema.'");
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%", ПодключенноеУстройство.Наименование);
 						КонечныйРезультат = Ложь;
@@ -1243,7 +1305,10 @@
 					Результат = ОбработчикДрайвераМодуль.ОтключитьУстройство(ПодключенноеУстройство.ОбъектДрайвера, ПодключенноеУстройство.Параметры, ПодключенноеУстройство.ПараметрыПодключения, ВыходныеПараметры);
 					Если НЕ Результат Тогда
 						ОписаниеОшибки = ОписаниеОшибки + ?(ПустаяСтрока(ОписаниеОшибки), "", Символы.ПС)
-									   + НСтр("ru = 'При отключении устройства ""%Наименование%"" произошла ошибка: %ОписаниеОшибки% (%КодОшибки%)'; fr = 'Une erreur s''est produite lors de la déconnexion de l''appareil ""%Nom%"": %ОписаниеОшибки% (%КодОшибки%)'; en = 'When disconnecting the device ""%Наименование%"", an error occurred: %ОписаниеОшибки% (%КодОшибки%)'; es = 'Se produjo un error al desconectar el dispositivo ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'");
+									   + НСтр("ru = 'При отключении устройства ""%Наименование%"" произошла ошибка: %ОписаниеОшибки% (%КодОшибки%)';
+									   	|fr = 'Une erreur s''est produite lors de la déconnexion de l''appareil ""%Nom%"": %ОписаниеОшибки% (%КодОшибки%)';
+									   	|en = 'When disconnecting the device ""%Наименование%"", an error occurred: %ОписаниеОшибки% (%КодОшибки%)';
+									   	|es = 'Se produjo un error al desconectar el dispositivo ""%Наименование%"": %ОписаниеОшибки% (%КодОшибки%)'");
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%", ПодключенноеУстройство.Наименование);
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", ВыходныеПараметры[1]);
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%КодОшибки%", ВыходныеПараметры[0]);
@@ -1284,9 +1349,12 @@
 		Если ОбъектДрайвера = Неопределено Тогда
 			// Сообщить об ошибке, что не удалось загрузить драйвер.
 			ОписаниеОшибки = НСтр("ru = '""%Наименование%"": Не удалось загрузить драйвер устройства."
-"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.'; fr = '""%Наименование%"": impossible de charger le pilote de périphérique."
-"Vérifiez que le pilote est correctement installé et enregistré dans le système.'; en = '""%Наименование%"": The device driver could not be loaded."
-"Make sure that the driver is installed correctly and registered in the system.'; es = '""%Наименование%"": No se pudo cargar el controlador del dispositivo."
+"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.';
+	|fr = '""%Наименование%"": impossible de charger le pilote de périphérique."
+"Vérifiez que le pilote est correctement installé et enregistré dans le système.';
+	|en = '""%Наименование%"": The device driver could not be loaded."
+"Make sure that the driver is installed correctly and registered in the system.';
+	|es = '""%Наименование%"": No se pudo cargar el controlador del dispositivo."
 "Compruebe que el controlador está instalado y registrado correctamente en el sistema.'");
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%", ПодключенноеУстройство.Наименование);
 			ВыходныеПараметры = Новый Массив();
@@ -1296,7 +1364,8 @@
 			Параметры            = ПодключенноеУстройство.Параметры;
 			ПараметрыПодключения = ПодключенноеУстройство.ПараметрыПодключения;
 			Если ОбработчикДрайвераМодуль = Неопределено Тогда
-				ТекстСообщения = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.'; en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
+				ТекстСообщения = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.';
+					|en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
 				ВыходныеПараметры = Новый Массив();
 				ВыходныеПараметры.Добавить(999);
 				ВыходныеПараметры.Добавить(ТекстСообщения);
@@ -1316,7 +1385,10 @@
 	Иначе
 		// Сообщить об ошибке, что устройство не подключено.
 		ВыходныеПараметры = Новый Массив();
-		ТекстСообщения = НСтр("ru = 'Устройство не подключено. Перед выполнением операции устройство должно быть подключено.'; fr = ""L'appareil n'est pas connecté. L'appareil doit être connecté avant d'effectuer l'opération.""; en = 'The device is not connected. The device must be connected before performing the operation.'; es = 'El dispositivo no está conectado. Antes de realizar la operación, el dispositivo debe estar conectado.'");
+		ТекстСообщения = НСтр("ru = 'Устройство не подключено. Перед выполнением операции устройство должно быть подключено.';
+			|fr = 'L''appareil n''est pas connecté. L''appareil doit être connecté avant d''effectuer l''opération.';
+			|en = 'The device is not connected. The device must be connected before performing the operation.';
+			|es = 'El dispositivo no está conectado. Antes de realizar la operación, el dispositivo debe estar conectado.'");
 		ВыходныеПараметры.Добавить(999);
 		ВыходныеПараметры.Добавить(ТекстСообщения);
 	КонецЕсли;
@@ -1370,7 +1442,8 @@
 			ОбработчикДрайвераМодуль = МенеджерОборудованияКлиентПовтИсп.ПолучитьОбработчикДрайвера(ДанныеОборудования.ОбработчикДрайвера, Не ДанныеОборудования.ВСоставеКонфигурации, ДанныеОборудования.ТипОборудованияИмя);
 			Если ОбработчикДрайвераМодуль = Неопределено Тогда
 				// Сообщить об ошибке, что не удалось загрузить драйвер.
-				ТекстСообщения = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.'; en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
+				ТекстСообщения = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.';
+					|en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
 				ВыходныеПараметры = Новый Массив();
 				ВыходныеПараметры.Добавить(999);
 				ВыходныеПараметры.Добавить(ТекстСообщения);
@@ -1392,7 +1465,10 @@
 		КонецЕсли;
 	Иначе
 		// Сообщить об ошибке, что устройство подключено.
-		ТекстСообщения = НСтр("ru = 'Устройство подключено. Перед выполнением операции устройство должно быть отключено.'; fr = ""L'appareil est connecté. L'appareil doit être déconnecté avant d'effectuer l'opération.""; en = 'The device is connected. The device must be turned off before performing the operation.'; es = 'El dispositivo está conectado. Antes de realizar la operación, el dispositivo debe estar apagado.'");
+		ТекстСообщения = НСтр("ru = 'Устройство подключено. Перед выполнением операции устройство должно быть отключено.';
+			|fr = 'L''appareil est connecté. L''appareil doit être déconnecté avant d''effectuer l''opération.';
+			|en = 'The device is connected. The device must be turned off before performing the operation.';
+			|es = 'El dispositivo está conectado. Antes de realizar la operación, el dispositivo debe estar apagado.'");
 		ВыходныеПараметры = Новый Массив();
 		ВыходныеПараметры.Добавить(999);
 		ВыходныеПараметры.Добавить(ТекстСообщения);
@@ -1453,7 +1529,10 @@
 Процедура ПодключитьОборудованиеЗавершениеПоУмолчанию(РезультатВыполнения, Параметры) Экспорт
 	
 	Если НЕ РезультатВыполнения.Результат Тогда
-		ТекстСообщения = НСтр("ru = 'При подключении оборудования произошла ошибка:""%ОписаниеОшибки%"".'; en = 'An error occurred when connecting the equipment: ""%ОписаниеОшибки%"".'; es = 'Se produjo un error al conectar el hardware: ""%ОписаниеОшибки%"".'");
+		ТекстСообщения = НСтр("ru = 'При подключении оборудования произошла ошибка:""%ОписаниеОшибки%"".';
+			|en = 'An error occurred when connecting the equipment: ""%ОписаниеОшибки%"".';
+			|es = 'Se produjo un error al conectar el hardware: ""%ОписаниеОшибки%"".';
+			|fr = 'Une erreur s''est produite lors de la connexion de l''équipement :""%ОписаниеОшибки%"".'");
 		ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ОписаниеОшибки%" , РезультатВыполнения.ОписаниеОшибки);
 		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 	КонецЕсли;
@@ -1475,7 +1554,10 @@
 Процедура ОтключитьОборудованиеЗавершениеПоУмолчанию(РезультатВыполнения, Параметры) Экспорт
 	
 	Если НЕ РезультатВыполнения.Результат Тогда
-		ТекстСообщения = НСтр("ru = 'При отключении оборудования произошла ошибка: ""%ОписаниеОшибки%"".'; fr = 'Une erreur s''est produite lors de la déconnexion du matériel: ""%ОписаниеОшибки%"".'; es = 'Se produjo un error al desconectar el hardware: ""%ОписаниеОшибки%"".'");
+		ТекстСообщения = НСтр("ru = 'При отключении оборудования произошла ошибка: ""%ОписаниеОшибки%"".';
+			|fr = 'Une erreur s''est produite lors de la déconnexion du matériel: ""%ОписаниеОшибки%"".';
+			|es = 'Se produjo un error al desconectar el hardware: ""%ОписаниеОшибки%"".';
+			|en = 'An error occurred when disconnecting the equipment: ""%ОписаниеОшибки%"".'");
 		ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ОписаниеОшибки%" , РезультатВыполнения.ОписаниеОшибки);
 		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 	КонецЕсли;
@@ -1554,7 +1636,10 @@
 	
 	Если Не Подключено И ДополнительныеПараметры.ПредлагатьУстановку Тогда
 		Оповещение = Новый ОписаниеОповещения("НачатьУстановкуРасширенияРаботыСФайламиЗавершение", ЭтотОбъект, ДополнительныеПараметры);
-		ТекстСообщения = НСтр("ru = 'Для продолжении работы необходимо установить расширение для веб-клиента ""1С:Предприятие"". Установить?'; fr = 'Pour continuer à travailler, vous devez installer l''extension pour le client Web ""1C: Enterprise"". Installer?'; en = 'To continue working, you need to install the extension for the 1C web client.:The enterprise"". Install it?'; es = 'Para continuar, debe instalar la extensión para el cliente web ""1C: Enterprise"". Instalar?'");
+		ТекстСообщения = НСтр("ru = 'Для продолжении работы необходимо установить расширение для веб-клиента ""1С:Предприятие"". Установить?';
+			|fr = 'Pour continuer à travailler, vous devez installer l''extension pour le client Web ""1C: Enterprise"". Installer?';
+			|en = 'To continue working, you need to install the extension for the 1C web client.:The enterprise"". Install it?';
+			|es = 'Para continuar, debe instalar la extensión para el cliente web ""1C: Enterprise"". Instalar?'");
 		ПоказатьВопрос(Оповещение, ТекстСообщения, РежимДиалогаВопрос.ДаНет); 
 	КонецЕсли;
 	
@@ -1726,7 +1811,10 @@
 		Если ДанныеДрайвера.ВСоставеКонфигурации Тогда
 			
 			Если ДанныеДрайвера.ПоставляетсяДистрибутивом Тогда
-				ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Данный драйвер не может быть установлен из дистрибутива.'; fr = 'Ce pilote ne peut pas être installé à partir de la distribution.'; en = 'This driver cannot be installed from the distribution package.'; es = 'Este controlador no se puede instalar desde la distribución.'")); 
+				ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Данный драйвер не может быть установлен из дистрибутива.';
+					|fr = 'Ce pilote ne peut pas être installé à partir de la distribution.';
+					|en = 'This driver cannot be installed from the distribution package.';
+					|es = 'Este controlador no se puede instalar desde la distribución.'"));
 			Иначе
 				НачатьУстановкуВнешнейКомпоненты(ОповещениеИзАрхиваПриЗавершении, "ОбщийМакет." + ДанныеДрайвера.ИмяМакетаДрайвера);
 			КонецЕсли;
@@ -1734,7 +1822,9 @@
 		Иначе
 			
 			Если ДанныеДрайвера.ПоставляетсяДистрибутивом Тогда
-				ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Данный драйвер не может быть установлен и использован.'; fr = 'Ce pilote ne peut pas être installé et utilisé.'; en = 'This driver cannot be installed and used.'; es = 'Este controlador no se puede instalar y utilizar.'")); 
+				ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Данный драйвер не может быть установлен и использован.';
+					|fr = 'Ce pilote ne peut pas être installé et utilisé.'; en = 'This driver cannot be installed and used.';
+					|es = 'Este controlador no se puede instalar y utilizar.'"));
 			Иначе
 				СсылкаНаДрайвер = ПолучитьНавигационнуюСсылку(ДанныеДрайвера.ДрайверОборудования, "ЗагруженныйДрайвер");
 				НачатьУстановкуВнешнейКомпоненты(ОповещениеИзАрхиваПриЗавершении, СсылкаНаДрайвер);
@@ -1743,7 +1833,9 @@
 		КонецЕсли;
 		
 	Исключение
-		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Произошла ошибка при установке драйвера.'; fr = ""Une erreur s'est produite lors de l'installation du pilote.""; en = 'An error occurred when installing the driver.'; es = 'Se produjo un error al instalar el controlador.'")); 
+		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(НСтр("ru = 'Произошла ошибка при установке драйвера.';
+			|fr = 'Une erreur s''est produite lors de l''installation du pilote.'; en = 'An error occurred when installing the driver.';
+			|es = 'Se produjo un error al instalar el controlador.'"));
 	КонецПопытки;  
 		
 КонецПроцедуры
@@ -1765,7 +1857,10 @@
 		ОбъектДрайвера = ПодключенноеУстройство.ОбъектДрайвера;
 		Если ОбработчикДрайвераМодуль = Неопределено Или ОбъектДрайвера = Неопределено Тогда
 			// Сообщить об ошибке, что не удалось загрузить драйвер.
-			ТекстОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера или загрузить драйвер.'; fr = 'Impossible de monter le gestionnaire de pilote ou de charger le pilote.'; en = 'The driver handler could not be connected or the driver loaded.'; es = 'No se pudo conectar el controlador del controlador ni cargar el controlador.'");
+			ТекстОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера или загрузить драйвер.';
+				|fr = 'Impossible de monter le gestionnaire de pilote ou de charger le pilote.';
+				|en = 'The driver handler could not be connected or the driver loaded.';
+				|es = 'No se pudo conectar el controlador del controlador ni cargar el controlador.'");
 			РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании();
 			РезультатВыполнения.Результат = Ложь;
 			РезультатВыполнения.ОписаниеОшибки = ТекстОшибки; 
@@ -1795,7 +1890,10 @@
 		КонецЕсли;
 	Иначе
 		// Сообщить об ошибке, что устройство не подключено.
-		ТекстОшибки = НСтр("ru = 'Устройство не подключено. Перед выполнением операции устройство должно быть подключено.'; fr = ""L'appareil n'est pas connecté. L'appareil doit être connecté avant d'effectuer l'opération.""; en = 'The device is not connected. The device must be connected before performing the operation.'; es = 'El dispositivo no está conectado. Antes de realizar la operación, el dispositivo debe estar conectado.'");
+		ТекстОшибки = НСтр("ru = 'Устройство не подключено. Перед выполнением операции устройство должно быть подключено.';
+			|fr = 'L''appareil n''est pas connecté. L''appareil doit être connecté avant d''effectuer l''opération.';
+			|en = 'The device is not connected. The device must be connected before performing the operation.';
+			|es = 'El dispositivo no está conectado. Antes de realizar la operación, el dispositivo debe estar conectado.'");
 		РезультатВыполнения = ПараметрыВыполненияОперацииНаОборудовании();
 		РезультатВыполнения.Результат = Ложь;
 		РезультатВыполнения.ОписаниеОшибки = ТекстОшибки; 
@@ -1823,7 +1921,10 @@
 		НачатьПолучениеОбъектаДрайвера(Оповещение, ДанныеОборудования);
 	Иначе
 		// Сообщить об ошибке, что устройство подключено.
-		ТекстОшибки = НСтр("ru = 'Устройство подключено. Перед выполнением операции устройство должно быть отключено.'; fr = ""L'appareil est connecté. L'appareil doit être déconnecté avant d'effectuer l'opération.""; en = 'The device is connected. The device must be turned off before performing the operation.'; es = 'El dispositivo está conectado. Antes de realizar la operación, el dispositivo debe estar apagado.'");
+		ТекстОшибки = НСтр("ru = 'Устройство подключено. Перед выполнением операции устройство должно быть отключено.';
+			|fr = 'L''appareil est connecté. L''appareil doit être déconnecté avant d''effectuer l''opération.';
+			|en = 'The device is connected. The device must be turned off before performing the operation.';
+			|es = 'El dispositivo está conectado. Antes de realizar la operación, el dispositivo debe estar apagado.'");
 		ВыходныеПараметры = Новый Массив();
 		ВыходныеПараметры.Добавить(999);
 		ВыходныеПараметры.Добавить(ТекстОшибки);
@@ -1865,7 +1966,8 @@
 		
 		Если ОбработчикДрайвераМодуль = Неопределено Тогда
 			// Сообщить об ошибке, что не удалось подключить обработчик драйвера.
-			ТекстОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.'; en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
+			ТекстОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера.'; fr = 'Impossible de monter le gestionnaire de pilote.';
+				|en = 'The driver handler could not be connected.'; es = 'No se pudo conectar el controlador del controlador.'");
 			ВыходныеПараметры = Новый Массив();
 			ВыходныеПараметры.Добавить(999);
 			ВыходныеПараметры.Добавить(ТекстОшибки);
@@ -1932,9 +2034,12 @@
 		    	Если Подключение.ОбъектДрайвера = Неопределено Тогда
 		    		// Сообщить об ошибке, что не удалось загрузить драйвер.
 		    		ОписаниеОшибки = НСтр("ru = '""%Наименование%"": Не удалось загрузить драйвер устройства."
-"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.'; fr = '""%Наименование%"": impossible de charger le pilote de périphérique."
-"Vérifiez que le pilote est correctement installé et enregistré dans le système.'; en = '""%Наименование%"": The device driver could not be loaded."
-"Make sure that the driver is installed correctly and registered in the system.'; es = '""%Наименование%"": No se pudo cargar el controlador del dispositivo."
+"Проверьте, что драйвер корректно установлен и зарегистрирован в системе.';
+	|fr = '""%Наименование%"": impossible de charger le pilote de périphérique."
+"Vérifiez que le pilote est correctement installé et enregistré dans le système.';
+	|en = '""%Наименование%"": The device driver could not be loaded."
+"Make sure that the driver is installed correctly and registered in the system.';
+	|es = '""%Наименование%"": No se pudo cargar el controlador del dispositivo."
 "Compruebe que el controlador está instalado y registrado correctamente en el sistema.'");
 		    		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Наименование%", Подключение.Наименование);
 		    		Продолжить;
@@ -2023,7 +2128,9 @@
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Фискальное устройство не выбрано или не подключено.'; fr = ""Le dispositif fiscal n'est pas sélectionné ou connecté.""; en = 'The fiscal device is not selected or connected.'; es = 'El dispositivo fiscal no está seleccionado ni conectado.'");
+			ОписаниеОшибки = НСтр("ru = 'Фискальное устройство не выбрано или не подключено.';
+				|fr = 'Le dispositif fiscal n''est pas sélectionné ou connecté.'; en = 'The fiscal device is not selected or connected.';
+				|es = 'El dispositivo fiscal no está seleccionado ni conectado.'");
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 		КонецЕсли;
@@ -2046,7 +2153,8 @@
 			
 			СтатусПоследнейСмены = МенеджерОборудованияВызовСервера.ПолучитьСтатусПоследнейСмены(ИдентификаторУстройства);
 			Если Не СтатусПоследнейСмены.Активна = Истина Тогда
-				ОписаниеОшибки = НСтр("ru = 'Кассовая смена не открыта или истекла.'; fr = ""La caisse n'est pas ouverte ou a expiré.""; en = 'The cash desk is not open or expired.'; es = 'El turno de Caja no está abierto o caducado.'");
+				ОписаниеОшибки = НСтр("ru = 'Кассовая смена не открыта или истекла.'; fr = 'La caisse n''est pas ouverte ou a expiré.';
+					|en = 'The cash desk is not open or expired.'; es = 'El turno de Caja no está abierto o caducado.'");
 				РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 				ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 				Возврат;
@@ -2105,7 +2213,8 @@
 		СтатусСмены = Результат.ВыходныеПараметры[2];
 		Если МенеджерОборудованияКлиентСервер.ТребуетсяЗакрытиеСмены(СтатусСмены) Тогда
 			ТекстВопроса = НСтр("ru = 'На фискальном устройстве открыта кассовая смена, данные о которой отсутствуют в системе."
-"Выполнить закрытие смены?'; fr = 'Sur le dispositif fiscal, une caisse enregistreuse est ouverte, dont les données ne sont pas disponibles dans le système."
+"Выполнить закрытие смены?';
+	|fr = 'Sur le dispositif fiscal, une caisse enregistreuse est ouverte, dont les données ne sont pas disponibles dans le système."
 "Effectuer la fermeture du quart de travail?'; en = 'A cash shift is open on the fiscal device, which is not available in the system."
 "Should I close the shift?'; es = 'En el dispositivo fiscal está abierto el turno de Caja, cuyos datos no están en el sistema."
 "¿Realizar un cierre de turno?'");
@@ -2132,7 +2241,8 @@
 		МенеджерОборудованияКлиент.НачатьЗакрытиеСменыНаФискальномУстройстве(ОповещениеВыполнения, Параметры.УникальныйИдентификатор, Параметры.ВходныеПараметры, Параметры.ИдентификаторУстройства,, НоваяКассоваяСмена);
 		
 	Иначе
-		ТекстСообщения = НСтр("ru = 'На фискальном устройстве смена не закрыта'; fr = ""Sur le dispositif fiscal, le changement n'est pas fermé""; en = 'The shift is not closed on the fiscal device'; es = 'En el dispositivo fiscal, el cambio no está cerrado'");
+		ТекстСообщения = НСтр("ru = 'На фискальном устройстве смена не закрыта'; fr = 'Sur le dispositif fiscal, le changement n''est pas fermé';
+			|en = 'The shift is not closed on the fiscal device'; es = 'En el dispositivo fiscal, el cambio no está cerrado'");
 		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ТекстСообщения);
 		ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
@@ -2162,7 +2272,10 @@
 		КонецЕсли;
 	Иначе
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'При подключении оборудования произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de la connexion du matériel: %ДополнительноеОписание%""; en = 'An error occurred when connecting the equipment: %ДополнительноеОписание%'; es = 'Se produjo un error al conectar el equipo: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'При подключении оборудования произошла ошибка: %ДополнительноеОписание%';
+				|fr = 'Une erreur s''est produite lors de la connexion du matériel: %ДополнительноеОписание%';
+				|en = 'An error occurred when connecting the equipment: %ДополнительноеОписание%';
+				|es = 'Se produjo un error al conectar el equipo: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатПодключения.ОписаниеОшибки);
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ТекстСообщения);
 			РезультатОперации.ИдентификаторУстройства = Параметры.ИдентификаторУстройства;
@@ -2185,7 +2298,7 @@
 	
 	Если РезультатВыполнения.Результат Тогда
 		
-		ТекстСообщения = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+		ТекстСообщения = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 		
 		Если МенеджерОборудованияКлиентСервер.ТребуетсяВызовСобытияПослеВыполненияКомандыФискальнымУстройством(Параметры) Тогда
 			
@@ -2239,7 +2352,10 @@
 		КонецЕсли;
 		
 	Иначе
-		ТекстСообщения = НСтр("ru = 'При выполнении операции произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'exécution de l'opération: %ДополнительноеОписание%""; en = 'An error occurred while performing the operation: %ДополнительноеОписание%'; es = 'Error al realizar la operación: %ДополнительноеОписание%'");
+		ТекстСообщения = НСтр("ru = 'При выполнении операции произошла ошибка: %ДополнительноеОписание%';
+			|fr = 'Une erreur s''est produite lors de l''exécution de l''opération: %ДополнительноеОписание%';
+			|en = 'An error occurred while performing the operation: %ДополнительноеОписание%';
+			|es = 'Error al realizar la operación: %ДополнительноеОписание%'");
 		ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
@@ -2283,9 +2399,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"),
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"),
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2318,9 +2437,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"),
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"),
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2354,9 +2476,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"), 
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"), 
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2400,7 +2525,8 @@
 			ПараметрыВыбора = Новый Структура();
 			ПараметрыВыбора.Вставить("СтруктураПараметрыОтбора", СтруктураОтбора);
 			ПараметрыВыбора.Вставить("СтруктураРезультата", СтруктураРезультата);
-			ПараметрыВыбора.Вставить("Заголовок", НСтр("ru = 'Выберите кассовую смену для закрытия'; fr = 'Sélectionnez le poste de caisse à fermer'; en = 'Select the checkout shift to close'; es = 'Seleccione el turno de Caja para cerrar'"));
+			ПараметрыВыбора.Вставить("Заголовок", НСтр("ru = 'Выберите кассовую смену для закрытия'; fr = 'Sélectionnez le poste de caisse à fermer';
+				|en = 'Select the checkout shift to close'; es = 'Seleccione el turno de Caja para cerrar'"));
 			
 			ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьСменуЗавершение", ЭтотОбъект, Контекст);
 			ИмяФормы = "Документ.КассоваяСмена.ФормаВыбора";
@@ -2411,7 +2537,9 @@
 			ОписаниеПоследнейСмены = МенеджерОборудованияВызовСервера.ОписаниеПоследнейКассовойСмены(ИдентификаторУстройства);
 			Если ОписаниеПоследнейСмены = Неопределено Тогда
 				Если ОповещениеПриЗавершении <> Неопределено Тогда
-					ТекстСообщения = НСтр("ru = 'Нет кассовых смен для устройства'; fr = ""Aucun changement de caisse pour l'appareil""; en = 'There are no cash shifts for the device'; es = 'No hay turnos de efectivo para el dispositivo'") + Символы.НПП + Строка(ИдентификаторУстройства);
+					ТекстСообщения = НСтр("ru = 'Нет кассовых смен для устройства'; fr = 'Aucun changement de caisse pour l''appareil';
+						|en = 'There are no cash shifts for the device';
+						|es = 'No hay turnos de efectivo para el dispositivo'") + Символы.НПП + Строка(ИдентификаторУстройства);
 					РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ТекстСообщения, ИдентификаторУстройства);
 					ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, РезультатОперации);
 				КонецЕсли;
@@ -2424,7 +2552,8 @@
 					НачатьВыполнениеКоманды_ВыбратьСменуЗавершение(СтруктураПараметровСмены, Контекст);
 				Иначе
 					Если ОповещениеПриЗавершении <> Неопределено Тогда
-						ТекстСообщения = НСтр("ru = 'Кассовая смена была закрыта ранее'; fr = 'La caisse enregistreuse a été fermée plus tôt'; en = 'The cash desk was closed earlier.'; es = 'El turno de Caja se cerró antes'");
+						ТекстСообщения = НСтр("ru = 'Кассовая смена была закрыта ранее'; fr = 'La caisse enregistreuse a été fermée plus tôt';
+							|en = 'The cash desk was closed earlier.'; es = 'El turno de Caja se cerró antes'");
 						РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ТекстСообщения, ИдентификаторУстройства);
 						ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, РезультатОперации);
 					КонецЕсли;
@@ -2468,9 +2597,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"), 
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2500,9 +2632,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"), 
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2541,9 +2676,12 @@
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"),
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"),
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2576,9 +2714,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"),
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"),
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2615,9 +2756,12 @@
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите печатающее устройство'; fr = ""Sélectionnez un périphérique d'impression""; en = 'Select the printer'; es = 'Seleccione el dispositivo de impresión'"), 
-			НСтр("ru = 'Печатающее устройство не подключено.'; fr = ""L'imprimante n'est pas connectée.""; en = 'The printer is not connected.'; es = 'El dispositivo de impresión no está conectado.'"), 
-			НСтр("ru = 'Печатающее устройство не выбрано.'; fr = ""Aucun périphérique d'impression n'est sélectionné.""; en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'"), 
+			НСтр("ru = 'Выберите печатающее устройство'; fr = 'Sélectionnez un périphérique d''impression'; en = 'Select the printer';
+				|es = 'Seleccione el dispositivo de impresión'"),
+			НСтр("ru = 'Печатающее устройство не подключено.'; fr = 'L''imprimante n''est pas connectée.'; en = 'The printer is not connected.';
+				|es = 'El dispositivo de impresión no está conectado.'"),
+			НСтр("ru = 'Печатающее устройство не выбрано.'; fr = 'Aucun périphérique d''impression n''est sélectionné.';
+				|en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2654,9 +2798,12 @@
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите печатающее устройство'; fr = ""Sélectionnez un périphérique d'impression""; en = 'Select the printer'; es = 'Seleccione el dispositivo de impresión'"), 
-			НСтр("ru = 'Печатающее устройство не подключено.'; fr = ""L'imprimante n'est pas connectée.""; en = 'The printer is not connected.'; es = 'El dispositivo de impresión no está conectado.'"), 
-			НСтр("ru = 'Печатающее устройство не выбрано.'; fr = ""Aucun périphérique d'impression n'est sélectionné.""; en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'"), 
+			НСтр("ru = 'Выберите печатающее устройство'; fr = 'Sélectionnez un périphérique d''impression'; en = 'Select the printer';
+				|es = 'Seleccione el dispositivo de impresión'"),
+			НСтр("ru = 'Печатающее устройство не подключено.'; fr = 'L''imprimante n''est pas connectée.'; en = 'The printer is not connected.';
+				|es = 'El dispositivo de impresión no está conectado.'"),
+			НСтр("ru = 'Печатающее устройство не выбрано.'; fr = 'Aucun périphérique d''impression n''est sélectionné.';
+				|en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2689,9 +2836,12 @@
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"),
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"),
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2726,9 +2876,12 @@
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"), 
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2764,9 +2917,12 @@
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите печатающее устройство'; fr = ""Sélectionnez un périphérique d'impression""; en = 'Select the printer'; es = 'Seleccione el dispositivo de impresión'"), 
-			НСтр("ru = 'Печатающее устройство не подключено.'; fr = ""L'imprimante n'est pas connectée.""; en = 'The printer is not connected.'; es = 'El dispositivo de impresión no está conectado.'"), 
-			НСтр("ru = 'Печатающее устройство не выбрано.'; fr = ""Aucun périphérique d'impression n'est sélectionné.""; en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'"), 
+			НСтр("ru = 'Выберите печатающее устройство'; fr = 'Sélectionnez un périphérique d''impression'; en = 'Select the printer';
+				|es = 'Seleccione el dispositivo de impresión'"),
+			НСтр("ru = 'Печатающее устройство не подключено.'; fr = 'L''imprimante n''est pas connectée.'; en = 'The printer is not connected.';
+				|es = 'El dispositivo de impresión no está conectado.'"),
+			НСтр("ru = 'Печатающее устройство не выбрано.'; fr = 'Aucun périphérique d''impression n''est sélectionné.';
+				|en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2808,9 +2964,12 @@
 		
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"),
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"),
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2841,9 +3000,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"), 
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2876,9 +3038,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"), 
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2909,9 +3074,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal'"), 
-			НСтр("ru = 'Фискальное устройство не подключено.'; fr = ""Le dispositif fiscal n'est pas connecté.""; en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"), 
-			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = ""Le dispositif fiscal n'est pas sélectionné.""; en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
+			НСтр("ru = 'Выберите фискальное устройство'; fr = 'Choisissez un dispositif fiscal'; es = 'Seleccione el dispositivo fiscal';
+				|en = 'Select a fiscal device'"), 
+			НСтр("ru = 'Фискальное устройство не подключено.'; fr = 'Le dispositif fiscal n''est pas connecté.';
+				|en = 'The fiscal device is not connected.'; es = 'El dispositivo fiscal no está conectado.'"),
+			НСтр("ru = 'Фискальное устройство не выбрано.'; fr = 'Le dispositif fiscal n''est pas sélectionné.';
+				|en = 'The fiscal device is not selected.'; es = 'No se ha elegido el dispositivo fiscal.'"),
 			Истина);
 	Иначе
 		НачатьВыполнениеКоманды_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -2955,7 +3123,10 @@
 		
 		Если ОбработчикДрайвераМодуль = Неопределено Или ОбъектДрайвера = Неопределено Тогда
 			// Сообщить об ошибке, что не удалось загрузить драйвер.
-			ТекстОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера или загрузить драйвер.'; fr = 'Impossible de monter le gestionnaire de pilote ou de charger le pilote.'; en = 'The driver handler could not be connected or the driver loaded.'; es = 'No se pudo conectar el controlador del controlador ni cargar el controlador.'");
+			ТекстОшибки = НСтр("ru = 'Не удалось подключить обработчик драйвера или загрузить драйвер.';
+				|fr = 'Impossible de monter le gestionnaire de pilote ou de charger le pilote.';
+				|en = 'The driver handler could not be connected or the driver loaded.';
+				|es = 'No se pudo conectar el controlador del controlador ni cargar el controlador.'");
 			ВыходныеПараметры = Новый Массив();
 			ВыходныеПараметры.Добавить(999);
 			ВыходныеПараметры.Добавить(ТекстОшибки);
@@ -3054,7 +3225,10 @@
 		
 	Иначе
 		// Сообщить об ошибке, что устройство не подключено.
-		ТекстОшибки = НСтр("ru = 'Устройство не подключено. Перед выполнением операции устройство должно быть подключено.'; fr = ""L'appareil n'est pas connecté. L'appareil doit être connecté avant d'effectuer l'opération.""; en = 'The device is not connected. The device must be connected before performing the operation.'; es = 'El dispositivo no está conectado. Antes de realizar la operación, el dispositivo debe estar conectado.'");
+		ТекстОшибки = НСтр("ru = 'Устройство не подключено. Перед выполнением операции устройство должно быть подключено.';
+			|fr = 'L''appareil n''est pas connecté. L''appareil doit être connecté avant d''effectuer l''opération.';
+			|en = 'The device is not connected. The device must be connected before performing the operation.';
+			|es = 'El dispositivo no está conectado. Antes de realizar la operación, el dispositivo debe estar conectado.'");
 		ВыходныеПараметры = Новый Массив();
 		ВыходныеПараметры.Добавить(999);
 		ВыходныеПараметры.Добавить(ТекстОшибки);
@@ -3103,7 +3277,7 @@
 	Если РезультатВыполнения.Результат Тогда
 		Если Параметры.Свойство("ПодписьЧека") И НЕ ПустаяСтрока(Параметры.ПодписьЧека) Тогда 
 			ПодключенноеУстройство = Параметры.ПодключенноеУстройство;
-			ШиринаСтроки = ?(ПодключенноеУстройство.ПараметрыПодключения.Свойство("ШиринаСтроки"), ПодключенноеУстройство.ПараметрыПодключения.ШиринаСтроки, 32); 
+			ШиринаСтроки = ?(ПодключенноеУстройство.ПараметрыПодключения.Свойство("ШиринаСтроки"), ПодключенноеУстройство.ПараметрыПодключения.ШиринаСтроки, 32);
 			
 			ВремВходныеПараметры = Новый Массив();
 			ВремВходныеПараметры.Добавить(СформироватьШаблонИнфоКвитанции(Параметры, ШиринаСтроки));
@@ -3173,7 +3347,7 @@
 			
 			Если Результат И НЕ ПустаяСтрока(ДополнительныеПараметры.ПодписьЧека) Тогда
 				
-				ШиринаСтроки = ?(ПодключенноеУстройство.ПараметрыПодключения.Свойство("ШиринаСтроки"), ПодключенноеУстройство.ПараметрыПодключения.ШиринаСтроки, 32); 
+				ШиринаСтроки = ?(ПодключенноеУстройство.ПараметрыПодключения.Свойство("ШиринаСтроки"), ПодключенноеУстройство.ПараметрыПодключения.ШиринаСтроки, 32);
 				ВремВходныеПараметры = Новый Массив();
 				ВремВходныеПараметры.Добавить(СформироватьШаблонИнфоКвитанции(ДополнительныеПараметры, ШиринаСтроки));
 				
@@ -3307,7 +3481,8 @@
 				ШтрихКод     = ?(ПозицияЧека.Свойство("ШтрихКод")    , ПозицияЧека.ШтрихКод    , "");
 				Если НЕ ОбщийМодульОборудования.ПечатьШтрихкода(ОбъектДрайвера, Параметры, ПараметрыПодключения,
 											ТипШтрихКодаЗнач, ШтрихКод, ВремВыходныеПараметры) Тогда
-					Текст = НСтр("ru = '<Штрихкод %ТипШтрихКода% не распечатан>'; fr = '<Code-barres %ТипШтрихКода% non imprimé>'; en = '<Barcode %ТипШтрихКода% not printed>'; es = '<Código de barras %ТипШтрихКода% no impreso>'");
+					Текст = НСтр("ru = '<Штрихкод %ТипШтрихКода% не распечатан>'; fr = '<Code-barres %ТипШтрихКода% non imprimé>';
+						|en = '<Barcode %ТипШтрихКода% not printed>'; es = '<Código de barras %ТипШтрихКода% no impreso>'");
 					Текст = СтрЗаменить(Текст, "%ТипШтрихКода%", ТипШтрихКодаЗнач);
 					Если НЕ ОбщийМодульОборудования.НапечататьНефискальнуюСтроку(ОбъектДрайвера, Параметры, ПараметрыПодключения,
 						Текст, ВремВыходныеПараметры) Тогда
@@ -3397,20 +3572,24 @@
 	АдресЧека = ?(Параметры.Свойство("АдресЧека"), Параметры.АдресЧека, Неопределено);
 	ПодписьЧека = ?(Параметры.Свойство("ПодписьЧека"), Параметры.ПодписьЧека, Неопределено);
 	
-	ОрганизацияИНН = ?(НЕ ПустаяСтрока(Параметры.ИНН), НСтр("ru = 'ИНН:'; fr = ""NUMÉRO D'IDENTIFICATION FISCAL:""; en = 'INN:'; es = 'Inn:'") + Параметры.ИНН, "");
+	ОрганизацияИНН = ?(НЕ ПустаяСтрока(Параметры.ИНН), НСтр("ru = 'ИНН:'; fr = 'NUMÉRO D''IDENTIFICATION FISCAL:'; en = 'INN:';
+		|es = 'Inn:'") + Параметры.ИНН, "");
 	ОрганизацияКПП = ?(НЕ ПустаяСтрока(Параметры.КПП), НСтр("ru = 'КПП:'; fr = 'PPC:'; en = 'CHECKPOINT:'; es = 'CAT:'") + Параметры.КПП, "");
 	Если Не ПустаяСтрока(ОрганизацияИНН) Или НЕ ПустаяСтрока(ОрганизацияКПП) Тогда
 		Текст = Текст + МенеджерОборудованияКлиентСервер.ВыстроитьПоля(ОрганизацияИНН, ОрганизацияКПП, ШиринаСтроки) + Символы.ПС;
 	КонецЕсли;  
 	
-	НомерКассы = ?(НЕ ПустаяСтрока(Параметры.НомерКассы), НСтр("ru = 'КАССА:'; fr = 'CAISSE:'; en = 'box office:'; es = 'TAQUILLA:'") + Параметры.НомерКассы, "");
-	НомерСмены = ?(НЕ ПустаяСтрока(Параметры.НомерСмены), НСтр("ru = 'СМЕНА:'; fr = 'CHANGEMENT:'; en = 'change:'; es = 'TURNO:'") + Формат(Параметры.НомерСмены, "ЧГ=0"), 0);
+	НомерКассы = ?(НЕ ПустаяСтрока(Параметры.НомерКассы), НСтр("ru = 'КАССА:'; fr = 'CAISSE:'; en = 'box office:';
+		|es = 'TAQUILLA:'") + Параметры.НомерКассы, "");
+	НомерСмены = ?(НЕ ПустаяСтрока(Параметры.НомерСмены), НСтр("ru = 'СМЕНА:'; fr = 'CHANGEMENT:'; en = 'change:';
+		|es = 'TURNO:'") + Формат(Параметры.НомерСмены, "ЧГ=0"), 0);
 	
 	Если Не ПустаяСтрока(НомерКассы) Или НЕ ПустаяСтрока(НомерСмены) Тогда
 		Текст = Текст + МенеджерОборудованияКлиентСервер.ВыстроитьПоля(НомерКассы, НомерСмены, ШиринаСтроки) + Символы.ПС;
 	КонецЕсли;
 	
-	НомерЧека = ?(НЕ ПустаяСтрока(Параметры.НомерЧека), НСтр("ru = 'ЧЕК:'; fr = 'CHÈQUE:'; en = 'cheque:'; es = 'CHEQUE:'") + Параметры.НомерЧека, "");
+	НомерЧека = ?(НЕ ПустаяСтрока(Параметры.НомерЧека), НСтр("ru = 'ЧЕК:'; fr = 'CHÈQUE:'; en = 'cheque:';
+		|es = 'CHEQUE:'") + Параметры.НомерЧека, "");
 	ДатаВремя = НСтр("ru = 'ДАТА:'; fr = 'DATE:'; en = 'date:'; es = 'FECHA:'") + Формат(ТекущаяДата(), "ДФ=""дд.ММ.гггг ЧЧ:мм""");
 	Если Не ПустаяСтрока(НомерЧека) Или НЕ ПустаяСтрока(ДатаВремя) Тогда
 		Текст = Текст + МенеджерОборудованияКлиентСервер.ВыстроитьПоля(НомерЧека, ДатаВремя, ШиринаСтроки) + Символы.ПС;
@@ -3477,9 +3656,12 @@
 	Если Контекст.ИдентификаторУстройстваЭТ = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьПодключенияЭквайринговогоТерминала_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, "ЭквайринговыйТерминал",
-			НСтр("ru = 'Выберите эквайринговый терминал'; fr = ""Sélectionnez un terminal d'acquisition""; en = 'Select an acquiring terminal'; es = 'Seleccione el terminal de adquisición'"), 
-			НСтр("ru = 'Эквайринговый терминал не подключен.'; fr = ""Le terminal d'acquisition n'est pas connecté.""; en = 'The acquiring terminal is not connected.'; es = 'El terminal de adquisición no está conectado.'"),
-			НСтр("ru = 'Эквайринговый терминал не выбран.'; fr = ""Le terminal d'acquisition n'est pas sélectionné.""; en = 'The acquiring terminal is not selected.'; es = 'El terminal de adquisición no está seleccionado.'"), 
+			НСтр("ru = 'Выберите эквайринговый терминал'; fr = 'Sélectionnez un terminal d''acquisition'; en = 'Select an acquiring terminal';
+				|es = 'Seleccione el terminal de adquisición'"),
+			НСтр("ru = 'Эквайринговый терминал не подключен.'; fr = 'Le terminal d''acquisition n''est pas connecté.';
+				|en = 'The acquiring terminal is not connected.'; es = 'El terminal de adquisición no está conectado.'"),
+			НСтр("ru = 'Эквайринговый терминал не выбран.'; fr = 'Le terminal d''acquisition n''est pas sélectionné.';
+				|en = 'The acquiring terminal is not selected.'; es = 'El terminal de adquisición no está seleccionado.'"),
 			Истина);
 	Иначе
 		НачатьПодключенияЭквайринговогоТерминала_ВыбратьУстройствоЗавершение(Контекст.ИдентификаторУстройстваЭТ, Контекст);
@@ -3491,7 +3673,8 @@
 	
 	Если ИдентификаторУстройстваЭТ = Неопределено Тогда
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Эквайринговый терминал не выбран.'; fr = ""Le terminal d'acquisition n'est pas sélectionné.""; en = 'The acquiring terminal is not selected.'; es = 'El terminal de adquisición no está seleccionado.'");
+			ОписаниеОшибки = НСтр("ru = 'Эквайринговый терминал не выбран.'; fr = 'Le terminal d''acquisition n''est pas sélectionné.';
+				|en = 'The acquiring terminal is not selected.'; es = 'El terminal de adquisición no está seleccionado.'");
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 		КонецЕсли;
@@ -3512,7 +3695,10 @@
 	Иначе
 		// Ошибка подключения.
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'Эквайринговая операция не была произведена: %ДополнительноеОписание%'; fr = ""Aucune opération d'acquisition n'a été effectuée: %ДополнительноеОписание%""; en = 'The acquiring operation was not performed: %ДополнительноеОписание%'; es = 'La operación de adquisición no se realizó: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'Эквайринговая операция не была произведена: %ДополнительноеОписание%';
+				|fr = 'Aucune opération d''acquisition n''a été effectuée: %ДополнительноеОписание%';
+				|en = 'The acquiring operation was not performed: %ДополнительноеОписание%';
+				|es = 'La operación de adquisición no se realizó: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатПодключения.ОписаниеОшибки);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3541,7 +3727,12 @@
 				ПоддерживаемыеТипыВО.Добавить("ККТ");
 				ОписаниеОповещения = Новый ОписаниеОповещения("НачатьПодключенияЭквайринговогоТерминала_ВыбратьПечатающегоУстройстваЗавершение", ЭтотОбъект, Параметры);
 				ПредложитьВыбратьУстройство(ОписаниеОповещения, ПоддерживаемыеТипыВО,
-					НСтр("ru = 'Выберите печатающее устройство'; fr = ""Sélectionnez un périphérique d'impression""; en = 'Select the printer'; es = 'Seleccione el dispositivo de impresión'"), НСтр("ru = 'Печатающее устройство не подключено.'; fr = ""L'imprimante n'est pas connectée.""; en = 'The printer is not connected.'; es = 'El dispositivo de impresión no está conectado.'"), НСтр("ru = 'Печатающее устройство не выбрано.'; fr = ""Aucun périphérique d'impression n'est sélectionné.""; en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'"), Истина);
+					НСтр("ru = 'Выберите печатающее устройство'; fr = 'Sélectionnez un périphérique d''impression'; en = 'Select the printer';
+						|es = 'Seleccione el dispositivo de impresión'"), НСтр("ru = 'Печатающее устройство не подключено.';
+						|fr = 'L''imprimante n''est pas connectée.'; en = 'The printer is not connected.';
+						|es = 'El dispositivo de impresión no está conectado.'"), НСтр("ru = 'Печатающее устройство не выбрано.';
+						|fr = 'Aucun périphérique d''impression n''est sélectionné.'; en = 'The printer is not selected.';
+						|es = 'Dispositivo de impresión no seleccionado.'"), Истина);
 			Иначе
 				НачатьПодключенияЭквайринговогоТерминала_ВыбратьПечатающегоУстройстваЗавершение(Параметры.ИдентификаторУстройстваПУ, Параметры);
 			КонецЕсли;
@@ -3549,7 +3740,10 @@
 	Иначе
 		НачатьОтключениеОборудованиеПоИдентификатору(, Параметры.УникальныйИдентификатор, Параметры.ИдентификаторУстройстваЭТ);
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'При использовании терминала произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'utilisation du terminal: %ДополнительноеОписание%""; en = 'An error occurred while using the terminal: %ДополнительноеОписание%'; es = 'Error al usar el terminal: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'При использовании терминала произошла ошибка: %ДополнительноеОписание%';
+				|fr = 'Une erreur s''est produite lors de l''utilisation du terminal: %ДополнительноеОписание%';
+				|en = 'An error occurred while using the terminal: %ДополнительноеОписание%';
+				|es = 'Error al usar el terminal: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3563,7 +3757,8 @@
 	Если ИдентификаторУстройстваПУ = Неопределено Тогда
 		НачатьОтключениеОборудованиеПоИдентификатору(, Параметры.УникальныйИдентификатор, Параметры.ИдентификаторУстройстваЭТ);
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Печатающее устройство не выбрано.'; fr = ""Aucun périphérique d'impression n'est sélectionné.""; en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'");
+			ОписаниеОшибки = НСтр("ru = 'Печатающее устройство не выбрано.'; fr = 'Aucun périphérique d''impression n''est sélectionné.';
+				|en = 'The printer is not selected.'; es = 'Dispositivo de impresión no seleccionado.'");
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 		КонецЕсли;
@@ -3588,7 +3783,10 @@
 	Иначе
 		НачатьОтключениеОборудованиеПоИдентификатору(, Параметры.УникальныйИдентификатор, Параметры.ИдентификаторУстройстваЭТ);
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'При подключении печатающего устройство произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de la connexion du périphérique d'impression: %ДополнительноеОписание%""; en = 'An error occurred when connecting the printer: %ДополнительноеОписание%'; es = 'Error al conectar el dispositivo de impresión: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'При подключении печатающего устройство произошла ошибка: %ДополнительноеОписание%';
+				|fr = 'Une erreur s''est produite lors de la connexion du périphérique d''impression: %ДополнительноеОписание%';
+				|en = 'An error occurred when connecting the printer: %ДополнительноеОписание%';
+				|es = 'Error al conectar el dispositivo de impresión: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатПодключения.ОписаниеОшибки);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3651,7 +3849,10 @@
 	Иначе
 		// Ошибка подключения.
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'При подключении терминала произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de la connexion du terminal: %ДополнительноеОписание%""; en = 'An error occurred when connecting the terminal: %ДополнительноеОписание%'; es = 'Error al conectar el terminal: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'При подключении терминала произошла ошибка: %ДополнительноеОписание%';
+				|fr = 'Une erreur s''est produite lors de la connexion du terminal: %ДополнительноеОписание%';
+				|en = 'An error occurred when connecting the terminal: %ДополнительноеОписание%';
+				|es = 'Error al conectar el terminal: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатПодключения.ОписаниеОшибки);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3684,7 +3885,10 @@
 	Иначе
 		НачатьОтключениеЭквайринговогоТерминала(, Параметры.УникальныйИдентификатор, Параметры);
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'При использовании терминала произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'utilisation du terminal: %ДополнительноеОписание%""; en = 'An error occurred while using the terminal: %ДополнительноеОписание%'; es = 'Error al usar el terminal: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'При использовании терминала произошла ошибка: %ДополнительноеОписание%';
+				|fr = 'Une erreur s''est produite lors de l''utilisation du terminal: %ДополнительноеОписание%';
+				|en = 'An error occurred while using the terminal: %ДополнительноеОписание%';
+				|es = 'Error al usar el terminal: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3705,7 +3909,10 @@
 		КонецЕсли;
 	Иначе
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'При печати слип чека возникла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'impression du chèque: %ДополнительноеОписание%""; en = 'An error occurred when printing the slip receipt: %ДополнительноеОписание%'; es = 'Error al imprimir el cheque deslizante: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'При печати слип чека возникла ошибка: %ДополнительноеОписание%';
+				|fr = 'Une erreur s''est produite lors de l''impression du chèque: %ДополнительноеОписание%';
+				|en = 'An error occurred when printing the slip receipt: %ДополнительноеОписание%';
+				|es = 'Error al imprimir el cheque deslizante: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатВыполнения.ОписаниеОшибки);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3801,7 +4008,10 @@
 	Иначе
 		// Ошибка подключения.
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'Эквайринговая операция не была произведена: %ДополнительноеОписание%'; fr = ""Aucune opération d'acquisition n'a été effectuée: %ДополнительноеОписание%""; en = 'The acquiring operation was not performed: %ДополнительноеОписание%'; es = 'La operación de adquisición no se realizó: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'Эквайринговая операция не была произведена: %ДополнительноеОписание%';
+				|fr = 'Aucune opération d''acquisition n''a été effectuée: %ДополнительноеОписание%';
+				|en = 'The acquiring operation was not performed: %ДополнительноеОписание%';
+				|es = 'La operación de adquisición no se realizó: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатПодключения.ОписаниеОшибки);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3852,7 +4062,10 @@
 		// Эквайринговая операция не была произведена.
 		НачатьОтключениеЭквайринговогоТерминала(, Параметры.УникальныйИдентификатор, Параметры);
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'Эквайринговая операция не была произведена: %ДополнительноеОписание%'; fr = ""Aucune opération d'acquisition n'a été effectuée: %ДополнительноеОписание%""; en = 'The acquiring operation was not performed: %ДополнительноеОписание%'; es = 'La operación de adquisición no se realizó: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'Эквайринговая операция не была произведена: %ДополнительноеОписание%';
+				|fr = 'Aucune opération d''acquisition n''a été effectuée: %ДополнительноеОписание%';
+				|en = 'The acquiring operation was not performed: %ДополнительноеОписание%';
+				|es = 'La operación de adquisición no se realizó: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 			РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -3904,12 +4117,19 @@
 		РезультатВыполнения.Вставить("Параметры", Параметры);
 		Режим = РежимДиалогаВопрос.ПовторитьОтмена;
 		СообщениеНаЭкране = РезультатВыполнения.ОписаниеОшибки  + Символы.ПС +
-			НСтр("ru = 'Повторить печать слип-чека?'; fr = ""Vous voulez que j'imprime le chèque?""; en = 'Should I print the slip receipt again?'; es = '¿Repetir la impresión del cheque deslizante?'") + Символы.ПС +
+			НСтр("ru = 'Повторить печать слип-чека?'; fr = 'Vous voulez que j''imprime le chèque?'; en = 'Should I print the slip receipt again?';
+				|es = '¿Repetir la impresión del cheque deslizante?'") + Символы.ПС +
 			НСтр("ru = 'ВНИМАНИЕ:'; fr = 'ATTENTION:'; en = 'attention:'; es = 'ATENCIÓN:'") + Символы.ПС +
-			НСтр("ru = 'При отмене печати слип-чека выполнится аварийная отмена операции на экваринговом терминале.'; fr = ""Si vous annulez l'impression d'un chèque, une opération d'annulation d'urgence est effectuée sur le terminal d'égalisation.""; en = 'If the slip receipt is canceled, an emergency cancellation of the operation will be performed at the equalizing terminal.'; es = 'Si cancela la impresión del cheque deslizante, se realizará una cancelación de emergencia de la operación en el terminal de equaring.'") + Символы.ПС +
-			НСтр("ru = 'Подготовьте банковскую карту покупателя.'; fr = ""Préparez la carte bancaire de l'acheteur.""; en = ""Prepare the buyer's bank card.""; es = 'Prepare la tarjeta bancaria del comprador.'");
+			НСтр("ru = 'При отмене печати слип-чека выполнится аварийная отмена операции на экваринговом терминале.';
+				|fr = 'Si vous annulez l''impression d''un chèque, une opération d''annulation d''urgence est effectuée sur le terminal d''égalisation.';
+				|en = 'If the slip receipt is canceled, an emergency cancellation of the operation will be performed at the equalizing terminal.';
+				|es = 'Si cancela la impresión del cheque deslizante, se realizará una cancelación de emergencia de la operación en el terminal de equaring.'") + Символы.ПС +
+			НСтр("ru = 'Подготовьте банковскую карту покупателя.'; fr = 'Préparez la carte bancaire de l''acheteur.';
+				|en = 'Prepare the buyer''s bank card.'; es = 'Prepare la tarjeta bancaria del comprador.'");
 		Оповещение = Новый ОписаниеОповещения("НачатьВыполнениеОперацииНаЭквайринговомТерминале_ПослеЗакрытияВопроса", ЭтотОбъект, РезультатВыполнения);
-		ПоказатьВопрос(Оповещение, СообщениеНаЭкране, Режим, ,, НСтр("ru = 'При печати слип-чека произошла ошибка'; fr = ""Une erreur s'est produite lors de l'impression du chèque""; en = 'An error occurred when printing the slip receipt'; es = 'Se produjo un error al imprimir el cheque deslizante'"));
+		ПоказатьВопрос(Оповещение, СообщениеНаЭкране, Режим, ,, НСтр("ru = 'При печати слип-чека произошла ошибка';
+			|fr = 'Une erreur s''est produite lors de l''impression du chèque'; en = 'An error occurred when printing the slip receipt';
+			|es = 'Se produjo un error al imprimir el cheque deslizante'"));
 	КонецЕсли;
 	
 КонецПроцедуры
@@ -3921,11 +4141,17 @@
 	Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
 		Если РезультатВыполнения.Результат Тогда 
 			// Слип чек не распечатан, аварийная отмена операции произведена успешно.
-			ТекстСообщения = НСтр("ru = 'Эквайринговая операция отменена - ошибка печати слип чека: %ДополнительноеОписание%'; fr = ""Opération d'acquisition annulée-erreur d'impression du chèque: %ДополнительноеОписание%""; en = 'The acquiring operation was canceled due to a slip receipt printing error.: %ДополнительноеОписание%'; es = 'Operación de adquisición cancelada-error de impresión deslizamiento del cheque: %ДополнительноеОписание%'");
+			ТекстСообщения = НСтр("ru = 'Эквайринговая операция отменена - ошибка печати слип чека: %ДополнительноеОписание%';
+				|fr = 'Opération d''acquisition annulée-erreur d''impression du chèque: %ДополнительноеОписание%';
+				|en = 'The acquiring operation was canceled due to a slip receipt printing error.: %ДополнительноеОписание%';
+				|es = 'Operación de adquisición cancelada-error de impresión deslizamiento del cheque: %ДополнительноеОписание%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", Параметры.ОписаниеОшибки);
 		Иначе
 			// Ошибка при аварийной отмене операции.
-			ТекстСообщения = НСтр("ru = 'Ошибка отмены операции транзакции. Обратитесь в банк. %ДополнительноеОписание%'; fr = ""Échec de l'annulation de l'opération de transaction. Contactez la banque. %Supplémentairedescription%""; en = 'Error canceling the transaction operation. Contact the bank. %Additional Description%'; es = 'Error al cancelar una operación de transacción. Póngase en contacto con el banco. % Adicionaledescripción%'");
+			ТекстСообщения = НСтр("ru = 'Ошибка отмены операции транзакции. Обратитесь в банк. %ДополнительноеОписание%';
+				|fr = 'Échec de l''annulation de l''opération de transaction. Contactez la banque. %Supplémentairedescription%';
+				|en = 'Error canceling the transaction operation. Contact the bank. %Additional Description%';
+				|es = 'Error al cancelar una operación de transacción. Póngase en contacto con el banco. % Adicionaledescripción%'");
 			ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ДополнительноеОписание%", РезультатВыполнения.ОписаниеОшибки);
 		КонецЕсли;
 		РезультатОперации = ПараметрыРезультатаПодключенияЭквайринговогоТерминала(Ложь, ТекстСообщения);
@@ -3958,7 +4184,8 @@
 			НачатьВыполнениеКоманды(Оповещение, Устройство.Ссылка, "DisplayText", ВходныеПараметры);
 		КонецЦикла
 	ИначеЕсли ИдентификаторУстройства <> Неопределено И ОповещениеПриЗавершении <> Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Нет подключенных дисплеев покупателя.'; fr = ""Il n'y a pas d'affichage connecté de l'acheteur.""; en = 'There are no connected customer displays.'; es = 'No hay pantallas de comprador conectadas.'");
+		ОписаниеОшибки = НСтр("ru = 'Нет подключенных дисплеев покупателя.'; fr = 'Il n''y a pas d''affichage connecté de l''acheteur.';
+			|en = 'There are no connected customer displays.'; es = 'No hay pantallas de comprador conectadas.'");
 		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки, ИдентификаторУстройства);
 		ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
@@ -3983,7 +4210,8 @@
 			НачатьВыполнениеКоманды(Оповещение, Устройство.Ссылка, "ClearText", ВходныеПараметры);
 		КонецЦикла
 	ИначеЕсли ИдентификаторУстройства <> Неопределено И ОповещениеПриЗавершении <> Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Нет подключенных дисплеев покупателя.'; fr = ""Il n'y a pas d'affichage connecté de l'acheteur.""; en = 'There are no connected customer displays.'; es = 'No hay pantallas de comprador conectadas.'");
+		ОписаниеОшибки = НСтр("ru = 'Нет подключенных дисплеев покупателя.'; fr = 'Il n''y a pas d''affichage connecté de l''acheteur.';
+			|en = 'There are no connected customer displays.'; es = 'No hay pantallas de comprador conectadas.'");
 		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки, ИдентификаторУстройства); 
 		ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
@@ -3995,7 +4223,10 @@
 	Если РезультатВыполнения.Результат Тогда
 		ОписаниеОшибки = "";
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'При использовании дисплея покупателя произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'utilisation de l'écran de l'acheteur: %ДополнительноеОписание%""; en = ""An error occurred when using the buyer's display: %ДополнительноеОписание%""; es = 'Error al usar la pantalla del comprador: %ДополнительноеОписание%'");
+		ОписаниеОшибки = НСтр("ru = 'При использовании дисплея покупателя произошла ошибка: %ДополнительноеОписание%';
+			|fr = 'Une erreur s''est produite lors de l''utilisation de l''écran de l''acheteur: %ДополнительноеОписание%';
+			|en = 'An error occurred when using the buyer''s display: %ДополнительноеОписание%';
+			|es = 'Error al usar la pantalla del comprador: %ДополнительноеОписание%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
@@ -4020,14 +4251,19 @@
 	Контекст.Вставить("СворачиватьДанные"       , СворачиватьДанные);
 	
 	Оповещение = Новый ОписаниеОповещения("НачатьЗагрузкуДанныеИзТСД_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
-	ПредложитьВыбратьУстройство(Оповещение, "ТерминалСбораДанных", НСтр("ru = 'Выберите терминал сбора данных'; fr = 'Sélectionnez un terminal de collecte de données'; en = 'Select the data collection terminal'; es = 'Seleccione el terminal de recopilación de datos'"), НСтр("ru = 'Терминал сбора данных не подключен.'; fr = ""Le terminal d'acquisition de données n'est pas connecté.""; en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'"), ,Истина);
+	ПредложитьВыбратьУстройство(Оповещение, "ТерминалСбораДанных", НСтр("ru = 'Выберите терминал сбора данных';
+		|fr = 'Sélectionnez un terminal de collecte de données'; en = 'Select the data collection terminal';
+		|es = 'Seleccione el terminal de recopilación de datos'"), НСтр("ru = 'Терминал сбора данных не подключен.';
+		|fr = 'Le terminal d''acquisition de données n''est pas connecté.'; en = 'The data acquisition terminal is not connected.';
+		|es = 'El terminal de adquisición de datos no está conectado.'"), ,Истина);
 		
 КонецПроцедуры
 
 Процедура НачатьЗагрузкуДанныеИзТСД_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Параметры) Экспорт
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Терминал сбора данных не подключен.'; fr = ""Le terminal d'acquisition de données n'est pas connecté.""; en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'");
+		ОписаниеОшибки = НСтр("ru = 'Терминал сбора данных не подключен.'; fr = 'Le terminal d''acquisition de données n''est pas connecté.';
+			|en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'");
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -4102,7 +4338,7 @@
 "%ОписаниеОшибки%'; es = 'Se produjo un error al cargar datos desde el terminal de recopilación de datos."
 "%ОписаниеОшибки%'");
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", РезультатВыполнения.ВыходныеПараметры[1]);
-			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства);  
+			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 		КонецЕсли;
 	КонецЕсли;
@@ -4122,14 +4358,19 @@
 	Контекст.Вставить("ПолнаяВыгрузка"          , ПолнаяВыгрузка);
 	
 	Оповещение = Новый ОписаниеОповещения("НачатьВыгрузкуДанныеВТСД_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
-	ПредложитьВыбратьУстройство(Оповещение, "ТерминалСбораДанных", НСтр("ru = 'Выберите терминал сбора данных'; fr = 'Sélectionnez un terminal de collecte de données'; en = 'Select the data collection terminal'; es = 'Seleccione el terminal de recopilación de datos'"), НСтр("ru = 'Терминал сбора данных не подключен.'; fr = ""Le terminal d'acquisition de données n'est pas connecté.""; en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'"), ,Истина);
+	ПредложитьВыбратьУстройство(Оповещение, "ТерминалСбораДанных", НСтр("ru = 'Выберите терминал сбора данных';
+		|fr = 'Sélectionnez un terminal de collecte de données'; en = 'Select the data collection terminal';
+		|es = 'Seleccione el terminal de recopilación de datos'"), НСтр("ru = 'Терминал сбора данных не подключен.';
+		|fr = 'Le terminal d''acquisition de données n''est pas connecté.'; en = 'The data acquisition terminal is not connected.';
+		|es = 'El terminal de adquisición de datos no está conectado.'"), ,Истина);
 	
 КонецПроцедуры                          
 
 Процедура НачатьВыгрузкуДанныеВТСД_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Параметры) Экспорт
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Терминал сбора данных не подключен.'; fr = ""Le terminal d'acquisition de données n'est pas connecté.""; en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'");
+		ОписаниеОшибки = НСтр("ru = 'Терминал сбора данных не подключен.'; fr = 'Le terminal d''acquisition de données n''est pas connecté.';
+			|en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'");
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -4177,12 +4418,15 @@
 	Если РезультатВыполнения.Результат Тогда
 		ОписаниеОшибки = ""; 
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'При выгрузке данных в терминал сбора данных произошла ошибка: %ОписаниеОшибки%'; fr = ""Une erreur s'est produite lors du déchargement des données dans le terminal de collecte de données: %ОписаниеОшибки%""; en = 'An error occurred when uploading data to the data collection terminal: %ОписаниеОшибки%'; es = 'Error al cargar datos en el terminal de recopilación de datos: %ОписаниеОшибки%'");
+		ОписаниеОшибки = НСтр("ru = 'При выгрузке данных в терминал сбора данных произошла ошибка: %ОписаниеОшибки%';
+			|fr = 'Une erreur s''est produite lors du déchargement des données dans le terminal de collecte de données: %ОписаниеОшибки%';
+			|en = 'An error occurred when uploading data to the data collection terminal: %ОписаниеОшибки%';
+			|es = 'Error al cargar datos en el terminal de recopilación de datos: %ОписаниеОшибки%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
 	Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства); 
+		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства);
 		ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
 	
@@ -4201,7 +4445,11 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Оповещение = Новый ОписаниеОповещения("НачатьОчисткуДанныеВТСД_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(Оповещение, "ТерминалСбораДанных",
-			НСтр("ru = 'Выберите терминал сбора данных'; fr = 'Sélectionnez un terminal de collecte de données'; en = 'Select the data collection terminal'; es = 'Seleccione el terminal de recopilación de datos'"), НСтр("ru = 'Терминал сбора данных не подключен.'; fr = ""Le terminal d'acquisition de données n'est pas connecté.""; en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'"), ,Истина);
+			НСтр("ru = 'Выберите терминал сбора данных'; fr = 'Sélectionnez un terminal de collecte de données';
+				|en = 'Select the data collection terminal';
+				|es = 'Seleccione el terminal de recopilación de datos'"), НСтр("ru = 'Терминал сбора данных не подключен.';
+				|fr = 'Le terminal d''acquisition de données n''est pas connecté.'; en = 'The data acquisition terminal is not connected.';
+				|es = 'El terminal de adquisición de datos no está conectado.'"), ,Истина);
 	Иначе
 		НачатьОчисткуДанныеВТСД_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
 	КонецЕсли;
@@ -4211,7 +4459,8 @@
 Процедура НачатьОчисткуДанныеВТСД_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Параметры) Экспорт
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Терминал сбора данных не подключен.'; fr = ""Le terminal d'acquisition de données n'est pas connecté.""; en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'");
+		ОписаниеОшибки = НСтр("ru = 'Терминал сбора данных не подключен.'; fr = 'Le terminal d''acquisition de données n''est pas connecté.';
+			|en = 'The data acquisition terminal is not connected.'; es = 'El terminal de adquisición de datos no está conectado.'");
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки); 
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
@@ -4246,12 +4495,15 @@
 	Если РезультатВыполнения.Результат Тогда
 		ОписаниеОшибки = ""; 
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'При очистке данных в терминале сбора данных произошла ошибка: %ОписаниеОшибки%'; fr = ""Une erreur s'est produite lors du nettoyage des données dans le terminal de collecte de données: % Descriptionerreur%""; en = 'An error occurred while clearing data in the data acquisition terminal: %ОписаниеОшибкиreferences%'; es = 'Error al borrar datos en el terminal de recopilación de datos: %Descripciónerror%'");
+		ОписаниеОшибки = НСтр("ru = 'При очистке данных в терминале сбора данных произошла ошибка: %ОписаниеОшибки%';
+			|fr = 'Une erreur s''est produite lors du nettoyage des données dans le terminal de collecte de données: % Descriptionerreur%';
+			|en = 'An error occurred while clearing data in the data acquisition terminal: %ОписаниеОшибкиreferences%';
+			|es = 'Error al borrar datos en el terminal de recopilación de datos: %Descripciónerror%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
 	Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства); 
+		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства);
 		ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
 	
@@ -4277,9 +4529,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Оповещение = Новый ОписаниеОповещения("НачатьПолученияВесаСЭлектронныхВесов_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(Оповещение, "ЭлектронныеВесы",
-			НСтр("ru = 'Выберите электронные весы'; fr = 'Choisissez une balance électronique'; en = 'Choose an electronic scale'; es = 'Elija balanzas electrónicas'"), 
-			НСтр("ru = 'Электронные весы не подключены.'; fr = ""La balance électronique n'est pas connectée.""; en = 'The electronic scales are not connected.'; es = 'La báscula electrónica no está conectada.'"), 
-			НСтр("ru = 'Электронные весы не выбраны.'; fr = ""Aucune balance électronique n'est sélectionnée.""; en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'"),
+			НСтр("ru = 'Выберите электронные весы'; fr = 'Choisissez une balance électronique'; en = 'Choose an electronic scale';
+				|es = 'Elija balanzas electrónicas'"),
+			НСтр("ru = 'Электронные весы не подключены.'; fr = 'La balance électronique n''est pas connectée.';
+				|en = 'The electronic scales are not connected.'; es = 'La báscula electrónica no está conectada.'"),
+			НСтр("ru = 'Электронные весы не выбраны.'; fr = 'Aucune balance électronique n''est sélectionnée.';
+				|en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'"),
 			Истина);
 	Иначе
 		НачатьПолученияВесаСЭлектронныхВесов_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -4290,7 +4545,8 @@
 Процедура НачатьПолученияВесаСЭлектронныхВесов_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Параметры) Экспорт
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Электронные весы не выбраны.'; fr = ""Aucune balance électronique n'est sélectionnée.""; en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'");
+		ОписаниеОшибки = НСтр("ru = 'Электронные весы не выбраны.'; fr = 'Aucune balance électronique n''est sélectionnée.';
+			|en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'");
 		Если Параметры.ОтображатьСообщения Тогда
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ОписаниеОшибки);
 		КонецЕсли;
@@ -4336,7 +4592,10 @@
 		ОписаниеОшибки = "";
 	Иначе
 		Вес = Неопределено;
-		ОписаниеОшибки = НСтр("ru = 'При использовании электронных весов произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'utilisation de la balance électronique: %ДополнительноеОписание%""; en = 'An error occurred when using the electronic scale: %ДополнительноеОписание%'; es = 'Se ha producido un error al usar la báscula electrónica: %ДополнительноеОписание%'");
+		ОписаниеОшибки = НСтр("ru = 'При использовании электронных весов произошла ошибка: %ДополнительноеОписание%';
+			|fr = 'Une erreur s''est produite lors de l''utilisation de la balance électronique: %ДополнительноеОписание%';
+			|en = 'An error occurred when using the electronic scale: %ДополнительноеОписание%';
+			|es = 'Se ha producido un error al usar la báscula electrónica: %ДополнительноеОписание%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 		Если Параметры.ОтображатьСообщения Тогда
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ОписаниеОшибки);
@@ -4370,9 +4629,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Оповещение = Новый ОписаниеОповещения("НачатьУстановкуВесаТары_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(Оповещение, "ЭлектронныеВесы",
-			НСтр("ru = 'Выберите электронные весы'; fr = 'Choisissez une balance électronique'; en = 'Choose an electronic scale'; es = 'Elija balanzas electrónicas'"), 
-			НСтр("ru = 'Электронные весы не подключены.'; fr = ""La balance électronique n'est pas connectée.""; en = 'The electronic scales are not connected.'; es = 'La báscula electrónica no está conectada.'"), 
-			НСтр("ru = 'Электронные весы не выбраны.'; fr = ""Aucune balance électronique n'est sélectionnée.""; en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'"),
+			НСтр("ru = 'Выберите электронные весы'; fr = 'Choisissez une balance électronique'; en = 'Choose an electronic scale';
+				|es = 'Elija balanzas electrónicas'"),
+			НСтр("ru = 'Электронные весы не подключены.'; fr = 'La balance électronique n''est pas connectée.';
+				|en = 'The electronic scales are not connected.'; es = 'La báscula electrónica no está conectada.'"),
+			НСтр("ru = 'Электронные весы не выбраны.'; fr = 'Aucune balance électronique n''est sélectionnée.';
+				|en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'"),
 			Истина);
 	Иначе
 		НачатьУстановкуВесаТары_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -4383,7 +4645,8 @@
 Процедура НачатьУстановкуВесаТары_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Параметры) Экспорт
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Электронные весы не выбраны.'; fr = ""Aucune balance électronique n'est sélectionnée.""; en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'");
+		ОписаниеОшибки = НСтр("ru = 'Электронные весы не выбраны.'; fr = 'Aucune balance électronique n''est sélectionnée.';
+			|en = 'Electronic scales are not selected.'; es = 'No se seleccionan balanzas electrónicas.'");
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании();
 			РезультатОперации.Результат = Ложь;
@@ -4419,7 +4682,10 @@
 Процедура НачатьУстановкуВесаТары_ВыполнитьКомандуЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
 	Если НЕ РезультатВыполнения.Результат Тогда
-		ОписаниеОшибки = НСтр("ru = 'При использовании электронных весов произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'utilisation de la balance électronique: %ДополнительноеОписание%""; en = 'An error occurred when using the electronic scale: %ДополнительноеОписание%'; es = 'Se ha producido un error al usar la báscula electrónica: %ДополнительноеОписание%'");
+		ОписаниеОшибки = НСтр("ru = 'При использовании электронных весов произошла ошибка: %ДополнительноеОписание%';
+			|fr = 'Une erreur s''est produite lors de l''utilisation de la balance électronique: %ДополнительноеОписание%';
+			|en = 'An error occurred when using the electronic scale: %ДополнительноеОписание%';
+			|es = 'Se ha producido un error al usar la báscula electrónica: %ДополнительноеОписание%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
@@ -4449,9 +4715,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда	
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьПечатьЭтикеток_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, "ПринтерЭтикеток",
-			НСтр("ru = 'Выберите принтер этикеток'; fr = ""Sélectionnez une imprimante d'étiquettes""; en = 'Select a label printer'; es = 'Seleccione la impresora de etiquetas'"), 
-			НСтр("ru = 'Принтер этикеток не подключен.'; fr = ""L'imprimante d'étiquettes n'est pas connectée.""; en = 'The label printer is not connected.'; es = 'La impresora de etiquetas no está conectada.'"), 
-			НСтр("ru = 'Принтер этикеток не выбран.'; fr = ""L'imprimante d'étiquettes n'est pas sélectionnée.""; en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'"), 
+			НСтр("ru = 'Выберите принтер этикеток'; fr = 'Sélectionnez une imprimante d''étiquettes'; en = 'Select a label printer';
+				|es = 'Seleccione la impresora de etiquetas'"),
+			НСтр("ru = 'Принтер этикеток не подключен.'; fr = 'L''imprimante d''étiquettes n''est pas connectée.';
+				|en = 'The label printer is not connected.'; es = 'La impresora de etiquetas no está conectada.'"),
+			НСтр("ru = 'Принтер этикеток не выбран.'; fr = 'L''imprimante d''étiquettes n''est pas sélectionnée.';
+				|en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'"),
 			Истина);
 	Иначе
 		НачатьПечатьЭтикеток_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -4463,7 +4732,8 @@
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Если Параметры.СледующееОповещение <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Принтер этикеток не выбран.'; fr = ""L'imprimante d'étiquettes n'est pas sélectionnée.""; en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'");
+			ОписаниеОшибки = НСтр("ru = 'Принтер этикеток не выбран.'; fr = 'L''imprimante d''étiquettes n''est pas sélectionnée.';
+				|en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'");
 			Результат = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.СледующееОповещение, Результат);
 		КонецЕсли;
@@ -4523,7 +4793,7 @@
 Процедура НачатьПечатьЭтикеток_ВыполнитьКомандуЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
 	Если РезультатВыполнения.Результат Тогда
-		ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+		ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 	Иначе
 		ОписаниеОшибки = НСтр("ru = 'При работе с принтером этикеток произошла ошибка."
 "%ОписаниеОшибки%'; fr = ""Une erreur s'est produite lors de l'utilisation de l'imprimante d'étiquettes."
@@ -4553,9 +4823,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда	
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьИнициализацияПринтераЭтикеток_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, "ПринтерЭтикеток",
-			НСтр("ru = 'Выберите принтер этикеток'; fr = ""Sélectionnez une imprimante d'étiquettes""; en = 'Select a label printer'; es = 'Seleccione la impresora de etiquetas'"), 
-			НСтр("ru = 'Принтер этикеток не подключен.'; fr = ""L'imprimante d'étiquettes n'est pas connectée.""; en = 'The label printer is not connected.'; es = 'La impresora de etiquetas no está conectada.'"), 
-			НСтр("ru = 'Принтер этикеток не выбран.'; fr = ""L'imprimante d'étiquettes n'est pas sélectionnée.""; en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'"), 
+			НСтр("ru = 'Выберите принтер этикеток'; fr = 'Sélectionnez une imprimante d''étiquettes'; en = 'Select a label printer';
+				|es = 'Seleccione la impresora de etiquetas'"),
+			НСтр("ru = 'Принтер этикеток не подключен.'; fr = 'L''imprimante d''étiquettes n''est pas connectée.';
+				|en = 'The label printer is not connected.'; es = 'La impresora de etiquetas no está conectada.'"),
+			НСтр("ru = 'Принтер этикеток не выбран.'; fr = 'L''imprimante d''étiquettes n''est pas sélectionnée.';
+				|en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'"),
 			Истина);
 	Иначе
 		НачатьИнициализацияПринтераЭтикеток_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -4567,7 +4840,8 @@
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Если Параметры.СледующееОповещение <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Принтер этикеток не выбран.'; fr = ""L'imprimante d'étiquettes n'est pas sélectionnée.""; en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'");
+			ОписаниеОшибки = НСтр("ru = 'Принтер этикеток не выбран.'; fr = 'L''imprimante d''étiquettes n''est pas sélectionnée.';
+				|en = 'The label printer is not selected.'; es = 'Impresora de etiquetas no seleccionada.'");
 			Результат = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.СледующееОповещение, Результат);
 		КонецЕсли;
@@ -4603,7 +4877,7 @@
 Процедура НачатьИнициализацияПринтераЭтикеток_ВыполнитьКомандуЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
 	Если РезультатВыполнения.Результат Тогда
-		ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+		ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 	Иначе
 		ОписаниеОшибки = НСтр("ru = 'При работе с принтером этикеток произошла ошибка."
 "%ОписаниеОшибки%'; fr = ""Une erreur s'est produite lors de l'utilisation de l'imprimante d'étiquettes."
@@ -4635,7 +4909,10 @@
 	Попытка
 		ОткрытьФорму(ИмяФормы, Новый Структура("АдресХранилищаСКД", АдресХранилищаСКД),,,,, ОповещениеПриЗавершении);
 	Исключение
-		ТекстСообщения = НСтр("ru = 'Использование редактора этикеток невозможно! Функциональность не поддерживается.'; fr = ""Vous ne pouvez pas utiliser l'éditeur d'étiquettes! La fonctionnalité n'est pas prise en charge.""; en = 'Using the label editor is not possible! The functionality is not supported.'; es = '¡No es posible usar el Editor de etiquetas! La funcionalidad no es compatible.'");
+		ТекстСообщения = НСтр("ru = 'Использование редактора этикеток невозможно! Функциональность не поддерживается.';
+			|fr = 'Vous ne pouvez pas utiliser l''éditeur d''étiquettes! La fonctionnalité n''est pas prise en charge.';
+			|en = 'Using the label editor is not possible! The functionality is not supported.';
+			|es = '¡No es posible usar el Editor de etiquetas! La funcionalidad no es compatible.'");
 		ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 	КонецПопытки;
 	
@@ -4663,7 +4940,8 @@
 	
 	Если ТаблицаВыгрузкиТоваров.Количество() = 0 Тогда
 		
-		ТекстСообщения = НСтр("ru = 'Нет данных для выгрузки.'; fr = 'Aucune donnée à décharger.'; en = 'There is no data to upload.'; es = 'No hay datos para descargar.'");
+		ТекстСообщения = НСтр("ru = 'Нет данных для выгрузки.'; fr = 'Aucune donnée à décharger.'; en = 'There is no data to upload.';
+			|es = 'No hay datos para descargar.'");
 		Если ОтображатьСообщения Тогда
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		КонецЕсли;
@@ -4688,9 +4966,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыгрузкуДанныеВВесыСПечатьюЭтикеток_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, "ВесыСПечатьюЭтикеток",
-			НСтр("ru = 'Выберите весы с печатью этикеток'; fr = ""Choisissez une balance avec impression d'étiquettes""; en = 'Choose a scale with label printing'; es = 'Elija una báscula con impresión de etiquetas'"),
-			НСтр("ru = 'Весы с печатью этикеток не подключены.'; fr = ""Les balances avec impression d'étiquettes ne sont pas connectées.""; en = 'The scales with label printing are not connected.'; es = 'La báscula de impresión de etiquetas no está conectada.'"), 
-			НСтр("ru = 'Весы с печатью этикеток не выбраны.'; fr = ""Les balances avec impression d'étiquettes ne sont pas sélectionnées.""; en = 'Scales with label printing are not selected.'; es = 'No se seleccionan escalas de impresión de etiquetas.'"), 
+			НСтр("ru = 'Выберите весы с печатью этикеток'; fr = 'Choisissez une balance avec impression d''étiquettes';
+				|en = 'Choose a scale with label printing'; es = 'Elija una báscula con impresión de etiquetas'"),
+			НСтр("ru = 'Весы с печатью этикеток не подключены.'; fr = 'Les balances avec impression d''étiquettes ne sont pas connectées.';
+				|en = 'The scales with label printing are not connected.'; es = 'La báscula de impresión de etiquetas no está conectada.'"),
+			НСтр("ru = 'Весы с печатью этикеток не выбраны.'; fr = 'Les balances avec impression d''étiquettes ne sont pas sélectionnées.';
+				|en = 'Scales with label printing are not selected.'; es = 'No se seleccionan escalas de impresión de etiquetas.'"),
 			Истина);
 	Иначе
 		НачатьВыгрузкуДанныеВВесыСПечатьюЭтикеток_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -4702,7 +4983,9 @@
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Если Параметры.СледующееОповещение <> Неопределено Тогда
-			ТекстСообщения = НСтр("ru = 'Весы с печатью этикеток не выбраны.'; fr = ""Les balances avec impression d'étiquettes ne sont pas sélectionnées.""; en = 'Scales with label printing are not selected.'; es = 'No se seleccionan escalas de impresión de etiquetas.'");
+			ТекстСообщения = НСтр("ru = 'Весы с печатью этикеток не выбраны.';
+				|fr = 'Les balances avec impression d''étiquettes ne sont pas sélectionnées.'; en = 'Scales with label printing are not selected.';
+				|es = 'No se seleccionan escalas de impresión de etiquetas.'");
 			Результат = Новый Структура("Результат, ОписаниеОшибки, ИдентификаторУстройства", Ложь, ТекстСообщения, Неопределено);
 			ВыполнитьОбработкуОповещения(Параметры.СледующееОповещение, Результат);
 		КонецЕсли;
@@ -4726,7 +5009,10 @@
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьВыгрузкуДанныеВВесыСПечатьюЭтикеток_ПодключениеЗавершение", ЭтотОбъект, Параметры);
 		НачатьПодключениеОборудованиеПоИдентификатору(ОписаниеОповещения, Параметры.УникальныйИдентификатор, Параметры.ИдентификаторУстройства);
 	Иначе
-		ТекстСообщения = НСтр("ru = 'Данная операция не доступна без установленного расширения для веб-клиента ""1С:Предприятие"".'; fr = 'Cette opération n''est pas disponible sans l''extension installée POUR le client Web ""1C:Enterprise"".'; en = 'This operation is not available without the extension installed for the 1C web client.:The enterprise"".'; es = 'Esta operación no está disponible sin la extensión instalada PARA el cliente web ""1C: Enterprise"".'");
+		ТекстСообщения = НСтр("ru = 'Данная операция не доступна без установленного расширения для веб-клиента ""1С:Предприятие"".';
+			|fr = 'Cette opération n''est pas disponible sans l''extension installée POUR le client Web ""1C:Enterprise"".';
+			|en = 'This operation is not available without the extension installed for the 1C web client.:The enterprise"".';
+			|es = 'Esta operación no está disponible sin la extensión instalada PARA el cliente web ""1C: Enterprise"".'");
 		Если Параметры.ОтображатьСообщения Тогда
 			ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		КонецЕсли;
@@ -4773,7 +5059,7 @@
 
 Процедура НачатьВыгрузкуДанныеВВесыСПечатьюЭтикеток_ВыполнитьКомандуЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
-	ТекстСообщения = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+	ТекстСообщения = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 	
 	Если НЕ РезультатВыполнения.Результат Тогда
 		ТекстСообщения = НСтр("ru = 'При выгрузке данных в оборудование произошла ошибка."
@@ -4808,9 +5094,12 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьОчисткуТоваровВВесахСПечатьюЭтикеток_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, "ВесыСПечатьюЭтикеток",
-			НСтр("ru = 'Выберите весы с печатью этикеток'; fr = ""Choisissez une balance avec impression d'étiquettes""; en = 'Choose a scale with label printing'; es = 'Elija una báscula con impresión de etiquetas'"), 
-			НСтр("ru = 'Весы с печатью этикеток не подключены.'; fr = ""Les balances avec impression d'étiquettes ne sont pas connectées.""; en = 'The scales with label printing are not connected.'; es = 'La báscula de impresión de etiquetas no está conectada.'"),
-			НСтр("ru = 'Весы с печатью этикеток не выбраны.'; fr = ""Les balances avec impression d'étiquettes ne sont pas sélectionnées.""; en = 'Scales with label printing are not selected.'; es = 'No se seleccionan escalas de impresión de etiquetas.'"), 
+			НСтр("ru = 'Выберите весы с печатью этикеток'; fr = 'Choisissez une balance avec impression d''étiquettes';
+				|en = 'Choose a scale with label printing'; es = 'Elija una báscula con impresión de etiquetas'"),
+			НСтр("ru = 'Весы с печатью этикеток не подключены.'; fr = 'Les balances avec impression d''étiquettes ne sont pas connectées.';
+				|en = 'The scales with label printing are not connected.'; es = 'La báscula de impresión de etiquetas no está conectada.'"),
+			НСтр("ru = 'Весы с печатью этикеток не выбраны.'; fr = 'Les balances avec impression d''étiquettes ne sont pas sélectionnées.';
+				|en = 'Scales with label printing are not selected.'; es = 'No se seleccionan escalas de impresión de etiquetas.'"),
 			Истина);
 	Иначе
 		НачатьОчисткуТоваровВВесахСПечатьюЭтикеток_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
@@ -4822,7 +5111,9 @@
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
 		Если Параметры.СледующееОповещение <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Весы с печатью этикеток не выбраны.'; fr = ""Les balances avec impression d'étiquettes ne sont pas sélectionnées.""; en = 'Scales with label printing are not selected.'; es = 'No se seleccionan escalas de impresión de etiquetas.'");
+			ОписаниеОшибки = НСтр("ru = 'Весы с печатью этикеток не выбраны.';
+				|fr = 'Les balances avec impression d''étiquettes ne sont pas sélectionnées.'; en = 'Scales with label printing are not selected.';
+				|es = 'No se seleccionan escalas de impresión de etiquetas.'");
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки, Неопределено);
 			ВыполнитьОбработкуОповещения(Параметры.СледующееОповещение, РезультатОперации);
 		КонецЕсли;
@@ -4837,14 +5128,17 @@
 
 Процедура НачатьОчисткуТоваровВВесахСПечатьюЭтикеток_ПодключениеЗавершение(РезультатПодключения, Параметры) Экспорт
 	
-	ТекстСообщения = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+	ТекстСообщения = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 	
 	Если РезультатПодключения.Результат Тогда
 		ВходныеПараметры  = Неопределено;
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьОчисткуТоваровВВесахСПечатьюЭтикеток_ВыполнитьКомандуЗавершение", ЭтотОбъект, Параметры);
 		НачатьВыполнениеКоманды(ОписаниеОповещения, Параметры.ИдентификаторУстройства, "ОчиститьБазу", ВходныеПараметры);
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'При подключении устройства произошла ошибка. |%ОписаниеОшибки%'; fr = ""Une erreur s'est produite lors de la connexion de l'appareil. / %ОписаниеОшибки%""; en = 'An error occurred when connecting the device. |%ОписаниеОшибки%'; es = 'Se produjo un error al conectar el dispositivo. / %ОписаниеОшибки%'");
+		ОписаниеОшибки = НСтр("ru = 'При подключении устройства произошла ошибка. |%ОписаниеОшибки%';
+			|fr = 'Une erreur s''est produite lors de la connexion de l''appareil. / %ОписаниеОшибки%';
+			|en = 'An error occurred when connecting the device. |%ОписаниеОшибки%';
+			|es = 'Se produjo un error al conectar el dispositivo. / %ОписаниеОшибки%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", РезультатПодключения.ОписаниеОшибки);
 		
 		Если Параметры.ОтображатьСообщения Тогда
@@ -4862,9 +5156,12 @@
 Процедура НачатьОчисткуТоваровВВесахСПечатьюЭтикеток_ВыполнитьКомандуЗавершение(РезультатВыполнения, Параметры) Экспорт
 	
 	Если РезультатВыполнения.Результат Тогда
-		ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = ""Pas d'erreurs.""; en = 'There are no errors.'; es = 'No hay errores.'");
+		ОписаниеОшибки = НСтр("ru = 'Ошибок нет.'; fr = 'Pas d''erreurs.'; en = 'There are no errors.'; es = 'No hay errores.'");
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'При очистке данных в оборудование произошла ошибка. |%ОписаниеОшибки%'; fr = ""Une erreur s'est produite lors du nettoyage des données dans le matériel. / %ОписаниеОшибки%""; en = 'An error occurred while clearing the data in the hardware. |%ОписаниеОшибки%'; es = 'Se produjo un error al borrar los datos en el hardware. / %ОписаниеОшибки%'");
+		ОписаниеОшибки = НСтр("ru = 'При очистке данных в оборудование произошла ошибка. |%ОписаниеОшибки%';
+			|fr = 'Une erreur s''est produite lors du nettoyage des données dans le matériel. / %ОписаниеОшибки%';
+			|en = 'An error occurred while clearing the data in the hardware. |%ОписаниеОшибки%';
+			|es = 'Se produjo un error al borrar los datos en el hardware. / %ОписаниеОшибки%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
@@ -4916,7 +5213,8 @@
 			НачатьВыполнениеКоманды(Оповещение, Устройство.Ссылка, "OpenSessionRFID", ВходныеПараметры);
 		КонецЦикла
 	ИначеЕсли  ОповещениеПриЗавершении <> Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Нет подключенных RFID считывателей.'; fr = 'Aucun lecteur RFID connecté.'; en = 'There are no connected RFID readers.'; es = 'No hay lectores RFID conectados.'");
+		ОписаниеОшибки = НСтр("ru = 'Нет подключенных RFID считывателей.'; fr = 'Aucun lecteur RFID connecté.';
+			|en = 'There are no connected RFID readers.'; es = 'No hay lectores RFID conectados.'");
 		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 		ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
@@ -4928,7 +5226,10 @@
 	Если РезультатВыполнения.Результат Тогда
 		ОписаниеОшибки = "";
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'При работе со считывателем RFID произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'utilisation du lecteur RFID: %ДополнительноеОписание%""; en = 'An error occurred when working with the RFID reader: %ДополнительноеОписание%'; es = 'Error al utilizar el lector RFID: %ДополнительноеОписание%'");
+		ОписаниеОшибки = НСтр("ru = 'При работе со считывателем RFID произошла ошибка: %ДополнительноеОписание%';
+			|fr = 'Une erreur s''est produite lors de l''utilisation du lecteur RFID: %ДополнительноеОписание%';
+			|en = 'An error occurred when working with the RFID reader: %ДополнительноеОписание%';
+			|es = 'Error al utilizar el lector RFID: %ДополнительноеОписание%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
@@ -4958,7 +5259,8 @@
 			НачатьВыполнениеКоманды(Оповещение, Устройство.Ссылка, "CloseSessionRFID", ВходныеПараметры);
 		КонецЦикла
 	ИначеЕсли  ОповещениеПриЗавершении <> Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'Нет подключенных RFID считывателей.'; fr = 'Aucun lecteur RFID connecté.'; en = 'There are no connected RFID readers.'; es = 'No hay lectores RFID conectados.'");
+		ОписаниеОшибки = НСтр("ru = 'Нет подключенных RFID считывателей.'; fr = 'Aucun lecteur RFID connecté.';
+			|en = 'There are no connected RFID readers.'; es = 'No hay lectores RFID conectados.'");
 		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 		ВыполнитьОбработкуОповещения(ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
@@ -4970,7 +5272,10 @@
 	Если РезультатВыполнения.Результат Тогда
 		ОписаниеОшибки = "";
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'При работе со считывателем RFID произошла ошибка: %ДополнительноеОписание%'; fr = ""Une erreur s'est produite lors de l'utilisation du lecteur RFID: %ДополнительноеОписание%""; en = 'An error occurred when working with the RFID reader: %ДополнительноеОписание%'; es = 'Error al utilizar el lector RFID: %ДополнительноеОписание%'");
+		ОписаниеОшибки = НСтр("ru = 'При работе со считывателем RFID произошла ошибка: %ДополнительноеОписание%';
+			|fr = 'Une erreur s''est produite lors de l''utilisation du lecteur RFID: %ДополнительноеОписание%';
+			|en = 'An error occurred when working with the RFID reader: %ДополнительноеОписание%';
+			|es = 'Error al utilizar el lector RFID: %ДополнительноеОписание%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ДополнительноеОписание%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
@@ -4992,7 +5297,9 @@
 	Если ИдентификаторУстройства = Неопределено Тогда
 		ОписаниеОповещения = Новый ОписаниеОповещения("НачатьЗаписьДанныхВМеткуRFID_ВыбратьУстройствоЗавершение", ЭтотОбъект, Контекст);
 		ПредложитьВыбратьУстройство(ОписаниеОповещения, "СчитывательRFID",
-			НСтр("ru = 'Выберите RFID считыватель'; fr = 'Choisissez un lecteur RFID'; en = 'Choose an RFID reader'; es = 'Seleccione lector RFID'"), НСтр("ru = 'Нет подключенных RFID считывателей.'; fr = 'Aucun lecteur RFID connecté.'; en = 'There are no connected RFID readers.'; es = 'No hay lectores RFID conectados.'"));
+			НСтр("ru = 'Выберите RFID считыватель'; fr = 'Choisissez un lecteur RFID'; en = 'Choose an RFID reader';
+				|es = 'Seleccione lector RFID'"), НСтр("ru = 'Нет подключенных RFID считывателей.'; fr = 'Aucun lecteur RFID connecté.';
+				|en = 'There are no connected RFID readers.'; es = 'No hay lectores RFID conectados.'"));
 	Иначе
 		НачатьЗаписьДанныхВМеткуRFID_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Контекст);
 	КонецЕсли;
@@ -5002,7 +5309,8 @@
 Процедура НачатьЗаписьДанныхВМеткуRFID_ВыбратьУстройствоЗавершение(ИдентификаторУстройства, Параметры) Экспорт
 	
 	Если ИдентификаторУстройства = Неопределено Тогда
-		ОписаниеОшибки = НСтр("ru = 'RFID считыватель  не подключен.'; fr = 'Lecteur RFID non connecté.'; en = 'The RFID reader is not connected.'; es = 'El lector RFID no está conectado.'");
+		ОписаниеОшибки = НСтр("ru = 'RFID считыватель  не подключен.'; fr = 'Lecteur RFID non connecté.';
+			|en = 'The RFID reader is not connected.'; es = 'El lector RFID no está conectado.'");
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании();
 			РезультатОперации.Результат = Ложь;
@@ -5027,12 +5335,15 @@
 	
 	ОписаниеОшибки = ""; 
 	Если НЕ РезультатВыполнения.Результат Тогда
-		ОписаниеОшибки = НСтр("ru = 'При работе со считывателем RFID произошла ошибка: %ОписаниеОшибки%'; fr = ""Une erreur s'est produite lors de l'utilisation du lecteur RFID: %ОписаниеОшибки%""; en = 'An error occurred when working with the RFID reader: %ОписаниеОшибки%'; es = 'Error al utilizar el lector RFID: %ОписаниеОшибки%'");
+		ОписаниеОшибки = НСтр("ru = 'При работе со считывателем RFID произошла ошибка: %ОписаниеОшибки%';
+			|fr = 'Une erreur s''est produite lors de l''utilisation du lecteur RFID: %ОписаниеОшибки%';
+			|en = 'An error occurred when working with the RFID reader: %ОписаниеОшибки%';
+			|es = 'Error al utilizar el lector RFID: %ОписаниеОшибки%'");
 		ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%ОписаниеОшибки%", РезультатВыполнения.ВыходныеПараметры[1]);
 	КонецЕсли;
 	
 	Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства); 
+		РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(РезультатВыполнения.Результат, ОписаниеОшибки, Параметры.ИдентификаторУстройства);
 		ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 	КонецЕсли;
 	
@@ -5099,7 +5410,9 @@
 				ТекстСодержания = ЧтениеТекста.Прочитать();
 			Исключение
 				
-				ТекстСообщения =  НСтр("ru = 'При чтении файла %ИмяФайла% произошла ошибка'; fr = ""Une erreur s'est produite lors de la lecture du fichier %ИмяФайла% ""; en = 'An error occurred while reading the %ИмяФайла% file'; es = 'Error al Leer el archivo %ИмяФайла% '");
+				ТекстСообщения =  НСтр("ru = 'При чтении файла %ИмяФайла% произошла ошибка';
+					|fr = 'Une erreur s''est produite lors de la lecture du fichier %ИмяФайла% ';
+					|en = 'An error occurred while reading the %ИмяФайла% file'; es = 'Error al Leer el archivo %ИмяФайла% '");
 				ТекстСообщения = СтрЗаменить(ТекстСообщения, "%ИмяФайла%", Файл.Имя);
 				
 				РезультатЧтенияФайлов.ТекстОшибки = ТекстСообщения + Символы.ПС + ОписаниеОшибки();
@@ -5133,7 +5446,9 @@
 	РезультатЧтенияФайлов.Вставить("ТекстОшибки", "");
 	
 	Если ПомещенныеФайлы = Неопределено Тогда
-		РезультатЧтенияФайлов.ТекстОшибки = НСтр("ru = 'Неизвестная ошибка при передаче файлов на сервер.'; fr = 'Erreur inconnue lors du transfert de fichiers vers le serveur.'; en = 'Unknown error when transferring files to the server.'; es = 'Error desconocido al transferir archivos al servidor.'");
+		РезультатЧтенияФайлов.ТекстОшибки = НСтр("ru = 'Неизвестная ошибка при передаче файлов на сервер.';
+			|fr = 'Erreur inconnue lors du transfert de fichiers vers le serveur.'; en = 'Unknown error when transferring files to the server.';
+			|es = 'Error desconocido al transferir archivos al servidor.'");
 	Иначе
 		Если Не ПомещенныеФайлы.Количество() = 0 Тогда
 			РезультатИзвлеченияТекста = МенеджерОборудованияВызовСервера.ПолучитьСодержаниеТекстовыхФайловИзХранилища(
@@ -5150,7 +5465,10 @@
 	СообщениеНеПодключен = "", СообщениеНеВыбран = "", БезСообщений = Ложь, ТекстСообщения = "") Экспорт
 	
 	Если Не ОбновитьРабочееМестоКлиента() Тогда
-		ТекстСообщения = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.'; fr = ""Vous devez d'abord sélectionner le poste de travail du matériel enfichable de la session en cours.""; en = 'You must first select the workplace of the connected equipment of the current session.'; es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
+		ТекстСообщения = НСтр("ru = 'Предварительно необходимо выбрать рабочее место подключаемого оборудования текущего сеанса.';
+			|fr = 'Vous devez d''abord sélectionner le poste de travail du matériel enfichable de la session en cours.';
+			|en = 'You must first select the workplace of the connected equipment of the current session.';
+			|es = 'Primero debe seleccionar el lugar de trabajo del equipo de conexión de la sesión actual.'");
 		Если Не БезСообщений Тогда
 		      ОбщегоНазначенияКлиентСервер.СообщитьПользователю(ТекстСообщения);
 		КонецЕсли;
@@ -5198,7 +5516,8 @@
 	
 	Если СтруктураПараметровСмены = Неопределено Тогда
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Кассовая смена не выбрана'; fr = ""Aucun changement de caisse n'est sélectionné""; en = 'The cash shift is not selected'; es = 'Cambio de Caja no seleccionado'");
+			ОписаниеОшибки = НСтр("ru = 'Кассовая смена не выбрана'; fr = 'Aucun changement de caisse n''est sélectionné';
+				|en = 'The cash shift is not selected'; es = 'Cambio de Caja no seleccionado'");
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 		КонецЕсли;

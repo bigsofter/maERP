@@ -65,7 +65,7 @@
       </title>
       <title>
         <key>es</key>
-        <value>a</value>
+        <value>de</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1252,6 +1252,10 @@
           <event>OnStartEdit</event>
           <name>ТЧТоварыПриНачалеРедактирования</name>
         </handlers>
+        <handlers>
+          <event>BeforeDeleteRow</event>
+          <name>ТЧТоварыПередУдалением</name>
+        </handlers>
         <searchStringAddition>
           <name>ТЧТоварыСтрокаПоиска</name>
           <id>20</id>
@@ -1974,12 +1978,43 @@
               <representation>Compact</representation>
             </extInfo>
           </items>
+          <items xsi:type="form:Button">
+            <name>ТЧГотоваяПродукцияЗаполнитьПоЗаказу</name>
+            <id>406</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>ТЧГотоваяПродукцияЗаполнитьПоЗаказуРасширеннаяПодсказка</name>
+              <id>407</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <commandName>Form.Command.ЗаполнитьОжидаемуюПродукцию</commandName>
+            <buttonImportance>Normal</buttonImportance>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+            <locationInCommandBar>InCommandBar</locationInCommandBar>
+          </items>
           <horizontalAlign>Left</horizontalAlign>
           <autoFill>true</autoFill>
         </autoCommandBar>
         <handlers>
           <event>OnStartEdit</event>
           <name>ТЧГотоваяПродукцияПриНачалеРедактирования</name>
+        </handlers>
+        <handlers>
+          <event>BeforeDeleteRow</event>
+          <name>ТЧГотоваяПродукцияПередУдалением</name>
         </handlers>
         <searchStringAddition>
           <name>ТЧГотоваяПродукцияСтрокаПоиска</name>
@@ -2425,6 +2460,81 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>ПродукцияПравиласьВручную</name>
+    <title>
+      <key>ru</key>
+      <value>Продукция правилась вручную</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Production modifiée manuellement</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Output edited manually</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Producción editada manualmente</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <formCommands>
+    <name>ЗаполнитьОжидаемуюПродукцию</name>
+    <title>
+      <key>ru</key>
+      <value>Заполнить по заказу</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remplir selon la commande</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Fill from order</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Rellenar según el pedido</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Пересобрать ожидаемую продукцию по дереву материалов заказа и переданным строкам</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Recalculer la production attendue selon l'arbre des matières de la commande</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Rebuild the expected output from the order material tree and the transferred lines</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Recalcular la producción esperada según el árbol de materiales del pedido</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ЗаполнитьОжидаемуюПродукцию</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>

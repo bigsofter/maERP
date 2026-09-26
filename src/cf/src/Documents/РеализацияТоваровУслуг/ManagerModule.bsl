@@ -1357,289 +1357,6 @@ EndFunction
 	Возврат Массив;
 КонецФункции
 
-Function PrintFactureSocassif(Док, Spreadsheet, СФоном = Ложь) Export
-	//{{_PRINT_WIZARD(Печать)
-	//Template = Documents.FactureSortie.GetTemplate(TemplateName);
-	//TableName = Ref.MetaData().Name;
-	БезНДС = Док.Контрагент.ПечатьНакладнойЦеныБезНДС;
-	Template = ПечатныеФормы.МакетПечатнойФормы("Документ.РеализацияТоваровУслуг.FactureSocassif");
-	Query = New Query;
-	Query.Text =
-	"ВЫБРАТЬ
-	|	Doc.Ссылка.Контрагент КАК Client,
-	|	Doc.Ссылка.Ответственный КАК Createur,
-	|	ВЫБОР
-	|		КОГДА Doc.Ссылка.ДатаИнвойса = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
-	|			ТОГДА Doc.Ссылка.Дата
-	|		ИНАЧЕ Doc.Ссылка.ДатаИнвойса
-	|	КОНЕЦ КАК DocumentDate,
-	|	Doc.Ссылка.Номер КАК DocumentNumber,
-	|	Doc.Ссылка.Договор.ВалютаВзаиморасчётов КАК Devise,
-	|	Doc.Ссылка.Сумма КАК TotalSomme,
-	|	Doc.Ссылка.СуммаНДС КАК TotalSommeTVA,
-	|	Doc.Ссылка.Ссылка КАК DocRef,
-	|	Doc.НомерСтроки КАК LineNumber,
-	|	Doc.Номенклатура КАК Produit,
-	|	Doc.Номенклатура.Единица КАК UOM,
-	|	Doc.Количество КАК Quantity,
-	|	Doc.Цена КАК Price,
-	|	Doc.СтавкаНДС КАК TVA,
-	|	Doc.СуммаНДС КАК VATAmount,
-	|	Doc.СуммаСкидки КАК Remise,
-	|	Doc.Сумма КАК NetAmount,
-	|	Doc.СуммаСНДС КАК Total,
-	|	Doc.Ссылка.Организация КАК Organisation,
-	|	Doc.Ссылка.Основание КАК Основание,
-	|	Doc.ОтгрузкаТовара КАК BL,
-	|	Doc.Ссылка КАК Ссылка
-	|ИЗ
-	|	Документ.НалоговаяНакладная.ТЧТовары КАК Doc
-	|ГДЕ
-	|	Doc.Ссылка = &Ref
-	|
-	|ОБЪЕДИНИТЬ ВСЕ
-	|
-	|ВЫБРАТЬ
-	|	Doc.Ссылка.Контрагент,
-	|	Doc.Ссылка.Ответственный,
-	|	ВЫБОР
-	|		КОГДА Doc.Ссылка.ДатаИнвойса = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
-	|			ТОГДА Doc.Ссылка.Дата
-	|		ИНАЧЕ Doc.Ссылка.ДатаИнвойса
-	|	КОНЕЦ,
-	|	Doc.Ссылка.Номер,
-	|	Doc.Ссылка.Договор.ВалютаВзаиморасчётов,
-	|	Doc.Ссылка.Сумма,
-	|	Doc.Ссылка.СуммаНДС,
-	|	Doc.Ссылка.Ссылка,
-	|	0,
-	|	Doc.Номенклатура,
-	|	Doc.Номенклатура.Единица,
-	|	Doc.Количество,
-	|	Doc.Цена,
-	|	Doc.СтавкаНДС,
-	|	Doc.СуммаНДС,
-	|	0,
-	|	Doc.Сумма,
-	|	Doc.СуммаСНДС,
-	|	Doc.Ссылка.Организация,
-	|	Doc.Ссылка.Основание,
-	|	Doc.ОтгрузкаТовара,
-	|	Doc.Ссылка
-	|ИЗ
-	|	Документ.НалоговаяНакладная.ТЧУслуги КАК Doc
-	|ГДЕ
-	|	Doc.Ссылка = &Ref
-	|
-	|УПОРЯДОЧИТЬ ПО
-	|	BL
-	|ИТОГИ
-	|	МАКСИМУМ(DocRef),
-	|	МАКСИМУМ(Client),
-	|	МАКСИМУМ(Createur),
-	|	МАКСИМУМ(DocumentDate),
-	|	МАКСИМУМ(DocumentNumber),
-	|	МАКСИМУМ(Devise),
-	|	МАКСИМУМ(TotalSomme),
-	|	МАКСИМУМ(TotalSommeTVA),
-	|	МАКСИМУМ(Organisation),
-	|	МАКСИМУМ(Основание)
-	|ПО
-	|	Ссылка";
-	Query.Parameters.Insert("Ref", Док);
-	Selection = Query.Execute().Select(ОбходРезультатаЗапроса.ПоГруппировкам);
-
-	//AreaCaption = Template.GetArea("Caption");
-	Title = Template.GetArea("Title");
-	CounterpartyInfo = Template.GetArea("CounterpartyInfo");
-	Comment = Template.GetArea("Comment");	
-	LineHeader = Template.GetArea("LineHeader");	
-	LineSection = Template.GetArea("LineSection");	
-	LineTotal = Template.GetArea("LineTotal");	
-	BottomBorder = Template.GetArea("BottomBorder");	
-	LineTotalDue = Template.GetArea("LineTotalDue");	
-	TaxSectionHeader = Template.GetArea("TaxSectionHeader");	
-	TaxSectionLine = Template.GetArea("TaxSectionLine");	
-	EmptyLine = Template.GetArea("EmptyLine");	
-	PageNumberSection = Template.GetArea("PageNumber");	
-	CompanyInfo = Template.GetArea("CompanyInfo");	
-	AreaTabularSectionLineBC = Template.GetArea("LineBL");
-	LineHeaderWOVAT = Template.GetArea("LineHeaderWOVAT");	
-	LineSectionWOVAT = Template.GetArea("LineSectionWOVAT");	
-	LineTotalWOVAT = Template.GetArea("LineTotalWOVAT");	
-	
-	PageNumber = 0;
-	InsertPageBreak = False;
-	While Selection.Next() Do
-		//If InsertPageBreak Then
-		//	Spreadsheet.PutHorizontalPageBreak();
-		//EndIf;
- 		ОсновнойУчет = Selection.Organisation.ОсновнойУчет;
-
-		FirstRowNumber = Spreadsheet.TableHeight + 1;
-		//Header
-		Title.Parameters.Fill(Selection);
-		If Selection.Organisation <> Catalogs.Организации.EmptyRef() Then 
-			FieldPhoto = Selection.Organisation.Логотип.Get();
-			Try
-				Title.Drawings.Logo.Picture = New Picture(FieldPhoto);
-			Except
-			EndTry;
-		EndIf;
-		Spreadsheet.Put(Title, Selection.Level());
-		//Organisation
-    	OrganisationCard = Справочники.Контрагенты.ПолучитьКарточку(Selection.Organisation, Док.Дата);
-		CompanyInfo.Параметры.FullDescr = Selection.Organisation.Description;
-		CompanyInfo.Параметры.RegistrationNumber = СокрЛП(OrganisationCard.Реквизиты.ICE);
-		CompanyInfo.Параметры.VATNumber = СокрЛП(OrganisationCard.Реквизиты.NIF);
-		CompanyInfo.Параметры.AccountNo = OrganisationCard.БанковскийСчётОсновной.НомерСчёта;
-		CompanyInfo.Параметры.Bank = OrganisationCard.БанковскийСчётОсновной.Банк;
-		CompanyInfo.Параметры.Webpage = СокрЛП(OrganisationCard.Реквизиты.Web);
-		CompanyInfo.Параметры.EMail = OrganisationCard.Реквизиты.email;
-		CompanyInfo.Параметры.LegalAddress = OrganisationCard.АдресЮридический;
-		CompanyInfo.Параметры.PhoneNumbers = OrganisationCard.Телефоны;
-		Spreadsheet.Put(CompanyInfo, Selection.Level());
-		//Client
-    	ClientCard = Справочники.Контрагенты.ПолучитьКарточку(Selection.Client, Док.Дата);
-		Client = Selection.Client.Description;
-		CounterpartyInfo.Параметры.FullDescr = Client;
-		CounterpartyInfo.Параметры.VATNumber = ClientCard.Реквизиты.NIF;
-		CounterpartyInfo.Параметры.RegistrationNumber = ClientCard.Реквизиты.ICE;
-		CounterpartyInfo.Параметры.LegalAddress = ClientCard.Реквизиты.АдресЮридический;
-		CounterpartyInfo.Параметры.DeliveryAddress = ClientCard.Реквизиты.АдресДоставки;
-		CounterpartyInfo.Параметры.FullDescrShipTo = Client;
-		CounterpartyInfo.Параметры.CounterpartyContactPerson = "";
-		CounterpartyInfo.Параметры.PhoneNumbers = ClientCard.Телефоны;
-		СпособОплаты = РаботаСДокументами.ПолучитьСпособОплаты(Док);
-		Если Не ЗначениеЗаполнено(СпособОплаты) Тогда 
-			СпособОплаты = Selection.Client.ТипОплаты;
-		КонецЕсли;
-		CounterpartyInfo.Параметры.PaymentTerms = СпособОплаты;
-		Spreadsheet.Put(CounterpartyInfo, Selection.Level());
-		//Comment
-		Comment.Параметры.Comment = Selection.DocRef.Комментарий;
-		Spreadsheet.Put(Comment, Selection.Level());
-		//LineHeader
-		Spreadsheet.Put(?(ОсновнойУчет, LineHeader, LineHeaderWOVAT), Selection.Level()); 
-		//LineSection
-		SelectionTabularSection = Selection.Select();
-		LineNumber = 0;
-        BL = Документы.РеализацияТоваровУслуг.ПустаяСсылка();
-		While SelectionTabularSection.Next() Do
-			Если Не BL = SelectionTabularSection.BL И ЗначениеЗаполнено(SelectionTabularSection.BL) Тогда
-				BL = SelectionTabularSection.BL;
-				AreaTabularSectionLineBC.Parameters.BL = "BL: "+РаботаСДокументами.СформироватьЦифровойНомер(BL.Number)+"/"+Format(BL.Date,"Л=fr; ДФ=yy; ДЛФ=DD") + " du " + Format(BL.Date,"Л=fr; ДФ=dd/MM/yyyy; ДЛФ=DD");
-				
-				МасОбластей = Новый Массив;
-				МасОбластей.Добавить(AreaTabularSectionLineBC);
-				МасОбластей.Добавить(PageNumberSection);
-				Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
-					PageNumber = PageNumber + 1;
-					PageNumberSection.Parameters.PageNumber = PageNumber;
-					Spreadsheet.Put(PageNumberSection);
-					Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
-					Spreadsheet.Put(?(ОсновнойУчет, LineHeader, LineHeaderWOVAT));
-				КонецЕсли;
-				Spreadsheet.Put(AreaTabularSectionLineBC);
-			КонецЕсли;
-			LineNumber = LineNumber + 1;
-			Если ОсновнойУчет Тогда 
-				LineSection.Parameters.Fill(SelectionTabularSection);
-				LineSection.Parameters.SKU = SelectionTabularSection.Produit.Артикул;
-				LineSection.Parameters.ProductDescription = SelectionTabularSection.Produit;
-				LineSection.Parameters.VATRate = SelectionTabularSection.TVA;
-				Если БезНДС Тогда 
-					LineSection.Parameters.Price = (SelectionTabularSection.Total - SelectionTabularSection.VATAmount)/SelectionTabularSection.Quantity;
-					LineSection.Parameters.NetAmount = SelectionTabularSection.Total - SelectionTabularSection.VATAmount;
-				КонецЕсли;
-			Иначе
-				LineSectionWOVAT.Parameters.Fill(SelectionTabularSection);
-				LineSectionWOVAT.Parameters.SKU = SelectionTabularSection.Produit.Артикул;
-				LineSectionWOVAT.Parameters.ProductDescription = SelectionTabularSection.Produit;
-			КонецЕсли;
-			МасОбластей = Новый Массив;
-			МасОбластей.Добавить(?(ОсновнойУчет, LineSection, LineSectionWOVAT));
-			МасОбластей.Добавить(PageNumberSection);
-			Если Не Spreadsheet.ПроверитьВывод(МасОбластей) Тогда
-				МасОбластей.Очистить();
-				МасОбластей.Добавить(EmptyLine);
-				МасОбластей.Добавить(PageNumberSection);
-				For i = 1 To 50 Do
-					If Not Spreadsheet.ПроверитьВывод(МасОбластей) 
-						Or i = 50 Then
-						PageNumber = PageNumber + 1;
-						PageNumberSection.Parameters.PageNumber = PageNumber;
-						Spreadsheet.Put(PageNumberSection);
-						Break;
-					Else
-						Spreadsheet.Put(EmptyLine);
-					EndIf;
-				EndDo;
-				Spreadsheet.ВывестиГоризонтальныйРазделительСтраниц();
-				Spreadsheet.Put(?(ОсновнойУчет, LineHeader, LineHeaderWOVAT));
-			КонецЕсли;
-			Spreadsheet.Put(?(ОсновнойУчет, LineSection, LineSectionWOVAT), SelectionTabularSection.Level());
-		EndDo;
-		Если ОсновнойУчет Тогда 
-			LineTotal.Parameters.LineNumber = LineNumber;
-			LineTotal.Parameters.DocumentCurrency = Константы.ВалютаРегламентированногоУчета.Получить();
-			LineTotal.Parameters.Subtotal = Format(Selection.TotalSomme - Selection.TotalSommeTVA,"NFD=2; NZ=0,00");
-			LineTotal.Parameters.VATAmount = Format(Selection.TotalSommeTVA,"NFD=2; NZ=0,00");
-			LineTotal.Parameters.Total = Format(Selection.TotalSomme,"NFD=2; NZ=0,00");
-			Spreadsheet.Put(LineTotal);
-		Иначе
-			LineTotalWOVAT.Parameters.LineNumber = LineNumber;
-			LineTotalWOVAT.Parameters.DocumentCurrency = Константы.ВалютаРегламентированногоУчета.Получить();
-			LineTotalWOVAT.Parameters.Total = Format(Selection.TotalSomme,"NFD=2; NZ=0,00");
-			Spreadsheet.Put(LineTotalWOVAT);
-		КонецЕсли;
-		
-		Spreadsheet.Put(BottomBorder);
-		ТЗОплат = РегистрыНакопления.ДенежныеСредстваОрганизаций.ПолучитьОплаты(Док, Истина);
-		Оплачено = ТЗОплат.Итог("Сумма");
-		LineTotalDue.Parameters.Paid = Format(Оплачено,"NFD=2; NZ=0,00");
-		LineTotalDue.Parameters.TotalDue = Format(Selection.TotalSomme - Оплачено,"NFD=2; NZ=0,00");
-		LineTotalDue.Parameters.DocumentCurrency = Константы.ВалютаРегламентированногоУчета.Получить();
-		Spreadsheet.Put(LineTotalDue);
-		
-		МасОбластей.Clear();
-		МасОбластей.Add(EmptyLine);
-		МасОбластей.Add(PageNumberSection);
-		
-		For i = 1 To 50 Do
-			
-			If Not Spreadsheet.ПроверитьВывод(МасОбластей)
-				Or i = 50 Then
-				
-				PageNumber = PageNumber + 1;
-				PageNumberSection.Parameters.PageNumber = PageNumber;
-				Spreadsheet.Put(PageNumberSection);
-				Break;
-				
-			Else
-				
-				Spreadsheet.Put(EmptyLine);
-				
-			EndIf;
-			
-		EndDo;
-
-		Spreadsheet.PutHorizontalPageBreak();
-		//PrintManagement.SetDocumentPrintArea(Spreadsheet, FirstRowNumber, PrintObjects, Selection.DocRef);
-	EndDo; 
-	
-	Spreadsheet.ИспользуемоеИмяФайла = РаботаСДокументами.КраткоеПредставлениеДокумента(Док, "Facture");
-	ЭтоНалоговаяНакладная = СтрНайти(Spreadsheet.ИспользуемоеИмяФайла ,"Facture");
-	
-	If ЭтоНалоговаяНакладная > 0 Then
-		Spreadsheet.ИспользуемоеИмяФайла = СтрЗаменить(Spreadsheet.ИспользуемоеИмяФайла, "Facture", "Facture " + Client);
-	EndIf;
-	
-	Return Spreadsheet;
-	
-	//}}
-EndFunction
-
 Function PrintDevisBL(Док, Spreadsheet, НазваниеДокумента = "Devis", БезЦен = Ложь) Export
 	Devis = (НазваниеДокумента = "Devis");
 	Параметры = ПараметрыПечатиDevisBL("DevisBL", "A5", НазваниеДокумента, БезЦен);
@@ -1651,7 +1368,8 @@ EndFunction
 // Печать Devis / Bon de commande на A4 без разбивки оплат.
 //
 // Параметры:
-//  Док - ДокументСсылка.РеализацияТоваровУслуг, ДокументСсылка.ЗаказПокупателя, ДокументСсылка.ВозвратОтПокупателя,
+//  Док - ДокументСсылка.РеализацияТоваровУслуг, ДокументСсылка.ЗаказПокупателя,
+//        ДокументСсылка.КоммерческоеПредложение, ДокументСсылка.ВозвратОтПокупателя,
 //        ДокументСсылка.ВозвратОтПокупателяНалоговый - печатаемый документ.
 //  Spreadsheet - ТабличныйДокумент - куда выводится форма.
 //  НазваниеДокумента - Строка - заголовок формы.
@@ -1785,7 +1503,8 @@ EndFunction
 	|	Doc.СуммаНДС КАК SommeTVA,
 	|	Doc.СуммаСНДС КАК SommeTTC,
 	|	Doc.Упаковка КАК Упаковка,
-	|	Doc.НоменклатураСтрока КАК НоменклатураСтрока
+	|	Doc.НоменклатураСтрока КАК НоменклатураСтрока,
+	|	NULL КАК ОписаниеСтроки
 	|ПОМЕСТИТЬ ВТСтроки
 	|ИЗ
 	|	Документ.РеализацияТоваровУслуг.ТЧТовары КАК Doc
@@ -1804,7 +1523,8 @@ EndFunction
 	|	Doc.СуммаНДС,
 	|	Doc.СуммаСНДС,
 	|	NULL,
-	|	""""
+	|	"""",
+	|	NULL
 	|ИЗ
 	|	Документ.РеализацияТоваровУслуг.ТЧУслуги КАК Doc
 	|ГДЕ
@@ -1822,7 +1542,8 @@ EndFunction
 	|	Doc.СуммаНДС,
 	|	Doc.СуммаСНДС,
 	|	Doc.Упаковка,
-	|	Doc.НоменклатураСтрока
+	|	Doc.НоменклатураСтрока,
+	|	NULL
 	|ИЗ
 	|	Документ.ЗаказПокупателя.ТЧТовары КАК Doc
 	|ГДЕ
@@ -1840,7 +1561,27 @@ EndFunction
 	|	Doc.СуммаНДС,
 	|	Doc.СуммаСНДС,
 	|	Doc.Упаковка,
-	|	Doc.НоменклатураСтрока
+	|	Doc.НоменклатураСтрока,
+	|	Doc.Описание
+	|ИЗ
+	|	Документ.КоммерческоеПредложение.ТЧТовары КАК Doc
+	|ГДЕ
+	|	Doc.Ссылка = &Ref
+	|
+	|ОБЪЕДИНИТЬ ВСЕ
+	|
+	|ВЫБРАТЬ
+	|	Doc.Ссылка,
+	|	Doc.НомерСтроки,
+	|	Doc.Номенклатура,
+	|	Doc.Количество,
+	|	Doc.Цена,
+	|	Doc.Сумма,
+	|	Doc.СуммаНДС,
+	|	Doc.СуммаСНДС,
+	|	Doc.Упаковка,
+	|	Doc.НоменклатураСтрока,
+	|	NULL
 	|ИЗ
 	|	Документ.ВозвратОтПокупателя.ТЧТовары КАК Doc
 	|ГДЕ
@@ -1858,7 +1599,8 @@ EndFunction
 	|	Doc.СуммаНДС,
 	|	Doc.СуммаСНДС,
 	|	Doc.Упаковка,
-	|	Doc.НоменклатураСтрока
+	|	Doc.НоменклатураСтрока,
+	|	NULL
 	|ИЗ
 	|	Документ.ВозвратОтПокупателяНалоговый.ТЧТовары КАК Doc
 	|ГДЕ
@@ -1876,7 +1618,8 @@ EndFunction
 	|	Doc.СуммаНДС,
 	|	Doc.СуммаСНДС,
 	|	Doc.Упаковка,
-	|	""""
+	|	"""",
+	|	NULL
 	|ИЗ
 	|	Документ.ПредложениеПоставщика.ТЧТовары КАК Doc
 	|ГДЕ
@@ -1918,6 +1661,25 @@ EndFunction
 	|	NULL
 	|ИЗ
 	|	Документ.ЗаказПокупателя КАК Шапка
+	|ГДЕ
+	|	Шапка.Ссылка = &Ref
+	|
+	|ОБЪЕДИНИТЬ ВСЕ
+	|
+	|ВЫБРАТЬ
+	|	Шапка.Ссылка,
+	|	Шапка.Контрагент,
+	|	Шапка.Ответственный,
+	|	Шапка.Дата,
+	|	Шапка.Номер,
+	|	Шапка.Договор,
+	|	Шапка.Сумма,
+	|	Шапка.СуммаНДС,
+	|	Шапка.Организация,
+	|	Шапка.Комментарий,
+	|	NULL
+	|ИЗ
+	|	Документ.КоммерческоеПредложение КАК Шапка
 	|ГДЕ
 	|	Шапка.Ссылка = &Ref
 	|
@@ -2017,6 +1779,7 @@ EndFunction
 	|	ВТСтроки.SommeTVA КАК SommeTVA,
 	|	ВТСтроки.SommeTTC КАК SommeTTC,
 	|	ВТСтроки.НоменклатураСтрока КАК НоменклатураСтрока,
+	|	ВТСтроки.ОписаниеСтроки КАК ОписаниеСтроки,
 	|	ВЫБОР
 	|		КОГДА ВТСтроки.Упаковка ЕСТЬ NULL
 	|			ТОГДА ЕСТЬNULL(Номенклатура.Единица, ЗНАЧЕНИЕ(Справочник.УпаковкиЕдиницыИзмерения.ПустаяСсылка))
@@ -2120,8 +1883,10 @@ EndFunction
 		НомерСтроки = НомерСтроки + 1;
 		Области.TabularSection.Параметры.Заполнить(SelectionTabularSection);
 		Области.TabularSection.Параметры.LineNumber = НомерСтроки;
+		// У строки коммерческого предложения своё описание, у остальных документов - описание из карточки.
+		ОписаниеСтроки = ?(SelectionTabularSection.ОписаниеСтроки = NULL, Неопределено, SelectionTabularSection.ОписаниеСтроки);
 		Области.TabularSection.Параметры.Descriptif = ОбщегоНазначенияКлиентСервер.ПредставлениеНоменклатуры(
-			SelectionTabularSection.Produit, "", , Истина, SelectionTabularSection.НоменклатураСтрока);
+			SelectionTabularSection.Produit, "", , Истина, SelectionTabularSection.НоменклатураСтрока, ОписаниеСтроки);
 		Если БезНДС Тогда
 			// Цена и сумма строки без НДС независимо от режима цен документа
 			СуммаHT = SelectionTabularSection.SommeTTC - SelectionTabularSection.SommeTVA;

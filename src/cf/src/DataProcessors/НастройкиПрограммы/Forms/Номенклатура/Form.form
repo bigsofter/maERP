@@ -5,19 +5,19 @@
     <id>1</id>
     <title>
       <key>ru</key>
-      <value>Учёт характеристик и серий, значения по умолчанию для новых позиций, печать этикеток.</value>
+      <value>Учёт характеристик, серий и упаковок, значения по умолчанию для новых позиций, печать этикеток.</value>
     </title>
     <title>
       <key>fr</key>
-      <value>Suivi des caractéristiques et des séries, valeurs par défaut des nouveaux articles, impression des étiquettes.</value>
+      <value>Suivi des caractéristiques, des séries et des emballages, valeurs par défaut des nouveaux articles, impression des étiquettes.</value>
     </title>
     <title>
       <key>en</key>
-      <value>Characteristics and series tracking, defaults for new items, label printing.</value>
+      <value>Characteristics, series and packaging tracking, defaults for new items, label printing.</value>
     </title>
     <title>
       <key>es</key>
-      <value>Seguimiento de características y series, valores por defecto de nuevos artículos, impresión de etiquetas.</value>
+      <value>Seguimiento de características, series y embalajes, valores por defecto de nuevos artículos, impresión de etiquetas.</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -145,6 +145,62 @@
       <contextMenu>
         <name>ИспользоватьСерииНоменклатурыКонтекстноеМеню</name>
         <id>10</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьУпаковку</name>
+      <id>28</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьУпаковку</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Показывает колонку «Упаковка» в табличных частях документов</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Affiche la colonne « Emballage » dans les parties tabulaires des documents</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Shows the "Packaging" column in document tabular sections</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Muestra la columna «Embalaje» en las partes tabulares de los documentos</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьУпаковкуРасширеннаяПодсказка</name>
+        <id>29</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьУпаковкуКонтекстноеМеню</name>
+        <id>30</id>
         <autoFill>true</autoFill>
       </contextMenu>
       <type>CheckBoxField</type>

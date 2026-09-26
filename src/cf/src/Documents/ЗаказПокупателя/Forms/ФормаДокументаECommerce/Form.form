@@ -115,7 +115,7 @@
       </title>
       <title>
         <key>es</key>
-        <value>a</value>
+        <value>de</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1331,6 +1331,38 @@
       <headerHorizontalAlign>Center</headerHorizontalAlign>
       <showInFooter>true</showInFooter>
       <extInfo xsi:type="form:InputFieldExtInfo">
+        <format>
+          <key>ru</key>
+          <value>ЧДЦ=3</value>
+        </format>
+        <format>
+          <key>fr</key>
+          <value>ЧДЦ=3</value>
+        </format>
+        <format>
+          <key>en</key>
+          <value>ЧДЦ=3</value>
+        </format>
+        <format>
+          <key>es</key>
+          <value>ЧДЦ=3</value>
+        </format>
+        <editFormat>
+          <key>ru</key>
+          <value>ЧДЦ=6</value>
+        </editFormat>
+        <editFormat>
+          <key>fr</key>
+          <value>ЧДЦ=6</value>
+        </editFormat>
+        <editFormat>
+          <key>en</key>
+          <value>ЧДЦ=6</value>
+        </editFormat>
+        <editFormat>
+          <key>es</key>
+          <value>ЧДЦ=6</value>
+        </editFormat>
         <width>8</width>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -2254,7 +2286,7 @@
           <horizontalAlign>Left</horizontalAlign>
         </extInfo>
       </extendedTooltip>
-      <commandName>Form.StandardCommand.WriteAndClose</commandName>
+      <commandName>Form.Command.ЗаписатьИЗакрыть</commandName>
       <representation>Auto</representation>
       <defaultButton>true</defaultButton>
       <autoMaxWidth>true</autoMaxWidth>
@@ -2710,6 +2742,18 @@
               <key>ru</key>
               <value>Отправитель</value>
             </content>
+            <content>
+              <key>fr</key>
+              <value>Expéditeur</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Sender</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Remitente</value>
+            </content>
           </localValue>
         </title>
       </fields>
@@ -2720,6 +2764,18 @@
             <content>
               <key>ru</key>
               <value>Владелец</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Propriétaire</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Owner</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Propietario</value>
             </content>
           </localValue>
         </title>
@@ -2819,6 +2875,53 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>ПерезаполнитьЦены</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ЗаписатьИЗакрыть</name>
+    <title>
+      <key>ru</key>
+      <value>Записать и закрыть</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Enregistrer et fermer</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Save and close</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Guardar y cerrar</value>
+    </title>
+    <id>5</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Записать объект и закрыть форму</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Enregistrer l'objet et fermer le formulaire</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Save the object and close the form</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Guardar el objeto y cerrar el formulario</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ЗаписатьИЗакрыть</name>
       </handler>
     </action>
     <modifiesStoredData>true</modifiesStoredData>

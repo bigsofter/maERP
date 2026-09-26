@@ -1042,7 +1042,7 @@
 				ТекстОшибки);
 			
 			ЗаписьЖурналаРегистрации(
-				НСтр("fr = ""Connexion d'un composant externe sur le serveur""; ru = 'Подключение внешней компоненты на сервере'; en = 'Connecting an external component on the server'; es = 'Conexión de componentes externos en el servidor'",
+				НСтр("fr = 'Connexion d''un composant externe sur le serveur'; ru = 'Подключение внешней компоненты на сервере'; en = 'Connecting an external component on the server'; es = 'Conexión de componentes externos en el servidor'",
 					КодОсновногоЯзыка()),
 				УровеньЖурналаРегистрации.Ошибка,,,
 				ТекстОшибки);
@@ -1069,7 +1069,7 @@
 			Местоположение);
 		
 		ЗаписьЖурналаРегистрации(
-			НСтр("fr = ""Connexion d'un composant externe sur le serveur""; ru = 'Подключение внешней компоненты на сервере'; en = 'Connecting an external component on the server'; es = 'Conexión de componentes externos en el servidor'",
+			НСтр("fr = 'Connexion d''un composant externe sur le serveur'; ru = 'Подключение внешней компоненты на сервере'; en = 'Connecting an external component on the server'; es = 'Conexión de componentes externos en el servidor'",
 				КодОсновногоЯзыка()),
 			УровеньЖурналаРегистрации.Ошибка,,,
 			ТекстОшибки);

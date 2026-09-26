@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# ai-explore <task-slug> "<task description>"
+#
+# Read-only repository exploration via OpenCode's explorer agent (zen free tier,
+# no auth needed). On BACKEND_UNAVAILABLE (exit 2), Claude should fall back to
+# spawning its own `repository-explorer` subagent instead — this script cannot
+# invoke a Claude subagent itself, only external CLIs.
+set -uo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/ai-lib.sh"
+
+if [ $# -lt 2 ]; then
+  echo "usage: ai-explore <task-slug> \"<task description>\"" >&2
+  exit 64
+fi
+SLUG=$(ai_slugify "$1"); shift
+TASK_DESC="$*"
+ai_task_dirs "$SLUG"
+
+if ! ai_opencode_available; then
+  echo "BACKEND_UNAVAILABLE: opencode not installed/enabled. Fall back to the repository-explorer Claude subagent." >&2
+  exit 2
+fi
+
+PROMPT_FILE="$AI_TASK_STATE_DIR/explore-prompt.md"
+{
+  cat "$AI_PROMPTS/explorer.md"
+  echo
+  echo "## Task"
+  echo "$TASK_DESC"
+} > "$PROMPT_FILE"
+
+EVENTS_OUT="$AI_TASK_STATE_DIR/explore-$(ai_timestamp).jsonl"
+REPORT_OUT="$AI_TASK_REVIEW_DIR/01-explore.md"
+
+if ! ai_run_opencode explorer "$(cat "$PROMPT_FILE")" "$EVENTS_OUT" > "$REPORT_OUT.tmp"; then
+  echo "BACKEND_UNAVAILABLE: opencode run failed — see ${EVENTS_OUT}.stderr. Fall back to the repository-explorer Claude subagent." >&2
+  rm -f "$REPORT_OUT.tmp"
+  exit 2
+fi
+
+mv "$REPORT_OUT.tmp" "$REPORT_OUT"
+ai_log "exploration report -> $REPORT_OUT"
+cat "$REPORT_OUT"

@@ -147,7 +147,7 @@
 	//	
 	//	Результат = МенеджерОборудованияКлиент.ПолучитьСобытиеОтУстройства(ОписаниеСобытия, ОписаниеОшибки);
 	//	Если Результат = Неопределено Тогда 
-	//		ЗаголовокСообщения = НСтр("en = 'An error occurred while processing an external event from the device:'; fr = ""Une erreur s'est produite lors du traitement d'un événement externe du périphérique:""; ru = 'При обработке внешнего события от устройства произошла ошибка:'; es = 'Se produjo un error al procesar un evento externo del dispositivo:'");
+	//		ЗаголовокСообщения = НСтр("en = 'An error occurred while processing an external event from the device:'; fr = 'Une erreur s''est produite lors du traitement d''un événement externe du périphérique:'; ru = 'При обработке внешнего события от устройства произошла ошибка:'; es = 'Se produjo un error al procesar un evento externo del dispositivo:'");
 	//		ОбщегоНазначенияРТКлиент.ВывестиИнформациюДляРМКУправляемой(ЗаголовокСообщения, ОписаниеОшибки);
 	//	Иначе
 	//		ОбработкаОповещения(Результат.ИмяСобытия, Результат.Параметр, Результат.Источник);

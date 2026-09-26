@@ -34,7 +34,8 @@
 			Возврат Истина;
 		КонецЕсли;
 	Иначе
-		ОписаниеОшибки = НСтр("ru = 'Не выбрано устройство'; fr = 'Aucun périphérique sélectionné'; en = 'No device selected'; es = 'Dispositivo no seleccionado'");
+		ОписаниеОшибки = НСтр("ru = 'Не выбрано устройство'; fr = 'Aucun périphérique sélectionné'; en = 'No device selected';
+			|es = 'Dispositivo no seleccionado'");
 		Возврат Ложь;
 	КонецЕсли;
 	
@@ -74,7 +75,9 @@
 		КодыНалогообложения = СтрРазделить(ПараметрыРегистрацииУстройства.КодыСистемыНалогообложения, ",");
 		СистемаНалогообложения = МенеджерОборудованияКлиентСервер.КодСистемыНалогообложенияККТ(Параметры.СистемаНалогообложения);
 		Если КодыНалогообложения.Найти(Строка(СистемаНалогообложения)) = Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'ККТ не зарегистрирована с указанной системой налогообложения.'; fr = ""La CCT n'est pas enregistrée avec ledit système fiscal.""; en = 'KKT is not registered with the specified taxation system.'; es = 'La CCSS no está registrada con dicho sistema tributario.'"); 
+			ОписаниеОшибки = НСтр("ru = 'ККТ не зарегистрирована с указанной системой налогообложения.';
+				|fr = 'La CCT n''est pas enregistrée avec ledit système fiscal.'; en = 'KKT is not registered with the specified taxation system.';
+				|es = 'La CCSS no está registrada con dicho sistema tributario.'");
 			Возврат Ложь;
 		КонецЕсли;
 	КонецЕсли;
@@ -100,11 +103,17 @@
 	КонецЦикла;
 	
 	Если СуммаПозицийЧека > СуммаВсехОплат Тогда
-		ОписаниеОшибки = НСтр("ru = 'Сумма товарных позиций больше суммы оплат'; fr = 'Le montant des articles est supérieur au montant des paiements'; en = 'The amount of product items is more than the amount of payments'; es = 'El importe de las partidas es mayor que el importe de los pagos'"); 
+		ОписаниеОшибки = НСтр("ru = 'Сумма товарных позиций больше суммы оплат';
+			|fr = 'Le montant des articles est supérieur au montant des paiements';
+			|en = 'The amount of product items is more than the amount of payments';
+			|es = 'El importe de las partidas es mayor que el importe de los pagos'");
 		Возврат Ложь;
 	ИначеЕсли СуммаВсехОплат > СуммаПозицийЧека Тогда
 		Если (СуммаВсехОплат - СуммаОплатыНаличными) > СуммаПозицийЧека Тогда
-			ОписаниеОшибки = НСтр("ru = 'Сумма безналичных оплат больше суммы товарных позиций'; fr = 'Le montant des paiements non monétaires est supérieur au montant des articles de base'; en = 'The amount of non-cash payments is more than the amount of product items'; es = 'El importe de los pagos no monetarios es superior al importe de las partidas'"); 
+			ОписаниеОшибки = НСтр("ru = 'Сумма безналичных оплат больше суммы товарных позиций';
+				|fr = 'Le montant des paiements non monétaires est supérieur au montant des articles de base';
+				|en = 'The amount of non-cash payments is more than the amount of product items';
+				|es = 'El importe de los pagos no monetarios es superior al importe de las partidas'");
 			Возврат Ложь;
 		КонецЕсли;
 	КонецЕсли;
@@ -128,40 +137,51 @@
 	Если Электронно = Истина 
 		И НЕ ЗначениеЗаполнено(ПокупательEmail) 
 		И НЕ ЗначениеЗаполнено(ПокупательНомер) Тогда
-		ОписаниеОшибки = НСтр("ru = 'Для электронного чека нужно указать либо Email, либо телефон.'; fr = 'Pour un chèque électronique, vous devez spécifier soit un Email, Soit un téléphone.'; en = 'For an electronic receipt, you must specify either an Email address or a phone number.'; es = 'Para un cheque electrónico, debe especificar un correo Electrónico o un Teléfono.'") ;
+		ОписаниеОшибки = НСтр("ru = 'Для электронного чека нужно указать либо Email, либо телефон.';
+			|fr = 'Pour un chèque électronique, vous devez spécifier soit un Email, Soit un téléphone.';
+			|en = 'For an electronic receipt, you must specify either an Email address or a phone number.';
+			|es = 'Para un cheque electrónico, debe especificar un correo Electrónico o un Teléfono.'") ;
 		Возврат Ложь;
 	КонецЕсли;
 	
 	Если Электронно = Истина И Отправляет1СEmail = Истина Тогда
-		ОписаниеОшибки = НСтр("ru = 'Чек обязательно должен быть напечатан'; fr = 'Le chèque doit nécessairement être imprimé'; en = 'The receipt must be printed.'; es = 'El cheque debe estar impreso'") ;
+		ОписаниеОшибки = НСтр("ru = 'Чек обязательно должен быть напечатан'; fr = 'Le chèque doit nécessairement être imprimé';
+			|en = 'The receipt must be printed.'; es = 'El cheque debe estar impreso'") ;
 		Возврат Ложь;
 	КонецЕсли;
 	
 	Если Электронно = Истина И Отправляет1СSMS = Истина Тогда
-		ОписаниеОшибки = НСтр("ru = 'Чек обязательно должен быть напечатан'; fr = 'Le chèque doit nécessairement être imprimé'; en = 'The receipt must be printed.'; es = 'El cheque debe estar impreso'") ;
+		ОписаниеОшибки = НСтр("ru = 'Чек обязательно должен быть напечатан'; fr = 'Le chèque doit nécessairement être imprimé';
+			|en = 'The receipt must be printed.'; es = 'El cheque debe estar impreso'") ;
 		Возврат Ложь;
 	КонецЕсли;
 	
 	Если Отправляет1СEmail = Истина И НЕ ЗначениеЗаполнено(ПокупательEmail) Тогда
-		ОписаниеОшибки = НСтр("ru = 'Не заполнен E-mail'; fr = 'E-mail non rempli'; en = 'E-mail is not filled in'; es = 'Correo electrónico no llenado'") ;
+		ОписаниеОшибки = НСтр("ru = 'Не заполнен E-mail'; fr = 'E-mail non rempli'; en = 'E-mail is not filled in';
+			|es = 'Correo electrónico no llenado'") ;
 		Возврат Ложь;
 	КонецЕсли;
 	
 	Если Отправляет1СSMS = Истина И НЕ ЗначениеЗаполнено(ПокупательНомер) Тогда
-		ОписаниеОшибки = НСтр("ru = 'Не заполнен номер телефона'; fr = 'Numéro de téléphone non rempli'; en = 'Phone number is not filled in'; es = 'Número de Teléfono no completado'") ;
+		ОписаниеОшибки = НСтр("ru = 'Не заполнен номер телефона'; fr = 'Numéro de téléphone non rempli'; en = 'Phone number is not filled in';
+			|es = 'Número de Teléfono no completado'") ;
 		Возврат Ложь;
 	КонецЕсли;
 	
 	Если НЕ ПустаяСтрока(Параметры.КассирИНН) Тогда
 		Если НЕ МенеджерОборудованияКлиентСервер.ИННСоответствуетТребованиям(Параметры.КассирИНН, Ложь, ОписаниеОшибки) Тогда
-			Сообщение = НСтр("ru = 'ИНН кассира некорректен (%Ошибка%)'; fr = ""Le numéro d'identification du caissier est incorrect (%Ошибка%)""; en = ""The cashier's INN is incorrect (%Ошибка%)""; es = 'El Tin del Cajero es incorrecto (%Ошибка%)'");
+			Сообщение = НСтр("ru = 'ИНН кассира некорректен (%Ошибка%)'; fr = 'Le numéro d''identification du caissier est incorrect (%Ошибка%)';
+				|en = 'The cashier''s INN is incorrect (%Ошибка%)'; es = 'El Tin del Cajero es incorrecto (%Ошибка%)'");
 			ОписаниеОшибки = СтрЗаменить(Сообщение, "%Ошибка%", ОписаниеОшибки);
 			Возврат Ложь;
 		КонецЕсли;
 	КонецЕсли;
 	
 	Если НЕ ПустаяСтрока(Параметры.Кассир) И СтрДлина(Параметры.Кассир) > 64 Тогда
-		ОписаниеОшибки = НСтр("ru = 'Длинна реквизита (Кассир) превышает 64 символа'; fr = 'La longueur des accessoires (Caissier) dépasse 64 caractères'; en = 'The length of the banking details (Cashier) exceeds 64 characters'; es = 'La longitud de los apoyos (Cajero) supera los 64 caracteres'");
+		ОписаниеОшибки = НСтр("ru = 'Длинна реквизита (Кассир) превышает 64 символа';
+			|fr = 'La longueur des accessoires (Caissier) dépasse 64 caractères';
+			|en = 'The length of the banking details (Cashier) exceeds 64 characters';
+			|es = 'La longitud de los apoyos (Cajero) supera los 64 caracteres'");
 		Возврат Ложь;
 	КонецЕсли;
 	
@@ -170,7 +190,8 @@
 	Если Параметры.Свойство("ПризнакАгента", ПризнакАгента) 
 		И ЗначениеЗаполнено(ПризнакАгента) Тогда
 		Если НЕ Параметры.Свойство("ДанныеАгента") Тогда
-			ОписаниеОшибки = НСтр("ru = 'Не заданы данные платежного агента'; fr = ""Aucune donnée d'agent de paiement spécifiée""; en = 'The details of the payment agent are not specified'; es = 'No se han especificado los datos del agente de pago'");
+			ОписаниеОшибки = НСтр("ru = 'Не заданы данные платежного агента'; fr = 'Aucune donnée d''agent de paiement spécifiée';
+				|en = 'The details of the payment agent are not specified'; es = 'No se han especificado los datos del agente de pago'");
 			Возврат Ложь;
 		КонецЕсли;
 	КонецЕсли;
@@ -180,7 +201,10 @@
 		И Отправляет1СSMS = Ложь Тогда
 		// Чек оправляется электронно средствами ОФД
 		Если ЗначениеЗаполнено(ПокупательEmail) И ЗначениеЗаполнено(ПокупательНомер) Тогда
-			ОписаниеОшибки = НСтр("ru = 'У электронного чека заполнены как номер телефона, так и e-mail. ОФД не сможет передать данный чек электронно.'; fr = 'Le chèque électronique contient à la fois un numéro de téléphone et un e-mail. Le CRF ne pourra pas transmettre ce chèque par voie électronique.'; en = 'The electronic receipt has both a phone number and an e-mail address filled in. The OFD will not be able to transfer this receipt electronically.'; es = 'El cheque electrónico está lleno tanto del número de Teléfono como del correo electrónico. El FCI no podrá transmitir el cheque electrónicamente.'");
+			ОписаниеОшибки = НСтр("ru = 'У электронного чека заполнены как номер телефона, так и e-mail. ОФД не сможет передать данный чек электронно.';
+				|fr = 'Le chèque électronique contient à la fois un numéro de téléphone et un e-mail. Le CRF ne pourra pas transmettre ce chèque par voie électronique.';
+				|en = 'The electronic receipt has both a phone number and an e-mail address filled in. The OFD will not be able to transfer this receipt electronically.';
+				|es = 'El cheque electrónico está lleno tanto del número de Teléfono como del correo electrónico. El FCI no podrá transmitir el cheque electrónicamente.'");
 			Возврат Ложь;
 		КонецЕсли;
 	КонецЕсли;
@@ -196,7 +220,10 @@
 				РеквизитКодаТовара = ПозицияЧека.ДанныеКодаТоварнойНоменклатуры.РеквизитКодаТовара;
 				КодТовараИдентифицируетЭкземпляр = МенеджерОборудованияМаркировкаКлиентСервер.КодТовараИдентифицируетЭкземпляр(РеквизитКодаТовара, ПозицияЧека.Штрихкод);
 				Если КодТовараИдентифицируетЭкземпляр Тогда
-					ОписаниеОшибки = НСтр("ru = 'Код товара содержит в своем составе код, позволяющий идентифицировать экземпляр товара. Количество должно иметь значение равное единице в строке №%Позиция%.'; fr = ""Le code produit contient dans sa composition un code permettant d'identifier une copie du produit. La quantité doit avoir une valeur égale à un dans la ligne n ° %Позиция%.""; en = 'The product code contains a code that allows you to identify an instance of the product. The quantity must have a value equal to one in line No.%Позиция% position.'; es = 'El código de producto contiene en su composición un código que permite identificar un ejemplar del producto. La cantidad debe tener un valor igual a uno en la línea # %Позиция%.'");
+					ОписаниеОшибки = НСтр("ru = 'Код товара содержит в своем составе код, позволяющий идентифицировать экземпляр товара. Количество должно иметь значение равное единице в строке №%Позиция%.';
+						|fr = 'Le code produit contient dans sa composition un code permettant d''identifier une copie du produit. La quantité doit avoir une valeur égale à un dans la ligne n ° %Позиция%.';
+						|en = 'The product code contains a code that allows you to identify an instance of the product. The quantity must have a value equal to one in line No.%Позиция% position.';
+						|es = 'El código de producto contiene en su composición un código que permite identificar un ejemplar del producto. La cantidad debe tener un valor igual a uno en la línea # %Позиция%.'");
 					ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 					Возврат Ложь;
 				КонецЕсли;
@@ -206,7 +233,10 @@
 			Если ПозицияЧека.Свойство("ПризнакАгентаПоПредметуРасчета", ПризнакАгентаПоПредметуРасчета) И ЗначениеЗаполнено(ПризнакАгентаПоПредметуРасчета) Тогда
 				Если ПозицияЧека.Свойство("ДанныеПоставщика") И ПозицияЧека.ДанныеПоставщика.Свойство("ИНН")
 					И ПустаяСтрока(ПозицияЧека.ДанныеПоставщика.ИНН) Тогда
-						ОписаниеОшибки = НСтр("ru = 'ИНН поставщика для предмета расчета в строке №%Позиция% не указан.'; fr = ""Le numéro d'identification du Fournisseur pour l'objet de calcul n'est pas spécifié dans la ligne%.""; en = ""Supplier's INN for the payment item in line No.%Позиция% is not specified.""; es = 'El Tin del proveedor para el artículo de cálculo no se especifica en la línea número %Позиция%.'") ;
+						ОписаниеОшибки = НСтр("ru = 'ИНН поставщика для предмета расчета в строке №%Позиция% не указан.';
+							|fr = 'Le numéro d''identification du Fournisseur pour l''objet de calcul n''est pas spécifié dans la ligne%.';
+							|en = 'Supplier''s INN for the payment item in line No.%Позиция% is not specified.';
+							|es = 'El Tin del proveedor para el artículo de cálculo no se especifica en la línea número %Позиция%.'") ;
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 					Возврат Ложь;
 				КонецЕсли;
@@ -218,7 +248,10 @@
 					И ЗначениеЗаполнено(ПризнакАгентаПоПредметуРасчета) Тогда
 					Если НЕ ПризнакАгента = ПризнакАгентаПоПредметуРасчета Тогда
 						// Тег 1222 должен быть равен тегу 1057
-						ОписаниеОшибки = НСтр("ru = 'Признак платежного агента в шапке не совпадает с признаком платежного агента по предмету расчета в строке №%Позиция%.'; fr = ""La caractéristique de l'agent de paiement dans l'en-tête ne correspond pas à la caractéristique de l'agent de paiement pour l'objet de règlement dans la ligne n ° %Позиция%.""; en = 'The sign of the payment agent in the header does not match the sign of the payment agent for the payment item in line No.%Позиция% position.'; es = 'El signo del agente de pago en el encabezado no coincide con el signo del agente de pago en el artículo de liquidación en la línea no. %Позиция%.'");
+						ОписаниеОшибки = НСтр("ru = 'Признак платежного агента в шапке не совпадает с признаком платежного агента по предмету расчета в строке №%Позиция%.';
+							|fr = 'La caractéristique de l''agent de paiement dans l''en-tête ne correspond pas à la caractéristique de l''agent de paiement pour l''objet de règlement dans la ligne n ° %Позиция%.';
+							|en = 'The sign of the payment agent in the header does not match the sign of the payment agent for the payment item in line No.%Позиция% position.';
+							|es = 'El signo del agente de pago en el encabezado no coincide con el signo del agente de pago en el artículo de liquidación en la línea no. %Позиция%.'");
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 						Возврат Ложь;
 					КонецЕсли;
@@ -230,28 +263,40 @@
 							Если Параметры.ДанныеАгента.ОператорПеревода.Свойство("Адрес", ЗначениеПараметров)
 								И ПозицияЧека.ДанныеАгента.ОператорПеревода.Свойство("Адрес", ЗначениеПозицииЧека) 
 								И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-								ОписаниеОшибки = НСтр("ru = 'Адрес оператора перевода в строке №%Позиция% не равен адресу оператора перевода в шапке.'; fr = ""L'adresse de l'opérateur de traduction dans la ligne n ° %Позиция% n'est pas égale à l'adresse de l'opérateur de traduction dans le chapeau.""; en = 'The address of the transfer operator in line No.%Позиция% position is not equal to the address of the transfer operator in the header.'; es = 'La dirección del operador de traducción en la línea # %Позиция% no es igual a la dirección del operador de traducción en el encabezado.'") ;
+								ОписаниеОшибки = НСтр("ru = 'Адрес оператора перевода в строке №%Позиция% не равен адресу оператора перевода в шапке.';
+									|fr = 'L''adresse de l''opérateur de traduction dans la ligne n ° %Позиция% n''est pas égale à l''adresse de l''opérateur de traduction dans le chapeau.';
+									|en = 'The address of the transfer operator in line No.%Позиция% position is not equal to the address of the transfer operator in the header.';
+									|es = 'La dirección del operador de traducción en la línea # %Позиция% no es igual a la dirección del operador de traducción en el encabezado.'") ;
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 								Возврат Ложь;
 							КонецЕсли;
 							Если Параметры.ДанныеАгента.ОператорПеревода.Свойство("ИНН", ЗначениеПараметров)
 								И ПозицияЧека.ДанныеАгента.ОператорПеревода.Свойство("ИНН", ЗначениеПозицииЧека) 
 								И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-								ОписаниеОшибки = НСтр("ru = 'ИНН оператора перевода в строке №%Позиция% не равен ИНН оператора перевода в шапке.'; fr = ""L'Inn de l'opérateur de traduction dans la ligne n ° %Позиция% n'est pas égal à l'Inn de l'opérateur de traduction dans le chapeau.""; en = 'INN of the transfer operator in line No.%Позиция% position is not equal to the INN of the transfer operator in the header.'; es = 'El NIF del operador de traducción en la línea no. %Позиция% no es igual al NIF del operador de traducción en el encabezado.'") ;
+								ОписаниеОшибки = НСтр("ru = 'ИНН оператора перевода в строке №%Позиция% не равен ИНН оператора перевода в шапке.';
+									|fr = 'L''Inn de l''opérateur de traduction dans la ligne n ° %Позиция% n''est pas égal à l''Inn de l''opérateur de traduction dans le chapeau.';
+									|en = 'INN of the transfer operator in line No.%Позиция% position is not equal to the INN of the transfer operator in the header.';
+									|es = 'El NIF del operador de traducción en la línea no. %Позиция% no es igual al NIF del operador de traducción en el encabezado.'") ;
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 								Возврат Ложь;
 							КонецЕсли;
 							Если Параметры.ДанныеАгента.ОператорПеревода.Свойство("Наименование", ЗначениеПараметров)
 								И ПозицияЧека.ДанныеАгента.ОператорПеревода.Свойство("Наименование", ЗначениеПозицииЧека) 
 								И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-								ОписаниеОшибки = НСтр("ru = 'Наименование оператора перевода в строке №%Позиция% не равно наименованию оператора перевода в шапке.'; fr = ""Le nom de l'opérateur de traduction dans la ligne n ° %Позиция% n'est pas égal au nom de l'opérateur de traduction dans le chapeau.""; en = 'The name of the transfer operator in line No.%Позиция% position is not equal to the name of the transfer operator in the header.'; es = 'El nombre del operador de traducción en la línea no. %Позиция% no es igual al nombre del operador de traducción en el encabezado.'") ;
+								ОписаниеОшибки = НСтр("ru = 'Наименование оператора перевода в строке №%Позиция% не равно наименованию оператора перевода в шапке.';
+									|fr = 'Le nom de l''opérateur de traduction dans la ligne n ° %Позиция% n''est pas égal au nom de l''opérateur de traduction dans le chapeau.';
+									|en = 'The name of the transfer operator in line No.%Позиция% position is not equal to the name of the transfer operator in the header.';
+									|es = 'El nombre del operador de traducción en la línea no. %Позиция% no es igual al nombre del operador de traducción en el encabezado.'") ;
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 								Возврат Ложь;
 							КонецЕсли;
 							Если Параметры.ДанныеАгента.ОператорПеревода.Свойство("Телефон", ЗначениеПараметров)
 								И ПозицияЧека.ДанныеАгента.ОператорПеревода.Свойство("Телефон", ЗначениеПозицииЧека) 
 								И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-								ОписаниеОшибки = НСтр("ru = 'Телефон оператора перевода в строке №%Позиция% не равен телефон оператора перевода в шапке.'; fr = ""Le numéro de téléphone de l'opérateur de traduction dans la ligne n ° %Позиция% n'est pas égal au numéro de téléphone de l'opérateur de traduction dans le chapeau.""; en = 'Phone number of the transfer operator in line No.%Позиция% position is not equal to the phone number of the transfer operator in the header.'; es = 'El número de Teléfono del operador de traducción en la línea no. %Позиция% no es igual al número de Teléfono del operador de traducción en el encabezado.'") ;
+								ОписаниеОшибки = НСтр("ru = 'Телефон оператора перевода в строке №%Позиция% не равен телефон оператора перевода в шапке.';
+									|fr = 'Le numéro de téléphone de l''opérateur de traduction dans la ligne n ° %Позиция% n''est pas égal au numéro de téléphone de l''opérateur de traduction dans le chapeau.';
+									|en = 'Phone number of the transfer operator in line No.%Позиция% position is not equal to the phone number of the transfer operator in the header.';
+									|es = 'El número de Teléfono del operador de traducción en la línea no. %Позиция% no es igual al número de Teléfono del operador de traducción en el encabezado.'") ;
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 								Возврат Ложь;
 							КонецЕсли;
@@ -260,7 +305,10 @@
 							Если Параметры.ДанныеАгента.ОператорПоПриемуПлатежей.Свойство("Телефон", ЗначениеПараметров)
 								И ПозицияЧека.ДанныеАгента.ОператорПоПриемуПлатежей.Свойство("Телефон", ЗначениеПозицииЧека) 
 								И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-								ОписаниеОшибки = НСтр("ru = 'Телефон оператора по приему платежей в строке №%Позиция% не равен телефон оператора приему платежей в шапке.'; fr = ""Le téléphone de l'opérateur de réception de paiement dans la ligne n ° %Позиция% n'est pas égal au téléphone de l'opérateur de réception de paiement dans le chapeau.""; en = ""The phone number of the payment acceptance operator in line No.%Позиция% position is not equal to the operator's phone number for accepting payments in the header.""; es = 'El número de Teléfono del operador para recibir pagos en la línea no. %Позиция% no es igual al número de Teléfono del operador para recibir pagos en el encabezado.'") ;
+								ОписаниеОшибки = НСтр("ru = 'Телефон оператора по приему платежей в строке №%Позиция% не равен телефон оператора приему платежей в шапке.';
+									|fr = 'Le téléphone de l''opérateur de réception de paiement dans la ligne n ° %Позиция% n''est pas égal au téléphone de l''opérateur de réception de paiement dans le chapeau.';
+									|en = 'The phone number of the payment acceptance operator in line No.%Позиция% position is not equal to the operator''s phone number for accepting payments in the header.';
+									|es = 'El número de Teléfono del operador para recibir pagos en la línea no. %Позиция% no es igual al número de Teléfono del operador para recibir pagos en el encabezado.'") ;
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 								Возврат Ложь;
 							КонецЕсли;
@@ -269,7 +317,10 @@
 							Если Параметры.ДанныеАгента.ПлатежныйАгент.Свойство("Операция", ЗначениеПараметров)
 								И ПозицияЧека.ДанныеАгента.ПлатежныйАгент.Свойство("Операция", ЗначениеПозицииЧека) 
 								И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-								ОписаниеОшибки = НСтр("ru = 'Операция платежного агента в строке №%Позиция% не равна операции оператора платежного агента в шапке.'; fr = ""L'opération de l'agent de paiement sur la ligne n ° %Position% n'est pas égale à l'opération de l'agent de paiement dans l'en-tête.""; en = ""Payment agent's operation in line No.%The % position is not equal to the operation of the payment agent's operator in the header.""; es = 'La operación del agente de pago en la línea no. %la Posición% no es igual a la operación del operador del agente de pago en el encabezado.'") ;
+								ОписаниеОшибки = НСтр("ru = 'Операция платежного агента в строке №%Позиция% не равна операции оператора платежного агента в шапке.';
+									|fr = 'L''opération de l''agent de paiement sur la ligne n ° %Position% n''est pas égale à l''opération de l''agent de paiement dans l''en-tête.';
+									|en = 'Payment agent''s operation in line No.%The % position is not equal to the operation of the payment agent''s operator in the header.';
+									|es = 'La operación del agente de pago en la línea no. %la Posición% no es igual a la operación del operador del agente de pago en el encabezado.'") ;
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 								Возврат Ложь;
 							КонецЕсли;
@@ -277,7 +328,10 @@
 							Если Параметры.ДанныеАгента.ПлатежныйАгент.Свойство("Телефон", ЗначениеПараметров)
 								И ПозицияЧека.ДанныеАгента.ПлатежныйАгент.Свойство("Телефон", ЗначениеПозицииЧека) 
 								И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-								ОписаниеОшибки = НСтр("ru = 'Телефон платежного агента в строке №%Позиция% не равен телефон оператора платежного агента в шапке.'; fr = ""Le numéro de téléphone de l'agent de paiement sur la ligne %Позиция% n'est pas égal au numéro de téléphone de l'agent de paiement dans le chapeau.""; en = ""The phone number of the payment agent in line No.%Позиция% position is not equal to the phone number of the payment agent's operator in the header.""; es = 'El Teléfono del agente de pago en la línea no. %Позиция% no es igual al Teléfono del operador del agente de pago en el encabezado.'") ;
+								ОписаниеОшибки = НСтр("ru = 'Телефон платежного агента в строке №%Позиция% не равен телефон оператора платежного агента в шапке.';
+									|fr = 'Le numéro de téléphone de l''agent de paiement sur la ligne %Позиция% n''est pas égal au numéro de téléphone de l''agent de paiement dans le chapeau.';
+									|en = 'The phone number of the payment agent in line No.%Позиция% position is not equal to the phone number of the payment agent''s operator in the header.';
+									|es = 'El Teléfono del agente de pago en la línea no. %Позиция% no es igual al Teléfono del operador del agente de pago en el encabezado.'") ;
 								ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 								Возврат Ложь;
 							КонецЕсли;
@@ -288,21 +342,30 @@
 						Если Параметры.ДанныеПоставщика.Свойство("ИНН", ЗначениеПараметров)
 							И ПозицияЧека.ДанныеПоставщика.Свойство("ИНН", ЗначениеПозицииЧека) 
 							И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-							ОписаниеОшибки = НСтр("ru = 'ИНН поставщика в строке №%Позиция% не равен ИНН поставщика в шапке.'; fr = ""Le numéro d'identification du Fournisseur dans la ligne n ° %Позиция% n'est pas égal au numéro d'identification du Fournisseur dans le chapeau.""; en = ""Supplier's INN in line No.%Позиция% is not equal to the INN of the supplier in the header.""; es = 'El Tin del proveedor en la línea no. %Позиция% no es igual al Tin del proveedor en el encabezado.'") ;
+							ОписаниеОшибки = НСтр("ru = 'ИНН поставщика в строке №%Позиция% не равен ИНН поставщика в шапке.';
+								|fr = 'Le numéro d''identification du Fournisseur dans la ligne n ° %Позиция% n''est pas égal au numéro d''identification du Fournisseur dans le chapeau.';
+								|en = 'Supplier''s INN in line No.%Позиция% is not equal to the INN of the supplier in the header.';
+								|es = 'El Tin del proveedor en la línea no. %Позиция% no es igual al Tin del proveedor en el encabezado.'") ;
 							ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 							Возврат Ложь;
 						КонецЕсли;
 						Если Параметры.ДанныеПоставщика.Свойство("Наименование", ЗначениеПараметров)
 							И ПозицияЧека.ДанныеПоставщика.Свойство("Наименование", ЗначениеПозицииЧека) 
 							И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-							ОписаниеОшибки = НСтр("ru = 'Наименование поставщика в строке №%Позиция% не равно наименованию поставщика в шапке.'; fr = ""Le nom du Fournisseur dans la ligne n ° %Позиция% n'est pas égal au nom du Fournisseur dans l'en-tête.""; en = ""Supplier's name in line No.%Позиция% position is not equal to the supplier's name in the header.""; es = 'El nombre del proveedor en la línea no. %Позиция% no es igual al nombre del proveedor en el encabezado.'") ;
+							ОписаниеОшибки = НСтр("ru = 'Наименование поставщика в строке №%Позиция% не равно наименованию поставщика в шапке.';
+								|fr = 'Le nom du Fournisseur dans la ligne n ° %Позиция% n''est pas égal au nom du Fournisseur dans l''en-tête.';
+								|en = 'Supplier''s name in line No.%Позиция% position is not equal to the supplier''s name in the header.';
+								|es = 'El nombre del proveedor en la línea no. %Позиция% no es igual al nombre del proveedor en el encabezado.'") ;
 							ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 							Возврат Ложь;
 						КонецЕсли;
 						Если Параметры.ДанныеПоставщика.Свойство("Телефон", ЗначениеПараметров)
 							И ПозицияЧека.ДанныеПоставщика.Свойство("Телефон", ЗначениеПозицииЧека) 
 							И НЕ ЗначениеПараметров = ЗначениеПозицииЧека Тогда
-							ОписаниеОшибки = НСтр("ru = 'Телефон поставщика в строке №%Позиция% не равен телефон поставщика в шапке.'; fr = ""Le numéro de téléphone du Fournisseur dans la ligne %Позиция% n'est pas égal au numéro de téléphone du Fournisseur dans le chapeau.""; en = ""Supplier's phone number in line No.%Позиция% position is not equal to the supplier's phone number in the header.""; es = 'El Teléfono del proveedor en la línea # %Позиция% no es igual al Teléfono del proveedor en el encabezado.'") ;
+							ОписаниеОшибки = НСтр("ru = 'Телефон поставщика в строке №%Позиция% не равен телефон поставщика в шапке.';
+								|fr = 'Le numéro de téléphone du Fournisseur dans la ligne %Позиция% n''est pas égal au numéro de téléphone du Fournisseur dans le chapeau.';
+								|en = 'Supplier''s phone number in line No.%Позиция% position is not equal to the supplier''s phone number in the header.';
+								|es = 'El Teléfono del proveedor en la línea # %Позиция% no es igual al Teléfono del proveedor en el encabezado.'") ;
 							ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%", НомерПозицииСтрока);
 							Возврат Ложь;
 						КонецЕсли;
@@ -503,22 +566,27 @@
 		
 		Если ФорматФД = "1.0" Тогда
 			МассивРеквизитов.Добавить("ОрганизацияНазвание"); // тег 1048
-			СоответствиеРеквизитов.Вставить("ОрганизацияНазвание", НСтр("ru = 'Наименование организации'; fr = 'Nom de l & apos; organisation'; en = 'Name of the organization'; es = 'Nombre de la organización'"));
+			СоответствиеРеквизитов.Вставить("ОрганизацияНазвание", НСтр("ru = 'Наименование организации'; fr = 'Nom de l & apos; organisation';
+				|en = 'Name of the organization'; es = 'Nombre de la organización'"));
 			
 			МассивРеквизитов.Добавить("ОрганизацияИНН"); // тег 1018
-			СоответствиеРеквизитов.Вставить("ОрганизацияИНН", НСтр("ru = 'ИНН организации'; fr = ""Inn de l'organisation""; en = 'INN of the organization'; es = 'NIF organización'"));
+			СоответствиеРеквизитов.Вставить("ОрганизацияИНН", НСтр("ru = 'ИНН организации'; fr = 'Inn de l''organisation';
+				|en = 'INN of the organization'; es = 'NIF organización'"));
 			
 			МассивРеквизитов.Добавить("ТипРасчета"); // тег 1054
-			СоответствиеРеквизитов.Вставить("ТипРасчета", НСтр("ru = 'Тип расчета'; fr = 'Type de calcul'; en = 'Type of calculation'; es = 'Tipo de cálculo'"));
+			СоответствиеРеквизитов.Вставить("ТипРасчета", НСтр("ru = 'Тип расчета'; fr = 'Type de calcul'; en = 'Type of calculation';
+				|es = 'Tipo de cálculo'"));
 			
 			МассивРеквизитов.Добавить("СистемаНалогообложения"); // тег 1055
-			СоответствиеРеквизитов.Вставить("СистемаНалогообложения", НСтр("ru = 'Система налогообложения'; fr = 'Système fiscal'; en = 'The taxation system'; es = 'Sistema fiscal'"));
+			СоответствиеРеквизитов.Вставить("СистемаНалогообложения", НСтр("ru = 'Система налогообложения'; fr = 'Système fiscal';
+				|en = 'The taxation system'; es = 'Sistema fiscal'"));
 			
 			МассивРеквизитов.Добавить("Кассир"); // тег 1021
 			СоответствиеРеквизитов.Вставить("Кассир", НСтр("ru = 'Кассир'; fr = 'Caissier'; en = 'Cashier'; es = 'Cajera'"));
 			
 			МассивРеквизитов.Добавить("ПозицииЧека"); // тег 1059
-			СоответствиеРеквизитов.Вставить("ПозицииЧека", НСтр("ru = 'Позиции чека'; fr = 'Positions du chèque'; en = 'Receipt positions'; es = 'Posiciones del cheque'"));
+			СоответствиеРеквизитов.Вставить("ПозицииЧека", НСтр("ru = 'Позиции чека'; fr = 'Positions du chèque'; en = 'Receipt positions';
+				|es = 'Posiciones del cheque'"));
 			
 		ИначеЕсли ФорматФД = "1.0.5" Тогда
 			
@@ -552,14 +620,16 @@
 		СоответствиеРеквизитов.Вставить("Количество", НСтр("ru = 'Количество'; fr = 'Nombre'; en = 'Quantity'; es = 'Cantidad'"));
 			
 		МассивРеквизитов.Добавить("СтавкаНДС"); // тег 1199
-		СоответствиеРеквизитов.Вставить("СтавкаНДС", НСтр("ru = 'Ставка НДС'; es = 'Tipo de IVA'"));
+		СоответствиеРеквизитов.Вставить("СтавкаНДС", НСтр("ru = 'Ставка НДС'; es = 'Tipo de IVA'; fr = 'Taux TVA'; en = 'VAT Rates'"));
 		
 		ИначеЕсли ФорматФД = "1.0.5" Тогда
 			МассивРеквизитов.Добавить("ПризнакСпособаРасчета"); // тег 1214
-			СоответствиеРеквизитов.Вставить("ПризнакСпособаРасчета", НСтр("ru = 'Признак способа расчета'; fr = 'Caractéristique de la méthode de calcul'; en = 'Payment method attribute'; es = 'Signo del método de cálculo'"));
+			СоответствиеРеквизитов.Вставить("ПризнакСпособаРасчета", НСтр("ru = 'Признак способа расчета';
+				|fr = 'Caractéristique de la méthode de calcul'; en = 'Payment method attribute'; es = 'Signo del método de cálculo'"));
 		ИначеЕсли ФорматФД = "1.1" Тогда
 			МассивРеквизитов.Добавить("ПризнакПредметаРасчета"); // тег 1212
-			СоответствиеРеквизитов.Вставить("ПризнакПредметаРасчета", НСтр("ru = 'Признак предмета расчета'; fr = ""Caractéristique de l'objet de calcul""; en = 'Payment subject attribute'; es = 'Signo del objeto de cálculo'"));
+			СоответствиеРеквизитов.Вставить("ПризнакПредметаРасчета", НСтр("ru = 'Признак предмета расчета';
+				|fr = 'Caractéristique de l''objet de calcul'; en = 'Payment subject attribute'; es = 'Signo del objeto de cálculo'"));
 		КонецЕсли;
 		
 	КонецЦикла;
@@ -612,13 +682,15 @@
 		Если ВходящиеДанные.Свойство(ИмяРеквизита, ЗначениеДанных) Тогда
 			Если НЕ ЗначениеЗаполнено(ЗначениеДанных) Тогда
 				ИмяРеквизитаВОшибку = СоответствиеРеквизитов[ИмяРеквизита];
-				ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" не заполнен.'; fr = 'La balise ""%Реквизит% "" n''est pas remplie.'; en = 'The ""%Реквизит%"" tag is not filled in.'; es = 'La etiqueta ""% Реквизит% "" no está completa.'");
+				ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" не заполнен.'; fr = 'La balise ""%Реквизит% "" n''est pas remplie.';
+					|en = 'The ""%Реквизит%"" tag is not filled in.'; es = 'La etiqueta ""% Реквизит% "" no está completa.'");
 				ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Реквизит%", ИмяРеквизитаВОшибку);
 				Возврат Ложь;
 			КонецЕсли;
 		Иначе
 			ИмяРеквизитаВОшибку = СоответствиеРеквизитов[ИмяРеквизита];
-			ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" отсутствует.'; fr = 'La balise ""%Реквизит% "" est manquante.'; en = 'The ""%Реквизит%"" tag is missing.'; es = 'Falta la etiqueta "" %Реквизит%"".'");
+			ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" отсутствует.'; fr = 'La balise ""%Реквизит% "" est manquante.';
+				|en = 'The ""%Реквизит%"" tag is missing.'; es = 'Falta la etiqueta "" %Реквизит%"".'");
 			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Реквизит%", ИмяРеквизитаВОшибку);
 			Возврат Ложь;
 		КонецЕсли;
@@ -655,7 +727,10 @@
 					Если ИмяРеквизита = "СтавкаНДС" Тогда
 						Если ЗначениеДанных = НСтр("ru = 'не указана'; fr = 'non spécifié'; en = 'not specified'; es = 'no especificado'") Тогда
 							ИмяРеквизитаВОшибку = СоответствиеРеквизитов[ИмяРеквизита];
-							ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" в строке №%Позиция% не заполнен.'; fr = 'La balise ""%Реквизит% "" de la ligne n ° %Позиция% n''est pas remplie.'");
+							ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" в строке №%Позиция% не заполнен.';
+								|fr = 'La balise ""%Реквизит% "" de la ligne n ° %Позиция% n''est pas remplie.';
+								|en = 'Tag ""%Реквизит%"" in row No. %Позиция% is not filled in.';
+								|es = 'La etiqueta ""%Реквизит%"" de la fila n.º %Позиция% no está rellenada.'");
 							ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Реквизит%", ИмяРеквизитаВОшибку);
 							ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%" , НомерПозицииСтрока);
 							Возврат Ложь;
@@ -666,14 +741,20 @@
 						КонецЕсли;
 					ИначеЕсли НЕ ЗначениеЗаполнено(ЗначениеДанных) Тогда
 						ИмяРеквизитаВОшибку = СоответствиеРеквизитов[ИмяРеквизита];
-						ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" в строке №%Позиция% не заполнен.'; fr = 'La balise ""%Реквизит% "" de la ligne n ° %Позиция% n''est pas remplie.'");
+						ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" в строке №%Позиция% не заполнен.';
+							|fr = 'La balise ""%Реквизит% "" de la ligne n ° %Позиция% n''est pas remplie.';
+							|en = 'Tag ""%Реквизит%"" in row No. %Позиция% is not filled in.';
+							|es = 'La etiqueta ""%Реквизит%"" de la fila n.º %Позиция% no está rellenada.'");
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Реквизит%", ИмяРеквизитаВОшибку);
 						ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%" , НомерПозицииСтрока);
 						Возврат Ложь;
 					КонецЕсли;
 				Иначе
 					ИмяРеквизитаВОшибку = СоответствиеРеквизитов[ИмяРеквизита];
-					ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" в строке №%Позиция% отсутствует.'; fr = 'La balise ""%Реквизит% "" dans la ligne n ° %Позиция% est manquante.'; en = 'The tag ""%Реквизит%"" in line no.%Позиция% position is missing.'; es = 'La etiqueta ""%Реквизит%"" no aparece en la línea número %Позиция%.'");
+					ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" в строке №%Позиция% отсутствует.';
+						|fr = 'La balise ""%Реквизит% "" dans la ligne n ° %Позиция% est manquante.';
+						|en = 'The tag ""%Реквизит%"" in line no.%Позиция% position is missing.';
+						|es = 'La etiqueta ""%Реквизит%"" no aparece en la línea número %Позиция%.'");
 					ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Реквизит%", ИмяРеквизитаВОшибку);
 					ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Позиция%" , НомерПозицииСтрока);
 					Возврат Ложь;
@@ -683,7 +764,10 @@
 	КонецЦикла;
 	
 	Если НДС18 И НДС20 Тогда
-		ОписаниеОшибки = НСтр("ru = 'Ставки НДС 20% и НДС 18% в одном чеке не допустимы.'; fr = 'Les taux de TVA de 20% et de TVA de 18% sur un seul chèque ne sont pas autorisés.'; en = 'The rates of VAT of 20% and VAT of 18% in one receipt are not allowed.'; es = 'Las tasas de IVA del 20% e IVA del 18% en un solo cheque no están permitidas.'");
+		ОписаниеОшибки = НСтр("ru = 'Ставки НДС 20% и НДС 18% в одном чеке не допустимы.';
+			|fr = 'Les taux de TVA de 20% et de TVA de 18% sur un seul chèque ne sont pas autorisés.';
+			|en = 'The rates of VAT of 20% and VAT of 18% in one receipt are not allowed.';
+			|es = 'Las tasas de IVA del 20% e IVA del 18% en un solo cheque no están permitidas.'");
 		Возврат Ложь;
 	КонецЕсли;
 	
@@ -705,8 +789,10 @@
 	НомерПозиции = 0;
 	Для Каждого Оплата Из ТаблицаОплат Цикл
 		Если НЕ ЗначениеЗаполнено(Оплата.ТипОплаты) Тогда
-			ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" не заполнен.'; fr = 'La balise ""%Реквизит% "" n''est pas remplie.'; en = 'The ""%Реквизит%"" tag is not filled in.'; es = 'La etiqueta ""% Реквизит% "" no está completa.'");
-			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Реквизит%", НСтр("ru = 'Тип оплаты'; fr = 'Type de paiement'; en = 'Payment type'; es = 'Tipo de pago'"));
+			ОписаниеОшибки = НСтр("ru = 'Тэг ""%Реквизит%"" не заполнен.'; fr = 'La balise ""%Реквизит% "" n''est pas remplie.';
+				|en = 'The ""%Реквизит%"" tag is not filled in.'; es = 'La etiqueta ""% Реквизит% "" no está completa.'");
+			ОписаниеОшибки = СтрЗаменить(ОписаниеОшибки, "%Реквизит%", НСтр("ru = 'Тип оплаты'; fr = 'Type de paiement'; en = 'Payment type';
+				|es = 'Tipo de pago'"));
 			Возврат Ложь;
 		КонецЕсли;
 	КонецЦикла; 

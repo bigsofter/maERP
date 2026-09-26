@@ -104,6 +104,62 @@
         <checkBoxType>Switcher</checkBoxType>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьАвтовыпускПриОтгрузке</name>
+      <id>9</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьАвтовыпускПриОтгрузке</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Отгрузка — это и продажа (расходная накладная), и передача в переработку по заказу клиента на производство. При её проведении продукция сначала берётся из свободного остатка склада, а недостающее программа сама выпускает на секунду раньше документа: материалы списываются по составу заказа или по технологической карте, по возможности из партий закупок под этот заказ. Включение влияет на любое перепроведение прежних документов по таким заказам — поштучное, групповое, групповым изменением реквизитов, — кроме фонового</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>L'expédition, c'est la vente (bon de livraison) comme le transfert en sous-traitance sur une commande client en production. À sa validation, les produits sont d'abord pris sur le stock libre, et le programme fabrique lui-même ce qui manque une seconde avant le document : les matières sont consommées selon la composition de la commande ou la gamme, si possible sur les lots achetés pour cette commande. L'activation concerne toute revalidation des documents existants sur ces commandes — un par un, groupée, par modification groupée des attributs —, sauf en arrière-plan</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>A shipment means both a sale (delivery note) and a transfer to subcontracting for a customer production order. When it is posted, products are taken from the free stock first, and the program itself produces what is missing one second before the document: materials are consumed by the order composition or the bill of materials, from batches purchased for this order where possible. Enabling it affects any reposting of existing documents for such orders — one by one, group posting, group attribute editing — except background reposting</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>El envío es tanto la venta (albarán) como la transferencia a subcontratación de un pedido de cliente de producción. Al contabilizarlo, los productos se toman primero del stock libre y el programa fabrica por sí mismo lo que falta un segundo antes del documento: los materiales se consumen según la composición del pedido o el escandallo, cuando es posible de los lotes comprados para ese pedido. La activación afecta a cualquier recontabilización de los documentos existentes de esos pedidos —uno a uno, en grupo, por modificación en grupo de atributos—, salvo la de fondo</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьАвтовыпускПриОтгрузкеРасширеннаяПодсказка</name>
+        <id>10</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьАвтовыпускПриОтгрузкеКонтекстноеМеню</name>
+        <id>11</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -151,6 +207,10 @@
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>

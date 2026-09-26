@@ -147,7 +147,7 @@
 Процедура ОперандыОкончаниеПеретаскивания(Элемент, ПараметрыПеретаскивания, СтандартнаяОбработка)
 	
 	Если Элемент.ТекущиеДанные.ПометкаУдаления Тогда
-		ПоказатьВопрос(Новый ОписаниеОповещения("ОперандыОкончаниеПеретаскиванияЗавершение", ЭтотОбъект), НСтр("fr = ""L'élément sélectionné est marqué pour suppression""; ru = 'Выбранный элемент помечен на удаление'; en = 'The selected item is marked for deletion'; es = 'El elemento seleccionado está marcado para eliminar'") + Символы.ПС + НСтр("fr = 'Continuer?'; ru = 'Продолжить?'; en = 'Continue?'; es = '¿Continuar?'"), РежимДиалогаВопрос.ДаНет);
+		ПоказатьВопрос(Новый ОписаниеОповещения("ОперандыОкончаниеПеретаскиванияЗавершение", ЭтотОбъект), НСтр("fr = 'L''élément sélectionné est marqué pour suppression'; ru = 'Выбранный элемент помечен на удаление'; en = 'The selected item is marked for deletion'; es = 'El elemento seleccionado está marcado para eliminar'") + Символы.ПС + НСтр("fr = 'Continuer?'; ru = 'Продолжить?'; en = 'Continue?'; es = '¿Continuar?'"), РежимДиалогаВопрос.ДаНет);
 	КонецЕсли;
 	
 КонецПроцедуры
@@ -653,7 +653,7 @@
 		Исключение
 			Результат = Ложь;
 			СообщитьПользователю(
-				НСтр("fr = ""Des erreurs ont été détectées dans la formule. Vérifiez la formule. Les formules doivent être rédigées selon les règles d'écriture des expressions dans le langage intégré 1C:Entreprises.""; ru = 'В формуле обнаружены ошибки. Проверьте формулу. Формулы должны составляться по правилам написания выражений на встроенном языке 1С:Предприятия.'; en = 'Errors were found in the formula. Check the formula. Formulas should be compiled according to the rules of writing expressions in the built-in 1C language.:Businesses.'; es = 'Se han encontrado errores en la fórmula. Compruebe la fórmula. Las fórmulas deben redactarse de acuerdo con las reglas para escribir expresiones en el lenguaje incorporado 1C:Empresas.'"),
+				НСтр("fr = 'Des erreurs ont été détectées dans la formule. Vérifiez la formule. Les formules doivent être rédigées selon les règles d''écriture des expressions dans le langage intégré 1C:Entreprises.'; ru = 'В формуле обнаружены ошибки. Проверьте формулу. Формулы должны составляться по правилам написания выражений на встроенном языке 1С:Предприятия.'; en = 'Errors were found in the formula. Check the formula. Formulas should be compiled according to the rules of writing expressions in the built-in 1C language.:Businesses.'; es = 'Se han encontrado errores en la fórmula. Compruebe la fórmula. Las fórmulas deben redactarse de acuerdo con las reglas para escribir expresiones en el lenguaje incorporado 1C:Empresas.'"),
 				Поле,
 				ПутьКДанным);
 		КонецПопытки;
@@ -705,7 +705,7 @@
 	Если ЗначениеЗаполнено(Формула) Тогда
 		Если ПроверитьФормулу(Формула, Операнды, Поле, СтроковаяФормула) Тогда
 			ПоказатьОповещениеПользователя(
-				НСтр("fr = ""Aucune erreur n'a été détectée dans la formule""; ru = 'В формуле ошибок не обнаружено'; en = 'No errors were found in the formula'; es = 'No se encontraron errores en la fórmula'"),
+				НСтр("fr = 'Aucune erreur n''a été détectée dans la formule'; ru = 'В формуле ошибок не обнаружено'; en = 'No errors were found in the formula'; es = 'No se encontraron errores en la fórmula'"),
 				,
 				,
 				КартинкаИнформация32());

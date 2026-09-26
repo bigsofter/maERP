@@ -65,7 +65,7 @@
       </title>
       <title>
         <key>es</key>
-        <value>a</value>
+        <value>de</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -457,6 +457,43 @@
           <font xsi:type="core:FontRef">
             <font>Style.Шрифт_Основной</font>
           </font>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>СырьеИзмененоВручную</name>
+        <id>421</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Объект.СырьеИзмененоВручную</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <extendedTooltip>
+          <name>СырьеИзмененоВручнуюРасширеннаяПодсказка</name>
+          <id>422</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>СырьеИзмененоВручнуюКонтекстноеМеню</name>
+          <id>423</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <readOnly>true</readOnly>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+          <checkBoxType>Switcher</checkBoxType>
         </extInfo>
       </items>
         <items xsi:type="form:FormField">
@@ -1320,12 +1357,43 @@
             <representation>Compact</representation>
           </extInfo>
         </items>
+        <items xsi:type="form:Button">
+          <name>ТЧТоварыРассчитатьСырье</name>
+          <id>416</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <extendedTooltip>
+            <name>ТЧТоварыРассчитатьСырьеРасширеннаяПодсказка</name>
+            <id>417</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <commandName>Form.Command.РассчитатьСырье</commandName>
+          <buttonImportance>Normal</buttonImportance>
+          <representation>Auto</representation>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <placementArea>UserCmds</placementArea>
+          <representationInContextMenu>Auto</representationInContextMenu>
+          <locationInCommandBar>InCommandBar</locationInCommandBar>
+        </items>
         <horizontalAlign>Left</horizontalAlign>
         <autoFill>true</autoFill>
       </autoCommandBar>
       <handlers>
         <event>OnStartEdit</event>
         <name>ТЧТоварыПриНачалеРедактирования</name>
+      </handlers>
+      <handlers>
+        <event>BeforeDeleteRow</event>
+        <name>ТЧТоварыПередУдалением</name>
       </handlers>
       <searchStringAddition>
         <name>ТЧТоварыСтрокаПоиска</name>
@@ -1943,6 +2011,98 @@
           <textSize>Normal</textSize>
         </extInfo>
       </items>
+      <items xsi:type="form:FormField">
+        <name>ТЧГотоваяПродукцияПроцентПотерь</name>
+        <id>413</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Объект.ТЧГотоваяПродукция.ПроцентПотерь</segments>
+        </dataPath>
+        <handlers>
+          <event>OnChange</event>
+          <name>ТЧГотоваяПродукцияПроцентПотерьПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>ТЧГотоваяПродукцияПроцентПотерьРасширеннаяПодсказка</name>
+          <id>414</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ТЧГотоваяПродукцияПроцентПотерьКонтекстноеМеню</name>
+          <id>415</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Auto</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Center</headerHorizontalAlign>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <width>8</width>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <horizontalStretch>false</horizontalStretch>
+          <wrap>true</wrap>
+          <chooseType>true</chooseType>
+          <typeDomainEnabled>true</typeDomainEnabled>
+          <textEdit>true</textEdit>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>ТЧГотоваяПродукцияСтоимостьУслуг</name>
+        <id>418</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Объект.ТЧГотоваяПродукция.СтоимостьУслуг</segments>
+        </dataPath>
+        <handlers>
+          <event>OnChange</event>
+          <name>ТЧГотоваяПродукцияСтоимостьУслугПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>ТЧГотоваяПродукцияСтоимостьУслугРасширеннаяПодсказка</name>
+          <id>419</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ТЧГотоваяПродукцияСтоимостьУслугКонтекстноеМеню</name>
+          <id>420</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Auto</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Center</headerHorizontalAlign>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <width>10</width>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <horizontalStretch>false</horizontalStretch>
+          <wrap>true</wrap>
+          <chooseType>true</chooseType>
+          <typeDomainEnabled>true</typeDomainEnabled>
+          <textEdit>true</textEdit>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
       <autoCommandBar>
         <name>ТЧГотоваяПродукцияКоманднаяПанель</name>
         <id>218</id>
@@ -2060,6 +2220,10 @@
       <handlers>
         <event>OnStartEdit</event>
         <name>ТЧГотоваяПродукцияПриНачалеРедактирования</name>
+      </handlers>
+      <handlers>
+        <event>AfterDeleteRow</event>
+        <name>ТЧГотоваяПродукцияПослеУдаления</name>
       </handlers>
       <searchStringAddition>
         <name>ТЧГотоваяПродукцияСтрокаПоиска</name>
@@ -2457,6 +2621,81 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>СырьеПравилосьВручную</name>
+    <title>
+      <key>ru</key>
+      <value>Сырьё правилось вручную</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Matières modifiées manuellement</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Materials edited manually</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Materias modificadas manualmente</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <formCommands>
+    <name>РассчитатьСырье</name>
+    <title>
+      <key>ru</key>
+      <value>Рассчитать сырьё</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Calculer les matières</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Calculate materials</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Calcular materias primas</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Пересчитать сырьё по технологическим картам принимаемой продукции</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Recalculer les matières selon les gammes des produits reçus</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Recalculate materials from the bills of materials of the accepted products</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Recalcular las materias primas según los escandallos de los productos recibidos</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>РассчитатьСырье</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>

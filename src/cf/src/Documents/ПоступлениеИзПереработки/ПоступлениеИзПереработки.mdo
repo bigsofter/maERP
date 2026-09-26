@@ -82,6 +82,7 @@
   <defaultObjectForm>Document.ПоступлениеИзПереработки.Form.ФормаДокумента</defaultObjectForm>
   <defaultListForm>Document.ПоступлениеИзПереработки.Form.ФормаСписка</defaultListForm>
   <realTimePosting>Deny</realTimePosting>
+  <registerRecordsDeletion>AutoDelete</registerRecordsDeletion>
   <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыВПереработке</registerRecords>
   <registerRecords>AccumulationRegister.ВзаиморасчётыСПоставщиками</registerRecords>
@@ -231,6 +232,7 @@
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
@@ -329,6 +331,18 @@
       <key>ru</key>
       <value>Стоимость услуг переработчика без НДС; включается в себестоимость готовой продукции и образует долг перед переработчиком</value>
     </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Coût des services du façonnier hors TVA ; il entre dans le coût de revient du produit fini et crée une dette envers le façonnier</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Cost of the processor services excluding VAT; it is included in the cost of the finished goods and creates a debt to the processor</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Coste de los servicios del procesador sin IVA; se incluye en el coste del producto terminado y genera una deuda con el procesador</value>
+    </toolTip>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <dataHistory>Use</dataHistory>
@@ -385,6 +399,50 @@
     <maxValue xsi:type="core:UndefinedValue"/>
     <dataHistory>Use</dataHistory>
     <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="ce9b5300-939b-4442-aff8-d02fcb91a960">
+    <name>СырьеИзмененоВручную</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сырьё изменено вручную</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Matières modifiées manuellement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Materials edited manually</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Materias modificadas manualmente</value>
+    </synonym>
+    <comment>Строки сырья правили руками, а не расчётом по продукции: рабочее место производства строки документа не правит</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Сырьё документа правили вручную. Рабочее место производства такой документ не меняет - только форма документа. Снимается командой «Рассчитать сырьё»</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Les matières du document ont été modifiées manuellement. Le poste de production ne modifie pas ce document - seulement le formulaire du document. Se réinitialise avec la commande « Calculer les matières »</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>The document materials were edited manually. The production workstation does not change such a document - only the document form does. Cleared by the "Calculate materials" command</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Las materias del documento se modificaron manualmente. El puesto de producción no cambia este documento, solo el formulario del documento. Se restablece con el comando «Calcular materias»</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
   </attributes>
   <tabularSections uuid="be8ab80a-7b19-4a98-ac7a-9a4a167cfcbe">
     <producedTypes>
@@ -872,6 +930,95 @@
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
       <fillChecking>ShowError</fillChecking>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="89de21db-b7df-473e-b3d8-94ae8f2d418a">
+      <name>ПроцентПотерь</name>
+      <synonym>
+        <key>ru</key>
+        <value>Процент потерь</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Pourcentage de pertes</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Loss percentage</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Porcentaje de pérdidas</value>
+      </synonym>
+      <toolTip>
+        <key>ru</key>
+        <value>Один процент на всю строку продукции: средневзвешенный по нормам технологической карты. Карта со строками разных процентов усредняется</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Un seul pourcentage pour toute la ligne de produit : moyenne pondérée par les normes de la gamme. Une gamme aux pourcentages différents est moyennée</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>One percentage for the whole product line: weighted average over the bill of materials norms. A bill with differing percentages is averaged</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Un solo porcentaje para toda la línea de producto: media ponderada según las normas del escandallo. Un escandallo con porcentajes distintos se promedia</value>
+      </toolTip>
+      <type>
+        <types>DefinedType.Процент</types>
+      </type>
+      <minValue xsi:type="core:NumberValue">
+        <value>0</value>
+      </minValue>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="bb9e7ff2-2aca-42f9-9ec5-23573b193653">
+      <name>СтоимостьУслуг</name>
+      <synonym>
+        <key>ru</key>
+        <value>Стоимость услуг</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Coût des services</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Cost of services</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Coste de los servicios</value>
+      </synonym>
+      <comment>Услуги переработчика без НДС, приходящиеся на строку; шапка документа - сумма строк</comment>
+      <type>
+        <types>DefinedType.СуммаНеотрицательная</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Стоимость услуг переработчика без НДС, приходящаяся на эту продукцию; входит в её себестоимость. Сумма по строкам - стоимость услуг документа</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Coût HT des services du sous-traitant affecté à ce produit ; il entre dans son coût de revient. La somme des lignes est le coût des services du document</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Cost of processor services excluding VAT attributed to this product; it is included in its cost. The sum of the lines is the document services cost</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Coste sin IVA de los servicios del procesador atribuido a este producto; entra en su coste. La suma de las líneas es el coste de servicios del documento</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>

@@ -278,11 +278,11 @@
 	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 9, 10, Истина, "ПланыВидовХарактеристик", НСтр("fr = 'Plans des types de caractéristiques'; ru = 'Планы видов характеристик'; en = 'Plans of types of characteristics'; es = 'Planes de las clases de características'"));
 	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 11, 12, Истина, "ПланыСчетов", НСтр("fr = 'Plan comptable'; ru = 'Планы счетов'; en = 'Account plans'; es = 'Planes de cuentas'"));
 	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 13, 14, Истина, "ПланыВидовРасчета", НСтр("fr = 'Plans de types de calcul'; ru = 'Планы видов расчета'; en = 'Calculation type plans'; es = 'Planes de tipos de cálculo'"));
-	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 15, 16, Истина, "РегистрыСведений", НСтр("fr = ""Registres d'informations""; ru = 'Регистры сведений'; en = 'Information registers'; es = 'Registros de información'"));
-	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 17, 18, Истина, "РегистрыНакопления", НСтр("fr = ""Registres d'accumulation""; ru = 'Регистры накопления'; en = 'Accumulation registers'; es = 'Registros de acumulación'"));
+	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 15, 16, Истина, "РегистрыСведений", НСтр("fr = 'Registres d''informations'; ru = 'Регистры сведений'; en = 'Information registers'; es = 'Registros de información'"));
+	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 17, 18, Истина, "РегистрыНакопления", НСтр("fr = 'Registres d''accumulation'; ru = 'Регистры накопления'; en = 'Accumulation registers'; es = 'Registros de acumulación'"));
 	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 19, 20, Истина, "РегистрыБухгалтерии", НСтр("fr = 'Registres comptables'; ru = 'Регистры бухгалтерии'; en = 'Accounting registers'; es = 'Registros contables'"));
 	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 21, 22, Истина, "РегистрыРасчета", НСтр("fr = 'Registres de calcul'; ru = 'Регистры расчета'; en = 'Calculation registers'; es = 'Registros de cálculo'"));
-	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 23, 24, Истина, "БизнесПроцессы", НСтр("fr = ""Processus d'affaires""; ru = 'Бизнес-процессы'; en = 'Business processes'; es = 'Procesos de negocio'"));
+	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 23, 24, Истина, "БизнесПроцессы", НСтр("fr = 'Processus d''affaires'; ru = 'Бизнес-процессы'; en = 'Business processes'; es = 'Procesos de negocio'"));
 	СформироватьУровеньМетаданных(ТекНомерСтроки, ТекПараметры, 25, 26, Истина, "Задачи", НСтр("fr = 'Tâches'; ru = 'Задачи'; en = 'Tasks'; es = 'Tareas'"));
 
 	Возврат Результат;
@@ -1243,7 +1243,7 @@
 		// Файл обработки
 		Файл = Новый Файл(НастройкаАдресВнешнейОбработкиЗапросов);
 		Если Не Файл.Существует() Тогда
-			Текст = НСтр("fr = ""Le fichier %1 n'est pas disponible %2""; ru = 'Файл ""%1"" не доступен %2'; en = '%1 file is not available %2'; es = 'El archivo ""%1 "" no está disponible %2'");
+			Текст = НСтр("fr = 'Le fichier %1 n''est pas disponible %2'; ru = 'Файл ""%1"" не доступен %2'; en = '%1 file is not available %2'; es = 'El archivo ""%1 "" no está disponible %2'");
 
 			Текст = СтрЗаменить(Текст, "%1", НастройкаАдресВнешнейОбработкиЗапросов);
 			Если ЭтоФайловаяБаза() Тогда
@@ -1280,13 +1280,22 @@
 	Инфо = Новый Структура("Вид, Команды, БезопасныйРежим, Назначение, Наименование, Версия, Информация, ВерсияБСП",
 		"СозданиеСвязанныхОбъектов", Новый ТаблицаЗначений, Истина, Новый Массив);
 
-	Инфо.Наименование = НСтр("fr = ""Enregistrement des modifications pour l'échange de données""; ru = 'Регистрация изменений для обмена данными'; en = 'Registration of changes for data exchange'; es = 'Registrar cambios para compartir datos'");
+	Инфо.Наименование = НСтр("fr = 'Enregistrement des modifications pour l''échange de données'; ru = 'Регистрация изменений для обмена данными'; en = 'Registration of changes for data exchange'; es = 'Registrar cambios para compartir datos'");
 	Инфо.Версия       = "0.1";
 	Инфо.ВерсияБСП    = "1.2.1.4";
 	Инфо.Информация   = НСтр("ru='"
 		+ "Обработка для управления регистрацией объектов на узлах обмена до формирования выгрузки. "
 		+ "При работе в составе конфигурации с БСП версии 2.1.2.0 и старше производит контроль "
-		+ "ограничений миграции данных для узлов обмена." + "'");
+		+ "ограничений миграции данных для узлов обмена.'"
+		+ "; fr = 'Traitement de gestion de l''enregistrement des objets sur les nœuds d''échange "
+		+ "avant la formation de l''export. En fonctionnement avec la BSP version 2.1.2.0 et "
+		+ "supérieure, il contrôle les restrictions de migration des données pour les nœuds d''échange.'"
+		+ "; en = 'Data processor for managing object registration on exchange nodes before the "
+		+ "export is built. When used with SSL version 2.1.2.0 and later it controls data "
+		+ "migration restrictions for exchange nodes.'"
+		+ "; es = 'Procesamiento para gestionar el registro de objetos en los nodos de intercambio "
+		+ "antes de formar la exportación. Al funcionar con la BSP versión 2.1.2.0 o superior "
+		+ "controla las restricciones de migración de datos para los nodos de intercambio.'");
 
 	Инфо.Назначение.Добавить("ПланыОбмена.*");
 	Инфо.Назначение.Добавить("Константы.*");
@@ -1313,7 +1322,7 @@
 	
 	// Единственная команда, что делать - определяем по типу переданного
 	Команда = Инфо.Команды.Добавить();
-	Команда.Представление = НСтр("fr = ""Modification de l'enregistrement des modifications d'un objet""; ru = 'Редактирование регистрации изменений объекта'; en = 'Editing the registration of changes to an object'; es = 'Editar el registro de cambios de objeto'");
+	Команда.Представление = НСтр("fr = 'Modification de l''enregistrement des modifications d''un objet'; ru = 'Редактирование регистрации изменений объекта'; en = 'Editing the registration of changes to an object'; es = 'Editar el registro de cambios de objeto'");
 	Команда.Идентификатор = "ОткрытьФормуРедактированияРегистрации";
 	Команда.Использование = "ОткрытиеФормы";
 
