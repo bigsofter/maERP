@@ -10,6 +10,19 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.15.73
+### ru
+- Цена, которую добавили в карточку товара, теперь подставляется в документ продажи. Если товар выбрали в строке коммерческого предложения, заказа или реализации, когда цены у него ещё не было, строка теряла вид цены и дальше считалась строкой с произвольной ценой: цена, установленная позже, не появлялась даже при повторном выборе того же товара. Теперь вид цены в строке сохраняется, и повторный выбор товара подставляет новую цену. В строках, сохранённых раньше, цену подставит кнопка «Перезаполнить цены» (в реализации — «По прайсу»); она перезаполняет цены всех строк документа, в том числе введённые вручную. Цену товара без прайса по-прежнему можно ввести вручную, в том числе в мобильных формах и в заказе интернет-магазина.
+
+### fr
+- Le prix ajouté dans la fiche article est désormais repris dans le document de vente. Si l'article était choisi dans une ligne de devis, de commande ou de vente alors qu'il n'avait pas encore de prix, la ligne perdait son type de prix et était ensuite traitée comme une ligne à prix libre : le prix défini plus tard n'apparaissait pas, même en choisissant de nouveau le même article. Le type de prix de la ligne est maintenant conservé, et choisir de nouveau l'article reprend le nouveau prix. Dans les lignes enregistrées auparavant, le bouton « Actualiser les prix » (dans la vente : « Par liste de prix ») reprend le prix ; il recalcule les prix de toutes les lignes du document, y compris ceux saisis à la main. Le prix d'un article sans tarif peut toujours être saisi à la main, y compris dans les formulaires mobiles et dans la commande de la boutique en ligne.
+
+### en
+- A price added on the item card is now picked up by the sales document. If the item was chosen in a line of a quotation, order or sale while it had no price yet, the line lost its price type and was then treated as a free-price line: a price set later did not appear even when the same item was chosen again. The line now keeps its price type, and choosing the item again fills in the new price. In lines saved earlier, the "Update prices" button (in the sale: "By price list") fills in the price; it refills the prices of all lines of the document, including those entered by hand. The price of an item with no price list entry can still be entered by hand, including in the mobile forms and in the online store order.
+
+### es
+- El precio añadido en la ficha del artículo ahora se aplica en el documento de venta. Si el artículo se elegía en una línea de presupuesto, pedido o venta cuando aún no tenía precio, la línea perdía su tipo de precio y pasaba a tratarse como línea de precio libre: el precio fijado después no aparecía ni al volver a elegir el mismo artículo. Ahora la línea conserva su tipo de precio, y volver a elegir el artículo aplica el nuevo precio. En las líneas guardadas antes, el botón «Reiniciar precios» (en la venta: «Por Price») aplica el precio; vuelve a rellenar los precios de todas las líneas del documento, incluidos los introducidos a mano. El precio de un artículo sin tarifa se puede seguir introduciendo a mano, también en los formularios móviles y en el pedido de la tienda en línea.
+
 ## 2.0.15.72
 ### ru
 - Налоговые документы больше не двигают товар на складе: налоговая накладная, налоговая накладная покупки и налоговые возвраты от покупателя и поставщику меняют только расчёты и деньги. Остатки ведут реализация и поступление. Раньше налоговая накладная списывала уже проданный товар второй раз и отказывала в проведении, если на складе его не осталось, а налоговая накладная покупки оприходовала товар повторно поверх поступления. Склад по-прежнему должен быть помечен как склад налогового учёта.
