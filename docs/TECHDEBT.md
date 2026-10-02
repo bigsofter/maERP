@@ -1817,6 +1817,9 @@ E1 принят владельцем на обновлённой базе 2026-0
   паузе). Обязательные гейты этапа 1 — `ai-review-plan` (план), `ai-review` и `ai-database` (сборки 2.0.16.4 и
   2.0.16.5) — выполнены субагентами Claude; протоколы — `.ai/reviews/menu-restructure/02-plan-review.md`,
   `.ai/reports/menu-restructure-1a.md`, `-1b.md`. Когда Codex вернётся: `ai-review-plan menu-restructure`,
-  `ai-review` по диффу `0fff88b..79f5879`, `ai-database` по 2.0.16.5; находки — отдельной сборкой. Каждый
+  `ai-review` по диффу `0fff88b..79f5879`, `ai-database` по 2.0.16.5; находки — отдельной сборкой. Этап 2 «Закупки»
+  (2.0.16.6): план — `ai-review-plan` по `docs/plans/menu-restructure-stage2.md`, код и права — `ai-review` и
+  `ai-security` по диффу `86149c6..3ff0b87`; гейты прошли на субагентах Claude
+  (`.ai/reviews/menu-restructure/03-…`, `04-stage2-code-review-claude.md`). Каждый
   следующий этап волны, сданный без Codex, добавляет сюда свой диапазон коммитов. **Чем ловится:** только
   прогоном Codex.
