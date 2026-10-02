@@ -10,6 +10,19 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.3
+### ru
+- Отчёт «Затраты» в разделе «Казначейство» снова формируется. Раньше он останавливался с ошибкой «Поле не найдено "Подразделение"»: группировка была настроена по полю, которого в программе нет. Теперь затраты группируются по организации, месту хранения и статье движения денежных средств.
+
+### fr
+- Le rapport « Dépenses » de la section « Trésorerie » se génère de nouveau. Auparavant il s'arrêtait sur l'erreur « Champ introuvable "Подразделение" » : le regroupement portait sur un champ qui n'existe pas dans le programme. Les dépenses sont maintenant regroupées par organisation, entrepôt et poste de flux de trésorerie.
+
+### en
+- The "Expenses" report in the "Treasury" section generates again. Previously it stopped with the error "Field not found "Подразделение"": it was grouped by a field that does not exist in the program. Expenses are now grouped by organization, warehouse and cash flow item.
+
+### es
+- El informe «Gastos» de la sección «Tesorería» vuelve a generarse. Antes se detenía con el error «Campo no encontrado "Подразделение"»: la agrupación usaba un campo que no existe en el programa. Ahora los gastos se agrupan por organización, almacén y partida de flujo de efectivo.
+
 ## 2.0.16.2
 ### ru
 - Цена, которую добавили в карточку товара, теперь подставляется в документ продажи. Если товар выбрали в строке коммерческого предложения, заказа или реализации, когда цены у него ещё не было, строка теряла вид цены и дальше считалась строкой с произвольной ценой: цена, установленная позже, не появлялась даже при повторном выборе того же товара. Теперь вид цены в строке сохраняется, и повторный выбор товара подставляет новую цену. В строках, сохранённых раньше, цену подставит кнопка «Перезаполнить цены» (в реализации — «По прайсу»); она перезаполняет цены всех строк документа, в том числе введённые вручную. Цену товара без прайса по-прежнему можно ввести вручную, в том числе в мобильных формах и в заказе интернет-магазина.
