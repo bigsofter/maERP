@@ -46,6 +46,106 @@
     </extInfo>
   </items>
   <items xsi:type="form:FormGroup">
+    <name>ГруппаВозможности</name>
+    <id>12</id>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьИмпорт</name>
+      <id>14</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьИмпорт</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Коды ТН ВЭД, таможенные декларации и страна происхождения в карточках товаров и серий</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Codes SH, déclarations en douane et pays d'origine dans les fiches article et série</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>HS codes, customs declarations and country of origin on item and series cards</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Códigos HS, declaraciones aduaneras y país de origen en las fichas de artículo y serie</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьИмпортРасширеннаяПодсказка</name>
+        <id>15</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьИмпортКонтекстноеМеню</name>
+        <id>16</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Возможности</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Fonctionnalités</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Features</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Funcionalidades</value>
+    </title>
+    <extendedTooltip>
+      <name>ГруппаВозможностиРасширеннаяПодсказка</name>
+      <id>13</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <representation>WeakSeparation</representation>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <showTitle>auto</showTitle>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormGroup">
     <name>ГруппаЗакупки</name>
     <id>4</id>
     <items xsi:type="form:FormField">
@@ -62,19 +162,19 @@
       <titleLocation>Right</titleLocation>
       <toolTip>
         <key>ru</key>
-        <value>Включает документ «Предложение поставщика»</value>
+        <value>Включает документ «Предложение поставщика»; доступно при включённых заказах покупателей или производстве — предложение вводится по заказу</value>
       </toolTip>
       <toolTip>
         <key>fr</key>
-        <value>Active le document « Offre du fournisseur »</value>
+        <value>Active le document « Offre du fournisseur » ; disponible si les commandes clients ou la production sont activées — l'offre se saisit sur une commande</value>
       </toolTip>
       <toolTip>
         <key>en</key>
-        <value>Enables the "Supplier offer" document</value>
+        <value>Enables the "Supplier offer" document; available when customer orders or production are on, as the offer is entered from an order</value>
       </toolTip>
       <toolTip>
         <key>es</key>
-        <value>Activa el documento «Oferta del proveedor»</value>
+        <value>Activa el documento «Oferta del proveedor»; disponible con pedidos de clientes o producción activados: la oferta se introduce a partir de un pedido</value>
       </toolTip>
       <extendedTooltip>
         <name>ТендерыПоставщиковРасширеннаяПодсказка</name>
@@ -215,6 +315,10 @@
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>

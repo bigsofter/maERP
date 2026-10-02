@@ -46,6 +46,386 @@
     </extInfo>
   </items>
   <items xsi:type="form:FormGroup">
+    <name>ГруппаВозможности</name>
+    <id>38</id>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьЗаказыПокупателей</name>
+      <id>40</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьЗаказыПокупателей</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Документ «Заказ покупателя», отчёт «Неотгруженные заказы» и история статусов заказов; при включённом производстве заказ остаётся виден — через него вводятся заказы на производство</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Document « Commande client », rapport « Commandes non livrées » et historique des statuts ; si la production est activée, la commande reste visible — elle sert aux commandes de production</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>The "Customer order" document, the "Unshipped orders" report and the order status history; with production on, the order stays visible as it carries production orders</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Documento «Pedido de cliente», informe «Pedidos no enviados» e historial de estados; con la producción activada el pedido sigue visible: a través de él se crean los pedidos de producción</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьЗаказыПокупателейРасширеннаяПодсказка</name>
+        <id>41</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьЗаказыПокупателейКонтекстноеМеню</name>
+        <id>42</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьКоммерческиеПредложения</name>
+      <id>43</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьКоммерческиеПредложения</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Документ «Коммерческое предложение»</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Document « Devis »</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>The "Quotation" document</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Documento «Presupuesto»</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьКоммерческиеПредложенияРасширеннаяПодсказка</name>
+        <id>44</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьКоммерческиеПредложенияКонтекстноеМеню</name>
+        <id>45</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьЗадачиЗаказов</name>
+      <id>46</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьЗадачиЗаказов</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Задачи сотрудникам по заказам, виды и настройки заданий</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Tâches des employés sur les commandes, types et réglages des tâches</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Employee tasks on orders, task types and task settings</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Tareas de los empleados sobre los pedidos, tipos y ajustes de tareas</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьЗадачиЗаказовРасширеннаяПодсказка</name>
+        <id>47</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьЗадачиЗаказовКонтекстноеМеню</name>
+        <id>48</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьЗаявкиНаПоискТовара</name>
+      <id>49</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьЗаявкиНаПоискТовара</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Документ «Заявка на поиск товара»; заявки из личного кабинета видны и при выключенной опции, если включён личный кабинет</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Document « Demande de recherche d'article » ; les demandes de l'espace client restent visibles si l'espace client est activé</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>The "Item search request" document; requests from the customer portal stay visible while the portal is enabled</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Documento «Solicitud de búsqueda de artículo»; las solicitudes del portal siguen visibles si el portal está activado</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьЗаявкиНаПоискТовараРасширеннаяПодсказка</name>
+        <id>50</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьЗаявкиНаПоискТовараКонтекстноеМеню</name>
+        <id>51</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьРозничныеПродажи</name>
+      <id>52</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьРозничныеПродажи</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Рабочее место кассира и кассовые смены</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Poste de caisse et sessions de caisse</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Cashier workplace and cash register shifts</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Puesto de caja y turnos de caja</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьРозничныеПродажиРасширеннаяПодсказка</name>
+        <id>53</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьРозничныеПродажиКонтекстноеМеню</name>
+        <id>54</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьПравилаЦенообразования</name>
+      <id>55</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьПравилаЦенообразования</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Документ «Правило ценообразования» и надбавки на себестоимость</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Document « Règle de tarification » et marges sur le coût</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>The "Pricing rule" document and cost markups</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Documento «Regla de precios» y márgenes sobre el coste</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьПравилаЦенообразованияРасширеннаяПодсказка</name>
+        <id>56</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьПравилаЦенообразованияКонтекстноеМеню</name>
+        <id>57</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Возможности</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Fonctionnalités</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Features</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Funcionalidades</value>
+    </title>
+    <extendedTooltip>
+      <name>ГруппаВозможностиРасширеннаяПодсказка</name>
+      <id>39</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <representation>WeakSeparation</representation>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <showTitle>auto</showTitle>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormGroup">
     <name>ГруппаПродажи</name>
     <id>4</id>
     <items xsi:type="form:FormField">
