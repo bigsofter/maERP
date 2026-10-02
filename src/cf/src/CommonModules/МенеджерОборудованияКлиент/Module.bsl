@@ -5516,8 +5516,8 @@
 	
 	Если СтруктураПараметровСмены = Неопределено Тогда
 		Если Параметры.ОповещениеПриЗавершении <> Неопределено Тогда
-			ОписаниеОшибки = НСтр("ru = 'Кассовая смена не выбрана'; fr = 'Aucun changement de caisse n''est sélectionné';
-				|en = 'The cash shift is not selected'; es = 'Cambio de Caja no seleccionado'");
+			ОписаниеОшибки = НСтр("ru = 'Кассовая смена не выбрана'; fr = 'Aucune session de caisse n''est sélectionnée';
+				|en = 'The cash register shift is not selected'; es = 'Turno de caja no seleccionado'");
 			РезультатОперации = ПараметрыВыполненияОперацииНаОборудовании(Ложь, ОписаниеОшибки);
 			ВыполнитьОбработкуОповещения(Параметры.ОповещениеПриЗавершении, РезультатОперации);
 		КонецЕсли;

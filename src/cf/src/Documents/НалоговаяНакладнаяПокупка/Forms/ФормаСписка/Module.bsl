@@ -480,12 +480,12 @@
 	КонецЦикла;
 	Если Накладные.Количество() = 0 Тогда
 		Строки.Добавить(НСтр("ru = 'Налоговая накладная не выписана';
-			|fr = 'Facture comptable non émise';
-			|en = 'Accounting invoice not issued';
-			|es = 'Factura contable no emitida'"));
+			|fr = 'Facture fiscale non émise';
+			|en = 'Tax invoice not issued';
+			|es = 'Factura fiscal no emitida'"));
 	Иначе
-		Строки.Добавить(НСтр("ru = 'Налоговые накладные:'; fr = 'Factures comptables :';
-			|en = 'Accounting invoices:'; es = 'Facturas contables:'"));
+		Строки.Добавить(НСтр("ru = 'Налоговые накладные:'; fr = 'Factures fiscales :';
+			|en = 'Tax invoices:'; es = 'Facturas fiscales:'"));
 		Для Каждого Накладная Из Накладные Цикл
 			Строки.Добавить(Накладная);
 		КонецЦикла;

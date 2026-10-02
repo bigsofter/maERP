@@ -6276,9 +6276,9 @@
 	КонецЕсли;
 	Если ЕстьПрочие Тогда
 		Возврат НСтр("ru = 'У реализации услуги, доп. расходы, авансы, кассовая смена или налоговая накладная: правьте в форме.';
-			|fr = 'La vente a des services, frais, avances, une journée de caisse ou une facture fiscale : modifiez-la dans le document.';
-			|en = 'The sale has services, costs, advances, a checkout day or a tax invoice: edit it in the document form.';
-			|es = 'La venta tiene servicios, gastos, anticipos, cambio de caja o factura fiscal: edítela en el documento.'");
+			|fr = 'La vente a des services, frais, avances, une session de caisse ou une facture fiscale : modifiez-la dans le document.';
+			|en = 'The sale has services, costs, advances, a cash register shift or a tax invoice: edit it in the document form.';
+			|es = 'La venta tiene servicios, gastos, anticipos, turno de caja o factura fiscal: edítela en el documento.'");
 	КонецЕсли;
 	Возврат "";
 
