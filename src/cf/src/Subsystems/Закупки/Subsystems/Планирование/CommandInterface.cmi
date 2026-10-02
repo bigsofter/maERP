@@ -2,24 +2,46 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>Document.УстановкаЦенНоменклатуры.Command.УстановкаЦенНоменклатуры</command>
-      <visible/>
+      <command>InformationRegister.МинимальныйОстатокПоСкладам.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
     </visibilityFragments>
     <visibilityFragments>
-      <command>Document.УстановкаЦенНоменклатуры.StandardCommand.OpenList</command>
-      <visible/>
+      <command>Report.ТоварыДляЗаказа.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
     </visibilityFragments>
     <visibilityFragments>
-      <command>DataProcessor.ФормированиеЗаказовПоставщику.StandardCommand.Open</command>
-      <visible/>
+      <command>Report.ПланированиеЗакупок.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ПотребностиПроизводства.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>InformationRegister.МинимальныйОстатокПоСкладам.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
     <orderFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>InformationRegister.МинимальныйОстатокПоСкладам.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
       <group>ActionsPanelReports</group>
-      <commands>Report.ПланированиеЗакупок.StandardCommand.Open</commands>
       <commands>Report.ТоварыДляЗаказа.StandardCommand.Open</commands>
-      <commands>Report.ЕженедельноеПланированиеЗадолженностиПоставщиков.StandardCommand.Open</commands>
+      <commands>Report.ПланированиеЗакупок.StandardCommand.Open</commands>
+      <commands>Report.ПотребностиПроизводства.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>

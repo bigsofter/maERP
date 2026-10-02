@@ -2,24 +2,132 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
+      <command>Document.ЗаказПоставщику.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПоступлениеТоваровУслуг.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВозвратПоставщику.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>DataProcessor.ФормированиеЗаказовПоставщику.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПоступлениеДополнительныхРасходов.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ЗаказПоставщику.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПоступлениеТоваровУслуг.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПоступлениеДополнительныхРасходов.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьРасчётовСПоставщиками.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ДолгиПоставщиков.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
       <command>Report.ПросроченныеДолгиПоставщиков.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ЕженедельноеПланированиеЗадолженностиПоставщиков.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.РеестрПоступленийТоваровУслуг.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВозвратПоставщику.StandardCommand.Create</command>
       <visible/>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Document.ЗаказПоставщику.StandardCommand.OpenList</commands>
+      <commands>Document.ПоступлениеТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ВозвратПоставщику.StandardCommand.OpenList</commands>
+      <commands>DataProcessor.ФормированиеЗаказовПоставщику.StandardCommand.Open</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.ПоступлениеДополнительныхРасходов.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
+    <orderFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Document.ЗаказПоставщику.StandardCommand.OpenList</commands>
+      <commands>Document.ПоступлениеТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ВозвратПоставщику.StandardCommand.OpenList</commands>
+      <commands>DataProcessor.ФормированиеЗаказовПоставщику.StandardCommand.Open</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.ПоступлениеДополнительныхРасходов.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>ActionsPanelCreate</group>
+      <commands>Document.ЗаказПоставщику.StandardCommand.Create</commands>
+      <commands>Document.ПоступлениеТоваровУслуг.StandardCommand.Create</commands>
+      <commands>Document.ПоступлениеДополнительныхРасходов.StandardCommand.Create</commands>
+    </orderFragments>
     <orderFragments>
       <group>ActionsPanelReports</group>
       <commands>Report.ВедомостьРасчётовСПоставщиками.StandardCommand.Open</commands>
       <commands>Report.ДолгиПоставщиков.StandardCommand.Open</commands>
-      <commands>Report.РасчетыСПоставщиками.StandardCommand.Open</commands>
       <commands>Report.ПросроченныеДолгиПоставщиков.StandardCommand.Open</commands>
-      <commands>Report.ПотребностиПроизводства.StandardCommand.Open</commands>
+      <commands>Report.ЕженедельноеПланированиеЗадолженностиПоставщиков.StandardCommand.Open</commands>
+      <commands>Report.РеестрПоступленийТоваровУслуг.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
   <subsystemsOrder>
-    <subsystems>Subsystem.Закупки.Subsystem.РаботаСПоставщиками</subsystems>
-    <subsystems>Subsystem.Закупки.Subsystem.ЦеныПоставщиков</subsystems>
     <subsystems>Subsystem.Закупки.Subsystem.Планирование</subsystems>
+    <subsystems>Subsystem.Закупки.Subsystem.ПоставщикиИЦены</subsystems>
+    <subsystems>Subsystem.Закупки.Subsystem.Импорт</subsystems>
     <subsystems>Subsystem.Закупки.Subsystem.Справочники</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>

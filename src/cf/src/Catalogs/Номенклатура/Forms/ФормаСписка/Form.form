@@ -1108,6 +1108,12 @@
 			КОГДА &amp;ТоварныеГруппыУстановлены
 				ТОГДА СправочникНоменклатура.ТоварнаяГруппа В (&amp;ТоварныеГруппы)
 			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;СпособыПополненияУстановлены
+				ТОГДА СправочникНоменклатура.ЭтоГруппа
+					ИЛИ СправочникНоменклатура.СпособПополнения В (&amp;СпособыПополнения)
+			ИНАЧЕ ИСТИНА
 		КОНЕЦ</queryText>
       <mainTable>Catalog.Номенклатура</mainTable>
       <autoFillAvailableFields>true</autoFillAvailableFields>
@@ -1481,6 +1487,63 @@
         <field>Родитель</field>
       </fields>
       <parameters>
+        <name>СпособыПополнения</name>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Способы пополнения</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Modes de réapprovisionnement</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Replenishment methods</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Métodos de reposición</value>
+            </content>
+          </localValue>
+        </title>
+        <valueType>
+          <types>EnumRef.СпособыПополненияЗапасов</types>
+        </valueType>
+        <values xsi:type="core:UndefinedValue"/>
+        <useRestriction>true</useRestriction>
+        <valueListAllowed>true</valueListAllowed>
+      </parameters>
+      <parameters>
+        <name>СпособыПополненияУстановлены</name>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Способы пополнения установлены</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Modes de réapprovisionnement définis</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Replenishment methods set</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Métodos de reposición establecidos</value>
+            </content>
+          </localValue>
+        </title>
+        <valueType>
+          <types>Boolean</types>
+        </valueType>
+        <values xsi:type="core:BooleanValue"/>
+        <useRestriction>true</useRestriction>
+      </parameters>
+      <parameters>
         <name>ТипыНоменклатуры</name>
         <title>
           <localValue>
@@ -1837,6 +1900,13 @@
       </edit>
     </columns>
   </attributes>
+  <parameters>
+    <name>ТолькоЗакупаемые</name>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <keyParameter>true</keyParameter>
+  </parameters>
   <commandInterface>
     <navigationPanel/>
     <commandBar>

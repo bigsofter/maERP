@@ -10,6 +10,51 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.6
+### ru
+- Раздел «Закупки» перестроен по ходу работы. Наверху — заказы поставщикам, поступления товаров и услуг, возвраты поставщикам и обработка «Формирование заказов поставщикам» (раньше её не было в меню). Рядом — доп. расходы на поступление. Остальное разложено по группам: «Планирование», «Поставщики и цены», «Импорт», «Справочники».
+- Группа «Импорт» (коды ТН ВЭД, номера таможенных деклараций) исчезает из меню целиком, если импорт выключен в «Параметрах».
+- В «Закупках» номенклатура открывается пунктом «Закупаемые товары» — только то, что пополняется закупкой, — а договоры пунктом «Договоры с поставщиками». Без производства «Закупаемые товары» показывают всю номенклатуру.
+- В «Планировании» появились «Минимальные остатки по складам»: их используют отчёты «Товары для заказа» и «Недостаточные запасы», а заполнить их из меню раньше было негде. Отчёт «Потребности производства» скрыт, если производство выключено.
+- Отчёт «Просроченные долги поставщиков» исправлен (раньше не формировался) и выведен в меню; он показывает только долги с истёкшим сроком оплаты и сколько дней они просрочены.
+- Отчёт «Еженедельное планирование задолженности поставщиков» называется «Долги поставщиков по товарам на складе» — по тому, что он показывает.
+- «Реестр поступлений товаров и услуг» переехал из «Казначейства» в «Закупки». Налоговый отчёт «Расчеты с поставщиками» остался только в «Бухгалтерии», «Установка цен номенклатуры» — только в «Продажах».
+- Кнопка «Создать» в «Закупках» предлагает только документы, с которых начинается работа: заказ поставщику, поступление, доп. расходы, предложение поставщика.
+- Цены закупки теперь видны в меню и у сотрудников склада, логистики и казначейства, предложения поставщиков — и у казначейства: раньше эту группу видел только администратор. Права на данные не менялись.
+
+### fr
+- La section « Achats » suit désormais l'ordre du travail. En haut : commandes fournisseurs, réceptions de marchandises et services, retours fournisseurs et le traitement « Génération des commandes fournisseurs » (auparavant absent du menu). À côté : les frais annexes de réception. Le reste est réparti en groupes : « Planification », « Fournisseurs et prix », « Importation », « Référentiels ».
+- Le groupe « Importation » (codes SH, numéros de déclaration en douane) disparaît entièrement du menu si l'importation est désactivée dans les « Options ».
+- Dans « Achats », les articles s'ouvrent par « Articles achetés » — uniquement ceux réapprovisionnés par achat — et les contrats par « Contrats fournisseurs ». Sans production, « Articles achetés » affiche tous les articles.
+- La « Planification » propose les « Stocks minimaux par entrepôt » : les rapports « Marchandises à commander » et « Stocks insuffisants » s'en servent, mais aucun menu ne permettait de les saisir. Le rapport « Besoins de production » est masqué si la production est désactivée.
+- Le rapport « Dettes fournisseurs en retard » est corrigé (il ne se générait pas) et ajouté au menu ; il n'affiche que les dettes dont l'échéance est dépassée et le nombre de jours de retard.
+- Le rapport « Planning hebdomadaire de debt fournisseurs » s'appelle « Dettes fournisseurs sur stock en magasin », d'après ce qu'il affiche.
+- Le « Registre des factures d'achat » passe de « Trésorerie » à « Achats ». Le rapport fiscal des règlements fournisseurs reste uniquement dans « Comptabilité », la « Tarification » uniquement dans « Ventes ».
+- Le bouton « Créer » de la section « Achats » ne propose que les documents qui ouvrent le travail : commande fournisseur, réception, frais annexes, offre fournisseur.
+- Les prix d'achat sont désormais visibles dans le menu pour le personnel de l'entrepôt, de la logistique et de la trésorerie, et les offres fournisseurs pour la trésorerie : auparavant seul l'administrateur voyait ce groupe. Les droits sur les données n'ont pas changé.
+
+### en
+- The "Purchases" section now follows the course of work. At the top: purchase orders, goods and services receipts, returns to suppliers and the "Purchase order generation" tool (previously missing from the menu). Next to them: additional receipt costs. The rest is grouped into "Planning", "Suppliers and prices", "Import", "Reference books".
+- The "Import" group (HS codes, customs declaration numbers) disappears from the menu entirely when import is off in "Options".
+- In "Purchases", items open as "Purchased items" — only those replenished by purchase — and contracts as "Supplier contracts". Without production, "Purchased items" shows all items.
+- "Planning" now has "Minimum stock by warehouse": the "Goods to order" and "Insufficient stocks" reports use it, but there was nowhere in the menu to fill it in. The "Production requirements" report is hidden when production is off.
+- The "Overdue supplier debts" report is fixed (it did not generate) and added to the menu; it shows only debts past their due date and how many days they are overdue.
+- The "Weekly schedule of debt suppliers" report is now called "Supplier debts on goods in stock", after what it shows.
+- The "Purchase invoice register" moved from "Treasury" to "Purchases". The tax report on supplier settlements stays only in "Accounting", "Setting item prices" only in "Sales".
+- The "Create" button in "Purchases" offers only the documents that start the work: purchase order, receipt, additional costs, supplier offer.
+- Purchase prices are now visible in the menu to warehouse, logistics and treasury staff, and supplier offers to treasury staff: previously only the administrator saw that group. Data access rights have not changed.
+
+### es
+- La sección «Compras» sigue ahora el orden del trabajo. Arriba: pedidos a proveedores, recepciones de mercancías y servicios, devoluciones a proveedores y el procesamiento «Generación de pedidos a proveedores» (antes no estaba en el menú). Al lado: los gastos adicionales de recepción. El resto se agrupa en «Planificación», «Proveedores y precios», «Importación», «Catálogos».
+- El grupo «Importación» (códigos HS, números de declaración aduanera) desaparece por completo del menú si la importación está desactivada en «Parámetros».
+- En «Compras», los artículos se abren con «Artículos comprados» — solo los que se reponen por compra — y los contratos con «Contratos con proveedores». Sin producción, «Artículos comprados» muestra todos los artículos.
+- En «Planificación» aparecen las «Existencias mínimas por almacén»: las usan los informes «Productos a pedido» y «Existencias insuficientes», pero no había dónde rellenarlas desde el menú. El informe «Necesidades de producción» se oculta si la producción está desactivada.
+- El informe «Deudas vencidas con proveedores» se ha corregido (no se generaba) y se ha añadido al menú; muestra solo las deudas con el plazo de pago vencido y cuántos días llevan vencidas.
+- El informe «Calendario semanal de proveedores de deuda» se llama «Deudas con proveedores por mercancía en almacén», según lo que muestra.
+- El «Registro de facturas de compra» pasa de «Tesorería» a «Compras». El informe fiscal de liquidaciones con proveedores queda solo en «Contabilidad» y la «Fijación de precios de artículos», solo en «Ventas».
+- El botón «Crear» de «Compras» ofrece solo los documentos con los que empieza el trabajo: pedido a proveedor, recepción, gastos adicionales, oferta del proveedor.
+- Los precios de compra ahora son visibles en el menú para el personal de almacén, logística y tesorería, y las ofertas de proveedores para tesorería; antes solo el administrador veía ese grupo. Los derechos sobre los datos no han cambiado.
+
 ## 2.0.16.5
 ### ru
 - Возможности программы, которыми вы не пользуетесь, можно выключить — тогда они исчезнут из меню. Переключатели собраны в «Настройка» → «Параметры», по форме на раздел: в «Закупках» — импорт (коды ТН ВЭД, таможенные декларации, страна происхождения); в «Продажах» — заказы покупателей, коммерческие предложения, задачи по заказам, заявки на поиск товара, розничные продажи, правила ценообразования; в новой форме «Склад» — ячейки, инвентаризация, комплектация и пересортица; в «Производстве» — переработка; в новых формах «Казначейство» — альтернативные оплаты (сертификаты, банковские чеки), «Бухгалтерия» — раздел и регламентированный учёт (план счетов, проводки, бухгалтерские отчёты), «CRM» — лиды и личный кабинет клиента.
