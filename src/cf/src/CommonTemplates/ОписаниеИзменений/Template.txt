@@ -10,6 +10,51 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.7
+### ru
+- Раздел «Продажи» перестроен по ходу работы. Наверху — заказы покупателей, продажи и возвраты от покупателей, рядом — история заказов по статусам. Остальное разложено по группам: «Опт», «Розница», «Цены», «Клиенты», «Справочники». Все отчёты раздела собраны в одном списке отчётов.
+- Группа «Опт» (коммерческие предложения, задачи по заказам, заявки на поиск товара) исчезает из меню целиком, если все эти возможности выключены в «Параметрах»; группа «Розница» — если выключены розничные продажи. «Заявка на поиск товара» больше не выводится в меню дважды.
+- В «Продажах» номенклатура открывается пунктом «Товары и услуги для продажи» — без сырья и полуфабрикатов, — а договоры пунктом «Договоры с покупателями». Без производства «Товары и услуги для продажи» показывают всю номенклатуру. Поставщики и общие списки контрагентов, номенклатуры и договоров из «Продаж» убраны: они есть в «Закупках», «Складе» и «Казначействе».
+- Администратор и руководитель видят в группе «Клиенты» «Кураторы договоров» — кто из сотрудников ведёт договор.
+- Отчёт «Просроченные долги покупателей» выведен в меню и исправлен: он показывает только долги с истёкшим сроком оплаты и сколько дней они просрочены (раньше — весь долг сверх кредита). Срок оплаты берётся так же, как при контроле кредита: из договора, а если там не задан — из карточки покупателя; если срок не задан нигде — год. Из обоих отчётов просроченных долгов убран параметр «Вариант задолженности», который ни на что не влиял.
+- Отчёты переименованы по тому, что они показывают: «Статистика дневных продаж» — «Продажи по часам», «ABC - анализ продаж» — «ABC-анализ продаж».
+- «Реестр реализаций товаров и услуг» переехал из «Казначейства» в «Продажи». Налоговые «Расчеты с покупателями» и «Ведомость по продажам (налоговая)» остались только в «Бухгалтерии», туда же переехал «Проданный товар без накладной».
+- Кнопка «Создать» в «Продажах» предлагает только документы, с которых начинается работа: заказ покупателя, продажа, коммерческое предложение, установка цен, правило ценообразования.
+- В «Параметрах» → «Продажи» настройки розницы (розничный клиент, договор, печать чека) доступны, только когда розничные продажи включены. Регистр оплат чеками скрывается вместе с альтернативными оплатами.
+
+### fr
+- La section « Ventes » suit désormais l'ordre du travail. En haut : commandes clients, ventes et retours clients, à côté l'historique des commandes par statut. Le reste est réparti en groupes : « Vente en gros », « Vente au détail », « Prix », « Clients », « Catalogues ». Tous les rapports de la section sont réunis dans une seule liste de rapports.
+- Le groupe « Vente en gros » (offres commerciales, tâches de commandes, demandes de recherche d'articles) disparaît entièrement du menu si toutes ces fonctions sont désactivées dans les « Options » ; le groupe « Vente au détail » — si la vente au détail est désactivée. La « Demande de recherche d'article » n'apparaît plus deux fois dans le menu.
+- Dans « Ventes », les articles s'ouvrent par « Articles vendus » — sans matières premières ni produits semi-finis — et les contrats par « Contrats clients ». Sans production, « Articles vendus » affiche tous les articles. Les fournisseurs et les listes générales de tiers, d'articles et de contrats sont retirés de « Ventes » : ils se trouvent dans « Achats », « Entrepôt » et « Trésorerie ».
+- L'administrateur et le dirigeant trouvent dans le groupe « Clients » les « Responsables des contrats » : quel employé suit chaque contrat.
+- Le rapport « Dettes clients en retard » est ajouté au menu et corrigé : il n'affiche que les dettes dont l'échéance est dépassée et le nombre de jours de retard (auparavant, toute la dette au-delà du crédit). Le délai de paiement est déterminé comme pour le contrôle du crédit : depuis le contrat, sinon depuis la fiche du client ; à défaut, un an. Le paramètre « Variante de dette », sans effet, est retiré des deux rapports de dettes en retard.
+- Des rapports sont renommés d'après ce qu'ils affichent : « Statistiques de ventes quotidiennes » devient « Ventes par heure », « ABC - analyse des ventes » devient « Analyse ABC des ventes ».
+- Le « Registre de factures de vente » passe de « Trésorerie » à « Ventes ». Les rapports fiscaux des règlements clients et l'état fiscal des ventes restent uniquement dans « Comptabilité », où passe aussi « Stock vendu non facturé ».
+- Le bouton « Créer » de la section « Ventes » ne propose que les documents qui ouvrent le travail : commande client, vente, offre commerciale, tarification, règle de tarification.
+- Dans « Options » → « Ventes », les réglages de la vente au détail (client de détail, contrat, impression du ticket) ne sont modifiables que si la vente au détail est activée. Le registre des paiements par chèque est masqué avec les paiements alternatifs.
+
+### en
+- The "Sales" section now follows the course of work. At the top: customer orders, sales and customer returns, with the order status history next to them. The rest is grouped into "Wholesale", "Retail", "Prices", "Customers", "Reference books". All reports of the section are gathered in one report list.
+- The "Wholesale" group (commercial offers, order tasks, item search requests) disappears from the menu entirely when all these features are off in "Options"; the "Retail" group — when retail sales are off. "Item search request" no longer appears in the menu twice.
+- In "Sales", items open as "Items for sale" — without raw materials and semi-finished goods — and contracts as "Customer contracts". Without production, "Items for sale" shows all items. Suppliers and the general lists of counterparties, items and contracts are removed from "Sales": they are in "Purchases", "Warehouse" and "Treasury".
+- Administrators and managers see "Contract managers" in the "Customers" group: which employee handles each contract.
+- The "Overdue customer debts" report is added to the menu and fixed: it shows only debts past their due date and how many days they are overdue (previously, all debt above the credit limit). The payment term is taken as in credit control: from the contract, or from the customer card if the contract has none; if neither has one, a year. The "Debt variant" parameter, which had no effect, is removed from both overdue debt reports.
+- Reports are renamed after what they show: "Daily sales statistics" is now "Sales by hour", "ABC - sales analysis" is now "ABC sales analysis".
+- The "Sales invoice register" moved from "Treasury" to "Sales". The tax reports on customer settlements and sales stay only in "Accounting", where "Stock sold not invoiced" moved too.
+- The "Create" button in "Sales" offers only the documents that start the work: customer order, sale, commercial offer, price setting, pricing rule.
+- In "Options" → "Sales", retail settings (retail customer, contract, receipt printing) can be changed only when retail sales are on. The cheque payments register is hidden together with alternative payments.
+
+### es
+- La sección «Ventas» sigue ahora el orden del trabajo. Arriba: pedidos de clientes, ventas y devoluciones de clientes, al lado el historial de pedidos por estado. El resto se agrupa en «Venta al por mayor», «Venta minorista», «Precios», «Clientes», «Manuales». Todos los informes de la sección están reunidos en una sola lista de informes.
+- El grupo «Venta al por mayor» (ofertas comerciales, tareas de pedidos, solicitudes de búsqueda de artículos) desaparece por completo del menú si todas estas funciones están desactivadas en «Parámetros»; el grupo «Venta minorista», si las ventas minoristas están desactivadas. La «Solicitud de búsqueda de artículo» ya no aparece dos veces en el menú.
+- En «Ventas», los artículos se abren con «Artículos para la venta» — sin materias primas ni semielaborados — y los contratos con «Contratos con clientes». Sin producción, «Artículos para la venta» muestra todos los artículos. Los proveedores y las listas generales de contrapartes, artículos y contratos se han quitado de «Ventas»: están en «Compras», «Almacén» y «Tesorería».
+- El administrador y el director ven en el grupo «Clientes» los «Responsables de contratos»: qué empleado lleva cada contrato.
+- El informe «Deudas vencidas de clientes» se ha añadido al menú y corregido: muestra solo las deudas con el plazo de pago vencido y cuántos días llevan vencidas (antes, toda la deuda por encima del crédito). El plazo de pago se toma como en el control de crédito: del contrato o, si no está indicado, de la ficha del cliente; si no figura en ninguno, un año. El parámetro «Variante de deuda», que no tenía efecto, se ha quitado de los dos informes de deudas vencidas.
+- Informes renombrados según lo que muestran: «Estadísticas de ventas diarias» pasa a «Ventas por hora», «ABC-análisis de ventas» pasa a «Análisis ABC de ventas».
+- El «Registro de facturas de ventas» pasa de «Tesorería» a «Ventas». Los informes fiscales de liquidaciones con clientes y de ventas quedan solo en «Contabilidad», adonde pasa también «Stock vendido no facturado».
+- El botón «Crear» de «Ventas» ofrece solo los documentos con los que empieza el trabajo: pedido de cliente, venta, oferta comercial, fijación de precios, regla de precios.
+- En «Parámetros» → «Ventas», los ajustes de venta minorista (cliente minorista, contrato, impresión del ticket) solo se pueden cambiar si las ventas minoristas están activadas. El registro de pagos con cheque se oculta junto con los pagos alternativos.
+
 ## 2.0.16.6
 ### ru
 - Раздел «Закупки» перестроен по ходу работы. Наверху — заказы поставщикам, поступления товаров и услуг, возвраты поставщикам и обработка «Формирование заказов поставщикам» (раньше её не было в меню). Рядом — доп. расходы на поступление. Остальное разложено по группам: «Планирование», «Поставщики и цены», «Импорт», «Справочники».

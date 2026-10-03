@@ -2,8 +2,10 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>DataProcessor.VentesEnDetail.StandardCommand.Open</command>
-      <visible/>
+      <command>DataProcessor.VentesEnDetail.Command.VentesEnDetail</command>
+      <visible>
+        <common>true</common>
+      </visible>
     </visibilityFragments>
     <visibilityFragments>
       <command>Document.КассоваяСмена.StandardCommand.OpenList</command>
@@ -12,29 +14,43 @@
       </visible>
     </visibilityFragments>
     <visibilityFragments>
-      <command>Document.КассоваяСмена.StandardCommand.Create</command>
+      <command>Catalog.TypesDePayment.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
       </visible>
     </visibilityFragments>
+    <visibilityFragments>
+      <command>DataProcessor.VentesEnDetail.StandardCommand.Open</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.КассоваяСмена.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.TypesDePayment.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
   </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
-      <group>NavigationPanelOrdinary</group>
-      <commands>Document.КассоваяСмена.StandardCommand.OpenList</commands>
+      <group>NavigationPanelImportant</group>
+      <commands>DataProcessor.VentesEnDetail.Command.VentesEnDetail</commands>
     </placementFragments>
     <placementFragments>
-      <group>NavigationPanelSeeAlso</group>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.КассоваяСмена.StandardCommand.OpenList</commands>
       <commands>Catalog.TypesDePayment.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
-      <group>NavigationPanelOrdinary</group>
-      <commands>Document.КассоваяСмена.StandardCommand.OpenList</commands>
+      <group>NavigationPanelImportant</group>
+      <commands>DataProcessor.VentesEnDetail.Command.VentesEnDetail</commands>
     </orderFragments>
     <orderFragments>
-      <group>NavigationPanelSeeAlso</group>
+      <group>NavigationPanelOrdinary</group>
+      <commands>Document.КассоваяСмена.StandardCommand.OpenList</commands>
       <commands>Catalog.TypesDePayment.StandardCommand.OpenList</commands>
     </orderFragments>
   </commandsOrder>

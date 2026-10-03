@@ -1114,6 +1114,12 @@
 				ТОГДА СправочникНоменклатура.ЭтоГруппа
 					ИЛИ СправочникНоменклатура.СпособПополнения В (&amp;СпособыПополнения)
 			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;ИсключаемыеТипыУстановлены
+				ТОГДА СправочникНоменклатура.ЭтоГруппа
+					ИЛИ НЕ СправочникНоменклатура.ТипНоменклатуры В (&amp;ИсключаемыеТипы)
+			ИНАЧЕ ИСТИНА
 		КОНЕЦ</queryText>
       <mainTable>Catalog.Номенклатура</mainTable>
       <autoFillAvailableFields>true</autoFillAvailableFields>
@@ -1486,6 +1492,63 @@
         <dataPath>Родитель</dataPath>
         <field>Родитель</field>
       </fields>
+      <parameters>
+        <name>ИсключаемыеТипы</name>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Исключаемые типы</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Types exclus</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Excluded types</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Tipos excluidos</value>
+            </content>
+          </localValue>
+        </title>
+        <valueType>
+          <types>EnumRef.ТипыНоменклатуры</types>
+        </valueType>
+        <values xsi:type="core:UndefinedValue"/>
+        <useRestriction>true</useRestriction>
+        <valueListAllowed>true</valueListAllowed>
+      </parameters>
+      <parameters>
+        <name>ИсключаемыеТипыУстановлены</name>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Исключаемые типы установлены</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Types exclus définis</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Excluded types set</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Tipos excluidos establecidos</value>
+            </content>
+          </localValue>
+        </title>
+        <valueType>
+          <types>Boolean</types>
+        </valueType>
+        <values xsi:type="core:BooleanValue"/>
+        <useRestriction>true</useRestriction>
+      </parameters>
       <parameters>
         <name>СпособыПополнения</name>
         <title>
@@ -1902,6 +1965,13 @@
   </attributes>
   <parameters>
     <name>ТолькоЗакупаемые</name>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <keyParameter>true</keyParameter>
+  </parameters>
+  <parameters>
+    <name>ТолькоПродаваемые</name>
     <valueType>
       <types>Boolean</types>
     </valueType>

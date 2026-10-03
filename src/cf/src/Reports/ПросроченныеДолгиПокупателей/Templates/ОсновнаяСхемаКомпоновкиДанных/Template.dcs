@@ -215,6 +215,42 @@
 				</v8:StringQualifiers>
 			</valueType>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПросроченоДней</dataPath>
+			<field>ПросроченоДней</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просрочено дней</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Jours de retard</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Days overdue</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Días de retraso</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<objectName>ТЗ</objectName>
 	</dataSet>
@@ -227,6 +263,10 @@
 		<group>Менеджер</group>
 		<group>Организация</group>
 		<group>РеализацияТоваровУслуг</group>
+	</totalField>
+	<totalField>
+		<dataPath>ПросроченоДней</dataPath>
+		<expression>Максимум(ПросроченоДней)</expression>
 	</totalField>
 	<parameter>
 		<name>ДатаОтчёта</name>
@@ -337,31 +377,6 @@
 		<useRestriction>false</useRestriction>
 		<valueListAllowed>true</valueListAllowed>
 	</parameter>
-	<parameter>
-		<name>ВариантЗадолженности</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Вариант задолженности</v8:content>
-			</v8:item>
-			<v8:item>
-				<v8:lang>fr</v8:lang>
-				<v8:content>Variante de dette</v8:content>
-			</v8:item>
-			<v8:item>
-				<v8:lang>en</v8:lang>
-				<v8:content>Debt variant</v8:content>
-			</v8:item>
-			<v8:item>
-				<v8:lang>es</v8:lang>
-				<v8:content>Variante de deuda</v8:content>
-			</v8:item>
-		</title>
-		<value xsi:nil="true"/>
-		<useRestriction>false</useRestriction>
-		<denyIncompleteValues>true</denyIncompleteValues>
-		<use>Always</use>
-	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -369,6 +384,9 @@
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Долг</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПросроченоДней</dcsset:field>
 				</dcsset:item>
 				<dcsset:userSettingID>6dbb2011-3eaf-4e63-b8a8-6df6c79fbf59</dcsset:userSettingID>
 			</dcsset:selection>
@@ -398,19 +416,10 @@
 					<dcscor:value xsi:nil="true"/>
 					<dcsset:userSettingID>c9fcc4a2-82c4-435f-9ec1-3165fc165717</dcsset:userSettingID>
 				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>ВариантЗадолженности</dcscor:parameter>
-					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ВариантыЗадолженности.ПустаяСсылка</dcscor:value>
-					<dcsset:userSettingID>4b2d8257-a980-4c98-803d-ca86832a8a37</dcsset:userSettingID>
-				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:field>Контрагент</dcsset:field>
-					<dcsset:orderType>Asc</dcsset:orderType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:OrderItemField">
-					<dcsset:field>ПорядокИнтервала</dcsset:field>
 					<dcsset:orderType>Asc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:userSettingID>9f91bd7d-486f-452f-afb7-e5871a2644d7</dcsset:userSettingID>

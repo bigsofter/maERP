@@ -2,34 +2,183 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
+      <command>Document.ЗаказПокупателя.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+        <for>
+          <role>Role.PDV</role>
+        </for>
+        <for>
+          <role>Role.МенеджерПоЗакупкам</role>
+        </for>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВозвратОтПокупателя.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+        <for>
+          <role>Role.PDV</role>
+        </for>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ЗаказПокупателя.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.РеализацияТоваровУслуг.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьПоПродажам.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.СтатистикаДневныхПродаж.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ABCАнализПродаж.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьРасчётовСПокупателями.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ДолгиПокупателей.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
       <command>Report.ПросроченныеДолгиПокупателей.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.НеоплаченныеПродажи.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.НеотгруженныеЗаказы.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ИсторияКлиента.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ИсторияТовара.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ЦеныНоменклатуры.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.РеестрРеализацийТоваровУслуг.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ОтчетПоНедостаткамТовара.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВозвратОтПокупателя.StandardCommand.Create</command>
       <visible/>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
+    <orderFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>ActionsPanelCreate</group>
+      <commands>Document.ЗаказПокупателя.StandardCommand.Create</commands>
+      <commands>Document.РеализацияТоваровУслуг.StandardCommand.Create</commands>
+    </orderFragments>
     <orderFragments>
       <group>ActionsPanelReports</group>
       <commands>Report.ВедомостьПоПродажам.StandardCommand.Open</commands>
-      <commands>Report.ДолгиПокупателей.StandardCommand.Open</commands>
-      <commands>Report.ВедомостьРасчётовСПокупателями.StandardCommand.Open</commands>
-      <commands>Report.НеоплаченныеПродажи.StandardCommand.Open</commands>
-      <commands>Report.НеотгруженныеЗаказы.StandardCommand.Open</commands>
       <commands>Report.СтатистикаДневныхПродаж.StandardCommand.Open</commands>
       <commands>Report.ABCАнализПродаж.StandardCommand.Open</commands>
+      <commands>Report.ВедомостьРасчётовСПокупателями.StandardCommand.Open</commands>
+      <commands>Report.ДолгиПокупателей.StandardCommand.Open</commands>
+      <commands>Report.ПросроченныеДолгиПокупателей.StandardCommand.Open</commands>
+      <commands>Report.НеоплаченныеПродажи.StandardCommand.Open</commands>
+      <commands>Report.НеотгруженныеЗаказы.StandardCommand.Open</commands>
       <commands>Report.ИсторияКлиента.StandardCommand.Open</commands>
       <commands>Report.ИсторияТовара.StandardCommand.Open</commands>
       <commands>Report.ЦеныНоменклатуры.StandardCommand.Open</commands>
-      <commands>Report.РасчетыСПокупателями.StandardCommand.Open</commands>
-      <commands>Report.ВедомостьПоПродажамНалоговая.StandardCommand.Open</commands>
+      <commands>Report.РеестрРеализацийТоваровУслуг.StandardCommand.Open</commands>
       <commands>Report.ОтчетПоНедостаткамТовара.StandardCommand.Open</commands>
-      <commands>Report.ПроданныйТоварБезНакладной.StandardCommand.Open</commands>
-      <commands>Report.ПросроченныеДолгиПокупателей.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
   <subsystemsOrder>
-    <subsystems>Subsystem.Продажи.Subsystem.РаботаСПокупателями</subsystems>
+    <subsystems>Subsystem.Продажи.Subsystem.Опт</subsystems>
     <subsystems>Subsystem.Продажи.Subsystem.РозничныеПродажи</subsystems>
-    <subsystems>Subsystem.Продажи.Subsystem.Ценообразование</subsystems>
+    <subsystems>Subsystem.Продажи.Subsystem.Цены</subsystems>
+    <subsystems>Subsystem.Продажи.Subsystem.Клиенты</subsystems>
     <subsystems>Subsystem.Продажи.Subsystem.Справочники</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>
