@@ -153,6 +153,28 @@
 				<order>true</order>
 			</useRestriction>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОборотКг</dataPath>
+			<field>ОборотКг</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оборот (кг)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Mouvement (kg)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Movement (kg)</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Movimiento (kg)</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ТоварыНаСкладахОбороты.Регистратор КАК Регистратор,
@@ -175,37 +197,16 @@
 	ТоварыНаСкладахОбороты.Номенклатура КАК Номенклатура,
 	ТоварыНаСкладахОбороты.КоличествоОборот КАК Количество,
 	ТоварыНаСкладахОбороты.СуммаОборот КАК Сумма,
+	ВЫБОР
+		КОГДА ТоварыНаСкладахОбороты.Номенклатура.Единица.ТипИзмеряемойВеличины = ЗНАЧЕНИЕ(Перечисление.ТипыИзмеряемыхВеличин.Вес)
+			ТОГДА ТоварыНаСкладахОбороты.КоличествоОборот
+		ИНАЧЕ ТоварыНаСкладахОбороты.КоличествоОборот * ТоварыНаСкладахОбороты.Номенклатура.ВесЗнаменатель
+	КОНЕЦ КАК ОборотКг,
 	ЕдиницаИзмеренияВеса.Значение КАК ЕдиницаИзмеренияВеса
 ИЗ
 	РегистрНакопления.ТоварыВНаличии.Обороты(, , Авто, ) КАК ТоварыНаСкладахОбороты,
 	Константа.ЕдиницаИзмеренияВеса КАК ЕдиницаИзмеренияВеса</query>
 	</dataSet>
-	<calculatedField>
-		<dataPath>ОборотКг</dataPath>
-		<expression>Выбор когда Номенклатура.Единица.ТипИзмеряемойВеличины = Значение(Перечисление.ТипыИзмеряемыхВеличин.Вес) Тогда
-		Количество
-	Иначе
-		Номенклатура.ВесЗнаменатель * ОбщегоНазначенияВызовСервера.РассчитатьКоэффициентЕдиницы(Номенклатура.ВесЕдиница, ЕдиницаИзмеренияВеса)	
-	Конец</expression>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Оборот (кг)</v8:content>
-			</v8:item>
-			<v8:item>
-				<v8:lang>fr</v8:lang>
-				<v8:content>Mouvement (kg)</v8:content>
-			</v8:item>
-			<v8:item>
-				<v8:lang>en</v8:lang>
-				<v8:content>Movement (kg)</v8:content>
-			</v8:item>
-			<v8:item>
-				<v8:lang>es</v8:lang>
-				<v8:content>Movimiento (kg)</v8:content>
-			</v8:item>
-		</title>
-	</calculatedField>
 	<totalField>
 		<dataPath>ОборотКг</dataPath>
 		<expression>Сумма(ОборотКг)</expression>
@@ -496,7 +497,7 @@
 		<dcsset:settings xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ОборотКГ</dcsset:field>
+					<dcsset:field>ОборотКг</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Сумма</dcsset:field>
@@ -506,13 +507,13 @@
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:left xsi:type="dcscor:Field">МестоХранения</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>754b9c66-2f6e-4335-bb74-8ec7e7f9cc89</dcsset:userSettingID>
 					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Склад</v8:content>
+							<v8:content>Место хранения</v8:content>
 						</v8:item>
 						<v8:item>
 							<v8:lang>fr</v8:lang>
@@ -530,7 +531,7 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Товар</dcsset:left>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>0f395fc7-bb73-4a26-a3df-47639334a73f</dcsset:userSettingID>
 					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
@@ -621,12 +622,12 @@
 				<dcsset:item>
 					<dcsset:selection>
 						<dcsset:item>
-							<dcsset:field>ОборотКГ</dcsset:field>
+							<dcsset:field>ОборотКг</dcsset:field>
 						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:filter>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">ОборотКГ</dcsset:left>
+							<dcsset:left xsi:type="dcscor:Field">ОборотКг</dcsset:left>
 							<dcsset:comparisonType>Less</dcsset:comparisonType>
 							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 						</dcsset:item>
@@ -691,7 +692,7 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Склад</dcsset:field>
+							<dcsset:field>МестоХранения</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -707,7 +708,7 @@
 					<dcsset:item>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>Товар</dcsset:field>
+								<dcsset:field>Номенклатура</dcsset:field>
 								<dcsset:groupType>Items</dcsset:groupType>
 								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>

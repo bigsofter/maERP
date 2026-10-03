@@ -10,6 +10,47 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.9
+### ru
+- Раздел «Склад» перестроен по ходу работы. Наверху — перемещения товаров. Остальное разложено по группам: «Инвентаризация» (пересчёты и задания на пересчёт), «Излишки и списания» (оприходования, списания, уценки), «Комплектация» (акты разбора, пересортица), «Товары» и «Хранение». Все отчёты раздела собраны в одном списке отчётов.
+- Группа «Инвентаризация» исчезает из меню целиком, если в «Параметрах» выключены пересчёты, группа «Комплектация» — если выключена комплектация. «Наборы упаковок» уходят из меню вместе с выключенной упаковкой.
+- В «Складе» номенклатура открывается пунктом «Товары» — без услуг и комплектов. В группе «Товары» появился общий список штрихкодов: по нему удобно найти товар по коду или проверить дубли. Штрихкоды по-прежнему ведутся и из карточки номенклатуры.
+- «Перевозчики» переехали из «Продаж» в «Склад» → «Хранение». Логист теперь видит раздел «Склад»: перевозчиков, места хранения и отчёты по остаткам, на которые у него и раньше были права.
+- Отчёт «Движения товара» выведен в меню, его вариант «Отчет по списанию товаров» снова формируется: списания по местам хранения и товарам по дням. Колонка «Оборот (кг)» в обоих вариантах отчёта теперь считает вес всего количества, а не одной единицы товара.
+- Список уценок выведен в меню рядом с созданием уценки (раньше создать уценку было можно, а открыть список — нет).
+- «Стоимость склада» осталась только в «Складе» (раньше была ещё и в «Бухгалтерии»). «Ведомость по поступлениям» — отчёт о приходе товаров от поставщиков — переехала в «Закупки».
+- Кнопка «Создать» в «Складе» предлагает документы, с которых начинается работа: перемещение, оприходование, списание, уценку, пересчёт и задание на пересчёт, акт разбора, пересортицу. Справочники из неё убраны.
+
+### fr
+- La section « Entrepôt » suit désormais l'ordre du travail. En haut : les transferts de marchandises. Le reste est réparti en groupes : « Inventaire » (inventaires et tâches d'inventaire), « Excédents et sorties » (entrées, sorties, démarquages), « Assemblage » (actes de désassemblage, reclassements), « Articles » et « Stockage ». Tous les rapports de la section sont réunis dans une seule liste de rapports.
+- Le groupe « Inventaire » disparaît entièrement du menu si les inventaires sont désactivés dans les « Options », le groupe « Assemblage » — si l'assemblage est désactivé. Les « Ensembles d'emballages » quittent le menu quand les emballages sont désactivés.
+- Dans « Entrepôt », les articles s'ouvrent par « Marchandises » — sans services ni kits. Le groupe « Articles » propose désormais la liste générale des codes-barres : pratique pour retrouver un article par son code ou repérer les doublons. Les codes-barres se saisissent toujours aussi depuis la fiche de l'article.
+- Les « Transporteurs » passent de « Ventes » à « Entrepôt » → « Stockage ». Le logisticien voit désormais la section « Entrepôt » : transporteurs, lieux de stockage et rapports de stock auxquels il avait déjà droit.
+- Le rapport « Mouvement de marchandises » est ajouté au menu ; sa variante « Rapport de sortie de marchandises » se génère à nouveau : sorties par lieu de stockage et par article, jour par jour. Dans les deux variantes du rapport, la colonne « Mouvement (kg) » calcule désormais le poids de toute la quantité, et non d'une seule unité.
+- La liste des démarquages est ajoutée au menu à côté de leur création (auparavant, on pouvait créer un démarquage sans pouvoir ouvrir la liste).
+- « Valeur du stock » reste uniquement dans « Entrepôt » (elle figurait aussi dans « Comptabilité »). Le « Relevé des réceptions » — rapport des entrées de marchandises des fournisseurs — passe dans « Achats ».
+- Le bouton « Créer » de la section « Entrepôt » propose les documents qui ouvrent le travail : transfert, entrée, sortie, démarquage, inventaire et tâche d'inventaire, acte de désassemblage, reclassement. Les catalogues en sont retirés.
+
+### en
+- The "Warehouse" section now follows the course of work. At the top: goods transfers. The rest is grouped into "Stocktaking" (inventories and inventory tasks), "Surpluses and write-offs" (receipts, write-offs, markdowns), "Kitting" (disassembly acts, regrading), "Items" and "Storage". All reports of the section are gathered in one report list.
+- The "Stocktaking" group disappears from the menu entirely when inventories are off in "Options", the "Kitting" group — when kitting is off. "Packaging sets" leave the menu when packaging is off.
+- In "Warehouse", items open as "Goods" — without services and kits. The "Items" group now has the general list of barcodes: handy for finding an item by its code or spotting duplicates. Barcodes can still be entered from the item card.
+- "Carriers" moved from "Sales" to "Warehouse" → "Storage". The logistician now sees the "Warehouse" section: carriers, storage locations and the stock reports they already had rights to.
+- The "Movement of goods" report is added to the menu, and its "Goods output report" variant works again: write-offs by storage location and item, day by day. In both report variants the "Movement (kg)" column now shows the weight of the whole quantity, not of a single unit.
+- The markdown list is added to the menu next to creating a markdown (previously a markdown could be created, but its list could not be opened).
+- "Warehouse value" stays only in "Warehouse" (it was also in "Accounting"). The "Receipt record" — a report on goods received from suppliers — moved to "Purchases".
+- The "Create" button in "Warehouse" offers the documents that start the work: transfer, receipt, write-off, markdown, inventory and inventory task, disassembly act, regrading. Reference books are removed from it.
+
+### es
+- La sección «Almacén» sigue ahora el orden del trabajo. Arriba: los traslados de mercancías. El resto se agrupa en «Inventario» (inventarios y tareas de inventario), «Excedentes y bajas» (entradas, bajas, rebajas de valor), «Ensamblaje» (actas de desmontaje, reclasificaciones), «Artículos» y «Almacenamiento». Todos los informes de la sección están reunidos en una sola lista de informes.
+- El grupo «Inventario» desaparece por completo del menú si los inventarios están desactivados en «Parámetros»; el grupo «Ensamblaje», si el ensamblaje está desactivado. Los «Conjuntos de embalaje» salen del menú cuando el embalaje está desactivado.
+- En «Almacén», los artículos se abren como «Mercancías», sin servicios ni kits. El grupo «Artículos» tiene ahora la lista general de códigos de barras: útil para encontrar un artículo por su código o detectar duplicados. Los códigos de barras se siguen registrando también desde la ficha del artículo.
+- Los «Transportistas» pasan de «Ventas» a «Almacén» → «Almacenamiento». El logístico ve ahora la sección «Almacén»: transportistas, lugares de almacenamiento e informes de existencias a los que ya tenía derecho.
+- El informe «Circulación de mercancías» se añade al menú y su variante «Informe de salida de mercancías» vuelve a generarse: bajas por lugar de almacenamiento y artículo, día a día. En ambas variantes del informe, la columna «Movimiento (kg)» calcula ahora el peso de toda la cantidad, no de una sola unidad.
+- La lista de rebajas de valor se añade al menú junto a su creación (antes se podía crear una rebaja, pero no abrir la lista).
+- «Valor del almacén» queda solo en «Almacén» (también estaba en «Contabilidad»). El «Registro de recibo», informe de las mercancías recibidas de proveedores, pasa a «Compras».
+- El botón «Crear» de la sección «Almacén» ofrece los documentos con los que empieza el trabajo: traslado, entrada, baja, rebaja de valor, inventario y tarea de inventario, acta de desmontaje, reclasificación. Se retiran de él los catálogos.
+
 ## 2.0.16.8
 ### ru
 - Пункт «Кураторы договоров» в «Продажах» → «Клиенты» теперь видит и кассир: в нём можно посмотреть и поменять, кто из сотрудников ведёт договор.

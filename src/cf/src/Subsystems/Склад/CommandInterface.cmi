@@ -2,25 +2,94 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
+      <command>Document.ПеремещениеТоваров.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПеремещениеТоваров.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ТоварыВНаличии.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьПоТоварамНаСкладах.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.СтоимостьСклада.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
       <command>Report.ДвиженияТовара.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.НедостаточныеЗапасы.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ОтчетПоПересчетам.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>DataProcessor.ПечатьЭтикеток.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПеремещениеТоваров.Command.ПеремещениеТоваров</command>
       <visible/>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Document.ПеремещениеТоваров.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
+    <orderFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Document.ПеремещениеТоваров.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>ActionsPanelCreate</group>
+      <commands>Document.ПеремещениеТоваров.StandardCommand.Create</commands>
+    </orderFragments>
     <orderFragments>
       <group>ActionsPanelReports</group>
       <commands>Report.ТоварыВНаличии.StandardCommand.Open</commands>
       <commands>Report.ВедомостьПоТоварамНаСкладах.StandardCommand.Open</commands>
-      <commands>Report.ВедомостьПоПоступлениям.StandardCommand.Open</commands>
-      <commands>Report.НедостаточныеЗапасы.StandardCommand.Open</commands>
-      <commands>Report.ОтчетПоПересчетам.StandardCommand.Open</commands>
       <commands>Report.СтоимостьСклада.StandardCommand.Open</commands>
       <commands>Report.ДвиженияТовара.StandardCommand.Open</commands>
+      <commands>Report.НедостаточныеЗапасы.StandardCommand.Open</commands>
+      <commands>Report.ОтчетПоПересчетам.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
   <subsystemsOrder>
-    <subsystems>Subsystem.Склад.Subsystem.ВнутреннееТовародвижение</subsystems>
-    <subsystems>Subsystem.Склад.Subsystem.ИзлишкиНедостачиПорчи</subsystems>
-    <subsystems>Subsystem.Склад.Subsystem.Справочники</subsystems>
+    <subsystems>Subsystem.Склад.Subsystem.Инвентаризация</subsystems>
+    <subsystems>Subsystem.Склад.Subsystem.ИзлишкиИСписания</subsystems>
+    <subsystems>Subsystem.Склад.Subsystem.Комплектация</subsystems>
+    <subsystems>Subsystem.Склад.Subsystem.Товары</subsystems>
+    <subsystems>Subsystem.Склад.Subsystem.Хранение</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>
