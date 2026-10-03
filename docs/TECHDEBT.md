@@ -1862,7 +1862,7 @@ E1 принят владельцем на обновлённой базе 2026-0
   `ai-security` по диффу `1f98f96..acdecb5`; гейты прошли на субагентах Claude
   (`07-stage4-plan-review-claude.md`, `08-stage4-code-review-claude.md`). Этапы 5–6 — все оставшиеся разделы
   (2.0.16.10): план — `ai-review-plan` по `docs/plans/menu-restructure-stage5-6.md`, код и права — `ai-review` и
-  `ai-security` по диффу `066e6ac..<коммит сборки 2.0.16.10>`; гейты прошли на субагентах Claude
+  `ai-security` по диффу `066e6ac..1366392`; гейты прошли на субагентах Claude
   (`09-stage5-6-plan-review-claude.md`, `10-stage5-6-code-review-claude.md`). Каждый
   следующий этап волны, сданный без Codex, добавляет сюда свой диапазон коммитов. **Чем ловится:** только
   прогоном Codex.
