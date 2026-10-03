@@ -821,4 +821,4 @@
   сведение трёх ведомостей расчётов в одну с вариантами — этап 5 (TECHDEBT, этап 2).
 - Связать флажки мастера первого запуска в интерфейсе (TECHDEBT).
 - Прогнать Codex по этапу 1 и последующим (TECHDEBT, Codex на паузе по решению владельца).
-- Промпт этапа 2 — `docs/plans/menu-restructure-stage2-prompt.md`.
+- Промпт этапа 3 «Продажи» — `docs/plans/menu-restructure-stage3-prompt.md`.
