@@ -2,6 +2,15 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
+      <command>DataProcessor.ЛичныйКабинетПартнера.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+        <for>
+          <role>Role.Руководитель</role>
+        </for>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
       <command>InformationRegister.ДинамическаяКорзинаЛКП.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
@@ -14,7 +23,17 @@
       </visible>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>DataProcessor.ЛичныйКабинетПартнера.StandardCommand.Open</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
+    <orderFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>DataProcessor.ЛичныйКабинетПартнера.StandardCommand.Open</commands>
+    </orderFragments>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
       <commands>InformationRegister.ДинамическаяКорзинаЛКП.StandardCommand.OpenList</commands>

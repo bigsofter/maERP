@@ -1132,11 +1132,7 @@
 	</dataSet>
 	<calculatedField>
 		<dataPath>АналитикаДт</dataPath>
-		<expression>Выбор Когда ПодразделениеДт Есть NULL Тогда ""
-Иначе Выбор Когда Не ЗначениеЗаполнено(Представление(ПодразделениеДт)) Тогда "&lt;...&gt;" + &amp;ПС Иначе Представление(ПодразделениеДт) + &amp;ПС Конец
-Конец
-+
-Выбор Когда СубконтоДт1 Есть NULL Тогда ""
+		<expression>Выбор Когда СубконтоДт1 Есть NULL Тогда ""
 Иначе Выбор Когда Не ЗначениеЗаполнено(Представление(СубконтоДт1)) Тогда "&lt;...&gt;"+ &amp;ПС Иначе Представление(СубконтоДт1)+ &amp;ПС Конец
 Конец
 +
@@ -1171,11 +1167,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>АналитикаКт</dataPath>
-		<expression>Выбор Когда ПодразделениеКт Есть NULL Тогда ""
-Иначе Выбор Когда Не ЗначениеЗаполнено(Представление(ПодразделениеКт)) Тогда "&lt;...&gt;" + &amp;ПС Иначе Представление(ПодразделениеКт) + &amp;ПС Конец
-Конец
-+
-Выбор Когда СубконтоКт1 Есть NULL Тогда ""
+		<expression>Выбор Когда СубконтоКт1 Есть NULL Тогда ""
 Иначе Выбор Когда Не ЗначениеЗаполнено(Представление(СубконтоКт1)) Тогда "&lt;...&gt;"+ &amp;ПС Иначе Представление(СубконтоКт1)+ &amp;ПС Конец
 Конец
 +
@@ -1233,6 +1225,54 @@
 			<condition>true</condition>
 		</useRestriction>
 	</calculatedField>
+	<totalField>
+		<dataPath>Суммы.БУДт</dataPath>
+		<expression>Сумма(Суммы.БУДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.БУКт</dataPath>
+		<expression>Сумма(Суммы.БУКт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.НУДт</dataPath>
+		<expression>Сумма(Суммы.НУДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.НУКт</dataPath>
+		<expression>Сумма(Суммы.НУКт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.ПРДт</dataPath>
+		<expression>Сумма(Суммы.ПРДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.ПРКт</dataPath>
+		<expression>Сумма(Суммы.ПРКт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.ВРДт</dataPath>
+		<expression>Сумма(Суммы.ВРДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.ВРКт</dataPath>
+		<expression>Сумма(Суммы.ВРКт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.ВалютнаяСуммаДт</dataPath>
+		<expression>Сумма(Суммы.ВалютнаяСуммаДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Суммы.ВалютнаяСуммаКт</dataPath>
+		<expression>Сумма(Суммы.ВалютнаяСуммаКт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоДт</dataPath>
+		<expression>Сумма(КоличествоДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоКт</dataPath>
+		<expression>Сумма(КоличествоКт)</expression>
+	</totalField>
 	<parameter>
 		<name>ПС</name>
 		<title xsi:type="v8:LocalStringType">
