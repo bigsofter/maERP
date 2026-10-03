@@ -2,24 +2,47 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
+      <command>Catalog.Пользователи.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
       <command>Catalog.ГруппыПользователей.StandardCommand.OpenList</command>
       <visible>
         <common>true</common>
       </visible>
     </visibilityFragments>
+    <visibilityFragments>
+      <command>InformationRegister.ДатыЗапретаРедактирования.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Пользователи.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.ГруппыПользователей.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
   </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
-      <group>NavigationPanelOrdinary</group>
-      <commands>InformationRegister.ДатыЗапретаРедактирования.StandardCommand.OpenList</commands>
-      <commands>Catalog.ГруппыПользователей.StandardCommand.OpenList</commands>
+      <group>NavigationPanelImportant</group>
+      <commands>Catalog.Пользователи.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>Catalog.Пользователи.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
       <group>NavigationPanelOrdinary</group>
-      <commands>InformationRegister.ДатыЗапретаРедактирования.StandardCommand.OpenList</commands>
       <commands>Catalog.ГруппыПользователей.StandardCommand.OpenList</commands>
+      <commands>InformationRegister.ДатыЗапретаРедактирования.StandardCommand.OpenList</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>

@@ -2,31 +2,143 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>DataProcessor.КлиентБанк.StandardCommand.Open</command>
+      <command>DocumentJournal.КассовыеДокументы.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>DocumentJournal.БезналичныеПлатежи.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПриходныйКассовыйОрдер.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.РасходныйКассовыйОрдер.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПоступлениеБезналичныхДенежныхСредств.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.СписаниеБезналичныхДенежныхСредств.StandardCommand.Create</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьПоДенежнымСредствам.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.КассоваяКнига.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ДвижениеДенежныхСредств.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ФинансовыйРезультат.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.Затраты.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьРасчётовСКонтрагентами.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьРасчётовСПрочимиКонтрагентами.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Report.ВедомостьПоЧекам.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПриходныйКассовыйОрдер.StandardCommand.OpenList</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.РасходныйКассовыйОрдер.StandardCommand.OpenList</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ПоступлениеБезналичныхДенежныхСредств.StandardCommand.OpenList</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.СписаниеБезналичныхДенежныхСредств.StandardCommand.OpenList</command>
       <visible/>
     </visibilityFragments>
   </commandsVisibility>
+  <commandsPlacement>
+    <placementFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>DocumentJournal.КассовыеДокументы.StandardCommand.OpenList</commands>
+      <commands>DocumentJournal.БезналичныеПлатежи.StandardCommand.OpenList</commands>
+    </placementFragments>
+  </commandsPlacement>
   <commandsOrder>
     <orderFragments>
+      <group>NavigationPanelImportant</group>
+      <commands>DocumentJournal.КассовыеДокументы.StandardCommand.OpenList</commands>
+      <commands>DocumentJournal.БезналичныеПлатежи.StandardCommand.OpenList</commands>
+    </orderFragments>
+    <orderFragments>
+      <group>ActionsPanelCreate</group>
+      <commands>Document.ПриходныйКассовыйОрдер.StandardCommand.Create</commands>
+      <commands>Document.РасходныйКассовыйОрдер.StandardCommand.Create</commands>
+      <commands>Document.ПоступлениеБезналичныхДенежныхСредств.StandardCommand.Create</commands>
+      <commands>Document.СписаниеБезналичныхДенежныхСредств.StandardCommand.Create</commands>
+    </orderFragments>
+    <orderFragments>
       <group>ActionsPanelReports</group>
-      <commands>Report.ДвижениеДенежныхСредств.StandardCommand.Open</commands>
       <commands>Report.ВедомостьПоДенежнымСредствам.StandardCommand.Open</commands>
-      <commands>Report.Затраты.StandardCommand.Open</commands>
+      <commands>Report.КассоваяКнига.StandardCommand.Open</commands>
+      <commands>Report.ДвижениеДенежныхСредств.StandardCommand.Open</commands>
       <commands>Report.ФинансовыйРезультат.StandardCommand.Open</commands>
+      <commands>Report.Затраты.StandardCommand.Open</commands>
       <commands>Report.ВедомостьРасчётовСКонтрагентами.StandardCommand.Open</commands>
       <commands>Report.ВедомостьРасчётовСПрочимиКонтрагентами.StandardCommand.Open</commands>
       <commands>Report.ВедомостьПоЧекам.StandardCommand.Open</commands>
     </orderFragments>
-    <orderFragments>
-      <group>ActionsPanelTools</group>
-      <commands>DataProcessor.КлиентБанк.StandardCommand.Open</commands>
-      <commands>DataProcessor.ПерепроведениеДокументов.StandardCommand.Open</commands>
-    </orderFragments>
   </commandsOrder>
   <subsystemsOrder>
-    <subsystems>Subsystem.Казначейство.Subsystem.Банк</subsystems>
     <subsystems>Subsystem.Казначейство.Subsystem.Касса</subsystems>
-    <subsystems>Subsystem.Казначейство.Subsystem.Взаимозачёты</subsystems>
+    <subsystems>Subsystem.Казначейство.Subsystem.Банк</subsystems>
+    <subsystems>Subsystem.Казначейство.Subsystem.ОплатыКлиентов</subsystems>
+    <subsystems>Subsystem.Казначейство.Subsystem.Расчёты</subsystems>
     <subsystems>Subsystem.Казначейство.Subsystem.Справочники</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>

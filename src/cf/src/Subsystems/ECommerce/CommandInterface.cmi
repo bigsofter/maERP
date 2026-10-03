@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
+  <commandsVisibility>
+    <visibilityFragments>
+      <command>InformationRegister.Лиды.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Каналы.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Контрагенты.Command.Покупатели</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Каналы.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Контрагенты.StandardCommand.OpenList</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Контрагенты.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Контрагенты.Command.Перевозчики</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Контрагенты.Command.Поставщики</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Контрагенты.Command.Переработчики</command>
+      <visible/>
+    </visibilityFragments>
+  </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
       <group>NavigationPanelImportant</group>
       <commands>InformationRegister.Лиды.StandardCommand.OpenList</commands>
-    </placementFragments>
-    <placementFragments>
-      <group>NavigationPanelOrdinary</group>
-      <commands>Catalog.Каналы.StandardCommand.OpenList</commands>
-    </placementFragments>
-    <placementFragments>
-      <group>NavigationPanelSeeAlso</group>
-      <commands>InformationRegister.ДинамическаяКорзинаЛКП.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
@@ -22,10 +58,10 @@
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
       <commands>Catalog.Каналы.StandardCommand.OpenList</commands>
-    </orderFragments>
-    <orderFragments>
-      <group>NavigationPanelSeeAlso</group>
-      <commands>InformationRegister.ДинамическаяКорзинаЛКП.StandardCommand.OpenList</commands>
+      <commands>Catalog.Контрагенты.Command.Покупатели</commands>
     </orderFragments>
   </commandsOrder>
+  <subsystemsOrder>
+    <subsystems>Subsystem.ECommerce.Subsystem.ЛичныйКабинет</subsystems>
+  </subsystemsOrder>
 </cmi:CommandInterface>

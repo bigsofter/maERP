@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
-  <commandsPlacement>
-    <placementFragments>
-      <group>NavigationPanelImportant</group>
-      <commands>DocumentJournal.КассовыеДокументы.StandardCommand.OpenList</commands>
-    </placementFragments>
-    <placementFragments>
-      <group>NavigationPanelOrdinary</group>
-      <commands>Catalog.Кассы.StandardCommand.OpenList</commands>
-    </placementFragments>
-  </commandsPlacement>
+  <commandsVisibility>
+    <visibilityFragments>
+      <command>Catalog.Кассы.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Catalog.Кассы.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+  </commandsVisibility>
   <commandsOrder>
-    <orderFragments>
-      <group>NavigationPanelImportant</group>
-      <commands>DocumentJournal.КассовыеДокументы.StandardCommand.OpenList</commands>
-    </orderFragments>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
       <commands>Catalog.Кассы.StandardCommand.OpenList</commands>

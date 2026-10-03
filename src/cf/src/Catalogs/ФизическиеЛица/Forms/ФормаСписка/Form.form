@@ -364,6 +364,10 @@
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <windowOpeningMode>DontBlock</windowOpeningMode>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
@@ -396,7 +400,15 @@
 ИЗ
 	Справочник.ФизическиеЛица КАК СправочникФизическиеЛица
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ТарифныеСтавки.СрезПоследних КАК ТарифныеСтавкиСрезПоследних
-		ПО СправочникФизическиеЛица.Ссылка = ТарифныеСтавкиСрезПоследних.Сотрудник</queryText>
+		ПО СправочникФизическиеЛица.Ссылка = ТарифныеСтавкиСрезПоследних.Сотрудник
+ГДЕ
+	ВЫБОР
+		КОГДА &amp;ТолькоСотрудники
+			ТОГДА СправочникФизическиеЛица.ЭтоГруппа
+					ИЛИ ЕСТЬNULL(ТарифныеСтавкиСрезПоследних.ВидПриказа, ЗНАЧЕНИЕ(Перечисление.ВидыКадровыхПриказов.Увольнение))
+						&lt;&gt; ЗНАЧЕНИЕ(Перечисление.ВидыКадровыхПриказов.Увольнение)
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ</queryText>
       <mainTable>Catalog.ФизическиеЛица</mainTable>
       <autoFillAvailableFields>true</autoFillAvailableFields>
       <customQuery>true</customQuery>
@@ -536,8 +548,43 @@
           <value>0001-01-01T00:00:00</value>
         </values>
       </parameters>
+      <parameters>
+        <name>ТолькоСотрудники</name>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Только сотрудники</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Employés uniquement</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Employees only</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Solo empleados</value>
+            </content>
+          </localValue>
+        </title>
+        <valueType>
+          <types>Boolean</types>
+        </valueType>
+        <values xsi:type="core:BooleanValue"/>
+        <useRestriction>true</useRestriction>
+      </parameters>
     </extInfo>
   </attributes>
+  <parameters>
+    <name>ТолькоСотрудники</name>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <keyParameter>true</keyParameter>
+  </parameters>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>
