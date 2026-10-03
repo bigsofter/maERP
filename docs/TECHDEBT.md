@@ -1857,7 +1857,7 @@ E1 принят владельцем на обновлённой базе 2026-0
   `ai-database` (функция источника долгов покупателей) по диффу `5b44463..d237ec1`; гейты прошли на
   субагентах Claude (`05-stage3-plan-review-claude.md`, `06-stage3-code-review-claude.md`). Этап 4 «Склад»
   (2.0.16.9): план — `ai-review-plan` по `docs/plans/menu-restructure-stage4.md`, код и права — `ai-review` и
-  `ai-security` по диффу `1f98f96..<коммит сборки 2.0.16.9>`; гейты прошли на субагентах Claude
+  `ai-security` по диффу `1f98f96..acdecb5`; гейты прошли на субагентах Claude
   (`07-stage4-plan-review-claude.md`, `08-stage4-code-review-claude.md`). Каждый
   следующий этап волны, сданный без Codex, добавляет сюда свой диапазон коммитов. **Чем ловится:** только
   прогоном Codex.
