@@ -112,6 +112,33 @@
         </font>
       </extInfo>
     </items>
+    <items xsi:type="form:Button">
+      <name>СоздатьСвойстваНоменклатуры</name>
+      <id>26</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>СоздатьСвойстваНоменклатурыРасширеннаяПодсказка</name>
+        <id>27</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualButton</type>
+      <commandName>Form.Command.СоздатьСвойстваНоменклатуры</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
     <items xsi:type="form:FormField">
       <name>СтранаКалендаря</name>
       <id>8</id>
@@ -411,6 +438,10 @@
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
@@ -434,6 +465,52 @@
     <main>true</main>
     <savedData>true</savedData>
   </attributes>
+  <formCommands>
+    <name>СоздатьСвойстваНоменклатуры</name>
+    <title>
+      <key>ru</key>
+      <value>Создать свойства номенклатуры</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Créer les propriétés des articles</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create item properties</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Crear propiedades de artículos</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Завести дополнительные свойства номенклатуры отрасли (для тканей при производстве: материал, цвет, ширина, тип обработки); уже заведённые не дублируются</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer les propriétés supplémentaires d'articles du secteur (tissus avec production : matière, couleur, largeur, type de traitement) ; celles déjà créées ne sont pas dupliquées</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create the industry's additional item properties (textiles with production: material, color, width, finishing type); existing ones are not duplicated</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear las propiedades adicionales de artículos del sector (textiles con producción: material, color, ancho, tipo de acabado); las existentes no se duplican</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьСвойстваНоменклатуры</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>

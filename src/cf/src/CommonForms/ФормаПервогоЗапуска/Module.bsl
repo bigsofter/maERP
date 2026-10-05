@@ -16,10 +16,14 @@
 
 	// Отрасль подбирает дополнительные реквизиты номенклатуры (НачальноеЗаполнениеВызовСервера.ПрименитьОтрасль).
 	Элементы.Отрасль.Заголовок = НСтр("en = 'Industry'; es = 'Sector de actividad'; fr = 'Secteur d''activité'; ru = 'Отрасль'");
-	Элементы.Отрасль.Подсказка = НСтр("en = 'Trade, construction and real estate, or other';
-		|es = 'Comercio, construcción e inmuebles u otro';
-		|fr = 'Commerce, immobilier et construction ou autre';
-		|ru = 'Торговля, строительство и недвижимость или прочее'");
+	Элементы.Отрасль.Подсказка = НСтр("en = 'Trade, construction and real estate, textiles or other; textiles with production
+		|creates fabric properties of items (material, color, width, finishing type)';
+		|es = 'Comercio, construcción e inmuebles, textiles u otro; textiles con producción crea las propiedades de tejido
+		|de los artículos (material, color, ancho, tipo de acabado)';
+		|fr = 'Commerce, immobilier et construction, textiles ou autre ; textiles avec production crée les propriétés de
+		|tissu des articles (matière, couleur, largeur, type de traitement)';
+		|ru = 'Торговля, строительство и недвижимость, ткани или прочее; ткани при производстве заводят свойства ткани
+		|у номенклатуры (материал, цвет, ширина, тип обработки)'");
 	Отрасль = Перечисления.Отрасли.Торговля;
 	
 	элементы.Группа6.Заголовок = Нстр("en = 'Logo'; es = 'Logotipo'; fr = 'Logo'; ru = 'Логотип'");
