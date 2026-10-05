@@ -212,6 +212,20 @@
 
 КонецФункции
 
+// Легенда индикатора в одну строку - для строки пагинатора рабочего места производства.
+//
+// Возвращаемое значение:
+//  Строка - текст на языке пользователя без переводов строк.
+//
+Функция ЛегендаИндикатораСтрокой() Экспорт
+
+	Возврат НСтр("ru = 'Кружки: материалы заказаны · материалы пришли · выпуск · отгрузка · оплата  ○ не начато  ◐ частично  ● полностью';
+		|fr = 'Cercles : matières commandées · matières reçues · production · expédition · paiement  ○ non commencé  ◐ partiel  ● complet';
+		|en = 'Circles: materials ordered · materials received · production · shipment · payment  ○ not started  ◐ partial  ● complete';
+		|es = 'Círculos: materiales pedidos · materiales recibidos · producción · envío · pago  ○ sin empezar  ◐ parcial  ● completo'");
+
+КонецФункции
+
 // Заказ клиента - заказ на производство (по виду операции в базе).
 //
 // Параметры:
