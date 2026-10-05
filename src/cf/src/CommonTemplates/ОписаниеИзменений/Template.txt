@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.15
+### ru
+- Права пользователей из группы «Настройки доступа» — «Кассир», «Видеть суммы (производство)», «Редактировать завершённые документы», «Редактировать документы в закрытом периоде», «Не контролировать запрет отгрузок», «Заверение цен» — теперь может выдать или снять только пользователь с ролью «Администратор» или «Руководитель». Остальные пользователи по-прежнему сами меняют свои обычные настройки: принтеры, кассу, склад; при попытке изменить право запись отменяется с сообщением.
+- Пользователь кассы (роль PDV) записывает только свои настройки, чужие — нет.
+- У служебной роли мобильной доставки снято право внешнего соединения (COM): через него можно было обойти любые ограничения прав. Обмен мобильной доставки этим правом не пользуется.
+
+### fr
+- Les droits des utilisateurs du groupe « Paramètres d'accès » — « Caissier », « Voir les montants (production) », « Modifier des documents terminés », « Modifier des documents en période clôturée », « Ne pas contrôler l'interdiction des expéditions », « Validation de prix » — ne peuvent plus être accordés ou retirés que par les utilisateurs ayant le rôle Administrateur ou Dirigeant. Les autres utilisateurs modifient toujours eux-mêmes leurs paramètres courants : imprimantes, caisse, entrepôt ; une tentative de modifier un droit est annulée avec un message.
+- L'utilisateur de caisse (rôle PDV) n'enregistre que ses propres paramètres, et non plus ceux des autres.
+- Le droit de connexion externe (COM) a été retiré au rôle technique de livraison mobile : il permettait de contourner toutes les restrictions de droits. L'échange de livraison mobile n'utilise pas ce droit.
+
+### en
+- User rights from the "Access settings" group — "Cashier", "See amounts (production)", "Edit completed documents", "Edit documents in a closed period", "Do not check the shipment ban", "Price approval" — can now be granted or removed only by users with the Administrator or Leader role. Other users still change their own regular settings themselves: printers, cash desk, warehouse; an attempt to change a right is cancelled with a message.
+- The cash desk user (PDV role) saves only their own settings, no longer other users' settings.
+- The external connection (COM) right has been removed from the mobile delivery service role: it allowed bypassing any rights restriction. The mobile delivery exchange does not use this right.
+
+### es
+- Los derechos de usuario del grupo «Configuración de acceso» — «Cajero», «Ver importes (producción)», «Modificar documentos terminados», «Modificar documentos en período cerrado», «No controlar la prohibición de envíos», «Validación de precios» — ahora solo pueden concederlos o retirarlos los usuarios con el rol Administrador o Líder. Los demás usuarios siguen cambiando ellos mismos sus ajustes habituales: impresoras, caja, almacén; un intento de cambiar un derecho se cancela con un mensaje.
+- El usuario de caja (rol PDV) guarda solo sus propios ajustes, ya no los de otros usuarios.
+- Se ha retirado el derecho de conexión externa (COM) al rol técnico de entrega móvil: permitía eludir cualquier restricción de derechos. El intercambio de entrega móvil no usa este derecho.
+
 ## 2.0.16.14
 ### ru
 - Рабочее место производства: в панели фильтров клиент и продукция теперь выбираются из справочников, а не вводятся частью названия. Переключатель «Производство / Все» убран — рабочее место всегда показывает заказы на производство. Добавлены фильтры по стадии заказа и по периоду даты отгрузки; заказ без даты отгрузки в отбор по периоду не попадает. Фильтры действуют и на закладке «Заказы», и на закладке «Продукция».
