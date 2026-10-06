@@ -220,6 +220,77 @@
               <horizontalAlign>Left</horizontalAlign>
               <autoFill>false</autoFill>
             </autoCommandBar>
+              <searchStringAddition>
+                <name>ЗаказыСтрокаПоиска</name>
+                <id>593</id>
+                <extendedTooltip>
+                  <name>ЗаказыСтрокаПоискаРасширеннаяПодсказка</name>
+                  <id>594</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ЗаказыСтрокаПоискаКонтекстноеМеню</name>
+                  <id>595</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <source>Заказы</source>
+                <extInfo xsi:type="form:SearchStringAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </searchStringAddition>
+              <viewStatusAddition>
+                <name>ЗаказыСостояниеПросмотра</name>
+                <id>596</id>
+                <extendedTooltip>
+                  <name>ЗаказыСостояниеПросмотраРасширеннаяПодсказка</name>
+                  <id>597</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ЗаказыСостояниеПросмотраКонтекстноеМеню</name>
+                  <id>598</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>ViewStatusAddition</type>
+                <source>Заказы</source>
+                <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </viewStatusAddition>
+              <searchControlAddition>
+                <name>ЗаказыУправлениеПоиском</name>
+                <id>599</id>
+                <extendedTooltip>
+                  <name>ЗаказыУправлениеПоискомРасширеннаяПодсказка</name>
+                  <id>600</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ЗаказыУправлениеПоискомКонтекстноеМеню</name>
+                  <id>601</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>SearchControlAddition</type>
+                <source>Заказы</source>
+                <extInfo xsi:type="form:SearchControlAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </searchControlAddition>
             <handlers>
               <event>Selection</event>
               <name>ЗаказыВыбор</name>
@@ -666,6 +737,7 @@
               <color>Style.FormBackColor</color>
             </borderColor>
             <viewStatusLocation>None</viewStatusLocation>
+              <searchControlLocation>None</searchControlLocation>
             <autoMaxCardHeight>true</autoMaxCardHeight>
             <extInfo xsi:type="form:DynamicListTableExtInfo">
               <autoRefreshPeriod>60</autoRefreshPeriod>
@@ -3177,6 +3249,8 @@
                   <width>22</width>
                   <autoMaxWidth>false</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
+                  <dropListButton>false</dropListButton>
+                  <choiceButton>true</choiceButton>
                   <textEdit>true</textEdit>
                   <textSize>Normal</textSize>
                 </extInfo>
@@ -4257,6 +4331,8 @@
                   <width>22</width>
                   <autoMaxWidth>false</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
+                  <dropListButton>false</dropListButton>
+                  <choiceButton>true</choiceButton>
                   <textEdit>true</textEdit>
                   <textSize>Normal</textSize>
                 </extInfo>
@@ -6796,156 +6872,8 @@
                     <width>22</width>
                     <autoMaxWidth>false</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
-                    <textEdit>true</textEdit>
-                    <textSize>Normal</textSize>
-                  </extInfo>
-                </items>
-                <items xsi:type="form:FormField">
-                  <name>ПереработкиПродукция</name>
-                  <id>576</id>
-                  <title>
-                    <key>ru</key>
-                    <value>ПФ/ГП</value>
-                  </title>
-                  <title>
-                    <key>fr</key>
-                    <value>SF/PF</value>
-                  </title>
-                  <title>
-                    <key>en</key>
-                    <value>SFG/FG</value>
-                  </title>
-                  <title>
-                    <key>es</key>
-                    <value>SE/PT</value>
-                  </title>
-                  <toolTip>
-                    <key>ru</key>
-                    <value>Полуфабрикат или готовая продукция заказа, для которой передаётся материал; пусто - по составу заказа</value>
-                  </toolTip>
-                  <toolTip>
-                    <key>fr</key>
-                    <value>Semi-fini ou produit fini de la commande pour lequel la matière est transférée ; vide - selon la composition de la commande</value>
-                  </toolTip>
-                  <toolTip>
-                    <key>en</key>
-                    <value>Semi-finished or finished product of the order the material is transferred for; empty - by the order composition</value>
-                  </toolTip>
-                  <toolTip>
-                    <key>es</key>
-                    <value>Semielaborado o producto terminado del pedido para el que se transfiere el material; vacío - según la composición del pedido</value>
-                  </toolTip>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Переработки.Продукция</segments>
-                  </dataPath>
-                  <handlers>
-                    <event>OnChange</event>
-                    <name>ПереработкиПродукцияПриИзменении</name>
-                  </handlers>
-                  <extendedTooltip>
-                    <name>ПереработкиПродукцияРасширеннаяПодсказка</name>
-                    <id>577</id>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <contextMenu>
-                    <name>ПереработкиПродукцияКонтекстноеМеню</name>
-                    <id>578</id>
-                    <autoFill>true</autoFill>
-                  </contextMenu>
-                  <type>InputField</type>
-                  <editMode>Enter</editMode>
-                  <showInHeader>true</showInHeader>
-                  <headerHorizontalAlign>Left</headerHorizontalAlign>
-                  <showInFooter>true</showInFooter>
-                  <extInfo xsi:type="form:InputFieldExtInfo">
-                    <handlers>
-                      <event>StartChoice</event>
-                      <name>ПереработкиПродукцияНачалоВыбора</name>
-                    </handlers>
-                    <width>16</width>
-                    <autoMaxWidth>false</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <textEdit>true</textEdit>
-                    <textSize>Normal</textSize>
-                  </extInfo>
-                </items>
-                <items xsi:type="form:FormField">
-                  <name>ПереработкиХарактеристика</name>
-                  <id>337</id>
-                  <title>
-                    <key>ru</key>
-                    <value>Характ.</value>
-                  </title>
-                  <title>
-                    <key>fr</key>
-                    <value>Caract.</value>
-                  </title>
-                  <title>
-                    <key>en</key>
-                    <value>Charact.</value>
-                  </title>
-                  <title>
-                    <key>es</key>
-                    <value>Caract.</value>
-                  </title>
-                  <toolTip>
-                    <key>ru</key>
-                    <value>Характеристика</value>
-                  </toolTip>
-                  <toolTip>
-                    <key>fr</key>
-                    <value>Caractéristique</value>
-                  </toolTip>
-                  <toolTip>
-                    <key>en</key>
-                    <value>Characteristic</value>
-                  </toolTip>
-                  <toolTip>
-                    <key>es</key>
-                    <value>Característica</value>
-                  </toolTip>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <dataPath xsi:type="form:DataPath">
-                    <segments>Переработки.Характеристика</segments>
-                  </dataPath>
-                  <extendedTooltip>
-                    <name>ПереработкиХарактеристикаРасширеннаяПодсказка</name>
-                    <id>338</id>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <contextMenu>
-                    <name>ПереработкиХарактеристикаКонтекстноеМеню</name>
-                    <id>339</id>
-                    <autoFill>true</autoFill>
-                  </contextMenu>
-                  <type>InputField</type>
-                  <editMode>Enter</editMode>
-                  <showInHeader>true</showInHeader>
-                  <headerHorizontalAlign>Left</headerHorizontalAlign>
-                  <showInFooter>true</showInFooter>
-                  <extInfo xsi:type="form:InputFieldExtInfo">
-                    <width>10</width>
-                    <autoMaxWidth>false</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
+                    <dropListButton>false</dropListButton>
+                    <choiceButton>true</choiceButton>
                     <textEdit>true</textEdit>
                     <textSize>Normal</textSize>
                   </extInfo>
@@ -7086,6 +7014,229 @@
                   <showInFooter>true</showInFooter>
                   <extInfo xsi:type="form:InputFieldExtInfo">
                     <width>7</width>
+                    <autoMaxWidth>false</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <textEdit>true</textEdit>
+                    <textSize>Normal</textSize>
+                  </extInfo>
+                </items>
+                <items xsi:type="form:FormField">
+                  <name>ПереработкиХарактеристика</name>
+                  <id>337</id>
+                  <title>
+                    <key>ru</key>
+                    <value>Характ.</value>
+                  </title>
+                  <title>
+                    <key>fr</key>
+                    <value>Caract.</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Charact.</value>
+                  </title>
+                  <title>
+                    <key>es</key>
+                    <value>Caract.</value>
+                  </title>
+                  <toolTip>
+                    <key>ru</key>
+                    <value>Характеристика</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>fr</key>
+                    <value>Caractéristique</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>en</key>
+                    <value>Characteristic</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>es</key>
+                    <value>Característica</value>
+                  </toolTip>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>Переработки.Характеристика</segments>
+                  </dataPath>
+                  <extendedTooltip>
+                    <name>ПереработкиХарактеристикаРасширеннаяПодсказка</name>
+                    <id>338</id>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <contextMenu>
+                    <name>ПереработкиХарактеристикаКонтекстноеМеню</name>
+                    <id>339</id>
+                    <autoFill>true</autoFill>
+                  </contextMenu>
+                  <type>InputField</type>
+                  <editMode>Enter</editMode>
+                  <showInHeader>true</showInHeader>
+                  <headerHorizontalAlign>Left</headerHorizontalAlign>
+                  <showInFooter>true</showInFooter>
+                  <extInfo xsi:type="form:InputFieldExtInfo">
+                    <width>10</width>
+                    <autoMaxWidth>false</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <textEdit>true</textEdit>
+                    <textSize>Normal</textSize>
+                  </extInfo>
+                </items>
+                <items xsi:type="form:FormField">
+                  <name>ПереработкиПродукция</name>
+                  <id>576</id>
+                  <title>
+                    <key>ru</key>
+                    <value>ПФ/ГП</value>
+                  </title>
+                  <title>
+                    <key>fr</key>
+                    <value>SF/PF</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>SFG/FG</value>
+                  </title>
+                  <title>
+                    <key>es</key>
+                    <value>SE/PT</value>
+                  </title>
+                  <toolTip>
+                    <key>ru</key>
+                    <value>Полуфабрикат или готовая продукция заказа, для которой передаётся материал; пусто - по составу заказа</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>fr</key>
+                    <value>Semi-fini ou produit fini de la commande pour lequel la matière est transférée ; vide - selon la composition de la commande</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>en</key>
+                    <value>Semi-finished or finished product of the order the material is transferred for; empty - by the order composition</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>es</key>
+                    <value>Semielaborado o producto terminado del pedido para el que se transfiere el material; vacío - según la composición del pedido</value>
+                  </toolTip>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>Переработки.Продукция</segments>
+                  </dataPath>
+                  <handlers>
+                    <event>OnChange</event>
+                    <name>ПереработкиПродукцияПриИзменении</name>
+                  </handlers>
+                  <extendedTooltip>
+                    <name>ПереработкиПродукцияРасширеннаяПодсказка</name>
+                    <id>577</id>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <contextMenu>
+                    <name>ПереработкиПродукцияКонтекстноеМеню</name>
+                    <id>578</id>
+                    <autoFill>true</autoFill>
+                  </contextMenu>
+                  <type>InputField</type>
+                  <editMode>Enter</editMode>
+                  <showInHeader>true</showInHeader>
+                  <headerHorizontalAlign>Left</headerHorizontalAlign>
+                  <showInFooter>true</showInFooter>
+                  <extInfo xsi:type="form:InputFieldExtInfo">
+                    <handlers>
+                      <event>StartChoice</event>
+                      <name>ПереработкиПродукцияНачалоВыбора</name>
+                    </handlers>
+                    <width>16</width>
+                    <autoMaxWidth>false</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <dropListButton>false</dropListButton>
+                    <choiceButton>true</choiceButton>
+                    <textEdit>true</textEdit>
+                    <textSize>Normal</textSize>
+                  </extInfo>
+                </items>
+                <items xsi:type="form:FormField">
+                  <name>ПереработкиКоличествоПродукции</name>
+                  <id>602</id>
+                  <title>
+                    <key>ru</key>
+                    <value>Кол-во ПФ/ГП</value>
+                  </title>
+                  <title>
+                    <key>fr</key>
+                    <value>Qté SF/PF</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>SFG/FG qty</value>
+                  </title>
+                  <title>
+                    <key>es</key>
+                    <value>Cant. SE/PT</value>
+                  </title>
+                  <toolTip>
+                    <key>ru</key>
+                    <value>Сколько ПФ/ГП ожидается из материала строки; пусто - по норме заказа</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>fr</key>
+                    <value>Quantité de SF/PF attendue de la matière de la ligne ; vide - selon la norme de la commande</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>en</key>
+                    <value>SFG/FG quantity expected from the line material; empty - by the order norm</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>es</key>
+                    <value>Cantidad de SE/PT esperada del material de la línea; vacío - según la norma del pedido</value>
+                  </toolTip>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>Переработки.КоличествоПродукции</segments>
+                  </dataPath>
+                  <extendedTooltip>
+                    <name>ПереработкиКоличествоПродукцииРасширеннаяПодсказка</name>
+                    <id>603</id>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <contextMenu>
+                    <name>ПереработкиКоличествоПродукцииКонтекстноеМеню</name>
+                    <id>604</id>
+                    <autoFill>true</autoFill>
+                  </contextMenu>
+                  <type>InputField</type>
+                  <editMode>Enter</editMode>
+                  <showInHeader>true</showInHeader>
+                  <headerHorizontalAlign>Left</headerHorizontalAlign>
+                  <showInFooter>true</showInFooter>
+                  <extInfo xsi:type="form:InputFieldExtInfo">
+                    <width>8</width>
                     <autoMaxWidth>false</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
                     <textEdit>true</textEdit>
@@ -13464,6 +13615,24 @@
       <id>18</id>
       <valueType>
         <types>CatalogRef.Номенклатура</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>КоличествоПродукции</name>
+      <id>19</id>
+      <valueType>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>6</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
       </valueType>
       <view>
         <common>true</common>
