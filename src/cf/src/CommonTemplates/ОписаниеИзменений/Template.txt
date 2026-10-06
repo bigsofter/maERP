@@ -10,6 +10,39 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.25
+### ru
+- Возврат от покупателя по реализации в валюте теперь проводится: валюта и курс берутся из реализации (флажок, валюта и курс видны, но не правятся), цены и суммы — в валюте, колонка «Сумма (MAD)». Возврат закрывает долг реализации и в валюте, и в основной валюте без курсовой разницы, товар возвращается по себестоимости в основной валюте.
+- Налоговая накладная по реализациям в валюте ведётся в их валюте, курс — по отгрузкам. Долг и оплаты переходят с реализаций на накладную в обеих суммах, налоговый учёт — в основной валюте. Отгрузки в разных валютах в одну накладную не входят. Налоговый возврат по накладной в валюте — тоже в её валюте.
+- Прочие расходы и их возврат можно оформлять в валюте: флажок «В валюте», валюта и курс. В расходах и в долге они учитываются в основной валюте по курсу. Возврат берёт валюту и курс расходов, РКО и списание на основании — сумму в основной валюте по курсу расходов.
+- Услуги переработчика в «Поступлении из переработки» можно указать в валюте. Долг переработчику ведётся в валюте, в себестоимость продукции стоимость услуг попадает в основной валюте по курсу.
+- Корректировка долга и сертификат на оплату по документам в валюте подставляют сумму в основной валюте (по курсу документа), колонка подписана основной валютой.
+- РКО на основании валютного возврата берёт сумму по курсу на дату платежа. Печать налоговой накладной пишет сумму прописью в валюте документа.
+
+### fr
+- Le retour client d'une vente en devise est désormais comptabilisé : la devise et le taux sont repris de la vente (case, devise et taux visibles mais non modifiables), prix et montants en devise, colonne « Montant (MAD) ». Le retour solde la dette de la vente en devise et en devise principale sans écart de change, la marchandise revient au coût en devise principale.
+- La facture fiscale des ventes en devise est tenue dans leur devise, au taux des expéditions. La dette et les paiements passent des ventes à la facture dans les deux montants, la comptabilité fiscale reste en devise principale. Des expéditions en devises différentes ne vont pas dans une même facture. Le retour fiscal d'une facture en devise est aussi dans sa devise.
+- Les autres dépenses et leur retour peuvent être saisis en devise : case « En devise », devise et taux. Dans les charges et la dette ils sont comptés en devise principale au taux. Le retour reprend la devise et le taux des dépenses ; le décaissement et le virement saisis à partir d'elles prennent le montant en devise principale au taux des dépenses.
+- Les services du sous-traitant dans la « Réception de sous-traitance » peuvent être indiqués en devise. La dette envers le sous-traitant est tenue en devise ; le coût des services entre dans le coût des produits en devise principale au taux.
+- La régularisation de dette et le certificat de paiement sur des documents en devise proposent le montant en devise principale (au taux du document) ; la colonne indique la devise principale.
+- Un décaissement saisi à partir d'un retour en devise prend le montant au taux du jour du paiement. L'impression de la facture fiscale écrit le montant en lettres dans la devise du document.
+
+### en
+- A customer return for a foreign-currency sale can now be posted: currency and rate are taken from the sale (checkbox, currency and rate are shown but not editable), prices and amounts in the currency, an "Amount (MAD)" column. The return closes the sale debt both in the currency and in base currency without an exchange difference; goods come back at cost in base currency.
+- A tax invoice for foreign-currency sales is kept in their currency at the shipments' rate. Debt and payments move from the sales to the invoice in both amounts; tax accounting stays in base currency. Shipments in different currencies cannot be in one invoice. A tax return on a foreign-currency invoice is in its currency too.
+- Other expenses and their return can be entered in a foreign currency: "In currency" checkbox, currency and rate. Expenses and debt record them in base currency at the rate. The return takes the expenses' currency and rate; a cash or bank payment entered from them takes the amount in base currency at the expenses' rate.
+- Processor services in "Receipt from processing" can be entered in a foreign currency. The debt to the processor is kept in the currency; the services cost enters the product cost in base currency at the rate.
+- Debt adjustment and payment certificate for foreign-currency documents suggest the amount in base currency (at the document rate); the column shows the base currency.
+- A cash payment entered from a foreign-currency return takes the amount at the rate on the payment date. The tax invoice print writes the amount in words in the document currency.
+
+### es
+- La devolución de cliente de una venta en moneda ahora se contabiliza: la moneda y el tipo se toman de la venta (casilla, moneda y tipo visibles pero no editables), precios e importes en moneda, columna «Importe (MAD)». La devolución cierra la deuda de la venta en moneda y en moneda principal sin diferencia de cambio; la mercancía vuelve al coste en moneda principal.
+- La factura fiscal de ventas en moneda se lleva en su moneda, al tipo de los envíos. La deuda y los pagos pasan de las ventas a la factura en ambos importes; la contabilidad fiscal sigue en moneda principal. Envíos en monedas distintas no entran en una misma factura. La devolución fiscal de una factura en moneda también va en su moneda.
+- Los otros gastos y su devolución se pueden registrar en moneda: casilla «En moneda», moneda y tipo. En gastos y deuda se cuentan en moneda principal al tipo. La devolución toma la moneda y el tipo de los gastos; el pago en caja o banco introducido a partir de ellos toma el importe en moneda principal al tipo de los gastos.
+- Los servicios del transformador en la «Recepción de transformación» se pueden indicar en moneda. La deuda con el transformador se lleva en moneda; el coste de los servicios entra en el coste de los productos en moneda principal al tipo.
+- El ajuste de deuda y el certificado de pago sobre documentos en moneda proponen el importe en moneda principal (al tipo del documento); la columna indica la moneda principal.
+- Un pago en caja introducido a partir de una devolución en moneda toma el importe al tipo del día del pago. La impresión de la factura fiscal escribe el importe en letras en la moneda del documento.
+
 ## 2.0.16.24
 ### ru
 - Заказ клиента, заказ поставщику, коммерческое предложение и предложение поставщика можно оформлять в валюте — так же, как поступление и реализацию: флажок «В валюте», валюта и курс, цены и суммы в валюте документа, колонка «Сумма (MAD)», курс по дате, валюта из договора, вопрос о пересчёте цен при смене валюты.

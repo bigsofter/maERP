@@ -75,6 +75,10 @@
       <dataPath xsi:type="form:DataPath">
         <segments>Объект.Date</segments>
       </dataPath>
+      <handlers>
+        <event>OnChange</event>
+        <name>ДатаПриИзменении</name>
+      </handlers>
       <extendedTooltip>
         <name>ДатаРасширеннаяПодсказка</name>
         <id>6</id>
@@ -622,6 +626,207 @@
             <chooseType>true</chooseType>
             <typeDomainEnabled>true</typeDomainEnabled>
             <textEdit>true</textEdit>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormGroup">
+          <name>ВалютаКурс</name>
+          <id>424</id>
+          <items xsi:type="form:FormField">
+            <name>ВВалюте</name>
+            <id>425</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Объект.ВВалюте</segments>
+            </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>ВВалютеПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ВВалютеРасширеннаяПодсказка</name>
+              <id>426</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ВВалютеКонтекстноеМеню</name>
+              <id>427</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>CheckBoxField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+              <checkBoxType>Auto</checkBoxType>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>Валюта</name>
+            <id>428</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Объект.Валюта</segments>
+            </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>ВалютаПриИзменении</name>
+            </handlers>
+            <titleLocation>Left</titleLocation>
+            <extendedTooltip>
+              <name>ВалютаРасширеннаяПодсказка</name>
+              <id>429</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ВалютаКонтекстноеМеню</name>
+              <id>430</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>InputField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:InputFieldExtInfo">
+              <width>6</width>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <wrap>true</wrap>
+              <extendedEditMultipleValues>true</extendedEditMultipleValues>
+              <chooseType>true</chooseType>
+              <typeDomainEnabled>true</typeDomainEnabled>
+              <textEdit>true</textEdit>
+              <textSize>Normal</textSize>
+              <font xsi:type="core:FontRef">
+                <font>Style.Шрифт_Основной</font>
+              </font>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>КурсВалюты</name>
+            <id>431</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Объект.КурсВалюты</segments>
+            </dataPath>
+            <handlers>
+              <event>OnChange</event>
+              <name>КурсВалютыПриИзменении</name>
+            </handlers>
+            <titleLocation>Left</titleLocation>
+            <extendedTooltip>
+              <name>КурсВалютыРасширеннаяПодсказка</name>
+              <id>432</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>КурсВалютыКонтекстноеМеню</name>
+              <id>433</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>InputField</type>
+            <editMode>Enter</editMode>
+            <showInHeader>true</showInHeader>
+            <headerHorizontalAlign>Left</headerHorizontalAlign>
+            <showInFooter>true</showInFooter>
+            <extInfo xsi:type="form:InputFieldExtInfo">
+              <width>8</width>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <wrap>true</wrap>
+              <extendedEditMultipleValues>true</extendedEditMultipleValues>
+              <chooseType>true</chooseType>
+              <typeDomainEnabled>true</typeDomainEnabled>
+              <textEdit>true</textEdit>
+              <textSize>Normal</textSize>
+              <font xsi:type="core:FontRef">
+                <font>Style.Шрифт_Основной</font>
+              </font>
+            </extInfo>
+          </items>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <title>
+            <key>ru</key>
+            <value>Валюта курс</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>Taux de change</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Exchange rates</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Moneda tipo de cambio</value>
+          </title>
+          <toolTip>
+            <key>ru</key>
+            <value>Валюта курс</value>
+          </toolTip>
+          <toolTip>
+            <key>fr</key>
+            <value>Taux de change</value>
+          </toolTip>
+          <toolTip>
+            <key>en</key>
+            <value>Exchange rates</value>
+          </toolTip>
+          <toolTip>
+            <key>es</key>
+            <value>Moneda tipo de cambio</value>
+          </toolTip>
+          <extendedTooltip>
+            <name>ВалютаКурсРасширеннаяПодсказка</name>
+            <id>434</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <type>UsualGroup</type>
+          <extInfo xsi:type="form:UsualGroupExtInfo">
+            <group>AlwaysHorizontal</group>
+            <behavior>Auto</behavior>
+            <showLeftMargin>true</showLeftMargin>
+            <united>true</united>
+            <throughAlign>Auto</throughAlign>
+            <currentRowUse>Auto</currentRowUse>
           </extInfo>
         </items>
       <visible>true</visible>
