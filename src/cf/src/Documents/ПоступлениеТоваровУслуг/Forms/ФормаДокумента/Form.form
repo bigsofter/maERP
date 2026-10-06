@@ -1472,6 +1472,45 @@
             <name>ВалютаКурс</name>
             <id>452</id>
             <items xsi:type="form:FormField">
+              <name>ВВалюте</name>
+              <id>470</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Объект.ВВалюте</segments>
+              </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>ВВалютеПриИзменении</name>
+              </handlers>
+              <extendedTooltip>
+                <name>ВВалютеРасширеннаяПодсказка</name>
+                <id>472</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ВВалютеКонтекстноеМеню</name>
+                <id>471</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>CheckBoxField</type>
+              <editMode>Enter</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Left</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+                <checkBoxType>Auto</checkBoxType>
+              </extInfo>
+            </items>
+            <items xsi:type="form:FormField">
               <name>Валюта</name>
               <id>449</id>
               <visible>true</visible>
@@ -1482,6 +1521,10 @@
               <dataPath xsi:type="form:DataPath">
                 <segments>Объект.Валюта</segments>
               </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>ВалютаПриИзменении</name>
+              </handlers>
               <titleLocation>Left</titleLocation>
               <extendedTooltip>
                 <name>ВалютаРасширеннаяПодсказка</name>
@@ -1529,6 +1572,10 @@
               <dataPath xsi:type="form:DataPath">
                 <segments>Объект.КурсВалюты</segments>
               </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>КурсВалютыПриИзменении</name>
+              </handlers>
               <titleLocation>Left</titleLocation>
               <extendedTooltip>
                 <name>КурсВалютыРасширеннаяПодсказка</name>
@@ -2861,6 +2908,63 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
+          <name>ТЧТоварыСуммаРегл</name>
+          <id>464</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <enabled>true</enabled>
+          <readOnly>true</readOnly>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ТЧТовары.СуммаРегл</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ТЧТоварыСуммаРеглРасширеннаяПодсказка</name>
+            <id>465</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ТЧТоварыСуммаРеглКонтекстноеМеню</name>
+            <id>466</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Center</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <footerDataPath xsi:type="form:DataPath">
+            <segments>Объект.ТЧТовары.TotalСуммаРегл</segments>
+          </footerDataPath>
+          <footerFont xsi:type="core:FontRef">
+            <font>Style.Шрифт_Подвал</font>
+          </footerFont>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>12</width>
+            <maxWidth>12</maxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <horizontalStretch>false</horizontalStretch>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
           <name>ТЧТоварыСуммаСНДС</name>
           <id>136</id>
           <title>
@@ -3377,6 +3481,10 @@
           <autoFill>true</autoFill>
         </autoCommandBar>
         <handlers>
+          <event>OnEditEnd</event>
+          <name>ТЧТоварыПриОкончанииРедактирования</name>
+        </handlers>
+        <handlers>
           <event>BeforeDeleteRow</event>
           <name>ТЧТоварыПередУдалением</name>
         </handlers>
@@ -3880,6 +3988,63 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormField">
+              <name>ТЧУслугиСуммаРегл</name>
+              <id>467</id>
+              <titleFont xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>false</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </titleFont>
+              <enabled>true</enabled>
+              <readOnly>true</readOnly>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>Объект.ТЧУслуги.СуммаРегл</segments>
+              </dataPath>
+              <extendedTooltip>
+                <name>ТЧУслугиСуммаРеглРасширеннаяПодсказка</name>
+                <id>468</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ТЧУслугиСуммаРеглКонтекстноеМеню</name>
+                <id>469</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>InputField</type>
+              <editMode>Auto</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Center</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <footerDataPath xsi:type="form:DataPath">
+                <segments>Объект.ТЧУслуги.TotalСуммаРегл</segments>
+              </footerDataPath>
+              <footerFont xsi:type="core:FontRef">
+                <font>Style.Шрифт_Подвал</font>
+              </footerFont>
+              <extInfo xsi:type="form:InputFieldExtInfo">
+                <width>12</width>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <horizontalStretch>false</horizontalStretch>
+                <wrap>true</wrap>
+                <chooseType>true</chooseType>
+                <typeDomainEnabled>true</typeDomainEnabled>
+                <textEdit>true</textEdit>
+                <textSize>Normal</textSize>
+              </extInfo>
+            </items>
+            <items xsi:type="form:FormField">
               <name>ТЧУслугиСуммаСНДС</name>
               <id>360</id>
               <title>
@@ -4286,6 +4451,10 @@
           <horizontalAlign>Left</horizontalAlign>
           <autoFill>true</autoFill>
         </autoCommandBar>
+        <handlers>
+          <event>OnEditEnd</event>
+          <name>ТЧУслугиПриОкончанииРедактирования</name>
+        </handlers>
         <searchStringAddition>
           <name>ТЧУслугиСтрокаПоиска</name>
           <id>327</id>

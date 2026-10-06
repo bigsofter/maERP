@@ -10,6 +10,47 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.22
+### ru
+- «Поступление товаров» и «Реализация товаров» можно оформлять в валюте. На первой закладке появился флажок «В валюте»: он открывает поля «Валюта» и «Курс». Без флажка документ, как и раньше, ведётся в основной валюте (константа «Валюта регламентированного учёта»).
+- Курс подставляется по дате документа из нового справочника курсов «Казначейство — Курсы валют» и правится вручную. Если на дату курса нет, программа об этом скажет. Договор с валютой взаиморасчётов, отличной от основной, сам включает флажок и ставит эту валюту.
+- В документе в валюте колонки «Цена» и «Сумма» в товарах и услугах подписаны валютой документа, например «Цена (EUR)», и открывается колонка «Сумма (MAD)» — сумма в основной валюте по курсу. При смене валюты программа предложит пересчитать цены строк в новую валюту.
+- У вида цен появился реквизит «Валюта». Цены подбираются с учётом валюты: цена вида цен в евро в документе в дирхамах пересчитывается в дирхамы по курсу на дату, в документе в евро подставляется как есть. Цены поставщиков и фиксированные цены клиентов считаются в основной валюте и тоже пересчитываются в валюту документа.
+- При проведении в регистры попадает сумма в основной валюте: себестоимость товаров на складе и дополнительных расходов, выручка и прибыль в продажах, цены поставщиков, заказы поставщикам и взаиморасчёты. Взаиморасчёты дополнительно хранят валюту и сумму в валюте. Оплата в основной валюте закрывает долг по документу в валюте; курсовые разницы пока не считаются.
+- Печать реализации подписывает валюту документа, сумма прописью — в валюте документа.
+- Возврат от покупателя и налоговая накладная по реализации в валюте пока не поддерживаются: программа не даст их провести.
+- При обновлении поступления, уже оформленные в другой валюте, получают флажок «В валюте», их взаиморасчёты и заказы поставщикам пересчитываются в основную валюту.
+
+### fr
+- Les « Réceptions de marchandises » et les « Ventes de marchandises » peuvent être établies en devise. Sur le premier onglet, une nouvelle case « En devise » ouvre les champs « Devise » et « Taux ». Sans cette case, le document reste comme avant dans la devise principale (constante « Devise de comptabilité réglementée »).
+- Le taux est proposé à la date du document depuis le nouveau registre « Trésorerie — Taux de change » et peut être modifié à la main. S'il n'y a pas de taux à cette date, le programme le signale. Un contrat dont la devise de règlement diffère de la devise principale coche la case et met cette devise.
+- Dans un document en devise, les colonnes « Prix » et « Montant » des marchandises et des services portent la devise du document, par exemple « Prix (EUR) », et la colonne « Montant (MAD) » apparaît : le montant en devise principale au taux. Au changement de devise, le programme propose de convertir les prix des lignes.
+- Le type de prix reçoit un attribut « Devise ». Les prix sont repris en tenant compte de la devise : un prix en euros dans un document en dirhams est converti en dirhams au taux du jour, dans un document en euros il est repris tel quel. Les prix fournisseurs et les prix fixes des clients sont considérés en devise principale et sont aussi convertis dans la devise du document.
+- À la validation, les registres reçoivent le montant en devise principale : coût des marchandises en stock et des frais supplémentaires, chiffre d'affaires et marge des ventes, prix fournisseurs, commandes fournisseurs et règlements. Les règlements conservent en plus la devise et le montant en devise. Un paiement en devise principale solde la dette d'un document en devise ; les écarts de change ne sont pas encore calculés.
+- L'impression de la vente indique la devise du document, le montant en lettres est dans la devise du document.
+- Le retour client et la facture fiscale sur une vente en devise ne sont pas encore pris en charge : le programme refuse de les valider.
+- À la mise à jour, les réceptions déjà établies dans une autre devise reçoivent la case « En devise », leurs règlements et commandes fournisseurs sont convertis en devise principale.
+
+### en
+- "Goods receipt" and "Goods sale" documents can now be issued in a foreign currency. A new "In currency" checkbox on the first tab opens the "Currency" and "Rate" fields. Without it, the document stays in the base currency as before (the "Regulated accounting currency" constant).
+- The rate is filled in for the document date from the new "Treasury — Exchange rates" register and can be edited by hand. If there is no rate for that date, the program says so. A contract whose settlement currency differs from the base currency checks the box and sets that currency.
+- In a foreign-currency document, the "Price" and "Amount" columns of goods and services show the document currency, for example "Price (EUR)", and an "Amount (MAD)" column appears: the amount in base currency at the rate. When the currency changes, the program offers to convert line prices to the new currency.
+- Price types get a "Currency" attribute. Prices are filled in with the currency in mind: a price type in euros in a dirham document is converted to dirhams at the rate for the date, in a euro document it is used as is. Supplier prices and fixed customer prices are treated as base currency and are also converted to the document currency.
+- On posting, registers receive the amount in base currency: cost of goods in stock and additional expenses, revenue and margin in sales, supplier prices, supplier orders and settlements. Settlements also keep the currency and the amount in currency. A payment in base currency closes the debt of a foreign-currency document; exchange differences are not calculated yet.
+- The sale print form shows the document currency, the amount in words is in the document currency.
+- Customer returns and tax invoices for a foreign-currency sale are not supported yet: the program refuses to post them.
+- On update, receipts already issued in another currency get the "In currency" checkbox, and their settlements and supplier orders are converted to base currency.
+
+### es
+- Las «Recepciones de mercancías» y las «Ventas de mercancías» se pueden emitir en moneda extranjera. En la primera pestaña aparece la casilla «En moneda», que abre los campos «Moneda» y «Tipo de cambio». Sin la casilla, el documento sigue como antes en la moneda principal (constante «Moneda contable regulada»).
+- El tipo de cambio se rellena a la fecha del documento desde el nuevo registro «Tesorería — Tipos de cambio» y se puede corregir a mano. Si no hay tipo para esa fecha, el programa lo avisa. Un contrato con moneda de liquidación distinta de la principal marca la casilla y pone esa moneda.
+- En un documento en moneda, las columnas «Precio» e «Importe» de mercancías y servicios llevan la moneda del documento, por ejemplo «Precio (EUR)», y aparece la columna «Importe (MAD)»: el importe en moneda principal al tipo de cambio. Al cambiar la moneda, el programa propone convertir los precios de las líneas.
+- El tipo de precio tiene un nuevo atributo «Moneda». Los precios se rellenan teniendo en cuenta la moneda: un precio en euros en un documento en dírhams se convierte a dírhams al tipo de la fecha, en un documento en euros se usa tal cual. Los precios de proveedores y los precios fijos de clientes se consideran en moneda principal y también se convierten a la moneda del documento.
+- Al contabilizar, los registros reciben el importe en moneda principal: coste de las mercancías en almacén y de los gastos adicionales, ingresos y margen de ventas, precios de proveedores, pedidos a proveedores y liquidaciones. Las liquidaciones guardan además la moneda y el importe en moneda. Un pago en moneda principal cierra la deuda de un documento en moneda; las diferencias de cambio aún no se calculan.
+- La impresión de la venta indica la moneda del documento, el importe en letras está en la moneda del documento.
+- La devolución del cliente y la factura fiscal de una venta en moneda aún no se admiten: el programa no permite contabilizarlas.
+- Al actualizar, las recepciones ya emitidas en otra moneda reciben la casilla «En moneda», y sus liquidaciones y pedidos a proveedores se convierten a la moneda principal.
+
 ## 2.0.16.21
 ### ru
 - Окно печати: справа вместо таблицы — предпросмотр страниц. Печатная форма показывается разбитой на листы так, как её напечатает принтер: с выбранной бумагой, ориентацией, полями и масштабом. Любое изменение параметров слева сразу перерисовывает страницы.
