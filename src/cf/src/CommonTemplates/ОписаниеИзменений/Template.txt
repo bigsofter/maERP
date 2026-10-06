@@ -10,6 +10,43 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.23
+### ru
+- ПКО, РКО, поступление и списание безналичных ведутся в валюте кассы или банковского счёта: у евро-счёта платёж в евро. Валюта видна рядом с суммой и задаётся кассой или счётом, курс подставляется на дату платежа и правится вручную. Без курса платёж в валюте не проводится.
+- Остаток валютной кассы или счёта учитывается и в основной валюте, и в валюте кассы или счёта.
+- Курсовые разницы. Оплата закрывает долг в валюте полностью, а разница между деньгами и долгом в основной валюте записывается по новой статье «Курсовые разницы»: при поступлении денег — доход, при списании — расход. Оплата валютного долга дирхамами закрывает его по курсу на дату оплаты.
+- Отчёт «Финансовый результат» и таблица прибылей и убытков показывают курсовые разницы отдельной строкой «2.4. Écarts de change». В чистую прибыль магазина для премий они не входят.
+- При вводе оплаты на основании документа и при заполнении по долгам суммы пересчитываются в валюту кассы или счёта.
+- Исправлено: списание безналичных при оплате поступления в валюте больше не берёт валюту поступления — валюта всегда та, что у счёта. Печать ПКО, РКО и платёжного поручения показывает валюту документа.
+- В валюте проводятся только оплаты клиентов и поставщиков (не чеком) и перемещения денег между кассами и счетами одной валюты. Кассовая смена работает только с кассой в основной валюте. Если в документе выбрать кассу или счёт в другой валюте, сумма и строки оснований пересчитываются в новую валюту. Платежи, оформленные до обновления, остаются в основной валюте.
+
+### fr
+- Les encaissements, décaissements, virements reçus et émis sont tenus dans la devise de la caisse ou du compte bancaire : depuis un compte en euros, le paiement est en euros. La devise s'affiche à côté du montant et vient de la caisse ou du compte, le taux est proposé à la date du paiement et peut être modifié. Sans taux, un paiement en devise n'est pas validé.
+- Le solde d'une caisse ou d'un compte en devise est suivi à la fois en devise principale et dans la devise de la caisse ou du compte.
+- Écarts de change. Le paiement solde entièrement la dette en devise, et l'écart entre l'argent et la dette en devise principale est enregistré sur le nouveau poste « Écarts de change » : gain à l'encaissement, perte au décaissement. Une dette en devise réglée en dirhams est soldée au taux du jour du paiement.
+- Le rapport « Résultat financier » et le tableau des profits et pertes montrent les écarts de change sur une ligne séparée « 2.4. Écarts de change ». Ils ne sont pas inclus dans le bénéfice net du magasin pour les primes.
+- À la saisie d'un paiement à partir d'un document et au remplissage par les dettes, les montants sont convertis dans la devise de la caisse ou du compte.
+- Corrigé : un virement émis pour une réception en devise ne reprend plus la devise de la réception — la devise est toujours celle du compte. L'impression des encaissements, décaissements et ordres de virement indique la devise du document.
+- En devise, seuls les paiements clients et fournisseurs (hors chèque) et les transferts de fonds entre caisses et comptes de même devise sont validés. La session de caisse ne fonctionne qu'avec une caisse en devise principale. Si l'on choisit dans le document une caisse ou un compte d'une autre devise, le montant et les lignes sont convertis dans la nouvelle devise. Les paiements saisis avant la mise à jour restent en devise principale.
+
+### en
+- Cash receipts, cash payments, bank receipts and bank payments are kept in the currency of the cash desk or bank account: from a euro account the payment is in euros. The currency is shown next to the amount and comes from the cash desk or account; the rate is filled in for the payment date and can be edited. Without a rate a foreign-currency payment is not posted.
+- The balance of a foreign-currency cash desk or account is tracked both in base currency and in its own currency.
+- Exchange differences. A payment closes the debt in currency completely, and the difference between the money and the debt in base currency is recorded under the new "Exchange differences" item: a gain on receipt, a loss on payment. A currency debt paid in dirhams is closed at the rate on the payment date.
+- The "Financial result" report and the profit and loss table show exchange differences on a separate "2.4. Écarts de change" line. They are not included in the store's net profit for bonuses.
+- When a payment is entered from a document or filled from debts, amounts are converted to the currency of the cash desk or account.
+- Fixed: a bank payment for a foreign-currency receipt no longer takes the receipt's currency — the currency is always the account's. Printed cash receipts, cash payments and payment orders show the document currency.
+- In a foreign currency only customer and supplier payments (not by cheque) and transfers between cash desks and accounts of the same currency can be posted. A cash session works only with a cash desk in base currency. Choosing a cash desk or account in another currency converts the amount and lines to the new currency. Payments entered before the update stay in base currency.
+
+### es
+- Los cobros y pagos en caja, los ingresos y las transferencias bancarias se llevan en la moneda de la caja o de la cuenta bancaria: desde una cuenta en euros el pago es en euros. La moneda se muestra junto al importe y viene de la caja o la cuenta; el tipo de cambio se rellena a la fecha del pago y se puede corregir. Sin tipo de cambio, un pago en moneda no se contabiliza.
+- El saldo de una caja o cuenta en moneda se lleva tanto en moneda principal como en su propia moneda.
+- Diferencias de cambio. El pago cierra por completo la deuda en moneda, y la diferencia entre el dinero y la deuda en moneda principal se registra en la nueva partida «Diferencias de cambio»: ganancia al cobrar, pérdida al pagar. Una deuda en moneda pagada en dírhams se cierra al tipo de la fecha del pago.
+- El informe «Resultado financiero» y la tabla de pérdidas y ganancias muestran las diferencias de cambio en una línea aparte «2.4. Écarts de change». No se incluyen en el beneficio neto de la tienda para las primas.
+- Al introducir un pago a partir de un documento y al rellenarlo por deudas, los importes se convierten a la moneda de la caja o la cuenta.
+- Corregido: una transferencia emitida para una recepción en moneda ya no toma la moneda de la recepción — la moneda es siempre la de la cuenta. La impresión de cobros, pagos y órdenes de transferencia indica la moneda del documento.
+- En moneda solo se contabilizan pagos de clientes y proveedores (sin cheque) y traspasos entre cajas y cuentas de la misma moneda. El turno de caja solo funciona con una caja en moneda principal. Al elegir en el documento una caja o cuenta de otra moneda, el importe y las líneas se convierten a la nueva moneda. Los pagos introducidos antes de la actualización siguen en moneda principal.
+
 ## 2.0.16.22
 ### ru
 - «Поступление товаров» и «Реализация товаров» можно оформлять в валюте. На первой закладке появился флажок «В валюте»: он открывает поля «Валюта» и «Курс». Без флажка документ, как и раньше, ведётся в основной валюте (константа «Валюта регламентированного учёта»).

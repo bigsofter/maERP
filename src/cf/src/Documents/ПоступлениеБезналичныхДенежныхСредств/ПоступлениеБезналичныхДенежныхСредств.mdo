@@ -153,6 +153,7 @@
   <realTimePosting>Deny</realTimePosting>
   <registerRecordsDeletion>AutoDelete</registerRecordsDeletion>
   <registerRecords>AccumulationRegister.ОплатыЧеками</registerRecords>
+  <registerRecords>AccumulationRegister.Убытки</registerRecords>
   <registerRecords>AccumulationRegister.ДвиженияПоКассе</registerRecords>
   <registerRecords>AccumulationRegister.ДвиженияДенежныхСредств</registerRecords>
   <registerRecords>AccumulationRegister.ДенежныеСредстваОрганизаций</registerRecords>
@@ -794,6 +795,93 @@
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="2d210b30-423a-4e9f-b076-c716d8f12f3d">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Moneda</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Валюты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="608fc700-7fe4-4ebf-9d4d-ee8a6b1beaa3">
+    <name>КурсВалюты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Курс валюты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Taux de change</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange rate</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de cambio</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>4</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:NumberValue">
+      <value>1</value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="e41c7cca-bc09-4c1d-8fbe-941b262fd7e8">
+    <name>СуммаРегл</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма (регл.)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant (devise principale)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount (base currency)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe (moneda principal)</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:UndefinedValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
