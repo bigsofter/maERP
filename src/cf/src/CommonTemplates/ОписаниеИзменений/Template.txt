@@ -10,6 +10,47 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.24
+### ru
+- Заказ клиента, заказ поставщику, коммерческое предложение и предложение поставщика можно оформлять в валюте — так же, как поступление и реализацию: флажок «В валюте», валюта и курс, цены и суммы в валюте документа, колонка «Сумма (MAD)», курс по дате, валюта из договора, вопрос о пересчёте цен при смене валюты.
+- При вводе на основании валюта переносится: реализация из заказа клиента, поступление из заказа поставщику, заказ клиента из коммерческого предложения, заказ поставщику из предложения поставщика. Курс берётся на дату нового документа. «Перезаполнить цены по заказу» в реализации пересчитывает цены заказа в валюту реализации.
+- Оплата и долг по валютному заказу, стадия заказа и картинка оплаты в списке считаются в основной валюте. Аванс по заказу в валюте ведётся в основной валюте и зачитывается реализацией.
+- Тендер сравнивает предложения поставщиков в разных валютах по сумме в основной валюте, а предупреждение «есть предложение дешевле» показывает сумму с валютой.
+- Последние цены закупки и продажи и процент наценки в документе в валюте считаются в валюте документа. Раньше наценка в реализации в евро считалась от закупочной цены в дирхамах.
+- «Заказы поставщикам» по валютному заказу пишутся в основной валюте. ПКО на основании валютной реализации берёт сумму по курсу на дату оплаты, на основании валютного заказа — по курсу заказа: аванс по заказу ведётся в основной валюте.
+- Ввод на основании документа в валюте (в том числе реализации из поступления) теперь берёт курс на дату нового документа, а не курс основания. Копия документа в валюте тоже получает курс на свою дату.
+- Форма заказа для интернет-магазина валюты не знает: валютный заказ в ней открывается только для просмотра.
+
+### fr
+- La commande client, la commande fournisseur, l'offre commerciale et l'offre fournisseur peuvent être établies en devise, comme la réception et la vente : case « En devise », devise et taux, prix et montants dans la devise du document, colonne « Montant (MAD) », taux à la date, devise du contrat, question de conversion des prix au changement de devise.
+- À la saisie à partir d'un document, la devise est reprise : vente depuis la commande client, réception depuis la commande fournisseur, commande client depuis l'offre commerciale, commande fournisseur depuis l'offre fournisseur. Le taux est pris à la date du nouveau document. « Réappliquer les prix de la commande » dans la vente convertit les prix de la commande dans la devise de la vente.
+- Le paiement et la dette d'une commande en devise, l'étape de la commande et l'icône de paiement de la liste sont calculés en devise principale. L'acompte sur une commande en devise est tenu en devise principale et imputé par la vente.
+- L'appel d'offres compare les offres fournisseurs en différentes devises par le montant en devise principale, et l'avertissement « il y a une offre moins chère » affiche le montant avec la devise.
+- Les derniers prix d'achat et de vente et le pourcentage de marge d'un document en devise sont calculés dans la devise du document. Auparavant la marge d'une vente en euros était calculée sur le prix d'achat en dirhams.
+- Les « Commandes fournisseurs » d'une commande en devise sont enregistrées en devise principale. Un encaissement saisi à partir d'une vente en devise prend le montant au taux du jour du paiement, à partir d'une commande en devise — au taux de la commande : l'acompte sur commande est tenu en devise principale.
+- La saisie à partir d'un document en devise (y compris une vente depuis une réception) prend désormais le taux à la date du nouveau document, et non celui du document de base. La copie d'un document en devise reçoit aussi le taux à sa date.
+- Le formulaire de commande de la boutique en ligne ne connaît pas les devises : une commande en devise s'y ouvre en lecture seule.
+
+### en
+- Customer orders, supplier orders, commercial offers and supplier offers can be issued in a foreign currency, like receipts and sales: "In currency" checkbox, currency and rate, prices and amounts in the document currency, an "Amount (MAD)" column, rate for the date, contract currency, a question about converting prices when the currency changes.
+- When a document is entered from another, the currency is carried over: sale from customer order, receipt from supplier order, customer order from commercial offer, supplier order from supplier offer. The rate is taken for the new document's date. "Refill prices from order" in a sale converts order prices to the sale currency.
+- Payment and debt of a foreign-currency order, the order stage and the payment icon in the list are calculated in base currency. An advance on a foreign-currency order is kept in base currency and offset by the sale.
+- The tender compares supplier offers in different currencies by the amount in base currency, and the "there is a cheaper offer" warning shows the amount with its currency.
+- Last purchase and sale prices and the markup percentage of a foreign-currency document are calculated in the document currency. Previously the markup of a sale in euros was calculated from the purchase price in dirhams.
+- "Supplier orders" for a foreign-currency order are recorded in base currency. A cash receipt entered from a foreign-currency sale takes the amount at the rate on the payment date; from a foreign-currency order — at the order rate, since the order advance is kept in base currency.
+- Entering a document from a foreign-currency one (including a sale from a receipt) now takes the rate for the new document's date instead of the source rate. A copy of a foreign-currency document also gets the rate for its date.
+- The online store order form has no currency: a foreign-currency order opens there read-only.
+
+### es
+- El pedido de cliente, el pedido a proveedor, la oferta comercial y la oferta de proveedor se pueden emitir en moneda, como la recepción y la venta: casilla «En moneda», moneda y tipo de cambio, precios e importes en la moneda del documento, columna «Importe (MAD)», tipo a la fecha, moneda del contrato, pregunta de conversión de precios al cambiar la moneda.
+- Al introducir un documento a partir de otro, la moneda se traslada: venta desde pedido de cliente, recepción desde pedido a proveedor, pedido de cliente desde oferta comercial, pedido a proveedor desde oferta de proveedor. El tipo se toma a la fecha del nuevo documento. «Volver a rellenar precios del pedido» en la venta convierte los precios del pedido a la moneda de la venta.
+- El pago y la deuda de un pedido en moneda, la etapa del pedido y el icono de pago de la lista se calculan en moneda principal. El anticipo de un pedido en moneda se lleva en moneda principal y se compensa con la venta.
+- La licitación compara ofertas de proveedores en distintas monedas por el importe en moneda principal, y el aviso «hay una oferta más barata» muestra el importe con la moneda.
+- Los últimos precios de compra y venta y el porcentaje de margen de un documento en moneda se calculan en la moneda del documento. Antes el margen de una venta en euros se calculaba sobre el precio de compra en dírhams.
+- Los «Pedidos a proveedores» de un pedido en moneda se registran en moneda principal. Un cobro introducido a partir de una venta en moneda toma el importe al tipo del día del pago; a partir de un pedido en moneda — al tipo del pedido, ya que el anticipo del pedido se lleva en moneda principal.
+- Al introducir un documento a partir de otro en moneda (también una venta desde una recepción) ahora se toma el tipo a la fecha del nuevo documento y no el del documento base. La copia de un documento en moneda también recibe el tipo a su fecha.
+- El formulario de pedido de la tienda online no conoce monedas: un pedido en moneda se abre allí solo para lectura.
+
 ## 2.0.16.23
 ### ru
 - ПКО, РКО, поступление и списание безналичных ведутся в валюте кассы или банковского счёта: у евро-счёта платёж в евро. Валюта видна рядом с суммой и задаётся кассой или счётом, курс подставляется на дату платежа и правится вручную. Без курса платёж в валюте не проводится.
