@@ -10,6 +10,31 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.30
+### ru
+- Рабочее место закупок: новая первая закладка «Потребность» — что нужно закупить. Источники: материалы заказов клиентов на производство, которые ещё не выпущены, и пополнение склада до минимального остатка (на складах с оповещением о минимальном остатке).
+- По каждой строке видно: сколько нужно, заказано, пришло, взято со склада, есть на складе, дефицит, основной поставщик и последняя цена. Группировка — по товару (по умолчанию), по заказу клиента или по поставщику; флажок «Только с дефицитом». Внизу по выбранному товару — источники, заказы поставщикам и остатки по складам.
+- Кнопка «Заказать»: отметьте строки, при необходимости поправьте поставщика и количество «К заказу». На каждый заказ клиента создаётся свой заказ поставщику (он закрывает дефицит этого заказа), на пополнение склада — отдельный заказ. Количество сверх дефицита уходит в заказ на пополнение.
+- Повторное нажатие «Заказать» или устаревший экран не создают второй заказ: перед записью дефицит проверяется заново.
+
+### fr
+- Poste des achats : nouvel onglet en tête « Besoin » — ce qu'il faut acheter. Sources : matières des commandes clients en production pas encore fabriquées, et réapprovisionnement du stock jusqu'au minimum (entrepôts avec alerte de stock minimum).
+- Pour chaque ligne : besoin, commandé, reçu, pris du stock, en stock, manque, fournisseur principal et dernier prix. Regroupement par article (par défaut), par commande client ou par fournisseur ; case « Seulement en manque ». En bas, pour l'article sélectionné : sources, commandes fournisseurs et stocks par entrepôt.
+- Bouton « Commander » : cochez les lignes, corrigez au besoin le fournisseur et la quantité « À commander ». Chaque commande client reçoit sa propre commande fournisseur (elle couvre son manque), le réapprovisionnement une commande séparée. La quantité au-delà du manque va dans la commande de réapprovisionnement.
+- Un second clic sur « Commander » ou un écran périmé ne crée pas de deuxième commande : le manque est revérifié avant l'enregistrement.
+
+### en
+- Purchasing workstation: new first tab "Need" — what has to be purchased. Sources: materials of customer production orders not yet produced, and stock replenishment up to the minimum (warehouses with a minimum stock alert).
+- Each line shows: needed, ordered, received, taken from stock, in stock, shortage, main supplier and last price. Grouping by item (default), by customer order or by supplier; "Shortage only" check box. Below, for the selected item: sources, supplier orders and stock by warehouse.
+- "Order" button: check the lines, adjust the supplier and the "To order" quantity if needed. Each customer order gets its own supplier order (it covers that order's shortage), replenishment gets a separate order. Quantity above the shortage goes to the replenishment order.
+- Clicking "Order" again or a stale screen does not create a second order: the shortage is checked again before saving.
+
+### es
+- Puesto de compras: nueva primera pestaña «Necesidad» — lo que hay que comprar. Orígenes: materiales de pedidos de clientes en producción aún no fabricados, y reposición del almacén hasta el mínimo (almacenes con aviso de stock mínimo).
+- Cada línea muestra: necesario, pedido, recibido, tomado del almacén, en almacén, déficit, proveedor principal y último precio. Agrupación por artículo (por defecto), por pedido del cliente o por proveedor; casilla «Solo con déficit». Abajo, para el artículo seleccionado: orígenes, pedidos a proveedores y existencias por almacén.
+- Botón «Pedir»: marque las líneas, corrija si hace falta el proveedor y la cantidad «A pedir». Cada pedido del cliente recibe su propio pedido a proveedor (cubre su déficit), la reposición un pedido aparte. La cantidad por encima del déficit va al pedido de reposición.
+- Pulsar «Pedir» de nuevo o una pantalla desactualizada no crea un segundo pedido: el déficit se vuelve a comprobar antes de guardar.
+
 ## 2.0.16.29
 ### ru
 - Рабочее место закупок: строки выбранного заказа поставщику вводятся прямо на закладке «Товары» — товар, количество, упаковка, цена; новая позиция берёт цену из прайса поставщика. Правка проведённого заказа перепроводит его. Строку можно добавить в заказ любой даты, не только сегодняшний.
