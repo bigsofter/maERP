@@ -10,6 +10,31 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.31
+### ru
+- Рабочее место закупок, тендеры (при включённых «Тендерах поставщиков»): на закладке «Потребность» в группировке «по заказу клиента» отметьте строки заказа и нажмите «Запросить предложения» — выберите поставщиков, каждому создаётся черновик предложения с материалами, количеством и ценой из его прайса. Повторно тому же поставщику по тем же материалам предложение не создаётся.
+- Колонка «Тендер» показывает, сколько предложений запрошено и кто победитель. Внизу закладка «Предложения»: поставщик, цена товара, сумма в основной валюте, срок, сколько материалов дефицита закрывает предложение, победитель. Цены вводятся в самом предложении (двойной щелчок).
+- «Победитель» выбирает предложение победителем тендера заказа клиента. «Заказать у победителя» создаёт заказ поставщику под заказ клиента в валюте, по договору и с режимом НДС предложения, по его ценам и на оставшийся дефицит; материалы без дефицита или с черновиком заказа пропускаются с пояснением. Повторно по закрытому дефициту заказ не создаётся.
+- Исправлено: при одновременном выборе победителя двумя пользователями победителей могло стать два.
+
+### fr
+- Poste des achats, appels d'offres (avec « Appels d'offres fournisseurs » activé) : dans l'onglet « Besoin », regroupement « par commande client », cochez les lignes et cliquez sur « Demander des offres » — choisissez les fournisseurs ; chacun reçoit une offre brouillon avec les matières, la quantité et le prix de son tarif. Aucune nouvelle offre n'est créée pour le même fournisseur et les mêmes matières.
+- La colonne « Appel d'offres » indique combien d'offres sont demandées et le gagnant. En bas, l'onglet « Offres » : fournisseur, prix de l'article, montant en devise principale, délai, nombre de matières en manque couvertes, gagnant. Les prix se saisissent dans l'offre (double clic).
+- « Gagnant » désigne l'offre gagnante de l'appel d'offres de la commande client. « Commander au gagnant » crée la commande fournisseur pour la commande client dans la devise, selon le contrat et le mode TVA de l'offre, à ses prix et pour le manque restant ; les matières sans manque ou avec une commande brouillon sont ignorées avec une explication. Aucune nouvelle commande n'est créée pour un manque déjà couvert.
+- Corrigé : si deux utilisateurs désignaient le gagnant en même temps, il pouvait y avoir deux gagnants.
+
+### en
+- Purchasing workstation, tenders (with "Supplier tenders" enabled): on the "Need" tab, grouping "by customer order", check the order lines and click "Request offers" — choose suppliers; each gets a draft offer with the materials, quantity and price from its price list. No new offer is created for the same supplier and materials.
+- The "Tender" column shows how many offers were requested and who won. Below, the "Offers" tab: supplier, item price, amount in main currency, lead time, how many shortage materials the offer covers, winner. Prices are entered in the offer itself (double-click).
+- "Winner" makes the offer the winner of the customer order tender. "Order from winner" creates the supplier order for the customer order in the offer's currency, contract and VAT mode, at its prices and for the remaining shortage; materials without shortage or with a draft order are skipped with an explanation. No new order is created for a shortage already covered.
+- Fixed: when two users chose the winner at the same time, there could be two winners.
+
+### es
+- Puesto de compras, licitaciones (con «Licitaciones de proveedores» activado): en la pestaña «Necesidad», agrupación «por pedido del cliente», marque las líneas y pulse «Pedir ofertas» — elija los proveedores; cada uno recibe una oferta borrador con los materiales, la cantidad y el precio de su tarifa. No se crea otra oferta para el mismo proveedor y materiales.
+- La columna «Licitación» muestra cuántas ofertas se pidieron y quién ganó. Abajo, la pestaña «Ofertas»: proveedor, precio del artículo, importe en moneda principal, plazo, cuántos materiales con déficit cubre la oferta, ganador. Los precios se introducen en la propia oferta (doble clic).
+- «Ganador» hace la oferta ganadora de la licitación del pedido del cliente. «Pedir al ganador» crea el pedido a proveedor para el pedido del cliente en la moneda, contrato y modo de IVA de la oferta, a sus precios y por el déficit restante; los materiales sin déficit o con un borrador de pedido se omiten con una explicación. No se crea otro pedido para un déficit ya cubierto.
+- Corregido: si dos usuarios elegían el ganador a la vez, podía haber dos ganadores.
+
 ## 2.0.16.30
 ### ru
 - Рабочее место закупок: новая первая закладка «Потребность» — что нужно закупить. Источники: материалы заказов клиентов на производство, которые ещё не выпущены, и пополнение склада до минимального остатка (на складах с оповещением о минимальном остатке).
