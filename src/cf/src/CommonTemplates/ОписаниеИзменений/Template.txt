@@ -10,6 +10,43 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.29
+### ru
+- Рабочее место закупок: строки выбранного заказа поставщику вводятся прямо на закладке «Товары» — товар, количество, упаковка, цена; новая позиция берёт цену из прайса поставщика. Правка проведённого заказа перепроводит его. Строку можно добавить в заказ любой даты, не только сегодняшний.
+- Закладка «Поступления»: новая строка — выбор строки заказа с остатком, количество и номер накладной поставщика. Строки с тем же номером накладной попадают в одно поступление.
+- Кнопка «Изменить статус» над списком заказов: «В работу» (провести), «В черновик», «Отменить» (пометить на удаление) — для всех выделенных заказов сразу. Заказ с поступлениями в черновик не уходит.
+- Новая закладка «К поступлению»: все строки проведённых заказов, по которым ещё ждём товар, — поставщик, заказ, товар, сколько осталось, дата поставки, просрочка. Отметьте строки одного поставщика, укажите номер и дату накладной и нажмите «Оформить поступление»: на каждый заказ создаётся своё поступление с этой накладной. Если хоть одна строка не подходит, поступление по заказу не создаётся совсем.
+- Поступление по заказу поставщику в валюте теперь создаётся в валюте заказа по курсу на дату поступления (раньше — в основной валюте). Это исправляет и рабочее место производства. Цена из прайса поставщика пересчитывается в валюту заказа.
+- Строки предварительного заказа, которые забрал другой заказ, больше нельзя уменьшить, удалить или снять с проведения: это увело бы остатки в минус. Заказ, забравший чужие строки, в рабочем месте только просматривается — правьте его в форме документа.
+- Проведение заказа поставщику, поступления и возврата поставщику блокирует остатки заказа. Если двое одновременно оформляют поступление по одной строке, второе оформление по уже полностью поступившей строке отклоняется, а не принимает товар дважды.
+
+### fr
+- Poste des achats : les lignes de la commande fournisseur sélectionnée se saisissent directement dans l'onglet « Articles » — article, quantité, conditionnement, prix ; une nouvelle ligne prend le prix du tarif du fournisseur. Modifier une commande validée la revalide. Une ligne peut s'ajouter à une commande de n'importe quelle date, pas seulement du jour.
+- Onglet « Réceptions » : une nouvelle ligne — choix de la ligne de commande avec reste, quantité et numéro de facture du fournisseur. Les lignes avec le même numéro de facture vont dans la même réception.
+- Bouton « Changer le statut » au-dessus de la liste des commandes : « En cours » (valider), « En brouillon », « Annuler » (marquer pour suppression) — pour toutes les commandes sélectionnées à la fois. Une commande avec des réceptions ne repasse pas en brouillon.
+- Nouvel onglet « À réceptionner » : toutes les lignes des commandes validées encore attendues — fournisseur, commande, article, reste, date de livraison, retard. Cochez les lignes d'un fournisseur, indiquez le numéro et la date de la facture et cliquez sur « Enregistrer la réception » : chaque commande reçoit sa propre réception avec cette facture. Si une seule ligne ne convient pas, aucune réception n'est créée pour la commande.
+- La réception d'une commande fournisseur en devise se crée maintenant dans la devise de la commande au taux de la date de réception (auparavant en devise principale). Cela corrige aussi le poste de production. Le prix du tarif fournisseur est converti dans la devise de la commande.
+- Les lignes d'une commande préliminaire reprises par une autre commande ne peuvent plus être diminuées, supprimées ou dévalidées : les restes deviendraient négatifs. La commande qui a repris ces lignes est en lecture seule dans le poste — modifiez-la dans le formulaire du document.
+- La validation d'une commande fournisseur, d'une réception et d'un retour fournisseur verrouille les restes de la commande. Si deux personnes enregistrent en même temps une réception sur la même ligne, la seconde est refusée lorsque la ligne est déjà entièrement reçue, au lieu de recevoir la marchandise deux fois.
+
+### en
+- Purchasing workstation: lines of the selected supplier order are entered right on the "Items" tab — item, quantity, packaging, price; a new line takes the price from the supplier price list. Editing a posted order reposts it. A line can be added to an order of any date, not only today's.
+- "Receipts" tab: a new line — choose an order line with a remaining quantity, the quantity and the supplier invoice number. Lines with the same invoice number go into one receipt.
+- "Change status" button above the order list: "In progress" (post), "To draft", "Cancel" (mark for deletion) — for all selected orders at once. An order with receipts does not go back to draft.
+- New "To receive" tab: all lines of posted orders still awaited — supplier, order, item, remaining, delivery date, overdue. Check the lines of one supplier, enter the invoice number and date and click "Register receipt": each order gets its own receipt with this invoice. If any line does not fit, no receipt is created for that order.
+- A receipt for a supplier order in a foreign currency is now created in the order currency at the rate of the receipt date (previously in the main currency). This also fixes the production workstation. The supplier price list price is converted to the order currency.
+- Lines of a preliminary order taken by another order can no longer be reduced, deleted or unposted: that would make balances negative. The order that took those lines is read-only in the workstation — edit it in the document form.
+- Posting a supplier order, a receipt and a return to supplier locks the order balances. If two people register a receipt for the same line at the same time, the second one is rejected once the line is fully received, instead of receiving the goods twice.
+
+### es
+- Puesto de compras: las líneas del pedido a proveedor seleccionado se introducen directamente en la pestaña «Artículos» — artículo, cantidad, embalaje, precio; una línea nueva toma el precio de la tarifa del proveedor. Editar un pedido contabilizado lo vuelve a contabilizar. Se puede añadir una línea a un pedido de cualquier fecha, no solo de hoy.
+- Pestaña «Recepciones»: una línea nueva — elección de la línea del pedido con pendiente, cantidad y número de factura del proveedor. Las líneas con el mismo número de factura van a una sola recepción.
+- Botón «Cambiar estado» sobre la lista de pedidos: «En curso» (contabilizar), «A borrador», «Cancelar» (marcar para eliminar) — para todos los pedidos seleccionados a la vez. Un pedido con recepciones no vuelve a borrador.
+- Nueva pestaña «Por recibir»: todas las líneas de pedidos contabilizados aún pendientes — proveedor, pedido, artículo, pendiente, fecha de entrega, retraso. Marque las líneas de un proveedor, indique el número y la fecha de la factura y pulse «Registrar recepción»: cada pedido recibe su propia recepción con esa factura. Si una sola línea no encaja, no se crea ninguna recepción para ese pedido.
+- La recepción de un pedido a proveedor en divisa se crea ahora en la divisa del pedido al tipo de la fecha de recepción (antes, en la moneda principal). Esto corrige también el puesto de producción. El precio de la tarifa del proveedor se convierte a la divisa del pedido.
+- Las líneas de un pedido preliminar tomadas por otro pedido ya no se pueden reducir, eliminar ni descontabilizar: los saldos quedarían negativos. El pedido que tomó esas líneas es de solo lectura en el puesto: edítelo en el formulario del documento.
+- La contabilización de un pedido a proveedor, una recepción y una devolución al proveedor bloquea los saldos del pedido. Si dos personas registran a la vez una recepción de la misma línea, la segunda se rechaza cuando la línea ya está recibida por completo, en lugar de recibir la mercancía dos veces.
+
 ## 2.0.16.28
 ### ru
 - Новое рабочее место закупок (Закупки → Рабочее место закупок): заказы поставщикам одним списком со статусом — черновик, ожидает поставки, просрочен, частично поступил, поступил, перенесён в другой заказ, отменён. Кружки показывают, сколько пришло и сколько оплачено.
