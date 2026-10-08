@@ -10,6 +10,35 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.34
+### ru
+- Закладка «Станки» в рабочем месте производства (при включённом учёте станков): список станков — что на станке сейчас, загрузка недели в процентах от фонда времени, ближайшее плановое обслуживание; планировщик на неделю — станки строками, загрузки по плану голубые, по факту тёмные, обслуживание серое, нерабочее время по режиму станка — фоном. Неделя листается кнопками ◀ ▶.
+- «Готовы к запуску» — строки заказов на производство, которые можно ставить на станок: заказы в производстве и заказы, материалов которых хватает на вашем складе. Видны остаток к размещению, вес материалов в кг и время на выбранном станке; строки идут по дате отгрузки, не успевающие к отгрузке — красным.
+- «Разместить» ставит выбранную строку на выбранный станок в ближайшее свободное окно по режиму работы — мимо других загрузок и обслуживания, с шагом 15 минут. Строку можно перетащить на планировщик в нужное время и на нужный станок. Количество можно разбить: часть — на один станок, остаток — на другой.
+- Запланированную загрузку можно перетащить на планировщике на другое время или станок; на занятое время (другая загрузка, ремонт) перенос не пройдёт. Запуск, завершение с количеством выпуска и отмена загрузки — кнопками закладки; двойной щелчок открывает документ.
+- Загрузка, которая идёт дольше расчёта и не завершена, на планировщике выделена и держит станок занятым, пока её не завершат.
+
+### fr
+- Onglet « Machines » dans le poste de travail de production (gestion des machines activée) : liste des machines — ce qui tourne maintenant, charge de la semaine en pourcentage du temps disponible, prochaine maintenance planifiée ; planificateur de la semaine — machines en lignes, charges planifiées en bleu, réelles en foncé, maintenance en gris, heures hors service en fond. Les boutons ◀ ▶ changent de semaine.
+- « Prêt à lancer » — lignes de commandes de production à mettre sur machine : commandes en production et commandes dont les matières sont disponibles dans votre entrepôt. Reste à planifier, poids des matières en kg et durée sur la machine choisie ; tri par date d'expédition, en rouge les lignes qui ne tiennent pas le délai.
+- « Planifier » place la ligne choisie sur la machine choisie au prochain créneau libre selon ses horaires — en évitant les autres charges et la maintenance, au pas de 15 minutes. La ligne peut aussi être glissée sur le planificateur au moment et sur la machine voulus. La quantité peut être répartie entre plusieurs machines.
+- Une charge planifiée se déplace par glisser-déposer vers un autre moment ou une autre machine ; vers un créneau occupé (autre charge, réparation) le déplacement est refusé. Lancer, terminer avec la quantité produite et annuler — par les boutons de l'onglet ; un double-clic ouvre le document.
+- Une charge lancée qui dure plus que prévu et n'est pas terminée est mise en évidence et garde la machine occupée jusqu'à « Terminer ».
+
+### en
+- "Machines" tab in the production workplace (with machine management on): machine list — what is running now, the week load as a percentage of available time, the next planned maintenance; weekly planner — machines as rows, planned loads in blue, actual in dark, maintenance in grey, off hours from the machine schedule as background. ◀ ▶ buttons switch weeks.
+- "Ready to start" — production order lines that can go on a machine: orders in production and orders whose materials are available in your warehouse. Shows the quantity left to place, material weight in kg and time on the selected machine; lines are sorted by shipment date, those that cannot make the shipment are red.
+- "Place" puts the selected line on the selected machine in the nearest free slot of its schedule — around other loads and maintenance, in 15-minute steps. A line can also be dragged onto the planner at the wanted time and machine. The quantity can be split: part on one machine, the rest on another.
+- A planned load can be dragged on the planner to another time or machine; moving it onto busy time (another load, a repair) is refused. Start, complete with the produced quantity and cancel a load with the tab buttons; a double click opens the document.
+- A started load running longer than calculated and not completed is highlighted and keeps the machine busy until "Complete".
+
+### es
+- Pestaña «Máquinas» en el puesto de producción (con la gestión de máquinas activada): lista de máquinas — qué está en marcha ahora, carga de la semana en porcentaje del tiempo disponible, próximo mantenimiento planificado; planificador semanal — máquinas en filas, cargas planificadas en azul, reales en oscuro, mantenimiento en gris, horas fuera de horario como fondo. Los botones ◀ ▶ cambian de semana.
+- «Listo para iniciar» — líneas de pedidos de producción que se pueden poner en máquina: pedidos en producción y pedidos cuyos materiales hay en su almacén. Muestra lo pendiente de planificar, el peso de los materiales en kg y el tiempo en la máquina elegida; ordenadas por fecha de envío, en rojo las que no llegan a tiempo.
+- «Planificar» pone la línea elegida en la máquina elegida en el hueco libre más próximo de su horario — evitando otras cargas y el mantenimiento, en pasos de 15 minutos. La línea también se puede arrastrar al planificador a la hora y máquina deseadas. La cantidad se puede repartir entre varias máquinas.
+- Una carga planificada se arrastra en el planificador a otra hora o máquina; sobre un tiempo ocupado (otra carga, una reparación) el traslado se rechaza. Iniciar, terminar con la cantidad producida y cancelar una carga, con los botones de la pestaña; doble clic abre el documento.
+- Una carga iniciada que dura más de lo calculado y no se ha terminado se resalta y mantiene la máquina ocupada hasta «Terminar».
+
 ## 2.0.16.33
 ### ru
 - Документ «Требование-накладная» (Производство → Требования-накладные; при включённом учёте станков): загрузка станка по строке заказа на производство. Выберите станок, заказ и строку продукции — материалы заполнятся по заказу; количество можно поправить. Статусы: «Запланировано», «Запущено», «Завершено», «Отменено» — команды «Разместить», «Запустить», «Завершить», «Отменить».
