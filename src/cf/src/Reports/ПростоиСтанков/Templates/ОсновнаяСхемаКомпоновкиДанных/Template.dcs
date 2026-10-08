@@ -270,6 +270,96 @@
 				</v8:NumberQualifiers>
 			</valueType>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отказов</dataPath>
+			<field>Отказов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Pannes</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Failures</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Averías</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЧасыОтказов</dataPath>
+			<field>ЧасыОтказов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ремонт после отказов, ч</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Réparation après pannes, h</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Repair after failures, h</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Reparación tras averías, h</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЧасыРаботы</dataPath>
+			<field>ЧасыРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работа, ч</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Travail, h</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run time, h</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Trabajo, h</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<objectName>Простои</objectName>
 	</dataSet>
@@ -292,6 +382,50 @@
 			<v8:item>
 				<v8:lang>es</v8:lang>
 				<v8:content>Parada, %</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>MTBF</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Наработка на отказ (MTBF), ч</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Temps moyen entre pannes (MTBF), h</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Mean time between failures (MTBF), h</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Tiempo medio entre averías (MTBF), h</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>MTTR</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Среднее время ремонта (MTTR), ч</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Temps moyen de réparation (MTTR), h</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Mean time to repair (MTTR), h</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Tiempo medio de reparación (MTTR), h</v8:content>
 			</v8:item>
 		</title>
 	</calculatedField>
@@ -318,6 +452,30 @@
 		<expression>Выбор Когда Сумма(Фонд) &gt; 0 Тогда Окр(Сумма(ЧасыВРабочееВремя) * 100 / Сумма(Фонд), 1) Иначе 0 Конец</expression>
 		<group>Станок</group>
 		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>Отказов</dataPath>
+		<expression>Сумма(Отказов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЧасыОтказов</dataPath>
+		<expression>Сумма(ЧасыОтказов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЧасыРаботы</dataPath>
+		<expression>Сумма(ЧасыРаботы)</expression>
+		<group>Станок</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>MTBF</dataPath>
+		<expression>Выбор Когда Сумма(Отказов) &gt; 0 Тогда Окр(Сумма(ЧасыРаботы) / Сумма(Отказов), 2) Иначе 0 Конец</expression>
+		<group>Станок</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>MTTR</dataPath>
+		<expression>Выбор Когда Сумма(Отказов) &gt; 0 Тогда Окр(Сумма(ЧасыОтказов) / Сумма(Отказов), 2) Иначе 0 Конец</expression>
 	</totalField>
 	<parameter>
 		<name>Период</name>
@@ -394,6 +552,15 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПроцентПростоя</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отказов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>MTBF</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>MTTR</dcsset:field>
 				</dcsset:item>
 				<dcsset:userSettingID>21a7c011-5c8f-4082-99df-6e8052104136</dcsset:userSettingID>
 			</dcsset:selection>
