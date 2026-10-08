@@ -10,6 +10,39 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.35
+### ru
+- Отчёты учёта станков (Производство → Отчёты; при включённом учёте станков): «Загрузка станков», «Деньги по станкам», «Выработка станков», «Материалы на станках».
+- «Загрузка станков» — по каждому станку за период: фонд времени по режиму работы, работа по плану и по факту, ТО и ремонты, простой без заказа и процент загрузки. Время не задваивается: авария посреди загрузки вычитается из работы и считается ремонтом; что осталось от фонда — «нет заказа». Факт считается до текущего момента: оставшиеся часы недели простоем не считаются.
+- «Деньги по станкам» — по завершённым загрузкам: выручка по цене строки заказа без НДС в основной валюте (по курсу заказа), себестоимость материалов выпуска, стоимость часов работы станка (по «Стоимости часа» в карточке станка), затраты на обслуживание; маржа, маржа на час и на кг.
+- «Выработка станков» — кг израсходованных материалов, выпущенное количество и часы по станкам, продукции и операторам; норма по выработке станка и время на смену заказа, отклонение от нормы, кг в час, процент выполнения нормы.
+- «Материалы на станках» — на выбранную дату: что лежит на каждом станке под заказами и свободным остатком, в штуках, кг и по себестоимости.
+- «Вернуть в работу» больше не возвращает загрузку, если после неё на станке уже работала другая — иначе время работы задвоилось бы.
+
+### fr
+- Rapports de gestion des machines (Production → Rapports ; gestion des machines activée) : « Charge des machines », « Rentabilité des machines », « Production des machines », « Matières sur les machines ».
+- « Charge des machines » — par machine sur la période : temps disponible selon les horaires, travail planifié et réel, maintenance et réparations, inactivité sans commande et taux de charge. Le temps n'est pas compté deux fois : une panne pendant une charge est retirée du travail et comptée en réparation ; le reste du temps disponible est « sans commande ». Le réel est compté jusqu'à maintenant : les heures restantes de la semaine ne sont pas de l'inactivité.
+- « Rentabilité des machines » — sur les charges terminées : chiffre d'affaires au prix de la ligne de commande HT en devise principale (au taux de la commande), coût des matières de la production, coût des heures machine (« Coût horaire » de la fiche machine), coûts de maintenance ; marge, marge par heure et par kg.
+- « Production des machines » — kg de matières consommées, quantité produite et heures par machine, produit et opérateur ; norme selon le rendement de la machine et le temps de changement, écart à la norme, kg par heure, respect de la norme en %.
+- « Matières sur les machines » — à la date choisie : ce qui est sur chaque machine pour les commandes et en stock libre, en quantité, kg et au coût.
+- « Remettre en cours » ne relance plus une charge si une autre a déjà tourné sur la machine après elle — sinon le temps de travail serait compté deux fois.
+
+### en
+- Machine management reports (Production → Reports; with machine management on): "Machine utilization", "Machine profitability", "Machine output", "Materials on machines".
+- "Machine utilization" — per machine for the period: available time from the schedule, planned and actual work, maintenance and repairs, idle time without orders and the utilization percentage. Time is never counted twice: a breakdown during a load is taken out of work and counted as repair; what is left of available time is "no order". Actual time is counted up to now: the remaining hours of the week are not idle time.
+- "Machine profitability" — for completed loads: revenue at the order line price excluding VAT in the base currency (at the order rate), material cost of the output, machine hours cost ("Hourly cost" on the machine card), maintenance costs; margin, margin per hour and per kg.
+- "Machine output" — kg of materials used, quantity produced and hours by machine, product and operator; standard from the machine output rate and order changeover time, deviation from the standard, kg per hour, standard achievement in %.
+- "Materials on machines" — as of the chosen date: what is on each machine for orders and as free stock, in units, kg and at cost.
+- "Return to work" no longer reopens a load if another load has already run on the machine after it — otherwise working time would be counted twice.
+
+### es
+- Informes de gestión de máquinas (Producción → Informes; con la gestión de máquinas activada): «Carga de máquinas», «Rentabilidad de máquinas», «Producción de máquinas», «Materiales en máquinas».
+- «Carga de máquinas» — por máquina en el período: tiempo disponible según el horario, trabajo planificado y real, mantenimiento y reparaciones, inactividad sin pedido y porcentaje de carga. El tiempo no se cuenta dos veces: una avería durante una carga se resta del trabajo y cuenta como reparación; lo que queda del tiempo disponible es «sin pedido». Lo real se cuenta hasta ahora: las horas restantes de la semana no son inactividad.
+- «Rentabilidad de máquinas» — de las cargas terminadas: ingresos al precio de la línea del pedido sin IVA en la moneda principal (al tipo del pedido), coste de materiales de la producción, coste de las horas de máquina («Coste por hora» de la ficha), costes de mantenimiento; margen, margen por hora y por kg.
+- «Producción de máquinas» — kg de materiales consumidos, cantidad producida y horas por máquina, producto y operador; norma según el rendimiento de la máquina y el tiempo de cambio, desviación de la norma, kg por hora, cumplimiento de la norma en %.
+- «Materiales en máquinas» — a la fecha elegida: lo que hay en cada máquina para pedidos y como stock libre, en unidades, kg y a coste.
+- «Devolver a producción» ya no reabre una carga si después de ella ya trabajó otra en la máquina — de lo contrario el tiempo de trabajo se contaría dos veces.
+
 ## 2.0.16.34
 ### ru
 - Закладка «Станки» в рабочем месте производства (при включённом учёте станков): список станков — что на станке сейчас, загрузка недели в процентах от фонда времени, ближайшее плановое обслуживание; планировщик на неделю — станки строками, загрузки по плану голубые, по факту тёмные, обслуживание серое, нерабочее время по режиму станка — фоном. Неделя листается кнопками ◀ ▶.
