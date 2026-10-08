@@ -29,7 +29,7 @@
   <scriptVariant>Russian</scriptVariant>
   <defaultRoles>Role.Администратор</defaultRoles>
   <vendor>TinyCIO</vendor>
-  <version>2.0.16.31</version>
+  <version>2.0.16.32</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -474,6 +474,7 @@
   <commonModules>CommonModule.ПрисоединённыеФайлыКлиент</commonModules>
   <commonModules>CommonModule.ПроизводственныеЗаказы</commonModules>
   <commonModules>CommonModule.Производство</commonModules>
+  <commonModules>CommonModule.ЗагрузкаСтанков</commonModules>
   <commonModules>CommonModule.ПроцедурыРегламентныхЗаданий</commonModules>
   <commonModules>CommonModule.РаботаСДокументами</commonModules>
   <commonModules>CommonModule.КомандыТабличныхЧастейВызовСервера</commonModules>
@@ -531,6 +532,7 @@
   <functionalOptions>FunctionalOption.ИспользоватьПересчеты</functionalOptions>
   <functionalOptions>FunctionalOption.ИспользоватьКомплектацию</functionalOptions>
   <functionalOptions>FunctionalOption.ИспользоватьПереработку</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьУчетСтанков</functionalOptions>
   <functionalOptions>FunctionalOption.ИспользоватьАльтернативныеОплаты</functionalOptions>
   <functionalOptions>FunctionalOption.ИспользоватьРегламентированныйУчет</functionalOptions>
   <functionalOptions>FunctionalOption.ИспользоватьЛиды</functionalOptions>
@@ -633,6 +635,8 @@
   <constants>Constant.ИспользоватьПересчеты</constants>
   <constants>Constant.ИспользоватьКомплектацию</constants>
   <constants>Constant.ИспользоватьПереработку</constants>
+  <constants>Constant.ИспользоватьУчетСтанков</constants>
+  <constants>Constant.СписыватьМатериалыНаСтанокПриРазмещении</constants>
   <constants>Constant.ИспользоватьАльтернативныеОплаты</constants>
   <constants>Constant.ИспользоватьРегламентированныйУчет</constants>
   <constants>Constant.ИспользоватьЛиды</constants>
@@ -749,6 +753,7 @@
   <documents>Document.СписаниеТоваров</documents>
   <documents>Document.ТабельУчётаРабочегоВремени</documents>
   <documents>Document.ТехнологическаяКарта</documents>
+  <documents>Document.ОбслуживаниеСтанка</documents>
   <documents>Document.УстановкаПлановыхПоказателей</documents>
   <documents>Document.УстановкаЦенНоменклатуры</documents>
   <documents>Document.УстановкаЦенНоменклатурыВручную</documents>
@@ -801,6 +806,8 @@
   <enums>Enum.РешенияВизированияДокументов</enums>
   <enums>Enum.СостоянияБанковскихДокументов</enums>
   <enums>Enum.СпособыИзготовления</enums>
+  <enums>Enum.ВидыОбслуживанияСтанков</enums>
+  <enums>Enum.ВидыЗагрузкиСтанков</enums>
   <enums>Enum.СпособыПополненияЗапасов</enums>
   <enums>Enum.СпособыРасчётаОтсрочки</enums>
   <enums>Enum.СпособыФорматноЛогическогоКонтроля</enums>
@@ -884,6 +891,7 @@
   <reports>Report.РеестрПоступленийТоваровУслуг</reports>
   <reports>Report.РеестрРеализацийТоваровУслуг</reports>
   <reports>Report.СебестоимостьПродукции</reports>
+  <reports>Report.ПростоиСтанков</reports>
   <reports>Report.ТоварыВНаличии</reports>
   <reports>Report.ТоварыВПереработке</reports>
   <reports>Report.ФинансовыйРезультат</reports>
@@ -906,6 +914,7 @@
   <dataProcessors>DataProcessor.VentesEnDetail</dataProcessors>
   <dataProcessors>DataProcessor.АРМЗакупки</dataProcessors>
   <dataProcessors>DataProcessor.АРМПроизводство</dataProcessors>
+  <dataProcessors>DataProcessor.ЗагрузкаСтанков</dataProcessors>
   <dataProcessors>DataProcessor.ГрупповоеИзменениеРеквизитов</dataProcessors>
   <dataProcessors>DataProcessor.ГрупповоеСозданиеДокументов</dataProcessors>
   <dataProcessors>DataProcessor.Дашборд</dataProcessors>
@@ -960,6 +969,7 @@
   <informationRegisters>InformationRegister.РеквизитыКонтрагентов</informationRegisters>
   <informationRegisters>InformationRegister.СистемныеОповещения</informationRegisters>
   <informationRegisters>InformationRegister.СоставТехКарты</informationRegisters>
+  <informationRegisters>InformationRegister.ЗагрузкаСтанков</informationRegisters>
   <informationRegisters>InformationRegister.ТарифныеСтавки</informationRegisters>
   <informationRegisters>InformationRegister.УчетныеДокументы</informationRegisters>
   <informationRegisters>InformationRegister.ФискальныеОперации</informationRegisters>

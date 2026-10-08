@@ -216,6 +216,118 @@
         <checkBoxType>Switcher</checkBoxType>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьУчетСтанков</name>
+      <id>17</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьУчетСтанков</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Станки с выработкой и режимом работы, обслуживание и простои станков; работает при включённом производстве</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Machines avec rendement et horaires, maintenance et arrêts ; fonctionne si la production est activée</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Machines with output and working schedule, maintenance and downtime; works when production is enabled</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Máquinas con rendimiento y horario, mantenimiento y paradas; funciona con la producción activada</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьУчетСтанковРасширеннаяПодсказка</name>
+        <id>18</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьУчетСтанковКонтекстноеМеню</name>
+        <id>19</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>СписыватьМатериалыНаСтанокПриРазмещении</name>
+      <id>20</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.СписыватьМатериалыНаСтанокПриРазмещении</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Включено — материалы переходят на склад станка уже при размещении заказа на станке; выключено — при запуске</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Activé : les matières passent à l'entrepôt de la machine dès la planification ; désactivé : au lancement</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>On: materials move to the machine warehouse when the order is scheduled on the machine; off: at start</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Activado: los materiales pasan al almacén de la máquina al planificar el pedido; desactivado: al iniciar</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>СписыватьМатериалыНаСтанокПриРазмещенииРасширеннаяПодсказка</name>
+        <id>21</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>СписыватьМатериалыНаСтанокПриРазмещенииКонтекстноеМеню</name>
+        <id>22</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -253,6 +365,7 @@
       <representation>WeakSeparation</representation>
       <showLeftMargin>true</showLeftMargin>
       <united>true</united>
+      <throughAlign>Auto</throughAlign>
       <showTitle>auto</showTitle>
       <currentRowUse>Auto</currentRowUse>
     </extInfo>

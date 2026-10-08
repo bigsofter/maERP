@@ -10,6 +10,39 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.32
+### ru
+- Учёт станков (Настройки → Производство → «Учёт станков»; доступен при включённом производстве). Справочник «Производственное оборудование» теперь называется «Станки» и стоит в «Производство → Нормативы» рядом с техкартами; там же «Производственный календарь».
+- В карточке станка (при включённом учёте станков): вид станка, выработка в кг/ч, время на смену заказа в минутах, склад станка, стоимость часа работы, оператор по умолчанию, флажок «Выведен» и таблица «Режим работы» — смены по дням недели; смена может переходить через полночь, круглосуточная смена отмечается флажком. Дни производственного календаря (выходные и праздники) для станка нерабочие; для непрерывной работы отметьте «Работает без производственного календаря».
+- В списке станков колонки «Вид станка», «Выработка, кг/ч», «Выведен»; выведенные станки скрыты, флажок «Показывать выведенные станки» их показывает. Выведенный станок не выбирается в новые документы.
+- Документ «Обслуживание станка» (Производство): плановое ТО, ремонт или авария, переналадка; начало и окончание, причина, исполнитель, затраты. Запланированное обслуживание резервирует время станка, после выполнения снимите флажок «Плановое» и укажите фактическое время. Два обслуживания одного станка в одно время не проводятся.
+- Отчёт «Простои станков» (Производство → Отчёты): часы простоя и число случаев по станкам, видам и причинам за период, фонд рабочего времени по режиму станка и процент простоя в рабочее время. Если производственный календарь на год не заполнен, отчёт предупреждает об этом.
+- В настройках производства — флажок «Списывать материалы на станок при размещении»: пока только запоминается, работать начнёт вместе с требованиями-накладными.
+
+### fr
+- Gestion des machines (Paramètres → Production → « Gestion des machines » ; disponible si la production est activée). Le référentiel « Équipement de production » s'appelle désormais « Machines » et se trouve dans « Production → Normes » à côté des gammes ; le « Calendrier » y est aussi.
+- Dans la fiche machine (gestion des machines activée) : type de machine, rendement en kg/h, temps de changement de commande en minutes, entrepôt de la machine, coût horaire, opérateur par défaut, case « Retirée » et tableau « Horaires de travail » — postes par jour de la semaine ; un poste peut passer minuit, un poste 24 h/24 se coche. Les jours du calendrier (week-ends et fériés) sont chômés pour la machine ; pour un fonctionnement continu, cochez « Fonctionne sans le calendrier ».
+- La liste des machines affiche les colonnes « Type de machine », « Rendement, kg/h », « Retirée » ; les machines retirées sont masquées, la case « Afficher les machines retirées » les montre. Une machine retirée n'est pas proposée dans les nouveaux documents.
+- Document « Maintenance de machine » (Production) : maintenance préventive, réparation ou panne, changement de série ; début et fin, motif, intervenant, coûts. La maintenance planifiée réserve le temps de la machine ; une fois faite, décochez « Planifiée » et saisissez les heures réelles. Deux maintenances d'une même machine au même moment ne sont pas validées.
+- Rapport « Arrêts des machines » (Production → Rapports) : heures d'arrêt et nombre de cas par machine, type et motif sur la période, temps disponible selon les horaires de la machine et pourcentage d'arrêt pendant les heures de travail. Si le calendrier de l'année n'est pas rempli, le rapport le signale.
+- Dans les paramètres de production, la case « Transférer les matières sur la machine à la planification » : pour l'instant elle est seulement enregistrée, elle fonctionnera avec les bons de sortie.
+
+### en
+- Machine management (Settings → Production → "Machine management"; available when production is enabled). The "Production equipment" catalog is now called "Machines" and sits in "Production → Standards" next to the routings; the "Calendar" is there too.
+- In the machine card (machine management on): machine type, output in kg/h, order changeover time in minutes, machine warehouse, hourly cost, default operator, the "Retired" flag and the "Working schedule" table — shifts by day of week; a shift may run past midnight, a round-the-clock shift is a checkbox. Calendar days (weekends and holidays) are non-working for the machine; for continuous operation select "Works without the working calendar".
+- The machine list shows "Machine type", "Output, kg/h" and "Retired" columns; retired machines are hidden, "Show retired machines" shows them. A retired machine is not offered in new documents.
+- "Machine maintenance" document (Production): scheduled maintenance, repair or breakdown, changeover; start and end, reason, performed by, costs. Planned maintenance reserves machine time; once done, clear "Planned" and enter the actual time. Two maintenance records of one machine at the same time are not posted.
+- "Machine downtime" report (Production → Reports): downtime hours and number of cases by machine, type and reason for the period, available time by the machine schedule and downtime percentage during working time. If the working calendar for the year is empty, the report warns about it.
+- In production settings, the "Move materials to the machine when scheduling" flag: for now it is only stored, it will work together with material requisitions.
+
+### es
+- Gestión de máquinas (Ajustes → Producción → «Gestión de máquinas»; disponible con la producción activada). El catálogo «Equipo de producción» ahora se llama «Máquinas» y está en «Producción → Normas» junto a las rutas; allí también está el «Calendario».
+- En la ficha de la máquina (gestión de máquinas activada): tipo de máquina, rendimiento en kg/h, tiempo de cambio de pedido en minutos, almacén de la máquina, coste por hora, operador por defecto, casilla «Retirada» y tabla «Horario de trabajo» — turnos por día de la semana; un turno puede pasar la medianoche, un turno de 24 horas se marca con una casilla. Los días del calendario (fines de semana y festivos) no son laborables para la máquina; para funcionamiento continuo marque «Funciona sin el calendario laboral».
+- La lista de máquinas muestra las columnas «Tipo de máquina», «Rendimiento, kg/h» y «Retirada»; las máquinas retiradas se ocultan, la casilla «Mostrar máquinas retiradas» las muestra. Una máquina retirada no se ofrece en documentos nuevos.
+- Documento «Mantenimiento de máquina» (Producción): mantenimiento programado, reparación o avería, cambio de formato; inicio y fin, motivo, ejecutor, costes. El mantenimiento planificado reserva el tiempo de la máquina; una vez hecho, desmarque «Planificado» e indique la hora real. Dos mantenimientos de una misma máquina a la misma hora no se contabilizan.
+- Informe «Paradas de máquinas» (Producción → Informes): horas de parada y número de casos por máquina, tipo y motivo en el período, tiempo disponible según el horario de la máquina y porcentaje de parada en horario laboral. Si el calendario laboral del año está vacío, el informe lo avisa.
+- En los ajustes de producción, la casilla «Trasladar materiales a la máquina al planificar»: por ahora solo se guarda, funcionará junto con los vales de salida.
+
 ## 2.0.16.31
 ### ru
 - Рабочее место закупок, тендеры (при включённых «Тендерах поставщиков»): на закладке «Потребность» в группировке «по заказу клиента» отметьте строки заказа и нажмите «Запросить предложения» — выберите поставщиков, каждому создаётся черновик предложения с материалами, количеством и ценой из его прайса. Повторно тому же поставщику по тем же материалам предложение не создаётся.

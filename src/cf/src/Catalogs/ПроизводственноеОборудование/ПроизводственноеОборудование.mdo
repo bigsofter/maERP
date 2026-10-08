@@ -10,19 +10,19 @@
   <name>ПроизводственноеОборудование</name>
   <synonym>
     <key>ru</key>
-    <value>Производственное оборудование</value>
+    <value>Станки</value>
   </synonym>
   <synonym>
     <key>fr</key>
-    <value>Équipement de production</value>
+    <value>Machines</value>
   </synonym>
   <synonym>
     <key>en</key>
-    <value>Production equipment</value>
+    <value>Machines</value>
   </synonym>
   <synonym>
     <key>es</key>
-    <value>Equipo de producción</value>
+    <value>Máquinas</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>Catalog.ПроизводственноеОборудование.StandardAttribute.Description</inputByString>
@@ -121,6 +121,546 @@
   <defaultObjectForm>Catalog.ПроизводственноеОборудование.Form.ФормаЭлемента</defaultObjectForm>
   <defaultListForm>Catalog.ПроизводственноеОборудование.Form.ФормаСписка</defaultListForm>
   <defaultChoiceForm>Catalog.ПроизводственноеОборудование.Form.ФормаВыбора</defaultChoiceForm>
+  <attributes uuid="52f1ddc9-a651-4a0f-bae3-d6e3368cbcfb">
+    <name>ВидСтанка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид станка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de machine</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Machine type</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de máquina</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Экструдер, ткацкий станок и т. п.</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Extrudeuse, métier à tisser, etc.</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Extruder, loom, etc.</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Extrusora, telar, etc.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="64acf3a6-11d4-4180-ae15-bb199615a692">
+    <name>Выработка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выработка, кг/ч</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Rendement, kg/h</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Output, kg/h</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Rendimiento, kg/h</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>12</precision>
+        <scale>3</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Сколько килограммов материалов станок перерабатывает за час</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Kilogrammes de matières traités par heure</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Kilograms of materials processed per hour</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Kilogramos de materiales procesados por hora</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="43eaa7c7-66c3-4b22-a934-d2e2838ca53d">
+    <name>ВремяНаСменуЗаказа</name>
+    <synonym>
+      <key>ru</key>
+      <value>Время на смену заказа, мин</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Temps de changement de commande, min</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Order changeover time, min</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tiempo de cambio de pedido, min</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>5</precision>
+        <scale>0</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Закладывается между двумя соседними загрузками станка</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Réservé entre deux chargements consécutifs de la machine</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Reserved between two consecutive machine loads</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Se reserva entre dos cargas consecutivas de la máquina</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="c638e860-eecc-4645-9e8a-0e2241c8c80e">
+    <name>СкладСтанка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад станка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Entrepôt de la machine</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Machine warehouse</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacén de la máquina</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Место хранения материалов, загруженных на станок</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Lieu de stockage des matières chargées sur la machine</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Storage location of materials loaded on the machine</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Lugar de almacenamiento de los materiales cargados en la máquina</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="ebea393e-5241-4dbd-b210-425156461ddc">
+    <name>СтоимостьЧаса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Стоимость часа</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Coût horaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Hourly cost</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Coste por hora</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Стоимость часа работы станка (амортизация и энергия) в основной валюте</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Coût d'une heure de travail (amortissement et énergie) en devise principale</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Cost of one working hour (depreciation and energy) in the main currency</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Coste de una hora de trabajo (amortización y energía) en la moneda principal</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="9054091e-f06e-47b8-8069-b48fc1984945">
+    <name>Оператор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Оператор</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opérateur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operator</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operador</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ФизическиеЛица</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Оператор по умолчанию</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Opérateur par défaut</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Default operator</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Operador por defecto</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="744e1475-5bd2-4a17-a887-c647ccec8a9f">
+    <name>Выведен</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выведен</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Retirée</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Retired</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Retirada</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Станок выведен из работы: скрыт в списке и не выбирается в новые документы</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Machine retirée : masquée dans la liste et non proposée dans les nouveaux documents</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Machine retired: hidden in the list and not offered in new documents</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Máquina retirada: oculta en la lista y no se ofrece en documentos nuevos</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="b4003d16-18f2-43d6-8ae7-4f3ab47e4c7c">
+    <name>РаботаетБезКалендаря</name>
+    <synonym>
+      <key>ru</key>
+      <value>Работает без производственного календаря</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Fonctionne sans le calendrier</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Works without the working calendar</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Funciona sin el calendario laboral</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Непрерывная работа: дни производственного календаря (выходные и праздники) для станка рабочие, действует только режим работы</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Fonctionnement continu : les jours du calendrier (week-ends et fériés) sont travaillés, seuls les horaires comptent</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Continuous operation: calendar days (weekends and holidays) are working days, only the schedule applies</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Funcionamiento continuo: los días del calendario (fines de semana y festivos) son laborables, solo cuenta el horario</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="42a108b5-b2a1-4c02-a482-52d88b506379">
+    <producedTypes>
+      <objectType typeId="436bef8a-02b7-4eda-9c77-9369082159eb" valueTypeId="40de25e3-a711-4aab-b61d-90141d191e5e"/>
+      <rowType typeId="0c6d298d-faad-4941-afed-2500dc02d5ac" valueTypeId="f7bce063-5914-47d2-83c9-79ac54e2e5c7"/>
+    </producedTypes>
+    <name>РежимРаботы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Режим работы</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Horaires de travail</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Working schedule</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Horario de trabajo</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="4ff73783-01f4-4279-ad53-9a366f5fb95b">
+      <name>ДеньНедели</name>
+      <synonym>
+        <key>ru</key>
+        <value>День недели</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Jour de la semaine</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Day of week</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Día de la semana</value>
+      </synonym>
+      <type>
+        <types>EnumRef.ДниНедели</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="828d021f-f1d8-483e-bf09-200552d03a79">
+      <name>НачалоСмены</name>
+      <synonym>
+        <key>ru</key>
+        <value>Начало смены</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Début du poste</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Shift start</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Inicio del turno</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Time</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="8170be35-138b-49f9-90b0-930b562fd86d">
+      <name>ОкончаниеСмены</name>
+      <synonym>
+        <key>ru</key>
+        <value>Окончание смены</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Fin du poste</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Shift end</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Fin del turno</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Time</dateFractions>
+        </dateQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Раньше начала или равно ему — смена заканчивается на следующий день</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Avant le début ou égale : le poste finit le lendemain</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Earlier than or equal to the start: the shift ends the next day</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Anterior o igual al inicio: el turno termina al día siguiente</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="ee662e87-c658-4bd4-b1f3-5947e44c6a34">
+      <name>Круглосуточно</name>
+      <synonym>
+        <key>ru</key>
+        <value>Круглосуточно</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>24 h/24</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Around the clock</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>24 horas</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Станок работает весь день с 00:00, время смены не учитывается</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>La machine tourne toute la journée dès 00:00, les heures du poste sont ignorées</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>The machine runs the whole day from 00:00, shift times are ignored</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>La máquina trabaja todo el día desde las 00:00, las horas del turno no se tienen en cuenta</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:BooleanValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+  </tabularSections>
   <forms uuid="3d7a28ca-1a83-43a0-8739-2372d32020b9">
     <name>ФормаЭлемента</name>
     <synonym>
