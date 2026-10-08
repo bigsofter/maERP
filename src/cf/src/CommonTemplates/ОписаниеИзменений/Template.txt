@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.38
+### ru
+- Автоплан на закладке «Станки» рабочего места производства: кнопка «Автоплан» раскладывает строки «Готовы к запуску» по станкам в порядке дат отгрузки — каждую строку целиком на станок, который закончит её раньше всех, мимо уже запланированных загрузок и обслуживания. Предложение видно на планировщике светло-зелёным и на закладке «Автоплан»; не успевающие к отгрузке строки — красным, строки, которые поставить нельзя, — с причиной.
+- «Принять автоплан» создаёт требования по предложению; уже запланированное не меняется. Если время за это время заняли, строка не размещается и называется в сообщении; устаревшее предложение нужно рассчитать заново.
+- В карточке продукции — закладка «Станки»: на каких станках её можно делать. Пустой список — любой станок; автоплан ставит продукцию только на станки из списка.
+
+### fr
+- Planification automatique dans l'onglet « Machines » du poste de production : le bouton « Planification auto » répartit les lignes « Prêt à lancer » sur les machines par date d'expédition — chaque ligne entière sur la machine qui la terminera le plus tôt, en évitant les charges et la maintenance déjà planifiées. La proposition apparaît en vert clair dans le planificateur et dans l'onglet « Planification auto » ; les lignes en retard sur l'expédition en rouge, celles qui ne peuvent pas être placées avec leur motif.
+- « Valider la planification » crée les bons selon la proposition ; ce qui est déjà planifié ne change pas. Si le créneau a été pris entre-temps, la ligne n'est pas placée et elle est signalée ; une proposition périmée doit être recalculée.
+- Dans la fiche produit — onglet « Machines » : sur quelles machines le fabriquer. Liste vide — toute machine ; la planification automatique ne place le produit que sur les machines de la liste.
+
+### en
+- Auto-plan on the "Machines" tab of the production workplace: the "Auto-plan" button spreads the "Ready to start" lines over machines in shipment date order — each whole line on the machine that will finish it first, around loads and maintenance already planned. The proposal is shown in light green on the planner and on the "Auto-plan" tab; lines late for shipment are red, lines that cannot be placed show the reason.
+- "Accept auto-plan" creates requisitions from the proposal; what is already planned does not change. If a slot was taken meanwhile, that line is not placed and is named in the message; an outdated proposal must be recalculated.
+- The product card has a "Machines" tab: which machines can make it. Empty list — any machine; auto-plan puts the product only on the listed machines.
+
+### es
+- Planificación automática en la pestaña «Máquinas» del puesto de producción: el botón «Planificación auto» reparte las líneas «Listo para iniciar» entre las máquinas por fecha de envío — cada línea entera en la máquina que la termine antes, sin chocar con cargas y mantenimiento ya planificados. La propuesta se ve en verde claro en el planificador y en la pestaña «Planificación auto»; las líneas que no llegan al envío en rojo, las que no se pueden colocar con su motivo.
+- «Aceptar planificación» crea los vales según la propuesta; lo ya planificado no cambia. Si el hueco se ocupó entretanto, la línea no se coloca y se indica en el mensaje; una propuesta desactualizada hay que recalcularla.
+- En la ficha del producto — pestaña «Máquinas»: en qué máquinas se puede fabricar. Lista vacía — cualquier máquina; la planificación automática solo lo pone en las máquinas de la lista.
+
 ## 2.0.16.37
 ### ru
 - В отчёте «Простои станков» — надёжность станков: число отказов, наработка на отказ (MTBF) — часы работы станка на один отказ, и среднее время ремонта (MTTR). Отказом считается фактический «Ремонт или авария», не запланированный заранее; ТО, переналадка и запланированный ремонт отказами не считаются.
