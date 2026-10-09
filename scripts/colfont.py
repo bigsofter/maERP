@@ -15,7 +15,9 @@ ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
 WRITE = '--fix' in sys.argv
 FONT=['<titleFont xsi:type="core:FontRef">','  <font>Style.NormalTextFont</font>','  <bold>false</bold>','  <italic>false</italic>',
       '  <underline>false</underline>','  <strikeout>false</strikeout>','  <scale>100</scale>','</titleFont>']
-open_re=re.compile(r'^(\s*)<items xsi:type="form:(\w+)">\s*$')
+# Теги items сопоставляются по вложенности, а не по отступу: в формах после ручных правок
+# отступ закрывающего тега бывает сбит (список реализаций, 2.0.16.43), и колонка выпадала из проверки.
+open_re=re.compile(r'^\s*<items(?: xsi:type="form:(\w+)")?>\s*$')
 total=0; files=0; already=0; missing=[]
 for path in glob.glob(ROOT+'/**/Form.form',recursive=True):
     lines=open(path,encoding='utf-8').read().split('\n')
@@ -24,26 +26,25 @@ for path in glob.glob(ROOT+'/**/Form.form',recursive=True):
     for i,l in enumerate(lines):
         m=open_re.match(l)
         if m:
-            stack.append((len(m.group(1)),m.group(2),i)); continue
-        m=re.match(r'^(\s*)</items>\s*$',l)
-        if m and stack and stack[-1][0]==len(m.group(1)):
-            ind,typ,st=stack.pop()
+            stack.append((m.group(1) or '',i)); continue
+        if l.strip()=='</items>' and stack:
+            typ,st=stack.pop()
             if typ=='FormField':
                 # ancestors
                 col=False
                 for a in reversed(stack):
-                    if a[1]=='FormGroup': continue
-                    col = a[1]=='Table'; break
-                if col: cols.append((st,ind))
+                    if a[0]=='FormGroup': continue
+                    col = a[0]=='Table'; break
+                if col: cols.append(st)
     if not cols: continue
     ins=[]
-    for st,ind in cols:
-        # own direct children are at ind+2
-        ci=' '*(ind+2)
+    for st in cols:
+        # отступ прямых потомков - по строке <name>, а не по самому тегу items
         j=st+1
-        assert lines[j].startswith(ci+'<name>'),(path,lines[j])
+        assert lines[j].strip().startswith('<name>'),(path,lines[j])
+        ci=lines[j][:len(lines[j])-len(lines[j].lstrip())]
         j+=1
-        assert lines[j].startswith(ci+'<id>'),(path,lines[j])
+        assert lines[j].strip().startswith('<id>'),(path,lines[j])
         pos=j+1
         while lines[pos].strip()=='<title>':
             while lines[pos].strip()!='</title>':
@@ -51,9 +52,8 @@ for path in glob.glob(ROOT+'/**/Form.form',recursive=True):
             pos+=1
         k=pos
         has=False
-        while k<len(lines) and not lines[k].startswith(ci+'<visible>') and not lines[k].startswith(ci+'<enabled>') and not lines[k].startswith(ci+'<dataPath'):
+        while k<len(lines) and lines[k].strip().split(' ')[0].split('>')[0] not in ('<visible','<enabled','<dataPath','</items'):
             if lines[k].startswith(ci+'<titleFont'): has=True
-            if lines[k].startswith(' '*ind+'</items>'): break
             k+=1
         if lines[pos].startswith(ci+'<titleFont') or lines[pos].startswith(ci+'<titleTextColor'): has=True
         if has: already+=1; continue
