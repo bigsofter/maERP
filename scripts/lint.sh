@@ -30,6 +30,23 @@ if [ ! -f "$BSL_LS_JAR" ]; then
   exit 1
 fi
 
+# Пути в индексе git — только в NFC. macOS отдаёт имена с «ё»/«й» в NFD, его
+# файловая система этого не различает, а на Windows такой каталог не совпадает
+# с именем объекта в Configuration.mdo: EDT показывает объект серым, база не
+# обновляется (2026-10-09).
+NFD_PATHS="$(git -C "$ROOT" -c core.quotepath=false ls-files -z | python3 -c '
+import sys, unicodedata
+for p in sys.stdin.buffer.read().decode().split("\0"):
+	if p and unicodedata.normalize("NFC", p) != p:
+		print(p)
+')"
+if [ -n "$NFD_PATHS" ]; then
+	echo "Пути в индексе git в NFD (на Windows объекты не найдутся):" >&2
+	echo "$NFD_PATHS" >&2
+	echo "Исправление: git rm --cached по NFD-пути и git update-index --add --cacheinfo по NFC-пути." >&2
+	exit 1
+fi
+
 "$JAVA" -jar "$BSL_LS_JAR" \
   --analyze \
   --srcDir "$SRC" \
