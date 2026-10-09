@@ -10,6 +10,19 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.46
+### ru
+- Учёт станков: в карточке станка появилась таблица «Выработка по номенклатуре» — своя выработка, кг/ч, для продукции или материала. Время загрузки на закладке «Станки», «Готовы к запуску», автоплан и норма в отчётах «Выработка станков» и «Эффективность станков» считаются по ней: сначала по норме продукции, иначе по нормам материалов (каждый материал — по своей норме), а где строки нет — по общей выработке станка, как раньше. Уже запланированная загрузка получит новое время, когда её требование будет записано или перенесено, — так же, как при изменении общей выработки.
+
+### fr
+- Gestion des machines : la fiche machine comporte un tableau « Cadence par article » — une cadence propre, en kg/h, pour un produit ou une matière. La durée de charge de l'onglet « Machines », « Prêts au lancement », la planification automatique et la norme des rapports « Rendement des machines » et « Efficacité des machines » l'utilisent : d'abord la cadence du produit, sinon celles des matières (chaque matière à sa cadence), et sans ligne — la cadence générale de la machine, comme avant. Une charge déjà planifiée prend la nouvelle durée quand son bon est enregistré ou déplacé — comme lors d'un changement de la cadence générale.
+
+### en
+- Machine tracking: the machine card has a new "Output rate by item" table — its own output, kg/h, for a product or a material. The load time on the "Machines" tab, "Ready to start", auto-plan and the standard in the "Machine output" and "Machine efficiency" reports use it: first the product's rate, otherwise the materials' rates (each material at its own rate), and without a line — the machine's general output, as before. A load already planned gets the new time when its requisition is saved or moved — the same as when the general output changes.
+
+### es
+- Control de máquinas: la ficha de la máquina tiene la tabla «Rendimiento por artículo» — un rendimiento propio, kg/h, para un producto o un material. El tiempo de carga de la pestaña «Máquinas», «Listos para iniciar», el plan automático y la norma de los informes «Producción de máquinas» y «Eficiencia de máquinas» lo usan: primero el del producto, si no, los de los materiales (cada material a su rendimiento), y sin línea — el rendimiento general de la máquina, como antes. Una carga ya planificada recibe el nuevo tiempo cuando su vale se guarda o se traslada — igual que al cambiar el rendimiento general.
+
 ## 2.0.16.45
 ### ru
 - Рабочее место производства, закладка «Станки»: закладка помещается на экран без вертикальной прокрутки и больше не растягивает остальные закладки. Список станков, планировщик и нижние таблицы стали ниже и растягиваются на свободное место. Кнопки собраны в одну панель по группам: неделя, действия с загрузками, автоплан, обслуживание и обновление. Правая панель фильтров заказов на этой закладке скрыта — к станкам она не относится.

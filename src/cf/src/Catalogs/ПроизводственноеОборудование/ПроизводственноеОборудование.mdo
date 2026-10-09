@@ -195,19 +195,19 @@
     </type>
     <toolTip>
       <key>ru</key>
-      <value>Сколько килограммов материалов станок перерабатывает за час</value>
+      <value>Сколько килограммов материалов станок перерабатывает за час; используется, если в таблице «Выработка по номенклатуре» нет строки для продукции или материала</value>
     </toolTip>
     <toolTip>
       <key>fr</key>
-      <value>Kilogrammes de matières traités par heure</value>
+      <value>Kilogrammes de matières traités par heure ; utilisé si le tableau « Cadence par article » na pas de ligne pour le produit ou la matière</value>
     </toolTip>
     <toolTip>
       <key>en</key>
-      <value>Kilograms of materials processed per hour</value>
+      <value>Kilograms of materials processed per hour; used when the "Output rate by item" table has no line for the product or material</value>
     </toolTip>
     <toolTip>
       <key>es</key>
-      <value>Kilogramos de materiales procesados por hora</value>
+      <value>Kilogramos de materiales procesados por hora; se usa si la tabla «Rendimiento por artículo» no tiene línea para el producto o material</value>
     </toolTip>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
@@ -657,6 +657,130 @@
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
       <fillValue xsi:type="core:BooleanValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="a53676fd-0fd2-46a2-a2c3-eed449037944">
+    <producedTypes>
+      <objectType typeId="0e001a2f-4087-4a6b-86b7-78c9f525c25c" valueTypeId="00420eea-a4e9-4651-a0d6-3a43a3ad221a"/>
+      <rowType typeId="199d5f6a-3adf-4c1d-8d1c-0545c8cbf717" valueTypeId="a7ef72e3-287e-47a8-82e5-3e1b98026fbe"/>
+    </producedTypes>
+    <name>ВыработкаПоНоменклатуре</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выработка по номенклатуре</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Cadence par article</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Output rate by item</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Rendimiento por artículo</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Выработка станка для продукции или материала, кг/ч; где строки нет — общая выработка станка</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Cadence de la machine pour un produit ou une matière, kg/h ; sans ligne — cadence générale de la machine</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Machine output for a product or material, kg/h; without a line, the general machine output applies</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Rendimiento de la máquina para un producto o material, kg/h; sin línea, el rendimiento general de la máquina</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="d849f0d6-ea9b-4a61-8733-bbabfb6c2786">
+      <name>Номенклатура</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номенклатура</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Article</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Item</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Artículo</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Продукция или материал</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Produit ou matière</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Product or material</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Producto o material</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="dd33057b-f3db-4ef8-97f4-5737ebf07785">
+      <name>Выработка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Выработка, кг/ч</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Rendement, kg/h</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Output, kg/h</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Rendimiento, kg/h</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>3</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:UndefinedValue"/>
       <fullTextSearch>Use</fullTextSearch>
       <dataHistory>Use</dataHistory>
     </attributes>
