@@ -33,6 +33,45 @@
       <command>Document.ЗаявкаНаПоискТовара.StandardCommand.Create</command>
       <visible/>
     </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВозвратОтПокупателя.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+        <for>
+          <role>Role.PDV</role>
+        </for>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ВозвратОтПокупателя.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+        <for>
+          <role>Role.PDV</role>
+        </for>
+        <for>
+          <role>Role.МенеджерПоЗакупкам</role>
+        </for>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.РеализацияТоваровУслуг.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ЗаказПокупателя.StandardCommand.OpenList</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>Document.ЗаказПокупателя.StandardCommand.Create</command>
+      <visible/>
+    </visibilityFragments>
   </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
@@ -40,11 +79,17 @@
       <commands>Document.КоммерческоеПредложение.StandardCommand.OpenList</commands>
       <commands>Task.ЗадачиЗаказов.StandardCommand.OpenList</commands>
       <commands>Document.ЗаявкаНаПоискТовара.StandardCommand.OpenList</commands>
+      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelOrdinary</group>
+      <commands>Document.ЗаказПокупателя.StandardCommand.OpenList</commands>
+      <commands>Document.РеализацияТоваровУслуг.StandardCommand.OpenList</commands>
+      <commands>Document.ВозвратОтПокупателя.StandardCommand.OpenList</commands>
       <commands>Document.КоммерческоеПредложение.StandardCommand.OpenList</commands>
       <commands>Task.ЗадачиЗаказов.StandardCommand.OpenList</commands>
       <commands>Document.ЗаявкаНаПоискТовара.StandardCommand.OpenList</commands>

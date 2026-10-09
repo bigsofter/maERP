@@ -91,11 +91,21 @@
       <command>Catalog.ВидыСвойствНоменклатуры.StandardCommand.Create</command>
       <visible/>
     </visibilityFragments>
+    <visibilityFragments>
+      <command>DataProcessor.ПечатьЭтикеток.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
   </commandsVisibility>
   <commandsPlacement>
     <placementFragments>
       <group>NavigationPanelImportant</group>
       <commands>Catalog.Номенклатура.Command.Товары</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>NavigationPanelOrdinary</group>
+      <commands>DataProcessor.ПечатьЭтикеток.StandardCommand.Open</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
@@ -111,6 +121,7 @@
       <commands>Catalog.НаборыУпаковок.StandardCommand.OpenList</commands>
       <commands>InformationRegister.ШтрихкодыНоменклатуры.StandardCommand.OpenList</commands>
       <commands>Catalog.ВидыСвойствНоменклатуры.StandardCommand.OpenList</commands>
+      <commands>DataProcessor.ПечатьЭтикеток.StandardCommand.Open</commands>
     </orderFragments>
   </commandsOrder>
 </cmi:CommandInterface>
