@@ -1112,7 +1112,7 @@
 Функция ВыполнитьДействиеТребования(Требование, Действие, КоличествоФакт = 0) Экспорт
 
 	Если Действие <> "Запустить" И Действие <> "Завершить" И Действие <> "Отменить" Тогда
-		ВызватьИсключение СтрШаблон("Неизвестное действие закладки «Станки»: %1", Действие);
+		ВызватьИсключение СтрШаблон("Неизвестное действие рабочего места «Управление станками»: %1", Действие);
 	КонецЕсли;
 	Объект = Требование.ПолучитьОбъект();
 	Если Действие = "Завершить" Тогда
@@ -2250,10 +2250,10 @@
 
 	Строки = СтрокиГотовых(Заказ, Склад).НайтиСтроки(Новый Структура("КодСтроки", КодСтроки));
 	Если Строки.Количество() = 0 Тогда
-		Возврат НСтр("ru = 'Строка заказа больше не готова к запуску: обновите закладку «Станки»';
-			|fr = 'La ligne de commande n''est plus prête à lancer : actualisez l''onglet « Machines »';
-			|en = 'The order line is no longer ready to start: refresh the ""Machines"" tab';
-			|es = 'La línea del pedido ya no está lista para iniciar: actualice la pestaña «Máquinas»'");
+		Возврат НСтр("ru = 'Строка заказа больше не готова к запуску: обновите рабочее место «Управление станками»';
+			|fr = 'La ligne de commande n''est plus prête à lancer : actualisez le poste « Gestion des machines »';
+			|en = 'The order line is no longer ready to start: refresh the ""Machine management"" workplace';
+			|es = 'La línea del pedido ya no está lista para iniciar: actualice el puesto «Gestión de máquinas»'");
 	КонецЕсли;
 	Если Количество > Строки[0].Остаток Тогда
 		Шаблон = НСтр("ru = 'По строке заказа осталось разместить %1, а указано %2';
