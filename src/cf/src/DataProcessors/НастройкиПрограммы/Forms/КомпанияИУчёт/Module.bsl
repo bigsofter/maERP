@@ -209,15 +209,12 @@
 
 КонецФункции
 
-// Группа «Демо-данные» - только администратору; флажки опций - только для выключенных опций.
+// Группа «Демо-данные» - только администратору. Состав набора задают включённые функциональные опции, флажков нет.
 //
 &НаСервере
 Процедура НастроитьДемоДанные()
 
 	Элементы.ГруппаДемоДанные.Видимость = ПравоДоступа("Администрирование", Метаданные);
-	Элементы.ДемоВключитьПроизводство.Видимость = Не Константы.ИспользоватьПроизводство.Получить();
-	Элементы.ДемоВключитьАвтовыпуск.Видимость = Не Константы.ИспользоватьАвтовыпускПриОтгрузке.Получить();
-	Элементы.ДемоВключитьУчетСтанков.Видимость = Не Константы.ИспользоватьУчетСтанков.Получить();
 
 КонецПроцедуры
 
@@ -338,12 +335,12 @@
 
 КонецФункции
 
-// Текст подтверждения: что запишется и какие опции включатся.
+// Текст подтверждения: что запишется и какие блоки заполнятся по включённым опциям. Опции кнопка не включает.
 //
 // Возвращаемое значение:
 //  Строка - текст вопроса
 //
-&НаКлиенте
+&НаСервереБезКонтекста
 Функция ТекстПодтвержденияДемоДанных()
 
 	Строки = Новый Массив;
@@ -355,23 +352,20 @@
 		|removed by themselves. Items and cases already created are reused, not duplicated.';
 		|es = 'Los datos de demostración se escribirán en los registros reales de esta base: existencias, lotes, deudas,
 		|dinero. No se eliminan solos. Los elementos y casos ya creados se reutilizan, no se duplican.'"));
-	Если ДемоВключитьПроизводство И Элементы.ДемоВключитьПроизводство.Видимость Тогда
-		Строки.Добавить(НСтр("ru = '- включится производство'; fr = '- la production sera activée';
-			|en = '- production will be turned on'; es = '- se activará la producción'"));
-	КонецЕсли;
-	Если ДемоВключитьАвтовыпуск И Элементы.ДемоВключитьАвтовыпуск.Видимость Тогда
-		Строки.Добавить(НСтр("ru = '- включится автовыпуск при отгрузке'; fr = '- la production automatique à l''expédition sera activée';
-			|en = '- automatic output on shipment will be turned on'; es = '- se activará la producción automática al enviar'"));
-	КонецЕсли;
-	Если ДемоВключитьУчетСтанков И Элементы.ДемоВключитьУчетСтанков.Видимость Тогда
-		Строки.Добавить(НСтр("ru = '- включится учёт станков: открытые демо-требования не дадут выключить его и производство';
-			|fr = '- le suivi des machines sera activé : les bons de démonstration ouverts empêcheront de le désactiver';
-			|en = '- machine tracking will be turned on: open demo requisitions prevent turning it off';
-			|es = '- se activará el control de máquinas: los vales de demostración abiertos impedirán desactivarlo'"));
-	КонецЕсли;
-	Если ДемоБлокСтанков Тогда
-		Строки.Добавить(НСтр("ru = '- добавится блок учёта станков'; fr = '- le bloc de suivi des machines sera ajouté';
-			|en = '- the machine tracking block will be added'; es = '- se añadirá el bloque de control de máquinas'"));
+	Строки.Добавить(НСтр("ru = 'Заполняется то, что включено в функциональных опциях; выключенные опции не включаются.';
+		|fr = 'Seul ce qui est activé dans les options fonctionnelles est rempli ; les options désactivées ne sont pas activées.';
+		|en = 'Only what is turned on in the functional options is filled; options that are off are not turned on.';
+		|es = 'Solo se llena lo activado en las opciones funcionales; las opciones desactivadas no se activan.'"));
+	Если Константы.ИспользоватьПроизводство.Получить() Тогда
+		Строки.Добавить(НСтр("ru = '- производство и торговля'; fr = '- production et commerce';
+			|en = '- production and trade'; es = '- producción y comercio'"));
+		Если Константы.ИспользоватьУчетСтанков.Получить() Тогда
+			Строки.Добавить(НСтр("ru = '- учёт станков'; fr = '- suivi des machines'; en = '- machine tracking';
+				|es = '- control de máquinas'"));
+		КонецЕсли;
+	Иначе
+		Строки.Добавить(НСтр("ru = '- производство выключено: набор будет пропущен'; fr = '- la production est désactivée : le jeu sera ignoré';
+			|en = '- production is turned off: the set will be skipped'; es = '- la producción está desactivada: el conjunto se omitirá'"));
 	КонецЕсли;
 	Строки.Добавить(НСтр("ru = 'Заполнить?'; fr = 'Remplir ?'; en = 'Fill?'; es = '¿Llenar?'"));
 	Возврат СтрСоединить(Строки, Символы.ПС);
@@ -440,10 +434,8 @@
 		Возврат ТекстНетПраваДемоДанных();
 	КонецЕсли;
 	ПараметрыЗаполнения = Обработки.ТестовыеДанные.НовыеПараметрыДемоНабора();
-	ПараметрыЗаполнения.ВключитьПроизводство = ДемоВключитьПроизводство;
-	ПараметрыЗаполнения.ВключитьАвтовыпуск = ДемоВключитьАвтовыпуск;
-	ПараметрыЗаполнения.ВключитьУчетСтанков = ДемоВключитьУчетСтанков;
-	Если ДемоБлокСтанков Тогда
+	// Блоки - по включённым опциям; сами опции кнопка не включает (ВключитьХ остаются Ложь).
+	Если Константы.ИспользоватьУчетСтанков.Получить() Тогда
 		ПараметрыЗаполнения.Блоки = "CORE,M";
 	КонецЕсли;
 	ДемоАдресРезультата = ПоместитьВоВременноеХранилище(Неопределено, УникальныйИдентификатор);
