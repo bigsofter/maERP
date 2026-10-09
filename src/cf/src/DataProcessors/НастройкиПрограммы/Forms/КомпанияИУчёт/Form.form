@@ -432,6 +432,330 @@
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
+  <items xsi:type="form:FormGroup">
+    <name>ГруппаДемоДанные</name>
+    <id>28</id>
+    <items xsi:type="form:Decoration">
+      <name>ДемоДанныеОписание</name>
+      <id>29</id>
+      <title>
+        <key>ru</key>
+        <value>Только для демо- и тестовой базы: заводит демо-набор (производство, продажи, закупки, деньги, по желанию — учёт станков) в настоящие регистры этой базы. Уже заведённое не дублируется. В базе с рабочими документами заполнение откажет.</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Uniquement pour une base de démonstration ou de test : crée le jeu de démonstration (production, ventes, achats, trésorerie, en option le suivi des machines) dans les registres réels de cette base. Ce qui existe déjà n'est pas dupliqué. Dans une base avec des documents de travail, le remplissage est refusé.</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>For a demo or test infobase only: creates the demo set (production, sales, purchases, money, optionally machine tracking) in the real registers of this infobase. What already exists is not duplicated. In an infobase with working documents the filling is refused.</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Solo para una base de demostración o de prueba: crea el conjunto de demostración (producción, ventas, compras, dinero, opcionalmente control de máquinas) en los registros reales de esta base. Lo que ya existe no se duplica. En una base con documentos de trabajo el llenado se rechaza.</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ДемоДанныеОписаниеРасширеннаяПодсказка</name>
+        <id>30</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДемоДанныеОписаниеКонтекстноеМеню</name>
+        <id>31</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>Label</type>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ДемоВключитьПроизводство</name>
+      <id>32</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ДемоВключитьПроизводство</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Функциональная опция «Производство» выключена: без неё демо-набор не заполняется</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>L'option « Production » est désactivée : sans elle le jeu de démonstration n'est pas rempli</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>The &quot;Production&quot; option is turned off: the demo set is not filled without it</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>La opción «Producción» está desactivada: sin ella el conjunto de demostración no se llena</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ДемоВключитьПроизводствоРасширеннаяПодсказка</name>
+        <id>33</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДемоВключитьПроизводствоКонтекстноеМеню</name>
+        <id>34</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <checkBoxType>Auto</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ДемоВключитьАвтовыпуск</name>
+      <id>35</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ДемоВключитьАвтовыпуск</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Автоматический выпуск продукции при отгрузке: кейсы с автовыпуском показывают его в работе</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Production automatique à l'expédition : les cas avec production automatique la montrent en action</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Automatic output on shipment: the cases with automatic output show it at work</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Producción automática al enviar: los casos con producción automática la muestran en acción</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ДемоВключитьАвтовыпускРасширеннаяПодсказка</name>
+        <id>36</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДемоВключитьАвтовыпускКонтекстноеМеню</name>
+        <id>37</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <checkBoxType>Auto</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ДемоВключитьУчетСтанков</name>
+      <id>38</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ДемоВключитьУчетСтанков</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Появятся группа «Станки» и поле «Оборудование» в выпуске у всех пользователей; открытые требования демо-набора не дадут выключить учёт станков и производство, пока их не завершить или не отменить</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Le groupe « Machines » et le champ « Équipement » de la production apparaîtront pour tous ; les bons ouverts du jeu empêcheront de désactiver le suivi des machines et la production tant qu'ils ne sont pas terminés ou annulés</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>The &quot;Machines&quot; group and the &quot;Equipment&quot; field in output appear for all users; open demo requisitions prevent turning off machine tracking and production until they are completed or cancelled</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Aparecerán el grupo «Máquinas» y el campo «Equipo» en la producción para todos; los vales abiertos del conjunto impedirán desactivar el control de máquinas y la producción hasta terminarlos o cancelarlos</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ДемоВключитьУчетСтанковРасширеннаяПодсказка</name>
+        <id>39</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДемоВключитьУчетСтанковКонтекстноеМеню</name>
+        <id>40</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <checkBoxType>Auto</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ДемоБлокСтанков</name>
+      <id>41</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>ДемоБлокСтанков</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Станки, требования-накладные во всех состояниях, обслуживание и инвентаризация на станках: отчёты по станкам и закладка «Станки» рабочего места производства будут с данными</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Machines, bons de consommation dans tous les états, maintenance et inventaire sur machines : les rapports machines et l'onglet « Machines » du poste de production auront des données</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Machines, requisitions in all states, maintenance and machine stocktaking: machine reports and the &quot;Machines&quot; tab of the production workplace will have data</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Máquinas, vales en todos los estados, mantenimiento e inventario en máquinas: los informes de máquinas y la pestaña «Máquinas» del puesto de producción tendrán datos</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ДемоБлокСтанковРасширеннаяПодсказка</name>
+        <id>42</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДемоБлокСтанковКонтекстноеМеню</name>
+        <id>43</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <checkBoxType>Auto</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ЗаполнитьДемоДанные</name>
+      <id>44</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ЗаполнитьДемоДанныеРасширеннаяПодсказка</name>
+        <id>45</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualButton</type>
+      <commandName>Form.Command.ЗаполнитьДемоДанные</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Демо-данные</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Données de démonstration</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Demo data</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Datos de demostración</value>
+    </title>
+    <extendedTooltip>
+      <name>ГруппаДемоДанныеРасширеннаяПодсказка</name>
+      <id>46</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <representation>None</representation>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <showTitle>auto</showTitle>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
@@ -464,6 +788,149 @@
     </edit>
     <main>true</main>
     <savedData>true</savedData>
+  </attributes>
+  <attributes>
+    <name>ДемоВключитьПроизводство</name>
+    <title>
+      <key>ru</key>
+      <value>Включить производство</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Activer la production</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Turn on production</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Activar la producción</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДемоВключитьАвтовыпуск</name>
+    <title>
+      <key>ru</key>
+      <value>Включить автовыпуск при отгрузке</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Activer la production automatique à l'expédition</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Turn on automatic output on shipment</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Activar la producción automática al enviar</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДемоВключитьУчетСтанков</name>
+    <title>
+      <key>ru</key>
+      <value>Включить учёт станков</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Activer le suivi des machines</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Turn on machine tracking</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Activar el control de máquinas</value>
+    </title>
+    <id>4</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДемоБлокСтанков</name>
+    <title>
+      <key>ru</key>
+      <value>Добавить блок учёта станков</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Ajouter le bloc de suivi des machines</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Add the machine tracking block</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Añadir el bloque de control de máquinas</value>
+    </title>
+    <id>5</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДемоЗадание</name>
+    <id>6</id>
+    <valueType>
+      <types>UUID</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДемоАдресРезультата</name>
+    <id>7</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <formCommands>
     <name>СоздатьСвойстваНоменклатуры</name>
@@ -506,6 +973,52 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>СоздатьСвойстваНоменклатуры</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ЗаполнитьДемоДанные</name>
+    <title>
+      <key>ru</key>
+      <value>Заполнить демо-данными</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remplir avec des données de démonstration</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Fill with demo data</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Llenar con datos de demostración</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Завести демо-набор в этой демо- или тестовой базе; уже заведённое переиспользуется</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer le jeu de démonstration dans cette base de démonstration ou de test ; l'existant est réutilisé</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create the demo set in this demo or test infobase; what exists is reused</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear el conjunto de demostración en esta base de demostración o de prueba; lo existente se reutiliza</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ЗаполнитьДемоДанные</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
