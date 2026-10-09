@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.40
+### ru
+- Инвентаризация станков: в меню «Производство → Станки» — «Инвентаризация станков», «Оприходование материалов» и «Списание материалов». Каждая команда открывает список уже отобранных документов по станкам; новый документ из такого списка сразу создаётся по станку.
+- В пересчёте, списании и оприходовании товаров появился вид операции «По станку» (при включённом учёте станков): вместо склада выбирается станок, документ работает со складом станка. Учётное количество пересчёта — всё, что лежит на станке. Списание и оприходование на основании пересчёта получают тот же станок.
+- Недостача на станке списывается со свободного остатка станка; материалы, закреплённые за запущенным заказом, списывает его завершение — их списание отклоняется с названием требования. При создании списания и оприходования из пересчёта по станку пустые документы не создаются, а причина отказа проведения показывается.
+
+### fr
+- Inventaire des machines : dans le menu « Production → Machines » — « Inventaire des machines », « Entrée de matières » et « Sortie de matières ». Chaque commande ouvre la liste déjà filtrée des documents par machine ; un nouveau document créé depuis cette liste est d'emblée par machine.
+- L'inventaire, la sortie et l'entrée de marchandises ont un type d'opération « Par machine » (gestion des machines activée) : on choisit la machine au lieu de l'entrepôt, le document travaille avec le stock de la machine. La quantité théorique de l'inventaire est tout ce qui se trouve sur la machine. La sortie et l'entrée créées depuis l'inventaire reprennent la même machine.
+- Un manque sur la machine est sorti du stock libre de la machine ; les matières réservées à une commande lancée sont sorties à sa fin — leur sortie est refusée avec le nom du bon. En créant la sortie et l'entrée depuis un inventaire par machine, aucun document vide n'est créé et le motif d'un refus de validation est affiché.
+
+### en
+- Machine stocktaking: the "Production → Machines" menu has "Machine stocktaking", "Materials receipt" and "Materials write-off". Each command opens the list already filtered to machine documents; a new document from that list is created by machine right away.
+- Stock count, write-off and receipt of goods have a "By machine" operation type (with machine management on): the machine is chosen instead of the warehouse and the document works with the machine stock. The book quantity of the count is everything on the machine. A write-off and receipt created from the count get the same machine.
+- A shortage on the machine is written off from the machine free stock; materials reserved for a started order are written off when it is completed — writing them off is refused, naming the requisition. When a write-off and receipt are created from a machine count, empty documents are not created and the reason for a posting refusal is shown.
+
+### es
+- Inventario de máquinas: en el menú «Producción → Máquinas» — «Inventario de máquinas», «Ingreso de materiales» y «Baja de materiales». Cada comando abre la lista ya filtrada de documentos por máquina; un documento nuevo desde esa lista se crea directamente por máquina.
+- El recuento, la baja y el ingreso de mercancías tienen el tipo de operación «Por máquina» (con la gestión de máquinas activada): se elige la máquina en lugar del almacén y el documento trabaja con el stock de la máquina. La cantidad contable del recuento es todo lo que hay en la máquina. La baja y el ingreso creados desde el recuento toman la misma máquina.
+- Una falta en la máquina se da de baja del stock libre de la máquina; los materiales reservados para un pedido iniciado se dan de baja al terminarlo — su baja se rechaza indicando el vale. Al crear la baja y el ingreso desde un recuento por máquina no se crean documentos vacíos y se muestra el motivo del rechazo de contabilización.
+
 ## 2.0.16.39
 ### ru
 - На планировщике закладки «Станки» запланированную загрузку и плановое обслуживание можно растянуть или сжать мышью за край. Меняется только время, количество прежнее: длительность загрузки становится равной рабочим часам станка между новым началом и окончанием (с шагом 15 минут) и сохраняется при переносе.
