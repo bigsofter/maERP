@@ -229,6 +229,7 @@
         <dataPath xsi:type="form:DataPath">
           <segments>Объект.ВидОперации</segments>
         </dataPath>
+        <titleLocation>Left</titleLocation>
         <handlers>
           <event>OnChange</event>
           <name>ВидОперацииПриИзменении</name>
@@ -248,19 +249,23 @@
           <id>170</id>
           <autoFill>true</autoFill>
         </contextMenu>
-        <type>InputField</type>
-        <editMode>Auto</editMode>
+        <type>RadioButtonField</type>
+        <editMode>Enter</editMode>
         <showInHeader>true</showInHeader>
         <headerHorizontalAlign>Left</headerHorizontalAlign>
         <showInFooter>true</showInFooter>
-        <extInfo xsi:type="form:InputFieldExtInfo">
-          <autoMaxWidth>true</autoMaxWidth>
-          <autoMaxHeight>true</autoMaxHeight>
-          <wrap>true</wrap>
-          <chooseType>true</chooseType>
-          <typeDomainEnabled>true</typeDomainEnabled>
-          <textEdit>true</textEdit>
-          <textSize>Normal</textSize>
+        <extInfo xsi:type="form:RadioButtonsFieldExtInfo">
+          <radioButtonsType>Tumbler</radioButtonsType>
+          <choiceList>
+            <value xsi:type="core:ReferenceValue">
+              <value>Enum.ВидыСкладскихОпераций.EnumValue.Склад</value>
+            </value>
+          </choiceList>
+          <choiceList>
+            <value xsi:type="core:ReferenceValue">
+              <value>Enum.ВидыСкладскихОпераций.EnumValue.Станок</value>
+            </value>
+          </choiceList>
           <font xsi:type="core:FontRef">
             <font>Style.Шрифт_Основной</font>
           </font>
@@ -277,6 +282,7 @@
         <dataPath xsi:type="form:DataPath">
           <segments>Объект.Станок</segments>
         </dataPath>
+        <titleLocation>Left</titleLocation>
         <handlers>
           <event>OnChange</event>
           <name>СтанокПриИзменении</name>
