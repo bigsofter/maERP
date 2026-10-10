@@ -10,6 +10,19 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.54
+### ru
+- Списание и оприходование, введённые на основании пересчёта «По станку», работают со складом этого пересчёта. Раньше, если после пересчёта в карточке станка сменили склад станка, документ при записи подставлял новый склад, и недостача или излишек проводились не на том складе, где их нашли. Сменить у такого документа станок или вид операции нельзя: запись откажет с подсказкой.
+
+### fr
+- Les sorties et entrées de stock créées à partir d'un inventaire « Par machine » utilisent le stock de cet inventaire. Auparavant, si le stock de la machine avait été changé dans sa fiche après l'inventaire, le document prenait le nouveau stock à l'enregistrement, et le manquant ou l'excédent était passé sur un autre stock que celui où il avait été constaté. La machine et le type d'opération d'un tel document ne peuvent plus être changés : l'enregistrement est refusé avec une explication.
+
+### en
+- Write-offs and receipts created from a "By machine" stock count use the stock of that count. Previously, if the machine stock was changed on the machine card after the count, the document took the new stock when saved, and the shortage or surplus was posted to a different stock from where it was found. The machine and operation type of such a document can no longer be changed: saving is refused with an explanation.
+
+### es
+- Las bajas y altas de existencias creadas a partir de un recuento «Por máquina» usan el almacén de ese recuento. Antes, si después del recuento se cambiaba el almacén de la máquina en su ficha, el documento tomaba el almacén nuevo al guardarse, y el faltante o el sobrante se registraba en un almacén distinto de aquel donde se encontró. Ya no se puede cambiar la máquina ni el tipo de operación de ese documento: el guardado se rechaza con una explicación.
+
 ## 2.0.16.53
 ### ru
 - Списание безналичных денежных средств, созданное не из формы (обработкой, обменом, на основании в коде), больше не останавливается на проверке «Сумма в валюте регл учета не заполнена»: эту сумму документ сам пересчитывает из суммы и курса при записи, как остальные платёжные документы.
