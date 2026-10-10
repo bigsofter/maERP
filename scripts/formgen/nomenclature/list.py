@@ -240,6 +240,83 @@ if группа_списка.find('visible') is None:
 главная.insert(list(главная).index(главная.find('type')), панель)
 форма.insert(0, главная)
 
+# --- этап 2: навигатор иерархии слева и отбор «свойство = значение» в панели (2.0.16.61) -------------------------------
+
+def значение_узла_тип(vt):
+    """Тип значения узла и отбора по свойству: классификаторы режимов и типы значений дополнительных реквизитов."""
+    for тип in ('EnumRef.ТипыНоменклатуры', 'EnumRef.СпособыПополненияЗапасов', 'CatalogRef.ТоварныеГруппы',
+                'CatalogRef.Бренды', 'CatalogRef.Контрагенты', 'CatalogRef.КачествоТоваров',
+                'CatalogRef.ЗначенияДополнительныхРеквизитов', 'CatalogRef.Номенклатура', 'String', 'Date', 'Boolean',
+                'Number'):
+        etree.SubElement(vt, 'types').text = тип
+    q = etree.SubElement(vt, 'numberQualifiers')
+    etree.SubElement(q, 'precision').text = '15'
+    etree.SubElement(q, 'scale').text = '3'
+    q = etree.SubElement(vt, 'stringQualifiers')
+    etree.SubElement(q, 'length').text = '200'
+    q = etree.SubElement(vt, 'dateQualifiers')
+    etree.SubElement(q, 'dateFractions').text = 'Date'
+
+
+иерархия = копия(образец, 'ГруппаЛевая', без_детей=True)
+переименовать(иерархия, 'ГруппаЛевая', 'ГруппаИерархия')
+строка_режима = копия(образец, 'ГруппаЛевая', без_детей=True)
+переименовать(строка_режима, 'ГруппаЛевая', 'ГруппаРежимИерархии')
+строка_режима.find('extInfo/group').text = 'AlwaysHorizontal'
+
+режим = copy.deepcopy(найти(панель, 'ОтборСклад'))
+переименовать(режим, 'ОтборСклад', 'РежимИерархии')
+путь(режим, 'РежимИерархии')
+локализация(режим, 'title', ('Иерархия', 'Hiérarchie', 'Hierarchy', 'Jerarquía'), после='id')
+режим.find('titleLocation').text = 'None'
+режим.find('handlers/name').text = 'РежимИерархииПриИзменении'
+ext = режим.find('extInfo')
+lcm = etree.Element('listChoiceMode')
+lcm.text = 'true'
+ext.insert(list(ext).index(ext.find('textEdit')), lcm)
+ext.find('textEdit').text = 'false'
+
+избранное = copy.deepcopy(найти(панель, 'КнопкаСвернутьПанель'))
+переименовать(избранное, 'КнопкаСвернутьПанель', 'КнопкаИзбранныйРежим')
+избранное.find('commandName').text = 'Form.Command.ИзбранныйРежим'
+избранное.find('representation').text = 'Text'
+избранное.remove(избранное.find('picture'))
+обновить = copy.deepcopy(избранное)
+переименовать(обновить, 'КнопкаИзбранныйРежим', 'КнопкаОбновитьИерархию')
+обновить.find('commandName').text = 'Form.Command.ОбновитьИерархию'
+for c in (режим, избранное, обновить):
+    строка_режима.insert(list(строка_режима).index(строка_режима.find('type')), c)
+
+узлы = копия(образец, 'ТаблицаСостав')
+переименовать(узлы, 'ТаблицаСостав', 'УзлыИерархии')
+путь(узлы, 'УзлыИерархии')
+удалить(узлы, 'УзлыИерархииСумма')
+for старое, новое, заголовок in (
+        ('Номенклатура', 'Представление', ('Значение', 'Valeur', 'Value', 'Valor')),
+        ('Количество', 'Количество', ('Товаров', 'Articles', 'Items', 'Artículos'))):
+    кол = найти(узлы, 'УзлыИерархии' + старое)
+    переименовать(кол, 'УзлыИерархии' + старое, 'УзлыИерархии' + новое)
+    путь(кол, 'УзлыИерархии.' + новое)
+    локализация(кол, 'title', заголовок, после='id')
+обработчик(узлы, 'OnActivateRow', 'УзлыИерархииПриАктивизацииСтроки', перед='extendedTooltip')
+for c in (строка_режима, узлы):
+    иерархия.insert(list(иерархия).index(иерархия.find('type')), c)
+главная.insert(0, иерархия)
+
+# Отбор «свойство = значение» в панели фильтров - после качества.
+свойство = copy.deepcopy(найти(панель, 'ОтборКачество'))
+переименовать(свойство, 'ОтборКачество', 'ОтборСвойство')
+путь(свойство, 'ОтборСвойство')
+локализация(свойство, 'title', ('Свойство', 'Propriété', 'Property', 'Propiedad'), после='id')
+свойство.find('handlers/name').text = 'ОтборСвойствоПриИзменении'
+значение = copy.deepcopy(найти(панель, 'ОтборКачество'))
+переименовать(значение, 'ОтборКачество', 'ОтборЗначенияСвойства')
+путь(значение, 'ОтборЗначенияСвойства')
+локализация(значение, 'title', ('Значение свойства', 'Valeur de la propriété', 'Property value', 'Valor de la propiedad'),
+            после='id')
+вставить_после(найти(панель, 'ОтборКачество'), [свойство, значение])
+
+
 # --- запрос динсписка: текст из модуля менеджера, параметры ------------------------------------------------------------
 
 модуль = open(МЕНЕДЖЕР, encoding='utf-8').read()
@@ -314,6 +391,35 @@ for номер, (имя, тип, кв) in enumerate((('Склад', 'CatalogRef.
     for тег in ('view', 'edit'):
         etree.SubElement(etree.SubElement(c, тег), 'common').text = 'true'
 РЕКВИЗИТЫ.append(таблица_остатков)
+РЕКВИЗИТЫ_2 = []
+тип_значения = etree.Element('valueType')
+значение_узла_тип(тип_значения)
+for имя, тип, сохранять, кв in (('РежимИерархии', 'String', True, None), ('ИзбранныеРежимы', 'String', True, None),
+                                ('ВидУзла', 'Number', True, число(1)),
+                                ('ОтборСвойство', 'ChartOfCharacteristicTypesRef.ДополнительныеРеквизиты', True, None)):
+    a = реквизит(имя, тип, сохранять, кв if кв is not None else (etree.Element('stringQualifiers') if тип == 'String'
+                                                                   else None))
+    РЕКВИЗИТЫ_2.append(a)
+for имя in ('ЗначениеУзла', 'ОтборЗначенияСвойства'):
+    a = реквизит(имя, 'String', True)
+    a.replace(a.find('valueType'), copy.deepcopy(тип_значения))
+    РЕКВИЗИТЫ_2.append(a)
+таблица_узлов = реквизит('УзлыИерархии', 'ValueTable')
+for номер, (имя, тип, кв) in enumerate((('Значение', None, None), ('Представление', 'String', etree.Element('stringQualifiers')),
+                                        ('Количество', 'Number', число(10)), ('Вид', 'Number', число(1))), 1):
+    c = etree.SubElement(таблица_узлов, 'columns')
+    etree.SubElement(c, 'name').text = имя
+    etree.SubElement(c, 'id').text = str(номер)
+    if тип is None:
+        c.append(copy.deepcopy(тип_значения))
+    else:
+        vt = etree.SubElement(c, 'valueType')
+        etree.SubElement(vt, 'types').text = тип
+        vt.append(кв)
+    for тег in ('view', 'edit'):
+        etree.SubElement(etree.SubElement(c, тег), 'common').text = 'true'
+РЕКВИЗИТЫ_2.append(таблица_узлов)
+РЕКВИЗИТЫ.extend(РЕКВИЗИТЫ_2)
 последний = форма.findall('attributes')[-1]
 вставить_после(последний, РЕКВИЗИТЫ)
 for номер, a in enumerate(форма.findall('attributes'), 1):
@@ -333,6 +439,20 @@ for имя, новое, заголовок, подсказка in (
         к.find('action/handler/name').text = новое
         локализация(к, 'title', заголовок, после='name')
         локализация(к, 'toolTip', подсказка, после='id')
+    КОМАНДЫ.append(к)
+обновить_к = найти(образец, 'ПоказатьФильтры', 'formCommands')
+for имя, заголовок, подсказка in (
+        ('ИзбранныйРежим', ('Избранный режим', 'Mode favori', 'Favorite mode', 'Modo favorito'),
+         ('Закрепить режим иерархии первым в списке', 'Épingler le mode de hiérarchie en tête de liste',
+          'Pin the hierarchy mode at the top of the list', 'Fijar el modo de jerarquía al principio de la lista')),
+        ('ОбновитьИерархию', ('↻', '↻', '↻', '↻'),
+         ('Пересчитать узлы иерархии', 'Recalculer les nœuds de la hiérarchie', 'Recount hierarchy nodes',
+          'Recalcular los nodos de la jerarquía'))):
+    к = copy.deepcopy(обновить_к)
+    к.find('name').text = имя
+    к.find('action/handler/name').text = имя
+    локализация(к, 'title', заголовок, после='name')
+    локализация(к, 'toolTip', подсказка, после='id')
     КОМАНДЫ.append(к)
 вставить_после(форма.findall('attributes')[-1], КОМАНДЫ)
 for номер, к in enumerate(КОМАНДЫ, 1):
