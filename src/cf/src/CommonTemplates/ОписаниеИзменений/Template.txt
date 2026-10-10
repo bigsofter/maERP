@@ -10,6 +10,35 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.59
+### ru
+- Карточка товара больше не перезаписывает чужой штрихкод: если артикул или отсканированный штрихкод уже принадлежит другому товару, штрихкод не записывается, а карточка показывает, чей он. Собственный штрихкод товара с характеристикой, упаковкой или серией при записи карточки больше не теряет их. Так же работают загрузка товаров из Excel (отказы — в сообщениях загрузки) и новая серия: занятый номер EAN-13 генерируется заново.
+- Минимальные и максимальные остатки по складам записываются вместе с товаром: у нового товара они больше не могут сохраниться без товара, а запись карточки меняет только склады, где значение изменилось или ещё не записано.
+- Цены и технологическая карта из карточки записываются вместе с товаром: если документ цен или карта не записались, товар тоже не сохраняется — раньше он оставался сохранённым без них.
+- Проверка «товар с таким артикулом уже существует» срабатывает только у нового товара и при смене артикула: товары с давним дублем артикула снова можно править. Пустое наименование заполняется из полного и наоборот при любой записи товара.
+- Дополнительный реквизит хранит одно значение: при записи из карточки, рабочего места производства или группового изменения лишние строки того же реквизита удаляются, а при чтении из старых дублей берётся последнее значение — как показывает карточка.
+
+### fr
+- La fiche article n'écrase plus le code-barres d'un autre article : si la référence ou le code-barres scanné appartient déjà à un autre article, le code-barres n'est pas enregistré et la fiche indique à qui il appartient. Le code-barres propre de l'article ne perd plus sa variante, son conditionnement ou son lot à l'enregistrement de la fiche. Il en va de même pour l'import des articles depuis Excel (refus affichés dans les messages de l'import) et pour un nouveau lot : un numéro EAN-13 déjà pris est régénéré.
+- Les stocks minimaux et maximaux par entrepôt sont enregistrés avec l'article : pour un nouvel article ils ne peuvent plus être enregistrés sans article, et l'enregistrement de la fiche ne modifie que les entrepôts dont la valeur a changé ou n'existait pas encore.
+- Les prix et la gamme de fabrication de la fiche sont enregistrés avec l'article : si le document de prix ou la gamme échoue, l'article n'est pas enregistré non plus — auparavant il restait enregistré sans eux.
+- Le contrôle « un article avec cette référence existe déjà » ne s'applique qu'à un nouvel article et au changement de référence : les articles avec un ancien doublon de référence se modifient à nouveau. Le nom vide est rempli à partir du nom complet et inversement à chaque enregistrement.
+- Un attribut supplémentaire garde une seule valeur : à l'enregistrement depuis la fiche, le poste de production ou la modification groupée, les lignes en double du même attribut sont supprimées, et la lecture d'anciens doublons prend la dernière valeur, comme la fiche.
+
+### en
+- The item card no longer overwrites another item's barcode: if the article number or a scanned barcode already belongs to another item, the barcode is not saved and the card shows who owns it. The item's own barcode no longer loses its characteristic, package or batch when the card is saved. The same applies to importing items from Excel (refusals are shown in the import messages) and to a new batch: an EAN-13 number already taken is generated again.
+- Minimum and maximum stock by warehouse are saved together with the item: for a new item they can no longer be saved without the item, and saving the card changes only the warehouses whose value changed or was not saved yet.
+- Prices and the production routing from the card are saved together with the item: if the price document or the routing fails, the item is not saved either — previously it stayed saved without them.
+- The "a product with such an article already exists" check applies only to a new item and to an article change: items with an old duplicate article can be edited again. An empty name is filled from the full name and vice versa on every save.
+- An additional attribute keeps a single value: when saved from the card, the production workplace or bulk editing, duplicate lines of the same attribute are removed, and reading old duplicates takes the last value, as the card shows.
+
+### es
+- La ficha del artículo ya no sobrescribe el código de barras de otro artículo: si la referencia o el código escaneado ya pertenece a otro artículo, el código no se guarda y la ficha indica a quién pertenece. El código propio del artículo ya no pierde su característica, embalaje o lote al guardar la ficha. Lo mismo ocurre con la importación de artículos desde Excel (los rechazos aparecen en los mensajes de la importación) y con un lote nuevo: un número EAN-13 ya ocupado se genera de nuevo.
+- Las existencias mínimas y máximas por almacén se guardan junto con el artículo: en un artículo nuevo ya no pueden guardarse sin artículo, y al guardar la ficha solo cambian los almacenes cuyo valor cambió o aún no estaba guardado.
+- Los precios y la ruta de fabricación de la ficha se guardan junto con el artículo: si el documento de precios o la ruta fallan, el artículo tampoco se guarda; antes quedaba guardado sin ellos.
+- La comprobación «ya existe un producto con esta referencia» solo se aplica a un artículo nuevo y al cambiar la referencia: los artículos con un duplicado antiguo de referencia vuelven a poder editarse. El nombre vacío se rellena con el nombre completo y viceversa en cada guardado.
+- Un atributo adicional guarda un solo valor: al guardar desde la ficha, el puesto de producción o la modificación en grupo se eliminan las líneas duplicadas del mismo atributo, y al leer duplicados antiguos se toma el último valor, como muestra la ficha.
+
 ## 2.0.16.58
 ### ru
 - Материалы, закреплённые за требованиями-накладными на станке, больше не считаются свободными при закупке: в рабочем месте закупок на закладке остатков товара склад станка показывает только свободное количество, отчёт «Товары для заказа» по складу станка и обработка «Формирование заказов поставщикам» вычитают закреплённое.
