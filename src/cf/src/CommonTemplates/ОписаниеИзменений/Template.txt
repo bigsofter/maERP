@@ -10,6 +10,31 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.58
+### ru
+- Материалы, закреплённые за требованиями-накладными на станке, больше не считаются свободными при закупке: в рабочем месте закупок на закладке остатков товара склад станка показывает только свободное количество, отчёт «Товары для заказа» по складу станка и обработка «Формирование заказов поставщикам» вычитают закреплённое.
+- Исправлен отчёт «Недостаточные запасы»: минимальный остаток сравнивался не с тем складом, и отчёт пропускал товары ниже минимума. Теперь остаток считается по товару и складу целиком (по всем партиям), а товар с минимумом и нулевым остатком тоже попадает в отчёт.
+- Удалена служебная форма «Проба планировщика»: планировщик работает в рабочем месте «Управление станками».
+- Роль «Менеджер по закупкам» получила право чтения регистра «Материалы на станках» и справочника станков — без него закупщик не увидел бы свободные остатки складов станков.
+
+### fr
+- Les matières affectées aux bons de consommation sur une machine ne sont plus comptées comme libres pour les achats : dans le poste des achats, l'onglet des stocks de l'article montre pour le stock de la machine la seule quantité libre, le rapport « Marchandises à commander » par stock de machine et le traitement « Génération des commandes fournisseurs » déduisent la quantité affectée.
+- Correction du rapport « Stocks insuffisants » : le stock minimal était comparé au mauvais entrepôt et le rapport omettait des articles sous le minimum. Le stock est désormais compté par article et entrepôt (tous lots confondus), et un article avec un minimum et un stock nul figure aussi dans le rapport.
+- Le formulaire technique « Essai du planificateur » est supprimé : le planificateur fonctionne dans le poste « Gestion des machines ».
+- Le rôle « Responsable des achats » obtient la lecture du registre « Matières sur les machines » et du référentiel des machines, sans laquelle l'acheteur ne verrait pas les stocks libres des machines.
+
+### en
+- Materials reserved for requisitions on a machine are no longer counted as free for purchasing: in the purchasing workplace the item stock tab shows only the free quantity for the machine stock, and the "Goods to order" report for a machine stock and the "Purchase order generation" processor deduct the reserved quantity.
+- Fixed the "Insufficient stocks" report: the minimum stock was compared against the wrong warehouse, so the report missed items below the minimum. Stock is now counted per item and warehouse as a whole (all batches), and an item with a minimum and zero stock is included too.
+- The technical "Planner trial" form has been removed: the planner works in the "Machine management" workplace.
+- The "Purchasing manager" role can now read the "Materials on machines" register and the machine catalog; without it the buyer would not see the free stock of machine stocks.
+
+### es
+- Los materiales reservados para vales de consumo en una máquina ya no se cuentan como libres para compras: en el puesto de compras, la pestaña de existencias del artículo muestra para el almacén de la máquina solo la cantidad libre, y el informe «Productos a pedido» por almacén de máquina y el procesamiento «Generación de pedidos a proveedores» descuentan lo reservado.
+- Corregido el informe «Existencias insuficientes»: el stock mínimo se comparaba con un almacén equivocado y el informe omitía artículos por debajo del mínimo. Ahora el stock se cuenta por artículo y almacén en conjunto (todos los lotes), y un artículo con mínimo y stock cero también aparece en el informe.
+- Se eliminó el formulario técnico «Prueba del planificador»: el planificador funciona en el puesto «Gestión de máquinas».
+- El rol «Gerente de compras» obtiene la lectura del registro «Materiales en máquinas» y del catálogo de máquinas; sin ella el comprador no vería las existencias libres de los almacenes de máquina.
+
 ## 2.0.16.57
 ### ru
 - Требование-накладная по строке заказа не проводится, если вместе с другими открытыми требованиями этой строки оно больше количества строки. Раньше такое требование, введённое вручную, проходило, если у той же продукции заказа был остаток на другой строке.
