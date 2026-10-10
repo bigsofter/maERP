@@ -55,9 +55,14 @@ def удалить(корень, имя):
 
 def переименовать(e, старое, новое):
     for n in e.iter('name'):
-        if n.text and n.text.startswith(старое) and n.getparent().tag in ('items', 'extendedTooltip', 'contextMenu',
-                                                                           'autoCommandBar'):
+        if n.text and n.text.startswith(старое) and n.getparent().tag in (
+                'items', 'extendedTooltip', 'contextMenu', 'autoCommandBar', 'searchStringAddition',
+                'viewStatusAddition', 'searchControlAddition'):
             n.text = новое + n.text[len(старое):]
+    # Дополнения таблицы (строка поиска, состояние просмотра) ссылаются на таблицу по имени (ревью кода Codex 2.0.16.63).
+    for s in e.iter('source'):
+        if s.text == старое:
+            s.text = новое
 
 
 def локализация(e, тег, значения, после):

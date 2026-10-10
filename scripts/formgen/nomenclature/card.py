@@ -43,9 +43,14 @@ def извлечь(имя):
 
 def переименовать(e, старое, новое):
     for n in e.iter('name'):
-        if n.text and n.text.startswith(старое) and n.getparent().tag in ('items', 'extendedTooltip', 'contextMenu',
-                                                                           'autoCommandBar'):
+        if n.text and n.text.startswith(старое) and n.getparent().tag in (
+                'items', 'extendedTooltip', 'contextMenu', 'autoCommandBar', 'searchStringAddition',
+                'viewStatusAddition', 'searchControlAddition'):
             n.text = новое + n.text[len(старое):]
+    # Дополнения таблицы (строка поиска, состояние просмотра) ссылаются на таблицу по имени (ревью кода Codex 2.0.16.63).
+    for s in e.iter('source'):
+        if s.text == старое:
+            s.text = новое
 
 
 def локализация(e, тег, значения, после):
@@ -219,6 +224,86 @@ ecommerce = поле('ВыводитьНаПечатьОписание', 'EComme
 дети(служебное, [видимый(код), код_старый, видимый(полное), ответственный, ecommerce, лкп]
      + [c for c in низ.findall('items')])
 
+# --- этап 4: новые блоки карточки (2.0.16.63) ----------------------------------------------------------------------------
+
+
+def таблица_блока(имя, колонки):
+    """Таблица только для чтения по образцу ТЗХранение: без добавления и удаления строк, колонки - (поле, заголовок)."""
+    т = copy.deepcopy(найти('ТЗХранение'))
+    for c in т.findall('items'):
+        т.remove(c)
+    for h in т.findall('handlers'):
+        т.remove(h)
+    переименовать(т, 'ТЗХранение', имя)
+    т.find('dataPath/segments').text = имя
+    ro = т.find('readOnly')
+    if ro is None:
+        ro = etree.Element('readOnly')
+        т.insert(list(т).index(т.find('titleLocation')) + 1, ro)
+    ro.text = 'true'
+    т.find('changeRowSet').text = 'false'
+    образец_колонки = найти('ТЗХранениеМестоХранения')
+    позиция = list(т).index(т.find('autoCommandBar'))
+    for i, (поле_, заголовок) in enumerate(колонки):
+        к = copy.deepcopy(образец_колонки)
+        переименовать(к, 'ТЗХранениеМестоХранения', имя + поле_)
+        к.find('dataPath/segments').text = имя + '.' + поле_
+        локализация(к, 'title', заголовок, после='id')
+        т.insert(позиция + i, к)
+    return т
+
+
+Т4 = {
+    'Склад': ('Склад', 'Entrepôt', 'Warehouse', 'Almacén'),
+    'Остаток': ('Остаток', 'Stock', 'Stock', 'Existencias'),
+    'Свободно': ('Свободно', 'Libre', 'Free', 'Libre'),
+    'Станок': ('Станок', 'Machine', 'Machine', 'Máquina'),
+    'Требование': ('Требование', 'Bon', 'Requisition', 'Vale'),
+    'Количество': ('Количество', 'Quantité', 'Quantity', 'Cantidad'),
+    'Продукция': ('Продукция', 'Produit', 'Product', 'Producto'),
+    'Расход': ('Расход на 1', 'Consommation pour 1', 'Use per 1', 'Consumo por 1'),
+    'Выработка': ('Выработка, кг/ч', 'Cadence, kg/h', 'Output, kg/h', 'Rendimiento, kg/h'),
+    'ПоТовару': ('Норма товара', 'Norme de l\'article', 'Item standard', 'Norma del artículo'),
+    'Штрихкод': ('Штрихкод', 'Code-barres', 'Barcode', 'Código de barras'),
+    'Характеристика': ('Характеристика', 'Caractéristique', 'Variant', 'Característica'),
+    'Упаковка': ('Упаковка', 'Conditionnement', 'Package', 'Embalaje'),
+    'Серия': ('Серия', 'Lot', 'Batch', 'Lote'),
+}
+
+
+def блок(имя, заголовок, таблица_):
+    """Раздел блока скрыт до загрузки: видимость ставит модуль по праву и наличию строк."""
+    г = группа(имя, заголовок)
+    г.find('visible').text = 'false'
+    return дети(г, [таблица_])
+
+
+остатки_блок = блок('ГруппаОстаткиКарточки', ('Остатки и свободно', 'Stocks et libre', 'Stock and free', 'Existencias y libre'),
+                    таблица_блока('ОстаткиКарточки', [('Склад', Т4['Склад']), ('Остаток', Т4['Остаток']),
+                                                      ('Свободно', Т4['Свободно'])]))
+на_станках = блок('ГруппаНаСтанках', ('На станках сейчас', 'Sur les machines', 'On machines now', 'En máquinas ahora'),
+                  таблица_блока('НаСтанках', [('Станок', Т4['Станок']), ('Требование', Т4['Требование']),
+                                              ('Количество', Т4['Количество'])]))
+движение = copy.deepcopy(найти('ПлановаяСебестоимостьТехкарты', техкарта))
+переименовать(движение, 'ПлановаяСебестоимостьТехкарты', 'ДвижениеКарточки')
+движение.find('dataPath/segments').text = 'ДвижениеКарточки'
+склад.insert(list(склад).index(склад.find('items')), остатки_блок)
+дети(склад, [движение, на_станках])
+
+где_используется = блок('ГруппаГдеИспользуется', ('Где используется', 'Utilisé dans', 'Used in', 'Se usa en'),
+                        таблица_блока('ГдеИспользуется', [('Продукция', Т4['Продукция']), ('Количество', Т4['Расход'])]))
+выработка = блок('ГруппаВыработкаСтанков', ('Выработка станков', 'Cadence des machines', 'Machine output',
+                                            'Rendimiento de máquinas'),
+                 таблица_блока('ВыработкаСтанков', [('Станок', Т4['Станок']), ('Выработка', Т4['Выработка']),
+                                                    ('ПоТовару', Т4['ПоТовару'])]))
+дети(производство, [выработка, где_используется])
+
+штрихкоды = блок('ГруппаШтрихкоды', ('Штрихкоды', 'Codes-barres', 'Barcodes', 'Códigos de barras'),
+                 таблица_блока('ШтрихкодыТовара', [('Штрихкод', Т4['Штрихкод']), ('Характеристика', Т4['Характеристика']),
+                                                   ('Упаковка', Т4['Упаковка']), ('Серия', Т4['Серия'])]))
+дети(служебное, [штрихкоды])
+
+
 # --- порядок закладок ---------------------------------------------------------------------------------------------------
 
 цены = извлечь('ГруппаЦены')
@@ -247,6 +332,46 @@ def реквизит(имя, тип_):
     return a
 
 
+def колонки_таблицы(имя, колонки):
+    a = реквизит(имя, 'ValueTable')
+    for номер, (поле_, тип_, точность, дробь) in enumerate(колонки, 1):
+        c = etree.SubElement(a, 'columns')
+        etree.SubElement(c, 'name').text = поле_
+        etree.SubElement(c, 'id').text = str(номер)
+        vt = etree.SubElement(c, 'valueType')
+        etree.SubElement(vt, 'types').text = тип_
+        if тип_ == 'Number':
+            q = etree.SubElement(vt, 'numberQualifiers')
+            etree.SubElement(q, 'precision').text = str(точность)
+            etree.SubElement(q, 'scale').text = str(дробь)
+        elif тип_ == 'String':
+            q = etree.SubElement(vt, 'stringQualifiers')
+            etree.SubElement(q, 'length').text = str(точность)
+        for тег in ('view', 'edit'):
+            etree.SubElement(etree.SubElement(c, тег), 'common').text = 'true'
+    return a
+
+
+РЕКВИЗИТЫ_4 = [
+    колонки_таблицы('ОстаткиКарточки', [('Склад', 'CatalogRef.МестаХранения', 0, 0), ('Остаток', 'Number', 15, 3),
+                                        ('Свободно', 'Number', 15, 3)]),
+    колонки_таблицы('НаСтанках', [('Станок', 'CatalogRef.ПроизводственноеОборудование', 0, 0),
+                                  ('Требование', 'DocumentRef.ТребованиеНакладная', 0, 0), ('Количество', 'Number', 15, 3)]),
+    колонки_таблицы('ГдеИспользуется', [('Продукция', 'CatalogRef.Номенклатура', 0, 0), ('Количество', 'Number', 15, 3)]),
+    колонки_таблицы('ВыработкаСтанков', [('Станок', 'CatalogRef.ПроизводственноеОборудование', 0, 0),
+                                         ('Выработка', 'Number', 15, 3), ('ПоТовару', 'Boolean', 0, 0)]),
+    колонки_таблицы('ШтрихкодыТовара', [('Штрихкод', 'String', 200, 0),
+                                        ('Характеристика', 'CatalogRef.ХарактеристикиНоменклатуры', 0, 0),
+                                        ('Упаковка', 'CatalogRef.УпаковкиЕдиницыИзмерения', 0, 0),
+                                        ('Серия', 'CatalogRef.СерииНоменклатуры', 0, 0)]),
+    реквизит('ДвижениеКарточки', 'String'),
+    реквизит('БлокиСкладаЗагружены', 'Boolean'),
+    реквизит('БлокиПроизводстваЗагружены', 'Boolean'),
+    реквизит('БлокиСлужебныеЗагружены', 'Boolean'),
+    реквизит('ЭтоСырье', 'Boolean'),
+]
+
+
 последний = форма.findall('attributes')[-1]
 позиция = list(форма).index(последний)
 for i, (имя, тип_) in enumerate((('ПоказателиШапки', 'String'), ('ЦеныЗагружены', 'Boolean'),
@@ -254,6 +379,9 @@ for i, (имя, тип_) in enumerate((('ПоказателиШапки', 'Strin
                                  ('ИспользоватьИмпорт', 'Boolean'), ('ИспользоватьКомплектацию', 'Boolean'),
                                  ('ЭтоКассир', 'Boolean')), 1):
     форма.insert(позиция + i, реквизит(имя, тип_))
+позиция = list(форма).index(форма.findall('attributes')[-1])
+for i, a in enumerate(РЕКВИЗИТЫ_4, 1):
+    форма.insert(позиция + i, a)
 for номер, a in enumerate(форма.findall('attributes'), 1):
     a.find('id').text = str(номер)
 
