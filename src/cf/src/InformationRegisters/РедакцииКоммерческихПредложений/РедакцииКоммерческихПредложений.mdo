@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="52c619f3-bdb8-48f4-9331-92612754c9ac">
+  <producedTypes>
+    <selectionType typeId="e8ee2cf5-e500-4ea7-9fd7-99bc13639df2" valueTypeId="c155a451-95a2-42c0-91b6-6c395fe6a2b7"/>
+    <listType typeId="7ca9b91f-a87e-4941-b83c-5582fa2a93ce" valueTypeId="d1658795-b514-484a-b941-a918a84fda12"/>
+    <managerType typeId="89d6e1ce-a86e-4404-84a1-1228dae6d99f" valueTypeId="dd727348-b688-46b3-a266-16c0fc062d84"/>
+    <recordSetType typeId="848ef2ac-6ee6-4c66-967c-9be7a6dd4cd4" valueTypeId="3cb28cb1-89ee-47b4-9aa4-7e3dbd21a6b6"/>
+    <recordKeyType typeId="13c8ad3a-4aa4-4caa-9464-880f4e3958f4" valueTypeId="1079cb9b-fa1f-4743-8ac7-aa9106493093"/>
+    <recordType typeId="7998c1e0-f937-45e4-91ea-9dba596a4d2a" valueTypeId="39123f34-063a-42f8-9ae3-1f6269830cb0"/>
+    <recordManagerType typeId="5e4c6ac5-285d-48ed-908c-296727e73363" valueTypeId="95984a79-e898-460a-87a5-666bcf28b3d1"/>
+  </producedTypes>
+  <name>РедакцииКоммерческихПредложений</name>
+  <synonym>
+    <key>ru</key>
+    <value>Редакции коммерческих предложений</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Révisions des devis</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Quotation revisions</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Revisiones de presupuestos</value>
+  </synonym>
+  <comment>Снимки отправленных клиенту редакций коммерческого предложения: данные для возврата редакции и самодостаточные данные печати</comment>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="509a7066-d4ad-44a5-bd5b-f7f17f6cf3f3">
+    <name>Данные</name>
+    <synonym>
+      <key>ru</key>
+      <value>Данные редакции</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Données de la révision</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Revision data</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Datos de la revisión</value>
+    </synonym>
+    <comment>Снимок: Структура «Объект» (шапка и товары) и «Печать» (данные печати на момент фиксации)</comment>
+    <type>
+      <types>ValueStorage</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="a7025e64-130b-4785-8c7a-c7778bd89bb3">
+    <name>Хеш</name>
+    <synonym>
+      <key>ru</key>
+      <value>Хеш</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Empreinte</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Hash</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Hash</value>
+    </synonym>
+    <comment>SHA-256 содержимого «Объект»: по нему решается, изменилось ли предложение</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>64</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+  </attributes>
+  <attributes uuid="252a299e-9f3a-481a-bd32-a210d1be628a">
+    <name>Дата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha</value>
+    </synonym>
+    <comment>Момент фиксации редакции</comment>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="b0fb7cab-9315-4e7d-87dd-28d09abe7b77">
+    <name>Автор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Автор</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Auteur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Author</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Autor</value>
+    </synonym>
+    <comment>Пользователь, записавший редакцию</comment>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="df2dd87b-080f-476d-95f7-a58eae53e46b">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe</value>
+    </synonym>
+    <comment>Сумма предложения в редакции - для списка редакций</comment>
+    <type>
+      <types>DefinedType.СуммаНеотрицательная</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="90c5edab-d71e-4e82-969f-5394ee7957ed">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Moneda</value>
+    </synonym>
+    <comment>Валюта суммы редакции</comment>
+    <type>
+      <types>CatalogRef.Валюты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="e29cf537-5bd0-4167-8a5e-0885250b92c0">
+    <name>Предложение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Коммерческое предложение</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devis</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quotation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Presupuesto</value>
+    </synonym>
+    <comment>Предложение, чья это редакция; ведущее - записи удаляются вместе с документом</comment>
+    <type>
+      <types>DocumentRef.КоммерческоеПредложение</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="54c32b78-5744-41ca-8fca-2379007ade18">
+    <name>Версия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Версия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Version</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Version</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Versión</value>
+    </synonym>
+    <comment>Номер редакции, с 1</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>5</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

@@ -613,6 +613,66 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <attributes uuid="11adb917-7661-4912-a389-c15d2d938c96">
+    <name>Версия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Редакция</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Révision</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Revision</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Revisión</value>
+    </synonym>
+    <comment>Номер последней отправленной клиенту редакции; 0 - ещё не отправлялось. Пересчитывается из регистра редакций при каждой записи</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>5</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue" />
+    <maxValue xsi:type="core:UndefinedValue" />
+    <fillValue xsi:type="core:UndefinedValue" />
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="bf0309c6-c712-4949-a765-55e9ad2b99b5">
+    <name>ИзмененоПослеРедакции</name>
+    <synonym>
+      <key>ru</key>
+      <value>Изменено после редакции</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Modifié après la révision</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Changed after revision</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modificado tras la revisión</value>
+    </synonym>
+    <comment>Содержимое отличается от последней отправленной редакции (черновик правок)</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue" />
+    <maxValue xsi:type="core:UndefinedValue" />
+    <fillValue xsi:type="core:BooleanValue" />
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="aa505849-e884-43c3-8e3d-c8780508e29c">
     <name>ФормаДокумента</name>
     <synonym>
@@ -654,6 +714,26 @@
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="da21d1a9-00e8-47c9-a689-8bbaca796a6d">
+    <name>ФормаРедакции</name>
+    <synonym>
+      <key>ru</key>
+      <value>Редакция коммерческого предложения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Révision du devis</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quotation revision</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Revisión del presupuesto</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
   </forms>
   <tabularSections uuid="12bf34bd-5071-4913-8abb-24ee228d0e8e">
     <producedTypes>
@@ -1213,4 +1293,51 @@
       <dataHistory>Use</dataHistory>
     </attributes>
   </tabularSections>
+  <templates uuid="06c20e89-ce6c-472e-bf97-152a461b16d5">
+    <name>КоммерческоеПредложение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Коммерческое предложение</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devis</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quotation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Presupuesto</value>
+    </synonym>
+  </templates>
+  <commands uuid="9aeb3187-377e-40e9-a0ad-7bd01250fbd7">
+    <name>ПечатьКоммерческоеПредложение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Коммерческое предложение</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devis</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quotation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Presupuesto</value>
+    </synonym>
+    <group>CommandGroup.Печать</group>
+    <commandParameterType>
+      <types>DocumentRef.КоммерческоеПредложение</types>
+    </commandParameterType>
+    <parameterUseMode>Multiple</parameterUseMode>
+    <representation>PictureAndText</representation>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Print</picture>
+    </picture>
+  </commands>
 </mdclass:Document>

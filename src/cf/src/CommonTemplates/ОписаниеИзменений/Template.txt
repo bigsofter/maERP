@@ -10,6 +10,68 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.51
+### ru
+- Исправлена печать коммерческого предложения: в сборке 2.0.16.50 она останавливалась с ошибкой «Поле объекта не обнаружено (Номер)», а шрифты, выравнивание и ширина колонок формы были сбиты.
+- Кнопка печати коммерческого предложения появилась у ролей «Оператор» и «Менеджер по продажам»: в сборке 2.0.16.50 её видели только руководитель и администратор. Цены, суммы и количества на печати оформляются по правилам выбранного языка.
+- Коммерческое предложение с отправленными редакциями снова удаляется: в сборке 2.0.16.50 удаление отказывало с сообщением «Редакции коммерческого предложения записывает только сам документ». Редакции удаляются вместе с предложением.
+- Печать коммерческого предложения полностью выходит на языке, выбранном в окне печати: сумма прописью, пометка редакции, условия, подпись договора и даты. Раньше у отправленной редакции сумма прописью оставалась на языке, на котором предложение записали. Редакции, записанные до этого обновления, печатают сумму прописью и договор по-прежнему на языке записи. По-испански сумма прописью пока выходит по-французски, как и во всех печатных формах.
+- Смена ответственного у отправленного предложения теперь тоже даёт новую редакцию: когда менеджер не указан, на печати стоит ответственный.
+
+### fr
+- Correction de l'impression du devis : dans la version 2.0.16.50, elle s'arrêtait sur l'erreur « Champ d'objet introuvable (Номер) », et les polices, l'alignement et la largeur des colonnes étaient décalés.
+- Le bouton d'impression du devis est disponible pour les rôles « Opérateur » et « Commercial » : dans la version 2.0.16.50, seuls le directeur et l'administrateur le voyaient. Prix, montants et quantités s'impriment selon les règles de la langue choisie.
+- Un devis ayant des révisions envoyées peut de nouveau être supprimé : dans la version 2.0.16.50, la suppression échouait avec le message « Seul le devis lui-même enregistre ses révisions ». Les révisions sont supprimées avec le devis.
+- L'impression du devis sort entièrement dans la langue choisie dans la fenêtre d'impression : montant en lettres, mention de révision, conditions, libellé du contrat et dates. Auparavant, pour une révision envoyée, le montant en lettres restait dans la langue d'enregistrement du devis. Les révisions enregistrées avant cette mise à jour gardent le montant en lettres et le contrat dans la langue d'enregistrement. En espagnol, le montant en lettres sort encore en français, comme dans tous les formulaires imprimables.
+- Changer le responsable d'un devis envoyé crée désormais aussi une nouvelle révision : quand le contact n'est pas renseigné, c'est le responsable qui figure à l'impression.
+
+### en
+- Fixed quotation printing: in build 2.0.16.50 it stopped with the error "Object field not found (Номер)", and the fonts, alignment and column widths of the form were off.
+- The quotation print button is now available to the "Operator" and "Sales manager" roles: in build 2.0.16.50 only the director and the administrator saw it. Prices, amounts and quantities are printed according to the chosen language.
+- A quotation with sent revisions can be deleted again: in build 2.0.16.50 deletion failed with "Only the quotation itself writes its revisions". The revisions are deleted together with the quotation.
+- The quotation now prints entirely in the language chosen in the print window: amount in words, revision label, terms, contract label and dates. Previously a sent revision kept the amount in words in the language the quotation was saved in. Revisions saved before this update still print the amount in words and the contract in the language they were saved in. In Spanish the amount in words is still printed in French, as in all print forms.
+- Changing the person responsible for a sent quotation now also creates a new revision: when no manager is set, the responsible person is printed instead.
+
+### es
+- Corregida la impresión del presupuesto: en la versión 2.0.16.50 se detenía con el error «Campo del objeto no encontrado (Номер)», y las fuentes, la alineación y el ancho de las columnas estaban desajustados.
+- El botón de impresión del presupuesto está disponible para los roles «Operador» y «Gestor de ventas»: en la versión 2.0.16.50 solo lo veían el director y el administrador. Precios, importes y cantidades se imprimen según el idioma elegido.
+- Un presupuesto con revisiones enviadas vuelve a poder eliminarse: en la versión 2.0.16.50 la eliminación fallaba con «Solo el propio presupuesto registra sus revisiones». Las revisiones se eliminan junto con el presupuesto.
+- El presupuesto se imprime por completo en el idioma elegido en la ventana de impresión: importe en letras, marca de revisión, condiciones, etiqueta del contrato y fechas. Antes, en una revisión enviada el importe en letras quedaba en el idioma en que se guardó el presupuesto. Las revisiones guardadas antes de esta actualización siguen imprimiendo el importe en letras y el contrato en el idioma en que se guardaron. En español, el importe en letras todavía sale en francés, como en todos los formularios de impresión.
+- Cambiar el responsable de un presupuesto enviado ahora también crea una nueva revisión: si no se indica el gestor, en la impresión figura el responsable.
+
+## 2.0.16.50
+### ru
+- Новая печатная форма «Коммерческое предложение» (кнопка «Печать» в документе и в списке): логотип организации из её карточки, реквизиты организации, блоки «Клиент» и «Ваш менеджер», таблица с описанием под каждой строкой, итоги без НДС, НДС и к оплате, сумма прописью, условия, подпись и печать организации, реквизиты в подвале каждой страницы. Форма печатается на русском, французском, английском и испанском.
+- У коммерческого предложения появились редакции. Пока предложение в черновике, его можно править сколько угодно. Когда предложение в статусе «Отправлен» (и дальше) записывается с изменениями, номер редакции растёт сам: v1, v2, v3. Смена только статуса новой редакции не создаёт.
+- В шапке предложения — ссылка «Редакция v…» с подсказкой, что будет при записи. По щелчку — список отправленных редакций с датой, суммой и автором; выбранная открывается на просмотр ровно в том виде, в каком ушла клиенту (те же наименования, цены и логотип, даже если их потом изменили), её можно перепечатать.
+- Кнопка «Вернуть эту редакцию» переносит содержимое старой редакции в текущее предложение; номер документа остаётся прежним, при записи появляется новая редакция. Если какой-то товар из старой редакции уже удалён из базы, строка возвращается без него, а программа называет, чего не нашла.
+- На печати отправленное предложение помечено «Редакция v2»; правки после отправки печатаются как «Редакция v3 · черновик». Предложения, отправленные до этого обновления, получают редакцию v1 при первой записи — сохраняется то, что видел клиент.
+- Прежняя печать «Коммерческое предложение (A4)» в формате Devis у документа «Коммерческое предложение» убрана: она печатала без учёта редакций. У заказов клиента и реализаций печать Devis осталась.
+
+### fr
+- Nouveau formulaire imprimable « Devis » (bouton « Imprimer » dans le document et dans la liste) : logo de l'organisation tiré de sa fiche, coordonnées de l'organisation, blocs « Client » et « Votre contact », tableau avec la description sous chaque ligne, totaux HT, TVA et à payer, montant en lettres, conditions, signature et cachet de l'organisation, coordonnées en pied de chaque page. Le formulaire s'imprime en russe, français, anglais et espagnol.
+- Le devis a désormais des révisions. Tant qu'il est en brouillon, on peut le modifier librement. Lorsqu'un devis au statut « Envoyé » (ou suivant) est enregistré avec des modifications, le numéro de révision augmente tout seul : v1, v2, v3. Un simple changement de statut ne crée pas de nouvelle révision.
+- Dans l'en-tête du devis, un lien « Révision v… » indique ce qui se passera à l'enregistrement. Un clic ouvre la liste des révisions envoyées avec date, montant et auteur ; celle choisie s'ouvre en lecture telle qu'elle a été envoyée au client (mêmes désignations, prix et logo, même s'ils ont changé depuis) et peut être réimprimée.
+- Le bouton « Restaurer cette révision » reprend le contenu de l'ancienne révision dans le devis actuel ; le numéro du document ne change pas, une nouvelle révision apparaît à l'enregistrement. Si un article de l'ancienne révision a été supprimé de la base, la ligne revient sans lui et le programme indique ce qu'il n'a pas trouvé.
+- À l'impression, un devis envoyé porte la mention « Révision v2 » ; les modifications après envoi s'impriment comme « Révision v3 · brouillon ». Les devis envoyés avant cette mise à jour reçoivent la révision v1 au premier enregistrement — ce que le client a vu est conservé.
+- L'ancienne impression « Devis (A4) » du document « Devis » est retirée : elle imprimait sans tenir compte des révisions. Les commandes client et les ventes gardent l'impression Devis.
+
+### en
+- New "Quotation" print form ("Print" button in the document and in the list): the organization logo from its card, organization details, "Customer" and "Your contact" blocks, a table with the description under each line, totals excluding VAT, VAT and amount due, amount in words, terms, signature and organization stamp, details in the footer of every page. The form prints in Russian, French, English and Spanish.
+- Quotations now have revisions. While a quotation is a draft, it can be edited freely. When a quotation with the "Sent" status (or later) is written with changes, the revision number goes up by itself: v1, v2, v3. Changing only the status does not create a new revision.
+- The quotation header shows a "Revision v…" link that tells what will happen on write. Clicking it lists the sent revisions with date, amount and author; the chosen one opens read-only exactly as it was sent to the customer (same names, prices and logo, even if they changed later) and can be reprinted.
+- The "Restore this revision" button brings the content of an old revision into the current quotation; the document number stays the same and a new revision appears on write. If an item from the old revision has since been deleted, the line comes back without it and the program names what it could not find.
+- When printed, a sent quotation is marked "Revision v2"; changes after sending print as "Revision v3 · draft". Quotations sent before this update get revision v1 on their first write — what the customer saw is kept.
+- The old "Quotation (A4)" Devis-style print of the "Quotation" document is removed: it printed without regard to revisions. Customer orders and sales keep the Devis print.
+
+### es
+- Nuevo formulario impreso «Presupuesto» (botón «Imprimir» en el documento y en la lista): logotipo de la organización de su ficha, datos de la organización, bloques «Cliente» y «Su contacto», tabla con la descripción bajo cada línea, totales sin IVA, IVA y a pagar, importe en letras, condiciones, firma y sello de la organización, datos en el pie de cada página. El formulario se imprime en ruso, francés, inglés y español.
+- El presupuesto ahora tiene revisiones. Mientras es un borrador, se puede editar libremente. Cuando un presupuesto con estado «Enviado» (o posterior) se graba con cambios, el número de revisión sube solo: v1, v2, v3. Cambiar solo el estado no crea una revisión nueva.
+- En la cabecera del presupuesto hay un enlace «Revisión v…» que indica qué pasará al grabar. Al pulsarlo aparece la lista de revisiones enviadas con fecha, importe y autor; la elegida se abre en modo lectura tal como se envió al cliente (mismos nombres, precios y logotipo, aunque hayan cambiado después) y se puede reimprimir.
+- El botón «Restaurar esta revisión» trae el contenido de la revisión antigua al presupuesto actual; el número del documento no cambia y al grabar aparece una revisión nueva. Si un artículo de la revisión antigua ya se eliminó de la base, la línea vuelve sin él y el programa indica qué no encontró.
+- Al imprimir, un presupuesto enviado lleva la marca «Revisión v2»; los cambios después del envío se imprimen como «Revisión v3 · borrador». Los presupuestos enviados antes de esta actualización reciben la revisión v1 en su primera grabación: se conserva lo que vio el cliente.
+- Se retira la impresión anterior «Presupuesto (A4)» de tipo Devis del documento «Presupuesto»: imprimía sin tener en cuenta las revisiones. Los pedidos de cliente y las ventas conservan la impresión Devis.
+
 ## 2.0.16.49
 ### ru
 - Станки получили своё рабочее место: «Производство → Управление станками» (в верхней группе раздела и в группе «Станки»). В нём всё, что было на закладке «Станки» рабочего места производства: список станков, планировщик недели, «Готовы к запуску», требования и автоплан. Закладки «Станки» в рабочем месте производства больше нет.
