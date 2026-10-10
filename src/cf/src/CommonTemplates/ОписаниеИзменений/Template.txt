@@ -10,6 +10,35 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.55
+### ru
+- Отчёт «Простои станков» с флажком «Включать запланированное» больше не считает дважды время, когда у станка одновременно стоят плановое и фактическое обслуживание: плановое учитывается только за пределами фактического, поэтому процент простоя не превышает фонд времени.
+- Время ремонта (MTTR) считается по полной длительности ремонта, даже если ремонт переходит через конец периода отчёта. Раньше в MTTR попадала только часть внутри периода.
+- Станок, выведенный из работы, попадает в отчёт, если в периоде у него была работа, — его наработка входит в MTBF. Раньше такой станок без обслуживания в отчёт не попадал.
+- Отбор отчёта по виду обслуживания, причине и показателям убран из настроек: он скрывал строку фонда времени, и процент простоя и MTBF становились нулевыми. Разбивка по видам и причинам осталась в группировке отчёта, отбор по станку доступен.
+- Обслуживание станка с окончанием не позже начала не проводится и при записи обработками, а не только из формы.
+
+### fr
+- Le rapport « Arrêts des machines » avec « Inclure le planifié » ne compte plus deux fois le temps où une machine a à la fois une maintenance planifiée et une maintenance réelle : la planifiée n'est comptée qu'en dehors de la réelle, le pourcentage d'arrêt ne dépasse donc plus la capacité.
+- Le temps de réparation (MTTR) est compté sur toute la durée de la réparation, même si elle dépasse la fin de la période du rapport. Auparavant, seule la partie dans la période entrait dans le MTTR.
+- Une machine retirée apparaît dans le rapport si elle a travaillé dans la période : ses heures de fonctionnement entrent dans le MTBF. Auparavant, une telle machine sans maintenance n'apparaissait pas.
+- Le filtre du rapport par type de maintenance, motif et indicateurs est retiré des paramètres : il masquait la ligne de capacité, et le pourcentage d'arrêt et le MTBF tombaient à zéro. La ventilation par type et motif reste dans le regroupement du rapport, le filtre par machine reste disponible.
+- Une maintenance de machine dont la fin n'est pas postérieure au début n'est plus validée non plus lorsqu'elle est enregistrée par un traitement, et pas seulement depuis le formulaire.
+
+### en
+- The "Machine downtime" report with "Include planned" no longer counts twice the time when a machine has both planned and actual maintenance: planned maintenance is counted only outside the actual one, so the downtime percentage no longer exceeds capacity.
+- Repair time (MTTR) is calculated over the full duration of the repair, even if the repair runs past the end of the report period. Previously only the part inside the period went into MTTR.
+- A retired machine appears in the report if it worked during the period: its operating hours count towards MTBF. Previously such a machine without maintenance did not appear.
+- Filtering the report by maintenance type, reason and indicators has been removed from the settings: it hid the capacity row, and the downtime percentage and MTBF dropped to zero. The breakdown by type and reason remains in the report grouping, and filtering by machine is still available.
+- Machine maintenance whose end is not later than its start is no longer posted when saved by a data processor either, not only from the form.
+
+### es
+- El informe «Paradas de máquinas» con «Incluir lo planificado» ya no cuenta dos veces el tiempo en que una máquina tiene a la vez mantenimiento planificado y real: el planificado se cuenta solo fuera del real, por lo que el porcentaje de parada ya no supera la capacidad.
+- El tiempo de reparación (MTTR) se calcula con la duración completa de la reparación, aunque pase del final del período del informe. Antes solo entraba en el MTTR la parte dentro del período.
+- Una máquina fuera de servicio aparece en el informe si trabajó en el período: sus horas de funcionamiento entran en el MTBF. Antes esa máquina sin mantenimiento no aparecía.
+- Se quitó de la configuración el filtro del informe por tipo de mantenimiento, motivo e indicadores: ocultaba la fila de capacidad, y el porcentaje de parada y el MTBF quedaban en cero. El desglose por tipo y motivo sigue en la agrupación del informe, y el filtro por máquina sigue disponible.
+- El mantenimiento de una máquina cuyo fin no es posterior al inicio ya no se contabiliza tampoco al guardarlo con un procesamiento, no solo desde el formulario.
+
 ## 2.0.16.54
 ### ru
 - Списание и оприходование, введённые на основании пересчёта «По станку», работают со складом этого пересчёта. Раньше, если после пересчёта в карточке станка сменили склад станка, документ при записи подставлял новый склад, и недостача или излишек проводились не на том складе, где их нашли. Сменить у такого документа станок или вид операции нельзя: запись откажет с подсказкой.
