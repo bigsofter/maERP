@@ -1,11 +1,337 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form" xmlns:schema="http://g5.1c.ru/v8/dt/data-composition-system/schema">
   <items xsi:type="form:FormGroup">
-    <name>ГруппаСписок</name>
+    <name>ГруппаИерархия</name>
     <id>1</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <extendedTooltip>
+      <name>ГруппаИерархияРасширеннаяПодсказка</name>
+      <id>2</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <items xsi:type="form:FormGroup">
+      <name>ГруппаРежимИерархии</name>
+      <id>3</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ГруппаРежимИерархииРасширеннаяПодсказка</name>
+        <id>4</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <items xsi:type="form:FormField">
+        <name>РежимИерархии</name>
+        <id>5</id>
+        <title>
+          <key>ru</key>
+          <value>Иерархия</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Hiérarchie</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Hierarchy</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Jerarquía</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>РежимИерархии</segments>
+        </dataPath>
+        <titleLocation>None</titleLocation>
+        <handlers>
+          <event>OnChange</event>
+          <name>РежимИерархииПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>РежимИерархииРасширеннаяПодсказка</name>
+          <id>6</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>РежимИерархииКонтекстноеМеню</name>
+          <id>7</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Enter</editMode>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <listChoiceMode>true</listChoiceMode>
+          <textEdit>false</textEdit>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
+      <items xsi:type="form:Button">
+        <name>КнопкаИзбранныйРежим</name>
+        <id>8</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаИзбранныйРежимРасширеннаяПодсказка</name>
+          <id>9</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.ИзбранныйРежим</commandName>
+        <representation>Text</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <items xsi:type="form:Button">
+        <name>КнопкаОбновитьИерархию</name>
+        <id>10</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаОбновитьИерархиюРасширеннаяПодсказка</name>
+          <id>11</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.ОбновитьИерархию</commandName>
+        <representation>Text</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
+      <type>UsualGroup</type>
+      <extInfo xsi:type="form:UsualGroupExtInfo">
+        <group>AlwaysHorizontal</group>
+        <behavior>Usual</behavior>
+        <representation>None</representation>
+        <showLeftMargin>false</showLeftMargin>
+        <united>true</united>
+        <showTitle>false</showTitle>
+        <throughAlign>Auto</throughAlign>
+        <currentRowUse>Auto</currentRowUse>
+      </extInfo>
+    </items>
+    <items xsi:type="form:Table">
+      <name>УзлыИерархии</name>
+      <id>12</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>УзлыИерархии</segments>
+      </dataPath>
+      <titleLocation>None</titleLocation>
+      <readOnly>true</readOnly>
+      <handlers>
+        <event>OnActivateRow</event>
+        <name>УзлыИерархииПриАктивизацииСтроки</name>
+      </handlers>
+      <extendedTooltip>
+        <name>УзлыИерархииРасширеннаяПодсказка</name>
+        <id>13</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>УзлыИерархииКонтекстноеМеню</name>
+        <id>14</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <autoCommandBar>
+        <name>УзлыИерархииКоманднаяПанель</name>
+        <id>15</id>
+        <horizontalAlign>Left</horizontalAlign>
+        <autoFill>false</autoFill>
+      </autoCommandBar>
+      <items xsi:type="form:FormField">
+        <name>УзлыИерархииПредставление</name>
+        <id>16</id>
+        <title>
+          <key>ru</key>
+          <value>Значение</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Valeur</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Value</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Valor</value>
+        </title>
+        <titleFont xsi:type="core:FontRef">
+          <font>Style.NormalTextFont</font>
+          <bold>false</bold>
+          <italic>false</italic>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
+          <scale>100</scale>
+        </titleFont>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>УзлыИерархии.Представление</segments>
+        </dataPath>
+        <titleLocation>Left</titleLocation>
+        <extendedTooltip>
+          <name>УзлыИерархииПредставлениеРасширеннаяПодсказка</name>
+          <id>17</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>УзлыИерархииПредставлениеКонтекстноеМеню</name>
+          <id>18</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Enter</editMode>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <textEdit>true</textEdit>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>УзлыИерархииКоличество</name>
+        <id>19</id>
+        <title>
+          <key>ru</key>
+          <value>Товаров</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Articles</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Items</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Artículos</value>
+        </title>
+        <titleFont xsi:type="core:FontRef">
+          <font>Style.NormalTextFont</font>
+          <bold>false</bold>
+          <italic>false</italic>
+          <underline>false</underline>
+          <strikeout>false</strikeout>
+          <scale>100</scale>
+        </titleFont>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>УзлыИерархии.Количество</segments>
+        </dataPath>
+        <titleLocation>Left</titleLocation>
+        <extendedTooltip>
+          <name>УзлыИерархииКоличествоРасширеннаяПодсказка</name>
+          <id>20</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>УзлыИерархииКоличествоКонтекстноеМеню</name>
+          <id>21</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Enter</editMode>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <textEdit>true</textEdit>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
+    </items>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <behavior>Usual</behavior>
+      <representation>None</representation>
+      <showLeftMargin>false</showLeftMargin>
+      <united>true</united>
+      <showTitle>false</showTitle>
+      <throughAlign>Auto</throughAlign>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
+  <items xsi:type="form:FormGroup">
+    <name>ГруппаСписок</name>
+    <id>22</id>
     <items xsi:type="form:FormGroup">
       <name>СписокКомпоновщикНастроекПользовательскиеНастройки</name>
-      <id>21</id>
+      <id>23</id>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -30,7 +356,7 @@
       <verticalStretch>false</verticalStretch>
       <extendedTooltip>
         <name>СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка</name>
-        <id>22</id>
+        <id>24</id>
         <type>Label</type>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -50,7 +376,7 @@
     </items>
     <items xsi:type="form:Table">
       <name>Список</name>
-      <id>23</id>
+      <id>25</id>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -67,7 +393,7 @@
       </handlers>
       <items xsi:type="form:FormField">
         <name>Наименование</name>
-        <id>36</id>
+        <id>26</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -87,7 +413,7 @@
         <defaultItem>true</defaultItem>
         <extendedTooltip>
           <name>НаименованиеРасширеннаяПодсказка</name>
-          <id>38</id>
+          <id>27</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -97,7 +423,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>НаименованиеКонтекстноеМеню</name>
-          <id>37</id>
+          <id>28</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -113,7 +439,7 @@
       </items>
       <items xsi:type="form:FormField">
         <name>Артикул</name>
-        <id>75</id>
+        <id>29</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -132,7 +458,7 @@
         </dataPath>
         <extendedTooltip>
           <name>АртикулРасширеннаяПодсказка</name>
-          <id>77</id>
+          <id>30</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -142,7 +468,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>АртикулКонтекстноеМеню</name>
-          <id>76</id>
+          <id>31</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -158,7 +484,7 @@
       </items>
       <items xsi:type="form:FormField">
         <name>Родитель</name>
-        <id>84</id>
+        <id>32</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -177,7 +503,7 @@
         </dataPath>
         <extendedTooltip>
           <name>РодительРасширеннаяПодсказка</name>
-          <id>86</id>
+          <id>33</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -187,7 +513,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>РодительКонтекстноеМеню</name>
-          <id>85</id>
+          <id>34</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -203,7 +529,7 @@
       </items>
       <items xsi:type="form:FormField">
         <name>Бренд</name>
-        <id>78</id>
+        <id>35</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -222,7 +548,7 @@
         </dataPath>
         <extendedTooltip>
           <name>БрендРасширеннаяПодсказка</name>
-          <id>80</id>
+          <id>36</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -232,7 +558,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>БрендКонтекстноеМеню</name>
-          <id>79</id>
+          <id>37</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -248,7 +574,7 @@
       </items>
       <items xsi:type="form:FormField">
         <name>Качество</name>
-        <id>81</id>
+        <id>38</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -267,7 +593,7 @@
         </dataPath>
         <extendedTooltip>
           <name>КачествоРасширеннаяПодсказка</name>
-          <id>83</id>
+          <id>39</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -277,7 +603,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>КачествоКонтекстноеМеню</name>
-          <id>82</id>
+          <id>40</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -293,7 +619,7 @@
       </items>
       <items xsi:type="form:FormField">
         <name>ОсновнойПоставщик</name>
-        <id>90</id>
+        <id>41</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -312,7 +638,7 @@
         </dataPath>
         <extendedTooltip>
           <name>ОсновнойПоставщикРасширеннаяПодсказка</name>
-          <id>92</id>
+          <id>42</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -322,7 +648,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>ОсновнойПоставщикКонтекстноеМеню</name>
-          <id>91</id>
+          <id>43</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -337,7 +663,7 @@
       </items>
       <items xsi:type="form:FormField">
         <name>СтавкаНДС</name>
-        <id>72</id>
+        <id>44</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -355,7 +681,7 @@
         </dataPath>
         <extendedTooltip>
           <name>СтавкаНДСРасширеннаяПодсказка</name>
-          <id>74</id>
+          <id>45</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -365,7 +691,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>СтавкаНДСКонтекстноеМеню</name>
-          <id>73</id>
+          <id>46</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -383,7 +709,7 @@
       </items>
       <items xsi:type="form:FormField">
         <name>Ссылка</name>
-        <id>87</id>
+        <id>47</id>
         <titleFont xsi:type="core:FontRef">
           <font>Style.NormalTextFont</font>
           <bold>false</bold>
@@ -401,7 +727,7 @@
         </dataPath>
         <extendedTooltip>
           <name>СсылкаРасширеннаяПодсказка</name>
-          <id>89</id>
+          <id>48</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -411,7 +737,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>СсылкаКонтекстноеМеню</name>
-          <id>88</id>
+          <id>49</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>LabelField</type>
@@ -427,15 +753,15 @@
       <commandBarLocation>None</commandBarLocation>
       <autoCommandBar>
         <name>СписокКоманднаяПанель</name>
-        <id>25</id>
+        <id>50</id>
         <horizontalAlign>Left</horizontalAlign>
       </autoCommandBar>
       <searchStringAddition>
         <name>СписокСтрокаПоиска</name>
-        <id>27</id>
+        <id>51</id>
         <extendedTooltip>
           <name>СписокСтрокаПоискаРасширеннаяПодсказка</name>
-          <id>29</id>
+          <id>52</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -445,7 +771,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>СписокСтрокаПоискаКонтекстноеМеню</name>
-          <id>28</id>
+          <id>53</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <source>Список</source>
@@ -455,10 +781,10 @@
       </searchStringAddition>
       <viewStatusAddition>
         <name>СписокСостояниеПросмотра</name>
-        <id>30</id>
+        <id>54</id>
         <extendedTooltip>
           <name>СписокСостояниеПросмотраРасширеннаяПодсказка</name>
-          <id>32</id>
+          <id>55</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -468,7 +794,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>СписокСостояниеПросмотраКонтекстноеМеню</name>
-          <id>31</id>
+          <id>56</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>ViewStatusAddition</type>
@@ -479,10 +805,10 @@
       </viewStatusAddition>
       <searchControlAddition>
         <name>СписокУправлениеПоиском</name>
-        <id>33</id>
+        <id>57</id>
         <extendedTooltip>
           <name>СписокУправлениеПоискомРасширеннаяПодсказка</name>
-          <id>35</id>
+          <id>58</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
           <autoMaxHeight>true</autoMaxHeight>
@@ -492,7 +818,7 @@
         </extendedTooltip>
         <contextMenu>
           <name>СписокУправлениеПоискомКонтекстноеМеню</name>
-          <id>34</id>
+          <id>59</id>
           <autoFill>true</autoFill>
         </contextMenu>
         <type>SearchControlAddition</type>
@@ -503,7 +829,7 @@
       </searchControlAddition>
       <extendedTooltip>
         <name>СписокРасширеннаяПодсказка</name>
-        <id>26</id>
+        <id>60</id>
         <type>Label</type>
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
@@ -513,7 +839,7 @@
       </extendedTooltip>
       <contextMenu>
         <name>СписокКонтекстноеМеню</name>
-        <id>24</id>
+        <id>61</id>
         <autoFill>true</autoFill>
       </contextMenu>
       <representation>HierarchicalList</representation>
@@ -597,7 +923,7 @@
     </toolTip>
     <extendedTooltip>
       <name>ГруппаСписокРасширеннаяПодсказка</name>
-      <id>2</id>
+      <id>62</id>
       <type>Label</type>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
@@ -624,7 +950,12 @@
     <event>OnCreateAtServer</event>
     <name>ПриСозданииНаСервере</name>
   </handlers>
+  <handlers>
+    <event>OnLoadDataFromSettingsAtServer</event>
+    <name>ПриЗагрузкеДанныхИзНастроекНаСервере</name>
+  </handlers>
   <windowOpeningMode>LockOwner</windowOpeningMode>
+  <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
@@ -652,28 +983,98 @@
     <main>true</main>
     <extInfo xsi:type="form:DynamicListExtInfo">
       <queryText>ВЫБРАТЬ
-	СправочникНоменклатура.Код КАК Код,
-	СправочникНоменклатура.ЭтоГруппа КАК ЭтоГруппа,
-	СправочникНоменклатура.Наименование КАК Наименование,
-	СправочникНоменклатура.ТипНоменклатуры КАК ТипНоменклатуры,
 	СправочникНоменклатура.Ссылка КАК Ссылка,
+	СправочникНоменклатура.Код КАК Код,
+	СправочникНоменклатура.Наименование КАК Наименование,
+	СправочникНоменклатура.ЭтоГруппа КАК ЭтоГруппа,
+	СправочникНоменклатура.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникНоменклатура.Родитель КАК Родитель,
+	СправочникНоменклатура.ТипНоменклатуры КАК ТипНоменклатуры,
 	СправочникНоменклатура.НаименованиеПолное КАК НаименованиеПолное,
 	СправочникНоменклатура.СтавкаНДС КАК СтавкаНДС,
 	СправочникНоменклатура.Артикул КАК Артикул,
 	СправочникНоменклатура.Бренд КАК Бренд,
 	СправочникНоменклатура.Качество КАК Качество,
-	СправочникНоменклатура.ОсновнойПоставщик КАК ОсновнойПоставщик
+	СправочникНоменклатура.ТоварнаяГруппа КАК ТоварнаяГруппа,
+	СправочникНоменклатура.СпособПополнения КАК СпособПополнения,
+	СправочникНоменклатура.ОсновнойПоставщик КАК ОсновнойПоставщик,
+	ЗначенияИерархии.Значение КАК ЗначениеИерархии
 ИЗ
 	Справочник.Номенклатура КАК СправочникНоменклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Реквизиты.Ссылка КАК Объект,
+			Реквизиты.Значение КАК Значение
+		ИЗ
+			Справочник.Номенклатура.ДополнительныеРеквизиты КАК Реквизиты
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+					Строки.Ссылка КАК Ссылка,
+					МАКСИМУМ(Строки.НомерСтроки) КАК НомерСтроки
+				ИЗ
+					Справочник.Номенклатура.ДополнительныеРеквизиты КАК Строки
+				ГДЕ
+					Строки.Свойство = &amp;СвойствоИерархии
+				СГРУППИРОВАТЬ ПО
+					Строки.Ссылка) КАК Последние
+				ПО Реквизиты.Ссылка = Последние.Ссылка
+					И Реквизиты.НомерСтроки = Последние.НомерСтроки
+
+		ОБЪЕДИНИТЬ ВСЕ
+
+		ВЫБРАТЬ
+			Сведения.Объект,
+			Сведения.Значение
+		ИЗ
+			РегистрСведений.ДополнительныеСведения КАК Сведения
+		ГДЕ
+			Сведения.Свойство = &amp;СвойствоИерархии) КАК ЗначенияИерархии
+		ПО СправочникНоменклатура.Ссылка = ЗначенияИерархии.Объект
 ГДЕ
 	ВЫБОР
-			КОГДА &amp;ТипыНоменклатурыУстановлены
-				ТОГДА СправочникНоменклатура.ТипНоменклатуры В (&amp;ТипыНоменклатуры)
+			КОГДА &amp;СпособыПополненияУстановлены
+				ТОГДА СправочникНоменклатура.ЭтоГруппа
+						ИЛИ СправочникНоменклатура.СпособПополнения В (&amp;СпособыПополнения)
 			ИНАЧЕ ИСТИНА
 		КОНЕЦ
 	И ВЫБОР
-			КОГДА &amp;ТоварныеГруппыУстановлены
-				ТОГДА СправочникНоменклатура.ТоварнаяГруппа В (&amp;ТоварныеГруппы)
+			КОГДА &amp;ИсключаемыеТипыУстановлены
+				ТОГДА СправочникНоменклатура.ЭтоГруппа
+						ИЛИ НЕ СправочникНоменклатура.ТипНоменклатуры В (&amp;ИсключаемыеТипы)
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;ОтборПоСвойству
+				ТОГДА СправочникНоменклатура.Ссылка В
+						(ВЫБРАТЬ
+							ЗначенияОтбора.Объект КАК Объект
+						ИЗ
+							(ВЫБРАТЬ
+									Реквизиты.Ссылка КАК Объект,
+									Реквизиты.Значение КАК Значение
+								ИЗ
+									Справочник.Номенклатура.ДополнительныеРеквизиты КАК Реквизиты
+										ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+											Строки.Ссылка КАК Ссылка,
+											МАКСИМУМ(Строки.НомерСтроки) КАК НомерСтроки
+										ИЗ
+											Справочник.Номенклатура.ДополнительныеРеквизиты КАК Строки
+										ГДЕ
+											Строки.Свойство = &amp;СвойствоОтбора
+										СГРУППИРОВАТЬ ПО
+											Строки.Ссылка) КАК Последние
+										ПО Реквизиты.Ссылка = Последние.Ссылка
+											И Реквизиты.НомерСтроки = Последние.НомерСтроки
+						
+								ОБЪЕДИНИТЬ ВСЕ
+						
+								ВЫБРАТЬ
+									Сведения.Объект,
+									Сведения.Значение
+								ИЗ
+									РегистрСведений.ДополнительныеСведения КАК Сведения
+								ГДЕ
+									Сведения.Свойство = &amp;СвойствоОтбора) КАК ЗначенияОтбора
+						ГДЕ
+							ЗначенияОтбора.Значение = &amp;ЗначениеОтбора)
 			ИНАЧЕ ИСТИНА
 		КОНЕЦ</queryText>
       <mainTable>Catalog.Номенклатура</mainTable>
@@ -874,24 +1275,24 @@
         <field>Хранение</field>
       </fields>
       <parameters>
-        <name>ТипыНоменклатуры</name>
+        <name>ИсключаемыеТипы</name>
         <title>
           <localValue>
             <content>
               <key>ru</key>
-              <value>Типы номенклатуры</value>
+              <value>Исключаемые типы</value>
             </content>
             <content>
               <key>fr</key>
-              <value>Types de nomenclatures</value>
+              <value>Types exclus</value>
             </content>
             <content>
               <key>en</key>
-              <value>Types of nomenclatures</value>
+              <value>Excluded types</value>
             </content>
             <content>
               <key>es</key>
-              <value>Tipos de nomenclaturas</value>
+              <value>Tipos excluidos</value>
             </content>
           </localValue>
         </title>
@@ -903,24 +1304,24 @@
         <valueListAllowed>true</valueListAllowed>
       </parameters>
       <parameters>
-        <name>ТипыНоменклатурыУстановлены</name>
+        <name>ИсключаемыеТипыУстановлены</name>
         <title>
           <localValue>
             <content>
               <key>ru</key>
-              <value>Типы номенклатуры установлены</value>
+              <value>Исключаемые типы установлены</value>
             </content>
             <content>
               <key>fr</key>
-              <value>Types d'articles définis</value>
+              <value>Types exclus définis</value>
             </content>
             <content>
               <key>en</key>
-              <value>Item types set</value>
+              <value>Excluded types set</value>
             </content>
             <content>
               <key>es</key>
-              <value>Tipos de artículos establecidos</value>
+              <value>Tipos excluidos establecidos</value>
             </content>
           </localValue>
         </title>
@@ -931,53 +1332,109 @@
         <useRestriction>true</useRestriction>
       </parameters>
       <parameters>
-        <name>ТоварныеГруппы</name>
+        <name>СпособыПополнения</name>
         <title>
           <localValue>
             <content>
               <key>ru</key>
-              <value>Товарные группы</value>
+              <value>Способы пополнения</value>
             </content>
             <content>
               <key>fr</key>
-              <value>Groupes de produits</value>
+              <value>Modes de réapprovisionnement</value>
             </content>
             <content>
               <key>en</key>
-              <value>Product groups</value>
+              <value>Replenishment methods</value>
             </content>
             <content>
               <key>es</key>
-              <value>Grupos de productos</value>
+              <value>Métodos de reposición</value>
             </content>
           </localValue>
         </title>
         <valueType>
-          <types>CatalogRef.ТоварныеГруппы</types>
+          <types>EnumRef.СпособыПополненияЗапасов</types>
         </valueType>
         <values xsi:type="core:UndefinedValue"/>
         <useRestriction>true</useRestriction>
         <valueListAllowed>true</valueListAllowed>
       </parameters>
       <parameters>
-        <name>ТоварныеГруппыУстановлены</name>
+        <name>СпособыПополненияУстановлены</name>
         <title>
           <localValue>
             <content>
               <key>ru</key>
-              <value>Товарные группы установлены</value>
+              <value>Способы пополнения установлены</value>
             </content>
             <content>
               <key>fr</key>
-              <value>Groupes d'articles définis</value>
+              <value>Modes de réapprovisionnement définis</value>
             </content>
             <content>
               <key>en</key>
-              <value>Item groups set</value>
+              <value>Replenishment methods set</value>
             </content>
             <content>
               <key>es</key>
-              <value>Grupos de artículos establecidos</value>
+              <value>Métodos de reposición establecidos</value>
+            </content>
+          </localValue>
+        </title>
+        <valueType>
+          <types>Boolean</types>
+        </valueType>
+        <values xsi:type="core:BooleanValue"/>
+        <useRestriction>true</useRestriction>
+      </parameters>
+      <parameters>
+        <name>МестоХранения</name>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Место хранения</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Entrepôt</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Warehouse</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Almacén</value>
+            </content>
+          </localValue>
+        </title>
+        <valueType>
+          <types>CatalogRef.МестаХранения</types>
+        </valueType>
+        <values xsi:type="core:UndefinedValue"/>
+        <useRestriction>true</useRestriction>
+      </parameters>
+      <parameters>
+        <name>СкладУстановлен</name>
+        <title>
+          <localValue>
+            <content>
+              <key>ru</key>
+              <value>Склад установлен</value>
+            </content>
+            <content>
+              <key>fr</key>
+              <value>Entrepôt défini</value>
+            </content>
+            <content>
+              <key>en</key>
+              <value>Warehouse set</value>
+            </content>
+            <content>
+              <key>es</key>
+              <value>Almacén establecido</value>
             </content>
           </localValue>
         </title>
@@ -990,26 +1447,92 @@
     </extInfo>
   </attributes>
   <attributes>
-    <name>ДЗСегменты</name>
-    <title>
-      <key>ru</key>
-      <value>Сегменты</value>
-    </title>
-    <title>
-      <key>fr</key>
-      <value>Segments</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Segments</value>
-    </title>
-    <title>
-      <key>es</key>
-      <value>Segmentos</value>
-    </title>
+    <name>РежимИерархии</name>
     <id>2</id>
     <valueType>
-      <types>ValueTree</types>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <savedData>true</savedData>
+  </attributes>
+  <attributes>
+    <name>ИзбранныеРежимы</name>
+    <id>3</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <savedData>true</savedData>
+  </attributes>
+  <attributes>
+    <name>ВидУзла</name>
+    <id>4</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <savedData>true</savedData>
+  </attributes>
+  <attributes>
+    <name>ЗначениеУзла</name>
+    <id>5</id>
+    <valueType>
+      <types>EnumRef.ТипыНоменклатуры</types>
+      <types>EnumRef.СпособыПополненияЗапасов</types>
+      <types>CatalogRef.ТоварныеГруппы</types>
+      <types>CatalogRef.Бренды</types>
+      <types>CatalogRef.Контрагенты</types>
+      <types>CatalogRef.КачествоТоваров</types>
+      <types>CatalogRef.ЗначенияДополнительныхРеквизитов</types>
+      <types>CatalogRef.Номенклатура</types>
+      <types>String</types>
+      <types>Date</types>
+      <types>Boolean</types>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>3</scale>
+      </numberQualifiers>
+      <stringQualifiers>
+        <length>200</length>
+      </stringQualifiers>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <savedData>true</savedData>
+  </attributes>
+  <attributes>
+    <name>УзлыИерархии</name>
+    <id>6</id>
+    <valueType>
+      <types>ValueTable</types>
     </valueType>
     <view>
       <common>true</common>
@@ -1018,26 +1541,31 @@
       <common>true</common>
     </edit>
     <columns>
-      <name>Пометка</name>
-      <title>
-        <key>ru</key>
-        <value>Пометка</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Coche</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Tick</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Garrapata</value>
-      </title>
+      <name>Значение</name>
       <id>1</id>
       <valueType>
+        <types>EnumRef.ТипыНоменклатуры</types>
+        <types>EnumRef.СпособыПополненияЗапасов</types>
+        <types>CatalogRef.ТоварныеГруппы</types>
+        <types>CatalogRef.Бренды</types>
+        <types>CatalogRef.Контрагенты</types>
+        <types>CatalogRef.КачествоТоваров</types>
+        <types>CatalogRef.ЗначенияДополнительныхРеквизитов</types>
+        <types>CatalogRef.Номенклатура</types>
+        <types>String</types>
+        <types>Date</types>
         <types>Boolean</types>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>3</scale>
+        </numberQualifiers>
+        <stringQualifiers>
+          <length>200</length>
+        </stringQualifiers>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
       </valueType>
       <view>
         <common>true</common>
@@ -1047,28 +1575,10 @@
       </edit>
     </columns>
     <columns>
-      <name>Значение</name>
-      <title>
-        <key>ru</key>
-        <value>Значение</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Valeur</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Value</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Valor</value>
-      </title>
+      <name>Представление</name>
       <id>2</id>
       <valueType>
-        <types>CatalogRef.ТоварныеГруппы</types>
         <types>String</types>
-        <types>EnumRef.ТипыНоменклатуры</types>
         <stringQualifiers/>
       </valueType>
       <view>
@@ -1079,29 +1589,28 @@
       </edit>
     </columns>
     <columns>
-      <name>Уровень</name>
-      <title>
-        <key>ru</key>
-        <value>Уровень</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Niveau</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Level</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Nivel</value>
-      </title>
+      <name>Количество</name>
       <id>3</id>
       <valueType>
         <types>Number</types>
         <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Вид</name>
+      <id>4</id>
+      <valueType>
+        <types>Number</types>
+        <numberQualifiers>
           <precision>1</precision>
-          <nonNegative>true</nonNegative>
         </numberQualifiers>
       </valueType>
       <view>
@@ -1112,6 +1621,98 @@
       </edit>
     </columns>
   </attributes>
+  <formCommands>
+    <name>ИзбранныйРежим</name>
+    <title>
+      <key>ru</key>
+      <value>Избранный режим</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Mode favori</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Favorite mode</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Modo favorito</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Закрепить режим иерархии первым в списке</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Épingler le mode de hiérarchie en tête de liste</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Pin the hierarchy mode at the top of the list</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Fijar el modo de jerarquía al principio de la lista</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ИзбранныйРежим</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ОбновитьИерархию</name>
+    <title>
+      <key>ru</key>
+      <value>↻</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>↻</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>↻</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>↻</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Пересчитать узлы иерархии</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Recalculer les nœuds de la hiérarchie</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Recount hierarchy nodes</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Recalcular los nodos de la jerarquía</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ОбновитьИерархию</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
     <navigationPanel/>
     <commandBar>

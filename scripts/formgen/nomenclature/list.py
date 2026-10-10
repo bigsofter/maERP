@@ -425,6 +425,10 @@ for номер, (имя, тип, кв) in enumerate((('Значение', None, 
         etree.SubElement(etree.SubElement(c, тег), 'common').text = 'true'
 РЕКВИЗИТЫ_2.append(таблица_узлов)
 РЕКВИЗИТЫ.extend(РЕКВИЗИТЫ_2)
+# Дерево сегментов (ДЗСегменты) заменено навигатором - реквизит удаляется (этап 5).
+for a in форма.findall('attributes'):
+    if a.findtext('name') == 'ДЗСегменты':
+        форма.remove(a)
 последний = форма.findall('attributes')[-1]
 вставить_после(последний, РЕКВИЗИТЫ)
 for номер, a in enumerate(форма.findall('attributes'), 1):
