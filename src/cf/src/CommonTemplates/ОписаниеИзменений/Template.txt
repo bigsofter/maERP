@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.57
+### ru
+- Требование-накладная по строке заказа не проводится, если вместе с другими открытыми требованиями этой строки оно больше количества строки. Раньше такое требование, введённое вручную, проходило, если у той же продукции заказа был остаток на другой строке.
+- «Принять автоплан» не размещает строку, если окно на станке изменилось после расчёта черновика (например, сменили выработку станка): строка называется в ошибках, автоплан нужно рассчитать заново. Раньше требование ставилось в другое окно, чем показывал черновик.
+- Отчёт «Эффективность станков (OEE)»: требование, у части материалов которого не задан вес, не входит в производительность — раньше норма по остальным материалам её занижала. Такие позиции перечислены в предупреждении отчёта.
+
+### fr
+- Un bon de consommation sur une ligne de commande n'est pas validé si, avec les autres bons ouverts de cette ligne, il dépasse la quantité de la ligne. Auparavant, un tel bon saisi à la main passait si le même produit de la commande avait un reste sur une autre ligne.
+- « Accepter la planification » ne place pas une ligne si le créneau de la machine a changé depuis le calcul du brouillon (par exemple, cadence de la machine modifiée) : la ligne est citée dans les erreurs, il faut recalculer la planification. Auparavant, le bon était placé dans un autre créneau que celui du brouillon.
+- Rapport « Efficacité des machines (TRS) » : un bon dont une partie des matières n'a pas de poids n'entre plus dans la performance ; la norme calculée sur les autres matières la sous-estimait. Ces articles sont listés dans l'avertissement du rapport.
+
+### en
+- A requisition for an order line is not posted if, together with the other open requisitions of that line, it exceeds the line quantity. Previously such a manually entered requisition went through if the same product of the order had a remainder on another line.
+- "Accept auto-plan" does not place a line if the machine slot changed after the draft was calculated (for example, the machine output rate was changed): the line is listed in the errors and the auto-plan must be recalculated. Previously the requisition was placed in a different slot than the draft showed.
+- "Machine efficiency (OEE)" report: a requisition with some materials lacking a weight no longer counts towards performance; the standard calculated from the other materials understated it. Such items are listed in the report warning.
+
+### es
+- Un vale de consumo de una línea de pedido no se contabiliza si, junto con los demás vales abiertos de esa línea, supera la cantidad de la línea. Antes, un vale así introducido a mano pasaba si el mismo producto del pedido tenía resto en otra línea.
+- «Aceptar planificación» no coloca una línea si el hueco de la máquina cambió después de calcular el borrador (por ejemplo, se cambió el rendimiento de la máquina): la línea aparece en los errores y hay que recalcular la planificación. Antes el vale se colocaba en otro hueco distinto del borrador.
+- Informe «Eficiencia de máquinas (OEE)»: un vale con parte de los materiales sin peso ya no entra en el rendimiento; la norma calculada con los demás materiales lo subestimaba. Esas posiciones se indican en el aviso del informe.
+
 ## 2.0.16.56
 ### ru
 - В пересчёте, списании и оприходовании «Вид операции» выбирается переключателем «По складу / По станку», а в заголовке документа по станку написано «по станку».
