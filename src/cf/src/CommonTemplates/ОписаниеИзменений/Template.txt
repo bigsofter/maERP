@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.60
+### ru
+- Список товаров получил панель «Сведения» справа, как у списков документов: закладка «Фильтры» — тип, способ пополнения, наличие (в наличии, нет, ниже минимума), склад остатка (по умолчанию — склад пользователя), товарная группа, бренд, основной поставщик, качество и флажок «Показывать помеченные на удаление»; закладка «Товар» — реквизиты и цены текущего товара; «Движение» — остатки по складам со свободным количеством (без закреплённого на станках), заказано поставщикам, потребность производства и продажи за 12 месяцев. Панель сворачивается в столбик значков, фильтры и состояние запоминаются.
+- В таблице списка видны наименование, артикул, единица, остаток и розничная цена — без горизонтальной прокрутки; остальные колонки включаются через «Ещё → Изменить форму». Колонка «Продажи» убрана из списка: продажи — на закладке «Движение».
+- Остаток в списке считается по товару целиком: товар с несколькими партиями больше не показывается несколькими строками.
+
+### fr
+- La liste des articles reçoit le panneau « Informations » à droite, comme les listes de documents : onglet « Filtres » — type, mode de réapprovisionnement, disponibilité (en stock, en rupture, sous le minimum), entrepôt du stock (par défaut celui de l'utilisateur), groupe de marchandises, marque, fournisseur principal, qualité et la case « Afficher les éléments marqués pour suppression » ; onglet « Article » — attributs et prix de l'article courant ; « Mouvements » — stocks par entrepôt avec la quantité libre (hors matières affectées aux machines), commandé aux fournisseurs, besoin de production et ventes sur 12 mois. Le panneau se replie en colonne d'icônes, les filtres et l'état sont mémorisés.
+- Le tableau de la liste montre le nom, la référence, l'unité, le stock et le prix de détail, sans défilement horizontal ; les autres colonnes s'activent par « Plus → Modifier le formulaire ». La colonne « Ventes » est retirée de la liste : les ventes sont dans l'onglet « Mouvements ».
+- Le stock de la liste est compté par article : un article en plusieurs lots n'apparaît plus sur plusieurs lignes.
+
+### en
+- The item list gets the "Details" panel on the right, like document lists: the "Filters" tab — type, replenishment method, availability (in stock, out of stock, below minimum), stock warehouse (the user's warehouse by default), product group, brand, main supplier, quality and the "Show items marked for deletion" check box; the "Item" tab — attributes and prices of the current item; "Movement" — stock by warehouse with the free quantity (excluding materials reserved on machines), ordered from suppliers, production need and sales over 12 months. The panel collapses into a column of icons; filters and state are remembered.
+- The list table shows name, article, unit, stock and retail price without horizontal scrolling; other columns can be enabled via "More → Change form". The "Sales" column is removed from the list: sales are on the "Movement" tab.
+- Stock in the list is counted per item: an item with several batches is no longer shown as several rows.
+
+### es
+- La lista de artículos recibe el panel «Información» a la derecha, como las listas de documentos: pestaña «Filtros» — tipo, forma de reposición, disponibilidad (en stock, agotado, bajo mínimo), almacén de existencias (por defecto el del usuario), grupo de mercancías, marca, proveedor principal, calidad y la casilla «Mostrar marcados para eliminar»; pestaña «Artículo» — atributos y precios del artículo actual; «Movimientos» — existencias por almacén con la cantidad libre (sin lo reservado en máquinas), pedido a proveedores, necesidad de producción y ventas de 12 meses. El panel se pliega en una columna de iconos; los filtros y el estado se recuerdan.
+- La tabla de la lista muestra nombre, referencia, unidad, existencias y precio minorista sin desplazamiento horizontal; las demás columnas se activan con «Más → Cambiar formulario». La columna «Ventas» se quita de la lista: las ventas están en la pestaña «Movimientos».
+- Las existencias de la lista se cuentan por artículo: un artículo con varios lotes ya no aparece en varias filas.
+
 ## 2.0.16.59
 ### ru
 - Карточка товара больше не перезаписывает чужой штрихкод: если артикул или отсканированный штрихкод уже принадлежит другому товару, штрихкод не записывается, а карточка показывает, чей он. Собственный штрихкод товара с характеристикой, упаковкой или серией при записи карточки больше не теряет их. Так же работают загрузка товаров из Excel (отказы — в сообщениях загрузки) и новая серия: занятый номер EAN-13 генерируется заново.
