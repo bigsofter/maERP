@@ -27,6 +27,7 @@ WHITE = '#FFFFFF'
 # Колонки: № | Наименование | Кол-во | Ед. | Цена | Скидка | Сумма
 COLS = [30, 300, 62, 52, 84, 52, 100]
 NCOLS = len(COLS)
+PT = 4  # единиц высоты строки mxlx в одном пункте
 
 fonts = []      # (size, bold, italic)
 lines = []      # (width, style, kind)
@@ -116,12 +117,14 @@ S.drawings.append(dict(name='ЛоготипПредложения', r0=top, r0of
 r0 = S.row(14)
 r_title = S.row(30)
 S.cell(r_title, 0, fmt(font=font(18, True), verticalAlignment='Bottom', textColor=ACCENT),
-       text=ml('КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ', 'QUOTATION', 'DEVIS', 'PRESUPUESTO'), span=4)
-S.cell(r_title, 4, fmt(font=font(9, True), horizontalAlignment='Center', verticalAlignment='Center', textColor=WHITE,
-                       backColor=ACCENT, fillType='Parameter'), 'ПлашкаРедакции', span=3)
+       text=ml('КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ', 'QUOTATION', 'DEVIS', 'PRESUPUESTO'), span=7)
+# Плашка редакции - в строке номера, а не рядом с заголовком: русский заголовок в 18 пт занимает почти всю ширину.
+# Без редакции заливку плашки снимает ВывестиПредложение (ячейка R3C5:R3C7 области «Заголовок»).
 r_num = S.row(18)
 S.cell(r_num, 0, fmt(font=font(10), verticalAlignment='Center', textColor=MUTED, fillType='Template'),
-       text=ml('№ [Номер] от [Дата]', 'No. [Номер] dated [Дата]', 'N° [Номер] du [Дата]', 'N.º [Номер] del [Дата]'), span=7)
+       text=ml('№ [Номер] от [Дата]', 'No. [Номер] dated [Дата]', 'N° [Номер] du [Дата]', 'N.º [Номер] del [Дата]'), span=4)
+S.cell(r_num, 4, fmt(font=font(9, True), horizontalAlignment='Center', verticalAlignment='Center', textColor=WHITE,
+                     backColor=ACCENT, fillType='Parameter'), 'ПлашкаРедакции', span=3)
 S.area('Заголовок', r0, r_num)
 
 # --- Стороны --------------------------------------------------------------------------------
@@ -159,7 +162,8 @@ for c, h in enumerate(heads):
                           textColor=WHITE, backColor=ACCENT), text=h)
 S.area('ШапкаТаблицы', r0, r_head)
 
-r_line = S.row(18)
+# Высота строки товара - автоматическая: длинное наименование и единица переносятся, фиксированная высота их обрезала.
+r_line = S.row(None)
 params = ['НомерСтроки', 'Наименование', 'Количество', 'Единица', 'Цена', 'Скидка', 'Сумма']
 for c, p in enumerate(params):
     S.cell(r_line, c, fmt(font=font(9, c == 1), horizontalAlignment=aligns[c], verticalAlignment='Center',
@@ -275,7 +279,9 @@ out.append('\t</columns>')
 for idx, (height, cells) in enumerate(S.rows):
     out += ['\t<rowsItem>', f'\t\t<index>{idx}</index>', '\t\t<row>']
     if height is not None:
-        out.append(f'\t\t\t<formatIndex>{fmt(height=height)}</formatIndex>')
+        # Высота строки в модели листа - в пунктах, а <height> в mxlx - в четвертях пункта: прочитанный макет
+        # отдаёт ВысотаСтроки = height / 4. Пункты без пересчёта сжимали строки КП вчетверо (2.0.16.67).
+        out.append(f'\t\t\t<formatIndex>{fmt(height=height * PT)}</formatIndex>')
     if not cells:
         out.append('\t\t\t<empty>true</empty>')
     for c in sorted(cells):
