@@ -10,6 +10,39 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.69
+### ru
+- Опция «Коммерческие предложения» (Настройки программы, раздел «Продажи») теперь решает, кто создаёт коммерческие предложения. Опция включена — предложения вводит менеджер, как раньше. Опция выключена — реализация сама создаёт своё коммерческое предложение и обновляет его при каждой записи и печати: номер и дата — как у реализации, товары и услуги, цены и суммы — из реализации. Вручную при выключенной опции предложения не вводятся и в программе не видны.
+- При выключенной опции в реализации (в документе и в списке) в меню «Печать» появилась команда «Коммерческое предложение» — она печатает фирменную форму предложения по данным реализации. Из списка можно напечатать сразу несколько реализаций.
+- Если опцию включить, предложения, созданные реализациями, становятся обычными документами: в списке предложений колонка «Из реализации» показывает, по какой реализации создано предложение. Первая ручная правка или отправка клиенту отвязывает предложение от реализации; после выключения опции реализация создаст себе новое.
+- Из заказа покупателя убраны печатные формы «Коммерческое предложение (A5)», «(A4)», «(A4, без НДС)» и «(A4, без цен)»: коммерческое предложение печатает документ «Коммерческое предложение» (или реализация при выключенной опции).
+- Номер ручного коммерческого предложения по-прежнему уникален в пределах года; при совпадении программа сообщает, каким предложением номер уже занят.
+- Описание строки коммерческого предложения больше не ограничено 1024 знаками: длинное описание товара или услуги печатается целиком.
+
+### fr
+- L'option « Devis » (Paramètres du programme, section « Ventes ») détermine désormais qui crée les devis. Option activée : le commercial saisit les devis comme avant. Option désactivée : le bon de livraison crée lui-même son devis et le met à jour à chaque enregistrement et impression — numéro et date identiques à ceux du bon de livraison, articles et services, prix et montants repris du bon de livraison. Option désactivée, les devis ne se saisissent pas manuellement et n'apparaissent pas dans le programme.
+- Option désactivée, le menu « Impression » du bon de livraison (document et liste) propose la commande « Devis » : elle imprime le formulaire à en-tête du devis à partir des données du bon de livraison. Depuis la liste, plusieurs bons de livraison s'impriment d'un coup.
+- Si l'option est activée, les devis créés par les bons de livraison deviennent des documents ordinaires : dans la liste des devis, la colonne « Du bon de livraison » indique le bon d'origine. La première modification manuelle ou l'envoi au client détache le devis du bon de livraison ; après désactivation de l'option, le bon de livraison s'en crée un nouveau.
+- Les formulaires imprimables « Devis (A5) », « (A4) », « (A4, hors TVA) » et « (A4, sans prix) » sont retirés de la commande client : le devis s'imprime depuis le document « Devis » (ou depuis le bon de livraison si l'option est désactivée).
+- Le numéro d'un devis saisi manuellement reste unique dans l'année ; en cas de doublon, le programme indique quel devis utilise déjà ce numéro.
+- La description d'une ligne de devis n'est plus limitée à 1024 caractères : une longue description d'article ou de service s'imprime en entier.
+
+### en
+- The «Quotations» option (Program settings, Sales section) now decides who creates quotations. Option on — managers enter quotations as before. Option off — each sales document creates its own quotation and updates it on every save and print: same number and date as the sales document, goods and services, prices and amounts taken from it. With the option off, quotations are not entered manually and are not shown in the program.
+- With the option off, the «Print» menu of the sales document (form and list) has a «Quotation» command: it prints the branded quotation form from the sales document data. Several sales documents can be printed at once from the list.
+- If you turn the option on, quotations created by sales documents become ordinary documents: the «From sales document» column of the quotation list shows where each one came from. The first manual edit or sending to the customer detaches the quotation from the sales document; after the option is turned off again, the sales document creates a new one.
+- The customer order no longer has the «Quotation (A5)», «(A4)», «(A4, without VAT)» and «(A4, without prices)» print forms: quotations are printed from the «Quotation» document (or from the sales document when the option is off).
+- A manually entered quotation number is still unique within the year; on a clash the program tells you which quotation already uses the number.
+- A quotation line description is no longer limited to 1024 characters: a long item or service description prints in full.
+
+### es
+- La opción «Presupuestos» (Configuración del programa, sección «Ventas») decide ahora quién crea los presupuestos. Opción activada: el comercial introduce los presupuestos como antes. Opción desactivada: cada albarán crea su propio presupuesto y lo actualiza en cada grabación e impresión, con el mismo número y fecha que el albarán y los artículos, servicios, precios e importes del albarán. Con la opción desactivada, los presupuestos no se introducen a mano ni se muestran en el programa.
+- Con la opción desactivada, el menú «Impresión» del albarán (documento y lista) tiene el comando «Presupuesto»: imprime el formulario corporativo del presupuesto con los datos del albarán. Desde la lista se pueden imprimir varios albaranes a la vez.
+- Si activa la opción, los presupuestos creados por los albaranes pasan a ser documentos normales: en la lista de presupuestos la columna «Del albarán» muestra su origen. La primera modificación manual o el envío al cliente desvincula el presupuesto del albarán; al volver a desactivar la opción, el albarán crea uno nuevo.
+- Del pedido de cliente se han quitado los formularios de impresión «Presupuesto (A5)», «(A4)», «(A4, sin IVA)» y «(A4, sin precios)»: el presupuesto se imprime desde el documento «Presupuesto» (o desde el albarán con la opción desactivada).
+- El número de un presupuesto introducido a mano sigue siendo único dentro del año; si coincide, el programa indica qué presupuesto ya lo usa.
+- La descripción de una línea del presupuesto ya no está limitada a 1024 caracteres: una descripción larga de artículo o servicio se imprime completa.
+
 ## 2.0.16.68
 ### ru
 - Коммерческое предложение печатается общим механизмом фирменных печатных форм — вид формы не изменился. На этот же механизм в следующих сборках переходят счёт-фактура, накладные, возвраты и другие документы для клиентов и поставщиков: все они будут оформлены одинаково.

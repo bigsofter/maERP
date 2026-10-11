@@ -108,7 +108,7 @@
   <numberType>String</numberType>
   <numberLength>11</numberLength>
   <numberPeriodicity>Year</numberPeriodicity>
-  <checkUnique>true</checkUnique>
+  <checkUnique>false</checkUnique>
   <autonumbering>true</autonumbering>
   <defaultObjectForm>Document.КоммерческоеПредложение.Form.ФормаДокумента</defaultObjectForm>
   <defaultListForm>Document.КоммерческоеПредложение.Form.ФормаСписка</defaultListForm>
@@ -583,6 +583,7 @@
     <minValue xsi:type="core:UndefinedValue" />
     <maxValue xsi:type="core:UndefinedValue" />
     <fillValue xsi:type="core:UndefinedValue" />
+    <indexing>Index</indexing>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
@@ -664,6 +665,34 @@
       <value>Modificado tras la revisión</value>
     </synonym>
     <comment>Содержимое отличается от последней отправленной редакции (черновик правок)</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue" />
+    <maxValue xsi:type="core:UndefinedValue" />
+    <fillValue xsi:type="core:BooleanValue" />
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="2b97731b-ef0f-4383-8aee-bf2d42b62623">
+    <name>Автосинхронизация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Автосинхронизация с реализацией</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Synchronisation automatique avec le bon de livraison</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Auto-sync with sales document</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Sincronización automática con el albarán</value>
+    </synonym>
+    <comment>Предложение создано реализацией при выключенной опции и перезаписывается из неё (docs/plans/branded-print.md, 3.3)</comment>
     <type>
       <types>Boolean</types>
     </type>
@@ -1254,9 +1283,7 @@
       </synonym>
       <type>
         <types>String</types>
-        <stringQualifiers>
-          <length>1024</length>
-        </stringQualifiers>
+        <stringQualifiers/>
       </type>
       <multiLine>true</multiLine>
       <minValue xsi:type="core:UndefinedValue" />

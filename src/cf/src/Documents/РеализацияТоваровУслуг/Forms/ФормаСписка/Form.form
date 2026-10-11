@@ -3136,6 +3136,32 @@
         <placementArea>UserCmds</placementArea>
         <representationInContextMenu>Auto</representationInContextMenu>
       </items>
+      <items xsi:type="form:Button">
+        <name>КнопкаПечатьКоммерческоеПредложение</name>
+        <id>227</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>КнопкаПечатьКоммерческоеПредложениеРасширеннаяПодсказка</name>
+          <id>228</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.ПечатьКоммерческоеПредложение</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+      </items>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -4259,6 +4285,55 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>СтраницаПоследняя</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ПечатьКоммерческоеПредложение</name>
+    <title>
+      <key>ru</key>
+      <value>Коммерческое предложение</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Devis</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Quotation</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Presupuesto</value>
+    </title>
+    <id>11</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Коммерческое предложение по реализации: создаётся и обновляется из неё (опция «Коммерческие предложения» выключена)</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Devis du bon de livraison : créé et mis à jour à partir de celui-ci (option « Devis » désactivée)</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Quotation for the sales document: created and updated from it («Quotations» option is off)</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Presupuesto del albarán: se crea y se actualiza desde él (opción «Presupuestos» desactivada)</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Print</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ПечатьКоммерческоеПредложение</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
