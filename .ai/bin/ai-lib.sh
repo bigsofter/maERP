@@ -382,6 +382,13 @@ ai_collect_diff() {
   if [ "${AI_DIFF_WITH_DOCS:-0}" != "1" ]; then
     pathspec=(-- . ':(exclude)docs/**' ':(exclude).ai/**')
   fi
+  # AI_DIFF_EXCLUDE — дополнительные шаблоны путей через пробел (например '*.mxlx'): сгенерированный макет на тысячи
+  # строк выводит промпт за предел Codex (1 МБ, 2026-10-11), а его генератор остаётся в диффе.
+  local ex
+  for ex in ${AI_DIFF_EXCLUDE:-}; do
+    [ ${#pathspec[@]} -eq 0 ] && pathspec=(-- .)
+    pathspec+=(":(exclude)$ex")
+  done
   # Тело собираем в переменную, а не печатаем на ходу: вызывающий отличает
   # «ревьюить нечего» от «git упал» по ПУСТОМУ выводу, и служебная приписка про
   # исключённые доки не должна превращать пустой дифф в непустой.
@@ -454,6 +461,13 @@ ai_tree_delta() {
   if [ "${AI_DIFF_WITH_DOCS:-0}" != "1" ]; then
     pathspec=(-- . ':(exclude)docs/**' ':(exclude).ai/**')
   fi
+  # AI_DIFF_EXCLUDE — дополнительные шаблоны путей через пробел (например '*.mxlx'): сгенерированный макет на тысячи
+  # строк выводит промпт за предел Codex (1 МБ, 2026-10-11), а его генератор остаётся в диффе.
+  local ex
+  for ex in ${AI_DIFF_EXCLUDE:-}; do
+    [ ${#pathspec[@]} -eq 0 ] && pathspec=(-- .)
+    pathspec+=(":(exclude)$ex")
+  done
   ai_git diff-tree -p --no-commit-id -M "$old" "$new" "${pathspec[@]+"${pathspec[@]}"}" || return 1
 }
 
