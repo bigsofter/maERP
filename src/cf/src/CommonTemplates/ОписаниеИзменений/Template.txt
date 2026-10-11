@@ -10,6 +10,43 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.73
+### ru
+- «Бланк заказа (A4)» заказа покупателя, акт сверки (обычный, с печатью, без НДС) печатаются в фирменном оформлении, как счёт-фактура и накладная: логотип, реквизиты сторон, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
+- Бланк заказа: номер, клиент, строки с ценами, итоги без НДС, НДС и с НДС, сумма прописью, дата печати и кто выписал, подписи транспорта и клиента.
+- Акт сверки: вступление с руководителями сторон, сальдо на начало и конец периода, документы с дебетом и кредитом, обороты, НДС строк по ставкам (кроме варианта «без НДС»), долг стороны суммой и прописью на языке печати. Суммы — в основной валюте учёта. Руководитель организации — по уставу, как раньше; «с печатью» — печать организации и факсимиле подписи руководителя.
+- Акт сверки сравнивает «по нашим данным» и «по данным контрагента» по каждому документу и перечисляет расхождения. Прежняя фраза «по результатам сверки расхождений не выявлено» печаталась всегда; теперь, если расхождений в документе нет, акт пишет, что данные приведены по нашему учёту и подписание акта контрагентом подтверждает отсутствие расхождений.
+- Рассылка актов сверки по e-mail прикладывает фирменный акт.
+- У приходного и расходного кассового ордера новая печатная форма «Квитанция (Reçu)» на листе A4: сумма крупно и прописью, основание, касса, статья, плательщик или получатель, подписи кассира и плательщика, печать организации. Команда «Чек» для принтера чеков не изменилась.
+- Если вы меняли макеты прежнего акта сверки или бланка заказа, правки сохранены в списке макетов печатных форм, но новые формы печатаются общим фирменным макетом. Правка фирменного макета действует на все фирменные формы всех документов.
+
+### fr
+- Le « Bon de commande (A4) » de la commande client et l'acte de rapprochement (normal, avec cachet, hors TVA) s'impriment avec la présentation à en-tête, comme la facture et le bon de livraison : logo, coordonnées des parties, pied de page des mentions légales sur chaque page. Les commandes restent les mêmes : les entrées de menu, l'impression directe et l'imprimante choisie sont conservées.
+- Bon de commande : numéro, client, lignes avec prix, totaux HT, TVA et TTC, montant en toutes lettres, date d'impression et auteur, signatures transport et client.
+- Acte de rapprochement : préambule avec les dirigeants des parties, soldes de début et de fin de période, documents avec débit et crédit, mouvements, TVA des lignes par taux (sauf variante « hors TVA »), dette de la partie en chiffres et en lettres dans la langue d'impression. Les montants sont dans la devise principale. Le dirigeant de la société est celui désigné par les statuts, comme avant ; « avec cachet » ajoute le cachet de la société et le fac-similé de la signature du dirigeant.
+- L'acte compare « selon nos données » et « selon les données de la contrepartie » document par document et liste les divergences. L'ancienne phrase « aucune divergence n'a été identifiée » s'imprimait toujours ; désormais, en l'absence de divergence dans le document, l'acte indique que les données proviennent de notre comptabilité et que la signature de la contrepartie confirme l'absence de divergences.
+- L'envoi des actes de rapprochement par e-mail joint l'acte à en-tête.
+- Le bon d'encaissement et le bon de décaissement ont un nouveau formulaire « Reçu » sur A4 : montant en grand et en toutes lettres, motif, caisse, rubrique, payeur ou bénéficiaire, signatures du caissier et du payeur, cachet de la société. La commande « Ticket » pour l'imprimante de tickets ne change pas.
+- Si vous aviez modifié les modèles de l'ancien acte de rapprochement ou du bon de commande, vos modifications restent dans la liste des modèles d'impression, mais les nouveaux formulaires utilisent le modèle à en-tête commun. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête de tous les documents.
+
+### en
+- The customer order «Order form (A4)» and the reconciliation statement (regular, with stamp, without VAT) now print in the branded layout, like the invoice and the delivery note: logo, party details, legal footer on every page. The commands are unchanged: menu items, direct-to-printer settings and the selected printer are kept.
+- Order form: number, customer, lines with prices, totals excluding VAT, VAT and including VAT, amount in words, print date and issued by, carrier and customer signatures.
+- Reconciliation statement: preamble with the parties' managers, opening and closing balances, documents with debit and credit, turnover, line VAT by rate (except the «without VAT» variant), the party's debt in figures and in words in the print language. Amounts are in the base currency. The company manager is the one appointed by the articles of association, as before; «with stamp» adds the company stamp and the manager's facsimile signature.
+- The statement compares «our records» and «counterparty records» document by document and lists the discrepancies. The former sentence «no discrepancies were identified» was always printed; now, when the document shows no discrepancies, the statement says the data come from our records and the counterparty's signature confirms there are no discrepancies.
+- Emailing reconciliation statements attaches the branded statement.
+- Cash receipt and cash payment orders get a new «Receipt» form on A4: large amount and amount in words, purpose, cash desk, cash flow item, payer or recipient, cashier and payer signatures, company stamp. The «Receipt» command for the receipt printer (Ticket) is unchanged.
+- If you modified the templates of the former reconciliation statement or order form, your changes stay in the print template list, but the new forms use the common branded template. A change to the branded template applies to all branded forms of all documents.
+
+### es
+- La «Hoja de pedido (A4)» del pedido de cliente y el acta de conciliación (normal, con sello, sin IVA) se imprimen con el diseño corporativo, como la factura y el albarán: logotipo, datos de las partes, pie con los datos legales en cada página. Los comandos no cambian: se conservan las opciones del menú, la impresión directa y la impresora elegida.
+- Hoja de pedido: número, cliente, líneas con precios, totales sin IVA, IVA y con IVA, importe en letras, fecha de impresión y emitido por, firmas del transportista y del cliente.
+- Acta de conciliación: preámbulo con los directivos de las partes, saldos inicial y final del período, documentos con debe y haber, movimientos, IVA de las líneas por tipo (salvo la variante «sin IVA»), deuda de la parte en cifras y en letras en el idioma de impresión. Los importes están en la moneda principal. El directivo de la empresa es el designado por los estatutos, como antes; «con sello» añade el sello de la empresa y la firma facsímil del directivo.
+- El acta compara «según nuestros datos» y «según los datos de la contraparte» documento por documento y enumera las discrepancias. La frase anterior «no se identificaron discrepancias» se imprimía siempre; ahora, si el documento no muestra discrepancias, el acta indica que los datos proceden de nuestra contabilidad y que la firma de la contraparte confirma la ausencia de discrepancias.
+- El envío de actas de conciliación por correo adjunta el acta corporativa.
+- Las órdenes de ingreso y de pago de caja tienen un nuevo formulario «Recibo» en A4: importe grande y en letras, concepto, caja, partida de tesorería, pagador o beneficiario, firmas del cajero y del pagador, sello de la empresa. El comando «Recibo» para la impresora de tickets no cambia.
+- Si modificó las plantillas del acta de conciliación anterior o de la hoja de pedido, sus cambios se conservan en la lista de plantillas de impresión, pero los nuevos formularios usan la plantilla corporativa común. Un cambio en la plantilla corporativa se aplica a todos los formularios corporativos de todos los documentos.
+
 ## 2.0.16.72
 ### ru
 - Накладные BL, возврат (Avoir) и акт об оказании услуг печатаются в фирменном оформлении, как коммерческое предложение и счёт-фактура: логотип, реквизиты организации и клиента, итоги без НДС, НДС и с НДС, сумма прописью, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
