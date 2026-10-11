@@ -10,6 +10,47 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.72
+### ru
+- Накладные BL, возврат (Avoir) и акт об оказании услуг печатаются в фирменном оформлении, как коммерческое предложение и счёт-фактура: логотип, реквизиты организации и клиента, итоги без НДС, НДС и с НДС, сумма прописью, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
+- Накладная BL: оплаты по документу (наличными, чеком, прочие, в кредит) и долг клиента, дата и время печати, кто выписал, подписи транспорта и клиента, номер заказа; адрес доставки клиента, если он отличается от адреса. Варианты «без НДС» и «без цен» — как раньше.
+- Команда «Накладная BL» (прежде «Накладная BL (A5)») печатает на листе A4. Рабочее место кассира в режиме PDV по-прежнему печатает накладную без цен — теперь и без итогов и оплат.
+- Возврат (Avoir) возврата от покупателя и налогового возврата: основание — накладная или счёт-фактура продажи — и причина возврата; прежде вместо номера заказа печатался номер самого возврата.
+- Акт об оказании услуг реализации и поступления печатает только услуги и итоги по ним, сумма прописью — словами; у акта поступления исполнитель — поставщик.
+- Убрана команда «Товарная накладная (прежняя форма)». Возврат печатается командой «Возврат товара» (Avoir); ролям, у которых была прежняя команда, добавлены «Возврат товара» и, где у роли есть права на оплаты, «Товарная накладная» (Facture) реализации.
+- Роль «Оператор производства» видит документы без цен и сумм — накладная, возврат и акт печатаются ей без цен, счёт-фактура не печатается.
+- Если вы меняли макеты прежних накладных BL, акта или «Товарной накладной (прежней формы)», правки сохранены в списке макетов печатных форм, но новые формы печатаются общим фирменным макетом. Правка фирменного макета действует на все фирменные формы всех документов.
+
+### fr
+- Les bons de livraison, les avoirs et l'acte de prestation de services s'impriment désormais avec la présentation à en-tête, comme le devis et la facture : logo, coordonnées de la société et du client, totaux HT, TVA et TTC, montant en toutes lettres, pied de page des mentions légales sur chaque page. Les commandes restent les mêmes : les entrées de menu, l'impression directe et l'imprimante choisie sont conservées.
+- Bon de livraison : règlements du document (espèces, chèque, autres, crédit) et solde client, date et heure d'impression, auteur, signatures transport et client, numéro de commande ; adresse de livraison du client si elle diffère de son adresse. Les variantes « hors TVA » et « sans prix » restent identiques.
+- La commande « Bon de livraison » (auparavant « Bon de livraison (A5) ») imprime sur une feuille A4. Le poste de caisse en mode PDV imprime toujours le bon sans prix — désormais aussi sans totaux ni règlements.
+- Avoir du retour client et du retour fiscal : document d'origine — bon de livraison ou facture de vente — et motif du retour ; auparavant, le numéro du retour lui-même s'imprimait à la place du numéro de commande.
+- L'acte de prestation de services de la vente et de la réception n'imprime que les services et leurs totaux, montant en toutes lettres ; pour l'acte de réception, le prestataire est le fournisseur.
+- La commande « Facture (ancien formulaire) » est supprimée. Le retour s'imprime par la commande « Avoir » ; les rôles qui avaient l'ancienne commande reçoivent « Avoir » et, s'ils ont accès aux règlements, la « Facture » de la vente.
+- Le rôle « Opérateur de production » voit les documents sans prix ni montants : le bon, l'avoir et l'acte s'impriment pour lui sans prix, la facture ne s'imprime pas.
+- Si vous aviez modifié les modèles des anciens bons de livraison, de l'acte ou de la « Facture (ancien formulaire) », vos modifications restent dans la liste des modèles d'impression, mais les nouveaux formulaires utilisent le modèle à en-tête commun. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête de tous les documents.
+
+### en
+- Delivery notes, credit notes (Avoir) and the act of provision of services now print in the branded layout, like the quotation and the invoice: logo, company and customer details, totals excluding VAT, VAT and including VAT, amount in words, legal footer on every page. The commands are unchanged: menu items, direct-to-printer settings and the selected printer are kept.
+- Delivery note: payments on the document (cash, cheque, other, credit) and the customer balance, print date and time, issued by, carrier and customer signatures, order number; the customer delivery address when it differs from the address. The «without VAT» and «without prices» variants work as before.
+- The «Delivery note» command (formerly «Delivery note (A5)») prints on A4. The cashier workstation in PDV mode still prints the note without prices — now also without totals and payments.
+- Credit note of the customer return and the tax return: the source document — sales delivery note or invoice — and the return reason; previously the return's own number was printed instead of the order number.
+- The act of provision of services for sales and receipts prints only the services and their totals, with the amount in words; on the receipt act the contractor is the supplier.
+- The «Invoice (former form)» command is removed. Returns print with the «Credit note» command (formerly shown as «Have»); roles that had the former command get «Credit note» and, where the role can read payments, the sales «Invoice».
+- The «Production operator» role sees documents without prices and amounts: the delivery note, credit note and act print without prices for it, the invoice is not printed.
+- If you modified the templates of the former delivery notes, the act or the «Invoice (former form)», your changes stay in the print template list, but the new forms use the common branded template. A change to the branded template applies to all branded forms of all documents.
+
+### es
+- Los albaranes de entrega, las notas de abono (Avoir) y el acta de prestación de servicios se imprimen ahora con el diseño corporativo, como el presupuesto y la factura: logotipo, datos de la empresa y del cliente, totales sin IVA, IVA y con IVA, importe en letras, pie con los datos legales en cada página. Los comandos no cambian: se conservan las opciones del menú, la impresión directa y la impresora elegida.
+- Albarán de entrega: pagos del documento (efectivo, cheque, otros, crédito) y saldo del cliente, fecha y hora de impresión, emitido por, firmas del transportista y del cliente, número de pedido; dirección de entrega del cliente si difiere de su dirección. Las variantes «sin IVA» y «sin precios» funcionan como antes.
+- El comando «Albarán de entrega» (antes «Albarán de entrega (A5)») imprime en A4. El puesto de caja en modo PDV sigue imprimiendo el albarán sin precios — ahora también sin totales ni pagos.
+- Nota de abono de la devolución de cliente y de la devolución fiscal: documento de origen — albarán o factura de venta — y motivo de la devolución; antes se imprimía el número de la propia devolución en lugar del número de pedido.
+- El acta de prestación de servicios de la venta y de la recepción imprime solo los servicios y sus totales, con el importe en letras; en el acta de recepción el prestador es el proveedor.
+- Se elimina el comando «Factura (formulario anterior)». La devolución se imprime con el comando «Nota de abono» (antes aparecía como «Tener»); los roles que tenían el comando anterior reciben «Nota de abono» y, si pueden leer los pagos, la «Factura» de la venta.
+- El rol «Operador de producción» ve los documentos sin precios ni importes: el albarán, la nota de abono y el acta se le imprimen sin precios, la factura no se imprime.
+- Si modificó las plantillas de los albaranes anteriores, del acta o de la «Factura (formulario anterior)», sus cambios se conservan en la lista de plantillas de impresión, pero los nuevos formularios usan la plantilla corporativa común. Un cambio en la plantilla corporativa se aplica a todos los formularios corporativos de todos los documentos.
+
 ## 2.0.16.71
 ### ru
 - Отчёты оформлены в едином стиле «Античный» вместо «Арктика».

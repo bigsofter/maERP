@@ -4,7 +4,7 @@
 Один макет на все фирменные формы (docs/plans/branded-print.md): КП, а в следующих фазах Facture, BL, Avoir и
 другие. Выводит его общий модуль ФирменнаяПечать; тексты, зависящие от вида формы (заголовок, подписи сторон), -
 параметры, а не тексты ячеек. Варианты таблицы - отдельные именованные области ШапкаТаблицы<Вариант> и
-Строка<Вариант> (пусто - все колонки, БезСкидки, БезЦен).
+Строка<Вариант> (пусто - все колонки, БезСкидки, БезЦен; Фактура; Накладная, НакладнаяБезЦен).
 
 Макет собирается из описания областей ниже, а не правится руками: формат .mxlx — XML-сериализация
 табличного документа, где каждая ячейка ссылается на общий список форматов, шрифтов и линий по
@@ -36,6 +36,8 @@ WHITE = '#FFFFFF'
 WIDTH = 680
 KP = [0, 30, 330, 392, 444, 528, 580, 680]          # границы колонок КП
 FA = [0, 24, 76, 246, 290, 340, 420, 468, 548, 680]  # № | Réf | Désignation | Qté | Ед. | Prix | TVA % | TVA | Montant
+BL = [0, 24, 370, 430, 490, 570, 680]                 # BL, Avoir, акт: № | Désignation | Qté | U | Prix | Montant
+BN = [0, 24, 500, 580, 680]                           # они же без цен: № | Désignation | Qté | U
 PT = 4  # единиц высоты строки mxlx в одном пункте
 
 fonts = []      # (size, bold, italic)
@@ -213,7 +215,7 @@ def table(suffix, cols, bold_col):
     # Высота строки товара - автоматическая: длинное наименование и единица переносятся, фиксированная высота
     # их обрезала.
     r_line = S.row(None)
-    size = 9 if suffix in ('', 'БезСкидки', 'БезЦен') else 8
+    size = 8 if suffix == 'Фактура' else 9
     for i, (_, align, param, x) in enumerate(cols):
         S.cell(r_line, x, fmt(font=font(size, i == bold_col), horizontalAlignment=align, verticalAlignment='Center',
                               textPlacement='Wrap', fillType='Parameter'), param)
@@ -252,6 +254,16 @@ r_desc = S.row(None)
 S.cell(r_desc, (FA[2], FA[7]), fmt(font=font(7), verticalAlignment='Top', textColor=MUTED, textPlacement='Wrap',
                                    fillType='Parameter'), 'Описание')
 S.area('ОписаниеСтрокиФактура', r_desc, r_desc)
+
+# --- Таблица BL, Avoir и акта: колонки прежних DevisBL и акта об оказании услуг; вариант без цен ------------------
+bl_cols = [fa_cols[0], fa_cols[2], fa_cols[3], fa_cols[4], fa_cols[5], fa_cols[8]]
+table('Накладная', [(h, a, p, (BL[i], BL[i + 1])) for i, (h, a, p) in enumerate(bl_cols)], 1)
+table('НакладнаяБезЦен', [(h, a, p, (BN[i], BN[i + 1])) for i, (h, a, p) in enumerate(bl_cols[:4])], 1)
+
+r_desc = S.row(None)
+S.cell(r_desc, (BL[1], BL[4]), fmt(font=font(8), verticalAlignment='Top', textColor=MUTED, textPlacement='Wrap',
+                                   fillType='Parameter'), 'Описание')
+S.area('ОписаниеСтрокиНакладная', r_desc, r_desc)
 
 # Группа строк: документ отгрузки (BL), к которому относятся следующие строки.
 r_grp = S.row(16)
@@ -309,6 +321,53 @@ r_text = S.row(None)
 S.cell(r_text, (0, WIDTH), f_block, 'ТекстБлока')
 S.area('БлокТекста', r0, r_text)
 
+# Оплаты по документу и долг клиента до документа (BL, Avoir): четыре вида оплаты по четверти ширины, долг - в колонках
+# итогов. Подписи видов оплаты - параметры: это представления элементов справочника видов оплаты.
+r0 = S.row(12)
+r_lbl = S.row(16)
+S.rule(r_lbl, f_rule)
+S.cell(r_lbl, (0, WIDTH), f_lbl, text=ml('ОПЛАТЫ ПО ДОКУМЕНТУ', 'PAYMENTS', 'RÈGLEMENTS', 'PAGOS'))
+r_pay = S.row(18)
+f_pay = fmt(font=font(9), verticalAlignment='Center', textPlacement='Wrap', fillType='Parameter')
+for i, name in enumerate(('ОплатаНаличные', 'ОплатаЧеком', 'ОплатаПрочие', 'ОплатаКредит')):
+    S.cell(r_pay, (170 * i, 170 * (i + 1)), f_pay, name)
+r_debt = S.row(18)
+S.cell(r_debt, X_LBL, fmt(font=font(9, True), horizontalAlignment='Right', verticalAlignment='Center'),
+       text=ml('Долг клиента', 'Customer balance', 'Solde client', 'Saldo del cliente'))
+S.cell(r_debt, X_VAL, fmt(font=font(9, True), horizontalAlignment='Right', verticalAlignment='Center',
+                          fillType='Parameter'), 'ДолгКлиента')
+S.area('ОплатыДокумента', r0, r_debt)
+
+# Сведения печати (BL, Avoir): дата и время печати и кто выписал документ - строка на языке печати.
+r0 = S.row(8)
+r_info = S.row(14)
+S.cell(r_info, (0, WIDTH), fmt(font=font(8), verticalAlignment='Center', textColor=MUTED, fillType='Parameter'),
+       'СведенияПечати')
+S.area('СведенияПечати', r0, r_info)
+
+# --- Подписи сторон (BL, Avoir, акт): текст над подписями, две колонки с подписью стороны, наименованием и линией;
+# печать организации - в левой колонке (исполнитель-организация акта).
+r0 = S.row(10)
+r_text = S.row(None)
+S.cell(r_text, (0, WIDTH), fmt(font=font(9), verticalAlignment='Top', textPlacement='Wrap', fillType='Parameter'),
+       'ТекстПодписей')
+r_lbl = S.row(22)
+f_sig_lbl = fmt(font=font(8, True), verticalAlignment='Bottom', textColor=MUTED, fillType='Parameter')
+S.cell(r_lbl, (0, 330), f_sig_lbl, 'ПодписьЛевая')
+S.cell(r_lbl, (342, WIDTH), f_sig_lbl, 'ПодписьПравая')
+r_name = S.row(None)
+f_sig_name = fmt(font=font(9, True), verticalAlignment='Top', textPlacement='Wrap', fillType='Parameter')
+S.cell(r_name, (0, 330), f_sig_name, 'НаименованиеЛевое')
+S.cell(r_name, (342, WIDTH), f_sig_name, 'НаименованиеПравое')
+r_space = S.row(40)
+r_line = S.row(6)
+f_sig_line = fmt(font=F_BASE, bottomBorder=L_RULE, borderColor=MUTED)
+S.cell(r_line, (0, 250), f_sig_line)
+S.cell(r_line, (342, 592), f_sig_line)
+S.area('ПодписиСторон', r0, r_line)
+S.drawings.append(dict(name='ПечатьПодписей', r0=r_space, r0off=0, r1=r_line, r1off=6, x0=120, x1=320,
+                       size='Proportionally'))
+
 # --- Подпись КП -----------------------------------------------------------------------------
 r0 = S.row(16)
 r_sig_lbl = S.row(14)
@@ -349,7 +408,7 @@ r_empty = S.row(14)
 S.area('ПустаяСтрока', r_empty, r_empty)
 
 # Общая сетка: все границы колонок всех областей.
-GRID = sorted({0, WIDTH} | set(KP) | set(FA) | {x for _, cells in S.rows for c in cells for x in c[:2] if x is not None})
+GRID = sorted({0, WIDTH} | set(KP) | set(FA) | set(BL) | set(BN) | {x for _, cells in S.rows for c in cells for x in c[:2] if x is not None})
 COLS = [b - a for a, b in zip(GRID, GRID[1:])]
 NCOLS = len(COLS)
 
