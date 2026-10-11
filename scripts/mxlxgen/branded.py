@@ -1,19 +1,25 @@
 #!/usr/bin/env python3
-"""Генератор макета печатной формы коммерческого предложения (Template.mxlx).
+"""Генератор общего макета фирменных печатных форм ФирменныйДокумент (Template.mxlx).
+
+Один макет на все фирменные формы (docs/plans/branded-print.md): КП, а в следующих фазах Facture, BL, Avoir и
+другие. Выводит его общий модуль ФирменнаяПечать; тексты, зависящие от вида формы (заголовок, подписи сторон), -
+параметры, а не тексты ячеек. Варианты таблицы - отдельные именованные области ШапкаТаблицы<Вариант> и
+Строка<Вариант> (пусто - все колонки, БезСкидки, БезЦен).
 
 Макет собирается из описания областей ниже, а не правится руками: формат .mxlx — XML-сериализация
 табличного документа, где каждая ячейка ссылается на общий список форматов, шрифтов и линий по
 индексу; ручная правка такого файла почти всегда ломает индексы. Порядок элементов взят по
 работающим макетам конфигурации (DevisBL_A4, ЗаказПоставщику).
 
-Запуск: python3 scripts/mxlxgen/kp_quotation.py  (перезаписывает макет документа).
-После генерации — Refresh в EDT и смок «сформировать все печатные формы».
+Запуск: python3 scripts/mxlxgen/branded.py  (перезаписывает общий макет).
+После генерации — Refresh в EDT, scripts/print-preview.sh по каждой затронутой форме (вид проверяется только
+глазами, tiny1C tmpl-004) и смок «сформировать все печатные формы».
 """
 import os
 from xml.sax.saxutils import escape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-OUT = os.path.join(ROOT, 'src/cf/src/Documents/КоммерческоеПредложение/Templates/КоммерческоеПредложение/Template.mxlx')
+OUT = os.path.join(ROOT, 'src/cf/src/CommonTemplates/ФирменныйДокумент/Template.mxlx')
 
 LANGS = ('ru', 'en', 'fr', 'es')
 
@@ -110,30 +116,36 @@ r_rule = S.row(10)
 for c in range(NCOLS):
     S.cell(r_rule, c, fmt(font=F_BASE, bottomBorder=L_ACCENT, borderColor=ACCENT))
 S.area('Шапка', top, r_rule)
-S.drawings.append(dict(name='ЛоготипПредложения', r0=top, r0off=2, r1=r_rule - 1, r1off=10, c0=0, c0off=2,
+# Имена рисунков - не «Логотип»/«ПечатьОрганизации»: в них ПечатныеФормы.СформироватьПечатныеФормы после вывода
+# подставляет текущие картинки организации, а снимок редакции КП печатает свои, сохранённые.
+S.drawings.append(dict(name='ЛоготипДокумента', r0=top, r0off=2, r1=r_rule - 1, r1off=10, c0=0, c0off=2,
                        c1=1, c1off=180, size='Proportionally'))
 
 # --- Заголовок ------------------------------------------------------------------------------
 r0 = S.row(14)
 r_title = S.row(30)
-S.cell(r_title, 0, fmt(font=font(18, True), verticalAlignment='Bottom', textColor=ACCENT),
-       text=ml('КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ', 'QUOTATION', 'DEVIS', 'PRESUPUESTO'), span=7)
+# Заголовок - параметр: его текст на языке печати задаёт вид формы (ФирменнаяПечать.ВидыФорм).
+S.cell(r_title, 0, fmt(font=font(18, True), verticalAlignment='Bottom', textColor=ACCENT, fillType='Parameter'),
+       'Заголовок', span=7)
 # Плашка редакции - в строке номера, а не рядом с заголовком: русский заголовок в 18 пт занимает почти всю ширину.
-# Без редакции заливку плашки снимает ВывестиПредложение (ячейка R3C5:R3C7 области «Заголовок»).
+# Без плашки заливку снимает ФирменнаяПечать.Вывести (ячейка R3C5:R3C7 области «Заголовок»).
 r_num = S.row(18)
 S.cell(r_num, 0, fmt(font=font(10), verticalAlignment='Center', textColor=MUTED, fillType='Template'),
        text=ml('№ [Номер] от [Дата]', 'No. [Номер] dated [Дата]', 'N° [Номер] du [Дата]', 'N.º [Номер] del [Дата]'), span=4)
 S.cell(r_num, 4, fmt(font=font(9, True), horizontalAlignment='Center', verticalAlignment='Center', textColor=WHITE,
-                     backColor=ACCENT, fillType='Parameter'), 'ПлашкаРедакции', span=3)
+                     backColor=ACCENT, fillType='Parameter'), 'Плашка', span=3)
 S.area('Заголовок', r0, r_num)
 
 # --- Стороны --------------------------------------------------------------------------------
 r0 = S.row(14)
 r_lbl = S.row(16)
 f_lbl = fmt(font=font(7, True), verticalAlignment='Bottom', textColor=MUTED, bottomBorder=L_RULE, borderColor=RULE)
-S.cell(r_lbl, 0, f_lbl, text=ml('КЛИЕНТ', 'CUSTOMER', 'CLIENT', 'CLIENTE'), span=2)
+# Подписи сторон - параметры: у документа поставщику слева поставщик, у акта сверки - контрагент.
+f_lbl_p = fmt(font=font(7, True), verticalAlignment='Bottom', textColor=MUTED, bottomBorder=L_RULE, borderColor=RULE,
+              fillType='Parameter')
+S.cell(r_lbl, 0, f_lbl_p, 'ПодписьСтороны', span=2)
 S.cell(r_lbl, 2, fmt(font=F_BASE, bottomBorder=L_RULE, borderColor=RULE))
-S.cell(r_lbl, 3, f_lbl, text=ml('ВАШ МЕНЕДЖЕР', 'YOUR CONTACT', 'VOTRE CONTACT', 'SU CONTACTO'), span=4)
+S.cell(r_lbl, 3, f_lbl_p, 'ПодписьКонтакта', span=4)
 r_name = S.row(18)
 f_party = fmt(font=font(10, True), verticalAlignment='Center', textPlacement='Wrap', fillType='Parameter')
 S.cell(r_name, 0, f_party, 'КлиентНаименование', span=2)
@@ -157,18 +169,31 @@ heads = [
     ml('Сумма', 'Amount', 'Montant', 'Importe'),
 ]
 aligns = ['Center', 'Left', 'Right', 'Center', 'Right', 'Right', 'Right']
-for c, h in enumerate(heads):
-    S.cell(r_head, c, fmt(font=font(8, True), horizontalAlignment=aligns[c], verticalAlignment='Center',
-                          textColor=WHITE, backColor=ACCENT), text=h)
-S.area('ШапкаТаблицы', r0, r_head)
-
-# Высота строки товара - автоматическая: длинное наименование и единица переносятся, фиксированная высота их обрезала.
-r_line = S.row(None)
 params = ['НомерСтроки', 'Наименование', 'Количество', 'Единица', 'Цена', 'Скидка', 'Сумма']
-for c, p in enumerate(params):
-    S.cell(r_line, c, fmt(font=font(9, c == 1), horizontalAlignment=aligns[c], verticalAlignment='Center',
-                          textPlacement='Wrap', fillType='Parameter'), p)
-S.area('Строка', r_line, r_line)
+
+# Варианты таблицы: (суффикс области, [(индекс колонки описания, первая колонка сетки, ширина в колонках)]).
+VARIANTS = [
+    ('', [(c, c, 1) for c in range(NCOLS)]),
+    ('БезСкидки', [(0, 0, 1), (1, 1, 1), (2, 2, 1), (3, 3, 1), (4, 4, 2), (6, 6, 1)]),
+    ('БезЦен', [(0, 0, 1), (1, 1, 4), (2, 5, 1), (3, 6, 1)]),
+]
+for suffix, layout in VARIANTS:
+    r0 = S.row(14)
+    r_head = S.row(22)
+    for c in range(NCOLS):
+        S.cell(r_head, c, fmt(font=font(8, True), verticalAlignment='Center', textColor=WHITE, backColor=ACCENT))
+    for i, start, span in layout:
+        S.cell(r_head, start, fmt(font=font(8, True), horizontalAlignment=aligns[i], verticalAlignment='Center',
+                                  textColor=WHITE, backColor=ACCENT), text=heads[i], span=span)
+    S.area('ШапкаТаблицы' + suffix, r0, r_head)
+
+    # Высота строки товара - автоматическая: длинное наименование и единица переносятся, фиксированная высота
+    # их обрезала.
+    r_line = S.row(None)
+    for i, start, span in layout:
+        S.cell(r_line, start, fmt(font=font(9, i == 1), horizontalAlignment=aligns[i], verticalAlignment='Center',
+                                  textPlacement='Wrap', fillType='Parameter'), params[i], span=span)
+    S.area('Строка' + suffix, r_line, r_line)
 
 r_desc = S.row(None)
 S.cell(r_desc, 1, fmt(font=font(8), verticalAlignment='Top', textColor=MUTED, textPlacement='Wrap',
@@ -223,7 +248,7 @@ S.cell(r_sig2, 0, fmt(font=font(8), verticalAlignment='Top', textColor=MUTED, fi
        'ПодписьОрганизация', span=3)
 r_sig3 = S.row(30)
 S.area('Подпись', r0, r_sig3)
-S.drawings.append(dict(name='ПечатьПредложения', r0=r0, r0off=0, r1=r_sig3, r1off=30, c0=4, c0off=10,
+S.drawings.append(dict(name='ПечатьДокумента', r0=r0, r0off=0, r1=r_sig3, r1off=30, c0=4, c0off=10,
                        c1=6, c1off=90, size='Proportionally'))
 
 # --- Подвал реквизитов и пустая строка -----------------------------------------------------
