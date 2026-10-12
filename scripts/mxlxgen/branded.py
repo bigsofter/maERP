@@ -40,6 +40,10 @@ BL = [0, 24, 370, 430, 490, 570, 680]                 # BL, Avoir, акт: № |
 BN = [0, 24, 500, 580, 680]                           # они же без цен: № | Désignation | Qté | U
 SV = [0, 76, 338, 452, 566, 680]                      # акт сверки: Дата | Документ | Дебет | Кредит | НДС
 SB = [0, 76, 452, 566, 680]                           # акт сверки без НДС: Дата | Документ | Дебет | Кредит
+QT = [0, 24, 300, 370, 450, 530, 590, 680]            # запрос котировок: № | Наименование | Арт. | Код пост. | Код произв. | Ед. | Кол-во
+QF = [0, 24, 250, 310, 380, 450, 500, 560, 680]       # запрос котировок с фото: те же колонки уже и Фото
+LT = [0, 30, 250, 380, 530, 680]                      # письмо о платеже: № | Документ | Дата BL | № BL | Сумма
+PHOTO_ROW = 56                                        # ряд под фото строки, пт: рисунок высоту строки не задаёт
 PT = 4  # единиц высоты строки mxlx в одном пункте
 
 fonts = []      # (size, bold, italic)
@@ -205,8 +209,10 @@ aligns = ['Center', 'Left', 'Right', 'Center', 'Right', 'Right', 'Right']
 params = ['НомерСтроки', 'Наименование', 'Количество', 'Единица', 'Цена', 'Скидка', 'Сумма']
 
 
-def table(suffix, cols, bold_col):
-    # cols: [(заголовок, выравнивание, параметр, (x0, x1))]
+def table(suffix, cols, bold_col, photo=None):
+    # cols: [(заголовок, выравнивание, параметр, (x0, x1))]; photo - высота ряда под фото строки, пт: область строки -
+    # ряд текстов с автоматической высотой и ряд под ним, рисунок фото - на оба ряда (строка не ниже фото и растёт с
+    # длинным текстом).
     r0 = S.row(14)
     r_head = S.row(22)
     S.rule(r_head, fmt(font=font(8, True), verticalAlignment='Center', textColor=WHITE, backColor=ACCENT))
@@ -219,9 +225,17 @@ def table(suffix, cols, bold_col):
     r_line = S.row(None)
     size = 8 if suffix == 'Фактура' else 9
     for i, (_, align, param, x) in enumerate(cols):
+        if param is None:
+            # Колонка рисунка (фото строки): ячейка без параметра.
+            S.cell(r_line, x, fmt(font=font(size), verticalAlignment='Center'))
+            continue
         S.cell(r_line, x, fmt(font=font(size, i == bold_col), horizontalAlignment=align, verticalAlignment='Center',
                               textPlacement='Wrap', fillType='Parameter'), param)
-    S.area('Строка' + suffix, r_line, r_line)
+    r_end = r_line
+    if photo:
+        r_end = S.row(photo)
+    S.area('Строка' + suffix, r_line, r_end)
+    return r_line, r_end
 
 
 # Варианты таблицы КП: (суффикс области, [(индекс колонки описания, первая колонка КП, число колонок)]).
@@ -266,6 +280,40 @@ r_desc = S.row(None)
 S.cell(r_desc, (BL[1], BL[4]), fmt(font=font(8), verticalAlignment='Top', textColor=MUTED, textPlacement='Wrap',
                                    fillType='Parameter'), 'Описание')
 S.area('ОписаниеСтрокиНакладная', r_desc, r_desc)
+
+# --- Таблица запроса котировок: колонки прежнего ЗапросКотировок (без цен), вариант с фото номенклатуры в строке ------
+# (docs/plans/branded-print.md, 13.4). Фото - рисунок ФотоСтроки строки фиксированной высоты; картинку строки задаёт
+# ФирменнаяПечать (пустая - строка без фото).
+qt_cols = [
+    fa_cols[0], fa_cols[2],
+    (ml('Артикул', 'Ref.', 'Réf.', 'Ref.'), 'Left', 'Артикул'),
+    (ml('Код поставщика', 'Supplier code', 'Code fournisseur', 'Código del proveedor'), 'Left', 'КодПоставщика'),
+    (ml('Код производителя', 'Manufacturer code', 'Code fabricant', 'Código del fabricante'), 'Left', 'КодПроизводителя'),
+    fa_cols[4], fa_cols[3],
+]
+table('Котировка', [(h, a, p, (QT[i], QT[i + 1])) for i, (h, a, p) in enumerate(qt_cols)], 1)
+qf_cols = qt_cols + [(ml('Фото', 'Photo', 'Photo', 'Foto'), 'Center', None)]
+r_text, r_photo = table('КотировкаФото', [(h, a, p, (QF[i], QF[i + 1])) for i, (h, a, p) in enumerate(qf_cols)], 1,
+                        PHOTO_ROW)
+# Смещения рисунка внутри строки - в четвертях пункта, как высоты строк mxlx (сверено по прежнему ЗапросКотировок): в
+# пунктах рисунок занимал четверть ряда под фото.
+S.drawings.append(dict(name='ФотоСтроки', r0=r_text, r0off=2 * PT, r1=r_photo, r1off=(PHOTO_ROW - 2) * PT, x0=QF[7] + 4,
+                       x1=WIDTH - 4, size='Proportionally'))
+
+r_desc = S.row(None)
+S.cell(r_desc, (QT[1], QT[4]), fmt(font=font(8), verticalAlignment='Top', textColor=MUTED, textPlacement='Wrap',
+                                   fillType='Parameter'), 'Описание')
+S.area('ОписаниеСтрокиКотировка', r_desc, r_desc)
+
+# --- Таблица письма о платеже: основания прежнего LettreDePaiement - документ, дата и номер BL поставщика, сумма ------
+lt_cols = [
+    fa_cols[0],
+    (ml('Документ', 'Document', 'Numéro', 'Documento'), 'Left', 'Документ'),
+    (ml('Дата BL', 'BL date', 'Date de BL', 'Fecha BL'), 'Center', 'ДатаОтгрузки'),
+    (ml('№ BL', 'BL No.', 'BL n°', 'BL n.º'), 'Left', 'НомерОтгрузки'),
+    fa_cols[8],
+]
+table('Письмо', [(h, a, p, (LT[i], LT[i + 1])) for i, (h, a, p) in enumerate(lt_cols)], -1)
 
 # --- Таблица акта сверки: колонки прежних АктСверки (с НДС строки) и АктСверкиБезНДС; итоговые строки - сальдо и
 # обороты в тех же колонках (docs/plans/branded-print.md, 12.4).
@@ -461,7 +509,7 @@ r_empty = S.row(14)
 S.area('ПустаяСтрока', r_empty, r_empty)
 
 # Общая сетка: все границы колонок всех областей.
-GRID = sorted({0, WIDTH} | set(KP) | set(FA) | set(BL) | set(BN) | set(SV) | set(SB) | {x for _, cells in S.rows for c in cells for x in c[:2] if x is not None})
+GRID = sorted({0, WIDTH} | set(KP) | set(FA) | set(BL) | set(BN) | set(SV) | set(SB) | set(QT) | set(QF) | set(LT) | {x for _, cells in S.rows for c in cells for x in c[:2] if x is not None})
 COLS = [b - a for a, b in zip(GRID, GRID[1:])]
 NCOLS = len(COLS)
 

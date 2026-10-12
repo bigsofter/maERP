@@ -10,6 +10,47 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.74
+### ru
+- Заказ поставщику, запрос котировок (обычный и с фото), запрос цен по предложению поставщика и письмо о платеже по расходному кассовому ордеру печатаются в фирменном оформлении, как счёт-фактура и накладная: логотип, реквизиты сторон, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
+- В документах поставщику поставщик стоит слева, ваша организация — справа, как покупатель; печать организации не ставится, как и раньше.
+- Заказ поставщику: номер, строки с ценами, итоги без НДС, НДС и с НДС, сумма прописью, комментарий, дата печати и ответственный.
+- Запрос котировок: артикул, код поставщика и код производителя товара, единица и количество, без цен. В варианте «с фото» у каждой строки — фото товара: самая новая картинка из карточки товара; у товара без картинки строка печатается без фото. Строка с фото не обрезает длинное наименование и коды.
+- Запрос цен: строки с ценами и итогами, как раньше. Подписи «транспорт» и «клиент» с этой формы убраны — у запроса поставщику их нет.
+- Письмо о платеже: получатель, сумма крупно и прописью, статья движения денег, способ оплаты, оплачиваемые документы — номер, номер и дата накладной (BL) поставщика, сумма.
+- Рассылка заказов поставщикам по e-mail прикладывает фирменный заказ.
+- Если вы меняли макеты прежнего заказа поставщику, запроса котировок, письма о платеже или макет DevisBL_A4, правки сохранены в списке макетов печатных форм, но новые формы печатаются общим фирменным макетом. Правка фирменного макета действует на все фирменные формы всех документов.
+
+### fr
+- La commande fournisseur, la demande de cotation (normale et avec photos), la demande de prix de l'offre fournisseur et la lettre de paiement du bon de décaissement s'impriment avec la présentation à en-tête, comme la facture et le bon de livraison : logo, coordonnées des parties, pied de page des mentions légales sur chaque page. Les commandes restent les mêmes : les entrées de menu, l'impression directe et l'imprimante choisie sont conservées.
+- Dans les documents adressés au fournisseur, le fournisseur figure à gauche et votre société à droite, en tant qu'acheteur ; le cachet de la société n'est pas apposé, comme avant.
+- Commande fournisseur : numéro, lignes avec prix, totaux HT, TVA et TTC, montant en toutes lettres, commentaire, date d'impression et responsable.
+- Demande de cotation : référence, code fournisseur et code fabricant de l'article, unité et quantité, sans prix. Dans la variante « avec photos », chaque ligne porte la photo de l'article : l'image la plus récente de sa fiche ; un article sans image s'imprime sans photo. La ligne avec photo ne tronque pas une désignation ou des codes longs.
+- Demande de prix : lignes avec prix et totaux, comme avant. Les signatures « transport » et « client » sont retirées de ce formulaire : une demande au fournisseur n'en a pas.
+- Lettre de paiement : bénéficiaire, montant en grand et en toutes lettres, rubrique de trésorerie, mode de règlement, documents réglés — numéro, numéro et date du BL fournisseur, montant.
+- L'envoi des commandes fournisseurs par e-mail joint la commande à en-tête.
+- Si vous aviez modifié les modèles de l'ancienne commande fournisseur, de la demande de cotation, de la lettre de paiement ou le modèle DevisBL_A4, vos modifications restent dans la liste des modèles d'impression, mais les nouveaux formulaires utilisent le modèle à en-tête commun. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête de tous les documents.
+
+### en
+- The purchase order, the request for quotation (regular and with photos), the price request of the supplier offer and the payment letter of the cash payment order now print in the branded layout, like the invoice and the delivery note: logo, party details, legal footer on every page. The commands are unchanged: menu items, direct-to-printer settings and the selected printer are kept.
+- In documents to the supplier, the supplier is on the left and your company on the right, as the buyer; the company stamp is not placed, as before.
+- Purchase order: number, lines with prices, totals excluding VAT, VAT and including VAT, amount in words, comment, print date and person responsible.
+- Request for quotation: reference, supplier code and manufacturer code of the item, unit and quantity, no prices. In the «with photos» variant every line shows the item photo: the newest image from the item card; an item without an image prints without a photo. A line with a photo does not cut off a long description or codes.
+- Price request: lines with prices and totals, as before. The «carrier» and «customer» signatures are removed from this form: a request to a supplier has none.
+- Payment letter: recipient, large amount and amount in words, cash flow item, payment method, documents paid — number, supplier delivery note (BL) number and date, amount.
+- Emailing purchase orders to suppliers attaches the branded order.
+- If you modified the templates of the former purchase order, request for quotation, payment letter or the DevisBL_A4 template, your changes stay in the print template list, but the new forms use the common branded template. A change to the branded template applies to all branded forms of all documents.
+
+### es
+- El pedido al proveedor, la solicitud de cotización (normal y con fotos), la solicitud de precios de la oferta del proveedor y la carta de pago de la orden de pago de caja se imprimen con el diseño corporativo, como la factura y el albarán: logotipo, datos de las partes, pie con los datos legales en cada página. Los comandos no cambian: se conservan las opciones del menú, la impresión directa y la impresora elegida.
+- En los documentos al proveedor, el proveedor figura a la izquierda y su empresa a la derecha, como compradora; el sello de la empresa no se estampa, como antes.
+- Pedido al proveedor: número, líneas con precios, totales sin IVA, IVA y con IVA, importe en letras, comentario, fecha de impresión y responsable.
+- Solicitud de cotización: referencia, código del proveedor y código del fabricante del artículo, unidad y cantidad, sin precios. En la variante «con fotos» cada línea lleva la foto del artículo: la imagen más reciente de su ficha; un artículo sin imagen se imprime sin foto. La línea con foto no recorta una descripción o códigos largos.
+- Solicitud de precios: líneas con precios y totales, como antes. Se quitan de este formulario las firmas «transporte» y «cliente»: una solicitud al proveedor no las tiene.
+- Carta de pago: beneficiario, importe grande y en letras, partida de tesorería, forma de pago, documentos pagados — número, número y fecha del albarán (BL) del proveedor, importe.
+- El envío de pedidos a proveedores por correo adjunta el pedido corporativo.
+- Si modificó las plantillas del pedido al proveedor anterior, de la solicitud de cotización, de la carta de pago o la plantilla DevisBL_A4, sus cambios se conservan en la lista de plantillas de impresión, pero los nuevos formularios usan la plantilla corporativa común. Un cambio en la plantilla corporativa se aplica a todos los formularios corporativos de todos los documentos.
+
 ## 2.0.16.73
 ### ru
 - «Бланк заказа (A4)» заказа покупателя, акт сверки (обычный, с печатью, без НДС) печатаются в фирменном оформлении, как счёт-фактура и накладная: логотип, реквизиты сторон, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.

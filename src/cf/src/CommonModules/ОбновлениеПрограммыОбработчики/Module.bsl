@@ -1227,6 +1227,27 @@
 
 КонецПроцедуры
 
+// Фирменные печатные формы, фаза 6 (docs/plans/branded-print.md, раздел 13.7): заказ поставщику, запросы котировок
+// (обычный и с фото), запрос цен предложения поставщика и письмо о платеже перешли на общий макет ФирменныйДокумент -
+// включённые пользовательские правки прежних макетов перестали действовать. Обработчик только предупреждает в журнале
+// регистрации; правки не удаляются (раздел 3.4а плана), макеты остаются до фазы 7.
+//
+Процедура ПредупредитьОЗамененныхМакетахЗакупок() Экспорт
+
+	Макеты = Новый Массив;
+	Макеты.Добавить("Документ.ЗаказПоставщику.ЗаказПоставщику");
+	Макеты.Добавить("Документ.ЗаказПоставщику.ЗапросКотировок");
+	Макеты.Добавить("Документ.РасходныйКассовыйОрдер.LettreDePaiement");
+	ПредупредитьОЗамененныхМакетах(Макеты);
+
+	МакетыЗапросаЦен = Новый Массив;
+	МакетыЗапросаЦен.Добавить("Документ.РеализацияТоваровУслуг.DevisBL_A4");
+	ПредупредитьОЗамененныхМакетах(МакетыЗапросаЦен, "Изменённый макет %1 больше не используется ни одной печатной "
+		+ "формой: запрос цен предложения поставщика (Demande de prix), последний, кто его печатал, печатается фирменным "
+		+ "макетом ОбщийМакет.ФирменныйДокумент.");
+
+КонецПроцедуры
+
 // Перенос старых свойств номенклатуры (ТЧ СвойстваНоменклатуры, справочники ВидыСвойствНоменклатуры и
 // ЗначенияСвойствНоменклатуры из базы клиента) в дополнительные реквизиты (docs/plans/old-item-properties.md, сборка A).
 // Старая ТЧ и справочники не трогаются - они источник повторного запуска и сверки; удаление - отдельная сборка B.
@@ -1446,6 +1467,18 @@
 		|l''utilisateur remplacés par le modèle à en-tête - avertissement dans le journal.'; en = 'User-modified
 		|reconciliation statement and order form templates replaced by the branded one - warning in the event log.';
 		|es = 'Plantillas de acta de conciliación y hoja de pedido modificadas por el usuario sustituidas por la
+		|corporativa - aviso en el registro.'");
+
+	Обработчик = Обработчики.Добавить();
+	Обработчик.Версия = "2.0.16.74";
+	Обработчик.РежимВыполнения = РежимОперативно;
+	Обработчик.Процедура = "ОбновлениеПрограммыОбработчики.ПредупредитьОЗамененныхМакетахЗакупок";
+	Обработчик.Комментарий = НСтр("ru = 'Изменённые пользователем макеты заказа поставщику, запросов котировок и цен,
+		|письма о платеже заменены фирменными - предупреждение в журнале.'; fr = 'Modèles de commande fournisseur, de
+		|demandes de cotation et de prix et de lettre de paiement modifiés par l''utilisateur remplacés par le modèle à
+		|en-tête - avertissement dans le journal.'; en = 'User-modified purchase order, quotation and price request and
+		|payment letter templates replaced by the branded one - warning in the event log.'; es = 'Plantillas de pedido al
+		|proveedor, solicitudes de cotización y de precios y carta de pago modificadas por el usuario sustituidas por la
 		|corporativa - aviso en el registro.'");
 
 КонецПроцедуры
