@@ -10,6 +10,31 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.76
+### ru
+- Подготовка склада к ордерной схеме (приходные и расходные ордера кладовщика — в следующих сборках). Рядом с учётом партий и стоимости программа теперь ведёт отдельный учёт физического количества товаров на складах. Пока ордеров нет, оба учёта всегда совпадают, и в работе ничего не меняется.
+- Остатки в формах документов, в подборе и выборе серий, в списке и карточке товара, в отчётах «Недостаточные запасы», «Налоговые накладные: нехватка товара на складе» и «Товары для заказа», в рабочих местах закупок и производства считаются по физическому количеству — цифры те же, что и раньше.
+- Оповещение о минимальном остатке приходит и тогда, когда остаток ушёл ровно в ноль.
+- Первое обновление на эту версию займёт дольше обычного: программа один раз переносит историю движений склада в новый учёт и сверяет его с партиями запись за записью. Если сверка найдёт расхождение, обновление остановится с понятным сообщением и база останется на прежней версии — сообщите об этом в поддержку.
+
+### fr
+- Préparation de l'entrepôt au schéma par bons (bons de réception et de sortie du magasinier — dans les prochaines versions). À côté de la gestion des lots et des coûts, le programme tient désormais un suivi séparé des quantités physiques en entrepôt. Tant qu'il n'y a pas de bons, les deux suivis coïncident toujours et rien ne change dans votre travail.
+- Les stocks affichés dans les formulaires de documents, dans la sélection des articles et des séries, dans la liste et la fiche article, dans les rapports « Stocks insuffisants », « Factures fiscales : stock insuffisant » et « Marchandises à commander », dans les postes de travail achats et production sont calculés sur les quantités physiques — les chiffres sont les mêmes qu'avant.
+- L'alerte de stock minimum arrive aussi lorsque le stock tombe exactement à zéro.
+- La première mise à jour vers cette version prendra plus de temps que d'habitude : le programme transfère une fois l'historique des mouvements de stock dans le nouveau suivi et le rapproche des lots enregistrement par enregistrement. Si le rapprochement trouve un écart, la mise à jour s'arrête avec un message clair et la base reste sur la version précédente — signalez-le au support.
+
+### en
+- Preparing the warehouse for the order-based scheme (storekeeper receipt and issue orders come in the next builds). Next to the batch and cost accounting, the program now keeps a separate record of physical quantities in warehouses. As long as there are no orders, both records always match and nothing changes in your work.
+- Stock shown in document forms, in item and series selection, in the item list and card, in the «Insufficient stocks», «Tax invoices: insufficient stock» and «Goods to order» reports, and in the purchasing and production workplaces is calculated from physical quantities — the figures are the same as before.
+- The minimum stock alert now also arrives when the stock drops to exactly zero.
+- The first update to this version takes longer than usual: the program transfers the history of stock movements into the new record once and reconciles it with the batches record by record. If the reconciliation finds a difference, the update stops with a clear message and the database stays on the previous version — please report it to support.
+
+### es
+- Preparación del almacén para el esquema por órdenes (órdenes de entrada y salida del almacenero — en las próximas versiones). Junto a la contabilidad de lotes y costes, el programa lleva ahora un registro aparte de las cantidades físicas en los almacenes. Mientras no haya órdenes, ambos registros coinciden siempre y en su trabajo no cambia nada.
+- Las existencias en los formularios de documentos, en la selección de artículos y series, en la lista y la ficha del artículo, en los informes «Existencias insuficientes», «Facturas fiscales: existencias insuficientes» y «Productos a pedido», y en los puestos de trabajo de compras y producción se calculan por cantidades físicas — las cifras son las mismas que antes.
+- El aviso de existencias mínimas llega también cuando las existencias bajan exactamente a cero.
+- La primera actualización a esta versión tardará más de lo habitual: el programa traslada una vez el historial de movimientos de almacén al nuevo registro y lo concilia con los lotes registro por registro. Si la conciliación encuentra una diferencia, la actualización se detiene con un mensaje claro y la base se queda en la versión anterior — comuníquelo al soporte.
+
 ## 2.0.16.75
 ### ru
 - Из программы удалены прежние макеты печатных форм, которые заменены фирменными: Facture, счёт и накладные DevisBL реализации, налоговых накладных и накладной покупки, акт об оказании услуг, акт сверки, заказ поставщику, запрос котировок, письмо о платеже, а также давно не используемые макеты товарной накладной (Торг-12) и чека налоговой накладной. Печать не меняется: все команды печатают фирменные формы, как в прошлой сборке.
