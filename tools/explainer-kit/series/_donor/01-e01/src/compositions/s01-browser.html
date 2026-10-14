@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s01-root { position: absolute; inset: 0; overflow: hidden; }
+        #s01-root .cam { position: absolute; inset: 0; }
+        #s01-root .world { position: absolute; inset: 0; }
+
+        #s01-root .win { position: absolute; left: 150px; top: 40px; width: 1480px; height: 780px; border-radius: 18px; overflow: hidden; background: #e9edf3; box-shadow: var(--shadow-card), 0 0 0 2px rgba(148, 163, 184, 0.18); }
+        #s01-root .chrome { position: absolute; left: 0; top: 0; width: 1480px; height: 108px; background: #d9dfe8; border-bottom: 2px solid #c3ccd9; }
+        #s01-root .dots3 { position: absolute; left: 26px; top: 17px; display: flex; gap: 11px; }
+        #s01-root .dots3 i { display: block; width: 14px; height: 14px; border-radius: 50%; background: #aab4c4; }
+        #s01-root .tab { position: absolute; left: 120px; top: 8px; width: 300px; height: 38px; border-radius: 12px 12px 0 0; background: #f1f4f8; display: flex; align-items: center; gap: 12px; padding: 0 16px; box-sizing: border-box; }
+        #s01-root .tab i { display: block; width: 18px; height: 18px; border-radius: 6px; background: var(--grad-brand); flex: none; }
+        #s01-root .tab b { display: block; width: 150px; height: 9px; border-radius: 5px; background: #b9c3d2; }
+        #s01-root .addr { position: absolute; left: 24px; right: 24px; top: 46px; height: 54px; border-radius: 27px; background: #f4f6fa; display: flex; align-items: center; padding: 0 24px; box-sizing: border-box; gap: 14px; border: 2px solid #cdd5e1; }
+        #s01-root .lock { display: block; width: 28px; height: 28px; flex: none; }
+        #s01-root .typed { position: relative; display: block; height: 40px; overflow: hidden; white-space: nowrap; font-family: var(--f-mono); font-size: 30px; line-height: 40px; color: var(--ui-ink); width: 0ch; padding-right: 6px; box-sizing: content-box; }
+        #s01-root .caret { position: absolute; right: 0; top: 5px; width: 3px; height: 30px; border-radius: 2px; background: var(--brand); }
+
+        #s01-root .page { position: absolute; left: 0; top: 108px; width: 1480px; height: 672px; background: var(--ui-bg); overflow: hidden; }
+        #s01-root .load { position: absolute; left: 0; top: 0; width: 1480px; height: 5px; background: var(--brand-500); box-shadow: 0 0 14px 2px rgba(59, 130, 246, 0.7); transform-origin: 0% 50%; z-index: 20; opacity: 0; }
+        #s01-root .shell { position: absolute; inset: 0; display: grid; grid-template-columns: 340px 1fr; border-radius: 0; box-shadow: none; }
+        #s01-root .rail { padding-top: 22px; overflow: hidden; }
+        #s01-root .rail .k-rail-head { padding: 0 24px 22px; gap: 14px; }
+        #s01-root .rail .k-mono-mark { width: 48px; height: 48px; border-radius: 15px; }
+        #s01-root .rail .k-mono-mark svg { width: 30px; height: 30px; }
+        #s01-root .rail .k-wordmark { font-size: 26px; }
+        #s01-root .rail .k-rail-item { font-size: 23px; gap: 14px; padding: 12px 14px; margin: 3px 14px; }
+        #s01-root .rail .k-rail-item svg { width: 30px; height: 30px; }
+        #s01-root .rail .sk { display: flex; align-items: center; gap: 14px; margin: 3px 14px; padding: 12px 14px; }
+        #s01-root .rail .sk i { display: block; width: 30px; height: 30px; border-radius: 9px; background: rgba(148, 163, 184, 0.22); }
+        #s01-root .rail .sk b { display: block; height: 11px; border-radius: 6px; background: rgba(148, 163, 184, 0.18); }
+        #s01-root .main { position: relative; display: flex; flex-direction: column; min-width: 0; }
+        #s01-root .main .k-topbar { height: 88px; padding: 0 32px; flex: none; }
+        #s01-root .main .av { margin-left: auto; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-tint); border: 2px solid var(--ui-line); display: block; }
+        #s01-root .work { flex: 1; padding: 30px 32px 0; min-height: 0; }
+        #s01-root .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        #s01-root .kpi { height: 132px; padding: 22px 24px; box-sizing: border-box; border-radius: 20px; }
+        #s01-root .kpi .lb { display: block; height: 12px; width: 96px; border-radius: 6px; background: var(--ui-line); }
+        #s01-root .kpi .nb { display: block; height: 38px; width: 150px; border-radius: 12px; background: var(--ui-ink); opacity: 0.86; margin-top: 22px; }
+        #s01-root .kpi.k2 .nb { width: 120px; background: var(--brand); opacity: 1; }
+        #s01-root .kpi.k3 .nb { width: 170px; }
+        #s01-root .kpi.k4 .nb { width: 110px; background: var(--ok); opacity: .9; }
+        #s01-root .chart { margin-top: 22px; height: 330px; border-radius: 20px; padding: 26px 30px; box-sizing: border-box; }
+        #s01-root .chart .hd { display: block; height: 14px; width: 190px; border-radius: 7px; background: var(--ui-line); }
+        #s01-root .bars { display: flex; align-items: flex-end; gap: 16px; height: 220px; margin-top: 26px; border-bottom: 2px solid var(--ui-line); }
+        #s01-root .bars i { display: block; flex: 1; border-radius: 10px 10px 0 0; background: linear-gradient(180deg, #93c5fd, #bfdbfe); transform-origin: 50% 100%; }
+        #s01-root .bars i.hi { background: linear-gradient(180deg, #3b82f6, #60a5fa); }
+
+        #s01-root .ghost { position: absolute; left: 1690px; width: 110px; height: 110px; display: block; }
+        #s01-root .ghost svg { display: block; width: 110px; height: 110px; overflow: visible; }
+                #s01-root .ghost .strikew { position: absolute; left: 0; top: 0; width: 110px; height: 110px; overflow: visible; }
+      </style>
+
+      <div id="s01-root" data-composition-id="s01" data-width="1920" data-height="1080">
+        <div class="cam" id="s01-cam">
+          <div class="world" id="s01-world">
+
+            <div class="win" id="s01-win">
+              <div class="chrome">
+                <div class="dots3"><i></i><i></i><i></i></div>
+                <div class="tab"><i></i><b></b></div>
+                <div class="addr">
+                  <svg class="lock" id="s01-lock" viewBox="0 0 28 28" fill="none" stroke="#475569" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="12" width="18" height="12" rx="3.5"/><path d="M9 12V9a5 5 0 0 1 10 0v3"/></svg>
+                  <div class="typed" id="s01-typed"><span id="s01-host">{{copy:demo.host}}</span><div class="caret" id="s01-caret"></div></div>
+                </div>
+              </div>
+
+              <div class="page">
+                <div class="load" id="s01-load"></div>
+                <div class="k-shell shell" id="s01-shell">
+                  <div class="k-rail rail" id="s01-rail">
+                    <div class="k-rail-head">
+                      <div class="k-mono-mark"><svg viewBox="0 0 120 120" fill="none" stroke="#FBBF24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M25 78H14V34H70V78H47"/><path d="M70 46H92L106 62V78H98M78 78H70"/><circle cx="36" cy="80" r="10"/><circle cx="88" cy="80" r="10"/></svg></div>
+                      <div class="k-wordmark"><span>ma</span><span class="t">T</span><span>ransports</span></div>
+                    </div>
+                    <div class="k-rail-item is-active" id="s01-i1"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg><span>{{ui:web.nav_pouls}}</span></div>
+                    <div class="k-rail-item" id="s01-i2"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg><span>{{ui:web.nav_operator}}</span></div>
+                    <div class="k-rail-item" id="s01-i3"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></svg><span>{{ui:web.nav_missions}}</span></div>
+                    <div class="k-rail-item" id="s01-i4"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.4-6-11a6 6 0 0 1 12 0c0 5.6-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg><span>{{ui:web.nav_carte}}</span></div>
+                    <div class="sk" id="s01-s1"><i></i><b style="width:120px"></b></div>
+                    <div class="sk" id="s01-s2"><i></i><b style="width:150px"></b></div>
+                    <div class="sk" id="s01-s3"><i></i><b style="width:100px"></b></div>
+                  </div>
+                  <div class="main">
+                    <div class="k-topbar" id="s01-topbar">
+                      <div class="k-topbar-t" id="s01-tt">{{ui:web.pouls.title}}</div>
+                      <span class="av"></span>
+                    </div>
+                    <div class="work">
+                      <div class="kpis">
+                        <div class="k-card kpi k1"><span class="lb"></span><span class="nb"></span></div>
+                        <div class="k-card kpi k2"><span class="lb"></span><span class="nb"></span></div>
+                        <div class="k-card kpi k3"><span class="lb"></span><span class="nb"></span></div>
+                        <div class="k-card kpi k4"><span class="lb"></span><span class="nb"></span></div>
+                      </div>
+                      <div class="k-card chart" id="s01-chart">
+                        <span class="hd"></span>
+                        <div class="bars" id="s01-bars">
+                          <i style="height:38%"></i><i style="height:52%"></i><i style="height:46%"></i><i class="hi" style="height:70%"></i><i style="height:58%"></i><i style="height:64%"></i><i class="hi" style="height:84%"></i><i style="height:60%"></i><i style="height:72%"></i><i style="height:66%"></i><i class="hi" style="height:92%"></i><i style="height:78%"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ghost" id="s01-g1" style="top:190px;">
+              <svg viewBox="0 0 64 64" fill="none" stroke="#94a3b8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="52" height="52" rx="10"/><path d="M32 16v24M21 31l11 11 11-11M20 49h24"/></svg>
+              <svg class="strikew" viewBox="0 0 64 64" fill="none"><path id="s01-x1" d="M6 58L58 6" stroke="#94a3b8" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="75" stroke-dashoffset="75"/></svg>
+            </div>
+            <div class="ghost" id="s01-g2" style="top:370px;">
+              <svg viewBox="0 0 64 64" fill="none" stroke="#94a3b8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="26"/><circle cx="32" cy="32" r="8"/><circle cx="32" cy="32" r="2"/><path d="M32 6a26 26 0 0 1 22 12"/></svg>
+              <svg class="strikew" viewBox="0 0 64 64" fill="none"><path id="s01-x2" d="M6 58L58 6" stroke="#94a3b8" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="75" stroke-dashoffset="75"/></svg>
+            </div>
+            <div class="ghost" id="s01-g3" style="top:550px;">
+              <svg viewBox="0 0 64 64" fill="none" stroke="#94a3b8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="48" height="16" rx="4"/><rect x="8" y="24" width="48" height="16" rx="4"/><rect x="8" y="42" width="48" height="16" rx="4"/><path d="M16 14h4M16 32h4M16 50h4M44 14h6M44 32h6M44 50h6"/></svg>
+              <svg class="strikew" viewBox="0 0 64 64" fill="none"><path id="s01-x3" d="M6 58L58 6" stroke="#94a3b8" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="75" stroke-dashoffset="75"/></svg>
+            </div>
+          </div>
+
+          <div class="k-title" id="s01-t1"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s01.title}}</div></div>
+        </div>
+      </div>
+
+      <script type="application/json" id="s01-sfx">[
+        {"cue":"open","off":0.15,"type":"key","gain":0.45},
+        {"cue":"open","off":0.55,"type":"key","gain":0.45},
+        {"cue":"open","off":0.95,"type":"key","gain":0.45},
+        {"cue":"open","off":1.35,"type":"key","gain":0.45},
+        {"cue":"open","off":1.75,"type":"key","gain":0.45},
+        {"cue":"open","off":2.15,"type":"key","gain":0.45},
+        {"cue":"open","off":2.55,"type":"key","gain":0.45},
+        {"cue":"browser","off":-0.3,"type":"pop","gain":0.5},
+        {"cue":"browser","off":-0.15,"type":"click","gain":0.6},
+        {"cue":"browser","off":0.0,"type":"whoosh","gain":0.45},
+        {"cue":"nothing","off":-0.2,"type":"pop","gain":0.35},
+        {"cue":"nothing","off":-0.05,"type":"pop","gain":0.35},
+        {"cue":"nothing","off":0.1,"type":"pop","gain":0.35}
+      ]</script>
+
+      <script>
+        const T = {{T}};
+        const tl = gsap.timeline({ paused: true });
+        const $ = (s) => document.querySelector("#s01-root " + s);
+        const cam = $("#s01-cam");
+
+        // start state: nothing visible
+        gsap.set("#s01-win", { opacity: 0 });
+        gsap.set(["#s01-lock", "#s01-caret"], { opacity: 0 });
+        gsap.set(["#s01-g1", "#s01-g2", "#s01-g3"], { opacity: 0 });
+        gsap.set(["#s01-rail", "#s01-topbar"], { opacity: 0 });
+        gsap.set("#s01-root .kpi, #s01-chart", { opacity: 0 });
+
+        // 1. empty browser window arrives
+        tl.fromTo("#s01-win", { opacity: 0, y: 40, rotationX: 6, transformPerspective: 1600 },
+          { opacity: 1, y: 0, rotationX: 0, duration: 0.9, ease: K.OUT }, 0.3);
+        tl.set("#s01-caret", { opacity: 1 }, 1.0);
+
+        // 2. typing the host (stepped width reveal, caret rides the edge)
+        const n = $("#s01-host").textContent.length;
+        const t0 = T.open - 0.1, t1 = T.browser - 0.3;
+        tl.fromTo("#s01-typed", { width: "0ch" }, { width: n + "ch", duration: t1 - t0, ease: "steps(" + n + ")" }, t0);
+        tl.to("#s01-caret", { opacity: 0, duration: 0.2, ease: "none" }, t1 + 0.05);
+        tl.fromTo("#s01-lock", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.45, ease: K.OUT }, t1);
+
+        // 3. Enter: load line, shell assembles
+        const te = T.browser - 0.15;
+        tl.set("#s01-load", { opacity: 1, scaleX: 0 }, te);
+        tl.to("#s01-load", { scaleX: 1, duration: 0.5, ease: "power2.inOut" }, te);
+        tl.to("#s01-load", { opacity: 0, duration: 0.3, ease: K.IN }, te + 0.55);
+        const ta = te + 0.45;
+        tl.fromTo("#s01-rail", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.6, ease: K.OUT }, ta);
+        tl.fromTo("#s01-topbar", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: K.OUT }, ta + 0.3);
+        tl.fromTo("#s01-tt", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.55, ease: K.OUT }, ta + 0.45);
+        tl.fromTo("#s01-root .kpi", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT, stagger: 0.08 }, ta + 0.6);
+        tl.fromTo("#s01-chart", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT }, ta + 1.0);
+        tl.fromTo("#s01-bars i", { scaleY: 0 }, { scaleY: 1, duration: 0.8, ease: K.OUT, stagger: 0.04 }, ta + 1.15);
+
+        // title
+        K.title(tl, $("#s01-t1"), T.browser + 0.5);
+
+        // 4. ghost install icons, struck out
+        const tg = T.nothing - 0.4;
+        const FADE = Math.min(tg + 2.6, T.out - 0.25);
+        ["1", "2", "3"].forEach((k, i) => {
+          const at = tg + i * 0.15;
+          tl.fromTo("#s01-g" + k, { opacity: 0, scale: 0.7 }, { opacity: 0.8, scale: 1, duration: 0.45, ease: K.OUT }, at);
+          tl.fromTo("#s01-x" + k, { strokeDashoffset: 75 }, { strokeDashoffset: 0, duration: 0.4, ease: K.OUT }, at + 0.4);
+          tl.to("#s01-g" + k, { opacity: 0, duration: 0.6, ease: "power2.inOut" }, FADE + i * 0.1);
+        });
+
+        // 5. exit
+        K.camOut(tl, cam, T.out);
+        window.__timelines["s01"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

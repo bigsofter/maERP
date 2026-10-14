@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s01-root { position: absolute; inset: 0; overflow: hidden; }
+        #s01-root .cam, #s01-root .world { position: absolute; inset: 0; }
+        #s01-root .center { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+
+        /* the trip chip */
+        #s01-root .chip { display: inline-flex; align-items: center; gap: 16px; width: 560px; box-sizing: border-box; justify-content: center; height: 72px; padding: 0 24px; border-radius: 999px; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(148, 163, 184, 0.25); font-family: var(--f-mono); font-size: 26px; font-weight: 500; color: var(--on-dark); white-space: nowrap; box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7); }
+        #s01-root .chip .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--amber-glyph); box-shadow: 0 0 14px rgba(251, 191, 36, 0.8); }
+
+        /* threads */
+        #s01-root .threads { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; filter: drop-shadow(0 0 7px rgba(251, 191, 36, 0.55)); }
+        #s01-root .threads path { fill: none; stroke: var(--amber-glyph); stroke-width: 4; stroke-linecap: round; }
+        #s01-root .threads circle { fill: var(--amber-glyph); }
+
+        /* the dossier nobody has */
+        #s01-root .dossier { position: absolute; left: 680px; top: 420px; width: 560px; height: 330px; box-sizing: border-box; border: 2px dashed rgba(148, 163, 184, 0.5); border-radius: 24px; }
+        #s01-root .slot { position: absolute; top: 190px; width: 150px; height: 100px; box-sizing: border-box; border: 2px solid rgba(148, 163, 184, 0.35); border-radius: 16px; background: #0c1428; }
+
+        /* foreign objects: wrapper (drift / exit) > jitter > tilt (entrance) */
+        #s01-root .obj { position: absolute; }
+        #s01-root .jit, #s01-root .tilt { position: absolute; inset: 0; }
+        #s01-root .glow { position: absolute; inset: -6px; border: 4px solid var(--amber-glyph); border-radius: 12px; box-shadow: 0 0 28px 4px rgba(251, 191, 36, 0.55), inset 0 0 18px rgba(251, 191, 36, 0.35); opacity: 0; pointer-events: none; z-index: 5; }
+
+        /* spreadsheet */
+        #s01-sheet { left: 90px; top: 160px; width: 550px; height: 420px; }
+        #s01-root .sh { position: absolute; inset: 0; background: #f3f6f2; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-card); font-family: var(--f-body); color: #1f2937; }
+        #s01-root .sh-bar { height: 34px; background: #2f5d46; display: flex; align-items: center; gap: 10px; padding: 0 14px; }
+        #s01-root .sh-bar i { display: block; width: 34px; height: 10px; border-radius: 5px; background: rgba(255, 255, 255, 0.35); }
+        #s01-root .sh-grid { display: grid; grid-template-columns: 38px 96px 148px 108px 80px 80px; }
+        #s01-root .sh-grid > div { box-sizing: border-box; height: 56px; border-right: 1px solid #c4cfc6; border-bottom: 1px solid #c4cfc6; display: flex; align-items: center; padding: 0 10px; font-size: 20px; position: relative; }
+        #s01-root .sh-grid .hd { height: 44px; background: #dfe8e0; justify-content: center; font-weight: 600; color: #50635a; }
+        #s01-root .sh-grid .rn { background: #dfe8e0; justify-content: center; color: #50635a; font-size: 19px; padding: 0; }
+        #s01-root .sh-grid .bar { display: block; height: 10px; border-radius: 5px; background: #d3dbd5; }
+        #s01-root .sh-grid .red { background: #fecaca; font-weight: 600; }
+        #s01-root .sh-grid .real { font-weight: 500; white-space: nowrap; padding: 0 8px; }
+        #s01-root .sh-rowglow { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+
+        /* chat */
+        #s01-chat { left: 1250px; top: 80px; width: 520px; height: 380px; }
+        #s01-root .ch { position: absolute; inset: 0; border-radius: 22px; overflow: hidden; background: #ece5dd; box-shadow: var(--shadow-card); font-family: var(--f-body); }
+        #s01-root .ch-head { height: 74px; background: #1d6b5c; display: flex; align-items: center; gap: 16px; padding: 0 22px; }
+        #s01-root .ch-av { width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); }
+        #s01-root .ch-bars i { display: block; height: 10px; border-radius: 5px; background: rgba(255, 255, 255, 0.55); margin: 5px 0; width: 130px; }
+        #s01-root .ch-bars i + i { width: 80px; opacity: 0.6; }
+        #s01-root .ch-wall { position: absolute; left: 0; right: 0; top: 74px; bottom: 0; background-image: radial-gradient(rgba(120, 100, 70, 0.10) 2px, transparent 2.5px); background-size: 26px 26px; }
+        #s01-root .bub { position: absolute; padding: 14px 20px 12px; border-radius: 16px; font-size: 26px; line-height: 1.25; color: #111827; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12); max-width: 360px; }
+        #s01-chat-q { right: 22px; top: 106px; background: #d9fdd3; border-top-right-radius: 4px; }
+        #s01-chat-a { left: 22px; top: 232px; background: #ffffff; border-top-left-radius: 4px; display: flex; align-items: flex-end; gap: 14px; }
+        #s01-root .ticks { width: 30px; height: 18px; flex: none; margin-bottom: 4px; }
+        #s01-root .ch-input { position: absolute; left: 18px; right: 18px; bottom: 16px; height: 50px; border-radius: 25px; background: #fff; }
+
+        /* paper folder */
+        #s01-folder { left: 1250px; top: 500px; width: 520px; height: 340px; }
+        #s01-root .fo-tab { position: absolute; left: 0; top: 0; width: 190px; height: 40px; background: #d7a64c; border-radius: 16px 16px 0 0; }
+        #s01-root .fo-back { position: absolute; left: 0; top: 30px; right: 0; bottom: 0; background: #d7a64c; border-radius: 0 18px 18px 18px; box-shadow: var(--shadow-card); }
+        #s01-root .paper { position: absolute; left: 40px; width: 440px; height: 250px; background: #fbfaf5; border-radius: 6px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); }
+        #s01-root .paper.p1 { top: 40px; transform: rotate(-3deg); background: #f0eee6; }
+        #s01-root .paper.p2 { top: 28px; transform: rotate(2deg); background: #f6f4ec; }
+        #s01-root .paper.p3 { top: 20px; transform: rotate(-0.8deg); padding: 22px 30px; box-sizing: border-box; }
+        #s01-root .paper .cmr { font-family: var(--f-display); font-weight: 800; font-size: 74px; letter-spacing: 0.12em; color: #1e293b; line-height: 1; }
+        #s01-root .paper .ln { display: block; height: 10px; border-radius: 5px; background: #d9dcd9; margin-top: 14px; }
+        #s01-root .fo-front { position: absolute; left: 0; right: 0; bottom: 0; height: 205px; background: linear-gradient(180deg, #ecc77d, #e2b25e); border-radius: 6px 6px 18px 18px; box-shadow: 0 -6px 14px rgba(0, 0, 0, 0.18); }
+        #s01-root .note { position: absolute; left: -22px; top: 150px; width: 210px; height: 150px; background: #fde047; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); display: flex; align-items: center; justify-content: center; font-family: var(--f-body); font-style: italic; font-size: 30px; color: #44403c; transform: rotate(-6deg); z-index: 3; }
+        #s01-root .note .glow { border-radius: 6px; }
+
+        /* the end point */
+        #s01-root .point { position: absolute; left: 922px; top: 502px; width: 76px; height: 76px; border-radius: 50%; background: radial-gradient(circle, #ffffff 0%, rgba(186, 220, 255, 0.95) 28%, rgba(59, 130, 246, 0.55) 55%, rgba(59, 130, 246, 0) 72%); opacity: 0; }
+
+      </style>
+
+      <div id="s01-root" data-composition-id="s01" data-width="1920" data-height="1080">
+        <div class="cam"><div class="world">
+          <svg class="threads" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+            <path id="s01-th1" pathLength="1" d="M780 504 C 780 430 730 378 646 378" />
+            <path id="s01-th2" pathLength="1" d="M1140 504 C 1140 420 1190 342 1246 342" />
+            <path id="s01-th3" pathLength="1" d="M1110 576 C 1110 660 1150 722 1226 722" />
+            <circle id="s01-e1" cx="646" cy="378" r="8" />
+            <circle id="s01-e2" cx="1246" cy="342" r="8" />
+            <circle id="s01-e3" cx="1226" cy="722" r="8" />
+          </svg>
+
+          <div class="dossier" id="s01-dossier">
+            <div class="slot" style="left: 30px"></div>
+            <div class="slot" style="left: 205px"></div>
+            <div class="slot" style="left: 380px"></div>
+          </div>
+
+
+          <div class="obj" id="s01-sheet"><div class="jit"><div class="tilt">
+            <div class="sh">
+              <div class="sh-bar"><i></i><i></i><i></i></div>
+              <div class="sh-grid">
+                <div class="hd"></div><div class="hd">A</div><div class="hd">B</div><div class="hd">C</div><div class="hd">D</div><div class="hd">E</div>
+                <div class="rn">1</div><div><span class="bar" style="width:70%"></span></div><div><span class="bar" style="width:55%"></span></div><div><span class="bar" style="width:62%"></span></div><div><span class="bar" style="width:80%"></span></div><div><span class="bar" style="width:40%"></span></div>
+                <div class="rn">2</div><div><span class="bar" style="width:60%"></span></div><div><span class="bar" style="width:75%"></span></div><div><span class="bar" style="width:48%"></span></div><div><span class="bar" style="width:66%"></span></div><div><span class="bar" style="width:50%"></span></div>
+                <div class="rn">3</div><div class="real">{{copy:demo.mission}}</div><div class="real">TANGER MED</div><div class="real">MURCIA</div><div class="real red">12.10</div><div class="real red">?</div>
+                <div class="rn">4</div><div><span class="bar" style="width:66%"></span></div><div><span class="bar" style="width:58%"></span></div><div><span class="bar" style="width:70%"></span></div><div><span class="bar" style="width:44%"></span></div><div><span class="bar" style="width:72%"></span></div>
+                <div class="rn">5</div><div><span class="bar" style="width:52%"></span></div><div><span class="bar" style="width:68%"></span></div><div><span class="bar" style="width:56%"></span></div><div><span class="bar" style="width:76%"></span></div><div><span class="bar" style="width:46%"></span></div>
+                <div class="rn">6</div><div><span class="bar" style="width:74%"></span></div><div><span class="bar" style="width:50%"></span></div><div><span class="bar" style="width:64%"></span></div><div><span class="bar" style="width:52%"></span></div><div><span class="bar" style="width:60%"></span></div>
+              </div>
+              <div class="glow" id="s01-g1" style="inset: auto; left: 2px; top: 190px; width: 546px; height: 56px; border-radius: 4px"></div>
+            </div>
+          </div></div></div>
+
+          <div class="obj" id="s01-chat"><div class="jit"><div class="tilt">
+            <div class="ch">
+              <div class="ch-head"><div class="ch-av"></div><div class="ch-bars"><i></i><i></i></div></div>
+              <div class="ch-wall"></div>
+              <div class="bub" id="s01-chat-q">{{copy:s01.chat_q}}</div>
+              <div class="bub" id="s01-chat-a">
+                <span>{{copy:s01.chat_a}}</span>
+                <svg class="ticks" viewBox="0 0 30 18" fill="none" stroke="#94a3b8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10 L7 15 L16 3"/><path d="M12 11 L16 15 L27 3"/></svg>
+                <div class="glow" id="s01-g2" style="inset: -5px; border-radius: 20px"></div>
+              </div>
+              <div class="ch-input"></div>
+            </div>
+          </div></div></div>
+
+          <div class="obj" id="s01-folder"><div class="jit"><div class="tilt">
+            <div class="fo-tab"></div>
+            <div class="fo-back"></div>
+            <div class="paper p1"></div>
+            <div class="paper p2"></div>
+            <div class="paper p3"><div class="cmr">CMR</div><span class="ln" style="width:70%"></span><span class="ln" style="width:88%"></span><span class="ln" style="width:56%"></span></div>
+            <div class="fo-front"></div>
+            <div class="note" id="s01-note">{{copy:s01.note}}<div class="glow" id="s01-g3"></div></div>
+          </div></div></div>
+
+          <div class="center">
+            <div class="chip" id="s01-chip"><span class="dot"></span><span>{{copy:demo.mission}} · {{copy:demo.lane}}</span></div>
+          </div>
+          <div class="point" id="s01-point"></div>
+        </div></div>
+
+        <div class="k-title" id="s01-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s01.title}}</div></div>
+      </div>
+
+      <script type="application/json" id="s01-sfx">[
+        {"cue":"in","off":0.5,"type":"pop","gain":0.5},
+        {"cue":"sheet","off":-0.15,"type":"whoosh","gain":0.45},
+        {"cue":"chat","off":-0.15,"type":"whoosh","gain":0.45},
+        {"cue":"chat","off":0.05,"type":"pop","gain":0.6},
+        {"cue":"chat","off":0.85,"type":"pop","gain":0.6},
+        {"cue":"folder","off":-0.15,"type":"whoosh","gain":0.45},
+        {"cue":"truth","off":-0.1,"type":"shimmer","gain":0.5},
+        {"cue":"out","off":-0.3,"type":"swell","gain":0.7}
+      ]</script>
+
+      <script>
+        const T = {{T}};
+        const tl = gsap.timeline({ paused: true });
+        const R = "#s01-root ";
+        const q = (s) => document.querySelector(R + s);
+        const qa = (s) => document.querySelectorAll(R + s);
+        const sheet = q("#s01-sheet"), chat = q("#s01-chat"), folder = q("#s01-folder");
+        const objs = [sheet, chat, folder];
+        const centers = [[365, 370], [1510, 270], [1510, 670]];   // obj centres (for the suck-in)
+        const paths = [q("#s01-th1"), q("#s01-th2"), q("#s01-th3")];
+        const ends = [q("#s01-e1"), q("#s01-e2"), q("#s01-e3")];
+        const chip = q("#s01-chip"), dossier = q("#s01-dossier"), point = q("#s01-point"), title = q("#s01-title");
+        const tilt = (el) => el.querySelector(".tilt");
+        const jit = (el) => el.querySelector(".jit");
+
+        // initial states
+        gsap.set(paths, { strokeDasharray: 1, strokeDashoffset: 1, opacity: 0 });
+        gsap.set(ends, { opacity: 0, transformOrigin: "50% 50%" });
+        gsap.set(objs, { opacity: 0 });
+        gsap.set(dossier, { opacity: 0 });
+        gsap.set(qa(".slot"), { opacity: 0 });
+
+        // 1. chip + threads draw
+        const drawEnd = [T.sheet - 0.2, T.chat - 0.2, T.folder - 0.2];
+        K.pop(tl, chip, 0.5, { d: 0.7, from: 0.9 });
+        tl.fromTo(chip, { y: 14 }, { y: 0, duration: 0.8, ease: K.OUT }, 0.5);
+        // each thread creeps out of the chip edge at constant speed and reaches its end exactly as its object arrives
+        tl.set(paths, { opacity: 1 }, 1.4);
+        paths.forEach((p, i) => {
+          const endAt = [T.sheet, T.chat, T.folder][i] - 0.2;
+          tl.fromTo(p, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: endAt - 1.4, ease: "none" }, 1.4);
+        });
+
+        // 2-4. the three foreign objects arrive on their cues, threads connect
+        const arrive = (el, at, from, to, fx, fy) => {
+          const t = tilt(el);
+          tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "none" }, at);
+          tl.fromTo(t, { x: fx, y: fy, rotationY: from, rotationX: to[0], transformPerspective: 1600 },
+                       { x: 0, y: 0, rotationY: to[1], rotationX: to[2], transformPerspective: 1600, duration: 1.0, ease: K.OUT }, at);
+        };
+        arrive(sheet,  T.sheet  - 0.2, 12,  [0, 6, 0],   -70, 10);
+        arrive(chat,   T.chat   - 0.2, -12, [0, -6, 0],   60, -30);
+        arrive(folder, T.folder - 0.2, -10, [6, -5, 2],   40, 60);
+        // thread ends light up once the line has arrived
+        [T.sheet, T.chat, T.folder].forEach((c, i) => {
+          tl.fromTo(ends[i], { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: K.OUT }, Math.max(1.5, c - 0.05));
+        });
+
+        // chat bubbles
+        const bq = q("#s01-chat-q"), ba = q("#s01-chat-a");
+        gsap.set(bq, { opacity: 0 }); gsap.set(ba, { opacity: 0 });
+        tl.fromTo(bq, { opacity: 0, y: 14, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: K.OUT }, T.chat + 0.0);
+        tl.fromTo(ba, { opacity: 0, y: 14, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: K.OUT }, T.chat + 0.8);
+
+        // lower-third title (standard bottom-left band)
+        K.title(tl, title, T.folder + 0.4);
+
+        // 5. truth: each fragment glows once, the empty dossier appears
+        ["#s01-g1", "#s01-g2", "#s01-g3"].forEach((g, i) => {
+          const at = T.truth - 0.1 + i * 0.25;
+          tl.fromTo(q(g), { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, at);
+          tl.to(q(g), { opacity: 0.3, duration: 0.5, ease: "power2.inOut" }, at + 0.3);
+        });
+        tl.fromTo(dossier, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.8, ease: K.OUT }, T.truth - 0.1);
+        tl.fromTo(qa(".slot"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6, ease: K.OUT, stagger: 0.15 }, T.truth + 0.3);
+
+        // 6. none: threads fray, objects drift outward and desaturate
+        const none = T.none - 0.1;
+        tl.to(paths, { strokeDasharray: "0.012 0.05", opacity: 0.25, duration: 0.9, ease: "power2.inOut" }, none);
+        tl.to(ends, { opacity: 0.25, duration: 0.9, ease: "power2.inOut" }, none);
+        const drift = [[-26, -8], [24, -14], [20, 24]];
+        objs.forEach((o, i) => {
+          tl.to(o, { x: drift[i][0], y: drift[i][1], duration: 1.0, ease: "power2.out" }, none);
+          tl.to(tilt(o), { filter: "saturate(0.4) brightness(0.8)", duration: 1.0, ease: "power2.out" }, none);
+        });
+        const exitAt = T.out - 0.3;
+        const holdFrom = none + 1.1;
+        if (exitAt - holdFrom > 0.4) objs.forEach((o, i) => K.jitter(tl, jit(o), holdFrom + i * 0.05, exitAt - holdFrom - 0.2, 1));
+
+        // 7. custom exit: everything is sucked into the centre point
+        const d = 0.5;
+        K.titleOut(tl, title, exitAt);
+        objs.forEach((o, i) => {
+          const at = exitAt + i * 0.03;
+          tl.to(o, { x: 960 - centers[i][0], y: 540 - centers[i][1], scale: 0.05, filter: "blur(5px)", duration: d, ease: "power2.inOut" }, at);
+          tl.to(o, { opacity: 0, duration: 0.14, ease: "none" }, at + d - 0.14);
+        });
+        tl.to(dossier, { scale: 0.05, opacity: 0, duration: d, ease: "power2.inOut" }, exitAt + 0.05);
+        tl.to(paths, { opacity: 0, duration: 0.3, ease: "power2.in" }, exitAt);
+        tl.to(ends, { opacity: 0, duration: 0.3, ease: "power2.in" }, exitAt);
+        // the chip folds into a point first; the glow only shows once the chip text is gone
+        tl.to(chip, { scale: 0.04, duration: 0.4, ease: "power2.inOut" }, exitAt + 0.1);
+        tl.to(chip, { opacity: 0, duration: 0.1, ease: "none" }, exitAt + 0.4);
+        tl.fromTo(point, { opacity: 0, scale: 0.25 }, { opacity: 1, scale: 1.1, duration: 0.3, ease: "power2.out" }, exitAt + 0.5);
+
+        window.__timelines["s01"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

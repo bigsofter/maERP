@@ -1,0 +1,86 @@
+<template>
+  <style>
+    #s07-root { position: absolute; inset: 0; overflow: hidden; }
+    #s07-root .cam, #s07-root .world { position: absolute; inset: 0; }
+    #s07-root .s07-stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 70px; padding: 0 160px; }
+    #s07-root .s07-left { flex: none; width: 960px; display: flex; flex-direction: column; }
+    #s07-root .s07-head { font-family: var(--f-display); font-weight: 600; font-size: 52px; line-height: 1.15; letter-spacing: -0.02em; color: #fff; }
+    #s07-root .s07-bar { display: block; width: 100px; height: 6px; margin-top: 20px; border-radius: 3px; background: #fbbf24; }
+    #s07-root .s07-list { margin-top: 56px; display: flex; flex-direction: column; gap: 50px; }
+    #s07-root .s07-b { display: flex; align-items: flex-start; gap: 28px; }
+    #s07-root .s07-n { flex: none; position: relative; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 700; font-size: 30px; color: var(--ui-ink); background: var(--amber-glyph); box-shadow: 0 0 0 7px rgba(251, 191, 36, 0.25), 0 10px 24px -8px rgba(0, 0, 0, 0.5); }
+    #s07-root .s07-t { width: 860px; font-family: var(--f-body); font-weight: 500; font-size: 34px; line-height: 1.3; color: #f8fafc; }
+    #s07-root .s07-right { flex: none; width: 560px; display: flex; flex-direction: column; align-items: center; }
+    #s07-root .s07-mono { width: 170px; height: 170px; border-radius: 52px; background: linear-gradient(125deg, #1d4ed8, #0ea5e9); display: flex; align-items: center; justify-content: center; box-shadow: 0 30px 80px -20px rgba(14, 165, 233, 0.5); }
+    #s07-root .s07-mono svg { display: block; width: 110px; height: 110px; }
+    #s07-root .s07-wmbox { margin-top: 34px; width: 560px; display: flex; justify-content: center; }
+    #s07-root .s07-wm { display: inline-block; font-size: 74px; line-height: 1.3; white-space: nowrap; padding-right: 12px; }
+    #s07-root .s07-cta { margin-top: 30px; width: 560px; text-wrap: balance; text-align: center; font-family: var(--f-body); font-weight: 500; font-size: 30px; line-height: 1.3; color: #cbd5e1; }
+    #s07-root .s07-urlw { margin-top: 24px; display: flex; justify-content: center; }
+    #s07-root .s07-urlin { display: inline-flex; flex-direction: column; }
+    #s07-root .s07-url { display: block; font-family: var(--f-mono); font-weight: 500; font-size: 34px; line-height: 1.3; color: #fbbf24; }
+    #s07-root .s07-ul { display: block; width: 100%; height: 3px; margin-top: 4px; border-radius: 2px; background: #fbbf24; }
+  </style>
+
+  <div id="s07-root" data-composition-id="s07" data-width="1920" data-height="1080">
+    <div class="cam">
+      <div class="world"><div class="s07-stage"><div class="s07-left">
+        <div class="s07-head" id="s07-head">{{copy:s07.head}}<i class="s07-bar" id="s07-hbar"></i></div>
+        <div class="s07-list">
+          <div class="s07-b" id="s07-b1"><div class="s07-n">1</div><div class="s07-t">{{copy:s07.b1}}</div></div>
+          <div class="s07-b" id="s07-b2"><div class="s07-n">2</div><div class="s07-t">{{copy:s07.b2}}</div></div>
+          <div class="s07-b" id="s07-b3"><div class="s07-n">3</div><div class="s07-t">{{copy:s07.b3}}</div></div>
+        </div>
+        </div>
+        <div class="s07-right">
+          <div class="s07-mono" id="s07-mono">
+            <svg viewBox="0 0 120 120" fill="none" stroke="#FBBF24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M25 78H14V34H70V78H47"/>
+              <path d="M70 46H92L106 62V78H98M78 78H70"/>
+              <circle cx="36" cy="80" r="10"/>
+              <circle cx="88" cy="80" r="10"/>
+            </svg>
+          </div>
+          <div class="s07-wmbox"><div class="s07-wm k-wordmark" id="s07-wm"><span>ma</span><span class="t">T</span><span>ransports</span></div></div>
+          <div class="s07-cta" id="s07-cta">{{copy:s07.cta}}</div>
+          <div class="s07-urlw"><div class="s07-urlin"><span class="s07-url" id="s07-url">{{copy:s07.url}}</span><i class="s07-ul" id="s07-ul"></i></div></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <script type="application/json" id="s07-sfx">[
+    {"cue":"final","off":0.2,"type":"pop","gain":0.45},
+    {"cue":"final","off":1.6,"type":"pop","gain":0.45},
+    {"cue":"final","off":3.0,"type":"pop","gain":0.45},
+    {"cue":"final","off":0.6,"type":"shimmer","gain":0.5}
+  ]</script>
+
+  <script>
+    const T = {{T}};
+    const tl = gsap.timeline({ paused: true });
+    const R = "#s07-root ";
+    const q = (s) => R + s;
+    K.camIn(tl, q(".cam"), 0.35); // incoming scene stays empty for 0.35 s (previous scene fades first)
+
+    const f = T.final;
+    tl.fromTo(q("#s07-head"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: K.OUT }, f - 0.4);
+    tl.fromTo(q("#s07-hbar"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, f);
+
+    K.rise(tl, q("#s07-b1"), f + 0.2, { d: 0.8 });
+    K.rise(tl, q("#s07-b2"), f + 1.6, { d: 0.8 });
+    K.rise(tl, q("#s07-b3"), f + 3.0, { d: 0.8 });
+
+    tl.fromTo(q("#s07-mono"), { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.7, ease: K.OUT }, f + 0.6);
+    tl.fromTo(q("#s07-wm"), { clipPath: "inset(0 100% 0 0)", x: -30 }, { clipPath: "inset(0 0% 0 0)", x: 0, duration: 0.8, ease: "power2.out" }, f + 0.9);
+    const tc = f + 4.2;
+    tl.fromTo(q("#s07-cta"), { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT }, tc);
+    tl.fromTo(q("#s07-url"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT }, tc + 0.25);
+    tl.fromTo(q("#s07-ul"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, tc + 0.6);
+
+    // last scene: fade everything to the stage over the final 0.8 s
+    tl.to(q(".cam"), { opacity: 0, duration: 0.8, ease: "power2.in" }, T.dur - 0.8);
+
+    window.__timelines["s07"] = tl;
+  </script>
+</template>

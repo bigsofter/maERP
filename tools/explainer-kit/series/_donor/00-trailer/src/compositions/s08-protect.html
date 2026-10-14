@@ -1,0 +1,197 @@
+<template>
+  <style>
+    #s08-root { position: absolute; inset: 0; overflow: hidden; }
+    #s08-root .cam, #s08-root .world { position: absolute; inset: 0; }
+    #s08-root .s08-tile {
+      position: absolute; width: 760px; height: 330px; box-sizing: border-box; padding: 34px;
+      background: rgba(15, 23, 42, 0.72); border: 2px solid rgba(148, 163, 184, 0.18); border-radius: 28px;
+      box-shadow: var(--shadow-card); display: flex; flex-direction: column; gap: 14px;
+    }
+    #s08-root .s08-lab { font-family: var(--f-display); font-weight: 600; font-size: 40px; line-height: 1.08; letter-spacing: -0.02em; color: #fff; min-height: 44px; }
+    #s08-root .s08-demo { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; }
+
+    /* tile 1: vaults */
+    #s08-root .s08-vrow { display: flex; align-items: center; gap: 24px; padding-bottom: 30px; }
+    #s08-root .s08-vault { position: relative; width: 190px; height: 112px; box-sizing: border-box; border-radius: 20px; background: #101b33; border: 3px solid rgba(148, 163, 184, 0.35); display: flex; align-items: center; justify-content: center; }
+    #s08-root .s08-vault.me { border: 3px solid transparent; background: linear-gradient(#101b33, #101b33) padding-box, var(--grad-brand) border-box; box-shadow: 0 0 36px -6px rgba(14, 165, 233, 0.55); }
+    #s08-root .s08-grid { display: grid; grid-template-columns: repeat(3, 28px); gap: 12px; }
+    #s08-root .s08-sq { display: block; width: 28px; height: 28px; border-radius: 8px; background: #64748b; }
+    #s08-root .s08-vault.me .s08-sq { background: var(--brand-300); }
+    #s08-root .s08-wall { display: block; width: 5px; height: 132px; border-radius: 3px; background: var(--sky); box-shadow: 0 0 18px 3px rgba(14, 165, 233, 0.7); }
+    #s08-root .s08-cap { position: absolute; left: 50%; bottom: -42px; width: 260px; margin-left: -130px; text-align: center; font-family: var(--f-body); font-weight: 600; font-size: 24px; color: var(--brand-300); }
+
+    /* tile 2: roles */
+    #s08-root .s08-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 22px; padding: 14px 0 0; }
+    #s08-root .s08-role { position: relative; display: inline-flex; align-items: center; gap: 10px; height: 50px; padding: 0 18px; border-radius: 16px; background: #e2e8f0; color: var(--ui-ink-2); font-family: var(--f-body); font-weight: 600; font-size: 23px; white-space: nowrap; }
+    #s08-root .s08-role .k-ico { font-size: 26px; color: var(--ui-ink-3); }
+    #s08-root .s08-key { position: absolute; right: -10px; top: -14px; width: 30px; height: 30px; border-radius: 50%; background: var(--amber-glyph); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px -4px rgba(0, 0, 0, 0.5); }
+    #s08-root .s08-key svg { width: 18px; height: 18px; stroke: #0f172a; fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* tile 3: invoice + lock */
+    #s08-root .s08-inv-wrap { display: flex; align-items: center; gap: 28px; width: 100%; }
+    #s08-root .s08-inv { position: relative; flex: none; width: 262px; height: 150px; box-sizing: border-box; padding: 24px 26px; border-radius: 20px; background: #fff; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; }
+    #s08-root .s08-inv-no { font-family: var(--f-mono); font-weight: 600; font-size: 26px; color: var(--ui-ink); }
+    #s08-root .s08-lock { position: absolute; right: -26px; bottom: -24px; width: 84px; height: 84px; display: block; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.55)); }
+    #s08-root .s08-note { flex: 1; font-family: var(--f-body); font-size: 22px; line-height: 1.35; color: var(--on-dark-2, var(--on-dark-3)); }
+
+    /* tile 4: ledger */
+    #s08-root .s08-led { width: 470px; border-radius: 20px; background: #fff; overflow: hidden; }
+    #s08-root .s08-lrow { display: flex; align-items: center; gap: 18px; height: 66px; padding: 0 26px; box-sizing: border-box; border-bottom: 2px solid var(--ui-bg2); font-family: var(--f-mono); font-weight: 600; font-size: 32px; }
+    #s08-root .s08-lrow:last-child { border-bottom: 0; }
+    #s08-root .s08-gut { flex: none; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    #s08-root .s08-gut.old { background: var(--ui-bg2); }
+    #s08-root .s08-gut.old::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--ui-ink-4); }
+    #s08-root .s08-gut.new { background: var(--amber-glyph); color: #0f172a; font-family: var(--f-body); font-weight: 800; font-size: 24px; line-height: 1; }
+    #s08-root .s08-amt { flex: 1; text-align: right; }
+
+    /* shield */
+    #s08-root .s08-core { position: absolute; left: 908px; top: 398px; width: 104px; height: 104px; }
+    #s08-root .s08-disc { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 50% 45%, #14213f 0%, #0a1226 70%); border: 2px solid rgba(251, 191, 36, 0.35); box-shadow: 0 0 36px 4px rgba(251, 191, 36, 0.26); }
+    #s08-root .s08-shield { position: absolute; left: 25px; top: 18px; width: 54px; height: 67px; display: block; overflow: visible; filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.55)); }
+    #s08-root .s08-title-wrap { position: absolute; inset: 0; }
+  </style>
+
+  <div id="s08-root" data-composition-id="s08" data-width="1920" data-height="1080">
+    <div class="cam">
+      <div class="world">
+
+        <div class="s08-tile" id="s08-t1" style="left:180px; top:100px;">
+          <div class="s08-lab">{{copy:s08.data}}</div>
+          <div class="s08-demo">
+            <div class="s08-vrow">
+              <div class="s08-vault" id="s08-v1"><div class="s08-grid"><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i></div></div>
+              <i class="s08-wall" id="s08-w1"></i>
+              <div class="s08-vault me" id="s08-v2"><div class="s08-grid"><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i></div><div class="s08-cap" id="s08-cap">{{copy:s08.company_you}}</div></div>
+              <i class="s08-wall" id="s08-w2"></i>
+              <div class="s08-vault" id="s08-v3"><div class="s08-grid"><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i><i class="s08-sq"></i></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="s08-tile" id="s08-t2" style="left:980px; top:100px;">
+          <div class="s08-lab">{{copy:s08.roles}}</div>
+          <div class="s08-demo">
+            <div class="s08-chips">
+              <span class="s08-role"><svg class="k-ico" viewBox="0 0 24 24"><polygon points="12 3 14.8 9 21 9.8 16.5 14 17.8 20.5 12 17.2 6.2 20.5 7.5 14 3 9.8 9.2 9"/></svg>{{ui:web.review.owner}}<span class="s08-key"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v4"/></svg></span></span>
+              <span class="s08-role"><svg class="k-ico" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h6a3 3 0 0 1 0 6h-4a3 3 0 0 0 0 6h6"/></svg>{{ui:web.team_roles.dispatcher}}<span class="s08-key"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v4"/></svg></span></span>
+              <span class="s08-role"><svg class="k-ico" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg>{{ui:web.team_roles.sales}}<span class="s08-key"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v4"/></svg></span></span>
+              <span class="s08-role"><svg class="k-ico" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg>{{ui:web.team_roles.accountant}}<span class="s08-key"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v4"/></svg></span></span>
+              <span class="s08-role"><svg class="k-ico" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 1 5 5l-9 9a2 2 0 0 1-3-3z"/><circle cx="9" cy="15" r="0.6"/></svg>{{ui:web.team_roles.mechanic}}<span class="s08-key"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v4"/></svg></span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="s08-tile" id="s08-t3" style="left:180px; top:470px;">
+          <div class="s08-lab">{{copy:s08.frozen}}</div>
+          <div class="s08-demo">
+            <div class="s08-inv-wrap">
+              <div class="s08-inv" id="s08-inv">
+                <span class="s08-inv-no">{{copy:demo.invoice_no}}</span>
+                <span class="k-pill is-blue"><span class="k-dot"></span>{{ui:web.invoicing.st_approved}}</span>
+                <svg class="s08-lock" id="s08-lock" viewBox="0 0 64 64">
+                  <g id="s08-shackle"><path d="M20 30V21a12 12 0 0 1 24 0v9" fill="none" stroke="#FBBF24" stroke-width="6" stroke-linecap="round"/></g>
+                  <rect x="13" y="29" width="38" height="28" rx="8" fill="#FBBF24"/>
+                  <circle cx="32" cy="42" r="4" fill="#0f172a"/><rect x="30.2" y="44" width="3.6" height="7" rx="1.8" fill="#0f172a"/>
+                </svg>
+              </div>
+              <div class="s08-note" id="s08-note">{{ui:web.invoicing.note_locked}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="s08-tile" id="s08-t4" style="left:980px; top:470px;">
+          <div class="s08-lab">{{copy:s08.newline}}</div>
+          <div class="s08-demo">
+            <div class="s08-led">
+              <div class="s08-lrow" id="s08-r1"><span class="s08-gut old"></span><span class="s08-amt" style="color: var(--ok-fg);">+ 30 000,00</span></div>
+              <div class="s08-lrow" id="s08-r2"><span class="s08-gut new" id="s08-plus">+</span><span class="s08-amt" style="color: var(--ui-ink);">− 1 200,00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="s08-core" id="s08-core">
+          <div class="s08-disc" id="s08-disc"></div>
+          <svg class="s08-shield" viewBox="0 0 100 124">
+            <path id="s08-sh1" pathLength="1" d="M50 6 L88 20 V60 C88 86 70 106 50 116 C30 106 12 86 12 60 V20 Z" fill="none" stroke="#FBBF24" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <path id="s08-sh2" pathLength="1" d="M33 62 L46 75 L69 48" fill="none" stroke="#FBBF24" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/>
+          </svg>
+        </div>
+
+        <div class="k-title" id="s08-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s08.title}}</div></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="s08-sfx">[
+    {"cue":"data","off":0,"type":"pop","gain":0.5},
+    {"cue":"roles","off":0,"type":"pop","gain":0.5},
+    {"cue":"frozen","off":0,"type":"pop","gain":0.5},
+    {"cue":"frozen","off":0.4,"type":"stamp","gain":0.8},
+    {"cue":"newline","off":0,"type":"pop","gain":0.5},
+    {"cue":"newline","off":0.2,"type":"type","gain":0.35},
+    {"cue":"newline","off":0.2,"type":"shimmer","gain":0.6}
+  ]</script>
+
+  <script>
+    const T = {{T}};
+    const tl = gsap.timeline({ paused: true });
+    const R = "#s08-root ";
+    const q = (s) => R + s;
+    const cam = q(".cam");
+    K.camIn(tl, cam, 0);
+
+    // tiles arrive on their cue, with a slight settle from tilt
+    const tileIn = (id, at) => tl.fromTo(id, { opacity: 0, y: 36, rotationX: 5, transformPerspective: 1600 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.75, ease: K.OUT }, at);
+
+    // 1 data
+    const t1 = T.data - 0.2;
+    tileIn(q("#s08-t1"), t1);
+    tl.fromTo([q("#s08-v1"), q("#s08-v2"), q("#s08-v3")], { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.55, ease: K.OUT, stagger: 0.12 }, t1 + 0.4);
+    tl.fromTo(q("#s08-cap"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: K.OUT }, t1 + 0.9);
+    [q("#s08-v1"), q("#s08-v2"), q("#s08-v3")].forEach((v, i) => {
+      tl.fromTo(v + " .s08-sq", { opacity: 0, y: -34 }, { opacity: 1, y: 0, duration: 0.5, ease: K.OUT, stagger: 0.07 }, t1 + 0.65 + i * 0.1);
+    });
+    [q("#s08-w1"), q("#s08-w2")].forEach((w) => {
+      tl.fromTo(w, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: K.OUT }, t1 + 1.4);
+      tl.to(w, { opacity: 0.22, duration: 0.7, ease: "power2.inOut" }, t1 + 1.8);
+    });
+
+    // 2 roles
+    const t2 = T.roles - 0.2;
+    tileIn(q("#s08-t2"), t2);
+    tl.fromTo(q(".s08-role"), { opacity: 0, y: 26, x: -16 }, { opacity: 1, y: 0, x: 0, duration: 0.6, ease: K.OUT, stagger: 0.1 }, t2 + 0.4);
+    tl.fromTo(q(".s08-key"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: K.OUT, stagger: 0.1 }, t2 + 0.95);
+
+    // 3 frozen
+    const t3 = T.frozen - 0.2;
+    tileIn(q("#s08-t3"), t3);
+    tl.fromTo(q("#s08-inv"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: K.OUT }, t3 + 0.35);
+    tl.set(q("#s08-lock"), { opacity: 0 }, 0);
+    tl.set(q("#s08-shackle"), { y: -10 }, 0);
+    tl.fromTo(q("#s08-lock"), { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: K.OUT }, T.frozen + 0.2);
+    tl.to(q("#s08-shackle"), { y: 0, duration: 0.16, ease: "power2.in" }, T.frozen + 0.36);
+    tl.to(q("#s08-inv"), { scale: 0.975, duration: 0.07, ease: "power2.out" }, T.frozen + 0.4);
+    tl.to(q("#s08-inv"), { scale: 1, duration: 0.3, ease: "power2.out" }, T.frozen + 0.47);
+    tl.fromTo(q("#s08-note"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT }, T.frozen + 0.7);
+
+    // 4 newline
+    const t4 = T.newline - 0.2;
+    tileIn(q("#s08-t4"), t4);
+    tl.fromTo(q("#s08-r1"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6, ease: K.OUT }, t4 + 0.4);
+    tl.fromTo(q("#s08-r2"), { opacity: 0, y: -22 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT }, T.newline + 0.15);
+    tl.fromTo(q("#s08-plus"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: K.OUT }, T.newline + 0.5);
+
+    // 5 shield + title: early enough that the title is fully read >= 2.2 s before the exit
+    const tt = Math.min(T.newline + 0.1, T.out - 3.0);
+    const ts = tt + 0.15;
+    tl.fromTo(q("#s08-disc"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.6, ease: K.OUT }, ts);
+    tl.fromTo(q("#s08-sh1"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" }, ts + 0.1);
+    tl.fromTo(q("#s08-sh2"), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, ts + 0.8);
+    tl.to(q(".s08-tile"), { opacity: 0.7, duration: 0.5, ease: "power2.inOut" }, ts);
+    tl.set(q("#s08-core"), { opacity: 1 }, 0);
+    K.title(tl, document.querySelector(q("#s08-title")), tt);
+
+    K.camOut(tl, cam, T.out);
+    window.__timelines["s08"] = tl;
+  </script>
+</template>

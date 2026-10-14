@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s06-root { position: absolute; inset: 0; overflow: hidden; }
+        #s06-root .cam { position: absolute; inset: 0; }
+        #s06-root .world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+
+        /* page card: x 160-1760, flows top-down (banner wrapper, title, rows) */
+        #s06-root .page { position: absolute; left: 160px; top: 110px; width: 1600px; }
+        #s06-root .bwrap { height: 120px; padding: 20px 24px 0; box-sizing: border-box; overflow: hidden; }
+        #s06-root .banner { position: relative; height: 100px; border-radius: 16px; background: #F0F9FF; border: 2px solid #BAE6FD; color: #075985; font-family: var(--f-body); box-sizing: border-box; }
+        #s06-root .layer { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 28px; gap: 20px; }
+        #s06-root .layer svg.ic { flex: none; width: 44px; height: 44px; }
+        #s06-root .btxt { flex: 1; min-width: 0; }
+        #s06-root .b1 { font-size: 24px; font-weight: 600; line-height: 1.25; }
+        #s06-root .b2 { margin-top: 4px; font-family: var(--f-mono); font-size: 21px; color: #0369a1; white-space: nowrap; }
+        #s06-root .cta { flex: none; width: 200px; text-align: center; font-size: 24px; font-weight: 700; color: #075985; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; white-space: nowrap; }
+        #s06-root .layer.lb, #s06-root .layer.lc { opacity: 0; }
+        #s06-root .lb .btxt { text-wrap: balance; font-size: 24px; font-weight: 600; line-height: 1.25; }
+        #s06-root .lb .btns { flex: none; display: flex; gap: 16px; }
+        #s06-root .lb .k-btn { height: 56px; font-size: 22px; padding: 0; }
+        #s06-root .btn-yes { width: 280px; background: #0f172a; box-shadow: none; }
+        #s06-root .btn-no { width: 170px; }
+        #s06-root .lc .btxt { flex: none; width: 520px; font-size: 24px; font-weight: 600; }
+        #s06-root .track { flex: 1; height: 12px; border-radius: 6px; background: #BAE6FD; overflow: hidden; }
+        #s06-root .fill { display: block; width: 100%; height: 12px; border-radius: 6px; background: #0284c7; transform-origin: 0% 50%; }
+
+        #s06-root .pbody { padding: 0 48px 40px; }
+        #s06-root .ptitle { height: 80px; display: flex; align-items: center; font-family: var(--f-display); font-weight: 600; font-size: 40px; letter-spacing: -0.02em; color: var(--ui-ink); }
+        #s06-root .rows { position: relative; margin-top: 8px; width: 1140px; height: 396px; }
+        #s06-root .row { position: absolute; left: 0; width: 1140px; height: 66px; box-sizing: border-box; display: grid; grid-template-columns: 200px 340px 270px 330px; align-items: center; border-bottom: 2px solid var(--ui-bg2); border-top: 2px solid var(--ui-bg2); font-size: 24px; color: var(--ui-ink); }
+        #s06-root .row .inv { font-family: var(--f-mono); font-weight: 600; font-size: 23px; }
+        #s06-root .row .cl { font-weight: 600; font-size: 23px; white-space: nowrap; color: var(--ui-ink-2); }
+        #s06-root .row .am { text-align: right; padding-right: 36px; font-family: var(--f-mono); font-weight: 600; font-size: 24px; white-space: nowrap; }
+        #s06-root .row .am small { font-size: 20px; font-weight: 500; color: var(--ui-ink-3); margin-left: 8px; }
+        #s06-root .row .st { position: relative; height: 46px; display: flex; align-items: center; }
+        #s06-root .row .k-pill.is-red { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+        #s06-root .row .k-pill { height: 40px; font-size: 20px; padding: 0 16px; }
+        #s06-root .row .k-chip { font-size: 20px; height: 40px; padding: 0 16px; letter-spacing: 0.04em; }
+        #s06-root .outline { position: absolute; left: -16px; top: -8px; width: 1172px; height: 148px; border-radius: 20px; border: 3px solid var(--amber-glyph); background: rgba(251, 191, 36, 0.07); box-shadow: 0 0 40px rgba(251, 191, 36, 0.45), inset 0 0 30px rgba(251, 191, 36, 0.12); opacity: 0; }
+
+        /* callouts + CMR card (right gutter) */
+        #s06-root .cmr { position: absolute; left: 1400px; top: 560px; width: 336px; box-sizing: border-box; padding: 24px 26px; border-radius: 20px; background: #fff; border: 2px solid var(--ui-line); box-shadow: var(--shadow-card); font-family: var(--f-body); color: var(--ui-ink); opacity: 0; }
+        #s06-root .cmr .ref { display: block; font-family: var(--f-mono); font-weight: 600; font-size: 28px; margin-bottom: 18px; }
+        #s06-root .cmr .k-pill { font-size: 21px; }
+        #s06-root .k-cursor.cur { opacity: 0; }
+        #s06-root .k-ripple { opacity: 0; }
+        #s06-root .k-callout { opacity: 0; }
+      </style>
+
+      <div id="s06-root" data-composition-id="s06" data-width="1920" data-height="1080">
+        <div class="cam" id="s06-cam">
+          <div class="world" id="s06-world">
+
+            <div class="k-card page" id="s06-page">
+              <div class="bwrap" id="s06-bwrap">
+                <div class="banner" id="s06-banner">
+                  <div class="layer la" id="s06-la">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.6" r="0.6" fill="#0284c7"/></svg>
+                    <div class="btxt"><div class="b1">{{ui:web.demo_present}}</div><div class="b2">{{copy:s06.counts}}</div></div>
+                    <div class="cta" id="s06-cta">{{ui:web.demo_remove_cta}}</div>
+                  </div>
+                  <div class="layer lb" id="s06-lb">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.6" r="0.6" fill="#0284c7"/></svg>
+                    <div class="btxt">{{ui:web.demo_remove_confirm}}</div>
+                    <div class="btns"><div class="k-btn btn-yes" id="s06-yes">{{ui:web.demo_remove_yes}}</div><div class="k-btn is-ghost btn-no" id="s06-no">{{ui:web.demo_remove_no}}</div></div>
+                  </div>
+                  <div class="layer lc" id="s06-lc">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.6" r="0.6" fill="#0284c7"/></svg>
+                    <div class="btxt">{{ui:web.demo_removing}}</div>
+                    <div class="track"><span class="fill" id="s06-fill"></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="pbody">
+                <div class="ptitle">{{ui:web.nav_factures}}</div>
+                <div class="rows" id="s06-rows">
+                  <div class="outline" id="s06-outline"></div>
+                  <div class="row r1" id="s06-r1" style="top:0px"><span class="inv">{{copy:demo.inv5}}</span><span class="cl">{{copy:demo.cl3}}</span><span class="am">{{copy:demo.amt5}}<small>{{copy:demo.mad}}</small></span><span class="st"><span class="k-chip is-amber" id="s06-y1">{{copy:s06.yours}}</span></span></div>
+                  <div class="row r2" id="s06-r2" style="top:66px"><span class="inv">{{copy:demo.inv6}}</span><span class="cl">{{copy:demo.cl3}}</span><span class="am">{{copy:demo.amt6}}<small>{{copy:demo.mad}}</small></span><span class="st"><span class="k-chip is-amber" id="s06-y2">{{copy:s06.yours}}</span></span></div>
+                  <div class="row r3" id="s06-r3" style="top:132px"><span class="inv">{{copy:demo.inv1}}</span><span class="cl">{{copy:demo.cl1}}</span><span class="am">{{copy:demo.amt1}}<small>{{copy:demo.mad}}</small></span><span class="st"><span class="k-pill is-red" id="s06-od1"><span class="k-dot"></span>{{copy:s06.overdue}}</span></span></div>
+                  <div class="row r4" id="s06-r4" style="top:198px"><span class="inv">{{copy:demo.inv2}}</span><span class="cl">{{copy:demo.cl2}}</span><span class="am">{{copy:demo.amt2}}<small>{{copy:demo.mad}}</small></span><span class="st"></span></div>
+                  <div class="row r5" id="s06-r5" style="top:264px"><span class="inv">{{copy:demo.inv3}}</span><span class="cl">{{copy:demo.cl1}}</span><span class="am">{{copy:demo.amt3}}<small>{{copy:demo.mad}}</small></span><span class="st"><span class="k-pill is-red" id="s06-od2"><span class="k-dot"></span>{{copy:s06.overdue}}</span></span></div>
+                  <div class="row r6" id="s06-r6" style="top:330px"><span class="inv">{{copy:demo.inv4}}</span><span class="cl">{{copy:demo.cl2}}</span><span class="am">{{copy:demo.amt4}}<small>{{copy:demo.mad}}</small></span><span class="st"></span></div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cmr" id="s06-cmr"><span class="ref">{{copy:demo.cmr}}</span><span class="k-pill is-blue"><span class="k-dot"></span>{{ui:web.cmr.status_with_driver}}</span></div>
+            <div class="k-callout" id="s06-c1" style="left:1352px; top:483px">1</div>
+            <div class="k-callout" id="s06-c2" style="left:1400px; top:560px">2</div>
+          </div>
+
+          <!-- screen-space layer: cursor, ripple, title -->
+          <svg class="k-cursor cur" id="s06-cur" viewBox="0 0 46 46"><path d="M6 4 L6 34 L14 27 L20 40 L26 37 L20 25 L31 25 Z" fill="#fff" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/></svg>
+          <div class="k-ripple" id="s06-rip1"></div>
+          <div class="k-ripple" id="s06-rip2"></div>
+          <div class="k-title" id="s06-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s06.title1}}</div></div>
+          <div class="k-title" id="s06-title2"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s06.title2}}</div></div>
+        </div>
+      </div>
+
+      <script type="application/json" id="s06-sfx">[
+        {"cue":"demo","off":-0.2,"type":"whoosh","gain":0.4},
+        {"cue":"demo","off":0.05,"type":"pop","gain":0.4},
+        {"cue":"late","off":-0.1,"type":"pop","gain":0.45},
+        {"cue":"late","off":0.15,"type":"pop","gain":0.45},
+        {"cue":"late","off":1.2,"type":"pop","gain":0.4},
+        {"cue":"remove","off":-0.05,"type":"click","gain":0.6},
+        {"cue":"remove","off":1.0,"type":"click","gain":0.6},
+        {"cue":"remove","off":1.15,"type":"swell","gain":0.3},
+        {"cue":"gone","off":-0.1,"type":"whoosh","gain":0.45},
+        {"cue":"stay","off":0.2,"type":"stamp","gain":0.5}
+      ]</script>
+
+      <script>
+        const T = {{T}};
+        const tl = gsap.timeline({ paused: true });
+        const $ = (s) => document.querySelector("#s06-root " + s);
+        const OUT = K.OUT, MOVE = K.MOVE, IN = K.IN;
+
+        K.camIn(tl, $("#s06-cam"), 0);
+
+        // 1 — the page and its rows (newest first), then the sky-blue banner right on the word
+        tl.fromTo($("#s06-page"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: OUT }, T.demo - 0.2);
+        const rows = ["r1","r2","r3","r4","r5","r6"].map((r) => $("#s06-" + r));
+        K.rise(tl, rows, T.demo - 0.1, { stagger: 0.06, d: 0.7, y: 24 });
+        tl.fromTo($("#s06-banner"), { opacity: 0, y: -34 }, { opacity: 1, y: 0, duration: 0.6, ease: OUT }, T.demo + 0.05);
+        K.title(tl, $("#s06-title"), T.demo + 1.0);
+        K.titleOut(tl, $("#s06-title"), T.remove - 0.8);
+
+        // 2 — overdue pills (callout 1), then the CMR card (callout 2)
+        K.pop(tl, $("#s06-od1"), T.late - 0.1);
+        K.pop(tl, $("#s06-od2"), T.late + 0.15);
+        K.pop(tl, $("#s06-c1"), T.late + 0.35);
+        tl.fromTo($("#s06-cmr"), { opacity: 0, x: 50, rotationY: -9, transformPerspective: 1600 }, { opacity: 1, x: 0, rotationY: 0, duration: 0.8, ease: OUT }, T.late + 1.2);
+        K.pop(tl, $("#s06-c2"), T.late + 1.6);
+
+        // 3 — the owner removes the demo: two clicks (cursor comes from below-right, never over a label)
+        const t0 = T.remove;
+        tl.to([$("#s06-cmr"), $("#s06-c1"), $("#s06-c2")], { opacity: 0, duration: 0.35, ease: IN }, t0 - 0.7);
+        tl.to(rows, { opacity: 0.45, filter: "blur(2px)", duration: 0.5, ease: "power2.inOut" }, t0 - 0.5);
+        const cur = $("#s06-cur");
+        tl.set(cur, { x: 1712, y: 420, opacity: 0 }, 0);
+        tl.to(cur, { opacity: 1, duration: 0.2, ease: "none" }, t0 - 0.8);
+        K.cursorTo(tl, cur, 1686 - 6, 200 - 4, t0 - 0.7, 0.65);
+        K.click(tl, cur, $("#s06-cta"), t0 - 0.05, $("#s06-rip1"), 1686, 200);
+        tl.to($("#s06-la"), { opacity: 0, duration: 0.3, ease: IN }, t0 + 0.12);
+        tl.fromTo($("#s06-lb"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: OUT }, t0 + 0.2);
+        K.title(tl, $("#s06-title2"), t0 + 0.6);
+        K.cursorTo(tl, cur, 1500 - 6, 202 - 4, t0 + 0.4, 0.5);
+        K.click(tl, cur, $("#s06-yes"), t0 + 1.0, $("#s06-rip2"), 1500, 202);
+        tl.to($("#s06-lb"), { opacity: 0, duration: 0.3, ease: IN }, t0 + 1.12);
+        tl.fromTo($("#s06-lc"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: OUT }, t0 + 1.2);
+        tl.to(cur, { opacity: 0, duration: 0.3, ease: "none" }, t0 + 1.3);
+        tl.fromTo($("#s06-fill"), { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power1.inOut" }, t0 + 1.25);
+
+        // 4 — the four generated rows (bottom of the list) dissolve upward one by one; the customer's rows stay put
+        const g = Math.max(T.gone - 0.1, t0 + 2.55);
+        tl.to([rows[0], rows[1]], { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, g);
+        tl.to([rows[2], rows[3], rows[4], rows[5]], { y: -30, opacity: 0, filter: "blur(4px)", duration: 0.6, ease: IN, stagger: 0.15 }, g);
+        tl.to($("#s06-banner"), { opacity: 0, duration: 0.4, ease: IN }, g + 0.1);
+
+        // the page tidies up (banner gone, list shrinks) and the camera settles on the two remaining rows
+        const k = g + 1.15;
+        tl.to($("#s06-bwrap"), { height: 0, duration: 1.0, ease: MOVE }, k);
+        tl.to($("#s06-rows"), { height: 132, duration: 1.0, ease: MOVE }, k);
+        tl.to($("#s06-world"), { y: 250, duration: 1.0, ease: MOVE }, k);
+
+        // 5 — the customer's own rows are marked
+        const s = Math.max(T.stay - 0.1, k + 1.0);
+        tl.fromTo($("#s06-outline"), { opacity: 0 }, { opacity: 1, duration: 0.7, ease: OUT }, s);
+        K.pop(tl, $("#s06-y1"), s + 0.1);
+        K.pop(tl, $("#s06-y2"), s + 0.3);
+
+        K.camOut(tl, $("#s06-cam"), T.out);
+        window.__timelines["s06"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

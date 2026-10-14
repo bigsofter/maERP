@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s06-root { position: absolute; inset: 0; overflow: hidden; }
+        #s06-root .cam { position: absolute; inset: 0; }
+        #s06-root .world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+
+        /* ───────── BANK station ───────── */
+        #s06-root .bank { position: absolute; left: 180px; top: 100px; width: 1560px; height: 640px; }
+        #s06-root .bank-h { height: 100px; padding: 0 32px; }
+        #s06-root .bank-h .k-card-t { font-size: 36px; }
+        #s06-root .grow { flex: 1; }
+        #s06-root .tabs { height: 64px; padding: 0 32px; display: flex; align-items: stretch; border-bottom: 2px solid var(--ui-line); }
+        #s06-root .tab { display: flex; align-items: center; padding: 0 6px; font-size: 25px; font-weight: 600; color: var(--brand); border-bottom: 4px solid var(--brand); margin-bottom: -2px; }
+        #s06-root .rows { position: relative; }
+        #s06-root .row { position: relative; border-bottom: 2px solid var(--ui-bg2); overflow: visible; }
+        #s06-root .row .main { position: relative; z-index: 1; display: grid; grid-template-columns: 136px 372px 150px 268px 1fr; column-gap: 8px; align-items: center; height: 104px; padding: 0 32px; font-family: var(--f-mono); font-size: 21px; color: var(--ui-ink); }
+        #s06-root .row.r2 { overflow: hidden; height: 104px; }
+        #s06-root .row .date { color: var(--ui-ink-3); }
+        #s06-root .row .lab { white-space: nowrap; }
+        #s06-root .row .amt { font-weight: 600; text-align: right; white-space: nowrap; padding-right: 8px; }
+        #s06-root .row .amt.pos { color: var(--ok-fg); }
+        /* product shows no "+" on credits (colour carries direction): hide the leading sign glyph */
+        #s06-root .row .amt.pos::first-letter, #s06-root .drow .am.pos::first-letter { font-size: 0; }
+        #s06-root .row .amt.neg { color: var(--ui-ink); }
+        #s06-root .row.r3 .lab, #s06-root .row.r3 .date { color: var(--ui-ink-3); }
+        #s06-root .tint { position: absolute; inset: 0; background: var(--ok-bg); opacity: 0; z-index: 0; }
+        #s06-root .link { position: absolute; left: 140px; bottom: 9px; width: 700px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, rgba(59,130,246,0.15), #3b82f6 70%, #60a5fa); box-shadow: 0 0 16px rgba(59,130,246,0.8); transform-origin: 0% 50%; opacity: 0; z-index: 2; }
+        #s06-root .doc-slot { position: relative; height: 56px; }
+        #s06-root .doc-tag { position: absolute; left: 0; top: 0; height: 56px; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border-radius: 14px; background: var(--brand-tint); border: 2px solid var(--brand-300); box-shadow: 0 8px 18px -10px rgba(29,78,216,0.6); white-space: nowrap; }
+        #s06-root .doc-tag .kind { font-family: var(--f-body); font-size: 19px; font-weight: 700; color: var(--brand); }
+        #s06-root .doc-tag .ref { font-family: var(--f-mono); font-size: 21px; font-weight: 600; color: var(--ui-ink); }
+        #s06-root .st { display: flex; align-items: center; gap: 10px; font-family: var(--f-body); }
+        #s06-root .stack { display: grid; }
+        #s06-root .stack > * { grid-area: 1 / 1; justify-self: start; }
+        #s06-root .s06-chip { height: 36px; padding: 0 13px; font-size: 16px; }
+        #s06-root .panel { position: absolute; left: 0; right: 0; top: 104px; height: 140px; padding: 16px 32px 0; background: var(--ui-bg); border-top: 2px solid var(--ui-line); font-family: var(--f-body); opacity: 0; z-index: 1; }
+        #s06-root .panel .k-label { font-size: 22px; color: var(--ui-ink-2); display: block; margin-bottom: 10px; }
+        #s06-root .cand { display: grid; grid-template-columns: 130px 190px 1fr 170px auto; column-gap: 18px; align-items: center; height: 70px; padding: 0 20px; border-radius: 16px; background: #fff; border: 2px solid var(--brand-300); box-shadow: 0 10px 24px -14px rgba(29,78,216,0.5); font-size: 22px; }
+        #s06-root .cand .ref { font-family: var(--f-mono); font-weight: 600; font-size: 21px; }
+        #s06-root .cand .party { font-weight: 600; white-space: nowrap; }
+        #s06-root .cand .a { font-family: var(--f-mono); font-weight: 600; text-align: right; color: var(--ok-fg); }
+
+        /* ───────── FORECAST station ───────── */
+        #s06-root .fc { position: absolute; left: 160px; top: 1150px; width: 1600px; height: 730px; }
+        #s06-root .fc-h { height: 96px; padding: 0 40px; }
+        #s06-root .fc-h .k-card-t { font-size: 36px; }
+        #s06-root .legend { display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 600; color: var(--ui-ink-2); white-space: nowrap; }
+        #s06-root .legend i { display: block; width: 46px; height: 5px; border-radius: 3px; background: var(--amber); box-shadow: 0 0 12px rgba(245,158,11,0.6); }
+        #s06-root .legend .v { font-family: var(--f-mono); color: var(--warn-fg); font-weight: 600; }
+        #s06-root .chart { position: absolute; left: 100px; top: 210px; width: 1400px; height: 380px; display: grid; grid-template-columns: repeat(13, 1fr); }
+        #s06-root .slot { position: relative; height: 380px; }
+        #s06-root .bar { position: absolute; left: 22px; width: 62px; display: block; }
+        #s06-root .bar.up { bottom: 110px; border-radius: 10px 10px 0 0; background: linear-gradient(180deg, #3b82f6, #1d4ed8); transform-origin: 50% 100%; }
+        #s06-root .bar.down { top: 270px; border-radius: 0 0 10px 10px; background: linear-gradient(180deg, #fbbf24, #f59e0b); transform-origin: 50% 0%; box-shadow: 0 10px 26px -8px rgba(245,158,11,0.6); }
+        #s06-root .floor { position: absolute; left: 100px; top: 478px; width: 1400px; height: 5px; border-radius: 3px; background: var(--amber); box-shadow: 0 0 20px rgba(245,158,11,0.6); transform-origin: 0% 50%; z-index: 3; }
+        #s06-root .xl { position: absolute; left: 100px; top: 604px; width: 1400px; display: grid; grid-template-columns: repeat(13, 1fr); font-size: 21px; font-weight: 600; color: var(--ui-ink-2); text-align: center; white-space: nowrap; }
+        #s06-root .cap { position: absolute; left: 100px; top: 656px; width: 1400px; font-size: 20px; font-weight: 500; line-height: 1.3; color: var(--ui-ink-3); text-align: center; }
+        #s06-root .xl span.w6 { color: var(--warn-fg); font-weight: 700; }
+        #s06-root .hl { position: absolute; left: calc(100px + 1400px / 13 * 5); top: 206px; width: calc(1400px / 13); height: 396px; border-radius: 16px; background: linear-gradient(180deg, rgba(245,158,11,0.0), rgba(245,158,11,0.14)); border: 2px solid rgba(245,158,11,0.35); opacity: 0; z-index: 0; }
+        #s06-root .vwrap { position: absolute; left: 538px; top: 110px; width: 308px; display: flex; justify-content: center; z-index: 5; }
+        #s06-root .vcard { position: relative; padding: 12px 24px 10px; border-radius: 18px; background: var(--warn-bg); border: 2px solid var(--warn-line); box-shadow: 0 16px 34px -14px rgba(180,83,9,0.45); text-align: center; white-space: nowrap; transform-origin: 50% 100%; }
+        #s06-root .vcard .k-label { display: block; font-size: 18px; color: var(--warn-fg); }
+        #s06-root .vcard .big { display: block; font-family: var(--f-display); font-weight: 700; font-size: 46px; line-height: 1.1; color: var(--warn-fg); letter-spacing: -0.02em; }
+        #s06-root .detail { position: absolute; left: 840px; top: 108px; width: 720px; padding: 22px 26px 8px; border-radius: 22px; background: #fff; border: 2px solid var(--warn-line); box-shadow: 0 40px 90px -26px rgba(2, 6, 23, 0.7), 0 0 0 7px rgba(245,158,11,0.14); z-index: 6; font-family: var(--f-body); }
+        #s06-root .detail .dt { font-family: var(--f-display); font-weight: 600; font-size: 32px; letter-spacing: -0.02em; color: var(--ui-ink); padding-bottom: 14px; }
+        #s06-root .drow { display: grid; grid-template-columns: 130px 1fr 150px 140px; column-gap: 24px; align-items: center; }
+        #s06-root .dhead { height: 44px; border-bottom: 2px solid var(--ui-line); }
+        #s06-root .dhead span { font-size: 18px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ui-ink-3); }
+        #s06-root .dhead span:last-child, #s06-root .drow .am { text-align: right; }
+        #s06-root .drow.item { min-height: 80px; border-bottom: 2px solid var(--ui-bg2); font-size: 20px; }
+        #s06-root .drow.item:last-child { border-bottom: 0; }
+        #s06-root .drow .kd { font-weight: 600; color: var(--ui-ink-2); line-height: 1.2; }
+        #s06-root .drow .pt { font-weight: 600; line-height: 1.2; color: var(--ui-ink); }
+        #s06-root .drow .dc { font-family: var(--f-mono); font-size: 19px; color: var(--ui-ink-2); white-space: nowrap; }
+        #s06-root .drow .am { font-family: var(--f-mono); font-weight: 600; font-size: 21px; white-space: nowrap; color: var(--ui-ink); }
+        #s06-root .drow .am.pos { color: var(--ok-fg); }
+
+        #s06-root .k-cursor.cur { opacity: 0; }
+        #s06-root .k-ripple { opacity: 0; }
+        #s06-root .k-title { z-index: 60; }
+      </style>
+
+      <div id="s06-root" data-composition-id="s06" data-width="1920" data-height="1080">
+        <div class="cam" id="s06-cam">
+          <div class="world" id="s06-world">
+
+            <!-- BANK -->
+            <div class="k-card bank" id="s06-bank" data-layout-allow-overflow>
+              <div class="k-card-h bank-h">
+                <div class="k-card-t">{{ui:web.treasury.title}}</div>
+                <div class="grow"></div>
+                <div class="k-btn is-ghost">{{ui:web.treasury.import}}</div>
+              </div>
+              <div class="tabs"><div class="tab">{{ui:web.treasury.tab_reconcile}}</div></div>
+              <div class="rows">
+                <div class="row r1" id="s06-r1">
+                  <div class="tint" id="s06-tint1"></div>
+                  <div class="main">
+                    <div class="date">29.09.2026</div>
+                    <div class="lab">{{copy:demo.bank1_label}}</div>
+                    <div class="amt pos">{{copy:demo.bank1_amt}}</div>
+                    <div class="doc-slot">
+                      <div class="doc-tag" id="s06-tag"><span class="kind">{{ui:web.treasury.doc_invoice}}</span><span class="ref">{{copy:demo.bank1_doc}}</span></div>
+                    </div>
+                    <div class="st">
+                      <div class="stack">
+                        <span class="k-pill is-amber" id="s06-p1a"><span class="k-dot"></span>{{ui:web.treasury.st_unmatched}}</span>
+                        <span class="k-pill is-green" id="s06-p1b"><span class="k-dot"></span>{{ui:web.treasury.st_matched}}</span>
+                      </div>
+                      <span class="k-chip" id="s06-auto">{{ui:web.treasury.auto}}</span>
+                      <span class="k-chip is-slate s06-chip" id="s06-why1">{{ui:web.treasury.why_amount_and_reference}}</span>
+                    </div>
+                  </div>
+                  <div class="link" id="s06-link"></div>
+                </div>
+
+                <div class="row r2" id="s06-r2">
+                  <div class="main">
+                    <div class="date">30.09.2026</div>
+                    <div class="lab">{{copy:demo.bank2_label}}</div>
+                    <div class="amt pos">{{copy:demo.bank2_amt}}</div>
+                    <div></div>
+                    <div class="st">
+                      <div class="stack">
+                        <span class="k-pill is-amber" id="s06-p2a"><span class="k-dot"></span>{{ui:web.treasury.st_unmatched}}</span>
+                        <span class="k-pill is-green" id="s06-p2b"><span class="k-dot"></span>{{ui:web.treasury.st_matched}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel" id="s06-panel">
+                    <span class="k-label">{{ui:web.treasury.sec_candidates}}</span>
+                    <div class="cand" id="s06-cand">
+                      <span class="k-pill is-blue">{{ui:web.treasury.doc_invoice}}</span>
+                      <span class="ref">{{copy:demo.bank2_doc}}</span>
+                      <span class="party">{{copy:demo.client2}}</span>
+                      <span class="a">{{copy:demo.bank2_open}}</span>
+                      <span class="k-chip is-amber s06-chip">{{ui:web.treasury.why_amount}}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row r3" id="s06-r3">
+                  <div class="main">
+                    <div class="date">30.09.2026</div>
+                    <div class="lab">{{copy:demo.bank3_label}}</div>
+                    <div class="amt neg">{{copy:demo.bank3_amt}}</div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FORECAST -->
+            <div class="k-card fc" id="s06-fc">
+              <div class="k-card-h fc-h">
+                <div class="k-card-t">{{ui:web.forecast.title}}</div>
+                <div class="grow"></div>
+                <div class="legend" id="s06-legend"><i></i><span>{{ui:web.forecast.f_floor}}</span><span class="v">{{copy:demo.floor}}</span></div>
+              </div>
+              <div class="hl" id="s06-hl"></div>
+              <div class="chart" id="s06-chart">
+                <div class="slot"><span class="bar up" style="height:200px"></span></div>
+                <div class="slot"><span class="bar up" style="height:175px"></span></div>
+                <div class="slot"><span class="bar up" style="height:150px"></span></div>
+                <div class="slot"><span class="bar up" style="height:190px"></span></div>
+                <div class="slot"><span class="bar up" style="height:115px"></span></div>
+                <div class="slot"><span class="bar down w6" id="s06-w6" style="height:90px"></span></div>
+                <div class="slot"><span class="bar up" style="height:45px"></span></div>
+                <div class="slot"><span class="bar up" style="height:95px"></span></div>
+                <div class="slot"><span class="bar up" style="height:140px"></span></div>
+                <div class="slot"><span class="bar up" style="height:170px"></span></div>
+                <div class="slot"><span class="bar up" style="height:150px"></span></div>
+                <div class="slot"><span class="bar up" style="height:185px"></span></div>
+                <div class="slot"><span class="bar up" style="height:205px"></span></div>
+              </div>
+              <div class="floor" id="s06-floor"></div>
+              <div class="xl" id="s06-xl">
+                <span>{{copy:demo.wk1}}</span><span>{{copy:demo.wk2}}</span><span>{{copy:demo.wk3}}</span><span>{{copy:demo.wk4}}</span><span>{{copy:demo.wk5}}</span><span class="w6">{{copy:demo.wk6}}</span><span>{{copy:demo.wk7}}</span><span>{{copy:demo.wk8}}</span><span>{{copy:demo.wk9}}</span><span>{{copy:demo.wk10}}</span><span>{{copy:demo.wk11}}</span><span>{{copy:demo.wk12}}</span><span>{{copy:demo.wk13}}</span>
+              </div>
+              <div class="cap" id="s06-cap">{{copy:demo.curve_baseline}}</div>
+              <div class="vwrap"><div class="vcard" id="s06-vcard"><span class="k-label">{{ui:web.forecast.v_week}}</span><span class="big">{{copy:demo.week6}}</span></div></div>
+              <div class="detail" id="s06-detail">
+                <div class="dt">{{copy:demo.week6_detail}}</div>
+                <div class="drow dhead"><span>{{ui:web.forecast.col_kind}}</span><span>{{ui:web.forecast.col_party}}</span><span>{{ui:web.forecast.col_doc}}</span><span>{{ui:web.forecast.col_amount}}</span></div>
+                <div class="drow item"><span class="kd">{{ui:web.forecast.kind_bill}}</span><span class="pt">STATION ATLAS CARBURANT</span><span class="dc">FF-2291</span><span class="am">− 64 300,00</span></div>
+                <div class="drow item"><span class="kd">{{ui:web.forecast.kind_effet}}</span><span class="pt">PNEUS DU DÉTROIT</span><span class="dc">LCN 004512</span><span class="am">− 48 000,00</span></div>
+                <div class="drow item"><span class="kd">{{ui:web.forecast.kind_invoice}}</span><span class="pt">{{copy:demo.client2}}</span><span class="dc">FA-2026-0431</span><span class="am pos">+ 41 200,00</span></div>
+                <div class="drow item"><span class="kd">{{ui:web.forecast.kind_bill}}</span><span class="pt">GARAGE NORD POIDS LOURDS</span><span class="dc">FF-2304</span><span class="am">− 37 900,00</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- screen-space layer: cursor, ripples, title -->
+          <svg class="k-cursor cur" id="s06-cur" viewBox="0 0 46 46"><path d="M6 4 L6 34 L14 27 L20 40 L26 37 L20 25 L31 25 Z" fill="#fff" stroke="#0f172a" stroke-width="2.5" stroke-linejoin="round"/></svg>
+          <div class="k-ripple" id="s06-rip1"></div>
+          <div class="k-ripple" id="s06-rip2"></div>
+          <div class="k-title" id="s06-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s06.title}}</div></div>
+        </div>
+
+        <script type="application/json" id="s06-sfx">[
+          {"cue":"money","off":-0.2,"type":"whoosh","gain":0.5},
+          {"cue":"money","off":0.15,"type":"type","gain":0.6},
+          {"cue":"bank","off":0.3,"type":"pop","gain":0.7},
+          {"cue":"bank","off":0.4,"type":"stamp","gain":0.5},
+          {"cue":"confirm","off":0.9,"type":"click","gain":0.8},
+          {"cue":"confirm","off":1.05,"type":"pop","gain":0.6},
+          {"cue":"forecast","off":-0.5,"type":"whoosh","gain":0.5},
+          {"cue":"forecast","off":0.9,"type":"type","gain":0.35},
+          {"cue":"week","off":-0.1,"type":"pop","gain":0.6},
+          {"cue":"week","off":0.5,"type":"click","gain":0.7},
+          {"cue":"week","off":0.3,"type":"swell","gain":0.4}
+        ]</script>
+      </div>
+
+      <script>
+        const T = {{T}};
+        const q = (s) => document.querySelector("#s06-root " + s);
+        const qa = (s) => Array.from(document.querySelectorAll("#s06-root " + s));
+        const tl = gsap.timeline({ paused: true });
+        const OUT = K.OUT;
+        // in-place crossfade for the status pills: old fades out first, new settles in after, no ghosting
+        const swapPill = (oldEl, newEl, at) => {
+          tl.to(oldEl, { opacity: 0, duration: 0.2, ease: "power2.in" }, at);
+          tl.fromTo(newEl, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.45, ease: OUT }, at + 0.22);
+        };
+
+        const cam = q(".cam"), world = q(".world"), cur = q("#s06-cur");
+        K.camIn(tl, cam, 0);
+        K.camOut(tl, cam, T.out);
+
+        // ── 1. bank card and the three statement lines ──
+        tl.fromTo(q("#s06-bank"), { opacity: 0, y: 46, rotationX: 5, transformPerspective: 1600 },
+          { opacity: 1, y: 0, rotationX: 0, duration: 0.9, ease: OUT }, T.money - 0.25);
+        K.rise(tl, [q("#s06-r1"), q("#s06-r2"), q("#s06-r3")], T.money + 0.15, { stagger: 0.14, y: 24, d: 0.7 });
+
+        // ── 2. line 1 is matched by itself: the invoice tag snaps against it ──
+        const tag = q("#s06-tag");
+        tl.fromTo(tag, { x: 70, opacity: 0 }, { x: -4, opacity: 1, duration: 0.4, ease: OUT }, T.bank - 0.1);
+        tl.to(tag, { x: 0, duration: 0.18, ease: "power2.out" }, T.bank + 0.3);
+        tl.fromTo(q("#s06-link"), { scaleX: 0, opacity: 1 }, { scaleX: 1, opacity: 1, duration: 0.5, ease: OUT }, T.bank + 0.3);
+        tl.to(q("#s06-link"), { opacity: 0.25, duration: 0.8, ease: "power2.inOut" }, T.bank + 1.1);
+        tl.fromTo(q("#s06-tint1"), { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, T.bank + 0.35);
+        swapPill(q("#s06-p1a"), q("#s06-p1b"), T.bank + 0.35);
+        K.pop(tl, q("#s06-auto"), T.bank + 0.6);
+        K.pop(tl, q("#s06-why1"), T.bank + 0.78);
+
+        // ── 3. line 2 is only a suggestion: a person confirms it ──
+        const r2 = q("#s06-r2"), panel = q("#s06-panel"), cand = q("#s06-cand");
+        const dimRows = [q("#s06-r1"), q("#s06-r3")];
+        const ck = Math.min(T.confirm + 0.9, T.forecast - 1.2);
+        const tx = 1180, ty = 538;
+        tl.to(dimRows, { opacity: 0.4, duration: 0.5, ease: "power2.inOut" }, T.confirm - 0.2);
+        tl.fromTo(r2, { height: 104 }, { height: 244, duration: 0.7, ease: "power2.inOut" }, T.confirm - 0.2);
+        tl.to(panel, { opacity: 1, duration: 0.5, ease: "power2.out" }, T.confirm + 0.1);
+        tl.set(cur, { x: 1640, y: 790, opacity: 0 }, 0);
+        tl.to(cur, { opacity: 1, duration: 0.25, ease: "none" }, ck - 0.95);
+        K.cursorTo(tl, cur, tx, ty, ck - 0.9, 0.85);
+        tl.to(cand, { backgroundColor: "#eff6ff", duration: 0.3, ease: "power2.out" }, ck - 0.2);
+        K.click(tl, cur, cand, ck);
+        tl.set(q("#s06-rip1"), { x: tx, y: ty, opacity: 0.95, scale: 0.25 }, ck);
+        tl.to(q("#s06-rip1"), { opacity: 0, scale: 1.7, duration: 0.65, ease: "power2.out" }, ck);
+        tl.to(panel, { opacity: 0, duration: 0.3, ease: "power2.in" }, ck + 0.12);
+        tl.to(r2, { height: 104, duration: 0.6, ease: "power2.inOut" }, ck + 0.15);
+        tl.to(dimRows, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, ck + 0.2);
+        swapPill(q("#s06-p2a"), q("#s06-p2b"), ck + 0.15);
+        tl.to(cur, { opacity: 0, duration: 0.3, ease: "power2.in" }, ck + 0.4);
+
+        // ── 4. camera travels down to the forecast ──
+        tl.to(world, { y: -1050, duration: 1.4, ease: K.MOVE }, T.forecast - 0.5);
+        tl.fromTo(q("#s06-floor"), { scaleX: 0, opacity: 0.0 }, { scaleX: 1, opacity: 1, duration: 0.8, ease: OUT }, T.forecast + 0.4);
+        K.pop(tl, q("#s06-legend"), T.forecast + 0.7, { from: 0.9 });
+        K.rise(tl, qa("#s06-xl span"), T.forecast + 0.8, { y: 10, stagger: 0.035, d: 0.5 });
+        const bars = qa("#s06-chart .bar");
+        tl.fromTo(bars, { scaleY: 0 }, { scaleY: 1, duration: 0.85, ease: OUT, stagger: 0.07 }, T.forecast + 0.75);
+        K.rise(tl, [q("#s06-cap")], T.forecast + 1.5, { y: 10, d: 0.6 });
+
+        // ── 5. week 6 lights up and opens ──
+        const w6 = q("#s06-w6");
+        const others = bars.filter((b) => b !== w6);
+        const otherLabels = qa("#s06-xl span").filter((s) => !s.classList.contains("w6"));
+        tl.to(others, { opacity: 0.35, filter: "blur(2px)", duration: 0.45, ease: "power2.out" }, T.week - 0.15);
+        tl.to(otherLabels, { opacity: 0.35, duration: 0.45, ease: "power2.out" }, T.week - 0.15);
+        tl.fromTo(q("#s06-hl"), { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, T.week - 0.15);
+        K.pop(tl, q("#s06-vcard"), T.week + 0.05, { from: 0.75, d: 0.5 });
+
+        // cursor: screen coordinates after the camera move (forecast card top = 100, week 6 centre x = 852)
+        const wx = 856, wy = 620;
+        tl.set(cur, { x: 1480, y: 860 }, T.week - 1.3);
+        tl.to(cur, { opacity: 1, duration: 0.25, ease: "none" }, T.week - 1.2);
+        K.cursorTo(tl, cur, wx, wy, T.week - 1.05, 0.9);
+        K.click(tl, cur, null, T.week + 0.45);
+        tl.set(q("#s06-rip2"), { x: wx, y: wy, opacity: 0.95, scale: 0.25 }, T.week + 0.45);
+        tl.to(q("#s06-rip2"), { opacity: 0, scale: 1.7, duration: 0.65, ease: "power2.out" }, T.week + 0.45);
+        tl.to(cur, { opacity: 0, duration: 0.3, ease: "power2.in" }, T.week + 0.85);
+        tl.fromTo(q("#s06-detail"), { opacity: 0, x: 70, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: OUT }, T.week + 0.6);
+        K.rise(tl, qa("#s06-detail .item"), T.week + 1.0, { y: 18, stagger: 0.2, d: 0.6 });
+        K.title(tl, q("#s06-title"), Math.min(T.week + 0.2, T.out - 3.4));
+
+        window.__timelines["s06"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

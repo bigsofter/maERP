@@ -1,0 +1,105 @@
+<template>
+  <style>
+    #s09-root { position: absolute; inset: 0; overflow: hidden; }
+    #s09-root .cam, #s09-root .world { position: absolute; inset: 0; }
+    #s09-root .s09-thread { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    #s09-root .s09-lock { position: absolute; left: 0; right: 0; top: 370px; height: 200px; display: flex; align-items: center; justify-content: center; gap: 44px; }
+    #s09-root .s09-mono { position: relative; flex: none; width: 200px; height: 200px; border-radius: 60px; background: linear-gradient(125deg, #1d4ed8, #0ea5e9); display: flex; align-items: center; justify-content: center; box-shadow: 0 30px 80px -20px rgba(14, 165, 233, 0.5); }
+    #s09-root .s09-mono svg { display: block; width: 130px; height: 130px; }
+    #s09-root .s09-wm-box { flex: none; width: 846px; height: 200px; display: flex; align-items: center; }
+    #s09-root .s09-wm { display: inline-block; font-size: 120px; line-height: 1.3; white-space: nowrap; padding-right: 20px; }
+    #s09-root .s09-tag { position: absolute; left: 160px; right: 160px; top: 630px; text-align: center; font-family: var(--f-display); font-weight: 600; font-size: 52px; line-height: 1.15; letter-spacing: -0.01em; color: rgba(255, 255, 255, 0.9); }
+    #s09-root .s09-cta { position: absolute; left: 160px; right: 160px; top: 736px; text-align: center; font-family: var(--f-body); font-weight: 500; font-size: 30px; color: #94a3b8; }
+    #s09-root .s09-urlw { position: absolute; left: 0; right: 0; top: 798px; display: flex; flex-direction: column; align-items: center; }
+    #s09-root .s09-url { display: block; font-family: var(--f-mono); font-weight: 500; font-size: 30px; line-height: 1.3; color: #fbbf24; }
+    #s09-root .s09-ul { display: block; width: 100%; height: 3px; margin-top: 4px; border-radius: 2px; background: #fbbf24; }
+    #s09-root .s09-urlin { display: inline-flex; flex-direction: column; }
+  </style>
+
+  <div id="s09-root" data-composition-id="s09" data-width="1920" data-height="1080">
+    <div class="cam">
+      <div class="world">
+        <svg class="s09-thread" viewBox="0 0 1920 1080">
+          <defs><filter id="s09-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter></defs>
+          <path id="s09-glowline" d="" fill="none" stroke="#FBBF24" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" filter="url(#s09-glow)"/>
+          <path id="s09-line" d="" fill="none" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle id="s09-head" r="9" fill="#FDE68A" opacity="0"/>
+          <circle id="s09-headglow" r="22" fill="#FBBF24" opacity="0" filter="url(#s09-glow)"/>
+        </svg>
+
+        <div class="s09-lock">
+          <div class="s09-mono" id="s09-mono">
+            <svg viewBox="0 0 120 120" fill="none" stroke="#FBBF24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M25 78H14V34H70V78H47"/>
+              <path d="M70 46H92L106 62V78H98M78 78H70"/>
+              <circle cx="36" cy="80" r="10"/>
+              <circle cx="88" cy="80" r="10"/>
+            </svg>
+          </div>
+          <div class="s09-wm-box"><div class="s09-wm k-wordmark" id="s09-wm"><span>ma</span><span class="t">T</span><span>ransports</span></div></div>
+        </div>
+
+        <div class="s09-tag" id="s09-tag">{{copy:s09.tagline}}</div>
+        <div class="s09-cta" id="s09-cta">{{copy:s09.cta}}</div>
+        <div class="s09-urlw" id="s09-urlw"><div class="s09-urlin"><span class="s09-url" id="s09-url">{{copy:s09.url}}</span><i class="s09-ul" id="s09-ul"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="s09-sfx">[
+    {"cue":"in","off":0.1,"type":"whoosh","gain":0.5},
+    {"cue":"final","off":-0.1,"type":"shimmer","gain":0.7},
+    {"cue":"final","off":1.8,"type":"pop","gain":0.35}
+  ]</script>
+
+  <script>
+    const T = {{T}};
+    const tl = gsap.timeline({ paused: true });
+    const R = "#s09-root ";
+    const q = (s) => R + s;
+    K.camIn(tl, q(".cam"), 0);
+
+    // the thread: from the left edge along the monogram's base line, then around the rounded square
+    const mono = document.querySelector(q("#s09-mono"));
+    const lock = document.querySelector(q(".s09-lock"));
+    const mx = mono.offsetLeft, my = lock.offsetTop + mono.offsetTop, S = 200, r = 60;
+    const L = mx, Rr = mx + S, Tp = my, B = my + S;
+    const d = `M -20 ${B} H ${L + r} H ${Rr - r} A ${r} ${r} 0 0 0 ${Rr} ${B - r} V ${Tp + r} A ${r} ${r} 0 0 0 ${Rr - r} ${Tp} H ${L + r} A ${r} ${r} 0 0 0 ${L} ${Tp + r} V ${B - r} A ${r} ${r} 0 0 0 ${L + r} ${B}`;
+    const line = document.querySelector(q("#s09-line")), gl = document.querySelector(q("#s09-glowline"));
+    const head = document.querySelector(q("#s09-head")), hg = document.querySelector(q("#s09-headglow"));
+    line.setAttribute("d", d); gl.setAttribute("d", d);
+    const len = line.getTotalLength();
+    const prog = { p: 0 };
+    const draw = (p) => {
+      const off = len * (1 - p);
+      line.style.strokeDasharray = len; gl.style.strokeDasharray = len;
+      line.style.strokeDashoffset = off; gl.style.strokeDashoffset = off;
+      const pt = line.getPointAtLength(Math.max(0.01, len * p));
+      head.setAttribute("cx", pt.x); head.setAttribute("cy", pt.y);
+      hg.setAttribute("cx", pt.x); hg.setAttribute("cy", pt.y);
+    };
+    draw(0);
+    const t0 = 0.15, dd = 1.2;
+    tl.set([head, hg], { opacity: 1 }, t0);
+    tl.fromTo(prog, { p: 0 }, { p: 1, duration: dd, ease: "power2.inOut", onUpdate: () => draw(prog.p) }, t0);
+    tl.to(head, { opacity: 0, duration: 0.2, ease: "none" }, t0 + dd);
+    tl.to(hg, { opacity: 0, duration: 0.2, ease: "none" }, t0 + dd);
+
+    // monogram fills as the loop closes
+    tl.fromTo(mono, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.5, ease: K.OUT }, t0 + dd - 0.35);
+    tl.to([line, gl], { opacity: 0, duration: 0.5, ease: "power2.in" }, t0 + dd + 0.1);
+
+    // wordmark: mask reveal left to right
+    const wm = Math.max(T.final - 0.1, t0 + dd - 0.05);
+    tl.fromTo(q("#s09-wm"), { clipPath: "inset(0 100% 0 0)", x: -36 }, { clipPath: "inset(0 0% 0 0)", x: 0, duration: 0.8, ease: "power2.out" }, wm);
+
+    // tagline, then the quieter line and the address
+    tl.fromTo(q("#s09-tag"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: K.OUT }, Math.max(T.final + 0.9, wm + 0.9));
+    const tc = Math.max(T.final + 1.8, wm + 1.8);
+    tl.fromTo(q("#s09-cta"), { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT }, tc);
+    tl.fromTo(q("#s09-url"), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.7, ease: K.OUT }, tc + 0.25);
+    tl.fromTo(q("#s09-ul"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, tc + 0.6);
+
+    window.__timelines["s09"] = tl;
+  </script>
+</template>

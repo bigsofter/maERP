@@ -1,0 +1,365 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s05-root { position: absolute; inset: 0; overflow: hidden; }
+        #s05-root .cam { position: absolute; inset: 0; }
+        #s05-root .world { position: absolute; left: 0; top: 0; width: 5760px; height: 1080px; }
+        #s05-root .st { position: absolute; top: 0; width: 1920px; height: 1080px; display: flex; flex-direction: column; align-items: center; padding-top: 112px; box-sizing: border-box; }
+        #s05-root .st.a { left: 0; padding-top: 190px; }
+        #s05-root .st.b { left: 1920px; padding-top: 190px; }
+        #s05-root .st.c { left: 3840px; }
+        #s05-root .card { width: 1240px; }
+
+        /* intro: three gates on one thread */
+        #s05-root .intro { position: absolute; inset: 0; }
+        #s05-root .thread { position: absolute; left: 470px; top: 474px; width: 980px; height: 4px; border-radius: 2px; background: var(--amber-glyph); box-shadow: 0 0 18px 2px rgba(251, 191, 36, 0.55); transform-origin: 0% 50%; }
+        #s05-root .gate { position: absolute; top: 380px; width: 150px; height: 171px; display: block; }
+        #s05-root .glabel { position: absolute; left: -75px; top: 190px; width: 300px; text-align: center; font-family: var(--f-body); font-weight: 600; font-size: 26px; line-height: 1.2; color: #e2e8f0; text-shadow: 0 2px 14px rgba(3, 7, 18, 0.8); }
+        #s05-root .gate svg { width: 150px; height: 171px; display: block; overflow: visible; }
+
+        /* mission card (station A) */
+        #s05-root .sec { font-family: var(--f-display); font-weight: 600; font-size: 34px; letter-spacing: -0.02em; }
+        #s05-root .fld { position: relative; display: flex; align-items: center; gap: 24px; height: 92px; padding: 0 28px; border: 2px solid var(--ui-line); border-radius: 18px; background: #fff; overflow: hidden; margin-bottom: 18px; font-size: 30px; font-weight: 500; }
+        #s05-root .fld .tint { position: absolute; inset: 0; background: var(--stop-bg); }
+        #s05-root .fld .edge { position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: var(--stop); transform-origin: 50% 0%; }
+        #s05-root .fld > *:not(.tint):not(.edge) { position: relative; }
+        #s05-root .av { width: 56px; height: 56px; border-radius: 50%; background: var(--brand-tint); color: var(--brand); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 22px; flex: none; }
+        #s05-root .fld .ic { width: 44px; height: 44px; flex: none; stroke: var(--ui-ink-3); }
+        #s05-root .fld .grow { flex: 1; }
+        #s05-root .warn-dot { width: 44px; height: 44px; flex: none; display: block; }
+        #s05-root .foot { display: flex; align-items: center; justify-content: flex-end; gap: 22px; padding: 24px 32px; border-top: 2px solid var(--ui-line); }
+        #s05-root .gate-msg { margin-top: 6px; max-width: 1000px; }
+
+        /* invoice card (stations B, C) */
+        #s05-root .inv-h { display: flex; align-items: center; gap: 24px; padding: 24px 32px; border-bottom: 2px solid var(--ui-line); }
+        #s05-root .inv-slot { flex: 1; position: relative; height: 76px; }
+        #s05-root .inv-slot > * { position: absolute; left: 0; top: 0; height: 76px; display: flex; align-items: center; }
+        #s05-root .nodash { font-family: var(--f-mono); font-size: 54px; font-weight: 600; color: #64748b; }
+        #s05-root .numbig { font-family: var(--f-mono); font-size: 54px; font-weight: 700; color: var(--ui-ink); letter-spacing: -0.02em; gap: 18px; }
+        #s05-root .lock { width: 52px; height: 52px; display: block; overflow: visible; }
+        #s05-root .stack { display: grid; }
+        #s05-root .stack > * { grid-area: 1 / 1; }
+        #s05-root .stack.end > * { justify-self: end; }
+        #s05-root .inv-note { padding: 20px 32px 6px; font-size: 20px; line-height: 1.4; color: var(--ui-ink-3); }
+        #s05-root .inv-note .n { display: flex; align-items: center; gap: 12px; min-height: 30px; }
+        #s05-root .inv-note .n svg { width: 26px; height: 26px; flex: none; stroke: var(--warn-fg); }
+        #s05-root .inv-line { display: flex; align-items: center; gap: 22px; padding: 18px 32px 26px; font-size: 32px; font-weight: 500; }
+        #s05-root .inv-line .dot { color: #64748b; }
+        #s05-root .inv-line .tot { margin-left: auto; font-size: 38px; font-weight: 700; }
+        #s05-root .flipwrap { margin-left: 28px; perspective: 900px; }
+        #s05-root .flipwrap .k-pill { height: 50px; font-size: 22px; }
+        #s05-root .inv-foot { display: flex; align-items: center; gap: 28px; padding: 24px 32px; border-top: 2px solid var(--ui-line); min-height: 112px; box-sizing: border-box; }
+        #s05-root .inv-foot .k-alert { flex: 1; padding: 14px 20px; }
+
+        /* sequence strip + credit line (station C) */
+        #s05-root .strip { display: flex; gap: 20px; margin-top: 34px; width: 1240px; justify-content: center; }
+        #s05-root .cell { flex: none; width: 280px; padding: 0 !important; display: flex; align-items: center; justify-content: center; height: 76px; padding: 0 26px; border-radius: 16px; font-family: var(--f-mono); font-size: 28px; font-weight: 600; background: #fff; color: var(--ui-ink-2); border: 2px solid var(--ui-line); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.6); }
+        #s05-root .cell.cur { background: var(--brand); color: #fff; border-color: #93c5fd; box-shadow: 0 0 0 7px rgba(59, 130, 246, 0.22), 0 14px 30px -12px rgba(29, 78, 216, 0.8); }
+        #s05-root .cell.nxt { background: transparent; color: var(--on-dark-3); border: 2px dashed rgba(148, 163, 184, 0.55); box-shadow: none; }
+        #s05-root .credit { position: relative; margin-top: 52px; width: 1240px; height: 80px; }
+        #s05-root .credit-in { position: absolute; left: 480px; top: 0; width: 580px; white-space: nowrap; justify-content: center; box-sizing: border-box; display: flex; align-items: center; gap: 22px; height: 80px; padding: 0 30px; border-radius: 18px; background: #fff; border: 2px solid var(--ui-line); box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.6); font-family: var(--f-mono); font-size: 30px; font-weight: 700; color: var(--ui-ink); }
+        #s05-root .credit-in .k-chip { height: 42px; font-size: 19px; padding: 0 16px; }
+        #s05-root .credit .wire { position: absolute; left: 768px; top: -52px; width: 4px; height: 52px; border-radius: 2px; background: var(--amber-glyph); box-shadow: 0 0 12px rgba(251, 191, 36, 0.5); transform-origin: 50% 0%; }
+
+        #s05-root .inv-foot .k-btn.off { pointer-events: none; }
+        #s05-root .cursor-wrap { position: absolute; left: 0; top: 0; width: 46px; height: 46px; z-index: 50; }
+        #s05-root .k-title { z-index: 60; }
+      </style>
+
+      <div id="s05-root" data-composition-id="s05" data-width="1920" data-height="1080">
+        <div class="cam" id="s05-cam">
+
+          <div class="world" id="s05-world">
+
+            <!-- Station A: mission card, refusal on an expired licence -->
+            <div class="st a">
+              <div class="k-card card" id="s05-cardA">
+                <div class="k-card-h"><div class="sec">7. {{ui:web.missions.sec_resources_title}}</div></div>
+                <div class="k-card-b" style="padding-bottom: 14px;">
+                  <div class="fld" id="s05-driver">
+                    <div class="tint" id="s05-tint"></div>
+                    <div class="edge" id="s05-edge"></div>
+                    <div class="av">YB</div>
+                    <div class="grow">{{copy:demo.driver_bad}}</div>
+                    <svg class="warn-dot" id="s05-warn" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#dc2626"/><path d="M22 11v14" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="22" cy="32" r="2.6" fill="#fff"/></svg>
+                  </div>
+                  <div class="fld">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v9H2z"/><path d="M14 9h4l3 3v3h-7"/><circle cx="6.5" cy="17" r="2"/><circle cx="17.5" cy="17" r="2"/></svg>
+                    <div class="grow k-mono" style="font-weight:600;">{{copy:demo.truck}}</div>
+                  </div>
+                  <div class="k-alert gate-msg" id="s05-gate">
+                    <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="15" cy="15" r="12"/><path d="M10 10l10 10M20 10L10 20"/></svg>
+                    <div>{{copy:demo.gate}}</div>
+                  </div>
+                </div>
+                <div class="foot">
+                  <div class="k-btn is-ghost">{{ui:web.missions.page_save_draft}}</div>
+                  <div class="k-btn" id="s05-planBtn">{{ui:web.missions.page_save_plan}}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Station B: the invoice without a signed CMR -->
+            <div class="st b">
+              <div class="k-card card" id="s05-cardB">
+                <div class="inv-h">
+                  <div class="k-card-t" style="font-size:34px;">{{ui:web.invoicing.title}}</div>
+                  <div class="inv-slot"><div class="nodash">—</div></div>
+                  <div class="k-pill"><span class="k-dot"></span>{{ui:web.invoicing.st_draft}}</div>
+                </div>
+                <div class="inv-note"><div class="n">{{ui:web.invoicing.note_draft}}</div></div>
+                <div class="inv-line">
+                  <span class="k-mono" style="font-weight:700;">{{copy:demo.mission}}</span><span class="dot">·</span><span>{{copy:demo.client}}</span>
+                  <span class="tot k-mono">{{copy:demo.total}}</span>
+                  <div class="flipwrap stack" id="s05-flip">
+                    <div class="k-pill is-amber" id="s05-cmrPend"><span class="k-dot"></span>{{ui:web.invoicing.cmr_pending}}</div>
+                    <div class="k-pill is-green" id="s05-cmrOk"><span class="k-dot"></span>{{ui:web.invoicing.cmr_ok}}</div>
+                  </div>
+                </div>
+                <div class="inv-foot">
+                  <div class="k-alert" id="s05-errCmr">
+                    <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="15" cy="15" r="12"/><path d="M10 10l10 10M20 10L10 20"/></svg>
+                    <div>{{copy:demo.err_cmr}}</div>
+                  </div>
+                  <div class="k-btn" id="s05-issueB" style="margin-left:auto;">{{ui:web.invoicing.act_approve}}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Station C: issue, number, lock, sequence, credit note -->
+            <div class="st c">
+              <div class="k-card card" id="s05-cardC">
+                <div class="inv-h">
+                  <div class="k-card-t" style="font-size:34px;">{{ui:web.invoicing.title}}</div>
+                  <div class="inv-slot">
+                    <div class="nodash" id="s05-dash">—</div>
+                    <div class="numbig" id="s05-num">
+                      <span>{{copy:demo.invoice_no}}</span>
+                      <svg class="lock" id="s05-lock" viewBox="0 0 52 52" fill="none">
+                        <g id="s05-shackle"><path d="M16 24v-8a10 10 0 0 1 20 0v8" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/></g>
+                        <rect x="9" y="23" width="34" height="25" rx="7" fill="#fbbf24"/>
+                        <circle cx="26" cy="35" r="3.4" fill="#92400e"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="stack end">
+                    <div class="k-pill" id="s05-pillDraft"><span class="k-dot"></span>{{ui:web.invoicing.st_draft}}</div>
+                    <div class="k-pill is-blue" id="s05-pillIssued"><span class="k-dot"></span>{{ui:web.invoicing.st_approved}}</div>
+                  </div>
+                </div>
+                <div class="inv-note stack">
+                  <div class="n" id="s05-noteDraft">{{ui:web.invoicing.note_draft}}</div>
+                  <div class="n" id="s05-noteLocked">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke:#b45309"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                    <span>{{ui:web.invoicing.note_locked}}</span>
+                  </div>
+                </div>
+                <div class="inv-line">
+                  <span class="k-mono" style="font-weight:700;">{{copy:demo.mission}}</span><span class="dot">·</span><span>{{copy:demo.client}}</span>
+                  <span class="tot k-mono">{{copy:demo.total}}</span>
+                  <div class="flipwrap"><div class="k-pill is-green"><span class="k-dot"></span>{{ui:web.invoicing.cmr_ok}}</div></div>
+                </div>
+                <div class="inv-foot">
+                  <div class="k-btn" id="s05-issueC" style="margin-left:auto;">{{ui:web.invoicing.act_approve}}</div>
+                </div>
+              </div>
+              <div class="strip" id="s05-strip">
+                <div class="cell">{{copy:demo.invoice_prev2}}</div>
+                <div class="cell">{{copy:demo.invoice_prev}}</div>
+                <div class="cell cur">{{copy:demo.invoice_no}}</div>
+                <div class="cell nxt">{{copy:demo.invoice_next}}</div>
+              </div>
+              <div class="credit" id="s05-credit">
+                <div class="wire" id="s05-wire"></div>
+                <div class="credit-in" id="s05-creditIn">
+                  <span class="k-chip is-amber">{{ui:web.invoicing.act_credit}}</span>
+                  <span>{{copy:demo.credit_no}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="k-ripple" id="s05-ripple"></div>
+            <div class="cursor-wrap" id="s05-cursor">
+              <svg viewBox="0 0 46 46" width="46" height="46" style="display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45));"><path d="M6 4 L6 34 L14 27 L20 40 L26 37 L20 25 L31 25 Z" fill="#fff" stroke="#0f172a" stroke-width="2.2" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <!-- intro: three gates on one amber thread -->
+          <div class="intro" id="s05-intro">
+            <div class="thread" id="s05-thread"></div>
+            <div class="gate" id="s05-g1" style="left:545px;"><div class="glabel">{{ui:web.doctypes.permis}}</div><svg viewBox="0 0 100 114"><path d="M50 6 L90 20 V56 C90 84 72 102 50 110 C28 102 10 84 10 56 V20 Z" fill="#0c1630" stroke="#fbbf24" stroke-width="4" stroke-linejoin="round"/><circle cx="50" cy="55" r="19" fill="none" stroke="#f1f5f9" stroke-width="4"/><path d="M50 44v12l8 5" fill="none" stroke="#f1f5f9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="gate" id="s05-g2" style="left:885px;"><div class="glabel">{{ui:web.nav_cmr}}</div><svg viewBox="0 0 100 114"><path d="M50 6 L90 20 V56 C90 84 72 102 50 110 C28 102 10 84 10 56 V20 Z" fill="#0c1630" stroke="#fbbf24" stroke-width="4" stroke-linejoin="round"/><rect x="33" y="35" width="34" height="42" rx="5" fill="none" stroke="#f1f5f9" stroke-width="4"/><path d="M41 57l7 7 12-14" fill="none" stroke="#f1f5f9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="gate" id="s05-g3" style="left:1225px;"><div class="glabel">{{ui:web.invoicing.title}}</div><svg viewBox="0 0 100 114"><path d="M50 6 L90 20 V56 C90 84 72 102 50 110 C28 102 10 84 10 56 V20 Z" fill="#0c1630" stroke="#fbbf24" stroke-width="4" stroke-linejoin="round"/><path d="M42 36l-5 40M60 36l-5 40M33 49h34M32 63h34" fill="none" stroke="#f1f5f9" stroke-width="4" stroke-linecap="round"/></svg></div>
+          </div>
+
+          <div class="k-title" id="s05-t1"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s05.title1}}</div></div>
+          <div class="k-title" id="s05-t2"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s05.title2}}</div></div>
+        </div>
+
+        <script type="application/json" id="s05-sfx">[
+          {"cue":"guard","off":1.0,"type":"whoosh","gain":0.8},
+          {"cue":"expired","off":-0.1,"type":"click","gain":0.9},
+          {"cue":"expired","off":0.05,"type":"error","gain":0.8},
+          {"cue":"cmr","off":-1.3,"type":"whoosh","gain":0.5},
+          {"cue":"cmr","off":0.0,"type":"click","gain":0.9},
+          {"cue":"cmr","off":0.15,"type":"error","gain":0.6},
+          {"cue":"cmr","off":2.15,"type":"pop","gain":0.7},
+          {"cue":"cmr","off":2.4,"type":"whoosh","gain":0.5},
+          {"cue":"cmr","off":3.4,"type":"click","gain":0.9},
+          {"cue":"cmr","off":3.55,"type":"stamp","gain":1},
+          {"cue":"cmr","off":4.1,"type":"type","gain":0.6},
+          {"cue":"cmr","off":4.6,"type":"pop","gain":0.7}
+        ]</script>
+      </div>
+
+      <script>
+        const T = {{T}};
+        const tl = gsap.timeline({ paused: true });
+        const $ = (s) => document.querySelector("#s05-root " + s);
+        const cam = $("#s05-cam"), world = $("#s05-world");
+        const cur = $("#s05-cursor"), rip = $("#s05-ripple");
+
+        // world-space position of an element (layout offsets, camera/transform independent)
+        function pos(el) {
+          let x = 0, y = 0, e = el;
+          while (e && e !== world) { x += e.offsetLeft; y += e.offsetTop; e = e.offsetParent; }
+          return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+        }
+        // cursor top-left so that the arrow tip (6,4) rests at the button's lower-right corner (labels stay readable)
+        function tipAt(btn) {
+          const p = pos(btn);
+          return { x: p.x + p.w - 34, y: p.y + p.h - 20 };
+        }
+        // glue a dash to the word that follows it, so it never dangles at a line end
+        function glueDashes(el) {
+          // sentences become their own lines (balanced, no dangling dash); a dash sticks to the next word
+          const sentences = el.textContent.trim().split(/(?<=[.!?])\s+/);
+          el.textContent = "";
+          sentences.forEach((sent) => {
+            const line = document.createElement("span");
+            line.style.display = "block";
+            const words = sent.split(/\s+/);
+            for (let i = 0; i < words.length; i++) {
+              let w = words[i];
+              if (/^[\u2014\u2013-]$/.test(w) && i + 1 < words.length) { w += " " + words[++i]; }
+              const sp = document.createElement("span");
+              sp.className = "w"; sp.textContent = w;
+              if (line.childNodes.length) line.appendChild(document.createTextNode(" "));
+              line.appendChild(sp);
+            }
+            el.appendChild(line);
+          });
+        }
+        glueDashes($("#s05-t2 .k-title-text"));
+
+        // key moments (scene-local), all derived from T
+        const dive = T.guard + 1.0;                  // gates -> mission card
+        const clickA = T.expired - 0.1;
+        const toB = T.cmr - 1.3;                     // camera A -> B (arrives cmr - 0.2)
+        const clickB = T.cmr;
+        const toC = T.cmr + 2.4;                     // camera B -> C, after the refusal had its 1.5 s
+        const tn = T.cmr + 3.4;                      // click on "Issue" (number cue +-0.3 s in every language)
+
+        tl.set(rip, { opacity: 0, x: -300, y: -300 }, 0);
+        K.camIn(tl, cam, 0);
+
+        // ── Intro: three labelled gates on the thread ─────────────
+        const g = ["#s05-g1", "#s05-g2", "#s05-g3"].map($);
+        g.forEach((el, i) => K.pop(tl, el, T.guard - 0.75 + i * 0.28, { from: 0.75, d: 0.55 }));
+        tl.fromTo($("#s05-thread"), { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.9, ease: "power2.inOut" }, T.guard - 0.55);
+
+        // dive into gate A: gates grow and dissolve, the mission card arrives
+        tl.to(g, { scale: 2.3, opacity: 0, filter: "blur(8px)", duration: 0.8, ease: K.IN, stagger: 0.04 }, dive);
+        tl.to($("#s05-thread"), { opacity: 0, duration: 0.5, ease: K.IN }, dive);
+        tl.fromTo($("#s05-cardA"), { opacity: 0, scale: 0.9, y: 36, filter: "blur(8px)" },
+          { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 0.95, ease: K.OUT }, dive + 0.2);
+        // rows settle one by one so the card is alive while the narrator frames it
+        tl.fromTo(document.querySelectorAll("#s05-root #s05-cardA .fld"), { opacity: 0.0, y: 22 },
+          { opacity: 1, y: 0, duration: 0.6, ease: K.OUT, stagger: 0.18 }, dive + 0.85);
+        tl.fromTo(document.querySelector("#s05-root #s05-cardA .foot"), { opacity: 0, y: 22 },
+          { opacity: 1, y: 0, duration: 0.6, ease: K.OUT }, dive + 1.2);
+
+        // ── Station A: refusal on the expired licence ─────────────
+        const planBtn = $("#s05-planBtn");
+        const a = tipAt(planBtn);
+        tl.set(cur, { x: a.x + 300, y: a.y + 260 }, 0);
+        const curA = Math.max(dive + 1.5, clickA - 1.5);
+        tl.fromTo(cur, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, curA);
+        K.cursorTo(tl, cur, a.x, a.y, curA + 0.05, clickA - curA - 0.15);
+        K.click(tl, cur, planBtn, clickA, rip, a.x + 6, a.y + 4);
+        const gateMsg = $("#s05-gate");
+        tl.fromTo(gateMsg, { opacity: 0, y: -26 }, { opacity: 1, y: 0, duration: 0.5, ease: K.OUT }, clickA + 0.1);
+        tl.fromTo($("#s05-tint"), { opacity: 0 }, { opacity: 1, duration: 0.45, ease: K.OUT }, clickA + 0.1);
+        tl.fromTo($("#s05-edge"), { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: K.OUT }, clickA + 0.1);
+        K.pop(tl, $("#s05-warn"), clickA + 0.2, { from: 0.6, d: 0.45 });
+        K.fadeOut(tl, cur, clickA + 0.7, 0.35);
+        const t1 = Math.min(T.expired + 0.45, toB - 2.2 - 1.3);
+        K.title(tl, $("#s05-t1"), t1);
+
+        // ── Camera A to B ─────────────────────────────────────────
+        K.titleOut(tl, $("#s05-t1"), toB);
+        tl.fromTo(world, { x: 0 }, { x: -1920, duration: 1.1, ease: K.MOVE }, toB);
+        tl.fromTo($("#s05-cardB"), { rotationY: -9, rotationX: 3, transformPerspective: 1600 },
+          { rotationY: 0, rotationX: 0, duration: 1.2, ease: K.OUT }, toB);
+
+        // ── Station B: no signed CMR, no invoice ──────────────────
+        const issueB = $("#s05-issueB");
+        const b = tipAt(issueB);
+        tl.set(cur, { x: b.x + 280, y: b.y + 220 }, toB);
+        tl.fromTo(cur, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, toB + 0.45);
+        K.cursorTo(tl, cur, b.x, b.y, toB + 0.5, 0.8);
+        K.click(tl, cur, issueB, clickB, rip, b.x + 6, b.y + 4);
+        const errCmr = $("#s05-errCmr");
+        tl.fromTo(errCmr, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.45, ease: K.OUT }, clickB + 0.15);
+        K.fadeOut(tl, cur, clickB + 0.65, 0.35);
+        // the paper arrives: badge flips, refusal fades (refusal fully readable >= 1.5 s first)
+        const pend = $("#s05-cmrPend"), ok = $("#s05-cmrOk");
+        tl.fromTo(pend, { rotationX: 0, opacity: 1 }, { rotationX: -90, opacity: 0, duration: 0.25, ease: K.IN }, T.cmr + 2.0);
+        tl.fromTo(ok, { rotationX: 90, opacity: 0 }, { rotationX: 0, opacity: 1, duration: 0.45, ease: K.OUT }, T.cmr + 2.15);
+        K.fadeOut(tl, errCmr, T.cmr + 2.1, 0.3);
+
+        // ── Camera B to C ─────────────────────────────────────────
+        tl.fromTo(world, { x: -1920 }, { x: -3840, duration: 0.95, ease: K.MOVE, immediateRender: false }, toC);
+        tl.fromTo($("#s05-cardC"), { rotationY: -9, rotationX: 3, transformPerspective: 1600 },
+          { rotationY: 0, rotationX: 0, duration: 1.05, ease: K.OUT }, toC);
+
+        // title 2 must be readable >= 2.2 s before the exit (tightest in es / ru)
+        K.title(tl, $("#s05-t2"), Math.min(tn + 0.3, T.out - 3.6));
+
+        // ── Station C: issue, number, lock ────────────────────────
+        const issueC = $("#s05-issueC");
+        const c = tipAt(issueC);
+        tl.set(cur, { x: c.x + 280, y: c.y + 220 }, toC);
+        tl.fromTo(cur, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, toC + 0.2);
+        K.cursorTo(tl, cur, c.x, c.y, toC + 0.3, 0.65);
+        K.click(tl, cur, issueC, tn, rip, c.x + 6, c.y + 4);
+        K.fadeOut(tl, cur, tn + 0.6, 0.35);
+        tl.to(issueC, { opacity: 0.4, duration: 0.3, ease: "power2.out" }, tn + 0.3);   // issued: no longer actionable
+
+        tl.to($("#s05-dash"), { opacity: 0, y: 14, duration: 0.25, ease: K.IN }, tn + 0.02);
+        tl.fromTo($("#s05-num"), { opacity: 0, y: -52 }, { opacity: 1, y: 0, duration: 0.55, ease: K.OUT }, tn + 0.1);
+        // the lock snaps shut: shackle drops, body presses
+        tl.fromTo($("#s05-lock"), { scale: 1.45, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: K.OUT }, tn + 0.15);
+        tl.fromTo($("#s05-shackle"), { y: -9 }, { y: 0, duration: 0.22, ease: "power3.in" }, tn + 0.17);
+        K.swap(tl, $("#s05-pillDraft"), $("#s05-pillIssued"), tn + 0.2);
+        // notes: the old one is gone before the new one rises (no overlap)
+        tl.to($("#s05-noteDraft"), { opacity: 0, duration: 0.18, ease: "none" }, tn + 0.2);
+        tl.fromTo($("#s05-noteLocked"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: K.OUT }, tn + 0.4);
+
+        // the sequence strip: contiguous numbers slide in from the left
+        const cells = document.querySelectorAll("#s05-root .cell");
+        tl.fromTo(cells, { opacity: 0, x: -110 }, { opacity: 1, x: 0, duration: 0.5, ease: K.OUT, stagger: 0.09 }, tn + 0.7);
+
+        // a mistake never edits: a new line under the issued number, the card above stays
+        tl.fromTo($("#s05-wire"), { scaleY: 0 }, { scaleY: 1, duration: 0.25, ease: K.OUT }, tn + 1.05);
+        tl.fromTo($("#s05-creditIn"), { opacity: 0, y: -26 }, { opacity: 1, y: 0, duration: 0.5, ease: K.OUT }, tn + 1.15);
+
+        K.camOut(tl, cam, T.out);
+        window.__timelines["s05"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

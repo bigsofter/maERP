@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s02-root { position: absolute; inset: 0; overflow: hidden; }
+        #s02-root .cam, #s02-root .world { position: absolute; inset: 0; }
+        #s02-root .dot { position: absolute; left: 930px; top: 510px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle, #ffffff 0%, #bfdbfe 30%, rgba(96,165,250,0.45) 60%, rgba(59,130,246,0) 100%); }
+        #s02-root .frame { position: absolute; left: 140px; top: 60px; width: 1640px; height: 780px; }
+        #s02-root .sh { position: absolute; inset: 0; border-radius: 26px; box-shadow: var(--shadow-card); }
+        #s02-root .k-shell { position: absolute; inset: 0; box-shadow: none; grid-template-columns: 432px 1fr; }
+        #s02-root .bloom { position: absolute; inset: 0; background: linear-gradient(135deg, #ffffff 0%, #dbeafe 55%, #93c5fd 100%); z-index: 20; }
+        #s02-root .k-rail { padding: 16px 0 10px; }
+        #s02-root .k-rail-head { padding: 0 28px 10px; }
+        #s02-root .k-rail-space { padding: 8px 28px 2px; }
+        #s02-root .k-rail-group { padding: 10px 28px 4px; font-size: 17px; }
+        #s02-root .k-rail-item { padding: 6px 16px; margin: 1px 16px; font-size: 25px; }
+        #s02-root .k-rail-item svg { width: 30px; height: 30px; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        #s02-root .main { display: flex; flex-direction: column; min-width: 0; }
+        #s02-root .k-topbar { height: 180px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 22px; padding: 0 28px; }
+        #s02-root .stepper { gap: 0; }
+        #s02-root .k-step { width: 120px; gap: 8px; }
+        #s02-root .k-step-link { width: 8px; }
+        #s02-root .k-step-l { font-size: 20px; }
+        #s02-root .k-step-c { position: relative; }
+        #s02-root .k-step-c .n, #s02-root .k-step-c .tk { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+        #s02-root .k-step-c .tk { opacity: 0; }
+        #s02-root .k-step-c .tk svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+        #s02-root .body { flex: 1; padding: 28px 36px; display: flex; flex-direction: column; gap: 22px; background: var(--ui-bg); }
+        #s02-root .k-card { box-shadow: none; border-radius: 20px; flex: 1; }
+        #s02-root .k-card-h { padding: 16px 28px; }
+        #s02-root .k-card-t { font-size: 28px; }
+        #s02-root .k-card-b { padding: 0 28px; display: flex; flex-direction: column; gap: 14px; }
+        #s02-root .ln { height: 14px; border-radius: 7px; background: var(--ui-bg2); }
+        #s02-root .k-title { z-index: 60; opacity: 0; }
+        #s02-root .k-mono-mark svg { width: 40px; height: 40px; }
+        #s02-root .k-card-h { justify-content: space-between; }
+        #s02-root .k-card-h .k-chip { font-size: 22px; padding: 6px 18px; opacity: 0; }
+      </style>
+      <div id="s02-root" data-composition-id="s02" data-width="1920" data-height="1080">
+        <div class="cam">
+          <div class="world">
+            <div class="dot" id="s02-dot"></div>
+            <div class="frame" id="s02-frame">
+              <div class="sh" id="s02-sh"></div>
+              <div class="k-shell" id="s02-shell">
+                <div class="k-rail" id="s02-rail">
+                  <div class="k-rail-head" id="s02-head">
+                    <div class="k-mono-mark"><svg viewBox="0 0 120 120" fill="none" stroke="#FBBF24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M25 78H14V34H70V78H47"/><path d="M70 46H92L106 62V78H98M78 78H70"/><circle cx="36" cy="80" r="10"/><circle cx="88" cy="80" r="10"/></svg></div>
+                    <div class="k-wordmark"><span>ma</span><span class="t">T</span><span>ransports</span></div>
+                  </div>
+                  <div class="k-rail-space s02-n">{{ui:web.espace_exploitation}}</div>
+                  <div class="k-rail-group s02-n">{{ui:web.group_travail}}</div>
+                  <div class="k-rail-item s02-n" id="s02-i-pouls"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg><span>{{ui:web.nav_pouls}}</span></div>
+                  <div class="k-rail-item s02-n" id="s02-i-op"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg><span>{{ui:web.nav_operator}}</span></div>
+                  <div class="k-rail-item is-active s02-n" id="s02-i-mis"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></svg><span>{{ui:web.nav_missions}}</span></div>
+                  <div class="k-rail-item s02-n" id="s02-i-map"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.4-6-11a6 6 0 0 1 12 0c0 5.6-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg><span>{{ui:web.nav_carte}}</span></div>
+                  <div class="k-rail-group s02-n">{{ui:web.group_donnees}}</div>
+                  <div class="k-rail-item s02-n"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5a3 3 0 0 1 0 6M18 20a5 5 0 0 0-3-4.6"/></svg><span>{{ui:web.nav_clients}}</span></div>
+                  <div class="k-rail-item s02-n"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M8 6v12M13 6v12M18 6v12"/></svg><span>{{ui:web.nav_conteneurs}}</span></div>
+                  <div class="k-rail-group s02-n">{{ui:web.group_documents}}</div>
+                  <div class="k-rail-item s02-n"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg><span>{{ui:web.nav_cmr}}</span></div>
+                  <div class="k-rail-item s02-n"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4v-1h6v1M9 11h6M9 15h6"/></svg><span>{{ui:web.nav_bc}}</span></div>
+                  <div class="k-rail-item s02-n" id="s02-i-dev"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span>{{ui:web.nav_devis}}</span></div>
+                </div>
+                <div class="main">
+                  <div class="k-topbar" id="s02-topbar">
+                    <div class="k-topbar-t" id="s02-tt">{{copy:demo.mission_title}}</div>
+                    <div class="k-stepper stepper" id="s02-stepper">
+                      <div class="k-step"><div class="k-step-c"><span class="n">1</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_frame}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step"><div class="k-step-c"><span class="n">2</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_actors}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step"><div class="k-step-c"><span class="n">3</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_container}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step"><div class="k-step-c"><span class="n">4</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_customs}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step"><div class="k-step-c"><span class="n">5</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_steps}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step"><div class="k-step-c"><span class="n">6</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_cargo}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step"><div class="k-step-c"><span class="n">7</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_resources}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step" id="s02-st8"><div class="k-step-c"><span class="n">8</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_economy}}</div></div>
+                      <div class="k-step-link"></div>
+                      <div class="k-step"><div class="k-step-c"><span class="n">9</span><span class="tk"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div><div class="k-step-l">{{ui:web.missions.page_step_documents}}</div></div>
+                    </div>
+                  </div>
+                  <div class="body" id="s02-body">
+                    <div class="k-card s02-card"><div class="k-card-h"><span class="k-card-t">1. {{ui:web.missions.sec_frame_title}}</span><span class="k-chip is-green s02-chip">M-1042</span></div><div class="k-card-b"><div class="ln" style="width:78%"></div><div class="ln" style="width:52%"></div></div></div>
+                    <div class="k-card s02-card"><div class="k-card-h"><div class="ln" style="width:240px;height:20px"></div><span class="k-chip is-green s02-chip">Algeciras, 14h</span></div><div class="k-card-b"><div class="ln" style="width:66%"></div><div class="ln" style="width:44%"></div></div></div>
+                    <div class="k-card s02-card"><div class="k-card-h"><div class="ln" style="width:200px;height:20px"></div><span class="k-chip is-green s02-chip">{{ui:web.nav_cmr}}</span></div><div class="k-card-b"><div class="ln" style="width:72%"></div><div class="ln" style="width:38%"></div></div></div>
+                  </div>
+                </div>
+                <div class="bloom" id="s02-bloom"></div>
+              </div>
+            </div>
+          </div>
+          <div class="k-title" id="s02-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s02.title}}</div></div>
+        </div>
+      </div>
+      <script type="application/json" id="s02-sfx">[
+        {"cue":"in","off":0.05,"type":"shimmer","gain":0.6},
+        {"cue":"in","off":0.5,"type":"pop","gain":0.4},
+        {"cue":"one","off":0.1,"type":"click","gain":0.35},
+        {"cue":"one","off":0.5,"type":"click","gain":0.35},
+        {"cue":"one","off":0.9,"type":"click","gain":0.35},
+        {"cue":"out","off":-0.6,"type":"whoosh","gain":0.5}
+      ]</script>
+      <script>
+        const T = {{T}};
+        const tl = gsap.timeline({ paused: true });
+        const R = "#s02-root ";
+        const cam = document.querySelector(R + ".cam");
+        const world = document.querySelector(R + ".world");
+
+        // measure the Quotes rail item (camera target) in world coordinates before any tween
+        const wr = world.getBoundingClientRect();
+        const dr = document.querySelector("#s02-i-dev").getBoundingClientRect();
+        const dx = dr.left - wr.left + 70, dy = dr.top - wr.top + dr.height / 2;
+
+        K.splitWords(document.querySelector("#s02-title .k-title-text"));
+        world.style.transformOrigin = dx + "px " + dy + "px";
+
+        // 1. the point blooms into the portal
+        const full = "inset(0px 0px 0px 0px round 26px)";
+        tl.fromTo("#s02-dot", { opacity: 1, scale: 1.3 }, { opacity: 1, scale: 1.6, duration: 0.3, ease: "power2.out" }, 0);
+        tl.fromTo("#s02-shell", { clipPath: "inset(480px 820px 300px 820px round 3px)" },
+          { clipPath: "inset(480px 0px 300px 0px round 3px)", duration: 0.34, ease: "power3.out" }, 0);
+        tl.to("#s02-shell", { clipPath: full, duration: 0.5, ease: "power3.out" }, 0.34);
+        tl.to("#s02-dot", { opacity: 0, scale: 2.4, duration: 0.3, ease: "power2.out" }, 0.3);
+        tl.fromTo("#s02-sh", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.3);
+        tl.fromTo("#s02-bloom", { opacity: 1 }, { opacity: 0, duration: 0.55, ease: "power2.inOut" }, 0.35);
+
+        // contents rise just behind the frame
+        K.rise(tl, "#s02-head", 0.5, { y: 18, d: 0.6 });
+        K.rise(tl, R + ".s02-n", 0.55, { y: 14, d: 0.6, stagger: 0.03 });
+        K.rise(tl, "#s02-tt", 0.55, { y: 14, d: 0.6 });
+        K.rise(tl, R + ".k-step", 0.6, { y: 16, d: 0.55, stagger: 0.035 });
+        tl.fromTo(R + ".k-step-link", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out", stagger: 0.035 }, 0.6);
+        K.rise(tl, R + ".s02-card", 0.75, { y: 24, d: 0.7, stagger: 0.1 });
+
+        // 2. the dossier fills: steps 1..7 go green, 8 becomes current
+        const steps = Array.from(document.querySelectorAll(R + ".k-step"));
+        const links = Array.from(document.querySelectorAll(R + ".k-step-link"));
+        const f0 = Math.max(T.one - 0.2, 1.0);
+        for (let i = 0; i < 7; i++) {
+          const t = f0 + i * 0.13;
+          const c = "#s02-sc" + i, n = "#s02-sn" + i, k = "#s02-sk" + i;
+          steps[i].querySelector(".k-step-c").id = "s02-sc" + i;
+          steps[i].querySelector(".n").id = "s02-sn" + i;
+          steps[i].querySelector(".tk").id = "s02-sk" + i;
+          tl.to(c, { backgroundColor: "#dcfce7", color: "#15803d", duration: 0.3, ease: "power2.out" }, t);
+          tl.to(n, { opacity: 0, duration: 0.15, ease: "none" }, t);
+          tl.set(k, { scale: 0.6 }, 0);
+          tl.to(k, { opacity: 1, scale: 1, duration: 0.3, ease: K.OUT }, t + 0.04);
+          tl.to(links[i], { backgroundColor: "#86efac", duration: 0.3, ease: "power2.out" }, t + 0.08);
+        }
+        const t8 = f0 + 7 * 0.13 + 0.12, c8 = document.querySelector("#s02-st8 .k-step-c");
+        tl.to(c8, { backgroundColor: "#1d4ed8", color: "#ffffff", boxShadow: "0 0 0 8px rgba(29,78,216,0.16)", duration: 0.4, ease: "power2.out" }, t8);
+
+        // 3. title
+        K.title(tl, document.querySelector("#s02-title"), T.one + 0.05);
+        // title stays up until the camera exit (no titleOut): fully readable >= 2.2 s before T.out
+        // 3b. three small chips land in the three section cards: the dossier already holds the pieces
+        const chipAt = Math.max(T.one + 1.2, 2.3);
+        document.querySelectorAll(R + ".s02-chip").forEach((c, i) => {
+          tl.set(c, { y: 8, scale: 0.85 }, 0);
+          tl.to(c, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: K.OUT }, chipAt + i * 0.22);
+        });
+
+        // 4. rail highlight moves to Quotes, camera pushes toward it
+        const tm = T.out - 0.9;
+        tl.to("#s02-i-mis", { backgroundColor: "rgba(96,165,250,0)", color: "#a8b6cc", fontWeight: 400, duration: 0.3, ease: "power2.inOut" }, tm);
+        tl.to("#s02-i-mis svg", { stroke: "#8494ac", duration: 0.3 }, tm);
+        tl.fromTo("#s02-i-dev", { backgroundColor: "rgba(96,165,250,0)" }, { backgroundColor: "rgba(96,165,250,0.16)", color: "#93c5fd", fontWeight: 600, duration: 0.3, ease: "power2.inOut" }, tm);
+        tl.to("#s02-i-dev svg", { stroke: "#93c5fd", duration: 0.3 }, tm);
+        tl.fromTo(R + ".world", { scale: 1 }, { scale: 1.25, duration: 0.6, ease: K.IN }, T.out - 0.6);
+
+        K.camOut(tl, cam, T.out);
+        window.__timelines["s02"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

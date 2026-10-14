@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s04-root { position: absolute; inset: 0; overflow: hidden; }
+        #s04-root .cam { position: absolute; inset: 0; }
+        #s04-root .world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+
+        /* menu columns: the dusk rail, redrawn */
+        #s04-root .col { position: absolute; left: 780px; top: 270px; width: 360px; box-sizing: border-box; padding: 14px 0; background: var(--rail); border: 2px solid var(--rail-line); border-radius: 24px; box-shadow: var(--shadow-card); font-family: var(--f-body); filter: blur(0px); }
+        #s04-root .col.s { opacity: 0; }
+        #s04-root .row { height: 52px; overflow: hidden; }
+        #s04-root .row-in { position: relative; display: flex; align-items: center; gap: 16px; height: 46px; margin: 3px 12px; padding: 0 18px; border-radius: 14px; font-size: 26px; color: var(--rail-item); white-space: nowrap; }
+        #s04-root .row-in .ico { width: 30px; height: 30px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+        #s04-root .ring { position: absolute; inset: -3px; border: 3px solid var(--amber-glyph); border-radius: 16px; box-shadow: 0 0 26px rgba(251, 191, 36, 0.45); opacity: 0; }
+
+        /* role chip above a result column */
+        #s04-root .rolehead { position: absolute; left: 0; top: -74px; width: 356px; height: 52px; display: flex; justify-content: center; opacity: 0; }
+        #s04-root .rolehead .k-pill { position: relative; height: 52px; font-size: 26px; padding: 0 24px; box-shadow: 0 16px 34px -14px rgba(0, 0, 0, 0.7); }
+        #s04-root .rolehead .k-ico { width: 26px; height: 26px; }
+        #s04-root .okb { position: absolute; right: -14px; top: -14px; width: 36px; height: 36px; display: block; opacity: 0; }
+
+        /* gates: glass chips on a thin line */
+        #s04-root .gate { position: absolute; left: 680px; width: 560px; height: 52px; }
+        #s04-root .gline { position: absolute; left: 0; top: 24px; width: 560px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, rgba(147, 197, 253, 0.15), rgba(147, 197, 253, 0.85) 18%, rgba(147, 197, 253, 0.85) 82%, rgba(147, 197, 253, 0.15)); box-shadow: 0 0 16px 1px rgba(96, 165, 250, 0.45); transform-origin: 0% 50%; opacity: 0; }
+        #s04-root .gwrap { position: absolute; left: 0; top: 0; width: 560px; height: 52px; display: flex; justify-content: center; opacity: 0; }
+        #s04-root .gchip { position: relative; display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 24px; border-radius: 26px; background: rgba(13, 21, 38, 0.92); border: 2px solid rgba(147, 197, 253, 0.55); font-size: 26px; font-weight: 600; color: var(--on-dark); white-space: nowrap; }
+        #s04-root .gchip .k-ico { width: 28px; height: 28px; color: var(--brand-300); }
+        #s04-root .gglow { position: absolute; inset: -2px; border-radius: 28px; box-shadow: 0 0 44px 10px rgba(96, 165, 250, 0.6); opacity: 0; }
+        #s04-root .beam { position: absolute; left: 958px; top: 90px; width: 3px; height: 180px; border-radius: 2px; background: linear-gradient(180deg, rgba(147, 197, 253, 0.85), rgba(147, 197, 253, 0.1)); box-shadow: 0 0 12px rgba(96, 165, 250, 0.4); transform-origin: 50% 0%; opacity: 0; }
+
+        #s04-root .k-callout { opacity: 0; }
+        #s04-root .k-title { opacity: 0; }
+      </style>
+
+      <div id="s04-root" data-composition-id="s04" data-width="1920" data-height="1080">
+        <div class="cam" id="s04-cam">
+          <div class="world" id="s04-world">
+
+            <div class="beam" id="s04-beam"></div>
+
+            <div class="gate" id="s04-g1" style="top: 64px;">
+              <div class="gline"></div>
+              <div class="gwrap"><div class="gchip"><div class="gglow"></div>
+                <svg class="k-ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/></svg>
+                <span>{{copy:s04.role}}</span></div></div>
+            </div>
+            <div class="gate" id="s04-g2" style="top: 134px;">
+              <div class="gline"></div>
+              <div class="gwrap"><div class="gchip"><div class="gglow"></div>
+                <svg class="k-ico" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><path d="M17 13.5v7M13.5 17h7"/></svg>
+                <span>{{ui:web.nav_modules}}</span></div></div>
+            </div>
+
+            <!-- Sales menu (the copy; sits under the original until the split) -->
+            <div class="col s" id="s04-colS" data-layout-allow-overlap>
+              <div class="rolehead" id="s04-headS"><div class="k-pill is-blue">
+                <svg class="k-ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/></svg>{{ui:web.team_roles.sales}}
+                <svg class="okb" viewBox="0 0 36 36"><circle cx="18" cy="18" r="17" fill="#16a34a"/><path d="M10 18.5l5.5 5.5L26 13" stroke="#fff" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div></div>
+              <div class="rows"></div>
+              <div class="k-callout" id="s04-co1" style="left: -44px; top: 404px;">1</div>
+            </div>
+
+            <!-- Mechanic menu (the original) -->
+            <div class="col m" id="s04-colM" data-layout-allow-overlap>
+              <div class="rolehead" id="s04-headM"><div class="k-pill is-blue">
+                <svg class="k-ico" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0 5 5L10 21a2.1 2.1 0 0 1-3-3l9.5-9.5"/></svg>{{ui:web.team_roles.mechanic}}
+                <svg class="okb" viewBox="0 0 36 36"><circle cx="18" cy="18" r="17" fill="#16a34a"/><path d="M10 18.5l5.5 5.5L26 13" stroke="#fff" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div></div>
+              <div class="rows">
+              <div class="row r-missions" data-s="1" data-m="1"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h7a3 3 0 000-6H9a3 3 0 010-6h7"/></svg><span>{{ui:web.nav_missions}}</span><div class="ring"></div></div></div>
+              <div class="row r-flotte" data-s="0" data-m="1"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><path d="M2 6h12v9H2z"/><path d="M14 9h4l3 3v3h-7"/><circle cx="6.5" cy="17" r="2"/><circle cx="17.5" cy="17" r="2"/></svg><span>{{ui:web.nav_flotte}}</span><div class="ring"></div></div></div>
+              <div class="row r-chauffeurs" data-s="0" data-m="1"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span>{{ui:web.nav_chauffeurs}}</span><div class="ring"></div></div></div>
+              <div class="row r-carburant" data-s="0" data-m="1"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><path d="M5 21V4h9v17M3 21h13"/><path d="M14 9h3l2 2v7a1.5 1.5 0 01-3 0v-4"/><path d="M8 8h3"/></svg><span>{{ui:web.nav_carburant}}</span><div class="ring"></div></div></div>
+              <div class="row r-maintenance" data-s="0" data-m="1"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 005 5L20 14l-6 6a2.8 2.8 0 01-4-4l6-6z"/><path d="M15 3.5l-2 2 2 2"/></svg><span>{{ui:web.nav_maintenance}}</span><div class="ring"></div></div></div>
+              <div class="row r-factures" data-s="1" data-m="0"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><span>{{ui:web.nav_factures}}</span><div class="ring"></div></div></div>
+              <div class="row r-traites" data-s="1" data-m="0"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 9h6M9 13h6"/></svg><span>{{ui:web.nav_traites}}</span><div class="ring"></div></div></div>
+              <div class="row r-banque" data-s="0" data-m="0"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5z"/><path d="M5 11v7M10 11v7M14 11v7M19 11v7M3 20h18"/></svg><span>{{ui:web.nav_banque}}</span><div class="ring"></div></div></div>
+              <div class="row r-paiements" data-s="0" data-m="0"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg><span>{{ui:web.nav_paiements}}</span><div class="ring"></div></div></div>
+              <div class="row r-previsions" data-s="1" data-m="0"><div class="row-in"><svg class="ico" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><span>{{ui:web.nav_previsions}}</span><div class="ring"></div></div></div>
+              </div>
+              <div class="k-callout" id="s04-co2" style="left: 404px; top: 300px;">2</div>
+            </div>
+
+          </div>
+
+          <div class="k-title" id="s04-title">
+            <div class="k-title-bar"></div>
+            <div class="k-title-text">{{copy:s04.title}}</div>
+          </div>
+        </div>
+      </div>
+
+      <script type="application/json" id="s04-sfx">[
+        {"cue":"role","off":-0.2,"type":"whoosh","gain":0.6},
+        {"cue":"role","off":0.65,"type":"pop","gain":0.7},
+        {"cue":"modules","off":-0.05,"type":"pop","gain":0.7},
+        {"cue":"modules","off":0.4,"type":"shimmer","gain":0.6},
+        {"cue":"sales","off":-0.2,"type":"whoosh","gain":0.7},
+        {"cue":"sales","off":0.7,"type":"pop","gain":0.6},
+        {"cue":"sales","off":0.85,"type":"click","gain":0.6},
+        {"cue":"mech","off":-0.2,"type":"click","gain":0.6},
+        {"cue":"hand","off":-0.1,"type":"stamp","gain":0.5},
+        {"cue":"hand","off":0.05,"type":"stamp","gain":0.5}
+      ]</script>
+
+      <script>
+        const T = {{T}};
+        const tl = gsap.timeline({ paused: true });
+        const $ = (s) => document.querySelector("#s04-root " + s);
+        const cam = $("#s04-cam");
+        const colM = $("#s04-colM"), colS = $("#s04-colS");
+        // the second menu is a literal copy of the first
+        colS.querySelector(".rows").innerHTML = colM.querySelector(".rows").innerHTML;
+
+        K.camIn(tl, cam, 0);
+
+        // 1. the catalogue arrives; the role gate
+        const tCat = 0.4;
+        tl.fromTo(colM, { opacity: 0, y: 40, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.85, ease: K.OUT }, tCat);
+        tl.fromTo(colM.querySelectorAll(".row-in"), { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.6, ease: K.OUT, stagger: 0.05 }, tCat + 0.2);
+
+        function gateIn(g, at, ir) {
+          tl.to(g.querySelector(".gline"), { opacity: 1, duration: 0.05, ease: "none" }, at);
+          tl.fromTo(g.querySelector(".gline"), { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: K.OUT, immediateRender: ir }, at);
+          K.pop(tl, g.querySelector(".gwrap"), at + 0.3);
+        }
+        gateIn($("#s04-g1"), T.role + 0.6, true);
+        K.title(tl, $("#s04-title"), T.role + 0.2);
+
+        // 2. the modules gate, both glow once
+        gateIn($("#s04-g2"), T.modules - 0.1, false);
+        tl.to($("#s04-beam"), { opacity: 1, duration: 0.05, ease: "none" }, T.modules + 0.1);
+        tl.fromTo($("#s04-beam"), { scaleY: 0 }, { scaleY: 1, duration: 0.8, ease: K.OUT }, T.modules + 0.1);
+        const glows = document.querySelectorAll("#s04-root .gglow");
+        tl.to(glows, { opacity: 1, duration: 0.35, ease: "power2.out" }, T.modules + 0.4);
+        tl.to(glows, { opacity: 0, duration: 0.7, ease: "power2.inOut" }, T.modules + 0.8);
+
+        // 3. the column becomes two
+        const tSplit = T.sales - 0.2;
+        tl.to($("#s04-beam"), { opacity: 0, duration: 0.4, ease: K.IN }, tSplit);
+        tl.set(colS, { opacity: 1 }, tSplit);
+        tl.to(colS, { x: -400, duration: 1.0, ease: K.MOVE }, tSplit);
+        tl.to(colM, { x: 380, duration: 1.0, ease: K.MOVE }, tSplit);
+        K.pop(tl, $("#s04-headS"), T.sales + 0.7);
+        K.pop(tl, $("#s04-headM"), T.sales + 0.85);
+
+        function collapse(col, attr, at) {
+          const rows = Array.from(col.querySelectorAll(".row"));
+          const gone = rows.filter((r) => r.dataset[attr] !== "1");
+          const keep = rows.filter((r) => r.dataset[attr] === "1").map((r) => r.querySelector(".row-in"));
+          tl.to(gone, { opacity: 0.25, duration: 0.3, ease: "power2.inOut", stagger: 0.04 }, at);
+          tl.to(gone, { height: 0, duration: 0.6, ease: K.MOVE, stagger: 0.04 }, at);
+          tl.to(keep, { color: "#e6edf7", duration: 0.5, ease: "power2.out" }, at + 0.3);
+        }
+        function spot(col, row, co, at, offAt) {
+          const ring = col.querySelector(".r-" + row + " .ring");
+          tl.to(ring, { opacity: 1, duration: 0.35, ease: K.OUT }, at);
+          K.pop(tl, co, at);
+          tl.to(ring, { opacity: 0, duration: 0.3, ease: K.IN }, offAt + 0.15);
+          tl.to(co, { opacity: 0, duration: 0.3, ease: K.IN }, offAt + 0.15);
+        }
+
+        // Sales: the bank goes
+        const dim = { opacity: 0.45, filter: "blur(2px)", duration: 0.35, ease: "power2.inOut" };
+        const full = { opacity: 1, filter: "blur(0px)", duration: 0.35, ease: "power2.inOut" };
+        tl.to(colM, dim, T.sales + 0.8);
+        spot(colS, "banque", $("#s04-co1"), T.sales + 0.8, T.sales + 1.3);
+        collapse(colS, "s", T.sales + 1.3);
+
+        // Mechanic: the invoices go
+        tl.to(colM, full, T.mech - 0.4);
+        tl.to(colS, dim, T.mech - 0.4);
+        spot(colM, "factures", $("#s04-co2"), T.mech - 0.2, T.mech + 0.3);
+        collapse(colM, "m", T.mech + 0.3);
+
+        // 5. the rules did it, nobody by hand
+        tl.to(colS, full, T.hand - 0.1);
+        tl.set(document.querySelectorAll("#s04-root .okb"), { opacity: 1 }, T.hand - 0.1);
+        tl.fromTo(document.querySelectorAll("#s04-root .okb"), { scale: 0.5 }, { scale: 1, duration: 0.45, ease: K.OUT }, T.hand - 0.1);
+        tl.to(document.querySelectorAll("#s04-root .gate"), { opacity: 0.6, duration: 0.6, ease: "power2.inOut" }, T.hand + 0.1);
+
+        // settle: the two short menus move to the middle of the frame (after the last collapse, before the checks)
+        tl.to($("#s04-world"), { y: 120, scale: 1.18, transformOrigin: "50% 30%", duration: 1.0, ease: K.MOVE }, T.mech + 1.35);
+        // clean exit: everything is gone by T.dur so nothing ghosts under the next scene
+        tl.to(cam, { opacity: 0, scale: 1.03, filter: "blur(10px)", duration: 0.4, ease: K.IN }, T.out - 0.1);
+        tl.to($("#s04-title"), { opacity: 0, duration: 0.3, ease: K.IN }, T.out - 0.1);
+        window.__timelines["s04"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

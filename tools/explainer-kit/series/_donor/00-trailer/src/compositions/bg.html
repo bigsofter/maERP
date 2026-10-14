@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        /* The stage: deep navy, two soft brand glows, a faint dot grid. Static on purpose —
+           the scenes move, the ground does not. */
+        #bg-root { position: absolute; inset: 0; overflow: hidden; }
+        #bg-root .ground { position: absolute; inset: 0; background: radial-gradient(1400px 900px at 18% 8%, #10204a 0%, rgba(16, 32, 74, 0) 70%), radial-gradient(1200px 900px at 92% 100%, #0a2a44 0%, rgba(10, 42, 68, 0) 65%), linear-gradient(180deg, #070b18 0%, #080d1e 100%); }
+        #bg-root .dots { position: absolute; inset: -40px; background-image: radial-gradient(rgba(148, 163, 184, 0.10) 1.6px, transparent 1.8px); background-size: 36px 36px; -webkit-mask-image: radial-gradient(ellipse at 50% 45%, #000 0%, rgba(0, 0, 0, 0.55) 55%, transparent 85%); mask-image: radial-gradient(ellipse at 50% 45%, #000 0%, rgba(0, 0, 0, 0.55) 55%, transparent 85%); }
+        #bg-root .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.55) 100%); }
+      </style>
+      <div id="bg-root" data-composition-id="bg" data-width="1920" data-height="1080">
+        <div id="bg-ground" class="ground clip" data-start="0" data-duration="__TOTAL__" data-track-index="0"></div>
+        <div class="dots"></div>
+        <div class="vignette"></div>
+      </div>
+      <script>
+        const T = {{T}};
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#bg-root .dots", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power2.out" }, 0);
+        window.__timelines["bg"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

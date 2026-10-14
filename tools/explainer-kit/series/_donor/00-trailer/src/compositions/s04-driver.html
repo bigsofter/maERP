@@ -1,0 +1,432 @@
+<!doctype html>
+<html>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #s04-root { position: absolute; inset: 0; overflow: hidden; }
+        #s04-root .cam, #s04-root .world { position: absolute; inset: 0; }
+        #s04-root .abs { position: absolute; }
+        #s04-root .k-title { max-width: 1150px; }
+
+        /* ── office card (portal, light) ── */
+        #s04-root #s04-office { left: 110px; top: 150px; width: 900px; height: 680px; z-index: 5; }
+        #s04-root .layer { position: absolute; inset: 0; background: var(--ui-card); }
+        #s04-root .drv-av { position: absolute; width: 72px; height: 72px; border-radius: 50%; background: var(--grad-brand); color: #fff; font-family: var(--f-display); font-weight: 700; font-size: 28px; display: flex; align-items: center; justify-content: center; }
+        #s04-root .drv-av.is-ghost { background: var(--ui-bg2); }
+        #s04-root .drv-name { position: absolute; font-family: var(--f-display); font-weight: 600; font-size: 32px; color: var(--ui-ink); white-space: nowrap; }
+        #s04-root .drv-truck { position: absolute; font-family: var(--f-mono); font-size: 22px; color: var(--ui-ink-3); }
+        #s04-root .bar { position: absolute; height: 18px; border-radius: 9px; background: var(--ui-bg2); }
+        #s04-root .hline { position: absolute; left: 32px; right: 32px; height: 2px; background: var(--ui-bg2); }
+        #s04-root #s04-invite { position: absolute; left: 468px; top: 146px; width: 400px; padding: 0; }
+
+        /* mission view */
+        #s04-root .rail-line { position: absolute; left: 68px; top: 150px; width: 4px; height: 250px; border-radius: 2px; background: var(--ui-line); }
+        #s04-root .tl-dot { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: #cbd5e1; border: 4px solid #fff; box-sizing: content-box; }
+        #s04-root .tl-dot.is-ok { background: var(--ok); }
+        #s04-root #s04-event { position: absolute; left: 112px; top: 318px; width: 640px; height: 64px; border-radius: 16px; background: var(--ok-bg); border: 2px solid var(--ok-line); display: flex; align-items: center; padding: 0 26px; font-family: var(--f-display); font-weight: 600; font-size: 28px; color: var(--ok-fg); white-space: nowrap; }
+        #s04-root #s04-attach-label { position: absolute; left: 32px; top: 462px; }
+        #s04-root #s04-slot { position: absolute; left: 32px; top: 500px; width: 120px; height: 147px; }
+        #s04-root #s04-slot .cmr { font-size: 26.6px; }
+        #s04-root #s04-tag { position: absolute; left: 176px; top: 556px; height: 40px; padding: 0 16px; font-size: 20px; }
+
+        /* paper sheet (CMR photo) */
+        #s04-root .paper { background: #f8fafc; border-radius: 6px; box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.55), inset 0 0 0 2px #cbd5e1; }
+        #s04-root .paper .cmr { position: absolute; left: 0; right: 0; top: 14%; text-align: center; font-family: var(--f-mono); font-weight: 700; font-size: 24px; color: #1e293b; letter-spacing: 0.08em; }
+        #s04-root .paper .ln { position: absolute; left: 12%; height: 5%; border-radius: 3px; background: #94a3b8; }
+
+        /* ── dialog ── */
+        #s04-root #s04-dialog { left: 220px; top: 390px; width: 680px; height: 340px; z-index: 10; overflow: visible; }
+        #s04-root #s04-dialog .k-card-h { border-radius: 24px 24px 0 0; }
+        #s04-root .slot { position: absolute; top: 130px; width: 80px; height: 112px; border-radius: 16px; background: var(--ui-bg2); border: 2px solid var(--ui-line); box-sizing: border-box; }
+        #s04-root #s04-expires { position: absolute; left: 40px; right: 40px; top: 268px; text-align: center; font-size: 22px; color: var(--ui-ink-3); }
+        #s04-root .dg { position: absolute; left: 0; top: 0; width: 90px; height: 120px; z-index: 25; display: block; }
+        #s04-root .dgi, #s04-root .dgc { display: flex; width: 90px; height: 120px; align-items: center; justify-content: center; font-family: var(--f-mono); font-weight: 600; font-size: 88px; color: var(--ui-ink); border-radius: 28px; box-sizing: border-box; }
+        #s04-root .dgc { position: absolute; left: 0; top: 0; opacity: 0; background: #111a2c; color: #fff; box-shadow: inset 0 0 0 4px #fde68a; }
+
+        /* ── phone ── */
+        #s04-root #s04-phonewrap { position: absolute; left: 1265px; top: 40px; width: 500px; height: 1000px; z-index: 20; }
+        #s04-root .scr { position: absolute; inset: 0; }
+        #s04-root .st-ico { position: absolute; top: 22px; right: 36px; width: 120px; height: 40px; z-index: 6; }
+        #s04-root .lg-title { position: absolute; left: 36px; right: 36px; top: 230px; font-family: var(--f-display); font-weight: 700; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; color: var(--app-text); }
+        #s04-root .lg-phone { position: absolute; left: 36px; right: 36px; top: 300px; font-family: var(--f-mono); font-size: 26px; color: var(--app-muted); }
+        #s04-root .cbox { position: absolute; top: 392px; width: 56px; height: 74px; border-radius: 16px; background: var(--app-raised); border: 2px solid var(--app-line); box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-weight: 700; font-size: 38px; color: #fff; }
+        #s04-root .cbox .cd { display: block; }
+        #s04-root #s04-verify { position: absolute; left: 36px; top: 520px; width: 392px; height: 84px; border-radius: 28px; background: var(--amber); border: 3px solid var(--amber-soft); box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 30px; color: var(--ui-ink); }
+
+        #s04-root .ms-code { position: absolute; left: 36px; top: 138px; font-family: var(--f-mono); font-weight: 700; font-size: 40px; color: var(--app-text); }
+        #s04-root .ms-lane { position: absolute; left: 36px; top: 192px; font-family: var(--f-mono); font-size: 22px; color: var(--app-muted); white-space: nowrap; }
+        #s04-root .ms-pill { position: absolute; left: 36px; top: 250px; }
+        #s04-root .ms-label { position: absolute; left: 36px; top: 322px; width: 392px; font-size: 20px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; line-height: 1.3; }
+        #s04-root #s04-tile { position: absolute; left: 36px; top: 410px; width: 392px; height: 152px; box-shadow: 0 0 44px rgba(245, 158, 11, 0.3); }
+        #s04-root #s04-lower { position: absolute; left: 0; top: 0; width: 464px; height: 964px; }
+        #s04-root #s04-photobtn { position: absolute; left: 36px; top: 590px; width: 392px; height: 84px; border-radius: 28px; border: 3px solid var(--app-line); background: rgba(148, 163, 184, 0.1); box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 16px; font-weight: 700; font-size: 28px; color: var(--app-mid); }
+        #s04-root #s04-photobtn svg { width: 40px; height: 40px; }
+        #s04-root #s04-phthumb { position: absolute; left: 36px; top: 696px; width: 114px; height: 140px; }
+        #s04-root .cap { position: absolute; left: 170px; top: 744px; }
+        #s04-root .qpill { position: absolute; left: 36px; top: 856px; }
+        #s04-root #s04-banner { position: absolute; left: 36px; top: 80px; width: 392px; height: 40px; display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 24px; color: var(--app-mid); z-index: 7; }
+        #s04-root #s04-banner svg { width: 28px; height: 28px; flex: none; color: var(--app-muted); }
+
+        /* fly bits */
+        #s04-root #s04-packet { position: absolute; left: 0; top: 0; width: 124px; height: 58px; border-radius: 29px; background: var(--amber); border: 3px solid var(--amber-soft); box-sizing: border-box; display: flex; align-items: center; justify-content: center; z-index: 30; box-shadow: 0 0 40px rgba(251, 191, 36, 0.55); }
+        #s04-root #s04-packet svg { width: 36px; height: 36px; stroke: var(--ui-ink); }
+        #s04-root #s04-thread { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; z-index: 15; overflow: visible; filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6)); }
+        #s04-root #s04-flythumb { position: absolute; left: 0; top: 0; width: 114px; height: 140px; z-index: 31; }
+
+        /* route strip */
+        #s04-root #s04-strip { position: absolute; left: 120px; top: 62px; width: 1060px; height: 70px; z-index: 8; }
+        #s04-root #s04-strip .place { position: absolute; top: 0; width: 240px; text-align: center; font-weight: 700; font-size: 22px; letter-spacing: 0.14em; color: var(--on-dark-2); }
+        #s04-root #s04-strip svg { position: absolute; left: 0; top: 0; overflow: visible; }
+        #s04-root #s04-truck { position: absolute; left: 0; top: 0; width: 52px; height: 34px; }
+        #s04-root .nosig { position: absolute; top: 0px; width: 30px; height: 30px; }
+      </style>
+
+      <div id="s04-root" data-composition-id="s04" data-width="1920" data-height="1080">
+        <div class="cam">
+          <div class="world">
+
+            <!-- route strip -->
+            <div id="s04-strip">
+              <div class="place" style="left:-60px">TANGER MED</div>
+              <div class="place" style="left:410px">ALGECIRAS</div>
+              <div class="place" style="left:880px">MURCIA</div>
+              <svg width="1060" height="70" viewBox="0 0 1060 70">
+                <path id="s04-route-dash" d="" fill="none" stroke="#94a3b8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 11" opacity="0.8"/>
+                <path id="s04-route-solid" d="" fill="none" stroke="#94a3b8" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+                <circle id="s04-dotA" cx="60" cy="46" r="10" fill="#FBBF24"/>
+                <circle id="s04-dotB" cx="530" cy="46" r="10" fill="#FBBF24"/>
+                <circle id="s04-dotC" cx="1000" cy="46" r="10" fill="#FBBF24"/>
+              </svg>
+              <svg id="s04-nosig1" class="nosig" style="left:280px" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"><path d="M4 20v-3M9 20v-7M14 20v-11M19 20V5" opacity="0.55"/><path d="M3 3l18 18"/></svg>
+              <svg id="s04-nosig2" class="nosig" style="left:700px" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"><path d="M4 20v-3M9 20v-7M14 20v-11M19 20V5" opacity="0.55"/><path d="M3 3l18 18"/></svg>
+              <svg id="s04-truck" viewBox="3 7 26 17"><g fill="#FBBF24"><rect x="4.2" y="17.4" width="23.4" height="2.4" rx="1.2"/><rect x="4.2" y="8.6" width="12.6" height="9" rx="1.7"/><path d="M18.1 11.4h4.6l4.9 4.0v2.2h-9.5z"/><circle cx="9.6" cy="20.4" r="3.1"/><circle cx="22.4" cy="20.4" r="3.1"/></g><g fill="#0b1430"><circle cx="9.6" cy="20.4" r="1.2"/><circle cx="22.4" cy="20.4" r="1.2"/></g></svg>
+            </div>
+
+            <!-- OFFICE card -->
+            <div id="s04-office" class="k-card abs">
+              <!-- list view -->
+              <div id="s04-list" class="layer">
+                <div class="k-card-h"><div class="k-card-t">{{ui:web.nav_chauffeurs}}</div></div>
+                <div class="drv-av" style="left:32px;top:136px">KT</div>
+                <div class="drv-name" style="left:128px;top:134px">{{copy:demo.driver_ok}}</div>
+                <div class="drv-truck" style="left:128px;top:182px">{{copy:demo.truck}}</div>
+                <div id="s04-invite" class="k-btn is-ghost">{{ui:web.drivers.app_invite}}</div>
+                <div class="hline" style="top:236px"></div>
+                <div class="drv-av is-ghost" style="left:32px;top:272px"></div>
+                <div class="bar" style="left:128px;top:282px;width:240px"></div>
+                <div class="bar" style="left:128px;top:318px;width:150px"></div>
+                <div class="hline" style="top:372px"></div>
+                <div class="drv-av is-ghost" style="left:32px;top:408px"></div>
+                <div class="bar" style="left:128px;top:418px;width:290px"></div>
+                <div class="bar" style="left:128px;top:454px;width:170px"></div>
+                <div class="hline" style="top:508px"></div>
+                <div class="drv-av is-ghost" style="left:32px;top:544px"></div>
+                <div class="bar" style="left:128px;top:554px;width:210px"></div>
+                <div class="bar" style="left:128px;top:590px;width:130px"></div>
+              </div>
+              <!-- mission view -->
+              <div id="s04-mview" class="layer">
+                <div class="k-card-h"><div class="k-card-t">{{copy:demo.mission_title}}</div></div>
+                <div class="rail-line"></div>
+                <div class="tl-dot" style="left:70px;top:170px"></div>
+                <div class="bar" style="left:112px;top:161px;width:260px"></div>
+                <div class="tl-dot" style="left:70px;top:250px"></div>
+                <div class="bar" style="left:112px;top:241px;width:340px"></div>
+                <div id="s04-dot3" class="tl-dot is-ok" style="left:70px;top:350px"></div>
+                <div id="s04-event">{{copy:demo.event_status}}</div>
+                <div id="s04-attach-label" class="k-label">{{ui:web.missions.attachments_title}}</div>
+                <div id="s04-slot" class="paper"><div class="cmr">CMR</div><div class="ln" style="top:42%;width:76%"></div><div class="ln" style="top:54%;width:60%"></div><div class="ln" style="top:66%;width:70%"></div><div class="ln" style="top:78%;width:46%"></div></div>
+                <div id="s04-tag" class="k-chip is-slate">{{ui:web.missions.attachment_from_app}}</div>
+              </div>
+            </div>
+
+            <!-- dialog -->
+            <div id="s04-dialog" class="k-card abs" data-layout-allow-overlap>
+              <div class="k-card-h"><div class="k-card-t">{{ui:web.drivers.app_code_title}}</div></div>
+              <div class="slot" style="left:70px"></div><div class="slot" style="left:160px"></div><div class="slot" style="left:250px"></div>
+              <div class="slot" style="left:340px"></div><div class="slot" style="left:430px"></div><div class="slot" style="left:520px"></div>
+              <div id="s04-expires">{{copy:demo.code_expires}}</div>
+            </div>
+            <div id="s04-digits"></div>
+
+            <!-- thread + flying things -->
+            <svg id="s04-thread" viewBox="0 0 1920 1080"><path id="s04-thread-path" d="M1515 544 Q1200 300 864 500" fill="none" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+            <div id="s04-packet"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h11v10H2z"/><path d="M13 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg></div>
+            <div id="s04-flythumb" class="paper"><div class="cmr">CMR</div><div class="ln" style="top:42%;width:76%"></div><div class="ln" style="top:54%;width:60%"></div><div class="ln" style="top:66%;width:70%"></div><div class="ln" style="top:78%;width:46%"></div></div>
+
+            <!-- PHONE -->
+            <div id="s04-phonewrap">
+              <div class="k-phone">
+                <div class="k-phone-screen">
+                  <div class="k-phone-notch"></div>
+                  <svg id="s04-sig" class="st-ico" viewBox="0 0 120 40" fill="none" stroke-linecap="round">
+                    <g id="s04-sigbars" stroke="#cbd5e1" stroke-width="5"><path d="M6 30v-5M16 30v-10M26 30v-15M36 30V10"/></g>
+                    <path id="s04-sigslash" d="M2 36L42 4" stroke="#FBBF24" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+                    <rect x="72" y="9" width="40" height="22" rx="6" stroke="#cbd5e1" stroke-width="3"/><rect x="77" y="14" width="26" height="12" rx="3" fill="#cbd5e1" stroke="none"/>
+                  </svg>
+
+                  <!-- login -->
+                  <div id="s04-login" class="scr">
+                    <div class="lg-title">{{ui:app.login.code_title}}</div>
+                    <div class="lg-phone">+212 6•• ••• •••</div>
+                    <div id="s04-cb0" class="cbox" style="left:39px"><span class="cd">4</span></div>
+                    <div id="s04-cb1" class="cbox" style="left:105px"><span class="cd">8</span></div>
+                    <div id="s04-cb2" class="cbox" style="left:171px"><span class="cd">2</span></div>
+                    <div id="s04-cb3" class="cbox" style="left:237px"><span class="cd">9</span></div>
+                    <div id="s04-cb4" class="cbox" style="left:303px"><span class="cd">1</span></div>
+                    <div id="s04-cb5" class="cbox" style="left:369px"><span class="cd">3</span></div>
+                    <div id="s04-verify">{{ui:app.login.verify}}</div>
+                  </div>
+
+                  <!-- mission -->
+                  <div id="s04-mission" class="scr">
+                    <div class="ms-code">{{copy:demo.mission}}</div>
+                    <div class="ms-lane">{{copy:demo.lane}}</div>
+                    <div id="s04-pl1" class="k-app-pill is-amber ms-pill">{{ui:app.status.loading}}</div>
+                    <div id="s04-pl2" class="k-app-pill is-sky ms-pill">{{ui:app.status.in_transit}}</div>
+                    <div class="ms-label">{{ui:app.mission.change_status}}</div>
+                    <div id="s04-tile" class="k-tile is-next">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h11v10H2z"/><path d="M13 9h4l3 3v4h-7"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>
+                      <span>{{ui:app.status.in_transit}}</span>
+                    </div>
+                    <div id="s04-lower">
+                    <div id="s04-photobtn">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.6"/></svg>
+                      <span>{{ui:app.mission.take_photo}}</span>
+                    </div>
+                    <div id="s04-phthumb" class="paper"><div class="cmr">CMR</div><div class="ln" style="top:42%;width:76%"></div><div class="ln" style="top:54%;width:60%"></div><div class="ln" style="top:66%;width:70%"></div><div class="ln" style="top:78%;width:46%"></div></div>
+                    <div id="s04-cap1" class="k-app-pill is-amber cap">{{ui:app.mission.photo_queued}}</div>
+                    <div id="s04-cap2" class="k-app-pill is-green cap">{{ui:app.mission.photo_sent}}</div>
+                    <div id="s04-q1" class="k-app-pill is-sky qpill">{{copy:demo.queue_1}}</div>
+                    <div id="s04-q2" class="k-app-pill is-green qpill">{{ui:app.board.queue_synced}}</div>
+                    </div>
+                  </div>
+
+                  <div id="s04-banner">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20v-3M9 20v-7M14 20v-11M19 20V5" opacity="0.55"/><path d="M3 3l18 18"/></svg>
+                    <span>{{ui:app.common.offline}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ripples + cursor -->
+            <div id="s04-tap1" class="k-tap"></div>
+            <div id="s04-tap2" class="k-tap"></div>
+            <div id="s04-tap3" class="k-tap"></div>
+            <div id="s04-ripple" class="k-ripple"></div>
+            <div id="s04-cursor" class="k-cursor"><svg viewBox="0 0 24 24" width="46" height="46"><path d="M5 3l14 8-6 2-3 6z" fill="#fff" stroke="#0f172a" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          </div>
+
+          <div id="s04-title1" class="k-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s04.title1}}</div></div>
+          <div id="s04-title2" class="k-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s04.title2}}</div></div>
+        </div>
+      </div>
+
+      <script type="application/json" id="s04-sfx">[
+        {"cue":"driver","off":-0.3,"type":"whoosh","gain":0.8},
+        {"cue":"code","off":-1.5,"type":"click","gain":0.8},
+        {"cue":"code","off":0.33,"type":"key","gain":0.6},
+        {"cue":"code","off":0.39,"type":"key","gain":0.6},
+        {"cue":"code","off":0.45,"type":"key","gain":0.6},
+        {"cue":"code","off":0.51,"type":"key","gain":0.6},
+        {"cue":"code","off":0.57,"type":"key","gain":0.6},
+        {"cue":"code","off":0.63,"type":"key","gain":0.6},
+        {"cue":"code","off":0.73,"type":"click","gain":0.5},
+        {"cue":"tap","off":0.05,"type":"pop","gain":0.8},
+        {"cue":"tap","off":0.25,"type":"whoosh","gain":0.5},
+        {"cue":"tap","off":1.15,"type":"stamp","gain":0.5},
+        {"cue":"photo","off":0.15,"type":"click","gain":0.6},
+        {"cue":"photo","off":0.75,"type":"pop","gain":0.6},
+        {"cue":"ferry","off":1.1,"type":"pop","gain":0.8},
+        {"cue":"ferry","off":1.2,"type":"shimmer","gain":0.5},
+        {"cue":"ferry","off":2.05,"type":"stamp","gain":0.5}
+      ]</script>
+
+      <script>
+        const T = {{T}};
+        const R = document.getElementById("s04-root");
+        const q = (s) => R.querySelector(s);
+        const tl = gsap.timeline({ paused: true });
+        const OUT = K.OUT, MOVE = K.MOVE, IN = K.IN;
+
+        // ── geometry helpers (world coordinates, 1920x1080) ──
+        const bez = (a, c, b, t) => { const u = 1 - t; return { x: u * u * a.x + 2 * u * t * c.x + t * t * b.x, y: u * u * a.y + 2 * u * t * c.y + t * t * b.y }; };
+        // moves el (top-left at 0,0, size w x h) along a quad bezier by its centre; optional scale and thread callback
+        function fly(el, w, h, a, c, b, at, d, ease, s0, s1, onP) {
+          const pr = { p: 0 };
+          tl.fromTo(pr, { p: 0 }, { p: 1, duration: d, ease, onUpdate: () => {
+            const t = pr.p, pt = bez(a, c, b, t);
+            gsap.set(el, { x: pt.x - w / 2, y: pt.y - h / 2, scale: s0 + (s1 - s0) * t });
+            if (onP) onP(t);
+          } }, at);
+        }
+        function tapRipple(el, x, y, at) {
+          gsap.set(el, { x, y, opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.3 }, { opacity: 0.9, scale: 0.7, duration: 0.07, ease: "none" }, at);
+          tl.to(el, { opacity: 0, scale: 1.5, duration: 0.55, ease: "power2.out" }, at + 0.07);
+        }
+
+        // ── route strip geometry (local to the strip, 1060 x 70) ──
+        const X0 = 60, XM = 530, XL = 900, X1 = 1000, RY = 46;
+        const routeY = (x) => {
+          if (x < XM) return RY + 5 * Math.sin(((x - X0) / (XM - X0)) * Math.PI * 8);
+          if (x < XL) { const ph = ((x - XM) % 60) / 60; return RY - 14 * (ph < 0.5 ? ph * 2 : 2 - ph * 2); }
+          return RY;
+        };
+        let dd = "M" + X0 + " " + routeY(X0).toFixed(1);
+        for (let x = X0 + 5; x <= XL; x += 5) dd += " L" + x + " " + routeY(x).toFixed(1);
+        q("#s04-route-dash").setAttribute("d", dd);
+        q("#s04-route-solid").setAttribute("d", "M" + XL + " " + RY + " L" + X1 + " " + RY);
+
+        // ── geometry of the code flight ──
+        const DLG_TOP = 390, DIG_CY = DLG_TOP + 186;          // digit centre row inside the dialog
+        const BOX_Y = 492.3;                                  // phone code boxes, world y
+        const CODE = "{{copy:demo.code}}".split("");
+        const digitsHost = q("#s04-digits");
+        const dgs = [], dgis = [], dgcs = [];
+        CODE.forEach((ch, i) => {
+          const o = document.createElement("div"); o.className = "dg";
+          const inn = document.createElement("div"); inn.className = "dgi"; inn.textContent = ch;
+          const chip = document.createElement("div"); chip.className = "dgc"; chip.textContent = ch;
+          o.appendChild(inn); o.appendChild(chip); digitsHost.appendChild(o);
+          dgs.push(o); dgis.push(inn); dgcs.push(chip);
+          gsap.set(o, { x: 330 + 90 * i - 45, y: DIG_CY - 60 });
+        });
+        digitsHost.style.cssText = "position:absolute;left:0;top:0;width:0;height:0;z-index:25";
+
+        // ── static initial states ──
+        gsap.set(q("#s04-phthumb"), { rotation: -4 });
+        gsap.set(q("#s04-flythumb"), { x: 1390 - 57, y: 562 - 70, opacity: 0 });
+        gsap.set(q("#s04-packet"), { x: 1515 - 62, y: 544 - 29, opacity: 0 });
+        gsap.set(q("#s04-cursor"), { x: 600, y: 190 });
+        gsap.set(q("#s04-truck"), { x: X0 - 26, y: RY - 17 });
+
+        // ── derived times (every one hangs off a cue) ──
+        const clk = T.code - 1.5;                       // click on "invite"
+        const FLS = 0.1, FLD = 0.3;                      // digit flip stagger / duration
+        const flipEnd = clk + 0.25 + FLS * 5 + FLD;
+        const fb = flipEnd + 0.4;                        // first digit leaves the dialog
+        const FD = 0.38, FS = 0.06;                      // flight duration / stagger
+        const landEnd = fb + FS * 5 + FD;
+        const X = landEnd + 0.1;                         // "sign in" pressed
+        const tapT = T.tap + 0.05;                       // status tile pressed
+        const t1in = tapT + 0.4;
+        const t1out = T.ferry - 0.4;
+        const sg = T.ferry + 1.1;                        // signal returns on solid land
+
+        // ── scene entrance ──
+        K.camIn(tl, q(".cam"), 0);
+
+        // 1. phone + office card arrive
+        tl.fromTo(q("#s04-phonewrap"), { x: 300, rotationY: -18, scale: 0.9, opacity: 0, transformPerspective: 1600 }, { x: 0, rotationY: -6, scale: 0.9, opacity: 1, transformPerspective: 1600, duration: 1.0, ease: OUT }, T.driver - 0.3);
+        tl.fromTo(q("#s04-office"), { x: -140, y: 40, rotationY: 9, opacity: 0, transformPerspective: 1600 }, { x: 0, y: 0, rotationY: 0, opacity: 1, transformPerspective: 1600, duration: 1.0, ease: OUT }, T.driver - 0.2);
+
+        // 2. invite click, code dialog
+        const cur = q("#s04-cursor");
+        tl.fromTo(cur, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, clk - 0.85);
+        K.cursorTo(tl, cur, 771, 324, clk - 0.8, 0.7);
+        K.click(tl, cur, q("#s04-invite"), clk);
+        tapRipple(q("#s04-ripple"), 780, 330, clk);
+        tl.to(cur, { opacity: 0, duration: 0.3, ease: IN }, clk + 0.35);
+        tl.to(q("#s04-list"), { opacity: 0.4, filter: "blur(2px)", duration: 0.4, ease: "power2.out" }, clk + 0.1);
+        tl.fromTo(q("#s04-dialog"), { opacity: 0, y: 50, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: OUT }, clk + 0.1);
+        dgis.forEach((inn, i) => {
+          tl.fromTo(inn, { opacity: 0, rotationX: -90, transformPerspective: 700 }, { opacity: 1, rotationX: 0, transformPerspective: 700, duration: FLD, ease: OUT }, clk + 0.25 + FLS * i);
+        });
+        tl.fromTo(q("#s04-expires"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: OUT }, clk + 0.2);
+
+        // digits fly into the phone boxes, rightmost first so none passes through a neighbour
+        dgs.forEach((o, i) => {
+          const a = { x: 330 + 90 * i, y: DIG_CY }, b = { x: 1366.5 + 59.4 * i, y: BOX_Y };
+          const c = { x: (a.x + b.x) / 2, y: 330 };
+          const st = fb + FS * (5 - i);
+          tl.set(dgcs[i], { opacity: 1 }, st);
+          tl.set(dgis[i], { opacity: 0 }, st);
+          fly(o, 90, 120, a, c, b, st, FD, "power1.inOut", 1, 0.55);
+          tl.to(o, { opacity: 0, duration: 0.1, ease: "none" }, st + FD - 0.06);
+          const box = q("#s04-cb" + i), cd = box.querySelector(".cd");
+          tl.fromTo(cd, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: OUT }, st + FD - 0.04);
+          tl.to(box, { borderColor: "#fde68a", duration: 0.2, ease: "none" }, st + FD - 0.04);
+        });
+        tl.to(q("#s04-dialog"), { opacity: 0, y: 24, duration: 0.4, ease: IN }, fb + 0.5);
+        tl.to(q("#s04-list"), { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, fb + 0.55);
+
+        // sign in
+        tapRipple(q("#s04-tap1"), 1515, 612, X);
+        tl.to(q("#s04-verify"), { scale: 0.95, duration: 0.09, ease: "power2.out" }, X).to(q("#s04-verify"), { scale: 1, duration: 0.25, ease: "power2.out" }, X + 0.09);
+
+        // 3. screens switch: login clears first, then the mission screen settles
+        tl.to(q("#s04-login"), { opacity: 0, duration: 0.25, ease: "power2.in" }, X + 0.12);
+        tl.fromTo(q("#s04-mission"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: OUT }, X + 0.3);
+        tl.to(q("#s04-list"), { opacity: 0, duration: 0.3, ease: "power2.in" }, X + 0.15);
+        tl.fromTo(q("#s04-mview"), { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, X + 0.3);
+
+        // 4. the tap: status moves from phone to office
+        tapRipple(q("#s04-tap2"), 1515, 544, tapT);
+        tl.to(q("#s04-tile"), { scale: 0.96, duration: 0.09, ease: "power2.out" }, tapT).to(q("#s04-tile"), { scale: 1, duration: 0.3, ease: "power2.out" }, tapT + 0.09);
+        K.swap(tl, q("#s04-pl1"), q("#s04-pl2"), tapT + 0.05);
+        // packet along the thread
+        const th = q("#s04-thread-path");
+        const pa = { x: 1515, y: 544 }, pc = { x: 1200, y: 300 }, pb = { x: 864, y: 500 };
+        tl.fromTo(q("#s04-packet"), { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, tapT + 0.15);
+        fly(q("#s04-packet"), 124, 58, pa, pc, pb, tapT + 0.2, 0.9, MOVE, 1, 0.85, (t) => gsap.set(th, { strokeDashoffset: 1 - t }));
+        tl.to(q("#s04-packet"), { opacity: 0, duration: 0.2, ease: IN }, tapT + 1.02);
+        tl.to(q("#s04-thread"), { opacity: 0, duration: 0.7, ease: "power2.in" }, tapT + 1.6);
+        tl.fromTo(q("#s04-event"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: OUT }, tapT + 1.1);
+        tl.fromTo(q("#s04-dot3"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.45, ease: OUT }, tapT + 1.1);
+        // the phone calms down: the used tile and its label leave, the rest slides up
+        tl.to([q("#s04-tile"), q(".ms-label")], { opacity: 0, duration: 0.25, ease: IN }, tapT + 0.45);
+        tl.to(q("#s04-lower"), { y: -260, duration: 0.7, ease: MOVE }, tapT + 1.0);
+        K.title(tl, q("#s04-title1"), t1in);
+
+        // 5. network drops, a photo waits
+        tl.fromTo(q("#s04-banner"), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.5, ease: OUT }, T.photo - 0.2);
+        tl.to(q("#s04-sigslash"), { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" }, T.photo - 0.15);
+        tl.to(q("#s04-sigbars"), { opacity: 0.4, duration: 0.3, ease: "none" }, T.photo - 0.1);
+        tapRipple(q("#s04-tap3"), 1515, 441, T.photo + 0.15);
+        tl.to(q("#s04-photobtn"), { scale: 0.96, duration: 0.09, ease: "power2.out" }, T.photo + 0.15).to(q("#s04-photobtn"), { scale: 1, duration: 0.3, ease: "power2.out" }, T.photo + 0.24);
+        tl.fromTo(q("#s04-phthumb"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: OUT }, T.photo + 0.35);
+        K.pop(tl, q("#s04-cap1"), T.photo + 0.6);
+        K.pop(tl, q("#s04-q1"), T.photo + 0.85);
+        K.titleOut(tl, q("#s04-title1"), t1out);
+
+        // 6. ferry and mountains
+        const strip = q("#s04-strip");
+        tl.fromTo(strip, { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.6, ease: OUT }, T.ferry - 0.6);
+        const truck = q("#s04-truck"), pr = { p: 0 };
+        const dotB = q("#s04-dotB"), dotC = q("#s04-dotC");
+        gsap.set([dotB, dotC], { opacity: 0.3 });
+        tl.fromTo(pr, { p: 0 }, { p: 1, duration: 1.7, ease: "power1.inOut", onUpdate: () => {
+          const x = X0 + (X1 - X0) * pr.p;
+          gsap.set(truck, { x: x - 26, y: routeY(x) - 17 });
+          gsap.set(dotB, { opacity: x >= XM ? 1 : 0.3 });
+          gsap.set(dotC, { opacity: x >= X1 - 2 ? 1 : 0.3 });
+        } }, T.ferry - 0.3);
+        tl.fromTo(q("#s04-nosig1"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, T.ferry - 0.25);
+        tl.fromTo(q("#s04-nosig2"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, T.ferry + 0.45);
+        // signal returns on solid land
+        tl.to([q("#s04-nosig1"), q("#s04-nosig2")], { opacity: 0, duration: 0.4, ease: "power2.in" }, sg - 0.1);
+        tl.to(q("#s04-banner"), { opacity: 0, y: -30, duration: 0.45, ease: IN }, sg);
+        tl.to(q("#s04-sigslash"), { strokeDashoffset: 1, duration: 0.3, ease: "power2.in" }, sg);
+        tl.to(q("#s04-sigbars"), { opacity: 1, duration: 0.3, ease: "none" }, sg);
+        K.swap(tl, q("#s04-q1"), q("#s04-q2"), sg + 0.1);
+        K.swap(tl, q("#s04-cap1"), q("#s04-cap2"), sg + 0.1);
+        // photo flies into the dossier (the office only receives it now)
+        const ft = sg + 0.15, fd = 0.8;
+        tl.fromTo(q("#s04-flythumb"), { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" }, ft);
+        fly(q("#s04-flythumb"), 114, 140, { x: 1390, y: 562 }, { x: 800, y: 560 }, { x: 202, y: 723 }, ft, fd, MOVE, 1, 1.05);
+        tl.to(q("#s04-flythumb"), { opacity: 0, duration: 0.2, ease: "none" }, ft + fd - 0.05);
+        tl.fromTo(q("#s04-slot"), { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "none" }, ft + fd - 0.1);
+        tl.fromTo(q("#s04-attach-label"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: OUT }, ft + fd - 0.5);
+        K.pop(tl, q("#s04-tag"), ft + fd - 0.05);
+        K.title(tl, q("#s04-title2"), T.ferry + 0.2);
+
+        // ── exit ──
+        K.camOut(tl, q(".cam"), T.out);
+        window.__timelines["s04"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

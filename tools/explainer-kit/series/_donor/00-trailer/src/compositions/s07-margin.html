@@ -1,0 +1,204 @@
+<template>
+  <style>
+    #s07-root { position: absolute; inset: 0; overflow: hidden; }
+    #s07-root .cam, #s07-root .world { position: absolute; inset: 0; }
+
+    /* the dark FinanceView panel */
+    #s07-root .panel { position: absolute; left: 200px; top: 70px; width: 1180px; height: 700px; box-sizing: border-box; padding: 54px 64px; border-radius: 24px; background: var(--grad-panel); color: #fff; box-shadow: var(--shadow-card); font-family: var(--f-body); }
+    #s07-root .p-title { font-size: 28px; font-weight: 600; letter-spacing: 0.02em; color: #dbeafe; opacity: 0.9; }
+    #s07-root .row1 { position: absolute; left: 104px; top: 124px; display: flex; align-items: center; gap: 24px; }
+    #s07-root .fig { position: relative; display: inline-flex; align-items: baseline; gap: 22px; }
+    #s07-root .big { font-family: var(--f-display); font-weight: 700; font-size: 96px; line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    #s07-root .pct { font-size: 34px; font-weight: 600; color: var(--brand-300); white-space: nowrap; }
+    #s07-root .pulse { position: absolute; left: -22px; right: -22px; top: -6px; bottom: -6px; border: 3px solid #fff; border-radius: 22px; opacity: 0; }
+    #s07-root .lock { display: block; width: 62px; height: 62px; opacity: 0; }
+    #s07-root .lab1 { position: absolute; left: 64px; top: 252px; display: flex; align-items: center; gap: 20px; font-size: 28px; color: #bfdbfe; max-width: 1040px; line-height: 1.25; }
+    #s07-root .docs { flex: none; width: 44px; height: 44px; }
+    #s07-root .divider { position: absolute; left: 64px; top: 352px; width: 1052px; height: 2px; background: rgba(255,255,255,0.15); transform-origin: 0 50%; }
+    #s07-root .slot { position: absolute; left: 64px; top: 384px; width: 1052px; height: 200px; }
+    #s07-root .fig2 { position: absolute; left: 0; top: 0; width: 100%; }
+    #s07-root .row2 { display: flex; align-items: baseline; gap: 20px; }
+    #s07-root .small { font-family: var(--f-display); font-weight: 700; font-size: 62px; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    #s07-root .pct2 { font-size: 30px; font-weight: 600; color: var(--brand-300); white-space: nowrap; }
+    #s07-root .lab2 { margin-top: 12px; font-size: 25px; line-height: 1.3; color: #bfdbfe; max-width: 980px; }
+    #s07-root .off { position: absolute; left: 0; top: 6px; width: 920px; font-size: 30px; line-height: 1.35; color: #bfdbfe; }
+    #s07-root .mnote { position: absolute; left: 264px; top: 796px; font-size: 26px; color: #b6c3d6; font-family: var(--f-body); }
+
+    /* callouts sit in panel coordinates */
+    #s07-root .co1 { left: 42px; top: 182px; box-shadow: 0 0 0 7px rgba(251,191,36,0.28), 0 0 22px rgba(251,191,36,0.35); }
+    #s07-root .co2 { left: 34px; top: 424px; box-shadow: 0 0 0 7px rgba(251,191,36,0.28), 0 0 22px rgba(251,191,36,0.35); }
+    #s07-root .sk { position: absolute; background: rgba(255,255,255,0.07); border-radius: 16px; opacity: 0; }
+
+    /* allocation control card */
+    #s07-root .ctl { position: absolute; left: 1440px; top: 470px; width: 400px; box-sizing: border-box; padding: 32px 30px; display: flex; flex-direction: column; gap: 26px; }
+    #s07-root .stat { display: grid; }
+    #s07-root .stat-i { grid-area: 1 / 1; align-self: start; display: flex; gap: 14px; align-items: flex-start; font-size: 25px; line-height: 1.3; font-weight: 500; color: var(--ui-ink); }
+    #s07-root .stat-i span:last-child { text-wrap: balance; }
+    #s07-root .stat-i .k-dot { flex: none; width: 16px; height: 16px; border-radius: 50%; margin-top: 8px; }
+    #s07-root .stat-i.on .k-dot { background: var(--ok); }
+    #s07-root .stat-i.offs .k-dot { background: var(--ui-ink-4); }
+    #s07-root .ctl-btn { position: relative; width: 100%; box-sizing: border-box; }
+    #s07-root .ctl-btn .bl { position: absolute; left: 0; right: 0; top: 50%; margin-top: -0.65em; text-align: center; line-height: 1.3; }
+    #s07-root .ctl-btn .bl1 { position: static; display: block; margin-top: 0; }
+    #s07-root .ctl-btn .bl2 { opacity: 0; }
+
+    #s07-root .cursor { position: absolute; left: 0; top: 0; opacity: 0; }
+    #s07-root .rip { left: 0; top: 0; opacity: 0; }
+  </style>
+
+  <div id="s07-root" data-composition-id="s07" data-width="1920" data-height="1080">
+    <div class="cam" id="s07-cam">
+      <div class="world" id="s07-world">
+
+        <div class="panel" id="s07-panel">
+          <div class="p-title" id="s07-ptitle">{{ui:web.finance.margin_title}}</div>
+
+          <div class="sk" id="s07-sk1a" style="left:104px;top:132px;width:580px;height:84px"></div>
+          <div class="sk" id="s07-sk1b" style="left:64px;top:258px;width:620px;height:24px;border-radius:12px"></div>
+          <div class="sk" id="s07-sk2a" style="left:64px;top:398px;width:380px;height:56px"></div>
+          <div class="sk" id="s07-sk2b" style="left:64px;top:474px;width:700px;height:22px;border-radius:11px"></div>
+          <div class="sk" id="s07-skd" style="left:64px;top:352px;width:1052px;height:2px;border-radius:1px"></div>
+
+          <div class="row1">
+            <div class="fig" id="s07-fig">
+              <div class="pulse" id="s07-pulse"></div>
+              <div class="big" id="s07-big">+ 0,00</div>
+              <div class="pct" id="s07-pct">{{copy:demo.margin_before_pct}}</div>
+              <svg class="lock" id="s07-lock" viewBox="0 0 48 48" fill="none" stroke="#FBBF24" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="21" width="30" height="21" rx="5" fill="rgba(251,191,36,0.18)"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><circle cx="24" cy="31" r="2.6" fill="#FBBF24"/></svg>
+            </div>
+          </div>
+
+          <div class="lab1" id="s07-lab1">
+            <svg class="docs" viewBox="0 0 44 44" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="24" height="30" rx="3" opacity="0.45"/><rect x="11" y="8" width="24" height="30" rx="3" opacity="0.7"/><rect x="16" y="12" width="24" height="30" rx="3" fill="rgba(11,18,32,0.5)"/><path d="M22 20h12M22 26h12M22 32h7"/></svg>
+            <span>{{ui:web.finance.margin_before_label}}</span>
+          </div>
+
+          <div class="divider" id="s07-divider"></div>
+
+          <div class="slot">
+            <div class="fig2" id="s07-fig2">
+              <div class="row2"><div class="small">{{copy:demo.margin_after}}</div><div class="pct2">{{copy:demo.margin_after_pct}}</div></div>
+              <div class="lab2">{{copy:demo.margin_after_label}}</div>
+            </div>
+            <div class="off" id="s07-off">{{ui:web.finance.margin_after_off}}</div>
+          </div>
+
+          <div class="k-callout co1" id="s07-co1">1</div>
+          <div class="k-callout co2" id="s07-co2">2</div>
+        </div>
+
+        <div class="mnote" id="s07-mnote">{{copy:demo.note_missions}}</div>
+
+        <div class="k-card ctl" id="s07-ctl">
+          <div class="stat">
+            <div class="stat-i on" id="s07-st-on"><span class="k-dot"></span><span>{{ui:web.finance.overhead_on}}</span></div>
+            <div class="stat-i offs" id="s07-st-off"><span class="k-dot"></span><span>{{ui:web.finance.overhead_off}}</span></div>
+          </div>
+          <div class="k-btn is-ghost ctl-btn" id="s07-btn">
+            <span class="bl bl1" id="s07-bl1">{{ui:web.finance.overhead_disable}}</span>
+            <span class="bl bl2" id="s07-bl2">{{ui:web.finance.overhead_enable}}</span>
+          </div>
+        </div>
+
+        <div class="k-ripple rip" id="s07-rip"></div>
+        <svg class="k-cursor cursor" id="s07-cursor" viewBox="0 0 46 46"><path d="M8 4 L8 36 L16 29 L22 42 L28 39 L22 27 L33 27 Z" fill="#fff" stroke="#0f172a" stroke-width="2.4" stroke-linejoin="round"/></svg>
+
+        <div class="k-title" id="s07-title"><div class="k-title-bar"></div><div class="k-title-text">{{copy:s07.title}}</div></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="s07-sfx">[
+    {"cue":"margin","off":0.0,"type":"whoosh","gain":0.5},
+    {"cue":"direct","off":0.0,"type":"type","gain":0.35},
+    {"cue":"direct","off":0.6,"type":"pop","gain":0.6},
+    {"cue":"net","off":0.0,"type":"pop","gain":0.6},
+    {"cue":"never","off":-1.3,"type":"click","gain":0.8},
+    {"cue":"never","off":-1.2,"type":"shimmer","gain":0.4},
+    {"cue":"never","off":-0.95,"type":"stamp","gain":0.5},
+    {"cue":"out","off":-1.3,"type":"click","gain":0.8}
+  ]</script>
+
+  <script>
+    const T = {{T}};
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector("#s07-root " + s);
+    const cam = $("#s07-cam");
+
+    K.camIn(tl, cam, 0);
+    // sequential swap: old leaves, then new arrives (never two texts at once)
+    const swp = (o, n, at) => {
+      tl.to(o, { opacity: 0, y: -14, duration: 0.2, ease: K.IN }, at);
+      tl.fromTo(n, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: K.OUT, immediateRender: false }, at + 0.24);
+    };
+
+    // 1. panel rises; skeleton keeps it from looking empty
+    tl.fromTo($("#s07-panel"), { opacity: 0, y: 70, rotationX: 6, transformPerspective: 1600 },
+      { opacity: 1, y: 0, rotationX: 0, transformPerspective: 1600, duration: 0.9, ease: K.OUT }, T.margin - 0.2);
+    tl.fromTo($("#s07-ptitle"), { opacity: 0, y: 16 }, { opacity: 0.9, y: 0, duration: 0.6, ease: K.OUT }, T.margin + 0.1);
+    tl.fromTo([$("#s07-sk1a"), $("#s07-sk1b"), $("#s07-sk2a"), $("#s07-sk2b"), $("#s07-skd")], { opacity: 0 }, { opacity: 1, duration: 0.7, ease: "power2.out", stagger: 0.08 }, T.margin + 0.05);
+    tl.to([$("#s07-sk1a"), $("#s07-sk1b")], { opacity: 0, duration: 0.35, ease: "power2.in" }, T.direct - 0.1);
+    tl.to([$("#s07-sk2a"), $("#s07-sk2b"), $("#s07-skd")], { opacity: 0, duration: 0.35, ease: "power2.in" }, T.net - 0.1);
+
+    // 2. direct margin
+    tl.fromTo($("#s07-big"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: K.OUT }, T.direct - 0.4);
+    K.count(tl, $("#s07-big"), 0, 412860, T.direct - 0.4, 1.2, (v) => "+ " + K.fmtAmount(v));
+    tl.fromTo($("#s07-pct"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.55, ease: K.OUT }, T.direct + 0.8);
+    K.rise(tl, $("#s07-lab1"), T.direct + 0.6, { d: 0.7 });
+    K.pop(tl, $("#s07-co1"), T.direct + 0.5);
+    tl.fromTo($("#s07-mnote"), { opacity: 0 }, { opacity: 0.9, duration: 0.7, ease: "power2.out" }, T.direct + 1.2);
+
+    // 3. net margin + allocation control
+    tl.fromTo($("#s07-divider"), { scaleX: 0, opacity: 1 }, { scaleX: 1, opacity: 1, duration: 0.7, ease: K.OUT }, T.net - 0.2);
+    tl.fromTo($("#s07-fig2"), { opacity: 0, y: 28, filter: "blur(0px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.75, ease: K.OUT }, T.net - 0.05);
+    K.fadeOut(tl, $("#s07-co1"), T.net - 0.2, 0.4);
+    K.pop(tl, $("#s07-co2"), T.net + 0.3);
+    K.rise(tl, $("#s07-ctl"), T.net - 0.1, { y: 40, d: 0.8 });
+    tl.fromTo($("#s07-off"), { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+
+    // 4. switch it off (early enough that the sentence is readable >= 1.6 s)
+    const tOff = Math.max(T.net + 1.3, T.never - 1.3);
+    const tOn = Math.max(T.out - 1.3, tOff + 2.4);
+    const BX = 1640;
+    const btn = $("#s07-btn");
+    const CY = Math.round(470 + btn.offsetTop + btn.offsetHeight / 2);
+    tl.fromTo($("#s07-cursor"), { x: 1860, y: 960, opacity: 0 }, { x: 1860, y: 960, opacity: 1, duration: 0.3, ease: "none" }, tOff - 1.3);
+    K.cursorTo(tl, $("#s07-cursor"), BX - 8, CY - 6, tOff - 1.2, 0.85);
+    K.fadeOut(tl, $("#s07-co2"), tOff - 0.5, 0.35);
+
+    tl.fromTo($("#s07-st-off"), { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo($("#s07-bl2"), { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    K.click(tl, $("#s07-cursor"), $("#s07-btn"), tOff, $("#s07-rip"), BX, CY);
+    swp($("#s07-st-on"), $("#s07-st-off"), tOff + 0.12);
+    swp($("#s07-bl1"), $("#s07-bl2"), tOff + 0.12);
+
+    // second figure dissolves, sentence replaces it (readable from tOff+0.8)
+    tl.to($("#s07-fig2"), { opacity: 0, filter: "blur(8px)", y: -10, duration: 0.3, ease: "power2.in" }, tOff + 0.1);
+    tl.to($("#s07-divider"), { opacity: 0.55, duration: 0.3 }, tOff + 0.15);
+    tl.fromTo($("#s07-off"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: K.OUT, immediateRender: false }, tOff + 0.4);
+
+    // "unchanged": outline pulse + lock
+    tl.fromTo($("#s07-pulse"), { opacity: 0, scale: 0.98 }, { opacity: 0.95, scale: 1, duration: 0.3, ease: K.OUT }, tOff + 0.15);
+    tl.to($("#s07-pulse"), { opacity: 0, scale: 1.04, duration: 0.7, ease: "power2.out" }, tOff + 0.5);
+    tl.fromTo($("#s07-lock"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: K.OUT }, tOff + 0.35);
+
+    // title: fully up >= 2.2 s before the exit, lands with "never mixed"
+    K.title(tl, $("#s07-title"), Math.min(T.never - 0.3, T.out - 3.1));
+
+    // switch it back on; the scene ends with both margins visible
+    {
+      K.cursorTo(tl, $("#s07-cursor"), BX - 8, CY - 6, tOn - 0.15, 0.15);
+      K.click(tl, $("#s07-cursor"), $("#s07-btn"), tOn, $("#s07-rip"), BX, CY);
+      swp($("#s07-st-off"), $("#s07-st-on"), tOn + 0.12);
+      swp($("#s07-bl2"), $("#s07-bl1"), tOn + 0.12);
+      tl.to($("#s07-off"), { opacity: 0, y: -10, duration: 0.3, ease: "power2.in" }, tOn + 0.1);
+      tl.fromTo($("#s07-fig2"), { opacity: 0, y: 28, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: K.OUT, immediateRender: false }, tOn + 0.3);
+      tl.to($("#s07-divider"), { opacity: 1, duration: 0.3 }, tOn + 0.3);
+      K.fadeOut(tl, $("#s07-lock"), tOn + 0.2, 0.3);
+      K.fadeOut(tl, $("#s07-cursor"), tOn + 0.6, 0.3);
+    }
+
+    K.camOut(tl, cam, T.out);
+    window.__timelines["s07"] = tl;
+  </script>
+</template>

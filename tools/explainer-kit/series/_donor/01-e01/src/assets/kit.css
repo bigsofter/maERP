@@ -1,0 +1,181 @@
+/* maTransports explainer kit — the product's own surfaces, redrawn at video scale (≈2× the portal).
+   Source of truth: apps/web/app/globals.css (dusk theme), tailwind.config.ts, apps/mobile/src/ui/theme.ts.
+   Every class is prefixed k-. Scenes compose these; they never restyle them globally. */
+
+:root {
+  /* stage (behind everything) */
+  --stage: #070b18;
+  --stage-2: #0b1430;
+  --on-dark: #f1f5f9;
+  --on-dark-2: #cbd5e1;
+  --on-dark-3: #94a3b8;
+  /* portal work area (light) */
+  --ui-bg: #f8fafc;
+  --ui-bg2: #f1f5f9;
+  --ui-card: #ffffff;
+  --ui-line: #e2e8f0;
+  --ui-ink: #0f172a;
+  --ui-ink-2: #334155;
+  --ui-ink-3: #475569;
+  --ui-ink-4: #94a3b8;
+  /* brand */
+  --brand: #1d4ed8;
+  --brand-500: #3b82f6;
+  --brand-300: #93c5fd;
+  --brand-tint: #eff6ff;
+  --sky: #0ea5e9;
+  --amber: #f59e0b;
+  --amber-glyph: #fbbf24;
+  --amber-soft: #fde68a;
+  --grad-brand: linear-gradient(125deg, #1d4ed8, #0ea5e9);
+  --grad-panel: linear-gradient(125deg, #0b1220 0%, #1e3a8a 55%, #1d4ed8 100%);
+  /* traffic light — red is spent only on what stops work */
+  --ok: #16a34a; --ok-fg: #15803d; --ok-bg: #f0fdf4; --ok-line: #86efac;
+  --warn: #f59e0b; --warn-fg: #b45309; --warn-bg: #fffbeb; --warn-line: #fcd34d;
+  --stop: #dc2626; --stop-fg: #b91c1c; --stop-bg: #fef2f2; --stop-line: #fca5a5;
+  /* dusk rail */
+  --rail: #0d1526;
+  --rail-line: rgba(148, 163, 184, 0.16);
+  --rail-item: #a8b6cc;
+  --rail-strong: #e6edf7;
+  --rail-muted: #7a8aa3;
+  --rail-icon: #8494ac;
+  --rail-active-bg: rgba(96, 165, 250, 0.16);
+  --rail-active-ink: #93c5fd;
+  /* driver app (dark cockpit) */
+  --app-bg: #0b1220;
+  --app-raised: #111a2c;
+  --app-card: rgba(17, 26, 44, 0.92);
+  --app-line: rgba(148, 163, 184, 0.16);
+  --app-text: #f1f5f9;
+  --app-mid: #cbd5e1;
+  --app-muted: #94a3b8;
+  --app-green: #4ade80;
+  /* type — --f-display is set per language in index.html (Manrope for Cyrillic) */
+  --f-body: "Inter", sans-serif;
+  --f-mono: "JetBrains Mono", monospace;
+  --shadow-card: 0 50px 120px -30px rgba(0, 0, 0, 0.7), 0 18px 40px -18px rgba(2, 6, 23, 0.55);
+}
+
+/* ── Surfaces ─────────────────────────────────────────────── */
+.k-card {
+  position: relative;
+  background: var(--ui-card);
+  border: 2px solid var(--ui-line);
+  border-radius: 24px;
+  box-shadow: var(--shadow-card);
+  color: var(--ui-ink);
+  font-family: var(--f-body);
+  overflow: hidden;
+}
+.k-card-h { display: flex; align-items: center; gap: 18px; padding: 26px 32px; border-bottom: 2px solid var(--ui-line); }
+.k-card-t { font-family: var(--f-display); font-weight: 600; font-size: 30px; letter-spacing: -0.02em; color: var(--ui-ink); }
+.k-card-b { padding: 26px 32px; }
+.k-sub { font-size: 21px; color: var(--ui-ink-3); }
+.k-label { font-size: 17px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ui-ink-4); }
+.k-mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.k-num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* ── Pills (status) and chips (price source) ─────────────────── */
+.k-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 44px; padding: 0 20px; border-radius: 999px;
+  font-family: var(--f-body); font-weight: 600; font-size: 21px; white-space: nowrap;
+  background: var(--ui-bg2); color: var(--ui-ink-2);
+}
+.k-pill .k-dot { width: 12px; height: 12px; border-radius: 50%; background: currentColor; }
+.k-pill.is-blue { background: var(--brand-tint); color: var(--brand); }
+.k-pill.is-green { background: var(--ok-bg); color: var(--ok-fg); }
+.k-pill.is-amber { background: var(--warn-bg); color: var(--warn-fg); }
+.k-pill.is-red { background: var(--stop-bg); color: var(--stop-fg); }
+.k-chip {
+  display: inline-flex; align-items: center; height: 34px; padding: 0 12px; border-radius: 9px;
+  font-family: var(--f-body); font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+  background: var(--brand-tint); color: var(--brand); border: 1.5px solid rgba(29, 78, 216, 0.18);
+}
+.k-chip.is-slate { background: var(--ui-bg2); color: var(--ui-ink-3); border-color: var(--ui-line); }
+.k-chip.is-green { background: var(--ok-bg); color: var(--ok-fg); border-color: rgba(22, 163, 74, 0.22); }
+.k-chip.is-amber { background: var(--warn-bg); color: var(--warn-fg); border-color: rgba(245, 158, 11, 0.3); }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.k-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  height: 64px; padding: 0 30px; border-radius: 16px; border: 2px solid transparent;
+  font-family: var(--f-body); font-weight: 600; font-size: 23px; white-space: nowrap;
+  background: var(--brand); color: #fff; box-shadow: 0 10px 24px -10px rgba(29, 78, 216, 0.7);
+}
+.k-btn.is-ghost { background: #fff; color: var(--ui-ink); border-color: var(--ui-line); box-shadow: none; }
+.k-btn.is-amber { background: var(--amber); color: var(--ui-ink); border-color: var(--amber-soft); }
+
+/* ── Tables ─────────────────────────────────────────────── */
+.k-th { font-size: 16px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ui-ink-4); }
+.k-row { display: grid; align-items: center; min-height: 76px; border-bottom: 2px solid var(--ui-bg2); font-size: 22px; color: var(--ui-ink); }
+.k-row:last-child { border-bottom: 0; }
+
+/* ── Alert plates ─────────────────────────────────────────── */
+.k-alert {
+  display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; border-radius: 16px;
+  font-family: var(--f-body); font-size: 22px; font-weight: 500; line-height: 1.35;
+  background: #fee2e2; color: var(--stop-fg); border: 2px solid var(--stop-line);
+}
+.k-alert.is-amber { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
+.k-alert.is-green { background: var(--ok-bg); color: var(--ok-fg); border-color: var(--ok-line); }
+.k-alert svg { flex: none; width: 30px; height: 30px; margin-top: 1px; }
+
+/* ── Portal shell (dusk theme: dark rail, white topbar, light page) ─── */
+.k-shell { position: relative; display: grid; grid-template-columns: 432px 1fr; background: var(--ui-bg); border-radius: 26px; overflow: hidden; box-shadow: var(--shadow-card); }
+.k-rail { background: var(--rail); border-right: 2px solid var(--rail-line); padding: 26px 0; font-family: var(--f-body); }
+.k-rail-head { display: flex; align-items: center; gap: 16px; padding: 0 28px 26px; }
+.k-mono-mark { width: 56px; height: 56px; border-radius: 18px; background: var(--grad-brand); display: flex; align-items: center; justify-content: center; flex: none; }
+.k-mono-mark svg { width: 34px; height: 34px; }
+.k-wordmark { font-family: "Sora", "Manrope", sans-serif; font-weight: 600; font-size: 30px; letter-spacing: -0.02em; color: var(--rail-strong); }
+.k-wordmark .t { background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.k-rail-space { padding: 18px 28px 8px; font-family: var(--f-display); font-size: 21px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rail-strong); }
+.k-rail-group { padding: 14px 28px 8px; font-size: 18px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rail-muted); }
+.k-rail-item { display: flex; align-items: center; gap: 18px; margin: 2px 16px; padding: 12px 18px; border-radius: 16px; font-size: 25px; color: var(--rail-item); white-space: nowrap; }
+.k-rail-item svg { width: 34px; height: 34px; flex: none; stroke: var(--rail-icon); }
+.k-rail-item.is-active { background: var(--rail-active-bg); color: var(--rail-active-ink); font-weight: 600; }
+.k-rail-item.is-active svg { stroke: var(--rail-active-ink); }
+.k-topbar { display: flex; align-items: center; gap: 24px; height: 112px; padding: 0 36px; background: #fff; border-bottom: 2px solid var(--ui-line); }
+.k-topbar-t { font-family: var(--f-display); font-weight: 600; font-size: 30px; color: var(--ui-ink); white-space: nowrap; }
+
+/* ── Mission stepper (MissionStepper.tsx) ─────────────────── */
+.k-stepper { display: flex; align-items: flex-start; gap: 0; }
+.k-step { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 112px; }
+.k-step-c { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--f-body); font-weight: 600; font-size: 21px; background: var(--ui-bg2); color: var(--ui-ink-3); }
+.k-step-l { font-size: 18px; color: var(--ui-ink-3); white-space: nowrap; }
+.k-step.is-current .k-step-c { background: var(--brand); color: #fff; box-shadow: 0 0 0 8px rgba(29, 78, 216, 0.16); }
+.k-step.is-done .k-step-c { background: #dcfce7; color: var(--ok-fg); }
+.k-step-link { width: 24px; height: 4px; margin-top: 22px; border-radius: 2px; background: var(--ui-line); flex: none; }
+.k-step-link.is-done { background: var(--ok-line); }
+
+/* ── Driver phone (apps/mobile: dark cockpit, amber = the one action colour) ─── */
+.k-phone { position: relative; width: 500px; height: 1000px; border-radius: 76px; background: #05070d; padding: 18px; box-shadow: 0 60px 140px -30px rgba(0, 0, 0, 0.85), inset 0 0 0 3px #1c2333; }
+.k-phone-screen { position: relative; width: 100%; height: 100%; border-radius: 60px; background: var(--app-bg); overflow: hidden; font-family: var(--f-body); color: var(--app-text); }
+.k-phone-notch { position: absolute; top: 18px; left: 50%; width: 140px; height: 38px; margin-left: -70px; border-radius: 20px; background: #05070d; z-index: 5; }
+.k-app-card { background: var(--app-card); border: 2px solid var(--app-line); border-radius: 32px; padding: 26px; }
+.k-app-label { font-size: 19px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+.k-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 152px; border-radius: 32px; border: 3px solid var(--app-line); background: rgba(148, 163, 184, 0.1); font-weight: 700; font-size: 26px; color: var(--app-mid); text-align: center; }
+.k-tile.is-next { background: var(--amber); border-color: var(--amber-soft); color: var(--ui-ink); }
+.k-tile svg { width: 46px; height: 46px; }
+.k-app-pill { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 10px; font-size: 21px; font-weight: 600; }
+.k-app-pill.is-amber { background: rgba(245, 158, 11, 0.14); color: var(--amber-soft); border: 2px solid rgba(245, 158, 11, 0.4); }
+.k-app-pill.is-sky { background: rgba(14, 165, 233, 0.14); color: var(--brand-300); border: 2px solid rgba(14, 165, 233, 0.35); }
+.k-app-pill.is-green { background: rgba(22, 163, 74, 0.16); color: var(--app-green); border: 2px solid rgba(74, 222, 128, 0.3); }
+
+/* ── Cursor + click ripple ─────────────────────────────────── */
+.k-cursor { position: absolute; left: 0; top: 0; width: 46px; height: 46px; z-index: 50; pointer-events: none; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45)); }
+.k-ripple { opacity: 0; position: absolute; width: 90px; height: 90px; margin: -45px 0 0 -45px; border-radius: 50%; border: 4px solid rgba(59, 130, 246, 0.9); z-index: 49; pointer-events: none; }
+.k-tap { opacity: 0; position: absolute; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); z-index: 49; pointer-events: none; }
+
+/* ── Callout ①②③ (numbered circle that says "look here") ─── */
+.k-callout { position: absolute; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 700; font-size: 26px; color: var(--ui-ink); background: var(--amber-glyph); box-shadow: 0 0 0 7px rgba(251, 191, 36, 0.25), 0 10px 24px -8px rgba(0, 0, 0, 0.5); z-index: 40; }
+
+/* ── Lower-third title (one per beat; the voice never reads it) ─── */
+.k-title { position: absolute; left: 120px; bottom: 84px; max-width: 1380px; display: flex; align-items: flex-start; gap: 26px; z-index: 60; }
+.k-title-bar { flex: none; width: 10px; height: 64px; margin-top: 4px; border-radius: 5px; background: var(--amber-glyph); transform-origin: 50% 0%; }
+.k-title-text { text-wrap: balance; font-family: var(--f-display); font-weight: 600; font-size: 56px; line-height: 1.12; letter-spacing: -0.02em; color: #fff; text-shadow: 0 4px 30px rgba(3, 7, 18, 0.65); }
+.k-title-text .w { display: inline-block; white-space: pre; }
+
+/* ── Small inline icons sit on currentColor ─── */
+.k-ico { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{LANG}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+{{KITJS}}
+    </script>
+    <style>
+      /* Portal typefaces (apps/web/tailwind.config.ts) shipped locally; Manrope covers Cyrillic display text. */
+{{FONTS}}
+    </style>
+    <style>
+{{KIT}}
+      :root { --f-display: {{DISPLAY}}; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #070b18; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #070b18; font-family: var(--f-body); color: var(--on-dark); }
+      [data-composition-id="main"] > div[data-composition-src] { position: absolute; inset: 0; }
+      #fade { position: absolute; inset: 0; background: #03050c; opacity: 0; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="{{TOTAL}}" data-width="1920" data-height="1080">
+      <div id="el-bg" data-composition-id="bg" data-composition-src="compositions/bg.html" data-start="0" data-duration="{{TOTAL}}" data-track-index="0" data-width="1920" data-height="1080"></div>
+{{HOSTS}}
+      <div id="fade" class="clip" data-start="{{FADE_AT}}" data-duration="1" data-track-index="20"></div>
+{{AUDIO}}
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 1, ease: "power1.in" }, {{FADE_AT}});
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

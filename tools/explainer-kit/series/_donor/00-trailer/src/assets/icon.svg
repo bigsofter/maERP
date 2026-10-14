@@ -1,0 +1,43 @@
+<!-- Favicon — the sidebar's TruckMonogram, redrawn to survive 16 px.
+
+     Same two brand decisions as the mark in components/PortalShell.tsx: the
+     bg-grad-brand square (125°, #1D4ED8 → #0EA5E9) and the amber truck on it.
+     What changes is HOW the truck is drawn: the shell's glyph is a 2 px stroke
+     on a 24-unit grid, which at favicon size collapses into a smudge. Here it
+     is filled silhouette with the wheels cut out of the body, so the shape
+     still reads as a truck in a browser tab and in a task-switcher.
+
+     Served by Next at /icon.svg from app/, so it covers every route and every
+     locale without a <link> tag anywhere. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="maTransports">
+  <defs>
+    <!-- 125° in CSS ≈ this diagonal: the same blue→sky the shell paints. -->
+    <linearGradient id="brand" x1="0%" y1="0%" x2="82%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="32" height="32" rx="8" fill="url(#brand)"/>
+
+  <g fill="#FBBF24">
+    <!-- One chassis under both halves: without it the trailer and the cab
+         read as two unrelated blocks at small sizes. -->
+    <rect x="4.2" y="17.4" width="23.4" height="2.4" rx="1.2"/>
+    <!-- Trailer box, then the tractor with its sloped windscreen. -->
+    <rect x="4.2" y="8.6" width="12.6" height="9" rx="1.7"/>
+    <path d="M18.1 11.4h4.6l4.9 4v2.2h-9.5z"/>
+  </g>
+  <!-- Wheels straddle the chassis rather than hang below it — that overlap is
+       what makes the silhouette a truck at 16 px instead of a box on dots. -->
+  <g fill="#FBBF24">
+    <circle cx="9.6" cy="20.4" r="3.1"/>
+    <circle cx="22.4" cy="20.4" r="3.1"/>
+  </g>
+  <!-- Hubs punched back out in the box colour: at 32 px they turn two blobs
+       into wheels, at 16 px they simply soften them. -->
+  <g fill="#1E52DE">
+    <circle cx="9.6" cy="20.4" r="1.2"/>
+    <circle cx="22.4" cy="20.4" r="1.2"/>
+  </g>
+</svg>
