@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.80
+### ru
+- Отчёт «Планирование закупок» считает правильно. Раньше проданное количество умножалось на число партий товара на складе, а остаток в итоге по товару показывался по одному складу вместо суммы по всем. Теперь «Продано» — ровно проданное за период, а «Текущий остаток» — сколько товара физически лежит на складе, включая приход по ордерам, ещё не оформленный поступлением. У проданного товара видны и склады, где он лежит без продаж за период. Отбор по месту хранения теперь работает.
+- Отчёт «Товары в наличии» (и команда «Товары в наличии» в карточке товара) показывает, сколько товара физически лежит на складе, одной строкой на товар, характеристику и серию, без разбивки по партиям. Если в сохранённой настройке отчёта был отбор или колонка «Партия», этот элемент при открытии пропадёт. Остатки по партиям и стоимости — в «Ведомости по товарам на складах».
+- Мобильная форма продажи работает с ордерным складом так же, как основная: в новой продаже ордерный склад не предлагается, а продажа, оформленная по расходным ордерам, показывает колонку «Ордер» и не даёт сменить склад.
+
+### fr
+- Le rapport « Planification des achats » calcule correctement. Auparavant, la quantité vendue était multipliée par le nombre de lots de l'article en entrepôt, et le total par article montrait le stock d'un seul entrepôt au lieu de la somme de tous. Désormais « Vendu » est exactement la quantité vendue sur la période, et « Stock actuel » la quantité physiquement en entrepôt, y compris l'entrée par bons pas encore régularisée par une réception. Pour un article vendu, les entrepôts où il est en stock sans vente sur la période apparaissent aussi. Le filtre par entrepôt fonctionne désormais.
+- Le rapport « Marchandises en stock » (et la commande « Marchandises en stock » de la fiche article) montre la quantité physiquement en entrepôt, une ligne par article, caractéristique et série, sans détail par lot. Si un paramétrage enregistré du rapport avait un filtre ou une colonne « Lot », cet élément disparaît à l'ouverture. Les stocks par lot et en valeur sont dans le rapport « État des stocks ».
+- Le formulaire mobile de vente fonctionne avec l'entrepôt à bons comme le formulaire principal : une nouvelle vente ne propose pas d'entrepôt à bons, et une vente qui régularise des bons de sortie affiche la colonne « Bon » et ne permet pas de changer d'entrepôt.
+
+### en
+- The «Purchase planning» report now calculates correctly. Previously the quantity sold was multiplied by the number of batches of the item in the warehouse, and the item total showed the stock of a single warehouse instead of the sum of all. Now «Sold» is exactly the quantity sold in the period, and «Current stock» is the quantity physically in the warehouse, including receipts by orders not yet documented by a purchase receipt. For a sold item, the warehouses holding it without sales in the period are shown too. The filter by warehouse now works.
+- The «Goods in stock» report (and the «Goods in stock» command on the product card) shows the quantity physically in the warehouse, one line per product, characteristic and serial, without a breakdown by batch. If a saved report setting had a filter or column «Batch», that element is dropped on opening. Stock by batch and by value is in the «Inventory status» report.
+- The mobile sale form works with an order-based warehouse like the main form: a new sale does not offer an order-based warehouse, and a sale that documents issue orders shows the «Order» column and does not allow changing the warehouse.
+
+### es
+- El informe «Planificación de compras» calcula correctamente. Antes, la cantidad vendida se multiplicaba por el número de lotes del artículo en el almacén, y el total por artículo mostraba las existencias de un solo almacén en lugar de la suma de todos. Ahora «Vendido» es exactamente lo vendido en el periodo, y «Existencias actuales» la cantidad física en el almacén, incluida la entrada por órdenes aún no formalizada con una recepción. Para un artículo vendido también se ven los almacenes donde está sin ventas en el periodo. El filtro por almacén ya funciona.
+- El informe «Productos en stock» (y el comando «Productos en stock» de la ficha del artículo) muestra la cantidad física en el almacén, una línea por artículo, característica y serie, sin desglose por lote. Si una configuración guardada del informe tenía un filtro o una columna «Lote», ese elemento desaparece al abrirla. Las existencias por lote y en valor están en el informe «Estado del inventario».
+- El formulario móvil de venta funciona con el almacén por órdenes como el principal: una venta nueva no ofrece un almacén por órdenes, y una venta que formaliza órdenes de salida muestra la columna «Orden» y no permite cambiar el almacén.
+
 ## 2.0.16.79
 ### ru
 - Очередь «К оформлению»: в списках приходных и расходных ордеров появилась колонка «К оформлению» — сколько по ордеру ещё не оформлено поступлением или реализацией, и флажок «Только к оформлению» в панели фильтров. Кнопка «Оформить поступлением» / «Оформить реализацией» создаёт один документ по выделенным ордерам; ордера должны быть с одного склада, одной организации, одного контрагента и по одному заказу. После записи документа список обновляется сам.
