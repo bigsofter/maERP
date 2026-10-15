@@ -135,5 +135,5 @@ build/ib-kp`, `smoke.sh build/ib-kp` → `ai-final-check` → коммит → �
 - Печать, которая пишет данные, — только в транзакции; смок формирует формы в транзакции с откатом.
 - `ib-sync.sh`, `doctests.sh`, `smoke.sh`, `cf-dump.sh` — через `bash -c`; rc=141 без строк в логе — повтор; итог
   тестов — строка `ИТОГ;Сценариев=…`; отчёты 1С — CRLF и BOM (`tr -d '\r'`).
-- Внешние обработки headless — `/DisableUnsafeActionProtection` с маской своей базы (workflow-014).
+- Внешние обработки headless — `/DisableUnsafeActionProtection` с маской своей базы (workflow-015).
 - `ai-review --verify` смотрит дельту: закрытое прошлым кругом может прийти «partially_fixed» — сверять с файлом.
