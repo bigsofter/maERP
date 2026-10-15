@@ -10,6 +10,23 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.81
+### ru
+- Оповещение о минимальном остатке приходит и тогда, когда из проведённого документа удалили строку и провели его снова: остаток товара из удалённой строки проверяется на минимум. Раньше такое перепроведение — например, приходного ордера, реализации или передачи в переработку — оповещения не давало.
+- Фирменные печатные формы на выбранном в окне печати языке печатают и тексты бланка, и сумму прописью на этом языке без исключений: язык передаётся бланку напрямую.
+
+### fr
+- L'alerte de stock minimum arrive aussi quand une ligne est supprimée d'un document validé puis que le document est revalidé : le stock de l'article de la ligne supprimée est contrôlé par rapport au minimum. Auparavant, une telle revalidation — par exemple d'un bon de réception, d'une vente ou d'un envoi en sous-traitance — ne donnait pas d'alerte.
+- Les formulaires à en-tête imprimés dans la langue choisie dans la fenêtre d'impression impriment toujours les textes du modèle et le montant en lettres dans cette langue : la langue est transmise directement au modèle.
+
+### en
+- The minimum stock alert now also arrives when a line is deleted from a posted document and the document is posted again: the stock of the item from the deleted line is checked against the minimum. Previously such reposting — for example of a receipt order, a sale or a transfer to processing — gave no alert.
+- Branded print forms in the language chosen in the print window always print the template texts and the amount in words in that language: the language is passed to the template directly.
+
+### es
+- El aviso de existencias mínimas llega también cuando se elimina una línea de un documento contabilizado y se vuelve a contabilizar: las existencias del artículo de la línea eliminada se comprueban frente al mínimo. Antes, esa recontabilización —por ejemplo de una orden de entrada, una venta o un envío a transformación— no daba aviso.
+- Los formularios corporativos impresos en el idioma elegido en la ventana de impresión imprimen siempre los textos de la plantilla y el importe en letras en ese idioma: el idioma se pasa directamente a la plantilla.
+
 ## 2.0.16.80
 ### ru
 - Отчёт «Планирование закупок» считает правильно. Раньше проданное количество умножалось на число партий товара на складе, а остаток в итоге по товару показывался по одному складу вместо суммы по всем. Теперь «Продано» — ровно проданное за период, а «Текущий остаток» — сколько товара физически лежит на складе, включая приход по ордерам, ещё не оформленный поступлением. У проданного товара видны и склады, где он лежит без продаж за период. Отбор по месту хранения теперь работает.
