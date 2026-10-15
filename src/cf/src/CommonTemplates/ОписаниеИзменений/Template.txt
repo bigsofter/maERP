@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.83
+### ru
+- Обработка «Формирование заказов поставщику» правильно считает «Заказано»: раньше у заказа, по которому уже были поступления, количество умножалось на их число, и программа предлагала дозаказать меньше нужного.
+- Контроль кредита по всем клиентам (регламентная проверка запрета отгрузок) учитывает только долги по реализациям и налоговым накладным. Раньше в долг могли попасть и другие документы расчётов.
+- Быстрее работают проведение документов со списанием товара, продаж и заказов поставщику, подбор товара по вводу в строке, сканирование штрихкода в рознице, выбор контрагента и договора в документах и пересчёт розничных цен.
+
+### fr
+- Le traitement « Génération des commandes fournisseurs » calcule correctement « Commandé » : auparavant, pour une commande déjà partiellement reçue, la quantité était multipliée par le nombre de réceptions et le programme proposait de commander moins que nécessaire.
+- Le contrôle de crédit de tous les clients (vérification planifiée de l'interdiction de livrer) ne prend en compte que les dettes des ventes et des factures fiscales. Auparavant, d'autres documents de règlement pouvaient être comptés.
+- Plus rapides : la validation des documents qui sortent du stock, des ventes et des commandes fournisseurs, la sélection d'articles à la saisie, le scan de code-barres en caisse, le choix du tiers et du contrat dans les documents et le recalcul des prix de détail.
+
+### en
+- The «Purchase order generation» processor calculates «Ordered» correctly: previously, for an order that already had receipts, the quantity was multiplied by their number and the program suggested ordering less than needed.
+- Credit control for all customers (the scheduled shipment ban check) counts only debts from sales and tax invoices. Previously other settlement documents could be counted as debt.
+- Faster: posting documents that write off stock, sales and purchase orders, item selection while typing, barcode scanning at the till, choosing the counterparty and contract in documents, and retail price recalculation.
+
+### es
+- El procesamiento «Generación de pedidos a proveedor» calcula bien «Pedido»: antes, en un pedido con recepciones, la cantidad se multiplicaba por su número y el programa proponía pedir menos de lo necesario.
+- El control de crédito de todos los clientes (comprobación programada de la prohibición de envíos) solo tiene en cuenta las deudas de ventas y facturas fiscales. Antes podían contarse otros documentos de liquidación.
+- Más rápido: la contabilización de documentos que dan de baja existencias, de ventas y de pedidos a proveedor, la selección de artículos al escribir, el escaneo de códigos de barras en caja, la elección de contraparte y contrato en los documentos y el recálculo de precios minoristas.
+
 ## 2.0.16.82
 ### ru
 - Из формы выбора реализации убраны пустые колонки «Торговая точка», «Статус накладной» и «Вторая ходка», из журнала безналичных платежей — пустая колонка «Тип платёжного документа». Эти поля остались от прежней конфигурации и данных не показывали.
