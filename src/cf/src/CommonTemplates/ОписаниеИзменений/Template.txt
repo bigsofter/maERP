@@ -10,6 +10,23 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.82
+### ru
+- Из формы выбора реализации убраны пустые колонки «Торговая точка», «Статус накладной» и «Вторая ходка», из журнала безналичных платежей — пустая колонка «Тип платёжного документа». Эти поля остались от прежней конфигурации и данных не показывали.
+- Расширены автоматические проверки программы: проведение поступления из переработки задним числом, автовыпуск с округлённым до нуля расходом материала, обработчик стадий заказов и права ролей личного кабинета и оператора производства.
+
+### fr
+- Les colonnes vides « Point de vente », « Statut du bon » et « Deuxième tournée » sont retirées du formulaire de choix des ventes, et la colonne vide « Type de document de paiement » du journal des paiements par virement. Ces champs venaient de l'ancienne configuration et n'affichaient aucune donnée.
+- Les contrôles automatiques du programme sont étendus : validation d'une réception de sous-traitance antidatée, production automatique avec une consommation de matière arrondie à zéro, traitement des étapes des commandes et droits des rôles espace client et opérateur de production.
+
+### en
+- The empty «Sales outlet», «Invoice status» and «Second trip» columns are removed from the sale choice form, and the empty «Payment document type» column from the bank payments journal. These fields came from the former configuration and showed no data.
+- The program's automatic checks are extended: posting a backdated receipt from processing, automatic production with material consumption rounded to zero, the order stage handler, and the rights of the customer portal and production operator roles.
+
+### es
+- Se quitan las columnas vacías «Punto de venta», «Estado del albarán» y «Segundo viaje» del formulario de selección de ventas, y la columna vacía «Tipo de documento de pago» del diario de pagos por transferencia. Estos campos venían de la configuración anterior y no mostraban datos.
+- Se amplían las comprobaciones automáticas del programa: contabilización de una recepción de transformación con fecha anterior, producción automática con consumo de material redondeado a cero, el procesamiento de etapas de pedidos y los derechos de los roles de portal de clientes y operador de producción.
+
 ## 2.0.16.81
 ### ru
 - Оповещение о минимальном остатке приходит и тогда, когда из проведённого документа удалили строку и провели его снова: остаток товара из удалённой строки проверяется на минимум. Раньше такое перепроведение — например, приходного ордера, реализации или передачи в переработку — оповещения не давало.
