@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="5b431bf1-39fe-43e4-9f6e-7042867dca8c">
+  <producedTypes>
+    <selectionType typeId="9f636834-f935-4958-bbec-1fb1644a061d" valueTypeId="6210f9d4-e058-427f-82ad-5961f8606f88"/>
+    <listType typeId="f17c0267-99f2-4658-8371-d8234d983f75" valueTypeId="f2ab790b-c218-4b09-b65d-7754bb92b970"/>
+    <managerType typeId="788a7fb6-2367-4fd9-8622-0203d1b5f6ef" valueTypeId="1b94f3f2-af26-4323-bd7a-d0fad6eb45ff"/>
+    <recordSetType typeId="d6fc558b-eb06-4838-9623-02387b76460d" valueTypeId="ad30a6cc-1871-485f-bfa6-a2f78b869769"/>
+    <recordKeyType typeId="1a8cc5e1-4161-4240-827d-3328ec94eda6" valueTypeId="4c2fb043-e15c-4923-935f-b200bec37e17"/>
+    <recordType typeId="608008dd-1a37-4058-a366-d0bc3eb0200d" valueTypeId="1f149023-ec65-4b99-925c-9963492934c7"/>
+  </producedTypes>
+  <name>ТоварыКОформлению</name>
+  <synonym>
+    <key>ru</key>
+    <value>Товары к оформлению</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Marchandises à régulariser</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Goods to be documented</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Mercancías por formalizar</value>
+  </synonym>
+  <comment>Неоформленный остаток строк приходных и расходных ордеров: приход - ордер, расход - поступление или реализация по ордеру</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>RecordType</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="203f1484-aea3-4d2d-a1f1-7c1e7d7a1a77">
+    <name>Количество</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Quantité</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quantity</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cantidad</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Количество</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="c487b039-eb80-4ad7-a60e-55d9f7803b97">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место хранения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Entrepôt</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Warehouse</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacén</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="22c32a24-7fda-45a7-ac21-674fdb91de55">
+    <name>Ордер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ордер</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Bon</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Order</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Orden</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ПриходныйОрдер</types>
+      <types>DocumentRef.РасходныйОрдер</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="1d455ae2-bfe2-44e2-9ce9-d25b034bd2d7">
+    <name>КлючСтрокиОрдера</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ключ строки ордера</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Clé de ligne du bon</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Order line key</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Clave de línea de la orden</value>
+    </synonym>
+    <type>
+      <types>DefinedType.КодСтроки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="f1f2220f-cc42-4967-ad64-49e0c997e1d1">
+    <name>Номенклатура</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатура</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Article</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Item</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Artículo</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="14e84a14-cb1e-484d-8da6-cba119369a5d">
+    <name>Характеристика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Caractéristique</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Feature</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Característica</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ХарактеристикиНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="7fd578f2-0fd8-4e9c-aa86-4ad121dd8c51">
+    <name>Серия</name>
+    <synonym>
+      <key>ru</key>
+      <value>Серия</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Série</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Series</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Serie</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СерииНоменклатуры</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="78684ce9-c40f-4ffd-b606-53c9913666b3">
+    <name>Составляющая</name>
+    <synonym>
+      <key>ru</key>
+      <value>Составляющая</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Composant</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Component</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Componente</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

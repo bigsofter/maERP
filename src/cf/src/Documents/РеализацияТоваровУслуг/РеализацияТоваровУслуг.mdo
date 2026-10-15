@@ -86,6 +86,7 @@
   </standardAttributes>
   <basedOn>Document.ПоступлениеТоваровУслуг</basedOn>
   <basedOn>Document.ЗаказПокупателя</basedOn>
+  <basedOn>Document.РасходныйОрдер</basedOn>
   <createOnInput>DontUse</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
@@ -140,6 +141,7 @@
   <registerRecords>AccumulationRegister.ВзаиморасчётыСПоставщиками</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыНаСкладах</registerRecords>
+  <registerRecords>AccumulationRegister.ТоварыКОформлению</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <attributes uuid="6aea1efb-1c05-4c25-b0ea-7f815dcf6615">
@@ -1442,6 +1444,59 @@
       <fillValue xsi:type="core:UndefinedValue"/>
       <fullTextSearch>Use</fullTextSearch>
       <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="25e59d1f-a927-4259-935a-417325683b6a">
+      <name>Ордер</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ордер</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bon</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Orden</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.РасходныйОрдер</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="77682685-fea8-4d2d-a655-d3fb06100e91">
+      <name>КлючСтрокиОрдера</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ключ строки ордера</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Clé de ligne du bon</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order line key</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Clave de línea de la orden</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
     </attributes>
   </tabularSections>
   <tabularSections uuid="4f333ca4-fa73-4106-b83d-2f760862445d">

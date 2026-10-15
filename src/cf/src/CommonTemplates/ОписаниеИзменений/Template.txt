@@ -10,6 +10,55 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.77
+### ru
+- Ордерный склад. В карточке склада появились флажок «Ордерный склад» и дата начала ордерной схемы. На таком складе кладовщик фиксирует фактический приход и отгрузку товара приходными и расходными ордерами (раздел «Склад»), а поступление и реализация оформляют их потом — одним документом или частями, в том числе несколько ордеров одним документом. Документы, датированные раньше даты начала схемы, проводятся как прежде, без ордеров.
+- Приходный ордер вводится на основании заказа поставщику, заказа клиента на производство или реализации, расходный — на основании заказа клиента или поступления. Приходный ордер сразу закрывает заказ поставщику и учитывается в потребностях производства; расходный по заказу на производство выпускает продукцию автоматически, как раньше реализация.
+- Поступление и реализация на ордерном складе вводятся на основании ордеров: склад берётся из ордера и не меняется, строки — неоформленный остаток ордеров, колонка «Ордер» показывает, какой ордер оформляет строка. Без ордера такой документ не проводится, оформить больше, чем пришло или ушло по ордеру, нельзя. В поступлении и реализации без ордеров выбор склада предлагает только неордерные склады.
+- Оформленный ордер защищён: его нельзя удалить, отменить, перенести на другой склад или уменьшить ниже уже оформленного количества.
+- Комплект в расходном ордере списывается со склада по составляющим, а реализация по такому ордеру — в тех же количествах.
+- Ордеры печатаются фирменной формой «Приходный ордер» / «Расходный ордер» без цен, с подписями сдавшего и принявшего.
+- Остатки в рабочем месте закупок, на главной панели и в отчёте «Продажи детально» считаются по фактическому количеству на складе.
+- Возврат поставщику по заказу на производство теперь снимает материал с продукции, по которой он ещё числится пришедшим (раньше — в обратном порядке распределения самого поступления). Итог по заказу и материалу тот же.
+- Если по заказу уже возвращено поставщику больше, чем останется принятым после отмены или удаления поступления, программа не даст его отменить: сначала отмените возврат.
+- Новая заставка при запуске программы — карандашный эскиз склада и растущего графика, в духе типовых решений 1С.
+
+### fr
+- Entrepôt à bons. La fiche de l'entrepôt reçoit la case « Entrepôt à bons » et la date de début du schéma par bons. Dans un tel entrepôt, le magasinier enregistre les entrées et sorties réelles de marchandises par des bons de réception et de sortie (section « Entrepôt »), et la réception et la vente les régularisent ensuite — en un document ou par parties, y compris plusieurs bons en un seul document. Les documents datés avant la date de début du schéma sont validés comme avant, sans bons.
+- Le bon de réception se crée à partir d'une commande fournisseur, d'une commande client de production ou d'une vente ; le bon de sortie à partir d'une commande client ou d'une réception. Le bon de réception solde immédiatement la commande fournisseur et compte dans les besoins de production ; le bon de sortie d'une commande de production lance la fabrication automatique, comme la vente auparavant.
+- La réception et la vente dans un entrepôt à bons se créent à partir des bons : l'entrepôt vient du bon et ne change pas, les lignes reprennent le reste non régularisé des bons, la colonne « Bon » indique quel bon la ligne régularise. Sans bon, un tel document n'est pas validé, et l'on ne peut pas régulariser plus que ce qui est entré ou sorti selon le bon. Dans une réception ou une vente sans bons, le choix de l'entrepôt ne propose que les entrepôts sans bons.
+- Un bon régularisé est protégé : on ne peut ni le supprimer, ni l'annuler, ni le changer d'entrepôt, ni le réduire en dessous de la quantité déjà régularisée.
+- Un kit dans un bon de sortie sort de l'entrepôt par composants, et la vente selon ce bon dans les mêmes quantités.
+- Les bons s'impriment avec le formulaire à en-tête « Bon de réception » / « Bon de sortie », sans prix, avec les signatures de celui qui remet et de celui qui reçoit.
+- Les stocks du poste de travail achats, du tableau de bord et du rapport « Ventes en détail » sont calculés sur la quantité réellement en entrepôt.
+- Le retour fournisseur d'une commande de production retire désormais la matière de la production pour laquelle elle est encore comptée comme reçue (auparavant — dans l'ordre inverse de la répartition de la réception elle-même). Le total par commande et matière est le même.
+- Si l'on a déjà retourné au fournisseur plus que ce qui restera reçu après l'annulation ou la suppression d'une réception de la commande, le programme refuse cette annulation : annulez d'abord le retour.
+- Nouvel écran de démarrage du programme — une esquisse au crayon d'un entrepôt et d'un graphique en hausse, dans l'esprit des solutions standard 1C.
+
+### en
+- Order-based warehouse. The warehouse card gets an «Order-based warehouse» flag and the start date of the order scheme. In such a warehouse the storekeeper records the actual receipt and shipment of goods with receipt and issue orders («Warehouse» section), and the purchase receipt and the sale document them later — in one document or in parts, including several orders in one document. Documents dated before the scheme start date are posted as before, without orders.
+- A receipt order is entered based on a purchase order, a customer production order or a sale; an issue order based on a customer order or a purchase receipt. The receipt order closes the purchase order at once and counts in production needs; the issue order of a production order releases the products automatically, as the sale did before.
+- Purchase receipts and sales in an order-based warehouse are entered based on orders: the warehouse comes from the order and does not change, the lines are the undocumented remainder of the orders, the «Order» column shows which order the line documents. Without an order such a document is not posted, and you cannot document more than came in or went out by the order. In receipts and sales without orders, warehouse selection offers only warehouses without orders.
+- A documented order is protected: it cannot be deleted, unposted, moved to another warehouse or reduced below the quantity already documented.
+- A kit in an issue order leaves the warehouse by components, and the sale by that order in the same quantities.
+- Orders print with the branded «Goods receipt note» / «Goods issue note» form without prices, with the signatures of the person handing over and the person receiving.
+- Stock in the purchasing workplace, on the dashboard and in the «Sales in detail» report is calculated from the actual quantity in the warehouse.
+- A return to the supplier for a production order now removes the material from the product for which it is still counted as received (previously — in the reverse order of the receipt's own distribution). The total per order and material is the same.
+- If more has already been returned to the supplier for an order than will remain received after unposting or deleting a receipt, the program does not allow it: unpost the return first.
+- New startup splash screen — a pencil sketch of a warehouse and a rising chart, in the style of standard 1C solutions.
+
+### es
+- Almacén por órdenes. La ficha del almacén recibe la casilla «Almacén por órdenes» y la fecha de inicio del esquema por órdenes. En un almacén así, el almacenero registra la entrada y salida real de mercancías con órdenes de entrada y de salida (sección «Almacén»), y la recepción y la venta las formalizan después — en un documento o por partes, incluso varias órdenes en un solo documento. Los documentos con fecha anterior al inicio del esquema se contabilizan como antes, sin órdenes.
+- La orden de entrada se introduce a partir de un pedido al proveedor, de un pedido de cliente de producción o de una venta; la orden de salida a partir de un pedido de cliente o de una recepción. La orden de entrada cierra de inmediato el pedido al proveedor y cuenta en las necesidades de producción; la orden de salida de un pedido de producción lanza la fabricación automática, como antes la venta.
+- La recepción y la venta en un almacén por órdenes se introducen a partir de las órdenes: el almacén viene de la orden y no cambia, las líneas son el resto no formalizado de las órdenes, la columna «Orden» indica qué orden formaliza la línea. Sin orden, un documento así no se contabiliza, y no se puede formalizar más de lo que entró o salió según la orden. En recepciones y ventas sin órdenes, la elección del almacén solo ofrece almacenes sin órdenes.
+- Una orden formalizada está protegida: no se puede eliminar, anular, cambiar de almacén ni reducir por debajo de la cantidad ya formalizada.
+- Un kit en una orden de salida sale del almacén por componentes, y la venta según esa orden en las mismas cantidades.
+- Las órdenes se imprimen con el formulario corporativo «Orden de entrada» / «Orden de salida», sin precios, con las firmas de quien entrega y quien recibe.
+- Las existencias del puesto de trabajo de compras, del panel principal y del informe «Ventas en detalle» se calculan por la cantidad real en el almacén.
+- La devolución al proveedor de un pedido de producción ahora retira el material de la producción para la que todavía figura como recibido (antes — en el orden inverso del reparto de la propia recepción). El total por pedido y material es el mismo.
+- Si ya se ha devuelto al proveedor más de lo que quedará recibido tras anular o eliminar una recepción del pedido, el programa no lo permite: anule primero la devolución.
+- Nueva pantalla de inicio del programa — un boceto a lápiz de un almacén y un gráfico ascendente, al estilo de las soluciones estándar de 1C.
+
 ## 2.0.16.76
 ### ru
 - Подготовка склада к ордерной схеме (приходные и расходные ордера кладовщика — в следующих сборках). Рядом с учётом партий и стоимости программа теперь ведёт отдельный учёт физического количества товаров на складах. Пока ордеров нет, оба учёта всегда совпадают, и в работе ничего не меняется.
