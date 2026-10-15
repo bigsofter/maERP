@@ -10,6 +10,31 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.78
+### ru
+- Рабочее место производства работает с ордерным складом. Если склад нового документа ордерный, строка закладки «Поступления» создаёт приходный ордер, а строка закладки «Отгрузки» — расходный ордер вместо поступления и реализации. Кнопки «Поступление» и «Отгрузка» на таком складе открывают форму ордера.
+- Строки ордеров видны на тех же закладках, без цены и суммы. Ордер, по которому уже оформлены поступление или реализация, в рабочем месте только для просмотра. Строки поступлений и реализаций, оформивших ордера, на закладках не повторяются: приход и отгрузку на складе показывает ордер.
+- Приходный ордер, введённый строкой по заказу поставщику, закрывает выбранную строку заказа. В выборе строк заказа поставщику и в остатке к поступлению учитываются и приходные ордера, в том числе непроведённые.
+- Закладка «Документы заказа» показывает ордера с движением продукции и материалов, а также автовыпуски по расходным ордерам. Реализация или поступление, оформившие ордер, «отгружено» и «приход» не удваивают.
+
+### fr
+- Le poste de travail production fonctionne avec l'entrepôt à bons. Si l'entrepôt du nouveau document fonctionne par bons, une ligne de l'onglet « Réceptions » crée un bon de réception et une ligne de l'onglet « Expéditions » un bon de sortie, à la place de la réception et de la vente. Les boutons « Réception » et « Expédition » ouvrent alors le formulaire du bon.
+- Les lignes des bons apparaissent dans les mêmes onglets, sans prix ni montant. Un bon déjà régularisé par une réception ou une vente est en lecture seule dans le poste de travail. Les lignes des réceptions et ventes qui régularisent des bons ne sont pas répétées dans les onglets : l'entrée et la sortie en entrepôt sont montrées par le bon.
+- Un bon de réception saisi en ligne sur une commande fournisseur solde la ligne de commande choisie. Le choix des lignes de commande fournisseur et le reste à recevoir tiennent compte des bons de réception, y compris non validés.
+- L'onglet « Documents de la commande » affiche les bons avec le mouvement des produits et des matières, ainsi que les fabrications automatiques des bons de sortie. Une vente ou une réception qui régularise un bon ne double pas « expédié » ni « entrée ».
+
+### en
+- The production workplace works with order-based warehouses. If the warehouse of the new document is order-based, a line on the «Receipts» tab creates a goods receipt order and a line on the «Shipments» tab a goods issue order instead of a purchase receipt and a sale. The «Receipt» and «Shipment» buttons then open the order form.
+- Order lines appear on the same tabs, without price and amount. An order already documented by a receipt or a sale is read-only in the workplace. Lines of receipts and sales that document orders are not repeated on the tabs: the warehouse receipt and shipment are shown by the order.
+- A goods receipt order entered as a line for a purchase order closes the selected order line. The choice of purchase order lines and the remainder to receive take receipt orders into account, including unposted ones.
+- The «Order documents» tab shows orders with the movement of products and materials, as well as automatic releases of issue orders. A sale or a receipt that documents an order does not double «shipped» or «received».
+
+### es
+- El puesto de trabajo de producción trabaja con el almacén por órdenes. Si el almacén del nuevo documento funciona por órdenes, una línea de la pestaña «Recepciones» crea una orden de entrada y una línea de la pestaña «Envíos» una orden de salida, en lugar de la recepción y la venta. Los botones «Recepción» y «Envío» abren entonces el formulario de la orden.
+- Las líneas de las órdenes aparecen en las mismas pestañas, sin precio ni importe. Una orden ya formalizada por una recepción o una venta es de solo lectura en el puesto de trabajo. Las líneas de recepciones y ventas que formalizan órdenes no se repiten en las pestañas: la entrada y la salida del almacén las muestra la orden.
+- Una orden de entrada introducida como línea de un pedido a proveedor cierra la línea del pedido elegida. La elección de líneas del pedido a proveedor y el resto por recibir tienen en cuenta las órdenes de entrada, incluso no contabilizadas.
+- La pestaña «Documentos del pedido» muestra las órdenes con el movimiento de productos y materiales, y las fabricaciones automáticas de las órdenes de salida. Una venta o una recepción que formaliza una orden no duplica «enviado» ni «entrada».
+
 ## 2.0.16.77
 ### ru
 - Ордерный склад. В карточке склада появились флажок «Ордерный склад» и дата начала ордерной схемы. На таком складе кладовщик фиксирует фактический приход и отгрузку товара приходными и расходными ордерами (раздел «Склад»), а поступление и реализация оформляют их потом — одним документом или частями, в том числе несколько ордеров одним документом. Документы, датированные раньше даты начала схемы, проводятся как прежде, без ордеров.
