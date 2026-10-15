@@ -339,6 +339,67 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
+          <name>КОформлению</name>
+          <id>111</id>
+          <title>
+            <key>ru</key>
+            <value>К оформлению</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>À régulariser</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>To document</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Por formalizar</value>
+          </title>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Список.КОформлению</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>КОформлениюРасширеннаяПодсказка</name>
+            <id>112</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>КОформлениюКонтекстноеМеню</name>
+            <id>113</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>LabelField</type>
+          <editMode>Enter</editMode>
+          <autoCellHeight>true</autoCellHeight>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Center</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:LabelFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
           <name>Ответственный</name>
           <id>34</id>
           <titleFont xsi:type="core:FontRef">
@@ -431,6 +492,31 @@
         <autoCommandBar>
           <name>СписокКоманднаяПанель</name>
           <id>5</id>
+          <items xsi:type="form:Button">
+            <name>КнопкаОформить</name>
+            <id>117</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>КнопкаОформитьРасширеннаяПодсказка</name>
+              <id>118</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <commandName>Form.Command.Оформить</commandName>
+            <representation>PictureAndText</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
           <horizontalAlign>Left</horizontalAlign>
         </autoCommandBar>
         <searchStringAddition>
@@ -1146,6 +1232,56 @@
               <textSize>Normal</textSize>
             </extInfo>
           </items>
+          <items xsi:type="form:FormField">
+            <name>ОтборКОформлению</name>
+            <id>114</id>
+            <title>
+              <key>ru</key>
+              <value>Только к оформлению</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>À régulariser seulement</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>To document only</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Solo por formalizar</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ОтборКОформлению</segments>
+            </dataPath>
+            <titleLocation>Right</titleLocation>
+            <handlers>
+              <event>OnChange</event>
+              <name>ОтборПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ОтборКОформлениюРасширеннаяПодсказка</name>
+              <id>115</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ОтборКОформлениюКонтекстноеМеню</name>
+              <id>116</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>CheckBoxField</type>
+            <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+          </items>
           <type>Page</type>
           <extInfo xsi:type="form:PageGroupExtInfo">
             <group>Vertical</group>
@@ -1484,6 +1620,10 @@
     <event>OnOpen</event>
     <name>ПриОткрытии</name>
   </handlers>
+  <handlers>
+    <event>NotificationProcessing</event>
+    <name>ОбработкаОповещения</name>
+  </handlers>
   <windowOpeningMode>DontBlock</windowOpeningMode>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveWindowSettings>true</saveWindowSettings>
@@ -1510,9 +1650,33 @@
     </edit>
     <main>true</main>
     <extInfo xsi:type="form:DynamicListExtInfo">
+      <queryText>ВЫБРАТЬ
+	Док.Ссылка КАК Ссылка,
+	Док.Номер КАК Номер,
+	Док.Дата КАК Дата,
+	Док.Проведен КАК Проведен,
+	Док.ПометкаУдаления КАК ПометкаУдаления,
+	Док.Организация КАК Организация,
+	Док.Контрагент КАК Контрагент,
+	Док.МестоХранения КАК МестоХранения,
+	Док.Основание КАК Основание,
+	Док.Ответственный КАК Ответственный,
+	Док.Комментарий КАК Комментарий,
+	ЕСТЬNULL(Остатки.КОформлению, 0) КАК КОформлению
+ИЗ
+	Документ.ПриходныйОрдер КАК Док
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Неоформленные.Ордер КАК Ордер,
+			СУММА(Неоформленные.КоличествоОстаток) КАК КОформлению
+		ИЗ
+			РегистрНакопления.ТоварыКОформлению.Остатки(, Составляющая = ЗНАЧЕНИЕ(Справочник.Номенклатура.ПустаяСсылка)) КАК Неоформленные
+		СГРУППИРОВАТЬ ПО
+			Неоформленные.Ордер) КАК Остатки
+		ПО Док.Ссылка = Остатки.Ордер</queryText>
       <mainTable>Document.ПриходныйОрдер</mainTable>
       <dynamicDataRead>true</dynamicDataRead>
       <autoFillAvailableFields>true</autoFillAvailableFields>
+      <customQuery>true</customQuery>
       <autoSaveUserSettings>true</autoSaveUserSettings>
       <getInvisibleFieldPresentations>true</getInvisibleFieldPresentations>
     </extInfo>
@@ -1658,6 +1822,19 @@
         <common>true</common>
       </edit>
     </columns>
+  </attributes>
+  <attributes>
+    <name>ОтборКОформлению</name>
+    <id>12</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <formCommands>
     <name>СвернутьПанель</name>
@@ -2022,6 +2199,52 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>СтраницаПоследняя</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>Оформить</name>
+    <title>
+      <key>ru</key>
+      <value>Оформить поступлением</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Régulariser par une réception</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Document with a receipt</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Formalizar con una recepción</value>
+    </title>
+    <id>9</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Оформить поступлением</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Régulariser par une réception</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Document with a receipt</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Formalizar con una recepción</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>Оформить</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
