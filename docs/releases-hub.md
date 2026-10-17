@@ -40,8 +40,11 @@ tinycio.*/about/releases/maerp и в блоке «Новое в продукте
   scripts/push-release-to-hub.sh --from-json build/releases-history.json --dry-run   # затем без --dry-run, с TINYCIO_HUB_SECRET
 ```
 
-**Выполнено 17.10.2026:** `build/releases-history.json` собран (4 записи, 1.0.11.1 … 2.0.15.71), в хаб не
-отправлен — ждёт проверки владельцем и `TINYCIO_HUB_SECRET`. Даты — дни тегов и GitHub Release; у 2.0.12.18 в
+**Выполнено 17.10.2026:** `build/releases-history.json` (4 записи, 1.0.11.1 … 2.0.15.71) проверен владельцем и
+отправлен в хаб: публичная лента `my.tinycio.com/api/public/product-hub/maerp/releases` отдаёт 200 и все четыре
+версии. Страница сайта берёт ленту через кэш данных Next.js (`revalidate: 3600`), поэтому появляется не сразу.
+Секрет — `TINYCIO_HUB_SECRET_MAERP` в `~/.config/tinycio/hub-secrets.env`, в GitHub — секрет репозитория
+`TINYCIO_HUB_SECRET` (секрет от 09.09 недействителен). Даты — дни тегов и GitHub Release; у 2.0.12.18 в
 заголовке CHANGELOG стоит 28.08 (сборка), опубликован он 31.08.
 
 ## Дальше — каждое изменение (правило владельца от 17.10.2026)
