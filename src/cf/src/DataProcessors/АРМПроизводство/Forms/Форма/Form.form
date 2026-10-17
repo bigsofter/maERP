@@ -5894,10 +5894,13 @@
                 <userVisible>
                   <common>true</common>
                 </userVisible>
-                <readOnly>true</readOnly>
                 <dataPath xsi:type="form:DataPath">
                   <segments>Выпуски.Склад</segments>
                 </dataPath>
+                <handlers>
+                  <event>OnChange</event>
+                  <name>ВыпускиСкладПриИзменении</name>
+                </handlers>
                 <extendedTooltip>
                   <name>ВыпускиСкладРасширеннаяПодсказка</name>
                   <id>261</id>
@@ -5913,15 +5916,17 @@
                   <id>262</id>
                   <autoFill>true</autoFill>
                 </contextMenu>
-                <type>LabelField</type>
+                <type>InputField</type>
                 <editMode>Enter</editMode>
                 <showInHeader>true</showInHeader>
                 <headerHorizontalAlign>Left</headerHorizontalAlign>
                 <showInFooter>true</showInFooter>
-                <extInfo xsi:type="form:LabelFieldExtInfo">
+                <extInfo xsi:type="form:InputFieldExtInfo">
                   <width>14</width>
                   <autoMaxWidth>false</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
+                  <textEdit>true</textEdit>
+                  <textSize>Normal</textSize>
                 </extInfo>
               </items>
               <items xsi:type="form:FormField">
@@ -15037,6 +15042,19 @@
     <id>41</id>
     <valueType>
       <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>СкладВыпускаПоУмолчанию</name>
+    <id>50</id>
+    <valueType>
+      <types>CatalogRef.МестаХранения</types>
     </valueType>
     <view>
       <common>true</common>
