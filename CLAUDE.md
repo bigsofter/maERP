@@ -16,6 +16,7 @@
 | развёртывание базы клиенту | `docs/DEPLOY.md`, полезная нагрузка — `docs/hub/` |
 | платформа, EDT, headless-запуски | `docs/EDT-SETUP.md` |
 | что менялось в прошлых релизах | `docs/CHANGELOG.md` |
+| история релизов на сайте tinycio, догрузка в хаб | `docs/releases-hub.md` |
 | осознанно отложенное | `docs/TECHDEBT.md` |
 | очередь работ и развилки владельца | `docs/ROADMAP.md` |
 | план и промпт текущей волны | `docs/plans/` |
