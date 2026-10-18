@@ -10,6 +10,31 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.96
+### ru
+- Раздельный управленческий и налоговый учёт (Настройки → Бухгалтерия, по умолчанию выключен). Когда он включён, у реализации, поступления, возвратов, приходного и расходного кассового ордера, списания и чека в рабочем месте кассира появляется флажок «Налоговый». Документ без флажка проводится только по управленческому учёту.
+- Остатки товаров, долги клиентов и поставщикам, продажи и касса хранят, налоговое движение или нет: полная картина остаётся прежней, а налоговая теперь видна отдельно. Банк всегда налоговый, касса — по документу.
+- Новые документы налоговые по умолчанию; это можно изменить настройкой пользователя «Налоговый по умолчанию». В рабочем месте кассира флажок задаётся для каждого чека, оплата чека попадает в кассу с тем же признаком.
+- Раздельный учёт нельзя выключить, если в базе уже есть документы только управленческого учёта.
+
+### fr
+- Comptabilité de gestion et fiscale séparées (Paramètres → Comptabilité, désactivée par défaut). Une fois activée, la vente, la réception, les retours, les bons d'encaissement et de décaissement, la sortie de stock et le ticket du poste de caisse reçoivent une case « Fiscal ». Un document sans cette case n'est comptabilisé qu'en gestion.
+- Les stocks, les dettes clients et fournisseurs, les ventes et la caisse indiquent si le mouvement est fiscal ou non : la vue complète reste la même, la vue fiscale est désormais visible à part. La banque est toujours fiscale, la caisse suit le document.
+- Les nouveaux documents sont fiscaux par défaut ; le réglage utilisateur « Documents fiscaux par défaut » permet de le changer. Au poste de caisse, la case se règle pour chaque ticket et le paiement du ticket entre en caisse avec le même indicateur.
+- La comptabilité séparée ne peut pas être désactivée si la base contient déjà des documents de gestion uniquement.
+
+### en
+- Separate management and tax accounting (Settings → Accounting, off by default). When it is on, sales, receipts, returns, cash receipt and payment orders, write-offs and the cashier workplace ticket get a "Tax" box. A document without it is posted to management accounting only.
+- Stock, customer and supplier debts, sales and cash record whether a movement is tax or not: the full picture stays the same, and the tax picture can now be seen separately. Bank is always tax, cash follows the document.
+- New documents are tax by default; the "Tax documents by default" user setting changes this. In the cashier workplace the box is set for each ticket, and the ticket payment goes to cash with the same flag.
+- Separate accounting cannot be turned off once the database has management-only documents.
+
+### es
+- Contabilidad de gestión y fiscal separadas (Configuración → Contabilidad, desactivada por defecto). Al activarla, la venta, la recepción, las devoluciones, las órdenes de cobro y de pago en caja, la baja de existencias y el ticket del puesto de cajero reciben la casilla «Fiscal». Un documento sin ella solo se contabiliza en gestión.
+- Las existencias, las deudas de clientes y proveedores, las ventas y la caja registran si el movimiento es fiscal o no: la vista completa no cambia y la vista fiscal se ve ahora por separado. El banco siempre es fiscal; la caja sigue al documento.
+- Los documentos nuevos son fiscales por defecto; el ajuste de usuario «Documentos fiscales por defecto» lo cambia. En el puesto de cajero la casilla se fija para cada ticket y el pago del ticket entra en caja con el mismo indicador.
+- La contabilidad separada no se puede desactivar si la base ya tiene documentos solo de gestión.
+
 ## 2.0.16.95
 ### ru
 - Рабочее место кассы больше не «теряется»: программа узнаёт компьютер и не создаёт новое рабочее место с пустым списком оборудования. Если компьютер незнаком, открывается выбор рабочего места — сначала места с тем же именем компьютера и их оборудование; создать новое можно, только если своего места в списке нет.

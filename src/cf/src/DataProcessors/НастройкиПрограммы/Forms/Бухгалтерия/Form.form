@@ -160,6 +160,62 @@
         <checkBoxType>Switcher</checkBoxType>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>РаздельныйУчет</name>
+      <id>12</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.РаздельныйУчет</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Документы продаж, закупок и кассы получают флажок «Налоговый»: без него движения только управленческие. Остатки, долги и касса — фактические и налоговые</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Les documents de vente, d’achat et de caisse reçoivent la case « Fiscal » : sans elle, mouvements de gestion uniquement. Stocks, dettes et caisse — réels et fiscaux</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Sales, purchase and cash documents get a "Tax" box: without it, management-only movements. Stock, debts and cash — actual and tax</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Los documentos de venta, compra y caja reciben la casilla «Fiscal»: sin ella, movimientos solo de gestión. Existencias, deudas y caja — reales y fiscales</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>РаздельныйУчетРасширеннаяПодсказка</name>
+        <id>13</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>РаздельныйУчетКонтекстноеМеню</name>
+        <id>14</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
