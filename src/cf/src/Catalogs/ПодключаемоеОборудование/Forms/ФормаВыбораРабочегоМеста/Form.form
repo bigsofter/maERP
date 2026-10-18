@@ -2,31 +2,15 @@
 <form:Form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:form="http://g5.1c.ru/v8/dt/form">
   <items xsi:type="form:Decoration">
     <name>НадписьВыбора</name>
-    <id>3</id>
-    <title>
-      <key>ru</key>
-      <value>Выберите рабочее место из списка, если подключение и настройка оборудования производилась ранее</value>
-    </title>
-    <title>
-      <key>fr</key>
-      <value>Sélectionnez un poste de travail dans la liste si vous avez déjà connecté et configuré votre matériel</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Select a workstation from the list if you have already connected and configured your hardware</value>
-    </title>
-    <title>
-      <key>es</key>
-      <value>Seleccione una estación de trabajo de la lista si ya ha conectado y configurado su hardware</value>
-    </title>
+    <id>1</id>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
       <common>true</common>
     </userVisible>
     <extendedTooltip>
-      <name>НадписьВыбораExtendedTooltip</name>
-      <id>14</id>
+      <name>НадписьВыбораРасширеннаяПодсказка</name>
+      <id>3</id>
       <type>Label</type>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
@@ -36,7 +20,7 @@
     </extendedTooltip>
     <contextMenu>
       <name>НадписьВыбораКонтекстноеМеню</name>
-      <id>4</id>
+      <id>2</id>
       <autoFill>true</autoFill>
     </contextMenu>
     <type>Label</type>
@@ -54,69 +38,185 @@
       <horizontalAlign>Left</horizontalAlign>
     </extInfo>
   </items>
-  <items xsi:type="form:FormField">
-    <name>РабочееМесто</name>
-    <id>1</id>
+  <items xsi:type="form:Table">
+    <name>Кандидаты</name>
+    <id>4</id>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
       <common>true</common>
     </userVisible>
     <dataPath xsi:type="form:DataPath">
-      <segments>РабочееМесто</segments>
+      <segments>Кандидаты</segments>
     </dataPath>
-    <extendedTooltip>
-      <name>РабочееМестоExtendedTooltip</name>
-      <id>15</id>
-      <type>Label</type>
-      <autoMaxWidth>true</autoMaxWidth>
-      <autoMaxHeight>true</autoMaxHeight>
-      <extInfo xsi:type="form:LabelDecorationExtInfo">
-        <horizontalAlign>Left</horizontalAlign>
-      </extInfo>
-    </extendedTooltip>
-    <contextMenu>
-      <name>РабочееМестоКонтекстноеМеню</name>
-      <id>2</id>
-      <autoFill>true</autoFill>
-    </contextMenu>
-    <type>InputField</type>
-    <editMode>Enter</editMode>
-    <showInHeader>true</showInHeader>
-    <headerHorizontalAlign>Left</headerHorizontalAlign>
-    <showInFooter>true</showInFooter>
-    <extInfo xsi:type="form:InputFieldExtInfo">
-      <autoMaxHeight>true</autoMaxHeight>
-      <wrap>true</wrap>
-      <chooseType>true</chooseType>
-      <typeDomainEnabled>true</typeDomainEnabled>
-      <textEdit>true</textEdit>
-      <choiceParameters>
-        <name>Отбор.ПометкаУдаления</name>
-        <value xsi:type="form:FormChoiceListDesTimeValue">
-          <value xsi:type="core:BooleanValue"/>
-        </value>
-      </choiceParameters>
-      <textSize>Normal</textSize>
-      <font xsi:type="core:FontRef">
-        <font>Style.Шрифт_Основной</font>
-      </font>
-    </extInfo>
-  </items>
-  <autoCommandBar>
-    <name>ФормаКоманднаяПанель</name>
-    <id>-1</id>
-    <items xsi:type="form:Button">
-      <name>ВыбратьИЗакрыть</name>
-      <id>12</id>
+    <titleLocation>None</titleLocation>
+    <items xsi:type="form:FormField">
+      <name>КандидатыНаименование</name>
+      <id>5</id>
+      <title>
+        <key>ru</key>
+        <value>Рабочее место</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Poste de travail</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Workplace</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Lugar de trabajo</value>
+      </title>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
         <common>true</common>
       </userVisible>
-      <skipOnInput>false</skipOnInput>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Кандидаты.Наименование</segments>
+      </dataPath>
       <extendedTooltip>
-        <name>ВыбратьИЗакрытьExtendedTooltip</name>
+        <name>КандидатыНаименованиеРасширеннаяПодсказка</name>
+        <id>7</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КандидатыНаименованиеКонтекстноеМеню</name>
+        <id>6</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Auto</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>КандидатыИмяКомпьютера</name>
+      <id>8</id>
+      <title>
+        <key>ru</key>
+        <value>Имя компьютера</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Nom de l'ordinateur</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Computer name</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Nombre del equipo</value>
+      </title>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Кандидаты.ИмяКомпьютера</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>КандидатыИмяКомпьютераРасширеннаяПодсказка</name>
+        <id>10</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КандидатыИмяКомпьютераКонтекстноеМеню</name>
+        <id>9</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Auto</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>КандидатыЭтотКомпьютер</name>
+      <id>11</id>
+      <title>
+        <key>ru</key>
+        <value>Этот компьютер</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Cet ordinateur</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>This computer</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Este equipo</value>
+      </title>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Кандидаты.ЭтотКомпьютер</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>КандидатыЭтотКомпьютерРасширеннаяПодсказка</name>
         <id>13</id>
         <type>Label</type>
         <autoMaxWidth>true</autoMaxWidth>
@@ -125,7 +225,289 @@
           <horizontalAlign>Left</horizontalAlign>
         </extInfo>
       </extendedTooltip>
-      <commandName>Form.Command.ВыбратьИЗакрыть</commandName>
+      <contextMenu>
+        <name>КандидатыЭтотКомпьютерКонтекстноеМеню</name>
+        <id>12</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Auto</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>КандидатыОборудование</name>
+      <id>14</id>
+      <title>
+        <key>ru</key>
+        <value>Оборудование</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Matériel</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Equipment</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Equipo</value>
+      </title>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Кандидаты.Оборудование</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>КандидатыОборудованиеРасширеннаяПодсказка</name>
+        <id>16</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КандидатыОборудованиеКонтекстноеМеню</name>
+        <id>15</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Auto</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+      </extInfo>
+    </items>
+    <autoCommandBar>
+      <name>КандидатыКоманднаяПанель</name>
+      <id>17</id>
+      <horizontalAlign>Left</horizontalAlign>
+    </autoCommandBar>
+    <handlers>
+      <event>Selection</event>
+      <name>КандидатыВыбор</name>
+    </handlers>
+    <searchStringAddition>
+      <name>КандидатыСтрокаПоиска</name>
+      <id>18</id>
+      <extendedTooltip>
+        <name>КандидатыСтрокаПоискаРасширеннаяПодсказка</name>
+        <id>20</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КандидатыСтрокаПоискаКонтекстноеМеню</name>
+        <id>19</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <source>Кандидаты</source>
+      <extInfo xsi:type="form:SearchStringAdditionExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+      </extInfo>
+    </searchStringAddition>
+    <viewStatusAddition>
+      <name>КандидатыСостояниеПросмотра</name>
+      <id>21</id>
+      <extendedTooltip>
+        <name>КандидатыСостояниеПросмотраРасширеннаяПодсказка</name>
+        <id>23</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КандидатыСостояниеПросмотраКонтекстноеМеню</name>
+        <id>22</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>ViewStatusAddition</type>
+      <source>Кандидаты</source>
+      <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+      </extInfo>
+    </viewStatusAddition>
+    <searchControlAddition>
+      <name>КандидатыУправлениеПоиском</name>
+      <id>24</id>
+      <extendedTooltip>
+        <name>КандидатыУправлениеПоискомРасширеннаяПодсказка</name>
+        <id>26</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КандидатыУправлениеПоискомКонтекстноеМеню</name>
+        <id>25</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>SearchControlAddition</type>
+      <source>Кандидаты</source>
+      <extInfo xsi:type="form:SearchControlAdditionExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+      </extInfo>
+    </searchControlAddition>
+    <extendedTooltip>
+      <name>КандидатыРасширеннаяПодсказка</name>
+      <id>27</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>КандидатыКонтекстноеМеню</name>
+      <id>28</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <readOnly>true</readOnly>
+    <autoMaxWidth>true</autoMaxWidth>
+    <autoMaxHeight>true</autoMaxHeight>
+    <autoMaxRowsCount>true</autoMaxRowsCount>
+    <selectionMode>SingleRow</selectionMode>
+    <header>true</header>
+    <headerHeight>1</headerHeight>
+    <footerHeight>1</footerHeight>
+    <horizontalScrollBar>AutoUse</horizontalScrollBar>
+    <verticalScrollBar>AutoUse</verticalScrollBar>
+    <horizontalLines>true</horizontalLines>
+    <verticalLines>true</verticalLines>
+    <horizontalLinesBWA>false</horizontalLinesBWA>
+    <verticalLinesBWA>false</verticalLinesBWA>
+    <useAlternationRowColorBWA>false</useAlternationRowColorBWA>
+    <autoInsertNewRow>false</autoInsertNewRow>
+    <searchOnInput>Auto</searchOnInput>
+    <initialListView>Auto</initialListView>
+    <height>8</height>
+    <horizontalStretch>true</horizontalStretch>
+    <verticalStretch>true</verticalStretch>
+    <borderColor xsi:type="core:ColorRef">
+      <color>Style.FormBackColor</color>
+    </borderColor>
+    <autoMaxCardHeight>true</autoMaxCardHeight>
+    <rowFilter xsi:type="core:UndefinedValue"/>
+  </items>
+  <items xsi:type="form:Decoration">
+    <name>НадписьПодсказка</name>
+    <id>29</id>
+    <title>
+      <key>ru</key>
+      <value>Создавайте новое рабочее место, только если этого компьютера в списке нет: оборудование настраивается заново.</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Ne créez un nouveau poste de travail que si cet ordinateur ne figure pas dans la liste : le matériel devra être reconfiguré.</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create a new workplace only if this computer is not in the list: its equipment will have to be set up again.</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Cree un nuevo lugar de trabajo solo si este equipo no está en la lista: el equipo deberá configurarse de nuevo.</value>
+    </title>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <extendedTooltip>
+      <name>НадписьПодсказкаРасширеннаяПодсказка</name>
+      <id>31</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>НадписьПодсказкаКонтекстноеМеню</name>
+      <id>30</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>Label</type>
+    <autoMaxHeight>true</autoMaxHeight>
+    <skipOnInput>false</skipOnInput>
+    <font xsi:type="core:FontRef">
+      <font>Style.NormalTextFont</font>
+      <bold>false</bold>
+      <italic>false</italic>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+    </font>
+    <extInfo xsi:type="form:LabelDecorationExtInfo">
+      <horizontalAlign>Left</horizontalAlign>
+    </extInfo>
+  </items>
+  <autoCommandBar>
+    <name>ФормаКоманднаяПанель</name>
+    <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>ЭтоРабочееМесто</name>
+      <id>32</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <skipOnInput>false</skipOnInput>
+      <extendedTooltip>
+        <name>ЭтоРабочееМестоExtendedTooltip</name>
+        <id>33</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ЭтоРабочееМесто</commandName>
       <representation>Auto</representation>
       <defaultButton>true</defaultButton>
       <autoMaxWidth>true</autoMaxWidth>
@@ -133,16 +515,66 @@
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
     </items>
+    <items xsi:type="form:Button">
+      <name>СоздатьНовое</name>
+      <id>34</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <skipOnInput>false</skipOnInput>
+      <extendedTooltip>
+        <name>СоздатьНовоеExtendedTooltip</name>
+        <id>35</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.СоздатьНовое</commandName>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <items xsi:type="form:Button">
+      <name>Отмена</name>
+      <id>36</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <skipOnInput>false</skipOnInput>
+      <extendedTooltip>
+        <name>ОтменаExtendedTooltip</name>
+        <id>37</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.Отмена</commandName>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
     <horizontalAlign>Left</horizontalAlign>
-    <autoFill>true</autoFill>
   </autoCommandBar>
   <handlers>
     <event>OnCreateAtServer</event>
     <name>ПриСозданииНаСервере</name>
   </handlers>
-  <windowOpeningMode>DontBlock</windowOpeningMode>
-  <autoSaveDataInSettings>Use</autoSaveDataInSettings>
-  <saveWindowSettings>true</saveWindowSettings>
+  <width>70</width>
+  <windowOpeningMode>LockWholeInterface</windowOpeningMode>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -152,26 +584,26 @@
   <showTitle>auto</showTitle>
   <showCloseButton>true</showCloseButton>
   <attributes>
-    <name>РабочееМесто</name>
+    <name>Кандидаты</name>
     <title>
       <key>ru</key>
-      <value>Рабочее место</value>
+      <value>Рабочие места</value>
     </title>
     <title>
       <key>fr</key>
-      <value>Lieu de travail</value>
+      <value>Postes de travail</value>
     </title>
     <title>
       <key>en</key>
-      <value>Place of work</value>
+      <value>Workplaces</value>
     </title>
     <title>
       <key>es</key>
-      <value>Lugar de trabajo</value>
+      <value>Lugares de trabajo</value>
     </title>
     <id>1</id>
     <valueType>
-      <types>CatalogRef.РабочиеМеста</types>
+      <types>ValueTable</types>
     </valueType>
     <view>
       <common>true</common>
@@ -179,103 +611,297 @@
     <edit>
       <common>true</common>
     </edit>
-    <fillChecking>ShowError</fillChecking>
-  </attributes>
-  <attributes>
-    <name>ИдентификаторКлиента</name>
-    <title>
-      <key>ru</key>
-      <value>Идентификатор клиента</value>
-    </title>
-    <title>
-      <key>fr</key>
-      <value>ID client</value>
-    </title>
-    <title>
-      <key>en</key>
-      <value>Customer ID</value>
-    </title>
-    <title>
-      <key>es</key>
-      <value>ID de CLIENTE</value>
-    </title>
-    <id>3</id>
-    <valueType>
-      <types>String</types>
-      <stringQualifiers/>
-    </valueType>
-    <view>
-      <common>true</common>
-    </view>
-    <edit>
-      <common>true</common>
-    </edit>
+    <columns>
+      <name>Ссылка</name>
+      <title>
+        <key>ru</key>
+        <value>Ссылка</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Référence</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Reference</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Referencia</value>
+      </title>
+      <id>1</id>
+      <valueType>
+        <types>CatalogRef.РабочиеМеста</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Наименование</name>
+      <title>
+        <key>ru</key>
+        <value>Рабочее место</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Poste de travail</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Workplace</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Lugar de trabajo</value>
+      </title>
+      <id>2</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ИмяКомпьютера</name>
+      <title>
+        <key>ru</key>
+        <value>Имя компьютера</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Nom de l'ordinateur</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Computer name</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Nombre del equipo</value>
+      </title>
+      <id>3</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ЭтотКомпьютер</name>
+      <title>
+        <key>ru</key>
+        <value>Этот компьютер</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Cet ordinateur</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>This computer</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Este equipo</value>
+      </title>
+      <id>4</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Оборудование</name>
+      <title>
+        <key>ru</key>
+        <value>Оборудование</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Matériel</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Equipment</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Equipo</value>
+      </title>
+      <id>5</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers/>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
   </attributes>
   <formCommands>
-    <name>ВыбратьИЗакрыть</name>
+    <name>ЭтоРабочееМесто</name>
     <title>
       <key>ru</key>
-      <value>Выбрать и закрыть</value>
+      <value>Это рабочее место</value>
     </title>
     <title>
       <key>fr</key>
-      <value>Sélectionner et fermer</value>
+      <value>C'est mon poste de travail</value>
     </title>
     <title>
       <key>en</key>
-      <value>Select and close</value>
+      <value>This is my workplace</value>
     </title>
     <title>
       <key>es</key>
-      <value>Seleccionar y cerrar</value>
+      <value>Es mi lugar de trabajo</value>
     </title>
-    <id>2</id>
+    <id>1</id>
     <toolTip>
       <key>ru</key>
-      <value>Выбрать и закрыть</value>
+      <value>Связать этот компьютер с выбранным рабочим местом: его оборудование подключится</value>
     </toolTip>
     <toolTip>
       <key>fr</key>
-      <value>Sélectionner et fermer</value>
+      <value>Lier cet ordinateur au poste de travail choisi : son matériel sera connecté</value>
     </toolTip>
     <toolTip>
       <key>en</key>
-      <value>Select and close</value>
+      <value>Link this computer to the selected workplace: its equipment will be connected</value>
     </toolTip>
     <toolTip>
       <key>es</key>
-      <value>Seleccionar y cerrar</value>
+      <value>Vincular este equipo al lugar de trabajo elegido: su equipo se conectará</value>
     </toolTip>
     <use>
       <common>true</common>
     </use>
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
-        <name>ВыбратьИЗакрыть</name>
+        <name>ЭтоРабочееМесто</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СоздатьНовое</name>
+    <title>
+      <key>ru</key>
+      <value>Создать новое</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Créer un nouveau</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create new</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Crear nuevo</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Создать новое рабочее место для этого компьютера</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer un nouveau poste de travail pour cet ordinateur</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create a new workplace for this computer</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear un nuevo lugar de trabajo para este equipo</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьНовое</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>Отмена</name>
+    <title>
+      <key>ru</key>
+      <value>Отмена</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Annuler</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Cancel</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Cancelar</value>
+    </title>
+    <id>3</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Закрыть без выбора: оборудование не подключится</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Fermer sans choisir : le matériel ne sera pas connecté</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Close without choosing: equipment will not be connected</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Cerrar sin elegir: el equipo no se conectará</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>Отмена</name>
       </handler>
     </action>
     <currentRowUse>DontUse</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
   <parameters>
-    <name>РабочееМесто</name>
-    <valueType>
-      <types>CatalogRef.РабочиеМеста</types>
-    </valueType>
-    <keyParameter>true</keyParameter>
-  </parameters>
-  <parameters>
-    <name>ОткрыватьПриПервомОбращении</name>
-    <valueType>
-      <types>Boolean</types>
-    </valueType>
-  </parameters>
-  <parameters>
-    <name>ИдентификаторКлиента</name>
-    <valueType>
-      <types>String</types>
-      <stringQualifiers/>
-    </valueType>
+    <name>Кандидаты</name>
+    <valueType/>
   </parameters>
   <commandInterface>
     <navigationPanel/>
