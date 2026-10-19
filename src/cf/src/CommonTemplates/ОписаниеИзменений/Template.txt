@@ -10,6 +10,27 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.97
+### ru
+- Налоговый документ на основании неналоговых (при раздельном учёте): в реализации и поступлении — страница «Основания» и кнопка «Подобрать основания». Отметьте неналоговые документы того же клиента или поставщика — строки товаров заполнятся по ним, цену строки можно поправить. Документ покрывает выбранные документы целиком.
+- Такой документ не отгружает и не принимает товар второй раз: фактические остатки, продажи и долги не меняются, а покрытые товары, продажи и долг переходят в налоговый учёт по ценам налогового документа. Оплаты покрытых документов, в том числе введённые позже, переносятся на налоговый документ.
+- Покрытый документ нельзя распровести, удалить, пометить и изменить, пока проведён налоговый документ. Возврат покупателя оформляется по налоговой реализации и тоже налоговый; по покрытой реализации возврат не проводится. Возврат поставщику по налоговому поступлению пока недоступен — оформляйте его до налогового документа.
+
+### fr
+- Document fiscal établi sur des documents non fiscaux (en comptabilité séparée) : la vente et la réception ont une page « Documents de base » et un bouton « Sélectionner les documents de base ». Cochez les documents non fiscaux du même client ou fournisseur — les lignes d'articles se remplissent, le prix d'une ligne peut être corrigé. Le document couvre entièrement les documents choisis.
+- Ce document ne livre ni ne reçoit la marchandise une seconde fois : les stocks, ventes et dettes réels ne changent pas, les articles, ventes et dettes couverts passent en comptabilité fiscale aux prix du document fiscal. Les paiements des documents couverts, y compris ultérieurs, sont reportés sur le document fiscal.
+- Un document couvert ne peut pas être dévalidé, supprimé, marqué ni modifié tant que le document fiscal est validé. Le retour client se fait sur la vente fiscale et il est fiscal ; un retour sur la vente couverte n'est pas validé. Le retour fournisseur sur une réception fiscale n'est pas encore disponible : faites-le avant le document fiscal.
+
+### en
+- Tax document based on non-tax documents (with separate accounting): sales and receipts have a "Bases" page and a "Select bases" button. Tick non-tax documents of the same customer or supplier — goods lines are filled from them, and a line price can be corrected. The document covers the selected documents in full.
+- Such a document does not ship or receive goods a second time: actual stock, sales and debts stay the same, while the covered goods, sales and debt move to tax accounting at the tax document prices. Payments of covered documents, including later ones, are carried to the tax document.
+- A covered document cannot be unposted, deleted, marked or changed while the tax document is posted. Customer returns are made on the tax sale and are tax returns; a return on the covered sale is not posted. A return to supplier on a tax receipt is not available yet: make it before the tax document.
+
+### es
+- Documento fiscal sobre documentos no fiscales (con contabilidad separada): la venta y la recepción tienen la página «Bases» y el botón «Seleccionar bases». Marque los documentos no fiscales del mismo cliente o proveedor: las líneas de mercancías se rellenan y el precio de una línea se puede corregir. El documento cubre por completo los documentos elegidos.
+- Este documento no envía ni recibe la mercancía por segunda vez: las existencias, ventas y deudas reales no cambian, y las mercancías, ventas y deuda cubiertas pasan a la contabilidad fiscal a los precios del documento fiscal. Los pagos de los documentos cubiertos, también los posteriores, se trasladan al documento fiscal.
+- Un documento cubierto no se puede anular, eliminar, marcar ni modificar mientras el documento fiscal esté contabilizado. La devolución del cliente se hace sobre la venta fiscal y es fiscal; una devolución sobre la venta cubierta no se contabiliza. La devolución al proveedor sobre una recepción fiscal aún no está disponible: hágala antes del documento fiscal.
+
 ## 2.0.16.96
 ### ru
 - Раздельный управленческий и налоговый учёт (Настройки → Бухгалтерия, по умолчанию выключен). Когда он включён, у реализации, поступления, возвратов, приходного и расходного кассового ордера, списания и чека в рабочем месте кассира появляется флажок «Налоговый». Документ без флажка проводится только по управленческому учёту.

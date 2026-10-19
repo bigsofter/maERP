@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e34cb214-b278-458b-8e7f-a272c16b250f">
+  <name>ПрежниеОснованияОплатыПередЗаписью</name>
+  <synonym>
+    <key>ru</key>
+    <value>Прежние основания оплаты перед записью</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Bases précédentes du paiement avant l'enregistrement</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Previous payment bases before writing</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Bases anteriores del pago antes de grabar</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.РасходныйКассовыйОрдер</types>
+    <types>DocumentObject.СписаниеБезналичныхДенежныхСредств</types>
+    <types>DocumentObject.ПоступлениеБезналичныхДенежныхСредств</types>
+    <types>DocumentObject.ПриходныйКассовыйОрдер</types>
+  </source>
+  <event>BeforeWrite</event>
+  <handler>CommonModule.ПодпискиНаСобытия.ПрежниеОснованияОплатыПередЗаписью</handler>
+</mdclass:EventSubscription>

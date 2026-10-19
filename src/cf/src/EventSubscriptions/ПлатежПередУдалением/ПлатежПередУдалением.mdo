@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="ee77f1fa-c10c-4f5a-ab3c-debf5ce70bfc">
+  <name>ПлатежПередУдалением</name>
+  <synonym>
+    <key>ru</key>
+    <value>Платёж перед удалением</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Paiement avant suppression</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Payment before deletion</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Pago antes de eliminar</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.РасходныйКассовыйОрдер</types>
+    <types>DocumentObject.СписаниеБезналичныхДенежныхСредств</types>
+    <types>DocumentObject.ПоступлениеБезналичныхДенежныхСредств</types>
+    <types>DocumentObject.ПриходныйКассовыйОрдер</types>
+  </source>
+  <event>BeforeDelete</event>
+  <handler>CommonModule.ПодпискиНаСобытия.ПлатежПередУдалением</handler>
+</mdclass:EventSubscription>
