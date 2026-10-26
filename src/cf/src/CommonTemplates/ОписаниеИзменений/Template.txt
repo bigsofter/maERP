@@ -10,6 +10,39 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.99
+### ru
+- Рабочее место закупок, закладка «Потребность»: новая кнопка «Создать поступление». Отметьте строки и нажмите кнопку: по каждому заказу на производство проводится поступление от поставщика строки на недостающее количество, без заказа поставщику и без номера накладной (на ордерном складе — приходный ордер). Затем открывается закладка «Поступления».
+- «Создать поступление» принимает только недостающее заказам на производство. Пополнение склада до минимального остатка оформляется, как раньше, кнопкой «Заказать» или новым поступлением на закладке «Поступления». Если под заказ уже есть неоформленный черновик поступления, программа предложит сначала провести или удалить его.
+- Поступление под заказ на производство без заказа поставщику теперь уменьшает недостачу и тогда, когда по тому же материалу открыт заказ поставщику: материал больше не заказывается и не принимается второй раз.
+- Такое поступление распределяется на изделия, которым материала не хватает, с учётом уже взятого со склада и заказанного.
+- Возврат поставщику по такому поступлению возвращает недостачу заказу. Стадия заказа на производство учитывает поступления без заказа поставщику.
+- При обновлении программа размечает ранее проведённые поступления без заказа поставщику, чтобы недостача по заказам в работе стала верной.
+
+### fr
+- Poste de travail des achats, onglet « Besoin » : nouveau bouton « Créer une réception ». Cochez les lignes et cliquez : pour chaque commande de production, une réception du fournisseur de la ligne est validée pour la quantité manquante, sans commande fournisseur ni numéro de facture (bon d'entrée sur un entrepôt à bons). L'onglet « Réceptions » s'ouvre ensuite.
+- « Créer une réception » ne réceptionne que le manque des commandes de production. Le réapprovisionnement au stock minimum se fait comme avant avec « Commander » ou par une nouvelle réception dans l'onglet « Réceptions ». S'il existe déjà un brouillon de réception pour la commande, le programme propose de le valider ou de le supprimer d'abord.
+- Une réception pour une commande de production sans commande fournisseur réduit désormais le manque même si une commande fournisseur est ouverte pour la même matière : la matière n'est plus commandée ni réceptionnée une seconde fois.
+- Cette réception est répartie sur les produits qui manquent de matière, en tenant compte de ce qui a déjà été pris en stock et commandé.
+- Un retour fournisseur de cette réception rend le manque à la commande. L'étape de la commande de production tient compte des réceptions sans commande fournisseur.
+- Lors de la mise à jour, le programme marque les réceptions sans commande fournisseur déjà validées afin que le manque des commandes en cours soit correct.
+
+### en
+- Purchasing workplace, "Need" tab: new "Create receipt" button. Tick the lines and click it: for each production order a receipt from the line's supplier is posted for the missing quantity, without a supplier order and without an invoice number (a receiving order on a warehouse with receiving orders). The "Receipts" tab opens afterwards.
+- "Create receipt" only receives what production orders are missing. Replenishment to the minimum stock is done as before with "Order" or with a new receipt on the "Receipts" tab. If there is already a draft receipt for the order, the program asks to post or delete it first.
+- A receipt for a production order without a supplier order now reduces the shortage even when a supplier order is open for the same material: the material is no longer ordered or received a second time.
+- Such a receipt is allocated to the products that lack the material, taking into account what was already taken from stock and ordered.
+- A supplier return of such a receipt gives the shortage back to the order. The production order stage takes receipts without a supplier order into account.
+- During the update, the program marks already posted receipts without a supplier order so that the shortage of orders in progress is correct.
+
+### es
+- Puesto de trabajo de compras, pestaña «Necesidad»: nuevo botón «Crear recepción». Marque las líneas y púlselo: para cada pedido de producción se contabiliza una recepción del proveedor de la línea por la cantidad que falta, sin pedido a proveedor ni número de factura (una orden de entrada en un almacén con órdenes). Después se abre la pestaña «Recepciones».
+- «Crear recepción» solo recibe lo que falta a los pedidos de producción. La reposición al stock mínimo se hace como antes con «Pedir» o con una recepción nueva en la pestaña «Recepciones». Si ya hay un borrador de recepción para el pedido, el programa pide contabilizarlo o eliminarlo primero.
+- Una recepción para un pedido de producción sin pedido a proveedor ahora reduce el faltante aunque haya un pedido a proveedor abierto del mismo material: el material ya no se pide ni se recibe por segunda vez.
+- Esa recepción se reparte entre los productos a los que les falta el material, teniendo en cuenta lo ya tomado del almacén y lo pedido.
+- Una devolución al proveedor de esa recepción devuelve el faltante al pedido. La etapa del pedido de producción tiene en cuenta las recepciones sin pedido a proveedor.
+- Durante la actualización, el programa marca las recepciones sin pedido a proveedor ya contabilizadas para que el faltante de los pedidos en curso sea correcto.
+
 ## 2.0.16.98
 ### ru
 - Рабочее место закупок: закладка «К поступлению» заменена закладкой «Поступления» — список поступлений товаров и приходных ордеров с отборами панели и постраничным просмотром. Двойной щелчок открывает документ, щелчок по колонке «Заказ поставщику» — заказ.

@@ -260,6 +260,32 @@
               <buttonImportance>Normal</buttonImportance>
             </items>
             <items xsi:type="form:Button">
+              <name>КнопкаСоздатьПоступлениеПоПотребности</name>
+              <id>496</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>КнопкаСоздатьПоступлениеПоПотребностиРасширеннаяПодсказка</name>
+                <id>497</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.СоздатьПоступлениеПоПотребности</commandName>
+              <representation>Auto</representation>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+              <buttonImportance>Normal</buttonImportance>
+            </items>
+            <items xsi:type="form:Button">
               <name>КнопкаЗапроситьПредложения</name>
               <id>19</id>
               <visible>true</visible>
@@ -12343,6 +12369,52 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>ЗаказатьПотребность</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СоздатьПоступлениеПоПотребности</name>
+    <title>
+      <key>ru</key>
+      <value>Создать поступление</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Créer une réception</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create receipt</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Crear recepción</value>
+    </title>
+    <id>23</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Провести поступления без заказа поставщику по отмеченным строкам: на каждый заказ клиента, по поставщику</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Valider des réceptions sans commande fournisseur pour les lignes cochées : par commande client et fournisseur</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Post receipts without a supplier order for checked lines: per customer order and supplier</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Contabilizar recepciones sin pedido a proveedor de las líneas marcadas: por pedido del cliente y proveedor</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьПоступлениеПоПотребности</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
