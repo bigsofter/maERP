@@ -10,6 +10,35 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.103
+### ru
+- Технологическая карта: новый способ изготовления «Закупка». У закупаемых материалов он ставится сам, у производимых — «Наше производство»; при смене материала в строке способ подставляется заново, а выбор «Переработчик» или «Оба» сохраняется. Существующие карты переведены обновлением.
+- Полуфабрикат, который делает переработчик из вашего сырья, теперь раскрывается, если его собственная карта — только из закупаемого сырья и этот полуфабрикат больше нигде в заказе не встречается (отдельной строкой или своим производством); иначе он считается, как раньше. Его сырьё попадает в «Материалы» заказа, в потребность и в рабочее место закупок. Сам полуфабрикат не закупается — его приносит поступление из переработки. Сырьё, переданное переработчику по заказу, считается обеспеченным.
+- При отгрузке изделия программа списывает полуфабрикат, полученный от переработчика, а не его сырьё.
+- Рабочее место производства, закладка «Материалы»: колонка «Способ изготовления» стоит сразу за «Продукцией» и заполнена на всех уровнях.
+- В уже созданных заказах сырьё полуфабриката переработчика появится после команды «Заполнить по техкарте» в заказе.
+
+### fr
+- Gamme de fabrication : nouveau mode de fabrication « Achat ». Il s'applique automatiquement aux matières achetées, « Notre production » aux articles fabriqués ; en changeant la matière d'une ligne, le mode est proposé à nouveau, tandis qu'un choix « Sous-traitant » ou « Les deux » est conservé. Les gammes existantes sont mises à jour.
+- Le produit semi-fini fabriqué par un sous-traitant à partir de vos matières est désormais détaillé, si sa propre gamme ne contient que des matières achetées et qu'il ne figure nulle part ailleurs dans la commande (ligne à part ou notre production) ; sinon, il est compté comme avant. Ses matières apparaissent dans les « Matières » de la commande, dans les besoins et dans le poste de travail des achats. Le semi-fini lui-même n'est pas acheté — il arrive par la réception de sous-traitance. Les matières transférées au sous-traitant pour la commande sont considérées comme couvertes.
+- À l'expédition du produit, le programme sort le semi-fini reçu du sous-traitant, et non ses matières.
+- Poste de travail de production, onglet « Matières » : la colonne « Mode de fabrication » suit directement « Produit » et est renseignée à tous les niveaux.
+- Dans les commandes déjà créées, les matières du semi-fini du sous-traitant apparaissent après la commande « Remplir selon la gamme de fabrication » de la commande.
+
+### en
+- Production routing: new manufacturing method "Purchase". It is set automatically for purchased materials, "In-house production" for manufactured items; when the material of a line changes, the method is suggested again, while a "Subcontractor" or "Both" choice is kept. Existing routings are updated.
+- A semi-finished product made by a subcontractor from your materials is now expanded, if its own routing contains only purchased materials and it appears nowhere else in the order (as a separate line or in-house production); otherwise it is counted as before. Its materials appear in the order's "Materials", in the requirements and in the purchasing workplace. The semi-finished product itself is not purchased — it comes in with the receipt from processing. Materials transferred to the subcontractor for the order count as covered.
+- When the product is shipped, the program writes off the semi-finished product received from the subcontractor, not its materials.
+- Production workplace, "Materials" tab: the "Manufacturing method" column follows "Product" and is filled at every level.
+- In orders created earlier, the subcontracted semi-finished product's materials appear after the order's "Fill from production routing" command.
+
+### es
+- Ruta de fabricación: nuevo método de fabricación «Compra». Se asigna solo a los materiales comprados, «Producción propia» a los fabricados; al cambiar el material de una línea, el método se propone de nuevo, y una elección «Subcontratista» o «Ambos» se conserva. Las rutas existentes se actualizan.
+- El semielaborado que fabrica un subcontratista con sus materiales ahora se despliega, si su propia ruta solo contiene materiales comprados y no aparece en ninguna otra parte del pedido (línea aparte o producción propia); si no, se cuenta como antes. Sus materiales aparecen en los «Materiales» del pedido, en las necesidades y en el puesto de compras. El semielaborado en sí no se compra: llega con la recepción de procesamiento. Los materiales transferidos al subcontratista para el pedido cuentan como cubiertos.
+- Al expedir el producto, el programa da de baja el semielaborado recibido del subcontratista, no sus materiales.
+- Puesto de producción, pestaña «Materiales»: la columna «Método de fabricación» sigue a «Producto» y se rellena en todos los niveles.
+- En los pedidos ya creados, los materiales del semielaborado del subcontratista aparecen tras el comando «Rellenar según ruta de fabricación» del pedido.
+
 ## 2.0.16.102
 ### ru
 - Карточка товара, закладка «Производство»: смена способа изготовления в строке технологической карты больше не закрывает программу с ошибкой.
