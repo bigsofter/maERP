@@ -10,6 +10,7 @@
 
 	Команда = КомандыПечати.Добавить();
 	Команда.ИмяМакета = "АктПередачи";
+	Команда.ИмяКоманды = "ПечатьАктПередачи";
 	Команда.Представление = НСтр("ru = 'Акт передачи в переработку'; fr = 'Bon de transfert en sous-traitance';
 		|en = 'Transfer for processing act'; es = 'Acta de transferencia a procesamiento'");
 
