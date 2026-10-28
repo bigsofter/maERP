@@ -147,7 +147,7 @@ def export_methods(src):
     if not os.path.isdir(base):
         return result
     pattern = re.compile(
-        r"^\s*(?:Процедура|Функция|Procedure|Function)\s+(" + IDENT + r")\s*\([^)]*\)\s*Экспорт",
+        r"^\s*(?:(?:Асинх|Async)\s+)?(?:Процедура|Функция|Procedure|Function)\s+(" + IDENT + r")\s*\([^)]*\)\s*Экспорт",
         re.IGNORECASE | re.MULTILINE)
     for module in os.listdir(base):
         path = os.path.join(base, module, "Module.bsl")
