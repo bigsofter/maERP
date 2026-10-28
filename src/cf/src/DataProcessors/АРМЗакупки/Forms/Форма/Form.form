@@ -3516,6 +3516,136 @@
               </extInfo>
             </items>
             <items xsi:type="form:FormField">
+              <name>ТоварыПоступленийНомерВходящегоДокумента</name>
+              <id>544</id>
+              <title>
+                <key>ru</key>
+                <value>№ накл.</value>
+              </title>
+              <title>
+                <key>fr</key>
+                <value>N° fact.</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Invoice No.</value>
+              </title>
+              <title>
+                <key>es</key>
+                <value>N.º fact.</value>
+              </title>
+              <titleFont xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>false</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </titleFont>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>ТоварыПоступлений.НомерВходящегоДокумента</segments>
+              </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>ТоварыПоступленийНомерВходящегоДокументаПриИзменении</name>
+              </handlers>
+              <extendedTooltip>
+                <name>ТоварыПоступленийНомерВходящегоДокументаРасширеннаяПодсказка</name>
+                <id>545</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ТоварыПоступленийНомерВходящегоДокументаКонтекстноеМеню</name>
+                <id>546</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>InputField</type>
+              <editMode>Enter</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Left</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <extInfo xsi:type="form:InputFieldExtInfo">
+                <width>10</width>
+                <autoMaxWidth>false</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <textEdit>true</textEdit>
+                <textSize>Normal</textSize>
+              </extInfo>
+            </items>
+            <items xsi:type="form:FormField">
+              <name>ТоварыПоступленийДатаВходящегоДокумента</name>
+              <id>547</id>
+              <title>
+                <key>ru</key>
+                <value>Дата накл.</value>
+              </title>
+              <title>
+                <key>fr</key>
+                <value>Date fact.</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Invoice date</value>
+              </title>
+              <title>
+                <key>es</key>
+                <value>Fecha fact.</value>
+              </title>
+              <titleFont xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>false</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </titleFont>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>ТоварыПоступлений.ДатаВходящегоДокумента</segments>
+              </dataPath>
+              <extendedTooltip>
+                <name>ТоварыПоступленийДатаВходящегоДокументаРасширеннаяПодсказка</name>
+                <id>548</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ТоварыПоступленийДатаВходящегоДокументаКонтекстноеМеню</name>
+                <id>549</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>InputField</type>
+              <editMode>Enter</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Left</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <extInfo xsi:type="form:InputFieldExtInfo">
+                <width>9</width>
+                <autoMaxWidth>false</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <textEdit>true</textEdit>
+                <textSize>Normal</textSize>
+              </extInfo>
+            </items>
+            <items xsi:type="form:FormField">
               <name>ТоварыПоступленийСклад</name>
               <id>541</id>
               <title>
@@ -10346,6 +10476,38 @@
       <id>17</id>
       <valueType>
         <types>CatalogRef.МестаХранения</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>НомерВходящегоДокумента</name>
+      <id>18</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers>
+          <length>30</length>
+        </stringQualifiers>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ДатаВходящегоДокумента</name>
+      <id>19</id>
+      <valueType>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
       </valueType>
       <view>
         <common>true</common>
