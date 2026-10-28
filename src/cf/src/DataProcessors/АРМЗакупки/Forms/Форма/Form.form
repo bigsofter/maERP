@@ -3482,6 +3482,10 @@
               <dataPath xsi:type="form:DataPath">
                 <segments>ТоварыПоступлений.Поставщик</segments>
               </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>ТоварыПоступленийПоставщикПриИзменении</name>
+              </handlers>
 
               <extendedTooltip>
                 <name>ТоварыПоступленийПоставщикРасширеннаяПодсказка</name>
@@ -3505,6 +3509,73 @@
               <showInFooter>true</showInFooter>
               <extInfo xsi:type="form:InputFieldExtInfo">
                 <width>20</width>
+                <autoMaxWidth>false</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <textEdit>true</textEdit>
+                <textSize>Normal</textSize>
+              </extInfo>
+            </items>
+            <items xsi:type="form:FormField">
+              <name>ТоварыПоступленийСклад</name>
+              <id>541</id>
+              <title>
+                <key>ru</key>
+                <value>Склад</value>
+              </title>
+              <title>
+                <key>fr</key>
+                <value>Entrepôt</value>
+              </title>
+              <title>
+                <key>en</key>
+                <value>Warehouse</value>
+              </title>
+              <title>
+                <key>es</key>
+                <value>Almacén</value>
+              </title>
+              <titleFont xsi:type="core:FontRef">
+                <font>Style.NormalTextFont</font>
+                <bold>false</bold>
+                <italic>false</italic>
+                <underline>false</underline>
+                <strikeout>false</strikeout>
+                <scale>100</scale>
+              </titleFont>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <dataPath xsi:type="form:DataPath">
+                <segments>ТоварыПоступлений.Склад</segments>
+              </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>ТоварыПоступленийСкладПриИзменении</name>
+              </handlers>
+              <extendedTooltip>
+                <name>ТоварыПоступленийСкладРасширеннаяПодсказка</name>
+                <id>542</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <contextMenu>
+                <name>ТоварыПоступленийСкладКонтекстноеМеню</name>
+                <id>543</id>
+                <autoFill>true</autoFill>
+              </contextMenu>
+              <type>InputField</type>
+              <editMode>Enter</editMode>
+              <showInHeader>true</showInHeader>
+              <headerHorizontalAlign>Left</headerHorizontalAlign>
+              <showInFooter>true</showInFooter>
+              <extInfo xsi:type="form:InputFieldExtInfo">
+                <width>15</width>
                 <autoMaxWidth>false</autoMaxWidth>
                 <autoMaxHeight>true</autoMaxHeight>
                 <textEdit>true</textEdit>
@@ -3613,6 +3684,10 @@
               <dataPath xsi:type="form:DataPath">
                 <segments>ТоварыПоступлений.Характеристика</segments>
               </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>ТоварыПоступленийХарактеристикаПриИзменении</name>
+              </handlers>
 
               <extendedTooltip>
                 <name>ТоварыПоступленийХарактеристикаРасширеннаяПодсказка</name>
@@ -10258,6 +10333,19 @@
       <id>16</id>
       <valueType>
         <types>Boolean</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Склад</name>
+      <id>17</id>
+      <valueType>
+        <types>CatalogRef.МестаХранения</types>
       </valueType>
       <view>
         <common>true</common>
