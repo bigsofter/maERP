@@ -17,7 +17,8 @@
 #       # {"version", "released_at", "changes": [{"lang", "title", "items"}]}
 #
 # Переменные окружения:
-#   TINYCIO_HUB_SECRET  — HMAC-секрет вебхука maERP в хабе (ОБЯЗАТЕЛЬНО)
+#   TINYCIO_HUB_SECRET  — HMAC-секрет вебхука maERP в хабе (ОБЯЗАТЕЛЬНО); не задан —
+#                         берётся TINYCIO_HUB_SECRET_MAERP из ~/.config/tinycio/hub-secrets.env
 #   TINYCIO_HUB_URL     — база хаба, по умолчанию https://my.tinycio.com
 #   TINYCIO_HUB_PRODUCT — код продукта в хабе, по умолчанию maerp
 #
@@ -44,6 +45,11 @@ while [ $# -gt 0 ]; do
 	esac
 	shift
 done
+
+HUB_SECRETS_FILE="${HOME}/.config/tinycio/hub-secrets.env"
+if [ -z "${TINYCIO_HUB_SECRET:-}" ] && [ -r "$HUB_SECRETS_FILE" ]; then
+	TINYCIO_HUB_SECRET="$(sed -n 's/^TINYCIO_HUB_SECRET_MAERP=//p' "$HUB_SECRETS_FILE" | tr -d '"' | tail -1)"
+fi
 
 # Подписывает и отправляет одно тело запроса из файла.
 send_payload() {
