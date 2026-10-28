@@ -1376,6 +1376,17 @@
 
 КонецПроцедуры
 
+// Акт передачи в переработку перешёл на общий макет ФирменныйДокумент (2.0.16.110): включённая пользовательская правка
+// прежнего макета перестала действовать. Обработчик только предупреждает в журнале регистрации.
+//
+Процедура ПредупредитьОЗамененномМакетеАктаПередачи() Экспорт
+
+	Макеты = Новый Массив;
+	Макеты.Добавить("Документ.ПередачаВПереработку.АктПередачи");
+	ПредупредитьОЗамененныхМакетах(Макеты);
+
+КонецПроцедуры
+
 // Фирменные печатные формы, фаза 5 (docs/plans/branded-print.md, раздел 12.7): акт сверки трёх вариантов и бланк заказа
 // покупателя перешли на общий макет ФирменныйДокумент - включённые пользовательские правки прежних макетов перестали
 // действовать для этих форм. Обработчик только предупреждает в журнале регистрации; правки не удаляются (раздел 3.4а
@@ -2104,6 +2115,16 @@
 		|conservées - avertissement dans le journal.'; en = 'Changes to print templates removed from the configuration
 		|are kept - warning in the event log.'; es = 'Cambios de plantillas de impresión eliminadas de la configuración
 		|conservados - aviso en el registro.'");
+
+	Обработчик = Обработчики.Добавить();
+	Обработчик.Версия = "2.0.16.110";
+	Обработчик.РежимВыполнения = РежимОперативно;
+	Обработчик.Процедура = "ОбновлениеПрограммыОбработчики.ПредупредитьОЗамененномМакетеАктаПередачи";
+	Обработчик.Комментарий = НСтр("ru = 'Изменённый пользователем макет акта передачи в переработку заменён фирменным -
+		|предупреждение в журнале.'; fr = 'Modèle de bon de transfert en sous-traitance modifié par l''utilisateur
+		|remplacé par le modèle à en-tête - avertissement dans le journal.'; en = 'User-modified transfer for processing
+		|act template replaced by the branded one - warning in the event log.'; es = 'Plantilla de acta de transferencia
+		|a procesamiento modificada por el usuario sustituida por la corporativa - aviso en el registro.'");
 
 КонецПроцедуры
 
