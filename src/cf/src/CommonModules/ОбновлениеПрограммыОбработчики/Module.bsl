@@ -1935,6 +1935,15 @@
 		|es = 'Cantidades físicas por almacén: copia del historial de «Productos en stock» en el registro «Mercancías en
 		|almacenes» y conciliación de los registros por registro.'");
 
+	Обработчик = Обработчики.Добавить();
+	Обработчик.Версия = "2.0.16.107";
+	Обработчик.РежимВыполнения = РежимМонопольно;
+	Обработчик.Процедура = "ОбновлениеПрограммыОбработчики.ВключитьОпциюОрдерныхСкладов";
+	Обработчик.Комментарий = НСтр("ru = 'Опция ""Ордерные склады"" включена в базах, где есть ордерные склады или ордера.';
+		|fr = 'Option « Entrepôts à bons » activée dans les bases qui ont des entrepôts à bons ou des bons.';
+		|en = 'The ""Order-based warehouses"" option is turned on in databases with order-based warehouses or orders.';
+		|es = 'Opción «Almacenes con órdenes» activada en las bases con almacenes por órdenes u órdenes.'");
+
 КонецПроцедуры
 
 // Обработчики обновления торгового оборудования (БПО-лайт, docs/plans/equipment-lite.md).
@@ -2592,6 +2601,25 @@
 КонецФункции
 // BSLLS:DeprecatedMethodCall-on
 // BSLLS:QueryParseError-on
+
+// Опция «Ордерные склады» (2.0.16.107, план warehouse-orders-option): включается, если ордерная схема в базе уже
+// используется - есть склад с признаком ордерности или хотя бы один ордер, включая черновики. Иначе опция остаётся
+// выключенной: признак склада и ордера скрыты, как в новой базе. Повтор ничего не меняет.
+//
+Процедура ВключитьОпциюОрдерныхСкладов() Экспорт
+
+	УстановитьПривилегированныйРежим(Истина);
+	Если Справочники.МестаХранения.ОрдерныеСкладыВключены()
+		Или Не Справочники.МестаХранения.ОрдерныеСкладыИспользуются() Тогда
+		Возврат;
+	КонецЕсли;
+	Константы.ИспользоватьОрдерныеСклады.Установить(Истина);
+	ЗаписатьВЖурнал(НСтр("ru = 'Включена опция «Ордерные склады»: в базе есть ордерные склады или ордера.';
+		|fr = 'Option « Entrepôts à bons » activée : la base contient des entrepôts à bons ou des bons.';
+		|en = 'The «Order-based warehouses» option is on: the database has order-based warehouses or orders.';
+		|es = 'Opción «Almacenes con órdenes» activada: la base tiene almacenes por órdenes u órdenes.'"));
+
+КонецПроцедуры
 
 // Заполняет физический регистр ТоварыНаСкладах копией истории ТоварыВНаличии (ордерные склады, фаза 1) и сверяет
 // регистры по записям. Расхождение - журнал и исключение: версия базы не поднимается, следующий запуск выполнит

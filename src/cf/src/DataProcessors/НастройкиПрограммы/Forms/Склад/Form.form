@@ -5,19 +5,19 @@
     <id>1</id>
     <title>
       <key>ru</key>
-      <value>Склад: ячейки хранения, инвентаризация, комплектация и пересортица.</value>
+      <value>Склад: ячейки хранения, ордерные склады, инвентаризация, комплектация и пересортица.</value>
     </title>
     <title>
       <key>fr</key>
-      <value>Entrepôt : emplacements, inventaire, kits et reclassements.</value>
+      <value>Entrepôt : emplacements, entrepôts à bons, inventaire, kits et reclassements.</value>
     </title>
     <title>
       <key>en</key>
-      <value>Warehouse: storage bins, stock counts, kits and regrading.</value>
+      <value>Warehouse: storage bins, order-based warehouses, stock counts, kits and regrading.</value>
     </title>
     <title>
       <key>es</key>
-      <value>Almacén: ubicaciones, inventario, kits y reclasificaciones.</value>
+      <value>Almacén: ubicaciones, almacenes con órdenes, inventario, kits y reclasificaciones.</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -100,6 +100,62 @@
         <handlers>
           <event>OnChange</event>
           <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>ИспользоватьОрдерныеСклады</name>
+      <id>15</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ИспользоватьОрдерныеСклады</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Приход и расход выбранных складов оформляются приходными и расходными ордерами кладовщика: признак «Ордерный склад» в карточке склада, ордера в меню и в рабочем месте закупок</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Les entrées et sorties des entrepôts choisis passent par des bons du magasinier : case « Entrepôt à bons » dans la fiche entrepôt, bons dans le menu et dans le poste des achats</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Receipts and issues of selected warehouses go through storekeeper orders: the «Order-based warehouse» flag on the warehouse card, orders in the menu and in the purchasing workplace</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Las entradas y salidas de los almacenes elegidos se registran con órdenes del almacenero: casilla «Almacén por órdenes» en la ficha del almacén, órdenes en el menú y en el puesto de compras</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ИспользоватьОрдерныеСкладыРасширеннаяПодсказка</name>
+        <id>16</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ИспользоватьОрдерныеСкладыКонтекстноеМеню</name>
+        <id>17</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>ОрдерныеСкладыПриИзменении</name>
         </handlers>
         <checkBoxType>Switcher</checkBoxType>
       </extInfo>

@@ -82,6 +82,19 @@
 	Если Не ОрдерныйСклад Тогда
 		Возврат;
 	КонецЕсли;
+	// Признак появляется только при включённой опции: выключенная опция означает, что ордерных складов нет
+	// (план warehouse-orders-option). Константа читается под разделяемой блокировкой, после блокировки складов.
+	Если Не Прежние.ОрдерныйСклад Тогда
+		Блокировка = Новый БлокировкаДанных;
+		УправляемыеБлокировки.ОпцияОрдерныхСкладов(Блокировка, Ложь);
+		Блокировка.Заблокировать();
+		Если Не Справочники.МестаХранения.ОрдерныеСкладыВключены() Тогда
+			Тексты.Добавить(НСтр("ru = 'Ордерный склад можно назначить только при включённой опции «Ордерные склады» (настройки, раздел «Склад»).';
+				|fr = 'Un entrepôt à bons ne peut être défini que si l''option « Entrepôts à bons » est activée (paramètres, section « Entrepôt »).';
+				|en = 'An order-based warehouse can only be set when the «Order-based warehouses» option is on (settings, «Warehouse» section).';
+				|es = 'Un almacén por órdenes solo se puede asignar con la opción «Almacenes con órdenes» activada (ajustes, sección «Almacén»).'"));
+		КонецЕсли;
+	КонецЕсли;
 	Если Не ЭтоНовый() И Ссылка = Справочники.МестаХранения.StockEnCoursDeRoute Тогда
 		Тексты.Добавить(НСтр("ru = 'Склад «в пути» не может быть ордерным.';
 			|fr = 'L''entrepôt « en cours de route » ne peut pas fonctionner par bons.';

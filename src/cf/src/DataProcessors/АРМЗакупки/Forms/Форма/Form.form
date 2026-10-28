@@ -8299,6 +8299,98 @@
       <representationInContextMenu>Auto</representationInContextMenu>
       <buttonImportance>Normal</buttonImportance>
     </items>
+    <items xsi:type="form:FormGroup">
+      <name>ГруппаСоздатьПоступление</name>
+      <id>498</id>
+      <items xsi:type="form:Button">
+        <name>ФормаСоздатьПоступление</name>
+        <id>500</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ФормаСоздатьПоступлениеРасширеннаяПодсказка</name>
+          <id>501</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СоздатьПоступление</commandName>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+        <buttonImportance>Normal</buttonImportance>
+      </items>
+      <items xsi:type="form:Button">
+        <name>ФормаСоздатьПриходныйОрдер</name>
+        <id>502</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ФормаСоздатьПриходныйОрдерРасширеннаяПодсказка</name>
+          <id>503</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.СоздатьПриходныйОрдер</commandName>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+        <buttonImportance>Normal</buttonImportance>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>ru</key>
+        <value>Создать</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Créer</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Create</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Crear</value>
+      </title>
+      <extendedTooltip>
+        <name>ГруппаСоздатьПоступлениеРасширеннаяПодсказка</name>
+        <id>499</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>Popup</type>
+      <extInfo xsi:type="form:PopupGroupExtInfo">
+        <representation>Auto</representation>
+        <importance>Normal</importance>
+      </extInfo>
+    </items>
     <items xsi:type="form:Button">
       <name>ФормаОбновить</name>
       <id>431</id>
@@ -10083,6 +10175,19 @@
     </edit>
   </attributes>
   <attributes>
+    <name>ОрдерныеСкладыВключены</name>
+    <id>33</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
     <name>ПанельРазвернута</name>
     <id>9</id>
     <valueType>
@@ -11788,19 +11893,19 @@
     <id>1</id>
     <toolTip>
       <key>ru</key>
-      <value>Новый заказ поставщику; на закладке «Поступления» — новое поступление, на ордерном складе — приходный ордер</value>
+      <value>Новый заказ поставщику; на закладке «Поступления» — новое поступление</value>
     </toolTip>
     <toolTip>
       <key>fr</key>
-      <value>Nouvelle commande fournisseur ; sur l'onglet « Réceptions » — nouvelle réception, sur un entrepôt à bons — bon d'entrée</value>
+      <value>Nouvelle commande fournisseur ; sur l'onglet « Réceptions » — nouvelle réception</value>
     </toolTip>
     <toolTip>
       <key>en</key>
-      <value>New supplier order; on the "Receipts" tab — a new receipt, on a warehouse with warehouse orders — a receiving order</value>
+      <value>New supplier order; on the "Receipts" tab — a new receipt</value>
     </toolTip>
     <toolTip>
       <key>es</key>
-      <value>Nuevo pedido a proveedor; en la pestaña «Recepciones» — nueva recepción, en un almacén con órdenes — orden de entrada</value>
+      <value>Nuevo pedido a proveedor; en la pestaña «Recepciones» — nueva recepción</value>
     </toolTip>
     <use>
       <common>true</common>
@@ -11808,6 +11913,98 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>Создать</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СоздатьПоступление</name>
+    <title>
+      <key>ru</key>
+      <value>Создать поступление</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Créer une réception</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create receipt</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Crear recepción</value>
+    </title>
+    <id>24</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Новое поступление товаров и услуг</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Nouvel achat de marchandises et de services</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>New purchase of goods and services</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Nueva compra de mercancías y servicios</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьПоступление</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>СоздатьПриходныйОрдер</name>
+    <title>
+      <key>ru</key>
+      <value>Создать приходный ордер</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Créer un bon d'entrée</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create receiving order</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Crear orden de entrada</value>
+    </title>
+    <id>25</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Новый приходный ордер на ордерный склад</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Nouveau bon d'entrée pour un entrepôt à bons</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>New receiving order for an order-based warehouse</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Nueva orden de entrada para un almacén por órdenes</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьПриходныйОрдер</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
