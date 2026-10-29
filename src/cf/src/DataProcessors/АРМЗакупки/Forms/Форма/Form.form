@@ -3352,6 +3352,124 @@
             <autoCommandBar>
               <name>ТоварыПоступленийКоманднаяПанель</name>
               <id>537</id>
+              <items xsi:type="form:FormGroup">
+                <name>ТоварыПоступленийПодменюСтатус</name>
+                <id>550</id>
+                <items xsi:type="form:Button">
+                  <name>ТоварыПоступленийСтатусПровести</name>
+                  <id>551</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>ТоварыПоступленийСтатусПровестиРасширеннаяПодсказка</name>
+                    <id>552</id>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.ТоварыПоступленийСтатусПровести</commandName>
+                  <representation>Auto</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                  <buttonImportance>Normal</buttonImportance>
+                </items>
+                <items xsi:type="form:Button">
+                  <name>ТоварыПоступленийСтатусВЧерновик</name>
+                  <id>553</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>ТоварыПоступленийСтатусВЧерновикРасширеннаяПодсказка</name>
+                    <id>554</id>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.ТоварыПоступленийСтатусВЧерновик</commandName>
+                  <representation>Auto</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                  <buttonImportance>Normal</buttonImportance>
+                </items>
+                <items xsi:type="form:Button">
+                  <name>ТоварыПоступленийСтатусОтменить</name>
+                  <id>555</id>
+                  <visible>true</visible>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <extendedTooltip>
+                    <name>ТоварыПоступленийСтатусОтменитьРасширеннаяПодсказка</name>
+                    <id>556</id>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <commandName>Form.Command.ТоварыПоступленийСтатусОтменить</commandName>
+                  <representation>Auto</representation>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <placementArea>UserCmds</placementArea>
+                  <representationInContextMenu>Auto</representationInContextMenu>
+                  <buttonImportance>Normal</buttonImportance>
+                </items>
+                <visible>true</visible>
+                <enabled>true</enabled>
+                <userVisible>
+                  <common>true</common>
+                </userVisible>
+                <title>
+                  <key>ru</key>
+                  <value>Изменить статус</value>
+                </title>
+                <title>
+                  <key>fr</key>
+                  <value>Changer le statut</value>
+                </title>
+                <title>
+                  <key>en</key>
+                  <value>Change status</value>
+                </title>
+                <title>
+                  <key>es</key>
+                  <value>Cambiar estado</value>
+                </title>
+                <extendedTooltip>
+                  <name>ТоварыПоступленийПодменюСтатусРасширеннаяПодсказка</name>
+                  <id>557</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <type>Popup</type>
+                <extInfo xsi:type="form:PopupGroupExtInfo">
+                  <representation>Auto</representation>
+                  <importance>Normal</importance>
+                </extInfo>
+              </items>
               <horizontalAlign>Left</horizontalAlign>
               <autoFill>true</autoFill>
             </autoCommandBar>
@@ -9444,6 +9562,10 @@
     <event>OnOpen</event>
     <name>ПриОткрытии</name>
   </handlers>
+  <handlers>
+    <event>BeforeClose</event>
+    <name>ПередЗакрытием</name>
+  </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <saveDataInSettings>UseList</saveDataInSettings>
   <saveWindowSettings>true</saveWindowSettings>
@@ -13206,6 +13328,22 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>СтрокиТоваровКЗаписи</name>
+    <id>36</id>
+    <valueType>
+      <types>ValueList</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <extInfo xsi:type="form:ValueListExtInfo">
+      <itemValueType/>
+    </extInfo>
+  </attributes>
   <formCommands>
     <name>Создать</name>
     <title>
@@ -14318,6 +14456,153 @@
     </action>
     <currentRowUse>Auto</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ТоварыПоступленийСтатусПровести</name>
+    <title>
+      <key>ru</key>
+      <value>Провести</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Valider</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Post</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Contabilizar</value>
+    </title>
+    <id>26</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Провести документы выделенных строк</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Valider les documents des lignes sélectionnées</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Post the documents of the selected lines</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Contabilizar los documentos de las líneas seleccionadas</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ТоварыПоступленийПровести</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <associatedTableElementId xsi:type="core:StringValue">
+      <value>ТоварыПоступлений</value>
+    </associatedTableElementId>
+    <selectedRowsUse>Use</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ТоварыПоступленийСтатусВЧерновик</name>
+    <title>
+      <key>ru</key>
+      <value>В черновик</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>En brouillon</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>To draft</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>A borrador</value>
+    </title>
+    <id>27</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Отменить проведение документов выделенных строк</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Annuler la validation des documents des lignes sélectionnées</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Undo posting of the documents of the selected lines</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Anular la contabilización de los documentos de las líneas seleccionadas</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ТоварыПоступленийВЧерновик</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <associatedTableElementId xsi:type="core:StringValue">
+      <value>ТоварыПоступлений</value>
+    </associatedTableElementId>
+    <selectedRowsUse>Use</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ТоварыПоступленийСтатусОтменить</name>
+    <title>
+      <key>ru</key>
+      <value>Отменить</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Annuler</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Cancel</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Cancelar</value>
+    </title>
+    <id>28</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Пометить документы выделенных строк на удаление</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Marquer les documents des lignes sélectionnées pour suppression</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Mark the documents of the selected lines for deletion</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Marcar los documentos de las líneas seleccionadas para eliminar</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ТоварыПоступленийОтменить</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <associatedTableElementId xsi:type="core:StringValue">
+      <value>ТоварыПоступлений</value>
+    </associatedTableElementId>
+    <selectedRowsUse>Use</selectedRowsUse>
   </formCommands>
   <commandInterface>
     <navigationPanel/>
