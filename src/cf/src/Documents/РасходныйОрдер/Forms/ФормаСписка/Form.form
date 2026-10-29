@@ -115,7 +115,7 @@
             <common>true</common>
           </userVisible>
           <dataPath xsi:type="form:DataPath">
-            <segments>Список.Date</segments>
+            <segments>Список.Дата</segments>
           </dataPath>
           <defaultItem>true</defaultItem>
           <extendedTooltip>
@@ -160,7 +160,7 @@
             <common>true</common>
           </userVisible>
           <dataPath xsi:type="form:DataPath">
-            <segments>Список.Number</segments>
+            <segments>Список.Номер</segments>
           </dataPath>
           <extendedTooltip>
             <name>НомерРасширеннаяПодсказка</name>
@@ -190,6 +190,22 @@
         <items xsi:type="form:FormField">
           <name>Организация</name>
           <id>31</id>
+          <title>
+            <key>ru</key>
+            <value>Наша компания</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>Notre société</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Our company</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Nuestra empresa</value>
+          </title>
           <titleFont xsi:type="core:FontRef">
             <font>Style.NormalTextFont</font>
             <bold>false</bold>
@@ -198,7 +214,7 @@
             <strikeout>false</strikeout>
             <scale>100</scale>
           </titleFont>
-          <visible>false</visible>
+          <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
@@ -280,19 +296,19 @@
           <id>22</id>
           <title>
             <key>ru</key>
-            <value>Списать с</value>
+            <value>Склад</value>
           </title>
           <title>
             <key>fr</key>
-            <value>Radier de</value>
+            <value>Entrepôt</value>
           </title>
           <title>
             <key>en</key>
-            <value>Deduct from</value>
+            <value>Warehouse</value>
           </title>
           <title>
             <key>es</key>
-            <value>Cancelar con</value>
+            <value>Almacén</value>
           </title>
           <titleFont xsi:type="core:FontRef">
             <font>Style.NormalTextFont</font>
@@ -336,6 +352,67 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>false</horizontalStretch>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>Количество</name>
+          <id>119</id>
+          <title>
+            <key>ru</key>
+            <value>Количество</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>Quantité</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Quantity</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Cantidad</value>
+          </title>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Список.Количество</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>КоличествоРасширеннаяПодсказка</name>
+            <id>120</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>КоличествоКонтекстноеМеню</name>
+            <id>121</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>LabelField</type>
+          <editMode>Enter</editMode>
+          <autoCellHeight>true</autoCellHeight>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Center</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:LabelFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
@@ -1662,9 +1739,18 @@
 	Док.Основание КАК Основание,
 	Док.Ответственный КАК Ответственный,
 	Док.Комментарий КАК Комментарий,
+	ЕСТЬNULL(Количества.Количество, 0) КАК Количество,
 	ЕСТЬNULL(Остатки.КОформлению, 0) КАК КОформлению
 ИЗ
 	Документ.РасходныйОрдер КАК Док
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Строки.Ссылка КАК Ссылка,
+			СУММА(Строки.Количество) КАК Количество
+		ИЗ
+			Документ.РасходныйОрдер.ТЧТовары КАК Строки
+		СГРУППИРОВАТЬ ПО
+			Строки.Ссылка) КАК Количества
+		ПО Док.Ссылка = Количества.Ссылка
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
 			Неоформленные.Ордер КАК Ордер,
 			СУММА(Неоформленные.КоличествоОстаток) КАК КОформлению
@@ -2248,6 +2334,9 @@
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
+    <associatedTableElementId xsi:type="core:StringValue">
+      <value>Список</value>
+    </associatedTableElementId>
     <selectedRowsUse>Use</selectedRowsUse>
   </formCommands>
   <commandInterface>
