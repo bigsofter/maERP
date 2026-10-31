@@ -10,6 +10,44 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.122
+### ru
+- Ордерный склад: приходный ордер сразу создаёт партию — материал, принятый кладовщиком, можно списывать в производство, перемещать и отгружать до того, как менеджер оформит поступление.
+- Стоимость такой партии — 0 до оформления поступления, без оценки. Когда поступление оформлено, стоимость партии пересчитывается сразу, а себестоимость выпуска, списаний и продаж из неё — при пересчёте себестоимости («Сервис — Перепроведение документов» или по расписанию).
+- Расходный ордер списывает партии со склада сам; реализация по ордеру получает себестоимость из этого списания — по своей части отгрузки. Если партий на складе не хватает, расходный ордер не проводится.
+- Пока у партии ордерного склада есть неоформленный остаток или её расходы ещё не пересчитаны, её стоимость в расчёт цен не попадает: средняя себестоимость для цен и правила ценообразования берут только подтверждённые партии. В отчётах стоимости и маржи видно, сколько партий со стоимостью, не подтверждённой поступлением.
+- Дополнительные расходы поступления ордерного склада и документ дополнительных расходов по такому поступлению ложатся на партии ордеров. Дополнительный расход партии с нулевой стоимостью списывается пропорционально количеству.
+- Документ, оформивший ордер, нельзя удалить, не отменив сначала его проведение; ордер должен быть раньше оформляющего документа. Налоговый документ на основаниях с ордерного склада не оформляется.
+- Ордера, проведённые до обновления, переходят на партии при повторном проведении ордера или при пересчёте себестоимости; ордера, оформленные одним документом, переводятся вместе. До этого документы, оформившие такой ордер, повторно не проводятся — программа подскажет, что сделать.
+- Поступление ордерного склада, на которое распределены дополнительные расходы отдельным документом, нельзя отменить, пока не отменён этот документ.
+### fr
+- Entrepôt à bons : le bon d'entrée crée immédiatement le lot — la matière reçue par le magasinier peut être consommée en production, transférée et expédiée avant que le gestionnaire n'enregistre la réception.
+- Le coût d'un tel lot est 0 tant que la réception n'est pas enregistrée, sans estimation. Une fois la réception enregistrée, le coût du lot est recalculé aussitôt, et le coût de la production, des sorties et des ventes qui en proviennent — lors du recalcul du coût (« Service — Repasser les documents » ou selon la planification).
+- Le bon de sortie consomme lui-même les lots de l'entrepôt ; la vente sur bon reçoit son coût de cette sortie, pour sa part de l'expédition. Si les lots de l'entrepôt ne suffisent pas, le bon de sortie n'est pas validé.
+- Tant qu'un lot de l'entrepôt à bons a un reste non régularisé ou que ses sorties ne sont pas recalculées, son coût n'entre pas dans le calcul des prix : le coût moyen pour les prix et les règles de tarification ne prennent que les lots confirmés. Les rapports de coût et de marge indiquent le nombre de lots au coût non confirmé par une réception.
+- Les frais supplémentaires d'une réception de l'entrepôt à bons et le document de frais supplémentaires sur une telle réception sont imputés aux lots des bons. Les frais supplémentaires d'un lot à coût nul sont sortis au prorata de la quantité.
+- Un document qui a régularisé un bon ne peut pas être supprimé sans être d'abord dévalidé ; le bon doit précéder le document de régularisation. Aucun document fiscal sur bases n'est établi depuis un entrepôt à bons.
+- Les bons validés avant la mise à jour passent aux lots lors d'une nouvelle validation du bon ou du recalcul du coût ; les bons régularisés par un même document sont convertis ensemble. D'ici là, les documents qui ont régularisé un tel bon ne sont pas revalidés — le programme indique quoi faire.
+- Une réception d'entrepôt à bons sur laquelle des frais sont répartis par un document séparé ne peut pas être dévalidée tant que ce document n'est pas dévalidé.
+### en
+- Order-based warehouse: a receipt order creates the batch right away — material accepted by the storekeeper can be consumed in production, transferred and shipped before the manager documents the purchase receipt.
+- The cost of such a batch is 0 until the receipt is documented, with no estimate. Once the receipt is documented, the batch cost is recalculated at once, and the cost of production, write-offs and sales made from it — during cost recalculation ("Service — Document reposting" or on schedule).
+- An issue order writes off batches from the warehouse itself; a sale documenting the order gets its cost from that write-off, for its share of the shipment. If the warehouse lacks batches, the issue order is not posted.
+- While a batch of an order-based warehouse has an undocumented remainder or its write-offs are not yet recalculated, its cost stays out of pricing: the average cost for prices and the pricing rules use confirmed batches only. Cost and margin reports show how many batches have a cost not confirmed by a receipt.
+- Additional costs of a receipt at an order-based warehouse and an additional cost document for such a receipt go to the order batches. The additional cost of a zero-cost batch is written off in proportion to quantity.
+- A document that documented an order cannot be deleted without being unposted first; the order must be earlier than the documenting document. A tax document on bases is not issued from an order-based warehouse.
+- Orders posted before the update move to batches when the order is posted again or during cost recalculation; orders documented by the same document are converted together. Until then, documents that documented such an order are not reposted — the program tells you what to do.
+- An order-based warehouse receipt with additional costs allocated by a separate document cannot be unposted until that document is unposted.
+### es
+- Almacén por órdenes: la orden de entrada crea el lote al momento — el material recibido por el almacenero puede consumirse en producción, trasladarse y enviarse antes de que el gestor registre la recepción.
+- El coste de ese lote es 0 hasta que se registra la recepción, sin estimación. Al registrar la recepción, el coste del lote se recalcula en el acto, y el coste de la producción, las bajas y las ventas que salen de él — en el recálculo del coste («Servicio — Volver a contabilizar documentos» o según la programación).
+- La orden de salida da de baja los lotes del almacén por sí misma; la venta que formaliza la orden recibe su coste de esa baja, por su parte del envío. Si faltan lotes en el almacén, la orden de salida no se contabiliza.
+- Mientras un lote del almacén por órdenes tenga un resto sin formalizar o sus salidas no estén recalculadas, su coste no entra en el cálculo de precios: el coste medio para precios y las reglas de tarificación toman solo lotes confirmados. Los informes de coste y margen muestran cuántos lotes tienen un coste no confirmado por una recepción.
+- Los gastos adicionales de una recepción del almacén por órdenes y el documento de gastos adicionales sobre esa recepción se imputan a los lotes de las órdenes. El gasto adicional de un lote de coste cero se da de baja en proporción a la cantidad.
+- Un documento que formalizó una orden no puede eliminarse sin anular antes su contabilización; la orden debe ser anterior al documento que la formaliza. No se emite documento fiscal sobre bases desde un almacén por órdenes.
+- Las órdenes contabilizadas antes de la actualización pasan a lotes al volver a contabilizar la orden o al recalcular el coste; las órdenes formalizadas por un mismo documento se convierten juntas. Hasta entonces, los documentos que formalizaron esa orden no se vuelven a contabilizar — el programa indica qué hacer.
+- Una recepción de almacén con órdenes con gastos repartidos por un documento aparte no se puede anular mientras ese documento no se anule.
+
 ## 2.0.16.121
 ### ru
 - Маржа считается по партиям и статьям дополнительных расходов: себестоимость проданного товара хранится отдельно от выручки — по каждой партии, из которой товар ушёл со склада, и по каждой статье дополнительных расходов (доставка, таможня и другие). Отчёты «Ведомость по продажам», «Финансовый результат», «ABC-анализ продаж», «Проданный товар без накладной», дашборд продаж и расчёт зарплаты от прибыли берут себестоимость оттуда.

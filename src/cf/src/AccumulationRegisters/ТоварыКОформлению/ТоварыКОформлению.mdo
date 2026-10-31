@@ -25,7 +25,7 @@
     <key>es</key>
     <value>Mercancías por formalizar</value>
   </synonym>
-  <comment>Неоформленный остаток строк приходных и расходных ордеров: приход - ордер, расход - поступление или реализация по ордеру</comment>
+  <comment>Связь первого и второго документа пары оформления (ордер и поступление или реализация): приход - первый документ (источник), расход - второй</comment>
   <useStandardCommands>true</useStandardCommands>
   <standardAttributes>
     <dataHistory>Use</dataHistory>
@@ -93,6 +93,30 @@
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
   </resources>
+  <attributes uuid="4ebfd94a-1155-4c49-ba3f-40822694e275">
+    <name>КодСтрокиРегистратора</name>
+    <synonym>
+      <key>ru</key>
+      <value>Код строки регистратора</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Code de ligne de l'enregistreur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Recorder line code</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Código de línea del registrador</value>
+    </synonym>
+    <type>
+      <types>DefinedType.КодСтроки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
   <dimensions uuid="c487b039-eb80-4ad7-a60e-55d9f7803b97">
     <name>МестоХранения</name>
     <synonym>
@@ -120,26 +144,28 @@
     <useInTotals>true</useInTotals>
   </dimensions>
   <dimensions uuid="22c32a24-7fda-45a7-ac21-674fdb91de55">
-    <name>Ордер</name>
+    <name>Источник</name>
     <synonym>
       <key>ru</key>
-      <value>Ордер</value>
+      <value>Источник</value>
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Bon</value>
+      <value>Source</value>
     </synonym>
     <synonym>
       <key>en</key>
-      <value>Order</value>
+      <value>Source</value>
     </synonym>
     <synonym>
       <key>es</key>
-      <value>Orden</value>
+      <value>Origen</value>
     </synonym>
     <type>
       <types>DocumentRef.ПриходныйОрдер</types>
       <types>DocumentRef.РасходныйОрдер</types>
+      <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
@@ -147,22 +173,22 @@
     <useInTotals>true</useInTotals>
   </dimensions>
   <dimensions uuid="1d455ae2-bfe2-44e2-9ce9-d25b034bd2d7">
-    <name>КлючСтрокиОрдера</name>
+    <name>КлючСтрокиИсточника</name>
     <synonym>
       <key>ru</key>
-      <value>Ключ строки ордера</value>
+      <value>Ключ строки источника</value>
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Clé de ligne du bon</value>
+      <value>Clé de ligne de la source</value>
     </synonym>
     <synonym>
       <key>en</key>
-      <value>Order line key</value>
+      <value>Source line key</value>
     </synonym>
     <synonym>
       <key>es</key>
-      <value>Clave de línea de la orden</value>
+      <value>Clave de línea del origen</value>
     </synonym>
     <type>
       <types>DefinedType.КодСтроки</types>
