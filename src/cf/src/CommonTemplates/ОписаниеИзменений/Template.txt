@@ -10,6 +10,48 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.123
+### ru
+- Ордерный склад: поступление и реализацию можно провести и без ордера — документ первым. Товар ждёт приёмки или отгрузки, а кладовщик вводит приходный или расходный ордер на основании документа: строки заполняются тем, что ещё не принято или не отгружено.
+- В одном документе можно сочетать строки по ордерам и строки без ордера.
+- Партия, принятая по поступлению частями, получает стоимость по своей доле строки; изменение цены поступления сразу пересчитывает партии всех его приёмок.
+- Себестоимость реализации, проведённой раньше отгрузки, появляется по мере отгрузки расходными ордерами. В отчётах стоимости и маржи видно, сколько реализаций ещё не отгружено полностью.
+- Вернуть по реализации ордерного склада можно только то, что уже отгружено; отменить отгрузку, которую покупатель вернул, нельзя.
+- Дополнительные расходы на поступление, ещё не принятое полностью, распределяются по мере приёмки; программа сообщает, какая часть ждёт приёмки.
+- Поступление, принятое ордером, и строки, по которым принят товар, защищены от отмены и удаления: сначала отменяется ордер.
+- В отчёте «Остатки на складах» — колонки «Ожидает приёмки» и «Ожидает отгрузки». Раз в сутки приходит оповещение, если ордера или документы ждут оформления дольше трёх дней (порог настраивается).
+- При выпуске из материала, стоимость которого ещё не подтверждена поступлением, программа предупреждает об этом.
+### fr
+- Entrepôt à bons : la réception et la vente peuvent être validées sans bon — le document d'abord. La marchandise attend la réception ou l'expédition, et le magasinier saisit un bon d'entrée ou de sortie à partir du document : les lignes reprennent ce qui n'est pas encore reçu ou expédié.
+- Un même document peut combiner des lignes sur bons et des lignes sans bon.
+- Un lot reçu en plusieurs fois reçoit le coût de sa part de ligne ; un changement de prix de la réception recalcule aussitôt les lots de toutes ses réceptions.
+- Le coût d'une vente validée avant l'expédition apparaît au fur et à mesure des bons de sortie. Les rapports de coût et de marge indiquent combien de ventes ne sont pas encore entièrement expédiées.
+- Pour une vente d'entrepôt à bons, seul l'expédié peut être retourné ; une expédition retournée par le client ne peut pas être annulée.
+- Les frais d'une réception pas encore entièrement reçue sont répartis au fil des réceptions ; le programme indique la part en attente.
+- Une réception reçue par bon et ses lignes reçues sont protégées contre l'annulation et la suppression : il faut d'abord annuler le bon.
+- Le rapport « Stocks des entrepôts » a les colonnes « En attente de réception » et « En attente d'expédition ». Une notification quotidienne signale les bons ou documents en attente depuis plus de trois jours (seuil réglable).
+- Lors d'une fabrication à partir d'un matériau dont le coût n'est pas encore confirmé par une réception, le programme le signale.
+### en
+- Order-based warehouse: a receipt or a sale can now be posted without an order — document first. The goods wait for receipt or shipment, and the storekeeper enters a receipt or issue order based on the document: the lines are filled with what is not yet received or shipped.
+- One document can combine lines on orders and lines without an order.
+- A batch received in parts gets the cost of its share of the line; a change of the receipt price immediately recalculates the batches of all its receipts.
+- The cost of a sale posted before shipment appears as issue orders ship it. Cost and margin reports show how many sales are not yet fully shipped.
+- For an order-based warehouse sale only goods already shipped can be returned; a shipment returned by the customer cannot be cancelled.
+- Additional costs of a receipt not yet fully received are allocated as goods are received; the program shows the part still waiting.
+- A receipt received by order and its received lines are protected from unposting and deletion: cancel the order first.
+- The «Warehouse stock» report has «Awaiting receipt» and «Awaiting shipment» columns. A daily notification warns when orders or documents have waited more than three days (configurable threshold).
+- When production uses a material whose cost is not yet confirmed by a receipt, the program warns about it.
+### es
+- Almacén con órdenes: la recepción y la venta pueden contabilizarse sin orden — el documento primero. La mercancía espera la recepción o el envío, y el almacenero introduce una orden de entrada o de salida a partir del documento: las líneas se rellenan con lo que aún no se ha recibido o enviado.
+- Un mismo documento puede combinar líneas por órdenes y líneas sin orden.
+- Un lote recibido por partes recibe el coste de su parte de la línea; un cambio de precio de la recepción recalcula al instante los lotes de todas sus recepciones.
+- El coste de una venta contabilizada antes del envío aparece a medida que lo envían las órdenes de salida. Los informes de coste y margen muestran cuántas ventas aún no se han enviado por completo.
+- En una venta de almacén con órdenes solo se devuelve lo ya enviado; un envío devuelto por el cliente no se puede anular.
+- Los gastos de una recepción aún no recibida por completo se reparten a medida que se recibe; el programa indica la parte pendiente.
+- Una recepción recibida por orden y sus líneas recibidas están protegidas contra la anulación y la eliminación: primero se anula la orden.
+- El informe «Existencias en almacenes» tiene las columnas «Pendiente de recepción» y «Pendiente de envío». Una notificación diaria avisa cuando órdenes o documentos esperan más de tres días (umbral configurable).
+- Al fabricar con un material cuyo coste aún no está confirmado por una recepción, el programa lo advierte.
+
 ## 2.0.16.122
 ### ru
 - Ордерный склад: приходный ордер сразу создаёт партию — материал, принятый кладовщиком, можно списывать в производство, перемещать и отгружать до того, как менеджер оформит поступление.

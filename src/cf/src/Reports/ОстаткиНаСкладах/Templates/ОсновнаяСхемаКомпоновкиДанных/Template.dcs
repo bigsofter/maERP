@@ -144,6 +144,50 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОжидаетПриемки</dataPath>
+			<field>ОжидаетПриемки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ожидает приёмки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>En attente de réception</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Awaiting receipt</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Pendiente de recepción</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОжидаетОтгрузки</dataPath>
+			<field>ОжидаетОтгрузки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ожидает отгрузки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>En attente d'expédition</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Awaiting shipment</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Pendiente de envío</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	Данные.МестоХранения КАК МестоХранения,
@@ -154,7 +198,9 @@
 	Позиции.Единица КАК Единица,
 	СУММА(Данные.НаСкладе) КАК НаСкладе,
 	СУММА(Данные.Приход) КАК КОформлениюПриход,
-	СУММА(Данные.Расход) КАК КОформлениюРасход
+	СУММА(Данные.Расход) КАК КОформлениюРасход,
+	СУММА(Данные.ОжидаетПриемки) КАК ОжидаетПриемки,
+	СУММА(Данные.ОжидаетОтгрузки) КАК ОжидаетОтгрузки
 ИЗ
 	(ВЫБРАТЬ
 		Физика.МестоХранения КАК МестоХранения,
@@ -163,7 +209,9 @@
 		Физика.Серия КАК Серия,
 		Физика.КоличествоОстаток КАК НаСкладе,
 		0 КАК Приход,
-		0 КАК Расход
+		0 КАК Расход,
+		0 КАК ОжидаетПриемки,
+		0 КАК ОжидаетОтгрузки
 	ИЗ
 		РегистрНакопления.ТоварыНаСкладах.Остатки(&amp;Период, ) КАК Физика
 
@@ -184,6 +232,16 @@
 			КОГДА Оформление.Источник ССЫЛКА Документ.РасходныйОрдер
 				ТОГДА Оформление.КоличествоОстаток
 			ИНАЧЕ 0
+		КОНЕЦ,
+		ВЫБОР
+			КОГДА Оформление.Источник ССЫЛКА Документ.ПоступлениеТоваровУслуг
+				ТОГДА Оформление.КоличествоОстаток
+			ИНАЧЕ 0
+		КОНЕЦ,
+		ВЫБОР
+			КОГДА Оформление.Источник ССЫЛКА Документ.РеализацияТоваровУслуг
+				ТОГДА Оформление.КоличествоОстаток
+			ИНАЧЕ 0
 		КОНЕЦ
 	ИЗ
 		РегистрНакопления.ТоварыКОформлению.Остатки(&amp;Период, ) КАК Оформление) КАК Данные
@@ -200,7 +258,7 @@
 	</dataSet>
 	<calculatedField>
 		<dataPath>ПоУчету</dataPath>
-		<expression>НаСкладе - КОформлениюПриход + КОформлениюРасход</expression>
+		<expression>НаСкладе - КОформлениюПриход + КОформлениюРасход + ОжидаетПриемки - ОжидаетОтгрузки</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -233,8 +291,16 @@
 		<expression>Сумма(КОформлениюРасход)</expression>
 	</totalField>
 	<totalField>
+		<dataPath>ОжидаетПриемки</dataPath>
+		<expression>Сумма(ОжидаетПриемки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОжидаетОтгрузки</dataPath>
+		<expression>Сумма(ОжидаетОтгрузки)</expression>
+	</totalField>
+	<totalField>
 		<dataPath>ПоУчету</dataPath>
-		<expression>Сумма(НаСкладе) - Сумма(КОформлениюПриход) + Сумма(КОформлениюРасход)</expression>
+		<expression>Сумма(НаСкладе) - Сумма(КОформлениюПриход) + Сумма(КОформлениюРасход) + Сумма(ОжидаетПриемки) - Сумма(ОжидаетОтгрузки)</expression>
 	</totalField>
 	<parameter>
 		<name>Период</name>
@@ -283,6 +349,12 @@
 					<dcsset:field>КОформлениюРасход</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжидаетПриемки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжидаетОтгрузки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПоУчету</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
@@ -321,6 +393,12 @@
 						</dcsset:item>
 						<dcsset:item>
 							<dcsset:field>КОформлениюРасход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжидаетПриемки</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжидаетОтгрузки</dcsset:field>
 						</dcsset:item>
 						<dcsset:item>
 							<dcsset:field>ПоУчету</dcsset:field>

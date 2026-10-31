@@ -71,6 +71,7 @@
   <basedOn>Document.ЗаказПоставщику</basedOn>
   <basedOn>Document.ЗаказПокупателя</basedOn>
   <basedOn>Document.РеализацияТоваровУслуг</basedOn>
+  <basedOn>Document.ПоступлениеТоваровУслуг</basedOn>
   <createOnInput>DontUse</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
@@ -557,6 +558,59 @@
       <synonym>
         <key>es</key>
         <value>Código de línea del pedido</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="910e0973-b7d7-47e9-bd32-cae936d2c262">
+      <name>ДокументИсточник</name>
+      <synonym>
+        <key>ru</key>
+        <value>Поступление</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Réception</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Receipt</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Recepción</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="cccc0b8c-93e5-431f-87be-9ca51dfcf93c">
+      <name>КлючСтрокиДокумента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ключ строки документа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Clé de ligne du document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Document line key</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Clave de línea del documento</value>
       </synonym>
       <type>
         <types>DefinedType.КодСтроки</types>

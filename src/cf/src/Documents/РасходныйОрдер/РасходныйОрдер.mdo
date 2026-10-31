@@ -70,6 +70,7 @@
   </standardAttributes>
   <basedOn>Document.ЗаказПокупателя</basedOn>
   <basedOn>Document.ПоступлениеТоваровУслуг</basedOn>
+  <basedOn>Document.РеализацияТоваровУслуг</basedOn>
   <createOnInput>DontUse</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
@@ -553,6 +554,59 @@
       <synonym>
         <key>es</key>
         <value>Código de línea del pedido</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="0715bd5c-abfb-4f8a-ae04-913929c6630f">
+      <name>ДокументИсточник</name>
+      <synonym>
+        <key>ru</key>
+        <value>Реализация</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Vente</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Sale</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Venta</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.РеализацияТоваровУслуг</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="dce7c7c0-3bf1-480a-a166-bfff1e2042f7">
+      <name>КлючСтрокиДокумента</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ключ строки документа</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Clé de ligne du document</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Document line key</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Clave de línea del documento</value>
       </synonym>
       <type>
         <types>DefinedType.КодСтроки</types>
