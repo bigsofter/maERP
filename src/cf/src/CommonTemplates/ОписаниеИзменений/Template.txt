@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.130
+### ru
+- Новый отчёт «Деньги и статусы заказов клиентов» (раздел «Продажи»): по каждому заказу — сумма заказа, отгружено, оплачено, долг, сколько осталось оплатить, выручка без НДС, себестоимость, маржа и маржинальность.
+- Вариант «Деньги по заказам» группирует заказы по заказчику и показывает его общий долг и строку «Не распределено по заказам» — авансы и долги, не привязанные к заказам, чтобы итог по заказчику сходился с его долгом.
+- Вариант «Статусы заказов» — таблица заказов с текущим статусом, плановой датой отгрузки, процентом отгруженного и просрочкой отгрузки в днях; просроченные заказы выделены цветом.
+- Процент отгруженного считается по каждой позиции: перегруз одной позиции не закрывает недогруз другой. Учитываются отгрузки со склада расходными ордерами и возвраты.
+- В отчёт попадают заказы, созданные в периоде, и все незакрытые на конец периода: не отгруженные полностью, не реализованные полностью или с долгом.
+### fr
+- Nouveau rapport « Argent et statuts des commandes clients » (section « Ventes ») : pour chaque commande — montant, expédié, payé, dette, reste à payer, chiffre d'affaires HT, coût de revient, marge et taux de marge.
+- La variante « Argent par commandes » regroupe les commandes par client et montre sa dette totale ainsi que la ligne « Non réparti par commandes » — avances et dettes non liées à une commande, pour que le total du client corresponde à sa dette.
+- La variante « Statuts des commandes » est un tableau des commandes avec le statut actuel, la date d'expédition prévue, le pourcentage expédié et le retard d'expédition en jours ; les commandes en retard sont mises en couleur.
+- Le pourcentage expédié est calculé par article : l'excédent d'un article ne compense pas le manque d'un autre. Les sorties de stock par bons de sortie et les retours sont pris en compte.
+- Le rapport contient les commandes créées dans la période et toutes celles non clôturées à la fin de la période : pas entièrement expédiées, pas entièrement facturées ou avec une dette.
+### en
+- New report "Customer order money and statuses" ("Sales" section): for each order — order amount, shipped, paid, debt, left to pay, revenue excl. VAT, cost, margin and margin rate.
+- The "Money by orders" variant groups orders by customer and shows the customer's total debt and a "Not allocated to orders" line — advances and debts not linked to an order, so that the customer total matches the customer's debt.
+- The "Order statuses" variant is a table of orders with the current status, planned shipment date, percent shipped and shipment delay in days; overdue orders are highlighted.
+- Percent shipped is calculated per item: overshipping one item does not cover a shortfall of another. Shipments by goods issue notes and returns are taken into account.
+- The report includes orders created in the period and all orders still open at the end of the period: not fully shipped, not fully invoiced or with a debt.
+### es
+- Nuevo informe «Dinero y estados de pedidos de clientes» (sección «Ventas»): para cada pedido — importe, enviado, pagado, deuda, pendiente de pago, ingresos sin IVA, coste, margen y porcentaje de margen.
+- La variante «Dinero por pedidos» agrupa los pedidos por cliente y muestra su deuda total y la línea «No asignado a pedidos» — anticipos y deudas no vinculados a un pedido, para que el total del cliente coincida con su deuda.
+- La variante «Estados de los pedidos» es una tabla de pedidos con el estado actual, la fecha de envío prevista, el porcentaje enviado y el retraso del envío en días; los pedidos atrasados se resaltan en color.
+- El porcentaje enviado se calcula por artículo: el exceso de un artículo no compensa la falta de otro. Se tienen en cuenta las salidas por órdenes de salida y las devoluciones.
+- El informe incluye los pedidos creados en el período y todos los no cerrados al final del período: no enviados por completo, no facturados por completo o con deuda.
+
 ## 2.0.16.129
 ### ru
 - Новый отчёт «Переработка по переработчикам» (раздел «Производство»): по каждому переработчику — что передано, что принято и что ещё у него лежит, с разбивкой по заказам клиентов. В каждом заказе три колонки: передачи, приёмы продукции и остаток у переработчика с датой самой старой передачи.
