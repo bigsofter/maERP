@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ПартииМатериала</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Переработчик</dataPath>
+			<field>Переработчик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переработчик</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Sous-traitant</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Processor</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Procesador</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ клиента</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Commande client</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Customer order</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Pedido de cliente</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Client</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Customer</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Cliente</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Д.Контрагент КАК Переработчик,
+	ЕСТЬNULL(ВЫРАЗИТЬ(Д.ПередачаВПереработку.Основание КАК Документ.ЗаказПокупателя), ЗНАЧЕНИЕ(Документ.ЗаказПокупателя.ПустаяСсылка)) КАК Заказ,
+	ВЫРАЗИТЬ(Д.ПередачаВПереработку.Основание КАК Документ.ЗаказПокупателя).Контрагент КАК Клиент
+ИЗ
+	РегистрНакопления.ТоварыВПереработке КАК Д
+ГДЕ
+	Д.Активность
+	И Д.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Сальдо.Переработчик,
+	Сальдо.Заказ,
+	Сальдо.Клиент
+ИЗ
+	(ВЫБРАТЬ
+		Д.Контрагент КАК Переработчик,
+		ЕСТЬNULL(ВЫРАЗИТЬ(Д.ПередачаВПереработку.Основание КАК Документ.ЗаказПокупателя), ЗНАЧЕНИЕ(Документ.ЗаказПокупателя.ПустаяСсылка)) КАК Заказ,
+		ВЫРАЗИТЬ(Д.ПередачаВПереработку.Основание КАК Документ.ЗаказПокупателя).Контрагент КАК Клиент,
+		Д.ПередачаВПереработку КАК Передача
+	ИЗ
+		РегистрНакопления.ТоварыВПереработке КАК Д
+	ГДЕ
+		Д.Активность
+		И Д.Период &lt;= &amp;КонецПериода
+	
+	СГРУППИРОВАТЬ ПО
+		Д.Контрагент,
+		ЕСТЬNULL(ВЫРАЗИТЬ(Д.ПередачаВПереработку.Основание КАК Документ.ЗаказПокупателя), ЗНАЧЕНИЕ(Документ.ЗаказПокупателя.ПустаяСсылка)),
+		ВЫРАЗИТЬ(Д.ПередачаВПереработку.Основание КАК Документ.ЗаказПокупателя).Контрагент,
+		Д.ПередачаВПереработку
+	
+	ИМЕЮЩИЕ
+		СУММА(ВЫБОР
+				КОГДА Д.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+					ТОГДА Д.Количество
+				ИНАЧЕ -Д.Количество
+			КОНЕЦ) &lt;&gt; 0) КАК Сальдо
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Хвост.Контрагент,
+	ЕСТЬNULL(ВЫБОР
+			КОГДА Хвост.Основание ССЫЛКА Документ.ЗаказПокупателя
+				ТОГДА ВЫРАЗИТЬ(Хвост.Основание КАК Документ.ЗаказПокупателя)
+			КОГДА Хвост.Основание ССЫЛКА Документ.ПередачаВПереработку
+				ТОГДА ВЫРАЗИТЬ(Хвост.Основание КАК Документ.ПередачаВПереработку).Основание
+		КОНЕЦ, ЗНАЧЕНИЕ(Документ.ЗаказПокупателя.ПустаяСсылка)),
+	ВЫБОР
+		КОГДА Хвост.Основание ССЫЛКА Документ.ЗаказПокупателя
+			ТОГДА ВЫРАЗИТЬ(Хвост.Основание КАК Документ.ЗаказПокупателя).Контрагент
+		КОГДА Хвост.Основание ССЫЛКА Документ.ПередачаВПереработку
+			ТОГДА ВЫРАЗИТЬ(Хвост.Основание КАК Документ.ПередачаВПереработку).Основание.Контрагент
+	КОНЕЦ
+ИЗ
+	Документ.ПоступлениеИзПереработки КАК Хвост
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыВПереработке КАК Сырье
+		ПО Хвост.Ссылка = Сырье.Регистратор
+			И (Сырье.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход))
+ГДЕ
+	Хвост.Проведен
+	И Хвост.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И Сырье.Регистратор ЕСТЬ NULL</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Début de la période</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of the period</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Comienzo del período</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Fin de période</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Fin del período</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Période</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Período</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Переработчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Клиент</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Переработчик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>46f91909-efd8-47f0-97c6-86b79948e38e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Клиент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>51d6c003-1b14-4b6e-84e8-c205105976eb</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Заказ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>f2786b66-7668-46bb-8cd5-09147fd70325</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:userSettingID>7d8d6a67-7c2b-46c1-9a90-443ad3aaf110</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>be834831-55ec-4d40-87ba-0dcd4ed464a0</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>TitleOutput</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Title</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Переработка по переработчикам</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>fr</v8:lang>
+							<v8:content>Sous-traitance par sous-traitant</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Processing by processor</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>es</v8:lang>
+							<v8:content>Procesamiento por procesador</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
