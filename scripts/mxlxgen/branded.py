@@ -281,6 +281,17 @@ S.cell(r_desc, (BL[1], BL[4]), fmt(font=font(8), verticalAlignment='Top', textCo
                                    fillType='Parameter'), 'Описание')
 S.area('ОписаниеСтрокиНакладная', r_desc, r_desc)
 
+# Итог количества таблицы без цен (ордера склада): строка на единицу измерения - килограммы с метрами не складываются;
+# подпись «Итого» - только у первой строки.
+r_qty = S.row(18)
+S.cell(r_qty, (BN[0], BN[2]), fmt(font=font(9, True), horizontalAlignment='Right', verticalAlignment='Center',
+                                  fillType='Parameter'), 'ПодписьИтогаКоличества')
+S.cell(r_qty, (BN[2], BN[3]), fmt(font=font(9, True), horizontalAlignment='Right', verticalAlignment='Center',
+                                  fillType='Parameter'), 'ИтогКоличество')
+S.cell(r_qty, (BN[3], BN[4]), fmt(font=font(9, True), horizontalAlignment='Center', verticalAlignment='Center',
+                                  fillType='Parameter'), 'ИтогЕдиница')
+S.area('ИтогКоличества', r_qty, r_qty)
+
 # --- Таблица запроса котировок: колонки прежнего ЗапросКотировок (без цен), вариант с фото номенклатуры в строке ------
 # (docs/plans/branded-print.md, 13.4). Фото - рисунок ФотоСтроки строки фиксированной высоты; картинку строки задаёт
 # ФирменнаяПечать (пустая - строка без фото).
