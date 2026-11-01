@@ -1854,6 +1854,319 @@ así como en la entrada.</value>
       </extInfo>
     </items>
     <items xsi:type="form:FormGroup">
+      <name>СтраницаФормыПриЗапуске</name>
+      <id>189</id>
+      <items xsi:type="form:Decoration">
+        <name>НадписьФормыПриЗапуске</name>
+        <id>190</id>
+        <title>
+          <key>ru</key>
+          <value>Рабочие места, которые открываются при запуске программы. Отметить рабочее место - флажок «Открывать при запуске» в меню «Настройки» самого рабочего места.</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Postes de travail ouverts au démarrage du programme. Pour en ajouter un : case « Ouvrir au démarrage » du menu « Paramètres » du poste de travail.</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Workplaces opened when the program starts. To add one, use "Open at startup" in the "Settings" menu of the workplace.</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Puestos de trabajo que se abren al iniciar el programa. Para añadir uno: casilla «Abrir al iniciar» del menú «Configuración» del puesto de trabajo.</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>НадписьФормыПриЗапускеРасширеннаяПодсказка</name>
+          <id>191</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>НадписьФормыПриЗапускеКонтекстноеМеню</name>
+          <id>192</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </items>
+      <items xsi:type="form:Table">
+        <name>ФормыПриЗапуске</name>
+        <id>193</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ФормыПриЗапуске</segments>
+        </dataPath>
+        <titleLocation>None</titleLocation>
+        <items xsi:type="form:FormField">
+          <name>ФормыПриЗапускеПредставление</name>
+          <id>194</id>
+          <title>
+            <key>ru</key>
+            <value>Рабочее место</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>Poste de travail</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Workplace</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Puesto de trabajo</value>
+          </title>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <readOnly>true</readOnly>
+          <dataPath xsi:type="form:DataPath">
+            <segments>ФормыПриЗапуске.Представление</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ФормыПриЗапускеПредставлениеРасширеннаяПодсказка</name>
+            <id>195</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ФормыПриЗапускеПредставлениеКонтекстноеМеню</name>
+            <id>196</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+          </extInfo>
+        </items>
+        <autoCommandBar>
+          <name>ФормыПриЗапускеКоманднаяПанель</name>
+          <id>197</id>
+          <items xsi:type="form:Button">
+            <name>ФормыПриЗапускеУдалить</name>
+            <id>198</id>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <extendedTooltip>
+              <name>ФормыПриЗапускеУдалитьРасширеннаяПодсказка</name>
+              <id>199</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <commandName>Form.Item.ФормыПриЗапуске.StandardCommand.Delete</commandName>
+            <representation>Auto</representation>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <placementArea>UserCmds</placementArea>
+            <representationInContextMenu>Auto</representationInContextMenu>
+          </items>
+          <horizontalAlign>Left</horizontalAlign>
+        </autoCommandBar>
+        <handlers>
+          <event>BeforeAddRow</event>
+          <name>ФормыПриЗапускеПередНачаломДобавления</name>
+        </handlers>
+        <handlers>
+          <event>BeforeDeleteRow</event>
+          <name>ФормыПриЗапускеПередУдалением</name>
+        </handlers>
+        <searchStringAddition>
+          <name>ФормыПриЗапускеСтрокаПоиска</name>
+          <id>200</id>
+          <extendedTooltip>
+            <name>ФормыПриЗапускеСтрокаПоискаРасширеннаяПодсказка</name>
+            <id>201</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ФормыПриЗапускеСтрокаПоискаКонтекстноеМеню</name>
+            <id>202</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <source>ФормыПриЗапуске</source>
+          <extInfo xsi:type="form:SearchStringAdditionExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+          </extInfo>
+        </searchStringAddition>
+        <viewStatusAddition>
+          <name>ФормыПриЗапускеСостояниеПросмотра</name>
+          <id>203</id>
+          <extendedTooltip>
+            <name>ФормыПриЗапускеСостояниеПросмотраРасширеннаяПодсказка</name>
+            <id>204</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ФормыПриЗапускеСостояниеПросмотраКонтекстноеМеню</name>
+            <id>205</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>ViewStatusAddition</type>
+          <source>ФормыПриЗапуске</source>
+          <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+          </extInfo>
+        </viewStatusAddition>
+        <searchControlAddition>
+          <name>ФормыПриЗапускеУправлениеПоиском</name>
+          <id>206</id>
+          <extendedTooltip>
+            <name>ФормыПриЗапускеУправлениеПоискомРасширеннаяПодсказка</name>
+            <id>207</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ФормыПриЗапускеУправлениеПоискомКонтекстноеМеню</name>
+            <id>208</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>SearchControlAddition</type>
+          <source>ФормыПриЗапуске</source>
+          <extInfo xsi:type="form:SearchControlAdditionExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+          </extInfo>
+        </searchControlAddition>
+        <extendedTooltip>
+          <name>ФормыПриЗапускеРасширеннаяПодсказка</name>
+          <id>209</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ФормыПриЗапускеКонтекстноеМеню</name>
+          <id>210</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <changeRowSet>true</changeRowSet>
+        <changeRowOrder>false</changeRowOrder>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <autoMaxRowsCount>true</autoMaxRowsCount>
+        <selectionMode>MultiRow</selectionMode>
+        <header>true</header>
+        <headerHeight>1</headerHeight>
+        <footerHeight>1</footerHeight>
+        <horizontalScrollBar>AutoUse</horizontalScrollBar>
+        <verticalScrollBar>AutoUse</verticalScrollBar>
+        <horizontalLines>true</horizontalLines>
+        <verticalLines>true</verticalLines>
+        <useAlternationRowColorBWA>false</useAlternationRowColorBWA>
+        <searchOnInput>Auto</searchOnInput>
+        <initialListView>Auto</initialListView>
+        <horizontalStretch>true</horizontalStretch>
+        <verticalStretch>true</verticalStretch>
+        <borderColor xsi:type="core:ColorRef">
+          <color>Style.FormBackColor</color>
+        </borderColor>
+        <autoMaxCardHeight>true</autoMaxCardHeight>
+        <rowFilter xsi:type="core:UndefinedValue"/>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>ru</key>
+        <value>При запуске</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Au démarrage</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>At startup</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Al iniciar</value>
+      </title>
+      <extendedTooltip>
+        <name>СтраницаФормыПриЗапускеРасширеннаяПодсказка</name>
+        <id>211</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>Page</type>
+      <extInfo xsi:type="form:PageGroupExtInfo">
+        <group>Vertical</group>
+        <showTitle>auto</showTitle>
+        <scrollOnCompress>false</scrollOnCompress>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormGroup">
       <name>СтраницаДоступныеРоли</name>
       <id>79</id>
       <items xsi:type="form:Table">
@@ -2945,6 +3258,98 @@ así como en la entrada.</value>
       <common>true</common>
     </edit>
     <savedData>true</savedData>
+  </attributes>
+  <attributes>
+    <name>ФормыПриЗапуске</name>
+    <title>
+      <key>ru</key>
+      <value>Формы при запуске</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Formulaires au démarrage</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Startup forms</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Formularios al iniciar</value>
+    </title>
+    <id>21</id>
+    <valueType>
+      <types>ValueTable</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <columns>
+      <name>Настройка</name>
+      <id>1</id>
+      <valueType>
+        <types>ChartOfCharacteristicTypesRef.ВидыНастроекПользователей</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Представление</name>
+      <title>
+        <key>ru</key>
+        <value>Рабочее место</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Poste de travail</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Workplace</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Puesto de trabajo</value>
+      </title>
+      <id>2</id>
+      <valueType>
+        <types>String</types>
+        <stringQualifiers>
+          <length>200</length>
+        </stringQualifiers>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+  </attributes>
+  <attributes>
+    <name>УдаленныеФормыПриЗапуске</name>
+    <id>22</id>
+    <valueType>
+      <types>ValueList</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <extInfo xsi:type="form:ValueListExtInfo">
+      <itemValueType>
+        <types>ChartOfCharacteristicTypesRef.ВидыНастроекПользователей</types>
+      </itemValueType>
+    </extInfo>
   </attributes>
   <formCommands>
     <name>СменитьПароль</name>

@@ -9547,6 +9547,76 @@
       <representationInContextMenu>Auto</representationInContextMenu>
       <buttonImportance>Normal</buttonImportance>
     </items>
+    <items xsi:type="form:FormGroup">
+      <name>ГруппаНастройкиРабочегоМеста</name>
+      <id>558</id>
+      <items xsi:type="form:Button">
+        <name>ФормаОткрыватьПриЗапуске</name>
+        <id>560</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ФормаОткрыватьПриЗапускеРасширеннаяПодсказка</name>
+          <id>561</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.ОткрыватьПриЗапуске</commandName>
+        <representation>Text</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <check>false</check>
+        <representationInContextMenu>Auto</representationInContextMenu>
+        <buttonImportance>Normal</buttonImportance>
+      </items>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <title>
+        <key>ru</key>
+        <value>Настройки</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Paramètres</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Settings</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Configuración</value>
+      </title>
+      <extendedTooltip>
+        <name>ГруппаНастройкиРабочегоМестаРасширеннаяПодсказка</name>
+        <id>559</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>Popup</type>
+      <extInfo xsi:type="form:PopupGroupExtInfo">
+        <picture xsi:type="core:PictureRef">
+          <picture>StdPicture.ReportSettings</picture>
+        </picture>
+        <representation>Picture</representation>
+        <importance>Normal</importance>
+      </extInfo>
+    </items>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
@@ -10691,6 +10761,7 @@
       <id>1</id>
       <valueType>
         <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+        <types>DocumentRef.ПриходныйОрдер</types>
       </valueType>
       <view>
         <common>true</common>
@@ -13344,6 +13415,45 @@
       <itemValueType/>
     </extInfo>
   </attributes>
+  <attributes>
+    <name>РежимПриемки</name>
+    <id>37</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>СуммыВидны</name>
+    <id>38</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ОплатыВидны</name>
+    <id>39</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <formCommands>
     <name>Создать</name>
     <title>
@@ -14606,6 +14716,51 @@
       <value>ТоварыПоступлений</value>
     </associatedTableElementId>
     <selectedRowsUse>Use</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ОткрыватьПриЗапуске</name>
+    <title>
+      <key>ru</key>
+      <value>Открывать при запуске</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Ouvrir au démarrage</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Open at startup</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Abrir al iniciar</value>
+    </title>
+    <id>29</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Открывать это рабочее место при запуске программы</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Ouvrir ce poste de travail au démarrage du programme</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Open this workplace when the program starts</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Abrir este puesto de trabajo al iniciar el programa</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ОткрыватьПриЗапуске</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
   </formCommands>
   <commandInterface>
     <navigationPanel/>
