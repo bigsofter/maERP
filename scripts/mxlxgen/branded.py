@@ -508,6 +508,15 @@ S.area('ПодписьФактуры', r0, r_sig3)
 S.drawings.append(dict(name='ПечатьФактуры', r0=r_sig, r0off=0, r1=r_sig3, r1off=44, x0=400, x1=620,
                        size='Proportionally'))
 
+# --- Вложение КП: картинка на всю ширину, две области на странице (печать КП с вложениями, 2.0.16.137) -------
+# Высота ряда подобрана по print-preview: две картинки на странице A4 при автомасштабе по ширине.
+ATT_ROW = 340
+r0 = S.row(12)
+r_att = S.row(ATT_ROW)
+S.area('Вложение', r0, r_att)
+S.drawings.append(dict(name='КартинкаВложения', r0=r_att, r0off=2 * PT, r1=r_att, r1off=(ATT_ROW - 2) * PT, x0=4,
+                       x1=WIDTH - 4, size='Proportionally'))
+
 # --- Подвал реквизитов и пустая строка -----------------------------------------------------
 r_foot0 = S.row(8)
 S.rule(r_foot0, f_rule)

@@ -701,6 +701,123 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <attributes uuid="c3ec7a6d-b3bc-4cd3-8647-3541f4365dfd">
+    <name>ДействуетДо</name>
+    <synonym>
+      <key>ru</key>
+      <value>Действует до</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date de validité du devis</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Valid until</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Válido hasta</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue" />
+    <maxValue xsi:type="core:UndefinedValue" />
+    <fillValue xsi:type="core:UndefinedValue" />
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="c3b1c794-c22e-4784-9601-5dd068213bf8">
+    <name>Инкотермс</name>
+    <synonym>
+      <key>ru</key>
+      <value>Условия поставки (Incoterms)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Conditions de livraison (Incoterms)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Delivery terms (Incoterms)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Condiciones de entrega (Incoterms)</value>
+    </synonym>
+    <type>
+      <types>EnumRef.Инкотермс</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue" />
+    <maxValue xsi:type="core:UndefinedValue" />
+    <fillValue xsi:type="core:UndefinedValue" />
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="2385ec82-33f5-4f3d-891f-be7c07212c44">
+    <name>МестоПоставки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Место поставки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Lieu de livraison</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Delivery place</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Lugar de entrega</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue" />
+    <maxValue xsi:type="core:UndefinedValue" />
+    <fillValue xsi:type="core:StringValue" />
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="8de0b7ce-7362-45c8-8107-6ebaabaaacd5">
+    <name>СрокПоставки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Срок поставки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Délais de livraison</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Delivery lead time</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Plazo de entrega</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue" />
+    <maxValue xsi:type="core:UndefinedValue" />
+    <fillValue xsi:type="core:StringValue" />
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="aa505849-e884-43c3-8e3d-c8780508e29c">
     <name>ФормаДокумента</name>
     <synonym>
@@ -1336,6 +1453,34 @@
     <synonym>
       <key>es</key>
       <value>Presupuesto</value>
+    </synonym>
+    <group>CommandGroup.Печать</group>
+    <commandParameterType>
+      <types>DocumentRef.КоммерческоеПредложение</types>
+    </commandParameterType>
+    <parameterUseMode>Multiple</parameterUseMode>
+    <representation>PictureAndText</representation>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Print</picture>
+    </picture>
+  </commands>
+  <commands uuid="7ebeda08-633a-40ae-a2cc-d55ff85a6141">
+    <name>ПечатьКоммерческоеПредложениеСВложениями</name>
+    <synonym>
+      <key>ru</key>
+      <value>Коммерческое предложение с вложениями</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devis avec pièces jointes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Quotation with attachments</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Presupuesto con adjuntos</value>
     </synonym>
     <group>CommandGroup.Печать</group>
     <commandParameterType>
