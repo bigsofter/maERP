@@ -6292,6 +6292,30 @@
                     </extInfo>
                   </items>
                   <items xsi:type="form:Button">
+                    <name>ПереработкиЗаполнитьПоПотребностям</name>
+                    <id>631</id>
+                    <enabled>true</enabled>
+                    <userVisible>
+                      <common>true</common>
+                    </userVisible>
+                    <extendedTooltip>
+                      <name>ПереработкиЗаполнитьПоПотребностямРасширеннаяПодсказка</name>
+                      <id>632</id>
+                      <type>Label</type>
+                      <autoMaxWidth>true</autoMaxWidth>
+                      <autoMaxHeight>true</autoMaxHeight>
+                      <extInfo xsi:type="form:LabelDecorationExtInfo">
+                        <horizontalAlign>Left</horizontalAlign>
+                      </extInfo>
+                    </extendedTooltip>
+                    <commandName>Form.Command.ЗаполнитьПоПотребностям</commandName>
+                    <representation>Auto</representation>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <placementArea>UserCmds</placementArea>
+                    <representationInContextMenu>Auto</representationInContextMenu>
+                  </items>
+                  <items xsi:type="form:Button">
                     <name>ПереработкиСоздатьПередачу</name>
                     <id>363</id>
                     <visible>true</visible>
@@ -6456,6 +6480,87 @@
                     <width>12</width>
                     <autoMaxWidth>false</autoMaxWidth>
                     <autoMaxHeight>true</autoMaxHeight>
+                  </extInfo>
+                </items>
+                <items xsi:type="form:FormField">
+                  <name>ПереработкиЗаказСтроки</name>
+                  <id>625</id>
+                  <title>
+                    <key>ru</key>
+                    <value>Заказ</value>
+                  </title>
+                  <title>
+                    <key>fr</key>
+                    <value>Commande</value>
+                  </title>
+                  <title>
+                    <key>en</key>
+                    <value>Order</value>
+                  </title>
+                  <title>
+                    <key>es</key>
+                    <value>Pedido</value>
+                  </title>
+                  <titleFont xsi:type="core:FontRef">
+                    <font>Style.NormalTextFont</font>
+                    <bold>false</bold>
+                    <italic>false</italic>
+                    <underline>false</underline>
+                    <strikeout>false</strikeout>
+                    <scale>100</scale>
+                  </titleFont>
+                  <toolTip>
+                    <key>ru</key>
+                    <value>Заказ строки: режим нескольких заказов, строка - в общей передаче</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>fr</key>
+                    <value>Commande de la ligne : mode plusieurs commandes, la ligne va dans un transfert commun</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>en</key>
+                    <value>Line order: several-orders mode, the line goes to a shared transfer</value>
+                  </toolTip>
+                  <toolTip>
+                    <key>es</key>
+                    <value>Pedido de la línea: modo de varios pedidos, la línea va a un envío común</value>
+                  </toolTip>
+                  <enabled>true</enabled>
+                  <userVisible>
+                    <common>true</common>
+                  </userVisible>
+                  <dataPath xsi:type="form:DataPath">
+                    <segments>Переработки.ЗаказСтроки</segments>
+                  </dataPath>
+                  <extendedTooltip>
+                    <name>ПереработкиЗаказСтрокиРасширеннаяПодсказка</name>
+                    <id>626</id>
+                    <type>Label</type>
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <extInfo xsi:type="form:LabelDecorationExtInfo">
+                      <horizontalAlign>Left</horizontalAlign>
+                    </extInfo>
+                  </extendedTooltip>
+                  <contextMenu>
+                    <name>ПереработкиЗаказСтрокиКонтекстноеМеню</name>
+                    <id>627</id>
+                    <autoFill>true</autoFill>
+                  </contextMenu>
+                  <type>InputField</type>
+                  <editMode>Auto</editMode>
+                  <showInHeader>true</showInHeader>
+                  <headerHorizontalAlign>Center</headerHorizontalAlign>
+                  <showInFooter>true</showInFooter>
+                  <extInfo xsi:type="form:InputFieldExtInfo">
+                    <autoMaxWidth>true</autoMaxWidth>
+                    <autoMaxHeight>true</autoMaxHeight>
+                    <wrap>true</wrap>
+                    <listChoiceMode>true</listChoiceMode>
+                    <chooseType>true</chooseType>
+                    <typeDomainEnabled>true</typeDomainEnabled>
+                    <textEdit>true</textEdit>
+                    <textSize>Normal</textSize>
                   </extInfo>
                 </items>
                 <items xsi:type="form:FormField">
@@ -7857,6 +7962,71 @@
                   <width>22</width>
                   <autoMaxWidth>false</autoMaxWidth>
                   <autoMaxHeight>true</autoMaxHeight>
+                  <textEdit>true</textEdit>
+                  <textSize>Normal</textSize>
+                </extInfo>
+              </items>
+              <items xsi:type="form:FormField">
+                <name>ПоступленияПереработкиЗаказСтроки</name>
+                <id>628</id>
+                <title>
+                  <key>ru</key>
+                  <value>Заказ</value>
+                </title>
+                <title>
+                  <key>fr</key>
+                  <value>Commande</value>
+                </title>
+                <title>
+                  <key>en</key>
+                  <value>Order</value>
+                </title>
+                <title>
+                  <key>es</key>
+                  <value>Pedido</value>
+                </title>
+                <titleFont xsi:type="core:FontRef">
+                  <font>Style.NormalTextFont</font>
+                  <bold>false</bold>
+                  <italic>false</italic>
+                  <underline>false</underline>
+                  <strikeout>false</strikeout>
+                  <scale>100</scale>
+                </titleFont>
+                <enabled>true</enabled>
+                <userVisible>
+                  <common>true</common>
+                </userVisible>
+                <dataPath xsi:type="form:DataPath">
+                  <segments>ПоступленияПереработки.ЗаказСтроки</segments>
+                </dataPath>
+                <extendedTooltip>
+                  <name>ПоступленияПереработкиЗаказСтрокиРасширеннаяПодсказка</name>
+                  <id>629</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ПоступленияПереработкиЗаказСтрокиКонтекстноеМеню</name>
+                  <id>630</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>InputField</type>
+                <readOnly>true</readOnly>
+                <editMode>Auto</editMode>
+                <showInHeader>true</showInHeader>
+                <headerHorizontalAlign>Center</headerHorizontalAlign>
+                <showInFooter>true</showInFooter>
+                <extInfo xsi:type="form:InputFieldExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <wrap>true</wrap>
+                  <chooseType>true</chooseType>
+                  <typeDomainEnabled>true</typeDomainEnabled>
                   <textEdit>true</textEdit>
                   <textSize>Normal</textSize>
                 </extInfo>
@@ -14883,6 +15053,48 @@
         <common>true</common>
       </edit>
     </columns>
+    <columns>
+      <name>ЗаказСтроки</name>
+      <title>
+        <key>ru</key>
+        <value>Заказ</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Commande</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Order</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Pedido</value>
+      </title>
+      <id>20</id>
+      <valueType>
+        <types>DocumentRef.ЗаказПокупателя</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ОбщийДокумент</name>
+      <id>21</id>
+      <valueType>
+        <types>Boolean</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
   </attributes>
   <attributes>
     <name>ПоступленияПереработки</name>
@@ -15365,6 +15577,48 @@
     <columns>
       <name>УслугиИзменены</name>
       <id>20</id>
+      <valueType>
+        <types>Boolean</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ЗаказСтроки</name>
+      <title>
+        <key>ru</key>
+        <value>Заказ</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Commande</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Order</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Pedido</value>
+      </title>
+      <id>21</id>
+      <valueType>
+        <types>DocumentRef.ЗаказПокупателя</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ОбщийДокумент</name>
+      <id>22</id>
       <valueType>
         <types>Boolean</types>
       </valueType>
@@ -16003,6 +16257,19 @@
         <common>true</common>
       </edit>
     </columns>
+  </attributes>
+  <attributes>
+    <name>ТекущиеЗаказы</name>
+    <id>54</id>
+    <valueType>
+      <types>ValueList</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <formCommands>
     <name>ЗаказыСтатусВРаботу</name>
@@ -18160,6 +18427,51 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>ОткрыватьПриЗапуске</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+  </formCommands>
+  <formCommands>
+    <name>ЗаполнитьПоПотребностям</name>
+    <title>
+      <key>ru</key>
+      <value>Заполнить по потребностям</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remplir selon les besoins</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Fill by requirements</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Rellenar según necesidades</value>
+    </title>
+    <id>46</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Новая общая передача выделенных заказов: по этапам переработчика, по выпущенным ПФ или пустая</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Nouveau transfert commun des commandes sélectionnées : par étapes du sous-traitant, par semi-finis produits ou vide</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>New shared transfer of the selected orders: by subcontractor stages, by produced semi-finished goods or empty</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Nuevo envío común de los pedidos seleccionados: por etapas del subcontratista, por semielaborados producidos o vacío</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ЗаполнитьПоПотребностям</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
