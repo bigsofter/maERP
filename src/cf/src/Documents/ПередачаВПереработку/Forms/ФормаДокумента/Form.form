@@ -459,6 +459,62 @@
           </font>
         </extInfo>
       </items>
+      <items xsi:type="form:FormField">
+        <name>НесколькоЗаказов</name>
+        <id>414</id>
+        <toolTip>
+          <key>ru</key>
+          <value>Строки нескольких заказов: заказ указывается в каждой строке</value>
+        </toolTip>
+        <toolTip>
+          <key>fr</key>
+          <value>Lignes de plusieurs commandes : la commande est indiquée sur chaque ligne</value>
+        </toolTip>
+        <toolTip>
+          <key>en</key>
+          <value>Lines of several orders: the order is specified in each line</value>
+        </toolTip>
+        <toolTip>
+          <key>es</key>
+          <value>Líneas de varios pedidos: el pedido se indica en cada línea</value>
+        </toolTip>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Объект.НесколькоЗаказов</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <handlers>
+          <event>OnChange</event>
+          <name>НесколькоЗаказовПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>НесколькоЗаказовРасширеннаяПодсказка</name>
+          <id>415</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>НесколькоЗаказовКонтекстноеМеню</name>
+          <id>416</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+          <checkBoxType>Auto</checkBoxType>
+        </extInfo>
+      </items>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -652,6 +708,75 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>false</horizontalStretch>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>ТЧТоварыЗаказ</name>
+          <id>417</id>
+          <title>
+            <key>ru</key>
+            <value>Заказ</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>Commande</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Order</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Pedido</value>
+          </title>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ТЧТовары.Заказ</segments>
+          </dataPath>
+          <handlers>
+            <event>OnChange</event>
+            <name>ТЧТоварыЗаказПриИзменении</name>
+          </handlers>
+          <extendedTooltip>
+            <name>ТЧТоварыЗаказРасширеннаяПодсказка</name>
+            <id>418</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ТЧТоварыЗаказКонтекстноеМеню</name>
+            <id>419</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Center</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
@@ -1733,6 +1858,71 @@
             <autoMaxWidth>true</autoMaxWidth>
             <autoMaxHeight>true</autoMaxHeight>
             <horizontalStretch>false</horizontalStretch>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>ТЧГотоваяПродукцияЗаказ</name>
+          <id>420</id>
+          <title>
+            <key>ru</key>
+            <value>Заказ</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>Commande</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>Order</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>Pedido</value>
+          </title>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ТЧГотоваяПродукция.Заказ</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ТЧГотоваяПродукцияЗаказРасширеннаяПодсказка</name>
+            <id>421</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ТЧГотоваяПродукцияЗаказКонтекстноеМеню</name>
+            <id>422</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Center</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
           </extInfo>
         </items>
         <items xsi:type="form:FormField">

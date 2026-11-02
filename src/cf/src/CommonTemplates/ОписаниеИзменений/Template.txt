@@ -10,6 +10,44 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.16.142
+### ru
+- Передача в переработку по нескольким заказам: одним документом подрядчику можно передать материалы разных заказов и разных клиентов. В форме передачи отметьте «Несколько заказов» — у строк товаров и ожидаемой продукции появится колонка «Заказ». Без флажка документ работает как раньше, по одному заказу.
+- Поступление из переработки по такой передаче принимает продукцию всех её заказов одним документом: заказ каждой строки берётся из передачи, сырьё списывается отдельно по каждому заказу, себестоимость продукции заказа складывается только из его сырья. Если сырья одного заказа не хватает, недостающее не берётся из сырья другого заказа — документ не проводится и называет заказ.
+- Акт передачи и акт приёмки по нескольким заказам печатают список заказов с клиентами и группируют строки по заказу.
+- Стадии заказов, потребности производства, связанные документы, отчёт по переработке и прослеживаемость партий учитывают заказ каждой строки.
+- Проведённую передачу нельзя перенести на другой заказ или подрядчика простой записью — только перепроведением; после поступления продукции по ней заказ, подрядчик и дата не меняются, а отмена проведения и удаление запрещены.
+- В рабочем месте производства строки документов по нескольким заказам видны на закладке каждого заказа; правятся они в форме документа.
+- При обновлении заказ строк существующих передач и поступлений заполняется по их движениям; документы, у которых заказ шапки расходился с движениями, записываются в журнал регистрации.
+- Заказ, продукция которого принята поступлением из переработки по передаче, теперь получает стадию «Получен от субподрядчика» — раньше оставался «Передан субподрядчику».
+### fr
+- Transfert en sous-traitance pour plusieurs commandes : un seul document peut envoyer au sous-traitant les matières de commandes et de clients différents. Dans le transfert, cochez « Plusieurs commandes » : une colonne « Commande » apparaît dans les lignes d'articles et de produits attendus. Sans la case, le document fonctionne comme avant, pour une seule commande.
+- La réception de sous-traitance d'un tel transfert reçoit les produits de toutes ses commandes en un seul document : la commande de chaque ligne vient du transfert, les matières sont sorties séparément par commande, et le coût des produits d'une commande ne comprend que ses propres matières. S'il manque des matières pour une commande, elles ne sont pas prises sur une autre commande : le document n'est pas validé et indique la commande.
+- Le bon de transfert et le procès-verbal de réception pour plusieurs commandes impriment la liste des commandes avec les clients et regroupent les lignes par commande.
+- Les étapes des commandes, les besoins de production, les documents liés, le rapport de sous-traitance et la traçabilité des lots tiennent compte de la commande de chaque ligne.
+- Un transfert validé ne peut plus être rattaché à une autre commande ou à un autre sous-traitant par un simple enregistrement, seulement en le revalidant ; après une réception sur ce transfert, la commande, le sous-traitant et la date ne changent plus, l'annulation et la suppression sont interdites.
+- Dans le poste de production, les lignes des documents à plusieurs commandes s'affichent dans l'onglet de chaque commande ; elles se modifient dans le formulaire du document.
+- Lors de la mise à jour, la commande des lignes des transferts et réceptions existants est remplie d'après leurs mouvements ; les documents dont la commande d'en-tête divergeait des mouvements sont inscrits au journal.
+- Une commande dont les produits sont reçus par une réception de sous-traitance sur un transfert passe désormais au statut « Reçue du sous-traitant » ; avant, elle restait « Transmise au sous-traitant ».
+### en
+- Subcontracting transfer for several orders: one document can send the subcontractor materials of different orders and different customers. In the transfer, check "Several orders": an "Order" column appears in the item and expected product lines. Without the flag the document works as before, for one order.
+- A subcontracting receipt for such a transfer receives the products of all its orders in one document: each line's order comes from the transfer, materials are written off separately per order, and the cost of an order's products includes only its own materials. If one order lacks materials, they are not taken from another order: the document is not posted and names the order.
+- The transfer note and the acceptance report for several orders print the list of orders with customers and group lines by order.
+- Order stages, production requirements, related documents, the subcontracting report and lot traceability take each line's order into account.
+- A posted transfer can no longer be moved to another order or subcontractor by a plain save, only by reposting; once products have been received against it, the order, subcontractor and date cannot change, and unposting and deletion are blocked.
+- In the production workstation, lines of multi-order documents are shown on each order's tab; they are edited in the document form.
+- During the update, the line order of existing transfers and receipts is filled from their movements; documents whose header order differed from the movements are written to the event log.
+- An order whose products are received by a subcontracting receipt against a transfer now gets the "Received from subcontractor" status; before, it stayed "Sent to subcontractor".
+### es
+- Envío a subcontratación para varios pedidos: un solo documento puede enviar al subcontratista materiales de pedidos y clientes distintos. En el envío, marque «Varios pedidos»: aparece una columna «Pedido» en las líneas de artículos y de productos esperados. Sin la casilla, el documento funciona como antes, para un solo pedido.
+- La recepción de subcontratación de ese envío recibe los productos de todos sus pedidos en un solo documento: el pedido de cada línea viene del envío, las materias se dan de baja por separado por pedido y el coste de los productos de un pedido incluye solo sus propias materias. Si faltan materias de un pedido, no se toman de otro: el documento no se contabiliza e indica el pedido.
+- El albarán de envío y el acta de recepción de varios pedidos imprimen la lista de pedidos con sus clientes y agrupan las líneas por pedido.
+- Las etapas de los pedidos, las necesidades de producción, los documentos relacionados, el informe de subcontratación y la trazabilidad de lotes tienen en cuenta el pedido de cada línea.
+- Un envío contabilizado ya no puede pasar a otro pedido o subcontratista con un simple guardado, solo volviendo a contabilizarlo; tras una recepción por él, el pedido, el subcontratista y la fecha no cambian, y la anulación y la eliminación están bloqueadas.
+- En el puesto de producción, las líneas de documentos de varios pedidos se muestran en la pestaña de cada pedido; se editan en el formulario del documento.
+- Durante la actualización, el pedido de las líneas de envíos y recepciones existentes se rellena según sus movimientos; los documentos cuyo pedido de cabecera difería de los movimientos se anotan en el registro de eventos.
+- Un pedido cuyos productos se reciben con una recepción de subcontratación por un envío pasa ahora al estado «Recibido del subcontratista»; antes se quedaba en «Enviado al subcontratista».
+
 ## 2.0.16.141
 ### ru
 - Карточка товара перестроена. Вверху — небольшое фото и шапка: тип товара (первым — от него зависит вид карточки), наименование и артикул, категория и способ пополнения, остаток и цены. Смена типа больше не сдвигает поля шапки.
