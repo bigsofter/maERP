@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.2
+### ru
+- Касса: скидка на чек теперь попадает в документ продажи. Раньше покупатель платил сумму со скидкой, а продажа записывалась на полную сумму, и у покупателя оставался долг на размер скидки.
+- Касса: итог чека больше не уменьшается сам при удалении строки, отметке строк или открытии отложенного чека — скидка считается один раз.
+- Касса: отложенный чек открывается со своей скидкой.
+- Касса: возврат по чеку со скидкой выплачивает сумму со скидкой, а не полную цену. Повторный возврат по тому же чеку не может выплатить больше, чем покупатель заплатил. Часть строки возвращается долей суммы этой строки.
+- Касса: документы чека и оплаты записываются вместе — если один не записался, не записывается ни один, и касса показывает ошибку. Сертификат, уже использованный в другом чеке, второй раз не принимается.
+- Касса: подсказка строки показывает процент скидки правильно (раньше 10% выглядели как 1000%).
+### fr
+- Caisse : la remise sur le ticket est désormais reprise dans le document de vente. Auparavant, le client payait le montant remisé alors que la vente était enregistrée au montant total, ce qui laissait au client une dette égale à la remise.
+- Caisse : le total du ticket ne diminue plus de lui-même lors de la suppression d'une ligne, du marquage des lignes ou de l'ouverture d'un ticket en attente — la remise n'est calculée qu'une fois.
+- Caisse : un ticket en attente s'ouvre avec sa remise.
+- Caisse : le retour d'un ticket remisé rembourse le montant remisé, et non le prix plein. Un nouveau retour sur le même ticket ne peut pas rembourser plus que ce que le client a payé. Une partie de ligne est remboursée au prorata du montant de cette ligne.
+- Caisse : les documents du ticket et du paiement sont enregistrés ensemble — si l'un échoue, aucun n'est enregistré et la caisse affiche l'erreur. Un certificat déjà utilisé sur un autre ticket n'est pas accepté une seconde fois.
+- Caisse : l'info-bulle de la ligne affiche correctement le pourcentage de remise (auparavant 10 % apparaissait comme 1000 %).
+### en
+- Cash desk: the receipt discount now reaches the sales document. Previously the customer paid the discounted amount while the sale was recorded at the full amount, leaving the customer owing the discount.
+- Cash desk: the receipt total no longer shrinks on its own when a line is deleted, lines are marked or a held receipt is opened — the discount is applied once.
+- Cash desk: a held receipt opens with its discount.
+- Cash desk: a return of a discounted receipt refunds the discounted amount, not the full price. A repeat return of the same receipt cannot refund more than the customer paid. Part of a line is refunded as a share of that line's amount.
+- Cash desk: the receipt and payment documents are saved together — if one fails, none is saved and the cash desk shows the error. A certificate already used on another receipt is not accepted again.
+- Cash desk: the line hint shows the discount percentage correctly (10% used to look like 1000%).
+### es
+- Caja: el descuento del ticket ahora llega al documento de venta. Antes el cliente pagaba el importe con descuento y la venta se registraba por el importe total, dejando al cliente una deuda igual al descuento.
+- Caja: el total del ticket ya no disminuye solo al eliminar una línea, marcar líneas o abrir un ticket en espera: el descuento se aplica una sola vez.
+- Caja: un ticket en espera se abre con su descuento.
+- Caja: la devolución de un ticket con descuento reembolsa el importe con descuento, no el precio completo. Una nueva devolución del mismo ticket no puede reembolsar más de lo que pagó el cliente. Una parte de la línea se reembolsa en proporción al importe de esa línea.
+- Caja: los documentos del ticket y del pago se guardan juntos: si uno falla, no se guarda ninguno y la caja muestra el error. Un certificado ya usado en otro ticket no se acepta de nuevo.
+- Caja: la ayuda de la línea muestra correctamente el porcentaje de descuento (antes el 10 % aparecía como 1000 %).
+
 ## 2.0.17.1
 ### ru
 - У склада появился «Вид цены продажи». Касса берёт цены этого вида при сканировании, вводе штрихкода, в подборе и в избранном; если цены этого вида у товара нет, берётся «Розничная». В реализации, возвратах и налоговой накладной вид цены склада подставляется, когда у покупателя свой вид цены не задан. Пустое поле — всё работает как раньше.
