@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.3
+### ru
+- Касса проверяет минимальную цену склада: если склад контролирует цену («не ниже вида цен» или «не ниже себестоимости»), чек с ценой ниже порога (в том числе после скидки) не оплачивается — касса показывает строки, оплата не открывается. Продать ниже порога может пользователь с ролью «Продажа ниже минимальной цены».
+- Редактор строки кассы не даёт ввести цену ниже минимальной для склада и сообщает об этом; пользователю с правом видеть суммы показывает минимальную цену.
+- Оплата долга по проведённому чеку больше не переписывает чек: дата, строки и покупатель продажи не меняются. Если чек изменили в другом окне или другая касса уже приняла оплату, касса просит открыть чек заново.
+- Сертификат, уже привязанный к чеку, повторно не принимается. Проведённый чек нельзя отложить в ожидание; ошибка при откладывании больше не сбрасывает чек.
+- Черновик продажи в валюте на кассе не открывается — его открывают в форме реализации.
+### fr
+- La caisse contrôle le prix minimal de l'entrepôt : si l'entrepôt contrôle le prix (« pas en dessous du type de prix » ou « pas en dessous du coût de revient »), un ticket dont le prix est inférieur au seuil (y compris après remise) n'est pas encaissé — la caisse affiche les lignes et le paiement ne s'ouvre pas. Un utilisateur ayant le rôle « Vente en dessous du prix minimal » peut vendre en dessous du seuil.
+- L'éditeur de ligne de la caisse n'accepte pas un prix inférieur au minimum de l'entrepôt et le signale ; il affiche le prix minimal à l'utilisateur autorisé à voir les montants.
+- Le paiement d'une dette sur un ticket validé ne réécrit plus le ticket : la date, les lignes et le client de la vente ne changent pas. Si le ticket a été modifié dans une autre fenêtre ou si une autre caisse a déjà encaissé, la caisse demande de rouvrir le ticket.
+- Un certificat déjà lié à un ticket n'est pas accepté une seconde fois. Un ticket validé ne peut pas être mis en attente ; une erreur de mise en attente ne réinitialise plus le ticket.
+- Un brouillon de vente en devise ne s'ouvre pas en caisse — il s'ouvre dans le formulaire de la vente.
+### en
+- The cash desk checks the warehouse minimum price: if the warehouse controls the price ("not below a price type" or "not below cost"), a receipt priced below the threshold (including after a discount) cannot be paid — the cash desk lists the lines and the payment does not open. A user with the "Sale below minimum price" role can sell below the threshold.
+- The cash desk line editor does not accept a price below the warehouse minimum and says so; a user allowed to see amounts sees the minimum price.
+- Paying a debt on a posted receipt no longer rewrites the receipt: the sale date, lines and customer stay the same. If the receipt was changed in another window or another cash desk has already taken the payment, the cash desk asks to reopen the receipt.
+- A certificate already linked to a receipt is not accepted again. A posted receipt cannot be put on hold; an error while putting a receipt on hold no longer clears it.
+- A sales draft in a foreign currency does not open at the cash desk — it opens in the sales form.
+### es
+- La caja controla el precio mínimo del almacén: si el almacén controla el precio («no inferior al tipo de precio» o «no inferior al coste»), un ticket con precio inferior al umbral (también después del descuento) no se cobra: la caja muestra las líneas y el pago no se abre. Un usuario con el rol «Venta por debajo del precio mínimo» puede vender por debajo del umbral.
+- El editor de línea de la caja no admite un precio inferior al mínimo del almacén y lo indica; al usuario con derecho a ver importes le muestra el precio mínimo.
+- El pago de una deuda de un ticket contabilizado ya no reescribe el ticket: la fecha, las líneas y el cliente de la venta no cambian. Si el ticket se modificó en otra ventana u otra caja ya cobró, la caja pide volver a abrir el ticket.
+- Un certificado ya vinculado a un ticket no se acepta de nuevo. Un ticket contabilizado no se puede poner en espera; un error al ponerlo en espera ya no borra el ticket.
+- Un borrador de venta en divisa no se abre en la caja: se abre en el formulario de la venta.
+
 ## 2.0.17.2
 ### ru
 - Касса: скидка на чек теперь попадает в документ продажи. Раньше покупатель платил сумму со скидкой, а продажа записывалась на полную сумму, и у покупателя оставался долг на размер скидки.
