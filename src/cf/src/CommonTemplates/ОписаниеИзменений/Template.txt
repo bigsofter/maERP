@@ -11,8 +11,31 @@
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
 ## 2.0.17.1
-(первая сборка после публикации CF 2.0.16.150: пункты добавляются при передаче на тест)
 ### ru
+- У склада появился «Вид цены продажи». Касса берёт цены этого вида при сканировании, вводе штрихкода, в подборе и в избранном; если цены этого вида у товара нет, берётся «Розничная». В реализации, возвратах и налоговой накладной вид цены склада подставляется, когда у покупателя свой вид цены не задан. Пустое поле — всё работает как раньше.
+- Новая настройка склада «Контроль минимальной цены»: не контролировать, не ниже вида цен (по умолчанию «Минимальная цена продажи») или не ниже себестоимости. Продажа ниже порога не проводится, а в сообщении перечислены строки с ценой и порогом. Продать ниже порога может пользователь с новой ролью «Продажа ниже минимальной цены». Себестоимость считается по самой дорогой партии на складе вместе с дополнительными расходами. Контроль на кассе включится в следующей сборке — сейчас проверяются продажи, проведённые вне кассы.
+- Справочник «Города» в разделе «Продажи» и поле «Город» в карточке контрагента.
+- Флажок контрагента «Не показывать кассиру»: такой контрагент не предлагается в выборе покупателя на кассе.
+- На кассе появилась кнопка «Комментарий»: комментарий к продаже сохраняется в документе продажи и восстанавливается в отложенном чеке.
+- Исправлено: в подборе на кассе кнопка «Выбрать» больше не падает с ошибкой, а остатки и цены показываются по складу продажи (в отложенном чеке — по складу этого чека).
 ### fr
+- L'entrepôt dispose désormais d'un « Type de prix de vente ». La caisse applique les prix de ce type lors du scan, de la saisie du code-barres, dans la sélection et dans les favoris ; si l'article n'a pas de prix de ce type, le prix « Détail » est utilisé. Dans la vente, les retours et la facture fiscale, le type de prix de l'entrepôt est proposé lorsque le client n'a pas son propre type de prix. Champ vide — tout fonctionne comme avant.
+- Nouveau paramètre de l'entrepôt « Contrôle du prix minimal » : ne pas contrôler, pas en dessous du type de prix (par défaut « Prix minimal de vente ») ou pas en dessous du coût de revient. Une vente en dessous du seuil n'est pas validée, et le message liste les lignes avec le prix et le seuil. Un utilisateur ayant le nouveau rôle « Vente en dessous du prix minimal » peut vendre en dessous du seuil. Le coût de revient est celui du lot le plus cher de l'entrepôt, frais supplémentaires compris. Le contrôle à la caisse sera activé dans la prochaine version — pour l'instant, les ventes validées hors caisse sont vérifiées.
+- Référentiel « Villes » dans la section « Ventes » et champ « Ville » dans la fiche de la contrepartie.
+- Case de la contrepartie « Ne pas afficher au caissier » : une telle contrepartie n'est pas proposée dans le choix du client à la caisse.
+- La caisse dispose d'un bouton « Commentaire » : le commentaire de la vente est enregistré dans le document de vente et restauré dans un ticket mis en attente.
+- Corrigé : dans la sélection de la caisse, le bouton « Choisir » ne provoque plus d'erreur, et les stocks et prix sont affichés pour l'entrepôt de vente (pour un ticket en attente — celui de ce ticket).
 ### en
+- Warehouses now have a "Sales price type". The cash desk uses prices of this type when scanning, entering a barcode, in the item picker and in favourites; if an item has no price of this type, the Retail price is used. In sales, customer returns and tax invoices the warehouse price type is suggested when the customer has no price type of their own. An empty field keeps everything as before.
+- New warehouse setting "Minimum price check": do not check, not below a price type (by default "Minimum sale price") or not below cost. A sale below the threshold is not posted, and the message lists the lines with their price and threshold. A user with the new "Sale below minimum price" role can sell below the threshold. Cost is that of the most expensive batch in the warehouse, including additional costs. The check at the cash desk will be enabled in the next build — for now sales posted outside the cash desk are checked.
+- "Cities" catalog in the Sales section and a "City" field on the counterparty card.
+- Counterparty flag "Hide from cashier": such a counterparty is not offered when choosing a customer at the cash desk.
+- The cash desk has a "Comment" button: the sale comment is saved to the sales document and restored in a held receipt.
+- Fixed: in the cash desk item picker the "Choose" button no longer fails with an error, and stock and prices are shown for the sales warehouse (for a held receipt — the warehouse of that receipt).
 ### es
+- El almacén tiene ahora un «Tipo de precio de venta». La caja usa los precios de este tipo al escanear, al introducir el código de barras, en la selección y en los favoritos; si el artículo no tiene precio de este tipo, se usa el precio «Minorista». En la venta, las devoluciones y la factura fiscal se propone el tipo de precio del almacén cuando el cliente no tiene su propio tipo de precio. Campo vacío: todo funciona como antes.
+- Nuevo ajuste del almacén «Control del precio mínimo»: no controlar, no inferior al tipo de precio (por defecto «Precio mínimo de venta») o no inferior al coste. Una venta por debajo del umbral no se contabiliza, y el mensaje enumera las líneas con su precio y umbral. Un usuario con el nuevo rol «Venta por debajo del precio mínimo» puede vender por debajo del umbral. El coste es el del lote más caro del almacén, con los gastos adicionales. El control en la caja se activará en la próxima versión: por ahora se verifican las ventas contabilizadas fuera de la caja.
+- Catálogo «Ciudades» en la sección «Ventas» y campo «Ciudad» en la ficha de la contraparte.
+- Casilla de la contraparte «No mostrar al cajero»: esa contraparte no se ofrece al elegir el cliente en la caja.
+- La caja tiene un botón «Comentario»: el comentario de la venta se guarda en el documento de venta y se restaura en un ticket en espera.
+- Corregido: en la selección de la caja el botón «Elegir» ya no da error, y las existencias y precios se muestran para el almacén de venta (en un ticket en espera, el de ese ticket).

@@ -497,6 +497,45 @@
           <representationInContextMenu>Auto</representationInContextMenu>
         </items>
         <items xsi:type="form:Button">
+          <name>КомментарийПродажи</name>
+          <id>405</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <extendedTooltip>
+            <name>КомментарийПродажиРасширеннаяПодсказка</name>
+            <id>406</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <type>UsualButton</type>
+          <commandName>Form.Command.КомментарийПродажи</commandName>
+          <buttonImportance>Normal</buttonImportance>
+          <representation>PictureAndText</representation>
+          <width>10</width>
+          <height>3</height>
+          <autoMaxHeight>true</autoMaxHeight>
+          <horizontalStretch>true</horizontalStretch>
+          <placementArea>UserCmds</placementArea>
+          <font xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>true</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+          </font>
+          <picture xsi:type="core:PictureRef">
+            <picture>StdPicture.Change</picture>
+          </picture>
+          <representationInContextMenu>Auto</representationInContextMenu>
+        </items>
+        <items xsi:type="form:Button">
           <name>BarCode</name>
           <id>98</id>
           <enabled>true</enabled>
@@ -4459,6 +4498,38 @@
   <scalingMode>Normal</scalingMode>
   <collapseItemsByImportanceVariant>DontUse</collapseItemsByImportanceVariant>
   <attributes>
+    <name>КомментарийПродажи</name>
+    <title>
+      <key>ru</key>
+      <value>Комментарий к продаже</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Commentaire de la vente</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Sale comment</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Comentario de la venta</value>
+    </title>
+    <id>33</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>250</length>
+      </stringQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
     <name>Object</name>
     <id>1</id>
     <valueType>
@@ -5683,6 +5754,52 @@
     </edit>
     <functionalOptions>FunctionalOption.РаздельныйУчет</functionalOptions>
   </attributes>
+  <formCommands>
+    <name>КомментарийПродажи</name>
+    <title>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Commentaire</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Comment</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Comentario</value>
+    </title>
+    <id>28</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Комментарий к продаже: попадёт в документ продажи</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Commentaire de la vente : il sera repris dans le document de vente</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Sale comment: it is saved to the sales document</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Comentario de la venta: se guarda en el documento de venta</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>КомментарийПродажи</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <formCommands>
     <name>Ajouter</name>
     <title>
