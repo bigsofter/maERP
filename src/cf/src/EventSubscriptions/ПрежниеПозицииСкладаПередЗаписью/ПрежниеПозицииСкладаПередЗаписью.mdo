@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1f1f6c3d-c832-4dc5-ad06-e9e85383a70a">
+  <name>ПрежниеПозицииСкладаПередЗаписью</name>
+  <synonym>
+    <key>ru</key>
+    <value>Прежние позиции склада перед записью</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Positions d'entrepôt précédentes avant l'enregistrement</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Previous warehouse items before writing</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Posiciones de almacén anteriores antes de grabar</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.НалоговаяНакладная</types>
+    <types>DocumentObject.ПередачаВПереработку</types>
+    <types>DocumentObject.ПоступлениеИзПереработки</types>
+    <types>DocumentObject.ПриходныйОрдер</types>
+    <types>DocumentObject.РасходныйОрдер</types>
+    <types>DocumentObject.РеализацияТоваровУслуг</types>
+  </source>
+  <event>BeforeWrite</event>
+  <handler>CommonModule.ПодпискиНаСобытия.ПрежниеПозицииСкладаПередЗаписью</handler>
+</mdclass:EventSubscription>

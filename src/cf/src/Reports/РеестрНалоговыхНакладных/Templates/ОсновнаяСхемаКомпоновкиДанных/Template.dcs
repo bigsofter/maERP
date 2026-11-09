@@ -140,15 +140,15 @@
 				</v8:item>
 				<v8:item>
 					<v8:lang>fr</v8:lang>
-					<v8:content>Facture comptable</v8:content>
+					<v8:content>Facture fiscale</v8:content>
 				</v8:item>
 				<v8:item>
 					<v8:lang>en</v8:lang>
-					<v8:content>Accounting invoice</v8:content>
+					<v8:content>Tax invoice</v8:content>
 				</v8:item>
 				<v8:item>
 					<v8:lang>es</v8:lang>
-					<v8:content>Factura contable</v8:content>
+					<v8:content>Factura fiscal</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -204,12 +204,12 @@
 	НалоговаяНакладнаяТЧТовары.Ссылка.Контрагент КАК Контрагент,
 	НалоговаяНакладнаяТЧТовары.Ссылка.Дата КАК Дата,
 	НалоговаяНакладнаяТЧТовары.Ссылка.Номер КАК Номер,
-	СУММА(НалоговаяНакладнаяТЧТовары.СуммаНДС) КАК СуммаНДС,
-	СУММА(НалоговаяНакладнаяТЧТовары.СуммаСНДС - НалоговаяНакладнаяТЧТовары.СуммаНДС) КАК СуммаБезНДС,
+	СУММА(НалоговаяНакладнаяТЧТовары.СуммаНДС * (ВЫБОР КОГДА НалоговаяНакладнаяТЧТовары.Ссылка.ВВалюте ТОГДА НалоговаяНакладнаяТЧТовары.Ссылка.КурсВалюты ИНАЧЕ 1 КОНЕЦ)) КАК СуммаНДС,
+	СУММА((НалоговаяНакладнаяТЧТовары.СуммаСНДС - НалоговаяНакладнаяТЧТовары.СуммаНДС) * (ВЫБОР КОГДА НалоговаяНакладнаяТЧТовары.Ссылка.ВВалюте ТОГДА НалоговаяНакладнаяТЧТовары.Ссылка.КурсВалюты ИНАЧЕ 1 КОНЕЦ)) КАК СуммаБезНДС,
 	СУММА(ВЫБОР
 			КОГДА НалоговаяНакладнаяТЧТовары.СуммаНДС = 0
 				ТОГДА 0
-			ИНАЧЕ НалоговаяНакладнаяТЧТовары.СуммаСНДС
+			ИНАЧЕ НалоговаяНакладнаяТЧТовары.СуммаСНДС * (ВЫБОР КОГДА НалоговаяНакладнаяТЧТовары.Ссылка.ВВалюте ТОГДА НалоговаяНакладнаяТЧТовары.Ссылка.КурсВалюты ИНАЧЕ 1 КОНЕЦ)
 		КОНЕЦ) КАК СуммаСНДС
 ИЗ
 	Документ.НалоговаяНакладная.ТЧТовары КАК НалоговаяНакладнаяТЧТовары
@@ -560,7 +560,7 @@
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>AppearanceTemplate</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">Арктика</dcscor:value>
+					<dcscor:value xsi:type="xs:string">Античный</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>

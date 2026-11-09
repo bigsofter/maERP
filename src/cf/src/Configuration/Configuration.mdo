@@ -29,7 +29,7 @@
   <scriptVariant>Russian</scriptVariant>
   <defaultRoles>Role.Администратор</defaultRoles>
   <vendor>TinyCIO</vendor>
-  <version>2.0.15.71</version>
+  <version>2.0.16.150</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -349,6 +349,7 @@
   <commonPictures>CommonPicture.ВыгрузкаФайловКонфигурации</commonPictures>
   <commonPictures>CommonPicture.ВыгрузкаФайловЗавершена</commonPictures>
   <commonPictures>CommonPicture.ПанельФильтры</commonPictures>
+  <commonPictures>CommonPicture.ПанельСообщения</commonPictures>
   <commonPictures>CommonPicture.ПанельКлиент</commonPictures>
   <commonPictures>CommonPicture.ПанельДетали</commonPictures>
   <commonPictures>CommonPicture.ПанельСвернуть</commonPictures>
@@ -379,10 +380,11 @@
   <roles>Role.ECommerce</roles>
   <roles>Role.PDV</roles>
   <roles>Role.ЛичныйКабинет</roles>
+  <roles>Role.СкладскиеОрдера</roles>
   <commonTemplates>CommonTemplate.Драйвер1СЭквайринговыеТерминалыСбербанк</commonTemplates>
   <commonTemplates>CommonTemplate.ОбщиеОбластиСтандартногоОтчета</commonTemplates>
   <commonTemplates>CommonTemplate.ОписаниеИзменений</commonTemplates>
-  <commonTemplates>CommonTemplate.АктОбОказанииУслуг</commonTemplates>
+  <commonTemplates>CommonTemplate.ФирменныйДокумент</commonTemplates>
   <commonTemplates>CommonTemplate.ДрайверARCUS2ЭквайринговыеТерминалыIngenico</commonTemplates>
   <commonTemplates>CommonTemplate.ДрайверIboxProПоддержкаMPosЭквайринга</commonTemplates>
   <commonTemplates>CommonTemplate.ДрайверMPos2canЭквайринг</commonTemplates>
@@ -405,6 +407,10 @@
   <commonModules>CommonModule.ABCАнализ</commonModules>
   <commonModules>CommonModule.АвтотестыКлиент</commonModules>
   <commonModules>CommonModule.БрендированиеВызовСервера</commonModules>
+  <commonModules>CommonModule.ПанельОтчетов</commonModules>
+  <commonModules>CommonModule.ИзбранныеОтчетыПолныеПрава</commonModules>
+  <commonModules>CommonModule.ФормыПриЗапускеВызовСервера</commonModules>
+  <commonModules>CommonModule.ФормыПриЗапускеПолныеПрава</commonModules>
   <commonModules>CommonModule.БрендированиеКлиент</commonModules>
   <commonModules>CommonModule.БрендированиеКлиентСервер</commonModules>
   <commonModules>CommonModule.БрендированиеСервер</commonModules>
@@ -446,6 +452,7 @@
   <commonModules>CommonModule.МенеджерОборудованияМаркировкаКлиентСервер</commonModules>
   <commonModules>CommonModule.МенеджерОборудованияМаркировкаКлиентСерверПовтИсп</commonModules>
   <commonModules>CommonModule.МенеджерОборудованияСерверПовтИсп</commonModules>
+  <commonModules>CommonModule.НавигаторНоменклатуры</commonModules>
   <commonModules>CommonModule.НачальноеЗаполнениеВызовСервера</commonModules>
   <commonModules>CommonModule.ОбновлениеИнформационнойБазыБПО</commonModules>
   <commonModules>CommonModule.ОбновлениеПрограммы</commonModules>
@@ -453,16 +460,22 @@
   <commonModules>CommonModule.ОбновлениеПрограммыКлиент</commonModules>
   <commonModules>CommonModule.ОбновлениеПрограммыОбработчики</commonModules>
   <commonModules>CommonModule.ПечатныеФормы</commonModules>
+  <commonModules>CommonModule.ПраваНаФайлы</commonModules>
+  <commonModules>CommonModule.ФирменнаяПечать</commonModules>
   <commonModules>CommonModule.ПечатныеФормыВызовСервера</commonModules>
+  <commonModules>CommonModule.ПечатныеФормыПовтИсп</commonModules>
   <commonModules>CommonModule.ПечатныеФормыКлиент</commonModules>
   <commonModules>CommonModule.РасширениеРаботыС1СПредприятиемКлиент</commonModules>
   <commonModules>CommonModule.ОбщегоНазначения</commonModules>
   <commonModules>CommonModule.ОбщегоНазначенияВызовСервера</commonModules>
+  <commonModules>CommonModule.НалоговыйУчет</commonModules>
+  <commonModules>CommonModule.НалоговыеДокументыНаОснованиях</commonModules>
   <commonModules>CommonModule.ОбщегоНазначенияВызовСервераПовтИсп</commonModules>
   <commonModules>CommonModule.ОбщегоНазначенияКлиент</commonModules>
   <commonModules>CommonModule.ОбщегоНазначенияКлиентСервер</commonModules>
   <commonModules>CommonModule.ОбщегоНазначенияПовтИсп</commonModules>
   <commonModules>CommonModule.ОперацииСПодключаемымОборудованиемКлиент</commonModules>
+  <commonModules>CommonModule.ОтборыСписков</commonModules>
   <commonModules>CommonModule.ПартииИРазмещениеКлиент</commonModules>
   <commonModules>CommonModule.ПодключаемоеОборудование1ССканерыШтрихкодаКлиент</commonModules>
   <commonModules>CommonModule.ПодключаемоеОборудованиеУниверсальныйДрайверАсинхронноКлиент</commonModules>
@@ -473,6 +486,9 @@
   <commonModules>CommonModule.ПрисоединённыеФайлыКлиент</commonModules>
   <commonModules>CommonModule.ПроизводственныеЗаказы</commonModules>
   <commonModules>CommonModule.Производство</commonModules>
+  <commonModules>CommonModule.ЗагрузкаСтанков</commonModules>
+  <commonModules>CommonModule.ТребованияНакладные</commonModules>
+  <commonModules>CommonModule.ОрдераСклада</commonModules>
   <commonModules>CommonModule.ПроцедурыРегламентныхЗаданий</commonModules>
   <commonModules>CommonModule.РаботаСДокументами</commonModules>
   <commonModules>CommonModule.КомандыТабличныхЧастейВызовСервера</commonModules>
@@ -480,6 +496,8 @@
   <commonModules>CommonModule.РаботаСДокументамиВызовСервера</commonModules>
   <commonModules>CommonModule.РаботаСДокументамиКлиент</commonModules>
   <commonModules>CommonModule.РаботаСДокументамиКлиентСервер</commonModules>
+  <commonModules>CommonModule.РаботаСВалютами</commonModules>
+  <commonModules>CommonModule.РаботаСВалютамиКлиентСервер</commonModules>
   <commonModules>CommonModule.РаботаСКонтрагентами</commonModules>
   <commonModules>CommonModule.РаботаСЭлектроннойПочтой</commonModules>
   <commonModules>CommonModule.РеквизитыКонтрагентов</commonModules>
@@ -500,6 +518,9 @@
   <eventSubscriptions>EventSubscription.ПослеПроведенияДокументаОплаты</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ПослеОтменыПроведенияДокументаОплаты</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ПользователиПередЗаписью</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ПрежниеПозицииСкладаПередЗаписью</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ПрежниеОснованияОплатыПередЗаписью</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ПлатежПередУдалением</eventSubscriptions>
   <scheduledJobs>ScheduledJob.ОбновлениеРозничныхЦен</scheduledJobs>
   <scheduledJobs>ScheduledJob.ПерепроведениеДокументов</scheduledJobs>
   <scheduledJobs>ScheduledJob.ПроверкаМинимальногоОстатка</scheduledJobs>
@@ -517,6 +538,24 @@
   <functionalOptions>FunctionalOption.ИспользоватьУпаковку</functionalOptions>
   <functionalOptions>FunctionalOption.Зарплата</functionalOptions>
   <functionalOptions>FunctionalOption.Производство</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьИмпорт</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьЗаказыПокупателей</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьКоммерческиеПредложения</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьЗадачиЗаказов</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьЗаявкиНаПоискТовара</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьРозничныеПродажи</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьПравилаЦенообразования</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьЯчейки</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьОрдерныеСклады</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьПересчеты</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьКомплектацию</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьПереработку</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьУчетСтанков</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьАльтернативныеОплаты</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьРегламентированныйУчет</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьЛиды</functionalOptions>
+  <functionalOptions>FunctionalOption.ИспользоватьЛичныйКабинет</functionalOptions>
+  <functionalOptions>FunctionalOption.РаздельныйУчет</functionalOptions>
   <functionalOptionsParameters>FunctionalOptionsParameter.Контрагент</functionalOptionsParameters>
   <functionalOptionsParameters>FunctionalOptionsParameter.МестоХранения</functionalOptionsParameters>
   <definedTypes>DefinedType.NIF</definedTypes>
@@ -555,6 +594,9 @@
   <definedTypes>DefinedType.ТорговыйОбъектБПО</definedTypes>
   <commonCommands>CommonCommand.ВыбратьРМТекущегоСеанса</commonCommands>
   <commonCommands>CommonCommand.ЗаказыНаПроизводство</commonCommands>
+  <commonCommands>CommonCommand.ИнвентаризацияСтанков</commonCommands>
+  <commonCommands>CommonCommand.ОприходованиеМатериалов</commonCommands>
+  <commonCommands>CommonCommand.СписаниеМатериалов</commonCommands>
   <commonCommands>CommonCommand.СверкаИтоговПоКартам</commonCommands>
   <commonCommands>CommonCommand.УправлениеФискальнымУстройством</commonCommands>
   <commonCommands>CommonCommand.УправлениеЭквайринговымТерминалом</commonCommands>
@@ -604,6 +646,26 @@
   <constants>Constant.ТипЦенПоУмолчанию</constants>
   <constants>Constant.УчётнаяЗаписьРассылкиСообщенийСистемы</constants>
   <constants>Constant.ХранитьФайлыНаДиске</constants>
+  <constants>Constant.ИспользоватьИмпорт</constants>
+  <constants>Constant.ИспользоватьЗаказыПокупателей</constants>
+  <constants>Constant.ИспользоватьКоммерческиеПредложения</constants>
+  <constants>Constant.ИспользоватьЗадачиЗаказов</constants>
+  <constants>Constant.ИспользоватьЗаявкиНаПоискТовара</constants>
+  <constants>Constant.ИспользоватьРозничныеПродажи</constants>
+  <constants>Constant.ИспользоватьПравилаЦенообразования</constants>
+  <constants>Constant.ИспользоватьЯчейки</constants>
+  <constants>Constant.ИспользоватьОрдерныеСклады</constants>
+  <constants>Constant.ДнейОжиданияОформления</constants>
+  <constants>Constant.ИспользоватьПересчеты</constants>
+  <constants>Constant.ИспользоватьКомплектацию</constants>
+  <constants>Constant.ИспользоватьПереработку</constants>
+  <constants>Constant.ИспользоватьУчетСтанков</constants>
+  <constants>Constant.СписыватьМатериалыНаСтанокПриРазмещении</constants>
+  <constants>Constant.ИспользоватьАльтернативныеОплаты</constants>
+  <constants>Constant.ИспользоватьРегламентированныйУчет</constants>
+  <constants>Constant.ИспользоватьЛиды</constants>
+  <constants>Constant.ИспользоватьЛичныйКабинет</constants>
+  <constants>Constant.РаздельныйУчет</constants>
   <commonForms>CommonForm.ВыборЗначений</commonForms>
   <commonForms>CommonForm.ИнтерфейсКлиент</commonForms>
   <commonForms>CommonForm.ВыборСвязанныхДанных</commonForms>
@@ -716,10 +778,14 @@
   <documents>Document.СписаниеТоваров</documents>
   <documents>Document.ТабельУчётаРабочегоВремени</documents>
   <documents>Document.ТехнологическаяКарта</documents>
+  <documents>Document.ОбслуживаниеСтанка</documents>
+  <documents>Document.ТребованиеНакладная</documents>
   <documents>Document.УстановкаПлановыхПоказателей</documents>
   <documents>Document.УстановкаЦенНоменклатуры</documents>
   <documents>Document.УстановкаЦенНоменклатурыВручную</documents>
   <documents>Document.УценкаТоваров</documents>
+  <documents>Document.ПриходныйОрдер</documents>
+  <documents>Document.РасходныйОрдер</documents>
   <sequences>Sequence.Основная</sequences>
   <documentJournals>DocumentJournal.БезналичныеПлатежи</documentJournals>
   <documentJournals>DocumentJournal.КассовыеДокументы</documentJournals>
@@ -768,6 +834,10 @@
   <enums>Enum.РешенияВизированияДокументов</enums>
   <enums>Enum.СостоянияБанковскихДокументов</enums>
   <enums>Enum.СпособыИзготовления</enums>
+  <enums>Enum.ВидыОбслуживанияСтанков</enums>
+  <enums>Enum.СтатусыТребованийНакладных</enums>
+  <enums>Enum.ВидыЗагрузкиСтанков</enums>
+  <enums>Enum.ВидыСкладскихОпераций</enums>
   <enums>Enum.СпособыПополненияЗапасов</enums>
   <enums>Enum.СпособыРасчётаОтсрочки</enums>
   <enums>Enum.СпособыФорматноЛогическогоКонтроля</enums>
@@ -776,6 +846,7 @@
   <enums>Enum.СтатусыДействия</enums>
   <enums>Enum.СтатусыДоговоровКонтрагентов</enums>
   <enums>Enum.СтатусыКассовойСмены</enums>
+  <enums>Enum.Инкотермс</enums>
   <enums>Enum.СтатусыКоммерческихПредложений</enums>
   <enums>Enum.СтатусыЛидов</enums>
   <enums>Enum.СтатусыОбъектов</enums>
@@ -812,6 +883,7 @@
   <enums>Enum.ВидыОперацийВзаимодействия</enums>
   <enums>Enum.ВариантыНапоминаний</enums>
   <enums>Enum.Периодичность</enums>
+  <enums>Enum.СтатусыЗаказовПоставщику</enums>
   <reports>Report.ИсторияТовара</reports>
   <reports>Report.АнализСубконто</reports>
   <reports>Report.АнализСчета</reports>
@@ -836,6 +908,7 @@
   <reports>Report.КарточкаСчета</reports>
   <reports>Report.НедостаточныеЗапасы</reports>
   <reports>Report.НеотгруженныеЗаказы</reports>
+  <reports>Report.ДеньгиИСтатусыЗаказов</reports>
   <reports>Report.ОборотноСальдоваяВедомость</reports>
   <reports>Report.ОборотноСальдоваяВедомостьПоСчету</reports>
   <reports>Report.ОборотыСчета</reports>
@@ -850,8 +923,19 @@
   <reports>Report.РеестрПоступленийТоваровУслуг</reports>
   <reports>Report.РеестрРеализацийТоваровУслуг</reports>
   <reports>Report.СебестоимостьПродукции</reports>
+  <reports>Report.ПростоиСтанков</reports>
+  <reports>Report.ЗагрузкаСтанков</reports>
+  <reports>Report.ЗанятостьСтанков</reports>
+  <reports>Report.ПланЗагрузкиСтанков</reports>
+  <reports>Report.ВыработкаСтанков</reports>
+  <reports>Report.ЭффективностьСтанков</reports>
+  <reports>Report.ДеньгиПоСтанкам</reports>
+  <reports>Report.МатериалыНаСтанках</reports>
   <reports>Report.ТоварыВНаличии</reports>
+  <reports>Report.ОстаткиНаСкладах</reports>
   <reports>Report.ТоварыВПереработке</reports>
+  <reports>Report.ПрослеживаемостьПартий</reports>
+  <reports>Report.ПереработкаПоПереработчикам</reports>
   <reports>Report.ФинансовыйРезультат</reports>
   <reports>Report.ЦеныНоменклатуры</reports>
   <reports>Report.ВедомостьРасчётовСПрочимиКонтрагентами</reports>
@@ -866,15 +950,17 @@
   <reports>Report.РеестрНалоговыхНакладных</reports>
   <reports>Report.ВедомостьПоПродажамНалоговая</reports>
   <reports>Report.РасчетыСПокупателями</reports>
-  <reports>Report.ГлавнаяКнига</reports>
   <reports>Report.РасчетыСПоставщиками</reports>
   <reports>Report.СтоимостьСклада</reports>
   <dataProcessors>DataProcessor.MobileMenu</dataProcessors>
   <dataProcessors>DataProcessor.VentesEnDetail</dataProcessors>
+  <dataProcessors>DataProcessor.АРМЗакупки</dataProcessors>
   <dataProcessors>DataProcessor.АРМПроизводство</dataProcessors>
+  <dataProcessors>DataProcessor.АРМУправлениеСтанками</dataProcessors>
   <dataProcessors>DataProcessor.ГрупповоеИзменениеРеквизитов</dataProcessors>
   <dataProcessors>DataProcessor.ГрупповоеСозданиеДокументов</dataProcessors>
   <dataProcessors>DataProcessor.Дашборд</dataProcessors>
+  <dataProcessors>DataProcessor.КонсольОтчетов</dataProcessors>
   <dataProcessors>DataProcessor.ЗагрузкаИзExcel</dataProcessors>
   <dataProcessors>DataProcessor.КлиентБанк</dataProcessors>
   <dataProcessors>DataProcessor.ЛичныйКабинетПартнера</dataProcessors>
@@ -897,12 +983,15 @@
   <informationRegisters>InformationRegister.ВерсииПодсистем</informationRegisters>
   <informationRegisters>InformationRegister.ПользовательскиеМакетыПечати</informationRegisters>
   <informationRegisters>InformationRegister.ИзбраннаяНоменклатураРМК</informationRegisters>
+  <informationRegisters>InformationRegister.ИзбранныеОтчеты</informationRegisters>
+  <informationRegisters>InformationRegister.ИдентификаторыРабочихМест</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияОбменаДанными</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияПоискаВЛКП</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияУправленияКонфигураций</informationRegisters>
   <informationRegisters>InformationRegister.КонтекстныеОбсуждения</informationRegisters>
   <informationRegisters>InformationRegister.КураторыДоговоров</informationRegisters>
+  <informationRegisters>InformationRegister.КурсыВалют</informationRegisters>
   <informationRegisters>InformationRegister.Лиды</informationRegisters>
   <informationRegisters>InformationRegister.ЛицаСПравомПодписи</informationRegisters>
   <informationRegisters>InformationRegister.МинимальныйОстатокПоСкладам</informationRegisters>
@@ -925,12 +1014,14 @@
   <informationRegisters>InformationRegister.РеквизитыКонтрагентов</informationRegisters>
   <informationRegisters>InformationRegister.СистемныеОповещения</informationRegisters>
   <informationRegisters>InformationRegister.СоставТехКарты</informationRegisters>
+  <informationRegisters>InformationRegister.ЗагрузкаСтанков</informationRegisters>
   <informationRegisters>InformationRegister.ТарифныеСтавки</informationRegisters>
   <informationRegisters>InformationRegister.УчетныеДокументы</informationRegisters>
   <informationRegisters>InformationRegister.ФискальныеОперации</informationRegisters>
   <informationRegisters>InformationRegister.ЦеныНоменклатуры</informationRegisters>
   <informationRegisters>InformationRegister.ЦеныЗакупки</informationRegisters>
   <informationRegisters>InformationRegister.РазрешениеНаРедактированиеДокументов</informationRegisters>
+  <informationRegisters>InformationRegister.РедакцииКоммерческихПредложений</informationRegisters>
   <informationRegisters>InformationRegister.ЦеныПродажи</informationRegisters>
   <informationRegisters>InformationRegister.ЦеныНоменклатурыПоставщиков</informationRegisters>
   <informationRegisters>InformationRegister.ШтрихкодыНоменклатуры</informationRegisters>
@@ -949,9 +1040,12 @@
   <accumulationRegisters>AccumulationRegister.ОплатыЧеками</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ПотребностиПроизводства</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Продажи</accumulationRegisters>
+  <accumulationRegisters>AccumulationRegister.СебестоимостьПродаж</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ТоварыВНаличии</accumulationRegisters>
+  <accumulationRegisters>AccumulationRegister.ТоварыКОформлению</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ТоварыВПереработке</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Убытки</accumulationRegisters>
+  <accumulationRegisters>AccumulationRegister.МатериалыНаСтанках</accumulationRegisters>
   <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ВидыЗапретаРедактирования</chartsOfCharacteristicTypes>
   <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ВидыНастроекПользователей</chartsOfCharacteristicTypes>
   <chartsOfCharacteristicTypes>ChartOfCharacteristicTypes.ВидыРеквизитовКонтрагентов</chartsOfCharacteristicTypes>

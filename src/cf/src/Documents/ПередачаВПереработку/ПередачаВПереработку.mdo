@@ -89,7 +89,6 @@
   <registerRecords>AccumulationRegister.ТоварыВПереработке</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
-  <choiceHistoryOnInput>DontUse</choiceHistoryOnInput>
   <attributes uuid="b3f4e1a8-c3e1-4dd7-8d9d-cf9c31853d68">
     <name>Комментарий</name>
     <synonym>
@@ -233,6 +232,34 @@
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:UndefinedValue"/>
     <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="b536df0e-ea7f-4585-b984-ee5bb5dc9ad3">
+    <name>НесколькоЗаказов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Несколько заказов</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Plusieurs commandes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Several orders</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Varios pedidos</value>
+    </synonym>
+    <comment>Общая передача: заказ указывается в строках, основание пусто (план subcontract-multi-order)</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
@@ -591,6 +618,88 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
+    <attributes uuid="99ef4008-fb1e-4996-89e2-69ddb552c765">
+      <name>Продукция</name>
+      <synonym>
+        <key>ru</key>
+        <value>ПФ/ГП</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Semi-fini / produit fini</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Semi-finished / finished product</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Semielaborado / producto terminado</value>
+      </synonym>
+      <comment>Полуфабрикат или готовая продукция заказа, для которой передаётся материал (2.0.16.16); пусто - по правилу заказа</comment>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="fc01e199-e25f-4174-a36f-b9c16e852e6c">
+      <name>КоличествоПродукции</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество ПФ/ГП</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Quantité semi-fini / produit fini</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Semi-finished / finished product quantity</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cantidad de semielaborado / producto terminado</value>
+      </synonym>
+      <comment>Сколько ПФ/ГП ожидается из материала строки, в базовых единицах ПФ/ГП (2.0.16.17); 0 - по правилу заказа</comment>
+      <type>
+        <types>DefinedType.КоличествоНеотрицательное</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="4e955d32-fed4-4061-83b8-5bf1b4a83a74">
+      <name>Заказ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Заказ</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Commande</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pedido</value>
+      </synonym>
+      <comment>Заказ клиента строки (план subcontract-multi-order); пусто - заказ шапки</comment>
+      <type>
+        <types>DocumentRef.ЗаказПокупателя</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
   </tabularSections>
   <tabularSections uuid="374a7ae5-caa3-4cb9-b5cb-eaea788c4d26">
     <producedTypes>
@@ -835,26 +944,35 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
+    <attributes uuid="21aca85a-f5d0-43e0-87a0-ba1fe18b38b3">
+      <name>Заказ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Заказ</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Commande</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Pedido</value>
+      </synonym>
+      <comment>Заказ клиента строки (план subcontract-multi-order); пусто - заказ шапки</comment>
+      <type>
+        <types>DocumentRef.ЗаказПокупателя</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
   </tabularSections>
-  <templates uuid="90dad29c-3da4-452c-ada4-c2535674df28">
-    <name>АктПередачи</name>
-    <synonym>
-      <key>ru</key>
-      <value>Акт передачи в переработку</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Bon de transfert en sous-traitance</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Transfer for processing act</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Acta de transferencia a procesamiento</value>
-    </synonym>
-  </templates>
   <commands uuid="ea3e4afc-7adf-4d69-a595-14a03dcbd6ff">
     <name>ПечатьАктПередачи</name>
     <synonym>

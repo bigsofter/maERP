@@ -512,6 +512,60 @@
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
+        <name>Налоговый</name>
+        <id>250</id>
+        <title>
+          <key>ru</key>
+          <value>Налоговый</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Fiscal</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Tax</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Fiscal</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Налоговый</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <handlers>
+          <event>OnChange</event>
+          <name>НалоговыйПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>НалоговыйРасширеннаяПодсказка</name>
+          <id>251</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>НалоговыйКонтекстноеМеню</name>
+          <id>252</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+      </items>
+      <items xsi:type="form:FormField">
         <name>МестоХранения</name>
         <id>79</id>
         <visible>true</visible>
@@ -597,6 +651,198 @@
         <showInFooter>true</showInFooter>
         <extInfo xsi:type="form:CheckBoxFieldExtInfo">
           <checkBoxType>Switcher</checkBoxType>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormGroup">
+        <name>ВалютаКурс</name>
+        <id>239</id>
+        <items xsi:type="form:FormField">
+          <name>ВВалюте</name>
+          <id>240</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <readOnly>true</readOnly>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ВВалюте</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ВВалютеРасширеннаяПодсказка</name>
+            <id>241</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ВВалютеКонтекстноеМеню</name>
+            <id>242</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>CheckBoxField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+            <checkBoxType>Auto</checkBoxType>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>Валюта</name>
+          <id>243</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <readOnly>true</readOnly>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.Валюта</segments>
+          </dataPath>
+          <titleLocation>Left</titleLocation>
+          <extendedTooltip>
+            <name>ВалютаРасширеннаяПодсказка</name>
+            <id>244</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ВалютаКонтекстноеМеню</name>
+            <id>245</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>6</width>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <extendedEditMultipleValues>true</extendedEditMultipleValues>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+            <font xsi:type="core:FontRef">
+              <font>Style.Шрифт_Основной</font>
+            </font>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>КурсВалюты</name>
+          <id>246</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <readOnly>true</readOnly>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.КурсВалюты</segments>
+          </dataPath>
+          <titleLocation>Left</titleLocation>
+          <extendedTooltip>
+            <name>КурсВалютыРасширеннаяПодсказка</name>
+            <id>247</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>КурсВалютыКонтекстноеМеню</name>
+            <id>248</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>8</width>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <extendedEditMultipleValues>true</extendedEditMultipleValues>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+            <font xsi:type="core:FontRef">
+              <font>Style.Шрифт_Основной</font>
+            </font>
+          </extInfo>
+        </items>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <title>
+          <key>ru</key>
+          <value>Валюта курс</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Taux de change</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Exchange rates</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Moneda tipo de cambio</value>
+        </title>
+        <toolTip>
+          <key>ru</key>
+          <value>Валюта курс</value>
+        </toolTip>
+        <toolTip>
+          <key>fr</key>
+          <value>Taux de change</value>
+        </toolTip>
+        <toolTip>
+          <key>en</key>
+          <value>Exchange rates</value>
+        </toolTip>
+        <toolTip>
+          <key>es</key>
+          <value>Moneda tipo de cambio</value>
+        </toolTip>
+        <extendedTooltip>
+          <name>ВалютаКурсРасширеннаяПодсказка</name>
+          <id>249</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <type>UsualGroup</type>
+        <extInfo xsi:type="form:UsualGroupExtInfo">
+          <group>AlwaysHorizontal</group>
+          <behavior>Auto</behavior>
+          <showLeftMargin>true</showLeftMargin>
+          <united>true</united>
+          <throughAlign>Auto</throughAlign>
+          <currentRowUse>Auto</currentRowUse>
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
@@ -795,6 +1041,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыНомерСтроки</name>
           <id>35</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -831,6 +1085,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыНоменклатура</name>
           <id>38</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -885,6 +1147,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыНоменклатураАртикул</name>
           <id>221</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -922,6 +1192,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыНоменклатураСтрока</name>
           <id>226</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -963,6 +1241,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыХарактеристика</name>
           <id>93</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1008,6 +1294,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыСерия</name>
           <id>124</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1070,6 +1364,14 @@
             <key>es</key>
             <value>Cantidad</value>
           </title>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1152,6 +1454,14 @@
           <items xsi:type="form:FormField">
             <name>ТЧТоварыУпаковка</name>
             <id>104</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -1201,6 +1511,14 @@
           <items xsi:type="form:FormField">
             <name>ТЧТоварыЕдиница</name>
             <id>107</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -1310,6 +1628,14 @@
             <key>es</key>
             <value>Cantidad (SKU)</value>
           </title>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <enabled>true</enabled>
           <userVisible>
             <common>true</common>
@@ -1384,6 +1710,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыЦена</name>
           <id>47</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1432,6 +1766,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыСумма</name>
           <id>56</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1484,8 +1826,73 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
+          <name>ТЧТоварыСуммаРегл</name>
+          <id>236</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <enabled>true</enabled>
+          <readOnly>true</readOnly>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ТЧТовары.СуммаРегл</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ТЧТоварыСуммаРеглРасширеннаяПодсказка</name>
+            <id>237</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ТЧТоварыСуммаРеглКонтекстноеМеню</name>
+            <id>238</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Center</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <footerDataPath xsi:type="form:DataPath">
+            <segments>Объект.ТЧТовары.TotalСуммаРегл</segments>
+          </footerDataPath>
+          <footerFont xsi:type="core:FontRef">
+            <font>Style.Шрифт_Подвал</font>
+          </footerFont>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>12</width>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <horizontalStretch>false</horizontalStretch>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
           <name>ТЧТоварыСуммаСНДС</name>
           <id>85</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1537,6 +1944,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыСтавкаНДС</name>
           <id>50</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1586,6 +2001,14 @@
         <items xsi:type="form:FormField">
           <name>ТЧТоварыСуммаНДС</name>
           <id>53</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -1933,6 +2356,10 @@
           </items>
           <horizontalAlign>Left</horizontalAlign>
         </autoCommandBar>
+        <handlers>
+          <event>OnEditEnd</event>
+          <name>ТЧТоварыПриОкончанииРедактирования</name>
+        </handlers>
         <handlers>
           <event>Selection</event>
           <name>ТЧТоварыВыбор</name>
@@ -2292,6 +2719,7 @@
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
+  <commandBarLocation>Top</commandBarLocation>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
@@ -2315,7 +2743,7 @@
         <value>Impresión</value>
       </title>
       <items xsi:type="form:Button">
-        <name>КнопкаПечатьТоварнаяНакладнаяOld</name>
+        <name>КнопкаПечатьВозврат</name>
         <id>233</id>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -2323,7 +2751,7 @@
           <common>true</common>
         </userVisible>
         <extendedTooltip>
-          <name>КнопкаПечатьТоварнаяНакладнаяOldРасширеннаяПодсказка</name>
+          <name>КнопкаПечатьВозвратРасширеннаяПодсказка</name>
           <id>234</id>
           <type>Label</type>
           <autoMaxWidth>true</autoMaxWidth>
@@ -2332,7 +2760,7 @@
             <horizontalAlign>Left</horizontalAlign>
           </extInfo>
         </extendedTooltip>
-        <commandName>Document.РеализацияТоваровУслуг.Command.ПечатьТоварнаяНакладнаяOld</commandName>
+        <commandName>Document.ВозвратОтПокупателя.Command.ПечатьВозврат</commandName>
         <buttonImportance>Normal</buttonImportance>
         <representation>Auto</representation>
         <autoMaxWidth>true</autoMaxWidth>
@@ -2424,6 +2852,36 @@
     <edit>
       <common>true</common>
     </edit>
+  </attributes>
+  <attributes>
+    <name>Налоговый</name>
+    <title>
+      <key>ru</key>
+      <value>Налоговый</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Fiscal</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Tax</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Fiscal</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <functionalOptions>FunctionalOption.РаздельныйУчет</functionalOptions>
   </attributes>
   <formCommands>
     <name>УказатьСерии</name>

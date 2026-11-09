@@ -549,35 +549,76 @@
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
-	ПродажиОбороты.Регистратор КАК Регистратор,
-	ПродажиОбороты.ПериодДень КАК День,
-	ПродажиОбороты.ПериодНеделя КАК Неделя,
-	ПродажиОбороты.ПериодМесяц КАК Месяц,
-	ПродажиОбороты.ПериодКвартал КАК Квартал,
-	ПродажиОбороты.ПериодПолугодие КАК Полугодие,
-	ПродажиОбороты.ПериодГод КАК Год,
-	ПродажиОбороты.ХозяйственнаяОперация КАК Операция,
-	ПродажиОбороты.Организация КАК Организация,
-	ПродажиОбороты.Сотрудник КАК Сотрудник,
-	ПродажиОбороты.Контрагент КАК Контрагент,
-	ПродажиОбороты.Контрагент.ICE КАК ICE,
-	ПродажиОбороты.ДокументПродажи КАК ДокументПродажи,
-	ПродажиОбороты.Номенклатура КАК Номенклатура,
-	ПродажиОбороты.Характеристика КАК Характеристика,
-	ПродажиОбороты.Партия КАК Партия,
-	ПродажиОбороты.КоличествоОборот КАК Количество,
-	ПродажиОбороты.СебестоимостьОборот КАК Себестоимость,
-	ПродажиОбороты.ДополнительныеРасходыОборот КАК ДополнительныеРасходы,
-	ПродажиОбороты.СебестоимостьОборот + ПродажиОбороты.ДополнительныеРасходыОборот КАК СебестоимостьФактическая,
-	ПродажиОбороты.ВыручкаОборот КАК Выручка,
-	ПродажиОбороты.ВыручкаОборот - ПродажиОбороты.НДСОборот КАК ВыручкаБезНДС,
-	ПродажиОбороты.НДСОборот КАК НДС,
-	ПродажиОбороты.ВаловаяПрибыльОборот КАК ВаловаяПрибыль,
-	ПродажиОбороты.ВаловаяПрибыльОборот - ПродажиОбороты.НДСОборот КАК ЧистаяПрибыль,
-	ПродажиОбороты.Ответственный КАК Ответственный,
-	ПродажиОбороты.ДокументПродажи.МестоХранения КАК ТорговаяТочка
+	Обороты.Регистратор КАК Регистратор,
+	Обороты.ПериодДень КАК День,
+	Обороты.ПериодНеделя КАК Неделя,
+	Обороты.ПериодМесяц КАК Месяц,
+	Обороты.ПериодКвартал КАК Квартал,
+	Обороты.ПериодПолугодие КАК Полугодие,
+	Обороты.ПериодГод КАК Год,
+	Обороты.ХозяйственнаяОперация КАК Операция,
+	Обороты.Организация КАК Организация,
+	Обороты.Сотрудник КАК Сотрудник,
+	Обороты.Контрагент КАК Контрагент,
+	Обороты.Контрагент.ICE КАК ICE,
+	Обороты.ДокументПродажи КАК ДокументПродажи,
+	Обороты.Номенклатура КАК Номенклатура,
+	Обороты.Характеристика КАК Характеристика,
+	НЕОПРЕДЕЛЕНО КАК Партия,
+	Обороты.КоличествоОборот КАК Количество,
+	0 КАК Себестоимость,
+	0 КАК ДополнительныеРасходы,
+	0 КАК СебестоимостьФактическая,
+	Обороты.ВыручкаОборот КАК Выручка,
+	Обороты.ВыручкаОборот - Обороты.НДСОборот КАК ВыручкаБезНДС,
+	Обороты.НДСОборот КАК НДС,
+	Обороты.ВыручкаОборот КАК ВаловаяПрибыль,
+	Обороты.ВыручкаОборот - Обороты.НДСОборот КАК ЧистаяПрибыль,
+	Обороты.Ответственный КАК Ответственный,
+	Обороты.ДокументПродажи.МестоХранения КАК ТорговаяТочка
 ИЗ
-	РегистрНакопления.Продажи.Обороты(, , Авто, ) КАК ПродажиОбороты</query>
+	РегистрНакопления.Продажи.Обороты(, , Авто, ) КАК Обороты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Обороты.Регистратор КАК Регистратор,
+	Обороты.ПериодДень КАК День,
+	Обороты.ПериодНеделя КАК Неделя,
+	Обороты.ПериодМесяц КАК Месяц,
+	Обороты.ПериодКвартал КАК Квартал,
+	Обороты.ПериодПолугодие КАК Полугодие,
+	Обороты.ПериодГод КАК Год,
+	Обороты.ХозяйственнаяОперация КАК Операция,
+	Обороты.Организация КАК Организация,
+	Обороты.Сотрудник КАК Сотрудник,
+	Обороты.Контрагент КАК Контрагент,
+	Обороты.Контрагент.ICE КАК ICE,
+	Обороты.ДокументПродажи КАК ДокументПродажи,
+	Обороты.Номенклатура КАК Номенклатура,
+	Обороты.Характеристика КАК Характеристика,
+	Обороты.Партия,
+	0,
+	ВЫБОР
+		КОГДА Обороты.ДополнительныйРасход
+			ТОГДА 0
+		ИНАЧЕ Обороты.СуммаОборот
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА Обороты.ДополнительныйРасход
+			ТОГДА Обороты.СуммаОборот
+		ИНАЧЕ 0
+	КОНЕЦ,
+	Обороты.СуммаОборот,
+	0,
+	0,
+	0,
+	-Обороты.СуммаОборот,
+	-Обороты.СуммаОборот,
+	Обороты.Ответственный КАК Ответственный,
+	Обороты.ДокументПродажи.МестоХранения КАК ТорговаяТочка
+ИЗ
+	РегистрНакопления.СебестоимостьПродаж.Обороты(, , Авто, ) КАК Обороты</query>
 	</dataSet>
 	<calculatedField>
 		<dataPath>Рентабельность</dataPath>
@@ -765,7 +806,6 @@
 		<dcsset:settings xmlns:pal="http://v8.1c.ru/8.1/data/ui/colors/palette" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Количество</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1118,7 +1158,7 @@
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>AppearanceTemplate</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">Арктика</dcscor:value>
+					<dcscor:value xsi:type="xs:string">Античный</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>AttributePlacement</dcscor:parameter>
@@ -1162,7 +1202,14 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Организация</dcsset:field>
+							<dcsset:field>Номенклатура</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Номенклатура.Артикул</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1175,30 +1222,6 @@
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
-					<dcsset:item>
-						<dcsset:groupItems>
-							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>Номенклатура</dcsset:field>
-								<dcsset:groupType>Items</dcsset:groupType>
-								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-							</dcsset:item>
-							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>Номенклатура.Артикул</dcsset:field>
-								<dcsset:groupType>Items</dcsset:groupType>
-								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-							</dcsset:item>
-						</dcsset:groupItems>
-						<dcsset:order>
-							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
-						</dcsset:order>
-						<dcsset:selection>
-							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
-						</dcsset:selection>
-					</dcsset:item>
 				</dcsset:row>
 				<dcsset:columnsUserSettingID>9b1e0f50-bc55-48d6-83cb-8cd4d79cccbe</dcsset:columnsUserSettingID>
 				<dcsset:rowsUserSettingID>4c7aabba-daf0-402f-b5bc-44148677e769</dcsset:rowsUserSettingID>

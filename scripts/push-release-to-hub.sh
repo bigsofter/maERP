@@ -12,9 +12,13 @@
 #   scripts/push-release-to-hub.sh                    # версия из Configuration.mdo
 #   scripts/push-release-to-hub.sh 2.0.14.26          # конкретная версия
 #   scripts/push-release-to-hub.sh 2.0.14.26 2026-09-08   # с датой релиза
+#   scripts/push-release-to-hub.sh --from-json build/releases-history.json [--dry-run]
+#       # готовые записи (сводки релизов, история): массив или один объект
+#       # {"version", "released_at", "changes": [{"lang", "title", "items"}]}
 #
 # Переменные окружения:
-#   TINYCIO_HUB_SECRET  — HMAC-секрет вебхука maERP в хабе (ОБЯЗАТЕЛЬНО)
+#   TINYCIO_HUB_SECRET  — HMAC-секрет вебхука maERP в хабе (ОБЯЗАТЕЛЬНО); не задан —
+#                         берётся TINYCIO_HUB_SECRET_MAERP из ~/.config/tinycio/hub-secrets.env
 #   TINYCIO_HUB_URL     — база хаба, по умолчанию https://my.tinycio.com
 #   TINYCIO_HUB_PRODUCT — код продукта в хабе, по умолчанию maerp
 #
@@ -30,14 +34,74 @@ HUB_URL="${TINYCIO_HUB_URL:-https://my.tinycio.com}"
 PRODUCT="${TINYCIO_HUB_PRODUCT:-maerp}"
 
 DRY=0
+FROM_JSON=""
 ARGS=()
-for a in "$@"; do
-	case "$a" in
+while [ $# -gt 0 ]; do
+	case "$1" in
 		--dry-run) DRY=1 ;;
-		-*) echo "Неизвестный ключ: $a" >&2; exit 2 ;;
-		*) ARGS+=("$a") ;;
+		--from-json) shift; FROM_JSON="${1:?--from-json: нужен путь к файлу}" ;;
+		-*) echo "Неизвестный ключ: $1" >&2; exit 2 ;;
+		*) ARGS+=("$1") ;;
 	esac
+	shift
 done
+
+HUB_SECRETS_FILE="${HOME}/.config/tinycio/hub-secrets.env"
+if [ -z "${TINYCIO_HUB_SECRET:-}" ] && [ -r "$HUB_SECRETS_FILE" ]; then
+	TINYCIO_HUB_SECRET="$(sed -n 's/^TINYCIO_HUB_SECRET_MAERP=//p' "$HUB_SECRETS_FILE" | tr -d '"' | tail -1)"
+fi
+
+# Подписывает и отправляет одно тело запроса из файла.
+send_payload() {
+	local payload="$1" ts sig
+	[ -n "${TINYCIO_HUB_SECRET:-}" ] || { echo "Не задан TINYCIO_HUB_SECRET" >&2; exit 1; }
+	ts="$(date +%s)"
+	sig="$(openssl dgst -sha256 -hmac "$TINYCIO_HUB_SECRET" -r "$payload" | cut -d' ' -f1)"
+	# Подпись — по ТЕМ ЖЕ БАЙТАМ, что уходят телом (--data-binary @файл).
+	curl -fsS --retry 3 --retry-connrefused --max-time 30 \
+		-X POST "$HUB_URL/api/product-hub/$PRODUCT/releases" \
+		-H 'Content-Type: application/json' \
+		-H "X-Signature: sha256=$sig" \
+		-H "X-Timestamp: $ts" \
+		--data-binary "@$payload"
+	echo
+}
+
+# Готовые записи: каждая уходит отдельным запросом в форме хаба
+# {version, released_at, notes: {lang: {title, items}}}.
+if [ -n "$FROM_JSON" ]; then
+	[ -f "$FROM_JSON" ] || { echo "Нет файла $FROM_JSON" >&2; exit 1; }
+	DIR="$(mktemp -d)"
+	trap 'rm -rf "$DIR"' EXIT
+	python3 - "$FROM_JSON" "$DIR" <<'PY'
+import io, json, os, sys
+src, out_dir = sys.argv[1], sys.argv[2]
+data = json.load(io.open(src, encoding='utf-8'))
+if isinstance(data, dict):
+    data = [data]
+for n, rel in enumerate(data):
+    notes = {}
+    for ch in rel['changes']:
+        items = [i for i in ch['items'] if i.strip()]
+        if not items:
+            sys.exit('%s: пустой язык %s' % (rel['version'], ch['lang']))
+        notes[ch['lang']] = {'title': ch.get('title', ''), 'items': items}
+    body = {'version': rel['version'], 'released_at': rel['released_at'], 'notes': notes}
+    path = os.path.join(out_dir, '%03d.json' % n)
+    with io.open(path, 'w', encoding='utf-8') as f:
+        json.dump(body, f, ensure_ascii=False)
+    sys.stderr.write('[hub] %s (%s) - пунктов %s\n' % (rel['version'], rel['released_at'],
+        ', '.join('%s %d' % (k, len(v['items'])) for k, v in sorted(notes.items()))))
+PY
+	for f in "$DIR"/*.json; do
+		if [ "$DRY" = "1" ]; then
+			python3 -c 'import json,sys;print(json.dumps(json.load(open(sys.argv[1])),ensure_ascii=False,indent=2))' "$f"
+		else
+			send_payload "$f"
+		fi
+	done
+	exit 0
+fi
 VERSION="${ARGS[0]:-}"
 RELEASED_AT="${ARGS[1]:-$(date -u +%F)}"
 
@@ -73,16 +137,4 @@ if [ "$DRY" = "1" ]; then
 	exit 0
 fi
 
-[ -n "${TINYCIO_HUB_SECRET:-}" ] || { echo "Не задан TINYCIO_HUB_SECRET" >&2; exit 1; }
-
-TS="$(date +%s)"
-SIG="$(openssl dgst -sha256 -hmac "$TINYCIO_HUB_SECRET" -r "$PAYLOAD" | cut -d' ' -f1)"
-
-# Подпись — по ТЕМ ЖЕ БАЙТАМ, что уходят телом (--data-binary @файл).
-curl -fsS --retry 3 --retry-connrefused --max-time 30 \
-	-X POST "$HUB_URL/api/product-hub/$PRODUCT/releases" \
-	-H 'Content-Type: application/json' \
-	-H "X-Signature: sha256=$SIG" \
-	-H "X-Timestamp: $TS" \
-	--data-binary "@$PAYLOAD"
-echo
+send_payload "$PAYLOAD"

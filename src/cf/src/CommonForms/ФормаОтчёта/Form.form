@@ -411,13 +411,35 @@
       <representationInContextMenu>Auto</representationInContextMenu>
       <locationInCommandBar>InCommandBar</locationInCommandBar>
     </items>
+    <items xsi:type="form:Button">
+      <name>ФормаВИзбранное</name>
+      <id>31</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаВИзбранноеРасширеннаяПодсказка</name>
+        <id>32</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ВИзбранное</commandName>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
-  <excludedCommands>ChangeVariant</excludedCommands>
-  <excludedCommands>LoadVariant</excludedCommands>
   <excludedCommands>ReportSettings</excludedCommands>
-  <excludedCommands>SaveVariant</excludedCommands>
   <windowOpeningMode>DontBlock</windowOpeningMode>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
@@ -514,6 +536,19 @@
       <common>true</common>
     </edit>
   </attributes>
+  <attributes>
+    <name>ИзбранноеПрименено</name>
+    <id>5</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <formCommands>
     <name>ВычислитьВыделенные</name>
     <title>
@@ -564,11 +599,70 @@
     <currentRowUse>Auto</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
+  <formCommands>
+    <name>ВИзбранное</name>
+    <title>
+      <key>ru</key>
+      <value>В избранное</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Ajouter aux favoris</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Add to favourites</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Añadir a favoritos</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Добавить отчёт с текущими настройками на панель избранных отчётов в «Главном»</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Ajouter le rapport avec les paramètres actuels au panneau des favoris</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Add the report with its current settings to the favourites panel</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Añadir el informe con los ajustes actuales al panel de favoritos</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ВИзбранное</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <parameters>
+    <name>ИдентификаторИзбранного</name>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers>
+        <length>36</length>
+      </stringQualifiers>
+    </valueType>
+  </parameters>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>
   </commandInterface>
   <extInfo xsi:type="form:ReportFormExtInfo">
+    <handlers>
+      <event>OnLoadVariantAtServer</event>
+      <name>ПриЗагрузкеВариантаНаСервере</name>
+    </handlers>
     <reportResult>Результат</reportResult>
     <detailsInformation>ДанныеРасшифровки</detailsInformation>
   </extInfo>

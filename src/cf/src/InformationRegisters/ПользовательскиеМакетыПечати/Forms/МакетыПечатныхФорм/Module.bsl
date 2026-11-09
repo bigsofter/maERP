@@ -50,10 +50,23 @@
 		Возврат;
 	КонецЕсли;
 
-	ТекстВопроса = НСтр("ru = 'Удалить изменённый макет? Печать вернётся к поставляемому макету, отменить нельзя.';
-		|fr = 'Supprimer le modèle modifié ? L''impression reviendra au modèle fourni, sans retour possible.';
-		|en = 'Delete the changed template? Printing will return to the supplied template, this cannot be undone.';
-		|es = '¿Eliminar la plantilla modificada? La impresión volverá a la plantilla suministrada, sin vuelta atrás.'");
+	Если МакетУдалён(ТекущиеДанные.ПутьКМакету) Тогда
+		// Печать от правки удалённого макета уже не зависит: удаление стирает единственную её копию
+		// (docs/plans/branded-print.md, раздел 14.2).
+		ТекстВопроса = НСтр("ru = 'Макет удалён из конфигурации, печать эту правку не использует. Удалить сохранённую правку?
+			|Открыть её больше будет нельзя, отменить нельзя.';
+			|fr = 'Le modèle a été supprimé de la configuration, l''impression n''utilise pas cette modification.
+			|Supprimer la modification enregistrée ? Elle ne pourra plus être ouverte, sans retour possible.';
+			|en = 'The template has been removed from the configuration, printing does not use this change.
+			|Delete the saved change? It can no longer be opened, this cannot be undone.';
+			|es = 'La plantilla se ha eliminado de la configuración, la impresión no usa este cambio.
+			|¿Eliminar el cambio guardado? Ya no se podrá abrir, sin vuelta atrás.'");
+	Иначе
+		ТекстВопроса = НСтр("ru = 'Удалить изменённый макет? Печать вернётся к поставляемому макету, отменить нельзя.';
+			|fr = 'Supprimer le modèle modifié ? L''impression reviendra au modèle fourni, sans retour possible.';
+			|en = 'Delete the changed template? Printing will return to the supplied template, this cannot be undone.';
+			|es = '¿Eliminar la plantilla modificada? La impresión volverá a la plantilla suministrada, sin vuelta atrás.'");
+	КонецЕсли;
 	ДополнительныеПараметры = Новый Структура("ПутьКМакету", ТекущиеДанные.ПутьКМакету);
 	Оповещение = Новый ОписаниеОповещения("УдалитьИзменённыйЗавершение", ЭтотОбъект, ДополнительныеПараметры);
 	ПоказатьВопрос(Оповещение, ТекстВопроса, РежимДиалогаВопрос.ДаНет);
@@ -109,6 +122,13 @@
 	ЗаполнитьМакеты();
 
 КонецПроцедуры
+
+&НаСервереБезКонтекста
+Функция МакетУдалён(Знач ПутьКМакету)
+
+	Возврат Не ПечатныеФормы.МакетЕстьВКонфигурации(ПутьКМакету);
+
+КонецФункции
 
 &НаСервере
 Процедура ЗаполнитьМакеты()

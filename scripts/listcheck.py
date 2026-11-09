@@ -19,7 +19,11 @@ mainTable. Ни CheckConfig, ни EDT, ни смок-тест такого не 
 
 Стандартные поля списка (Ref/Ссылка у справочников и документов, Code,
 Description, DefaultPicture и родня) платформа отдаёт без запроса — они в
-STANDARD_FIELDS и не проверяются.
+STANDARD_FIELDS и не проверяются. Исключение — английское имя стандартного
+реквизита (Date, Number…) из ENGLISH_ALIASES, когда запрос выбирает его под явным
+русским псевдонимом («Док.Дата КАК Дата»): поле списка называется псевдонимом, и
+колонка «Список.Date» не выводится (инцидент 2026-10-29, списки приходных и
+расходных ордеров).
 
 Известные и осознанно принятые расхождения лежат в scripts/listcheck-known.txt:
 строка «форма|список|поле», решётка — комментарий.
@@ -76,6 +80,14 @@ STANDARD_FIELDS = {
     "DefaultPicture", "Filter", "Отбор",
 }
 
+# Английское имя стандартного реквизита и его русский псевдоним в запросе:
+# при «КАК Дата» поле списка называется «Дата», колонка «Список.Date» пуста.
+ENGLISH_ALIASES = {
+    "Code": "Код", "Description": "Наименование", "DeletionMark": "ПометкаУдаления",
+    "Posted": "Проведен", "Date": "Дата", "Number": "Номер", "Period": "Период",
+    "Recorder": "Регистратор", "Parent": "Родитель", "Owner": "Владелец",
+}
+
 IDENT = r"[А-Яа-яЁёA-Za-z_][А-Яа-яЁёA-Za-z0-9_]*"
 
 
@@ -89,6 +101,17 @@ def unescape(text):
     for entity, char in (("&lt;", "<"), ("&gt;", ">"), ("&quot;", '"'), ("&apos;", "'"), ("&amp;", "&")):
         text = text.replace(entity, char)
     return text
+
+
+def top_level_head(query):
+    """Список выборки верхнего уровня — до первого «ИЗ» в начале строки: у вложенных
+    подзапросов оно с отступом, у верхнего уровня — с начала строки."""
+    return re.split(r"(?m)^(?:ИЗ|FROM)\b", query, 1)[0]
+
+
+def top_level_aliases(query):
+    """Явные псевдонимы (КАК Поле) списка выборки верхнего уровня."""
+    return set(re.findall(r"(?:КАК|AS)\s+(" + IDENT + r")", top_level_head(query)))
 
 
 def top_level_fields(query):
@@ -156,10 +179,12 @@ class Checker:
 
     def check_columns(self, where, name, text, query):
         fields = top_level_fields(nfc(query))
+        aliases = top_level_aliases(nfc(query))
         columns = set(nfc(c) for c in re.findall(
             r"<segments>" + re.escape(name) + r"\.(" + IDENT + r")</segments>", text))
         for column in sorted(columns):
-            if column in fields or column in STANDARD_FIELDS:
+            aliased = column in ENGLISH_ALIASES and ENGLISH_ALIASES[column] in aliases
+            if column in fields or (column in STANDARD_FIELDS and not aliased):
                 continue
             self.findings.append((
                 "%s|%s|%s" % (where, name, column),

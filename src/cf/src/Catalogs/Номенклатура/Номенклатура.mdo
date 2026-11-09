@@ -127,7 +127,6 @@
   <defaultListForm>Catalog.Номенклатура.Form.ФормаСписка</defaultListForm>
   <defaultChoiceForm>Catalog.Номенклатура.Form.ФормаВыбора</defaultChoiceForm>
   <defaultFolderChoiceForm>Catalog.Номенклатура.Form.ФормаВыбораГруппы</defaultFolderChoiceForm>
-  <choiceHistoryOnInput>DontUse</choiceHistoryOnInput>
   <attributes uuid="17f071f8-f221-45b7-8c1d-e246d18b3214">
     <name>ECommerce</name>
     <synonym>
@@ -1912,6 +1911,76 @@
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
   </tabularSections>
+  <tabularSections uuid="c222985d-12c9-4cd2-a22c-24ce5b2213e3">
+    <producedTypes>
+      <objectType typeId="ee910cf2-2081-4469-9a2f-c009de4f79d1" valueTypeId="1ddc9851-7a65-4a41-9f4a-cd018d02460d"/>
+      <rowType typeId="08635667-cd63-464c-a864-7f3a62e2f5d6" valueTypeId="a4baf040-feba-4437-92bf-c20d4fb3ab45"/>
+    </producedTypes>
+    <name>Станки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Станки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Machines</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Machines</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Máquinas</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Станки, на которых делается продукция (автоплан ставит её только на них); пустой список - любой станок</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Machines qui fabriquent ce produit (la planification automatique ne l'y place que là) ; liste vide - toute machine</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Machines that make this product (auto-planning places it only on them); empty list - any machine</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Máquinas que fabrican este producto (la planificación automática solo lo pone en ellas); lista vacía - cualquier máquina</value>
+    </toolTip>
+    <attributes uuid="b011271b-f9d0-489c-ad4f-123d020e913e">
+      <name>Станок</name>
+      <synonym>
+        <key>ru</key>
+        <value>Станок</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Machine</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Machine</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Máquina</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ПроизводственноеОборудование</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <choiceParameters>
+        <name>Отбор.Выведен</name>
+        <value xsi:type="core:BooleanValue"/>
+      </choiceParameters>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
   <forms uuid="e82e2c3f-0d53-40d5-aea3-3e72c0fb766f">
     <name>ФормаЭлемента</name>
     <synonym>
@@ -2038,27 +2107,6 @@
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
-  <forms uuid="86a0f235-add4-4cd0-9693-a7d3d3d98007">
-    <name>ФормаВыбораУпаковок</name>
-    <synonym>
-      <key>ru</key>
-      <value>Форма выбора упаковок</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Formulaire de sélection des emballages</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Packaging selection form</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Formulario de selección de envases</value>
-    </synonym>
-    <usePurposes>PersonalComputer</usePurposes>
-    <usePurposes>MobileDevice</usePurposes>
-  </forms>
   <forms uuid="9affcd10-3c3c-419e-b3cd-f17ecb40c234">
     <name>ФормаЭлементаECommerce</name>
     <synonym>
@@ -2164,27 +2212,6 @@
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
-  <forms uuid="3aceae28-8cb8-43f6-8a64-65d6b59e514b">
-    <name>FormProduitsOnStock1</name>
-    <synonym>
-      <key>ru</key>
-      <value>Form produits on stock1</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Form products on stock1</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Marchandises en stock (2)</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Formulario de productos en stock1</value>
-    </synonym>
-    <usePurposes>PersonalComputer</usePurposes>
-    <usePurposes>MobileDevice</usePurposes>
-  </forms>
   <commands uuid="fbf4c27b-8b56-41fc-9d54-24cd09c86f24">
     <name>ГотоваяПродукция</name>
     <synonym>
@@ -2247,5 +2274,116 @@
     </synonym>
     <group>NavigationPanelOrdinary</group>
     <representation>Auto</representation>
+  </commands>
+  <commands uuid="84bddf42-a763-4690-974b-5eb60247fcd5">
+    <name>ЗакупаемыеТовары</name>
+    <synonym>
+      <key>ru</key>
+      <value>Закупаемые товары</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Articles achetés</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Purchased items</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Artículos comprados</value>
+    </synonym>
+    <group>NavigationPanelOrdinary</group>
+    <representation>Auto</representation>
+    <toolTip>
+      <key>ru</key>
+      <value>Номенклатура со способом пополнения «Закупка» или «Оба»</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Articles réapprovisionnés par achat</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Items replenished by purchase</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Artículos que se reponen por compra</value>
+    </toolTip>
+  </commands>
+  <commands uuid="03149620-84f8-4228-81c0-61fee61c2df2">
+    <name>ТоварыДляПродажи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Товары и услуги для продажи</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Articles vendus</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Items for sale</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Artículos para la venta</value>
+    </synonym>
+    <group>NavigationPanelOrdinary</group>
+    <representation>Auto</representation>
+    <toolTip>
+      <key>ru</key>
+      <value>Номенклатура без сырья и полуфабрикатов</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Articles hors matières premières et produits semi-finis</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Items except raw materials and semi-finished goods</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Artículos excepto materias primas y semielaborados</value>
+    </toolTip>
+  </commands>
+  <commands uuid="148ce376-4009-4d3f-8bfa-4ef60b826987">
+    <name>Товары</name>
+    <synonym>
+      <key>ru</key>
+      <value>Товары</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Marchandises</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Goods</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Mercancías</value>
+    </synonym>
+    <group>NavigationPanelOrdinary</group>
+    <representation>Auto</representation>
+    <toolTip>
+      <key>ru</key>
+      <value>Номенклатура без услуг и комплектов</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Articles hors services et kits</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Items except services and kits</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Artículos excepto servicios y kits</value>
+    </toolTip>
   </commands>
 </mdclass:Catalog>

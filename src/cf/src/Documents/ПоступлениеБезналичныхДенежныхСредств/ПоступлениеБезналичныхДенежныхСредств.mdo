@@ -153,6 +153,7 @@
   <realTimePosting>Deny</realTimePosting>
   <registerRecordsDeletion>AutoDelete</registerRecordsDeletion>
   <registerRecords>AccumulationRegister.ОплатыЧеками</registerRecords>
+  <registerRecords>AccumulationRegister.Убытки</registerRecords>
   <registerRecords>AccumulationRegister.ДвиженияПоКассе</registerRecords>
   <registerRecords>AccumulationRegister.ДвиженияДенежныхСредств</registerRecords>
   <registerRecords>AccumulationRegister.ДенежныеСредстваОрганизаций</registerRecords>
@@ -163,7 +164,6 @@
   <registerRecords>AccumulationRegister.ВзаиморасчётыСПоcтавщикамиНалоговый</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
-  <choiceHistoryOnInput>DontUse</choiceHistoryOnInput>
   <attributes uuid="df2c6bc1-ecad-47ff-8d3f-acffa0d3f30d">
     <name>БанковскийСчёт</name>
     <synonym>
@@ -742,7 +742,7 @@
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Poste de trésorerie</value>
+      <value>Rubrique de flux de trésorerie</value>
     </synonym>
     <synonym>
       <key>en</key>
@@ -750,7 +750,7 @@
     </synonym>
     <synonym>
       <key>es</key>
-      <value>Partida de flujo de caja</value>
+      <value>Partida de flujo de efectivo</value>
     </synonym>
     <type>
       <types>CatalogRef.СтатьиДвиженияДенежныхСредств</types>
@@ -794,6 +794,93 @@
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="2d210b30-423a-4e9f-b076-c716d8f12f3d">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Moneda</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Валюты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="608fc700-7fe4-4ebf-9d4d-ee8a6b1beaa3">
+    <name>КурсВалюты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Курс валюты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Taux de change</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange rate</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de cambio</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>4</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:NumberValue">
+      <value>1</value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="e41c7cca-bc09-4c1d-8fbe-941b262fd7e8">
+    <name>СуммаРегл</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма (регл.)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant (devise principale)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount (base currency)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe (moneda principal)</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:UndefinedValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
@@ -864,15 +951,15 @@
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Journée de caisse</value>
+      <value>Session de caisse</value>
     </synonym>
     <synonym>
       <key>en</key>
-      <value>Checkout day</value>
+      <value>Cash register shift</value>
     </synonym>
     <synonym>
       <key>es</key>
-      <value>Cambio de Caja</value>
+      <value>Turno de caja</value>
     </synonym>
     <type>
       <types>DocumentRef.КассоваяСмена</types>
@@ -995,6 +1082,49 @@
       <value xsi:type="core:BooleanValue"/>
     </choiceParameters>
     <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="d75b7abf-1f89-4fb9-9663-aa593226fc0e">
+    <name>УУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Только управленческий учёт</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Comptabilité de gestion uniquement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Management accounting only</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Solo contabilidad de gestión</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Документ не налоговый: движения только управленческого учёта (в форме — флажок «Налоговый» снят)</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Document non fiscal : mouvements de la comptabilité de gestion uniquement (case « Fiscal » décochée)</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Non-tax document: management accounting movements only (the "Tax" box is cleared in the form)</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Documento no fiscal: solo movimientos de contabilidad de gestión (casilla «Fiscal» desmarcada)</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>

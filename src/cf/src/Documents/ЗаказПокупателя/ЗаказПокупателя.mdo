@@ -118,7 +118,6 @@
   <registerRecords>AccumulationRegister.ПотребностиПроизводства</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
-  <choiceHistoryOnInput>DontUse</choiceHistoryOnInput>
   <attributes uuid="3065826c-5ec4-4f28-b0cf-4b0f0ad6ef19">
     <name>ДатаОтгрузки</name>
     <synonym>
@@ -444,6 +443,120 @@
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="c6f86fc6-3eb1-43a3-807a-04fef6cf7540">
+    <name>ВВалюте</name>
+    <synonym>
+      <key>ru</key>
+      <value>В валюте</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>En devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>In currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>En moneda</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="e32daa22-95b0-4041-9e32-99541726d992">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Moneda</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Валюты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="a30bbda5-0f69-460d-9690-9aae0e97bce6">
+    <name>КурсВалюты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Курс валюты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Taux de change</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange rate</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de cambio</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>4</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:NumberValue">
+      <value>1</value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="29d10104-f93e-4b9a-867f-8efa8198e41e">
+    <name>СуммаРегл</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма (регл.)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant (devise principale)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount (base currency)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe (moneda principal)</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
@@ -1280,6 +1393,33 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
+    <attributes uuid="9d518110-03fe-4be4-8545-79a2ada0d2c4">
+      <name>СуммаРегл</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма (регл.)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant (devise principale)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount (base currency)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe (moneda principal)</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Сумма</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
   </tabularSections>
   <tabularSections uuid="2069df55-4c6d-4327-aff1-9b7fc41d0408">
     <producedTypes>
@@ -1588,6 +1728,32 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
+    <attributes uuid="8440fe44-8b9d-4bfa-ac80-4fdfeab4d88e">
+      <name>СпособИзготовления</name>
+      <synonym>
+        <key>ru</key>
+        <value>Способ изготовления</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Mode de fabrication</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Manufacturing method</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Método de fabricación</value>
+      </synonym>
+      <type>
+        <types>EnumRef.СпособыИзготовления</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
   </tabularSections>
   <templates uuid="df6e8e01-0504-4a62-a128-cf8af722e13e">
     <name>Заказ</name>
@@ -1629,62 +1795,6 @@
     <group>CommandGroup.Печать</group>
     <commandParameterType>
       <types>DocumentRef.РеализацияТоваровУслуг</types>
-      <types>DocumentRef.ЗаказПокупателя</types>
-    </commandParameterType>
-    <parameterUseMode>Multiple</parameterUseMode>
-    <representation>PictureAndText</representation>
-    <picture xsi:type="core:PictureRef">
-      <picture>StdPicture.Print</picture>
-    </picture>
-  </commands>
-  <commands uuid="4b07ada9-b998-42fe-bb37-fafbc2154836">
-    <name>ПечатьКоммерческоеПредложение</name>
-    <synonym>
-      <key>ru</key>
-      <value>Коммерческое предложение</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Devis</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Quote</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Cita</value>
-    </synonym>
-    <group>CommandGroup.Печать</group>
-    <commandParameterType>
-      <types>DocumentRef.ЗаказПокупателя</types>
-    </commandParameterType>
-    <parameterUseMode>Multiple</parameterUseMode>
-    <representation>PictureAndText</representation>
-    <picture xsi:type="core:PictureRef">
-      <picture>StdPicture.Print</picture>
-    </picture>
-  </commands>
-  <commands uuid="4b61eb3e-c03f-4fa0-98b5-899bd6c85123">
-    <name>ПечатьКоммерческоеПредложениеА4</name>
-    <synonym>
-      <key>en</key>
-      <value>Commercial proposal A4</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Propuesta comercial A4</value>
-    </synonym>
-    <synonym>
-      <key>ru</key>
-      <value>Коммерческое предложение (А4)</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Devis (A4)</value>
-    </synonym>
-    <group>CommandGroup.Печать</group>
-    <commandParameterType>
       <types>DocumentRef.ЗаказПокупателя</types>
     </commandParameterType>
     <parameterUseMode>Multiple</parameterUseMode>
@@ -1738,62 +1848,6 @@
     <synonym>
       <key>es</key>
       <value>Factura proforma</value>
-    </synonym>
-    <group>CommandGroup.Печать</group>
-    <commandParameterType>
-      <types>DocumentRef.ЗаказПокупателя</types>
-    </commandParameterType>
-    <parameterUseMode>Multiple</parameterUseMode>
-    <representation>PictureAndText</representation>
-    <picture xsi:type="core:PictureRef">
-      <picture>StdPicture.Print</picture>
-    </picture>
-  </commands>
-  <commands uuid="dfda3239-b98e-4e4b-a8d2-7b5a2c479272">
-    <name>ПечатьКоммерческоеПредложениеА4БезНДС</name>
-    <synonym>
-      <key>ru</key>
-      <value>Коммерческое предложение (A4, без НДС)</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Devis (A4, HT)</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Quotation (A4, excl. VAT)</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Oferta comercial (A4, sin IVA)</value>
-    </synonym>
-    <group>CommandGroup.Печать</group>
-    <commandParameterType>
-      <types>DocumentRef.ЗаказПокупателя</types>
-    </commandParameterType>
-    <parameterUseMode>Multiple</parameterUseMode>
-    <representation>PictureAndText</representation>
-    <picture xsi:type="core:PictureRef">
-      <picture>StdPicture.Print</picture>
-    </picture>
-  </commands>
-  <commands uuid="69f1ad5d-7398-4eaf-9e4f-b2a01154959e">
-    <name>ПечатьКоммерческоеПредложениеА4БезЦен</name>
-    <synonym>
-      <key>ru</key>
-      <value>Коммерческое предложение (A4, без цен)</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Devis (A4, sans prix)</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Quotation (A4, no prices)</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Oferta comercial (A4, sin precios)</value>
     </synonym>
     <group>CommandGroup.Печать</group>
     <commandParameterType>

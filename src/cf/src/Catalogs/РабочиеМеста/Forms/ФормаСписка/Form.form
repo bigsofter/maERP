@@ -19,6 +19,14 @@
     <items xsi:type="form:FormField">
       <name>Наименование</name>
       <id>4</id>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
       <visible>true</visible>
       <enabled>true</enabled>
       <userVisible>
@@ -194,9 +202,39 @@
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>ОбъединитьС</name>
+      <id>17</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <skipOnInput>false</skipOnInput>
+      <extendedTooltip>
+        <name>ОбъединитьСExtendedTooltip</name>
+        <id>18</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ОбъединитьС</commandName>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <handlers>
     <event>OnOpen</event>
     <name>ПриОткрытии</name>
@@ -296,6 +334,52 @@
       <common>true</common>
     </edit>
   </attributes>
+  <formCommands>
+    <name>ОбъединитьС</name>
+    <title>
+      <key>ru</key>
+      <value>Объединить с...</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Fusionner avec...</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Merge with...</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Fusionar con...</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Объединить выбранное рабочее место-дубль с основным: оборудование и компьютеры переносятся, дубль помечается на удаление</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Fusionner le poste de travail en double choisi avec le poste principal : le matériel et les ordinateurs sont transférés, le doublon est marqué pour suppression</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Merge the selected duplicate workplace into the main one: equipment and computers are moved, the duplicate is marked for deletion</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Fusionar el lugar de trabajo duplicado elegido con el principal: se trasladan el equipo y los equipos informáticos, el duplicado se marca para eliminar</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ОбъединитьС</name>
+      </handler>
+    </action>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>

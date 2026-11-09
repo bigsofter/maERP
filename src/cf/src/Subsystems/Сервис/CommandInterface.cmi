@@ -2,23 +2,13 @@
 <cmi:CommandInterface xmlns:cmi="http://g5.1c.ru/v8/dt/cmi">
   <commandsVisibility>
     <visibilityFragments>
-      <command>Catalog.Пользователи.StandardCommand.OpenList</command>
-      <visible>
-        <common>true</common>
-      </visible>
-    </visibilityFragments>
-    <visibilityFragments>
-      <command>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</command>
-      <visible>
-        <common>true</common>
-      </visible>
-    </visibilityFragments>
-    <visibilityFragments>
-      <command>Catalog.ПодключаемоеОборудование.StandardCommand.OpenList</command>
-      <visible/>
-    </visibilityFragments>
-    <visibilityFragments>
       <command>DataProcessor.СменаПароля.StandardCommand.Open</command>
+      <visible>
+        <common>true</common>
+      </visible>
+    </visibilityFragments>
+    <visibilityFragments>
+      <command>CommonForm.ЧтоНового.StandardCommand.Open</command>
       <visible>
         <common>true</common>
       </visible>
@@ -27,16 +17,16 @@
   <commandsPlacement>
     <placementFragments>
       <group>NavigationPanelImportant</group>
-      <commands>Catalog.Пользователи.StandardCommand.OpenList</commands>
-      <commands>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</commands>
       <commands>DataProcessor.СменаПароля.StandardCommand.Open</commands>
+    </placementFragments>
+    <placementFragments>
+      <group>ActionsPanelTools</group>
+      <commands>CommonForm.ЧтоНового.StandardCommand.Open</commands>
     </placementFragments>
   </commandsPlacement>
   <commandsOrder>
     <orderFragments>
       <group>NavigationPanelImportant</group>
-      <commands>Catalog.Пользователи.StandardCommand.OpenList</commands>
-      <commands>Catalog.ПодключаемоеОборудование.Command.ОткрытьПодключаемоеОборудование</commands>
       <commands>DataProcessor.СменаПароля.StandardCommand.Open</commands>
     </orderFragments>
     <orderFragments>
@@ -48,5 +38,6 @@
     <subsystems>Subsystem.Сервис.Subsystem.НастройкиПрограммы</subsystems>
     <subsystems>Subsystem.Сервис.Subsystem.ПользователиИПрава</subsystems>
     <subsystems>Subsystem.Сервис.Subsystem.ПодключаемоеОборудование</subsystems>
+    <subsystems>Subsystem.Сервис.Subsystem.СервисныеОперации</subsystems>
   </subsystemsOrder>
 </cmi:CommandInterface>

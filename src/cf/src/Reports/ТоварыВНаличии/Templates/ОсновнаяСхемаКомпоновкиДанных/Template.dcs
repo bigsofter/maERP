@@ -21,13 +21,6 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Партия</dataPath>
-			<field>Партия</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Количество</dataPath>
 			<field>Количество</field>
 			<title xsi:type="v8:LocalStringType">
@@ -141,11 +134,22 @@
 	ТоварыВНаличииОстатки.Номенклатура.Единица КАК Единица,
 	ТоварыВНаличииОстатки.Номенклатура.Артикул КАК Артикул,
 	ТоварыВНаличииОстатки.Серия КАК Серия,
-	ТоварыВНаличииОстатки.Партия КАК Партия,
 	ТоварыВНаличииОстатки.КоличествоОстаток КАК Количество,
 	0 КАК Резерв
 ИЗ
-	РегистрНакопления.ТоварыВНаличии.Остатки(&amp;Период, ) КАК ТоварыВНаличииОстатки</query>
+	(ВЫБРАТЬ
+		Партии.МестоХранения КАК МестоХранения,
+		Партии.Номенклатура КАК Номенклатура,
+		Партии.Характеристика КАК Характеристика,
+		Партии.Серия КАК Серия,
+		СУММА(Партии.КоличествоОстаток) КАК КоличествоОстаток
+	ИЗ
+		РегистрНакопления.ТоварыВНаличии.Остатки(&amp;Период, ) КАК Партии
+	СГРУППИРОВАТЬ ПО
+		Партии.МестоХранения,
+		Партии.Номенклатура,
+		Партии.Характеристика,
+		Партии.Серия) КАК ТоварыВНаличииОстатки</query>
 	</dataSet>
 	<calculatedField>
 		<dataPath>Свободно</dataPath>
@@ -313,7 +317,7 @@
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>AppearanceTemplate</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">Арктика</dcscor:value>
+					<dcscor:value xsi:type="xs:string">Античный</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>AttributePlacement</dcscor:parameter>

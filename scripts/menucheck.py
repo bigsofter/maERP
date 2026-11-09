@@ -16,14 +16,22 @@
                      данные, а не рабочий список. Регистры сведений и бухгалтерии
                      тут не в счёт - конфигурация выводит их осознанно (цены,
                      календарь, премии, даты запрета, журнал проводок);
-  ВИСЯЧАЯ ССЫЛКА   - фрагмент .cmi ссылается на объект вне <content> подсистемы.
+  ВИСЯЧАЯ ССЫЛКА   - фрагмент .cmi ссылается на объект вне <content> подсистемы;
+  ОБЩИЙ СПРАВОЧНИК - справочник выведен стандартным OpenList в нескольких разделах: в каждом
+                     разделе он открывается своей командой-отбором по смыслу пункта меню
+                     (решение владельца 2026-10-02, docs/plans/menu-restructure.md §5).
+
+Подсистемы обходятся на любую глубину; общие команды из <content> считаются наравне с
+командами объектов.
 
 Команд, видимых по умолчанию, в конфигурации много и они осознанны, поэтому принятое
 состояние хранится в scripts/menucheck-baseline.txt (в git, а не в build: база в
 артефактах сборки устаревает молча - на этом уже обожглись с baseline линтера).
 Проверка показывает только то, чего в базе нет, и строки базы, которые протухли.
 
-Запуск: scripts/menucheck.py [--section Имя] [--quiet] [--update-baseline]
+Запуск: scripts/menucheck.py [--section Имя] [--quiet] [--update-baseline] [--tree]
+  --tree - вместо сверки напечатать фактическое меню: видимые команды каждой подсистемы
+           с синонимом, панелью и пометкой «по умолчанию» (сверка «до/после» правки меню).
 Выход: 0 - расхождений сверх базы нет; 1 - есть.
 """
 
@@ -96,6 +104,14 @@ REGISTER_KINDS = {"AccumulationRegister"}
 SILENT_KINDS = {"Enum", "CommonModule", "Sequence", "ScheduledJob"}
 
 
+def synonym_ru(node):
+    """Русский синоним элемента .mdo (объекта или команды)."""
+    for synonym in node.findall(f"{MD}synonym"):
+        if (synonym.findtext(f"{MD}key") or "").strip() == "ru":
+            return (synonym.findtext(f"{MD}value") or "").strip()
+    return ""
+
+
 def object_path(full_name):
     """Путь к .mdo объекта по имени вида «Catalog.Номенклатура»."""
     kind, _, name = full_name.partition(".")
@@ -116,6 +132,9 @@ class MetaObject:
         self.custom_commands = []   # [(имя, группа)]
         self.based_on = []
         self.use_standard = True
+        self.group = ""             # группа общей команды
+        self.parametrized = False   # общая команда с параметром в панель раздела не попадает
+        self.synonyms = {}          # {"": синоним объекта, имя команды: синоним команды}
         self.exists = bool(self.path and self.path.exists())
         if self.exists:
             self._read()
@@ -125,6 +144,9 @@ class MetaObject:
             root = ElementTree.parse(self.path).getroot()
         except ElementTree.ParseError:
             return
+        self.synonyms[""] = synonym_ru(root)
+        self.group = (root.findtext(f"{MD}group") or "").strip()
+        self.parametrized = root.find(f"{MD}commandParameterType") is not None
         use = root.find(f"{MD}useStandardCommands")
         if use is not None and (use.text or "").strip() == "false":
             self.use_standard = False
@@ -134,6 +156,8 @@ class MetaObject:
         for command in root.findall(f"{MD}commands"):
             name = command.findtext(f"{MD}name")
             group = command.findtext(f"{MD}group") or ""
+            if name:
+                self.synonyms[name.strip()] = synonym_ru(command)
             # Параметризуемые команды в панель раздела не попадают.
             if command.find(f"{MD}commandParameterType") is not None:
                 continue
@@ -210,6 +234,10 @@ def subsystem_commands(content):
         meta = MetaObject.get(full_name)
         if meta.kind in SILENT_KINDS or not meta.exists:
             continue
+        if meta.kind == "CommonCommand":
+            if not meta.parametrized and meta.group.startswith(("NavigationPanel", "ActionsPanel")):
+                result.append((full_name, meta, "common"))
+            continue
         if meta.use_standard:
             list_command = LIST_COMMAND.get(meta.kind)
             if list_command:
@@ -280,6 +308,49 @@ def check_subsystem(entry, findings):
                          f"{where}: объекта нет в <content> подсистемы"))
 
 
+def section_of(subsystem_name):
+    """Раздел верхнего уровня по имени подсистемы вида «Продажи / Справочники»."""
+    return subsystem_name.split(" / ")[0]
+
+
+def check_common_catalogs(entries, findings):
+    """Справочник, открытый стандартным OpenList в разных разделах."""
+    shown_in = {}
+    for entry in entries:
+        visibility, _ = read_cmi(entry["path"].parent / "CommandInterface.cmi")
+        for command, meta, kind in subsystem_commands(entry["content"]):
+            if kind != "standard" or meta.kind != "Catalog":
+                continue
+            if visibility.get(command, True):
+                shown_in.setdefault(command, []).append(entry["name"])
+    for command, subsystems in shown_in.items():
+        sections = sorted({section_of(name) for name in subsystems})
+        if len(sections) < 2:
+            continue
+        for name in subsystems:
+            others = ", ".join(s for s in sections if s != section_of(name))
+            findings.append((name, "ОБЩИЙ СПРАВОЧНИК", command,
+                             f"тот же список без отбора и в разделах: {others}"))
+
+
+def print_tree(entries):
+    """Фактическое меню: видимые команды каждой подсистемы."""
+    marks = {"create": "+", "standard": " ", "custom": " ", "common": " "}
+    for entry in entries:
+        visibility, _ = read_cmi(entry["path"].parent / "CommandInterface.cmi")
+        root = ElementTree.parse(entry["path"]).getroot()
+        print(f"\n{entry['name']}  [{synonym_ru(root)}]")
+        for command, meta, kind in subsystem_commands(entry["content"]):
+            shown = visibility.get(command)
+            if shown is False:
+                continue
+            own = command.split(".Command.")[1] if kind == "custom" else ""
+            label = meta.synonyms.get(own) or meta.synonyms.get("") or meta.name
+            tail = command.split(".")[-1] if kind != "common" else meta.group
+            default = "  (по умолчанию)" if shown is None else ""
+            print(f"  {marks[kind]} {label:45} {meta.kind}.{meta.name} {tail}{default}")
+
+
 def collect(section=None):
     """Подсистемы разделов, участвующих в командном интерфейсе."""
     roots = []
@@ -292,23 +363,42 @@ def collect(section=None):
         if section and entry["name"] != section:
             continue
         roots.append(entry)
-        for child in sorted(mdo.parent.glob("Subsystems/*/*.mdo")):
-            roots.append(read_subsystem(child))
+        roots.extend(child_subsystems(mdo))
     return roots
+
+
+def child_subsystems(mdo):
+    """Дочерние подсистемы на любую глубину, родитель перед детьми."""
+    result = []
+    for child in sorted(mdo.parent.glob("Subsystems/*/*.mdo")):
+        result.append(read_subsystem(child))
+        result.extend(child_subsystems(child))
+    return result
 
 
 def main():
     parser = argparse.ArgumentParser(description="Сверка меню разделов с составом подсистем")
     parser.add_argument("--section", help="проверить один раздел")
     parser.add_argument("--quiet", action="store_true", help="только итог")
+    parser.add_argument("--tree", action="store_true",
+                        help="напечатать фактическое меню разделов вместо сверки")
     parser.add_argument("--update-baseline", action="store_true",
                         help="записать принятое состояние в scripts/menucheck-baseline.txt")
     args = parser.parse_args()
 
-    findings = []
     entries = collect(args.section)
+    if args.tree:
+        print_tree(entries)
+        return 0
+
+    findings = []
     for entry in entries:
         check_subsystem(entry, findings)
+    # Дубль между разделами виден только по всей конфигурации, отбор раздела - после.
+    common = []
+    check_common_catalogs(entries if not args.section else collect(), common)
+    findings.extend(f for f in common
+                    if not args.section or section_of(f[0]) == args.section)
 
     keys = {f"{subsystem}\t{kind}\t{command}" for subsystem, kind, command, _note in findings}
     if args.update_baseline:
@@ -322,6 +412,9 @@ def main():
     stale = sorted(accepted - keys) if not args.section else []
     findings = [f for f in findings
                 if f"{f[0]}\t{f[1]}\t{f[2]}" not in accepted]
+    # Находки одной подсистемы - подряд, в порядке обхода разделов.
+    order = {entry["name"]: index for index, entry in enumerate(entries)}
+    findings.sort(key=lambda f: order.get(f[0], len(order)))
 
     if not args.quiet:
         current = None

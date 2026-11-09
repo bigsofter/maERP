@@ -366,6 +366,60 @@
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
+        <name>Налоговый</name>
+        <id>265</id>
+        <title>
+          <key>ru</key>
+          <value>Налоговый</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Fiscal</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Tax</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Fiscal</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Налоговый</segments>
+        </dataPath>
+        <titleLocation>Right</titleLocation>
+        <handlers>
+          <event>OnChange</event>
+          <name>НалоговыйПриИзменении</name>
+        </handlers>
+        <extendedTooltip>
+          <name>НалоговыйРасширеннаяПодсказка</name>
+          <id>266</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>НалоговыйКонтекстноеМеню</name>
+          <id>267</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>CheckBoxField</type>
+        <editMode>Enter</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+      </items>
+      <items xsi:type="form:FormField">
         <name>РасчётныйСчётОрганизации</name>
         <id>168</id>
         <visible>true</visible>
@@ -376,6 +430,10 @@
         <dataPath xsi:type="form:DataPath">
           <segments>Объект.БанковскийСчёт</segments>
         </dataPath>
+        <handlers>
+          <event>OnChange</event>
+          <name>СчетОрганизацииПриИзменении</name>
+        </handlers>
         <extendedTooltip>
           <name>РасчётныйСчётОрганизацииРасширеннаяПодсказка</name>
           <id>170</id>
@@ -1345,6 +1403,91 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
+          <name>Валюта</name>
+          <id>259</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <readOnly>true</readOnly>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.Валюта</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ВалютаРасширеннаяПодсказка</name>
+            <id>261</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ВалютаКонтекстноеМеню</name>
+            <id>260</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>КурсВалюты</name>
+          <id>262</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.КурсВалюты</segments>
+          </dataPath>
+          <handlers>
+            <event>OnChange</event>
+            <name>КурсВалютыПриИзменении</name>
+          </handlers>
+          <extendedTooltip>
+            <name>КурсВалютыРасширеннаяПодсказка</name>
+            <id>264</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>КурсВалютыКонтекстноеМеню</name>
+            <id>263</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
           <name>Аванс</name>
           <id>230</id>
           <visible>true</visible>
@@ -1467,6 +1610,14 @@
           <items xsi:type="form:FormField">
             <name>ТЧОснованияНомерСтроки</name>
             <id>64</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -1505,6 +1656,14 @@
           <items xsi:type="form:FormField">
             <name>ТЧОснованияОснование</name>
             <id>67</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -1551,6 +1710,14 @@
           <items xsi:type="form:FormField">
             <name>ТЧОснованияСумма</name>
             <id>70</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -1601,6 +1768,14 @@
           <items xsi:type="form:FormField">
             <name>ТЧОснованияСтавкаНДС</name>
             <id>186</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -1649,6 +1824,14 @@
           <items xsi:type="form:FormField">
             <name>ТЧОснованияСуммаНДС</name>
             <id>189</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -2264,6 +2447,7 @@
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
+  <commandBarLocation>Top</commandBarLocation>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
@@ -2333,6 +2517,36 @@
     <edit>
       <common>true</common>
     </edit>
+  </attributes>
+  <attributes>
+    <name>Налоговый</name>
+    <title>
+      <key>ru</key>
+      <value>Налоговый</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Fiscal</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Tax</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Fiscal</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <functionalOptions>FunctionalOption.РаздельныйУчет</functionalOptions>
   </attributes>
   <formCommands>
     <name>ЗаполнитьВсеНеоплаченные</name>

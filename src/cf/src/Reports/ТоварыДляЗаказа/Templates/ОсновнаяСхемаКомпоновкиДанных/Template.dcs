@@ -164,6 +164,24 @@
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
+	Закреплено.Номенклатура,
+	0,
+	-Закреплено.КоличествоОстаток,
+	0
+ИЗ
+	РегистрНакопления.МатериалыНаСтанках.Остатки(
+			,
+			Станок В
+				(ВЫБРАТЬ
+					Станки.Ссылка
+				ИЗ
+					Справочник.ПроизводственноеОборудование КАК Станки
+				ГДЕ
+					Станки.СкладСтанка = &amp;МестоХранения)) КАК Закреплено
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
 	МинимальныйОстатокПоСкладам.Номенклатура,
 	0,
 	0,
@@ -590,7 +608,7 @@
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>AppearanceTemplate</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">Арктика</dcscor:value>
+					<dcscor:value xsi:type="xs:string">Античный</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>AttributePlacement</dcscor:parameter>

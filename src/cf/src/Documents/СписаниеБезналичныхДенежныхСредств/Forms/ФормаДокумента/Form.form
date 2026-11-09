@@ -376,6 +376,10 @@
         <dataPath xsi:type="form:DataPath">
           <segments>Объект.БанковскийСчёт</segments>
         </dataPath>
+        <handlers>
+          <event>OnChange</event>
+          <name>СчетОрганизацииПриИзменении</name>
+        </handlers>
         <extendedTooltip>
           <name>РасчётныйСчётОрганизацииРасширеннаяПодсказка</name>
           <id>170</id>
@@ -2287,6 +2291,50 @@ El código se indica en los detalles 20 &quot; Naz. pl. código &quot; orden de 
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
+          <name>КурсВалюты</name>
+          <id>321</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.КурсВалюты</segments>
+          </dataPath>
+          <handlers>
+            <event>OnChange</event>
+            <name>КурсВалютыПриИзменении</name>
+          </handlers>
+          <extendedTooltip>
+            <name>КурсВалютыРасширеннаяПодсказка</name>
+            <id>323</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>КурсВалютыКонтекстноеМеню</name>
+            <id>322</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
           <name>Аванс</name>
           <id>281</id>
           <enabled>true</enabled>
@@ -2469,6 +2517,14 @@ El código se indica en los detalles 20 &quot; Naz. pl. código &quot; orden de 
           <items xsi:type="form:FormField">
             <name>ТЧОснованияНомерСтроки</name>
             <id>248</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -2507,6 +2563,14 @@ El código se indica en los detalles 20 &quot; Naz. pl. código &quot; orden de 
           <items xsi:type="form:FormField">
             <name>ТЧОснованияОснование</name>
             <id>251</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -2553,6 +2617,14 @@ El código se indica en los detalles 20 &quot; Naz. pl. código &quot; orden de 
           <items xsi:type="form:FormField">
             <name>ТЧОснованияСумма</name>
             <id>254</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -2603,6 +2675,14 @@ El código se indica en los detalles 20 &quot; Naz. pl. código &quot; orden de 
           <items xsi:type="form:FormField">
             <name>ТЧОснованияСтавкаНДС</name>
             <id>257</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -2651,6 +2731,14 @@ El código se indica en los detalles 20 &quot; Naz. pl. código &quot; orden de 
           <items xsi:type="form:FormField">
             <name>ТЧОснованияСуммаНДС</name>
             <id>260</id>
+            <titleFont xsi:type="core:FontRef">
+              <font>Style.NormalTextFont</font>
+              <bold>false</bold>
+              <italic>false</italic>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+              <scale>100</scale>
+            </titleFont>
             <visible>true</visible>
             <enabled>true</enabled>
             <userVisible>
@@ -3260,6 +3348,7 @@ El código se indica en los detalles 20 &quot; Naz. pl. código &quot; orden de 
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
+  <commandBarLocation>Top</commandBarLocation>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>

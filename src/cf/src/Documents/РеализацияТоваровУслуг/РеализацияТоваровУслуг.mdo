@@ -86,6 +86,7 @@
   </standardAttributes>
   <basedOn>Document.ПоступлениеТоваровУслуг</basedOn>
   <basedOn>Document.ЗаказПокупателя</basedOn>
+  <basedOn>Document.РасходныйОрдер</basedOn>
   <createOnInput>DontUse</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
@@ -134,11 +135,13 @@
   <realTimePosting>Deny</realTimePosting>
   <registerRecordsDeletion>AutoDelete</registerRecordsDeletion>
   <registerRecords>AccumulationRegister.Продажи</registerRecords>
+  <registerRecords>AccumulationRegister.СебестоимостьПродаж</registerRecords>
   <registerRecords>AccumulationRegister.ДополнительныеРасходы</registerRecords>
   <registerRecords>AccumulationRegister.ВзаиморасчётыСПокупателями</registerRecords>
   <registerRecords>AccountingRegister.Хозрасчетный</registerRecords>
   <registerRecords>AccumulationRegister.ВзаиморасчётыСПоставщиками</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
+  <registerRecords>AccumulationRegister.ТоварыКОформлению</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <attributes uuid="6aea1efb-1c05-4c25-b0ea-7f815dcf6615">
@@ -545,15 +548,15 @@
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Journée de caisse</value>
+      <value>Session de caisse</value>
     </synonym>
     <synonym>
       <key>en</key>
-      <value>Checkout day</value>
+      <value>Cash register shift</value>
     </synonym>
     <synonym>
       <key>es</key>
-      <value>Cambio de Caja</value>
+      <value>Turno de caja</value>
     </synonym>
     <type>
       <types>DocumentRef.КассоваяСмена</types>
@@ -588,6 +591,163 @@
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
     <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="bf68d4c2-eb04-4809-a31c-8e853fb7f52d">
+    <name>ВВалюте</name>
+    <synonym>
+      <key>ru</key>
+      <value>В валюте</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>En devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>In currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>En moneda</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="64b17758-6d46-4d0c-9bda-08bd8393104f">
+    <name>Валюта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Валюта</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Moneda</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Валюты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="ce34e2de-985f-49e6-b9ea-a7282fd0928d">
+    <name>КурсВалюты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Курс валюты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Taux de change</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange rate</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de cambio</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>4</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:NumberValue">
+      <value>1</value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="3cc8b5a3-1aa6-473c-b007-b13afc7eb906">
+    <name>СуммаРегл</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма (регл.)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant (devise principale)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount (base currency)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe (moneda principal)</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="96c23f73-59c6-457f-adca-f875668f0b33">
+    <name>УУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Только управленческий учёт</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Comptabilité de gestion uniquement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Management accounting only</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Solo contabilidad de gestión</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Документ не налоговый: движения только управленческого учёта (в форме — флажок «Налоговый» снят)</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Document non fiscal : mouvements de la comptabilité de gestion uniquement (case « Fiscal » décochée)</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Non-tax document: management accounting movements only (the "Tax" box is cleared in the form)</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Documento no fiscal: solo movimientos de contabilidad de gestión (casilla «Fiscal» desmarcada)</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
@@ -1301,6 +1461,86 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
+    <attributes uuid="3de96b96-8567-4cda-ad1e-4e3b8390e32e">
+      <name>СуммаРегл</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма (регл.)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant (devise principale)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount (base currency)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe (moneda principal)</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Сумма</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="25e59d1f-a927-4259-935a-417325683b6a">
+      <name>Ордер</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ордер</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bon</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Orden</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.РасходныйОрдер</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="77682685-fea8-4d2d-a655-d3fb06100e91">
+      <name>КлючСтрокиОрдера</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ключ строки ордера</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Clé de ligne du bon</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order line key</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Clave de línea de la orden</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
   </tabularSections>
   <tabularSections uuid="4f333ca4-fa73-4106-b83d-2f760862445d">
     <producedTypes>
@@ -1679,6 +1919,33 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
+    <attributes uuid="af454920-4779-42f3-bb43-166b6b7dfca7">
+      <name>СуммаРегл</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма (регл.)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant (devise principale)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount (base currency)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe (moneda principal)</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Сумма</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
   </tabularSections>
   <tabularSections uuid="ef486720-5959-4688-940b-fbb567ce0b1d">
     <producedTypes>
@@ -1890,15 +2157,15 @@
       </synonym>
       <synonym>
         <key>fr</key>
-        <value>Article de dépense</value>
+        <value>Nature de charge</value>
       </synonym>
       <synonym>
         <key>en</key>
-        <value>Item of expenditure</value>
+        <value>Expense type</value>
       </synonym>
       <synonym>
         <key>es</key>
-        <value>Partida de gastos</value>
+        <value>Tipo de gasto</value>
       </synonym>
       <type>
         <types>CatalogRef.СтатьиДвиженияДенежныхСредств</types>
@@ -2127,63 +2394,142 @@
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
   </tabularSections>
-  <templates uuid="be4be7e9-e47d-42e5-8ce7-6af1fd04bf58">
-    <name>РасходнаяНакладная</name>
+  <tabularSections uuid="42613c50-b6b4-4409-bb77-14de537211da">
+    <producedTypes>
+      <objectType typeId="b58a8e13-f824-4ac0-8ff0-9fb25ffca19f" valueTypeId="edc25e59-78b9-4fd2-8d62-22539170aa86"/>
+      <rowType typeId="f4ccb99b-6700-4724-8a4b-7365c4627167" valueTypeId="bd3e0ffa-34fa-40ec-8ed1-790ef25c90a1"/>
+    </producedTypes>
+    <name>Основания</name>
     <synonym>
       <key>ru</key>
-      <value>Расходная накладная</value>
+      <value>Основания налогового документа</value>
     </synonym>
     <synonym>
       <key>fr</key>
-      <value>Facture de vente</value>
+      <value>Documents de base du document fiscal</value>
     </synonym>
     <synonym>
       <key>en</key>
-      <value>Sales invoice</value>
+      <value>Tax document bases</value>
     </synonym>
     <synonym>
       <key>es</key>
-      <value>Factura de venta</value>
+      <value>Bases del documento fiscal</value>
     </synonym>
-  </templates>
-  <templates uuid="338de514-7171-4ce1-ab7a-5815fa789aad">
-    <name>Счёт</name>
-    <synonym>
-      <key>ru</key>
-      <value>Счет на оплату</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Facture proforma</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Proforma invoice</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Factura proforma</value>
-    </synonym>
-  </templates>
-  <templates uuid="739e0e12-312c-4d09-8222-afbdc93986a4">
-    <name>FactureOld</name>
-    <synonym>
-      <key>ru</key>
-      <value>Facture old</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Old invoice</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Facture old</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Factura antigua</value>
-    </synonym>
-  </templates>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="f69b792d-b8fe-496d-a973-7a99a972bd7f">
+      <name>Основание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Основание</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Document de base</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Basis</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Base</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.РеализацияТоваровУслуг</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="5c8a0bdf-2e72-4bdb-85d8-785e39dd269e">
+      <name>НомерСтрокиОснования</name>
+      <synonym>
+        <key>ru</key>
+        <value>Строка основания</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ligne du document de base</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Basis line</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Línea de la base</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="2a6bbfc8-3fae-4d95-9478-057252fa7b1d">
+      <name>КодСтроки</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код строки</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code de ligne</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Line code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código de línea</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="37dfd3c4-ef52-4fed-99d8-32ad32446021">
+      <name>Количество</name>
+      <synonym>
+        <key>ru</key>
+        <value>Покрыто</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Couvert</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Covered</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cubierto</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Количество</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
   <templates uuid="b1a9ddcb-63ea-44e5-9c40-4f8ca1d6abcc">
     <name>Чек</name>
     <synonym>
@@ -2201,101 +2547,6 @@
     <synonym>
       <key>es</key>
       <value>Cheque</value>
-    </synonym>
-  </templates>
-  <templates uuid="2d716f37-4e0a-4b9a-a9f6-5374744425ee">
-    <name>Facture</name>
-    <synonym>
-      <key>ru</key>
-      <value>Facture</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Facture</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Invoice</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Factura</value>
-    </synonym>
-  </templates>
-  <templates uuid="19d592ab-72fe-4256-9761-b048d170d3a2">
-    <name>DevisBL</name>
-    <synonym>
-      <key>ru</key>
-      <value>Devis BL</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Devis BL</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>BL Quote</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Cotización BL</value>
-    </synonym>
-  </templates>
-  <templates uuid="1b36755e-5c85-405d-a2b9-4b0c9d2f42c0">
-    <name>FactureModel</name>
-    <synonym>
-      <key>ru</key>
-      <value>Facture model</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Facture model</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Model invoice</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Modelo de factura</value>
-    </synonym>
-  </templates>
-  <templates uuid="e8f1aa24-2295-4506-bd38-c598a60fb68c">
-    <name>FactureModelEnTete</name>
-    <synonym>
-      <key>ru</key>
-      <value>Facture model en tete</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Facture model en tete</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Model invoice at the head</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Factura modelo en la cabecera</value>
-    </synonym>
-  </templates>
-  <templates uuid="647cf4e7-da86-41f2-bae9-82be97101341">
-    <name>DevisBL_A4</name>
-    <synonym>
-      <key>ru</key>
-      <value>Devis b l a4</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Devis b l a4</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Devis b l a4</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Devis b l a4</value>
     </synonym>
   </templates>
   <commands uuid="a2a429e8-9e9f-40e2-a321-8fb9fa208644">
@@ -2348,35 +2599,6 @@
     <commandParameterType>
       <types>DocumentRef.РеализацияТоваровУслуг</types>
       <types>DocumentRef.ЗаказПокупателя</types>
-    </commandParameterType>
-    <parameterUseMode>Multiple</parameterUseMode>
-    <representation>PictureAndText</representation>
-    <picture xsi:type="core:PictureRef">
-      <picture>StdPicture.Print</picture>
-    </picture>
-  </commands>
-  <commands uuid="71341228-e968-4441-b8a0-98e7a9e572bd">
-    <name>ПечатьТоварнаяНакладнаяOld</name>
-    <synonym>
-      <key>ru</key>
-      <value>Товарная накладная (прежняя)</value>
-    </synonym>
-    <synonym>
-      <key>fr</key>
-      <value>Facture (ancienne)</value>
-    </synonym>
-    <synonym>
-      <key>en</key>
-      <value>Invoice (previous)</value>
-    </synonym>
-    <synonym>
-      <key>es</key>
-      <value>Factura (anterior)</value>
-    </synonym>
-    <group>CommandGroup.Печать</group>
-    <commandParameterType>
-      <types>DocumentRef.РеализацияТоваровУслуг</types>
-      <types>DocumentRef.ВозвратОтПокупателя</types>
     </commandParameterType>
     <parameterUseMode>Multiple</parameterUseMode>
     <representation>PictureAndText</representation>

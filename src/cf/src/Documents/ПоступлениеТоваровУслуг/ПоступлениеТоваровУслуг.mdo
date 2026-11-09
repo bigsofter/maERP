@@ -71,6 +71,7 @@
   <basedOn>Document.ЗаказПоставщику</basedOn>
   <basedOn>Document.РеализацияТоваровУслуг</basedOn>
   <basedOn>Document.ЗаказПокупателя</basedOn>
+  <basedOn>Document.ПриходныйОрдер</basedOn>
   <createOnInput>DontUse</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
@@ -125,6 +126,7 @@
   <registerRecords>InformationRegister.ЦеныНоменклатурыПоставщиков</registerRecords>
   <registerRecords>AccumulationRegister.ВзаиморасчётыСПоставщиками</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
+  <registerRecords>AccumulationRegister.ТоварыКОформлению</registerRecords>
   <registerRecords>AccumulationRegister.ПотребностиПроизводства</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
@@ -728,6 +730,103 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <attributes uuid="6724bd18-72db-4993-b6c7-aa34f2d00a6f">
+    <name>ВВалюте</name>
+    <synonym>
+      <key>ru</key>
+      <value>В валюте</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>En devise</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>In currency</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>En moneda</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="8340b452-3155-4351-b133-aab2e310d799">
+    <name>СуммаРегл</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма (регл.)</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant (devise principale)</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount (base currency)</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe (moneda principal)</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Сумма</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="1c6b8eae-cc4d-4689-8d2c-97ae646baf3e">
+    <name>УУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Только управленческий учёт</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Comptabilité de gestion uniquement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Management accounting only</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Solo contabilidad de gestión</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Документ не налоговый: движения только управленческого учёта (в форме — флажок «Налоговый» снят)</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Document non fiscal : mouvements de la comptabilité de gestion uniquement (case « Fiscal » décochée)</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Non-tax document: management accounting movements only (the "Tax" box is cleared in the form)</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Documento no fiscal: solo movimientos de contabilidad de gestión (casilla «Fiscal» desmarcada)</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="c1b00551-6248-41bc-aa00-0aa4ed65577d">
     <name>ФормаДокумента</name>
     <synonym>
@@ -904,23 +1003,6 @@
       </type>
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
-      <choiceParameters>
-        <name>Отбор.ТипНоменклатуры</name>
-        <value xsi:type="core:FixedArrayValue">
-          <values xsi:type="core:ReferenceValue">
-            <value>Enum.ТипыНоменклатуры.EnumValue.Товар</value>
-          </values>
-          <values xsi:type="core:ReferenceValue">
-            <value>Enum.ТипыНоменклатуры.EnumValue.Продукция</value>
-          </values>
-          <values xsi:type="core:ReferenceValue">
-            <value>Enum.ТипыНоменклатуры.EnumValue.Полуфабрикат</value>
-          </values>
-          <values xsi:type="core:ReferenceValue">
-            <value>Enum.ТипыНоменклатуры.EnumValue.Сырье</value>
-          </values>
-        </value>
-      </choiceParameters>
       <choiceParameters>
         <name>Отбор.ПометкаУдаления</name>
         <value xsi:type="core:BooleanValue"/>
@@ -1369,6 +1451,86 @@
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>
+    <attributes uuid="454e6e23-eea4-4bbf-a801-0389d7459df6">
+      <name>СуммаРегл</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма (регл.)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant (devise principale)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount (base currency)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe (moneda principal)</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Сумма</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="910952e6-d7e2-4539-aa68-db0fbd429858">
+      <name>Ордер</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ордер</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Bon</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Orden</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.ПриходныйОрдер</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="d7b6e3db-fda2-4678-8f1b-cfc0e4d63190">
+      <name>КлючСтрокиОрдера</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ключ строки ордера</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Clé de ligne du bon</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Order line key</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Clave de línea de la orden</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
   </tabularSections>
   <tabularSections uuid="c597cd7f-1111-4b66-bf4c-5d7533262ca8">
     <producedTypes>
@@ -1755,15 +1917,15 @@
       </synonym>
       <synonym>
         <key>fr</key>
-        <value>Article de coût</value>
+        <value>Nature de charge</value>
       </synonym>
       <synonym>
         <key>en</key>
-        <value>Cost item</value>
+        <value>Expense type</value>
       </synonym>
       <synonym>
         <key>es</key>
-        <value>Objeto de los gastos</value>
+        <value>Tipo de gasto</value>
       </synonym>
       <type>
         <types>CatalogRef.СтатьиДвиженияДенежныхСредств</types>
@@ -1776,6 +1938,33 @@
       </choiceParameters>
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="4d5ee78e-788d-4dd8-803b-f8d8fe1f97a7">
+      <name>СуммаРегл</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма (регл.)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Montant (devise principale)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Amount (base currency)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Importe (moneda principal)</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Сумма</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
     </attributes>
   </tabularSections>
   <tabularSections uuid="bae5d514-b2a6-42f2-af02-f230ff0ed499">
@@ -1942,12 +2131,6 @@
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
       <choiceParameters>
-        <name>Отбор.ТипНоменклатуры</name>
-        <value xsi:type="core:ReferenceValue">
-          <value>Enum.ТипыНоменклатуры.EnumValue.Товар</value>
-        </value>
-      </choiceParameters>
-      <choiceParameters>
         <name>Отбор.ПометкаУдаления</name>
         <value xsi:type="core:BooleanValue"/>
       </choiceParameters>
@@ -2022,15 +2205,15 @@
       </synonym>
       <synonym>
         <key>fr</key>
-        <value>Article de dépense</value>
+        <value>Nature de charge</value>
       </synonym>
       <synonym>
         <key>en</key>
-        <value>Item of expenditure</value>
+        <value>Expense type</value>
       </synonym>
       <synonym>
         <key>es</key>
-        <value>Partida de gastos</value>
+        <value>Tipo de gasto</value>
       </synonym>
       <type>
         <types>CatalogRef.СтатьиДвиженияДенежныхСредств</types>
@@ -2216,6 +2399,142 @@
       <minValue xsi:type="core:UndefinedValue"/>
       <maxValue xsi:type="core:UndefinedValue"/>
       <fillChecking>ShowError</fillChecking>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="8a6f1cce-0e85-4780-a426-4b21a8c53e69">
+    <producedTypes>
+      <objectType typeId="2363aab3-3ded-49d4-8575-ba3f864ac7e7" valueTypeId="07488ac0-a6b7-4162-91b4-3e9b8fb420f4"/>
+      <rowType typeId="d700b9a8-a37d-4a7f-86ed-2613d1eeb390" valueTypeId="79eac230-5a39-4b75-b48a-b174688ae790"/>
+    </producedTypes>
+    <name>Основания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Основания налогового документа</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Documents de base du document fiscal</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Tax document bases</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Bases del documento fiscal</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="25be95ea-a326-40f3-98d5-36485eadcfae">
+      <name>Основание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Основание</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Document de base</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Basis</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Base</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="692735f2-af9e-47c3-be7d-a855548d8700">
+      <name>НомерСтрокиОснования</name>
+      <synonym>
+        <key>ru</key>
+        <value>Строка основания</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Ligne du document de base</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Basis line</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Línea de la base</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="48ac32ad-4f2f-4e48-af64-ff759b30b619">
+      <name>КодСтроки</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код строки</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code de ligne</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Line code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código de línea</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="74d2c544-ba5a-4691-9c9c-ddf2fae25b37">
+      <name>Количество</name>
+      <synonym>
+        <key>ru</key>
+        <value>Покрыто</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Couvert</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Covered</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Cubierto</value>
+      </synonym>
+      <type>
+        <types>DefinedType.Количество</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
     </attributes>

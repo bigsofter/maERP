@@ -5,19 +5,19 @@
     <id>1</id>
     <title>
       <key>ru</key>
-      <value>Отрасль и параметры учёта организации: валюта, основной склад, автозакрытие периода, календарь, бухгалтерия.</value>
+      <value>Отрасль и параметры учёта организации: валюта, основной склад, автозакрытие периода, календарь.</value>
     </title>
     <title>
       <key>fr</key>
-      <value>Secteur d'activité et paramètres comptables de l'entreprise : devise, entrepôt principal, clôture automatique, calendrier, comptabilité.</value>
+      <value>Secteur d'activité et paramètres comptables de l'entreprise : devise, entrepôt principal, clôture automatique, calendrier.</value>
     </title>
     <title>
       <key>en</key>
-      <value>Industry and accounting parameters of the company: currency, main warehouse, automatic period closing, calendar, accounting.</value>
+      <value>Industry and accounting parameters of the company: currency, main warehouse, automatic period closing, calendar.</value>
     </title>
     <title>
       <key>es</key>
-      <value>Sector y parámetros contables de la empresa: moneda, almacén principal, cierre automático del período, calendario, contabilidad.</value>
+      <value>Sector y parámetros contables de la empresa: moneda, almacén principal, cierre automático del período, calendario.</value>
     </title>
     <visible>true</visible>
     <enabled>true</enabled>
@@ -112,6 +112,41 @@
         </font>
       </extInfo>
     </items>
+    <items xsi:type="form:Button">
+      <name>СоздатьСвойстваНоменклатуры</name>
+      <id>26</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>СоздатьСвойстваНоменклатурыРасширеннаяПодсказка</name>
+        <id>27</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualButton</type>
+      <commandName>Form.Command.СоздатьСвойстваНоменклатуры</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <font xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </font>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
     <items xsi:type="form:FormField">
       <name>СтранаКалендаря</name>
       <id>8</id>
@@ -151,9 +186,10 @@
         <autoMaxWidth>true</autoMaxWidth>
         <autoMaxHeight>true</autoMaxHeight>
         <wrap>true</wrap>
+        <dropListButton>true</dropListButton>
         <chooseType>true</chooseType>
         <typeDomainEnabled>true</typeDomainEnabled>
-        <textEdit>true</textEdit>
+        <textEdit>false</textEdit>
         <textSize>Normal</textSize>
         <font xsi:type="core:FontRef">
           <font>Style.Шрифт_Основной</font>
@@ -364,62 +400,6 @@
         </font>
       </extInfo>
     </items>
-    <items xsi:type="form:FormField">
-      <name>Бухгалтерия</name>
-      <id>22</id>
-      <visible>true</visible>
-      <enabled>true</enabled>
-      <userVisible>
-        <common>true</common>
-      </userVisible>
-      <dataPath xsi:type="form:DataPath">
-        <segments>НаборКонстант.Бухгалтерия</segments>
-      </dataPath>
-      <titleLocation>Right</titleLocation>
-      <toolTip>
-        <key>ru</key>
-        <value>Включает раздел «Бухгалтерия» и проводки по плану счетов</value>
-      </toolTip>
-      <toolTip>
-        <key>fr</key>
-        <value>Active la section « Comptabilité » et les écritures du plan comptable</value>
-      </toolTip>
-      <toolTip>
-        <key>en</key>
-        <value>Enables the "Accounting" section and chart-of-accounts entries</value>
-      </toolTip>
-      <toolTip>
-        <key>es</key>
-        <value>Activa la sección «Contabilidad» y los asientos del plan de cuentas</value>
-      </toolTip>
-      <extendedTooltip>
-        <name>БухгалтерияРасширеннаяПодсказка</name>
-        <id>23</id>
-        <type>Label</type>
-        <autoMaxWidth>true</autoMaxWidth>
-        <autoMaxHeight>true</autoMaxHeight>
-        <extInfo xsi:type="form:LabelDecorationExtInfo">
-          <horizontalAlign>Left</horizontalAlign>
-        </extInfo>
-      </extendedTooltip>
-      <contextMenu>
-        <name>БухгалтерияКонтекстноеМеню</name>
-        <id>24</id>
-        <autoFill>true</autoFill>
-      </contextMenu>
-      <type>CheckBoxField</type>
-      <editMode>Enter</editMode>
-      <showInHeader>true</showInHeader>
-      <headerHorizontalAlign>Left</headerHorizontalAlign>
-      <showInFooter>true</showInFooter>
-      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
-        <handlers>
-          <event>OnChange</event>
-          <name>НастройкаПриИзменении</name>
-        </handlers>
-        <checkBoxType>Switcher</checkBoxType>
-      </extInfo>
-    </items>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>
@@ -461,12 +441,140 @@
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
+  <items xsi:type="form:FormGroup">
+    <name>ГруппаДемоДанные</name>
+    <id>28</id>
+    <items xsi:type="form:Decoration">
+      <name>ДемоДанныеОписание</name>
+      <id>29</id>
+      <title>
+        <key>ru</key>
+        <value>Только для демо- и тестовой базы: заводит демо-набор (производство, продажи, закупки, деньги, по желанию — учёт станков) в настоящие регистры этой базы. Уже заведённое не дублируется. В базе с рабочими документами заполнение откажет.</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Uniquement pour une base de démonstration ou de test : crée le jeu de démonstration (production, ventes, achats, trésorerie, en option le suivi des machines) dans les registres réels de cette base. Ce qui existe déjà n'est pas dupliqué. Dans une base avec des documents de travail, le remplissage est refusé.</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>For a demo or test infobase only: creates the demo set (production, sales, purchases, money, optionally machine tracking) in the real registers of this infobase. What already exists is not duplicated. In an infobase with working documents the filling is refused.</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Solo para una base de demostración o de prueba: crea el conjunto de demostración (producción, ventas, compras, dinero, opcionalmente control de máquinas) en los registros reales de esta base. Lo que ya existe no se duplica. En una base con documentos de trabajo el llenado se rechaza.</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ДемоДанныеОписаниеРасширеннаяПодсказка</name>
+        <id>30</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДемоДанныеОписаниеКонтекстноеМеню</name>
+        <id>31</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>Label</type>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </items>
+    <items xsi:type="form:Button">
+      <name>ЗаполнитьДемоДанные</name>
+      <id>44</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ЗаполнитьДемоДанныеРасширеннаяПодсказка</name>
+        <id>45</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualButton</type>
+      <commandName>Form.Command.ЗаполнитьДемоДанные</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <font xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </font>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <title>
+      <key>ru</key>
+      <value>Демо-данные</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Données de démonstration</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Demo data</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Datos de demostración</value>
+    </title>
+    <extendedTooltip>
+      <name>ГруппаДемоДанныеРасширеннаяПодсказка</name>
+      <id>46</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualGroup</type>
+    <extInfo xsi:type="form:UsualGroupExtInfo">
+      <group>Vertical</group>
+      <representation>None</representation>
+      <showLeftMargin>true</showLeftMargin>
+      <united>true</united>
+      <showTitle>auto</showTitle>
+      <currentRowUse>Auto</currentRowUse>
+    </extInfo>
+  </items>
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
+  <handlers>
+    <event>OnCreateAtServer</event>
+    <name>ПриСозданииНаСервере</name>
+  </handlers>
   <saveWindowSettings>true</saveWindowSettings>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
@@ -490,6 +598,125 @@
     <main>true</main>
     <savedData>true</savedData>
   </attributes>
+  <attributes>
+    <name>ДемоЗадание</name>
+    <id>6</id>
+    <valueType>
+      <types>UUID</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДемоАдресРезультата</name>
+    <id>7</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <formCommands>
+    <name>СоздатьСвойстваНоменклатуры</name>
+    <title>
+      <key>ru</key>
+      <value>Создать свойства номенклатуры</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Créer les propriétés des articles</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Create item properties</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Crear propiedades de artículos</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Завести дополнительные свойства номенклатуры отрасли (для тканей при производстве: материал, цвет, ширина, тип обработки); уже заведённые не дублируются</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer les propriétés supplémentaires d'articles du secteur (tissus avec production : matière, couleur, largeur, type de traitement) ; celles déjà créées ne sont pas dupliquées</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create the industry's additional item properties (textiles with production: material, color, width, finishing type); existing ones are not duplicated</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear las propiedades adicionales de artículos del sector (textiles con producción: material, color, ancho, tipo de acabado); las existentes no se duplican</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>СоздатьСвойстваНоменклатуры</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ЗаполнитьДемоДанные</name>
+    <title>
+      <key>ru</key>
+      <value>Заполнить демо-данными</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remplir avec des données de démonstration</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Fill with demo data</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Llenar con datos de demostración</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Завести демо-набор в этой демо- или тестовой базе; уже заведённое переиспользуется</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Créer le jeu de démonstration dans cette base de démonstration ou de test ; l'existant est réutilisé</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Create the demo set in this demo or test infobase; what exists is reused</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Crear el conjunto de demostración en esta base de demostración o de prueba; lo existente se reutiliza</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ЗаполнитьДемоДанные</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>
