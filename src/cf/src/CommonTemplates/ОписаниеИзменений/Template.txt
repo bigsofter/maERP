@@ -10,6 +10,28 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.7
+### ru
+- Универсальная загрузка из Excel и CSV: команда «Загрузить из файла» в документах с товарами загружает строки в записанный документ. Колонки файла сопоставляются с колонками документа по заголовкам автоматически и вручную, товар ищется по штрихкоду (с характеристикой и серией), артикулу, коду поставщика, коду и наименованию. «Проверить» показывает, что будет загружено и какие строки с ошибками.
+- Настройки загрузки сохраняются (личные или общие) и выбираются из последних пяти для документа.
+- Кнопка загрузки в реализации, поступлении, налоговых накладных, заказе и предложении поставщика работает на новом механизме: упаковка, ставка НДС и цена из файла сохраняются, цены без колонки подбираются как при ручном вводе, пустой файл не очищает таблицу. Загрузка доступна менеджерам, кладовщикам, операторам и руководителю.
+- Загрузка в проведённый документ запрещена — сначала отмените проведение.
+### fr
+- Import universel depuis Excel et CSV : la commande « Charger depuis un fichier » des documents avec articles charge les lignes dans un document enregistré. Les colonnes du fichier sont associées aux colonnes du document par en-têtes, automatiquement et manuellement ; l'article est recherché par code-barres (avec caractéristique et série), référence, code fournisseur, code et désignation. « Contrôler » affiche ce qui sera chargé et les lignes en erreur.
+- Les paramètres d'import sont enregistrés (personnels ou partagés) et choisis parmi les cinq derniers du document.
+- Le bouton d'import de la vente, de la réception, des factures fiscales, de la commande et de l'offre fournisseur utilise le nouveau mécanisme : l'unité, le taux de TVA et le prix du fichier sont conservés, les prix sans colonne sont choisis comme à la saisie manuelle, un fichier vide ne vide plus le tableau. L'import est ouvert aux gestionnaires, magasiniers, opérateurs et au dirigeant.
+- L'import dans un document validé est interdit : annulez d'abord la validation.
+### en
+- Universal import from Excel and CSV: the "Import from file" command of documents with items loads rows into a saved document. File columns are mapped to document columns by headers, automatically and manually; the item is found by barcode (with characteristic and series), article, supplier code, code and name. "Check" shows what will be imported and which rows have errors.
+- Import settings are saved (personal or shared) and picked from the last five for the document.
+- The import button in sales, receipts, tax invoices, purchase orders and supplier offers uses the new engine: unit, VAT rate and price from the file are kept, prices without a column are picked as in manual entry, an empty file no longer clears the table. Import is available to managers, storekeepers, operators and the director.
+- Importing into a posted document is not allowed: unpost it first.
+### es
+- Carga universal desde Excel y CSV: el comando «Cargar desde archivo» de los documentos con artículos carga las filas en un documento guardado. Las columnas del archivo se asignan a las del documento por encabezados, automática y manualmente; el artículo se busca por código de barras (con característica y serie), referencia, código de proveedor, código y nombre. «Comprobar» muestra qué se cargará y qué filas tienen errores.
+- Los ajustes de carga se guardan (personales o compartidos) y se eligen entre los cinco últimos del documento.
+- El botón de carga en ventas, recepciones, facturas fiscales, pedidos y ofertas de proveedor usa el nuevo mecanismo: la unidad, el tipo de IVA y el precio del archivo se conservan, los precios sin columna se eligen como en la entrada manual, un archivo vacío ya no vacía la tabla. La carga está disponible para gestores, almaceneros, operadores y el director.
+- No se puede cargar en un documento contabilizado: anule primero la contabilización.
+
 ## 2.0.17.6
 ### ru
 - Оповещения по потребностям точек: склад снабжения получает оповещение о новой потребности (получатели — в карточке склада, таблица «Получатели оповещений»), автор — о принятии, отклонении, закрытии и об отгрузке.
