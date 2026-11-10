@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.4
+### ru
+- Новый документ «Потребность торговой точки» (раздел «Склад»): точка заказывает товар со склада снабжения, отправляет потребность, склад принимает её полностью или по строкам, отклоняет или закрывает. Кто и когда менял статус, видно в истории статусов.
+- Перемещение вводится на основании принятой потребности — с остатком к отгрузке. Отгруженное и полученное учитываются по каждой строке потребности; отгрузить больше принятого и получить больше отгруженного нельзя.
+- Точка получает товар командой «Получить отгрузку» в потребности — оприходование проводится само, отдельного права на перемещения точке не нужно.
+- У склада появились признак «Склад снабжения точек» и поле «Склад снабжения» у точки; в перемещении — «Перевозчик».
+- Новая роль «Потребности торговой точки» и настройка доступа «Точка потребностей»: точка записывает только свои потребности, точку пользователю назначает администратор.
+### fr
+- Nouveau document « Besoin du point de vente » (section « Entrepôt ») : le point de vente commande des articles à l'entrepôt d'approvisionnement, envoie le besoin, l'entrepôt l'accepte en totalité ou par ligne, le refuse ou le clôture. L'historique des statuts montre qui a changé le statut et quand.
+- Le transfert se saisit sur la base d'un besoin accepté — avec le reste à expédier. L'expédié et le reçu sont suivis par ligne de besoin ; impossible d'expédier plus que l'accepté ou de recevoir plus que l'expédié.
+- Le point de vente réceptionne les articles par la commande « Réceptionner l'expédition » du besoin — la réception est validée automatiquement, sans droit particulier sur les transferts.
+- L'entrepôt dispose de l'option « Approvisionne les points de vente » et le point de vente du champ « Entrepôt d'approvisionnement » ; le transfert du champ « Transporteur ».
+- Nouveau rôle « Besoins du point de vente » et paramètre d'accès « Point de vente des besoins » : le point n'enregistre que ses propres besoins, l'administrateur attribue le point à l'utilisateur.
+### en
+- New document "Store need" (Warehouse section): a store orders items from its supply warehouse and sends the need; the warehouse accepts it in full or line by line, rejects or closes it. The status history shows who changed the status and when.
+- A transfer is entered from an accepted need, with the quantity left to ship. Shipped and received quantities are tracked per need line; shipping more than accepted or receiving more than shipped is not allowed.
+- The store receives the goods with the "Receive the shipment" command of the need — the receipt is posted automatically, the store needs no separate right on transfers.
+- Warehouses have a "Supplies stores" flag and stores a "Supply warehouse" field; transfers have a "Carrier".
+- New role "Store needs" and access setting "Store for needs": a store saves only its own needs, the administrator assigns the store to the user.
+### es
+- Nuevo documento «Necesidad del punto de venta» (sección «Almacén»): el punto pide artículos a su almacén de abastecimiento y envía la necesidad; el almacén la acepta entera o por líneas, la rechaza o la cierra. El historial de estados muestra quién cambió el estado y cuándo.
+- El traslado se introduce sobre una necesidad aceptada, con lo pendiente de enviar. Lo enviado y lo recibido se controlan por línea de necesidad; no se puede enviar más de lo aceptado ni recibir más de lo enviado.
+- El punto recibe los artículos con el comando «Recibir el envío» de la necesidad: la recepción se contabiliza sola, sin un derecho aparte sobre los traslados.
+- El almacén tiene la casilla «Abastece puntos de venta» y el punto el campo «Almacén de abastecimiento»; el traslado, «Transportista».
+- Nuevo rol «Necesidades del punto de venta» y ajuste de acceso «Punto de venta de las necesidades»: el punto guarda solo sus necesidades, el administrador asigna el punto al usuario.
+
 ## 2.0.17.3
 ### ru
 - Касса проверяет минимальную цену склада: если склад контролирует цену («не ниже вида цен» или «не ниже себестоимости»), чек с ценой ниже порога (в том числе после скидки) не оплачивается — касса показывает строки, оплата не открывается. Продать ниже порога может пользователь с ролью «Продажа ниже минимальной цены».

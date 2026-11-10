@@ -70,6 +70,7 @@
   </standardAttributes>
   <basedOn>Document.ПоступлениеТоваровУслуг</basedOn>
   <basedOn>Document.ПеремещениеТоваров</basedOn>
+  <basedOn>Document.ПотребностьТорговойТочки</basedOn>
   <createOnInput>DontUse</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
@@ -86,6 +87,7 @@
   <registerRecords>AccumulationRegister.ДополнительныеРасходы</registerRecords>
   <registerRecords>AccountingRegister.Хозрасчетный</registerRecords>
   <registerRecords>AccumulationRegister.ТоварыВНаличии</registerRecords>
+  <registerRecords>AccumulationRegister.ПотребностиТорговыхТочек</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
   <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
   <attributes uuid="70e81646-afd6-47f6-a384-634ed4761970">
@@ -278,7 +280,35 @@
     </synonym>
     <type>
       <types>DocumentRef.ПеремещениеТоваров</types>
+      <types>DocumentRef.ПотребностьТорговойТочки</types>
       <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="8d8baf3f-d29b-45c3-9993-dff81b8b1b02">
+    <name>Перевозчик</name>
+    <synonym>
+      <key>ru</key>
+      <value>Перевозчик</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Transporteur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Carrier</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Transportista</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
@@ -585,6 +615,60 @@
       <fillChecking>ShowError</fillChecking>
       <dataHistory>Use</dataHistory>
       <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="ef830f36-6c64-4800-9b43-dd7d48d04d5b">
+      <name>Потребность</name>
+      <synonym>
+        <key>ru</key>
+        <value>Потребность</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Besoin</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Need</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Necesidad</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.ПотребностьТорговойТочки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+    <attributes uuid="426cfb32-8ef8-4f7b-b90a-3d6bcf896bb8">
+      <name>КодСтрокиПотребности</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код строки потребности</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Code de ligne du besoin</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Need line code</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Código de línea de la necesidad</value>
+      </synonym>
+      <type>
+        <types>DefinedType.КодСтроки</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
     </attributes>
   </tabularSections>
   <templates uuid="83d04d76-7087-4c74-aebd-0bbfa6f77be1">
