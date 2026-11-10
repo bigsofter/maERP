@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1560a451-28fa-4c85-9497-4991a33afe9e">
+  <name>СерийныйУчетПередЗаписью</name>
+  <synonym>
+    <key>ru</key>
+    <value>Серийный учёт перед записью</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Suivi des séries avant enregistrement</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Serial tracking before write</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Control de series antes de grabar</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.АктРазбора</types>
+    <types>DocumentObject.ВозвратОтПокупателя</types>
+    <types>DocumentObject.ВозвратОтПокупателяНалоговый</types>
+    <types>DocumentObject.ВозвратПоставщику</types>
+    <types>DocumentObject.ВозвратПоставщикуНалоговый</types>
+    <types>DocumentObject.ВыпускПродукции</types>
+    <types>DocumentObject.КорректировкаРегистров</types>
+    <types>DocumentObject.НалоговаяНакладная</types>
+    <types>DocumentObject.НалоговаяНакладнаяПокупка</types>
+    <types>DocumentObject.ОприходованиеТоваров</types>
+    <types>DocumentObject.ПередачаВПереработку</types>
+    <types>DocumentObject.ПеремещениеТоваров</types>
+    <types>DocumentObject.ПересортицаТоваров</types>
+    <types>DocumentObject.ПоступлениеИзПереработки</types>
+    <types>DocumentObject.ПоступлениеТоваровУслуг</types>
+    <types>DocumentObject.ПриходныйОрдер</types>
+    <types>DocumentObject.РасходныйОрдер</types>
+    <types>DocumentObject.РеализацияТоваровУслуг</types>
+    <types>DocumentObject.СписаниеТоваров</types>
+    <types>DocumentObject.ТребованиеНакладная</types>
+  </source>
+  <event>BeforeWrite</event>
+  <handler>CommonModule.СерийныйУчет.ПередЗаписьюДокумента</handler>
+</mdclass:EventSubscription>

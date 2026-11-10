@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.10
+### ru
+- Новая отрасль «Телефоны и аксессуары»: при её выборе включаются серии номенклатуры и у товаров появляются свойства «Модель», «Цвет», «Память», «Гарантия, месяцев» и «Совместимость».
+- Учёт по серийным номерам (IMEI): флажок в карточке товара. Каждый IMEI — один экземпляр: он не может числиться дважды, на двух складах сразу или уйти в минус, а номер не повторяется у двух товаров.
+- Товар с IMEI поступает с номером на каждую единицу; без номера он приходит только перемещением, возвратом по продаже или из остатка, набранного до включения учёта. Возврат от покупателя — только по документу продажи и не больше проданного.
+- Флажок ставится только товару без характеристик и вне техкарт и после включения не снимается; при включении программа проверяет историю движений товара. Ордерные склады и склады с подчинённым складом для товаров с IMEI недоступны.
+- Документ с движениями товара с IMEI не удаляется, пока не отменено его проведение; серия с движениями не удаляется и не переименовывается.
+### fr
+- Nouveau secteur « Téléphones et accessoires » : il active les séries d'articles et ajoute aux articles les propriétés « Modèle », « Couleur », « Mémoire », « Garantie, mois » et « Compatibilité ».
+- Suivi par numéros de série (IMEI) : case à cocher dans la fiche article. Chaque IMEI est un seul exemplaire : il ne peut pas figurer deux fois, dans deux entrepôts à la fois ni passer en négatif, et un numéro n'appartient qu'à un article.
+- Un article à IMEI entre avec un numéro par unité ; sans numéro, il n'entre que par transfert, par retour d'une vente ou depuis le stock constitué avant l'activation du suivi. Le retour client se fait uniquement sur le document de vente et sans dépasser la quantité vendue.
+- La case ne se coche que pour un article sans caractéristiques et hors fiches techniques, et ne se décoche plus ; à l'activation, le programme contrôle l'historique des mouvements. Les entrepôts par ordres et ceux avec entrepôt subordonné ne sont pas disponibles pour les articles à IMEI.
+- Un document avec des mouvements d'articles à IMEI ne se supprime pas tant que sa validation n'est pas annulée ; une série avec des mouvements ne se supprime ni ne se renomme.
+### en
+- New industry "Phones and accessories": it turns on item series and adds the item properties "Model", "Color", "Storage", "Warranty, months" and "Compatibility".
+- Serial number (IMEI) tracking: a checkbox in the item card. Each IMEI is one unit: it cannot be counted twice, sit in two warehouses at once or go negative, and a number belongs to one item only.
+- An IMEI item is received with a number for each unit; without a number it comes in only by transfer, by return of a sale or from stock built up before tracking was turned on. A customer return is made only against the sales document and not above the quantity sold.
+- The checkbox can be set only for an item without characteristics and outside BOMs, and cannot be cleared afterwards; when it is set, the program checks the item's movement history. Order-based warehouses and warehouses with a subordinate warehouse are not available for IMEI items.
+- A document with IMEI item movements cannot be deleted until it is unposted; a series with movements cannot be deleted or renamed.
+### es
+- Nuevo sector «Teléfonos y accesorios»: activa las series de artículos y añade a los artículos las propiedades «Modelo», «Color», «Memoria», «Garantía, meses» y «Compatibilidad».
+- Control por números de serie (IMEI): casilla en la ficha del artículo. Cada IMEI es una sola unidad: no puede figurar dos veces, estar en dos almacenes a la vez ni quedar en negativo, y un número pertenece a un solo artículo.
+- Un artículo con IMEI entra con un número por unidad; sin número, solo entra por traslado, por devolución de una venta o desde las existencias reunidas antes de activar el control. La devolución de cliente se hace solo sobre el documento de venta y sin superar lo vendido.
+- La casilla solo se marca en un artículo sin características y fuera de fichas técnicas, y ya no se desmarca; al activarla, el programa comprueba el historial de movimientos. Los almacenes por órdenes y los que tienen almacén subordinado no están disponibles para artículos con IMEI.
+- Un documento con movimientos de artículos con IMEI no se elimina mientras no se anule su contabilización; una serie con movimientos no se elimina ni se renombra.
+
 ## 2.0.17.7
 ### ru
 - Универсальная загрузка из Excel и CSV: команда «Загрузить из файла» в документах с товарами загружает строки в записанный документ. Колонки файла сопоставляются с колонками документа по заголовкам автоматически и вручную, товар ищется по штрихкоду (с характеристикой и серией), артикулу, коду поставщика, коду и наименованию. «Проверить» показывает, что будет загружено и какие строки с ошибками.

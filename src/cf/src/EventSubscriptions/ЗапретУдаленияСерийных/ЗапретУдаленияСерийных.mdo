@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2cd565e7-beae-48ca-a432-f1282338171c">
+  <name>ЗапретУдаленияСерийных</name>
+  <synonym>
+    <key>ru</key>
+    <value>Запрет удаления документов с серийным товаром</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Interdiction de supprimer les documents à numéros de série</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Ban on deleting documents with serial items</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Prohibición de eliminar documentos con artículos seriados</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.АктРазбора</types>
+    <types>DocumentObject.ВозвратОтПокупателя</types>
+    <types>DocumentObject.ВозвратОтПокупателяНалоговый</types>
+    <types>DocumentObject.ВозвратПоставщику</types>
+    <types>DocumentObject.ВозвратПоставщикуНалоговый</types>
+    <types>DocumentObject.ВыпускПродукции</types>
+    <types>DocumentObject.КорректировкаРегистров</types>
+    <types>DocumentObject.НалоговаяНакладная</types>
+    <types>DocumentObject.НалоговаяНакладнаяПокупка</types>
+    <types>DocumentObject.ОприходованиеТоваров</types>
+    <types>DocumentObject.ПередачаВПереработку</types>
+    <types>DocumentObject.ПеремещениеТоваров</types>
+    <types>DocumentObject.ПересортицаТоваров</types>
+    <types>DocumentObject.ПоступлениеИзПереработки</types>
+    <types>DocumentObject.ПоступлениеТоваровУслуг</types>
+    <types>DocumentObject.ПриходныйОрдер</types>
+    <types>DocumentObject.РасходныйОрдер</types>
+    <types>DocumentObject.РеализацияТоваровУслуг</types>
+    <types>DocumentObject.СписаниеТоваров</types>
+    <types>DocumentObject.ТребованиеНакладная</types>
+  </source>
+  <event>BeforeDelete</event>
+  <handler>CommonModule.СерийныйУчет.ПередУдалениемДокумента</handler>
+</mdclass:EventSubscription>
