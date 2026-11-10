@@ -78,6 +78,7 @@
   <numberPeriodicity>Year</numberPeriodicity>
   <checkUnique>true</checkUnique>
   <autonumbering>true</autonumbering>
+  <defaultListForm>Document.ПотребностьТорговойТочки.Form.ФормаСписка</defaultListForm>
   <realTimePosting>Deny</realTimePosting>
   <registerRecords>AccumulationRegister.ПотребностиТорговыхТочек</registerRecords>
   <postInPrivilegedMode>true</postInPrivilegedMode>
@@ -277,6 +278,27 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <forms uuid="9e24d3e8-6d8b-4687-9984-fce9417aa9a6">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire de liste</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>List form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario de lista</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
   <tabularSections uuid="dbf00a95-34ec-4e1a-a06b-bc826ad34bf4">
     <producedTypes>
       <objectType typeId="b9333146-8e1f-4e74-8264-7b2d972635c1" valueTypeId="4c2f55aa-00d1-46a3-b2a2-2e1b333bc379"/>
@@ -734,5 +756,33 @@
     </commandParameterType>
     <parameterUseMode>Single</parameterUseMode>
     <representation>Auto</representation>
+  </commands>
+  <commands uuid="824bbd37-4914-44b3-bb7f-31b8ec0cec7e">
+    <name>ЗаполнитьПоАнализу</name>
+    <synonym>
+      <key>ru</key>
+      <value>Заполнить по анализу</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Remplir par analyse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Fill by analysis</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Rellenar por análisis</value>
+    </synonym>
+    <group>FormCommandBarImportant</group>
+    <commandParameterType>
+      <types>DocumentRef.ПотребностьТорговойТочки</types>
+    </commandParameterType>
+    <parameterUseMode>Single</parameterUseMode>
+    <representation>PictureAndText</representation>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Refresh</picture>
+    </picture>
   </commands>
 </mdclass:Document>

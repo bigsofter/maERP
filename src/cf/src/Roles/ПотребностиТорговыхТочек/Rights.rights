@@ -99,4 +99,25 @@
 			<value>true</value>
 		</right>
 	</object>
+	<object>
+		<name>Document.ПотребностьТорговойТочки.Command.ЗаполнитьПоАнализу</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>AccumulationRegister.ПотребностиТорговыхТочек</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ГДЕ Точка В (ВЫБРАТЬ Н.Значение ИЗ РегистрСведений.НастройкиПользователей КАК Н ГДЕ Н.Пользователь = &amp;Пользователь И Н.Настройка = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыНастроекПользователей.ТочкаПотребностей))</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
 </Rights>
