@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetObject">
+		<name>Строки</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Article</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Item</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Artículo</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Номенклатура</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Характеристика</dataPath>
+			<field>Характеристика</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Характеристика</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Caractéristique</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Characteristic</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Característica</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Серия</dataPath>
+			<field>Серия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Série</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Series</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Serie</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СерииНоменклатуры</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокНаНачало</dataPath>
+			<field>ОстатокНаНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток на начало</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Stock initial</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Opening balance</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Saldo inicial</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поступило</dataPath>
+			<field>Поступило</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступило</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Reçu</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Received</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Recibido</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Продано</dataPath>
+			<field>Продано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продано</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Vendu</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Sold</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Vendido</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВозвратыОтПокупателей</dataPath>
+			<field>ВозвратыОтПокупателей</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возвраты покупателей</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Retours clients</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Customer returns</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Devoluciones de clientes</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВозвратыПоставщикам</dataPath>
+			<field>ВозвратыПоставщикам</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возвраты поставщикам</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Retours fournisseurs</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Supplier returns</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Devoluciones a proveedores</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Списано</dataPath>
+			<field>Списано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списано</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Sorti</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Written off</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Dado de baja</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Оприходовано</dataPath>
+			<field>Оприходовано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оприходовано</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Entrée en stock</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Stock entry</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Entrada de stock</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПеремещениеСписание</dataPath>
+			<field>ПеремещениеСписание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перемещение: отгружено</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Transfert : sortie</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Transfer: out</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Traslado: salida</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПеремещениеОприходование</dataPath>
+			<field>ПеремещениеОприходование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перемещение: получено</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Transfert : entrée</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Transfer: in</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Traslado: entrada</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Прочее</dataPath>
+			<field>Прочее</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочее</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Autres</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Other</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Otros</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Учет</dataPath>
+			<field>Учет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учёт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Comptable</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Book</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Contable</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Факт</dataPath>
+			<field>Факт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факт</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Réel</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Actual</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Real</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Расхождение</dataPath>
+			<field>Расхождение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расхождение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Écart</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Difference</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Diferencia</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПослеПересчета</dataPath>
+			<field>ПослеПересчета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>После пересчёта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Après inventaire</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>After count</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Tras el recuento</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущийУчет</dataPath>
+			<field>ТекущийУчет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учёт по текущим движениям</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Comptable selon les mouvements actuels</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Book by current movements</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Contable según movimientos actuales</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИзменениеИстории</dataPath>
+			<field>ИзменениеИстории</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменение истории</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>fr</v8:lang>
+					<v8:content>Modification de lhistorique</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>History change</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>es</v8:lang>
+					<v8:content>Cambio del historial</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>Строки</objectName>
+	</dataSet>
+	<totalField>
+		<dataPath>ОстатокНаНачало</dataPath>
+		<expression>Сумма(ОстатокНаНачало)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Поступило</dataPath>
+		<expression>Сумма(Поступило)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Продано</dataPath>
+		<expression>Сумма(Продано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВозвратыОтПокупателей</dataPath>
+		<expression>Сумма(ВозвратыОтПокупателей)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВозвратыПоставщикам</dataPath>
+		<expression>Сумма(ВозвратыПоставщикам)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Списано</dataPath>
+		<expression>Сумма(Списано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Оприходовано</dataPath>
+		<expression>Сумма(Оприходовано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПеремещениеСписание</dataPath>
+		<expression>Сумма(ПеремещениеСписание)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПеремещениеОприходование</dataPath>
+		<expression>Сумма(ПеремещениеОприходование)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Прочее</dataPath>
+		<expression>Сумма(Прочее)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Учет</dataPath>
+		<expression>Сумма(Учет)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Факт</dataPath>
+		<expression>Сумма(Факт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Расхождение</dataPath>
+		<expression>Сумма(Расхождение)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПослеПересчета</dataPath>
+		<expression>Сумма(ПослеПересчета)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТекущийУчет</dataPath>
+		<expression>Сумма(ТекущийУчет)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИзменениеИстории</dataPath>
+		<expression>Сумма(ИзменениеИстории)</expression>
+	</totalField>
+	<parameter>
+		<name>Инвентаризация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Инвентаризация</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Inventaire</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Stock count</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Inventario</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ПересчётТоваров</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>АнализИнвентаризации</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Анализ инвентаризации</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>fr</v8:lang>
+				<v8:content>Analyse de linventaire</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Stock count analysis</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>es</v8:lang>
+				<v8:content>Análisis del inventario</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокНаНачало</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поступило</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Продано</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВозвратыОтПокупателей</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВозвратыПоставщикам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Списано</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Оприходовано</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПеремещениеСписание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПеремещениеОприходование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Прочее</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Учет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Факт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Расхождение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПослеПересчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТекущийУчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИзменениеИстории</dcsset:field>
+				</dcsset:item>
+				<dcsset:userSettingID>715130cc-7fb0-445b-a98c-9f28ab5f94af</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>d640f314-0348-48a1-9431-4359f671ab37</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:userSettingID>4da63aea-0694-4c34-b754-ff2fbb96c596</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Инвентаризация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>947fb2de-8214-4485-942f-e9c2f2aa5166</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ОстатокНаНачало</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Поступило</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Продано</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ВозвратыОтПокупателей</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ВозвратыПоставщикам</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Списано</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Оприходовано</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПеремещениеСписание</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПеремещениеОприходование</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Прочее</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Учет</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Факт</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Расхождение</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПослеПересчета</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ТекущийУчет</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ИзменениеИстории</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Format</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">ЧДЦ=3; ЧН=</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>AppearanceTemplate</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Античный</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>TitleOutput</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Title</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ инвентаризации</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>fr</v8:lang>
+							<v8:content>Analyse de linventaire</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Stock count analysis</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>es</v8:lang>
+							<v8:content>Análisis del inventario</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Номенклатура</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Характеристика</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Серия</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

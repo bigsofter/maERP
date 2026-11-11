@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.13
+### ru
+- Новый отчёт «Анализ инвентаризаций» (Склад): по пересчёту — остаток после прошлой инвентаризации, что за это время поступило, продано, списано, оприходовано и перемещено, учёт, факт и расхождение. Открывается командой из пересчёта товаров. Если движения до пересчёта изменили задним числом, отчёт это показывает.
+- Новый отчёт «Отгрузки с изменёнными ценами» (Продажи): продажи, цена которых отличается от прайса на момент продажи, с отклонением в сумме и процентах. Себестоимость в отчёте видят только те, кому видны суммы.
+- Прайс-чекер (Продажи → Розничные продажи): отсканируйте штрихкод или IMEI — на экране товар и цена вашего склада, та же, что на кассе.
+- Настройка пользователя «Только свой склад»: отчёт «Товары в наличии» показывает только склад пользователя.
+- Отчёт «Движения товара»: оприходование и перемещение (отгружено и получено) — отдельными показателями, а не в «Прочем». Итоги по складу не меняются.
+### fr
+- Nouveau rapport « Analyse des inventaires » (Stock) : pour un inventaire — le stock après l'inventaire précédent, ce qui a été reçu, vendu, sorti, entré et transféré entre-temps, le comptable, le réel et l'écart. Il s'ouvre par une commande depuis l'inventaire. Si des mouvements antérieurs à l'inventaire ont été modifiés après coup, le rapport le signale.
+- Nouveau rapport « Ventes à prix modifiés » (Ventes) : les ventes dont le prix diffère du tarif au moment de la vente, avec l'écart en montant et en pourcentage. Le coût n'est visible que pour les utilisateurs qui voient les montants.
+- Vérificateur de prix (Ventes → Ventes au détail) : scannez un code-barres ou un IMEI — l'article et le prix de votre entrepôt s'affichent, le même qu'à la caisse.
+- Paramètre utilisateur « Seulement mon entrepôt » : le rapport « Marchandises en stock » n'affiche que l'entrepôt de l'utilisateur.
+- Rapport « Mouvements de l'article » : les entrées en stock et les transferts (sortie et entrée) ont leurs propres indicateurs au lieu de « Autres ». Les totaux par entrepôt ne changent pas.
+### en
+- New "Stock count analysis" report (Warehouse): for a stock count — the balance after the previous count, what was received, sold, written off, entered and transferred in between, the book quantity, the actual quantity and the difference. It opens with a command from the stock count. If movements before the count were changed afterwards, the report shows it.
+- New "Sales with changed prices" report (Sales): sales whose price differs from the price list at the moment of sale, with the deviation in amount and percent. The cost is visible only to users who can see amounts.
+- Price checker (Sales → Retail sales): scan a barcode or an IMEI — the item and the price of your warehouse are shown, the same as at the cash register.
+- User setting "Only my warehouse": the "Goods in stock" report shows only the user's warehouse.
+- "Item movements" report: stock entries and transfers (out and in) have their own indicators instead of "Other". Warehouse totals do not change.
+### es
+- Nuevo informe «Análisis de inventarios» (Almacén): para un recuento — el saldo tras el inventario anterior, lo recibido, vendido, dado de baja, entrado y trasladado en ese tiempo, lo contable, lo real y la diferencia. Se abre con un comando desde el recuento. Si los movimientos anteriores al recuento se modificaron después, el informe lo indica.
+- Nuevo informe «Ventas con precios modificados» (Ventas): ventas cuyo precio difiere de la tarifa en el momento de la venta, con la desviación en importe y porcentaje. El coste solo lo ven los usuarios que ven importes.
+- Comprobador de precios (Ventas → Ventas al por menor): escanee un código de barras o un IMEI — se muestran el artículo y el precio de su almacén, el mismo que en la caja.
+- Ajuste de usuario «Solo mi almacén»: el informe «Productos en stock» muestra solo el almacén del usuario.
+- Informe «Movimientos del artículo»: las entradas de stock y los traslados (salida y entrada) tienen sus propios indicadores en lugar de «Otros». Los totales por almacén no cambian.
+
 ## 2.0.17.12
 ### ru
 - Касса не проводит продажу дважды: если ответ сервера потерялся (обрыв связи, зависание), повторная оплата того же чека возвращает уже записанную продажу, а не создаёт вторую.
