@@ -561,6 +561,44 @@
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
+          <name>ПоступлениеПриемки</name>
+          <id>134</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <readOnly>true</readOnly>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ПоступлениеПриемки</segments>
+          </dataPath>
+          <extendedTooltip>
+            <name>ПоступлениеПриемкиРасширеннаяПодсказка</name>
+            <id>135</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ПоступлениеПриемкиКонтекстноеМеню</name>
+            <id>136</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Enter</editMode>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
           <name>Комментарий</name>
           <id>13</id>
           <visible>true</visible>
@@ -1613,6 +1651,31 @@
   <autoCommandBar>
     <name>ФормаКоманднаяПанель</name>
     <id>-1</id>
+    <items xsi:type="form:Button">
+      <name>ФормаВывестиИзМобильнойПриемки</name>
+      <id>137</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаВывестиИзМобильнойПриемкиРасширеннаяПодсказка</name>
+        <id>138</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <commandName>Form.Command.ВывестиИзМобильнойПриемки</commandName>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
     <horizontalAlign>Left</horizontalAlign>
     <autoFill>true</autoFill>
   </autoCommandBar>
@@ -1660,6 +1723,52 @@
     <main>true</main>
     <savedData>true</savedData>
   </attributes>
+  <formCommands>
+    <name>ВывестиИзМобильнойПриемки</name>
+    <title>
+      <key>ru</key>
+      <value>Вывести из мобильной приёмки</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Sortir de la réception mobile</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Remove from mobile receiving</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Sacar de la recepción móvil</value>
+    </title>
+    <id>1</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Вывести из мобильной приёмки</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Sortir de la réception mobile</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Remove from mobile receiving</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Sacar de la recepción móvil</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ВывестиИзМобильнойПриемки</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
     <navigationPanel/>
     <commandBar/>

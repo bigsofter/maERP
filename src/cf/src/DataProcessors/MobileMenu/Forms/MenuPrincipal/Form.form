@@ -43,6 +43,48 @@
     <shape>Oval</shape>
   </items>
   <items xsi:type="form:Button">
+    <name>Приемка</name>
+    <id>5</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <extendedTooltip>
+      <name>ПриемкаРасширеннаяПодсказка</name>
+      <id>6</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <type>UsualButton</type>
+    <commandName>Form.Command.Приемка</commandName>
+    <buttonImportance>Normal</buttonImportance>
+    <autoMaxWidth>true</autoMaxWidth>
+    <height>2</height>
+    <autoMaxHeight>true</autoMaxHeight>
+    <horizontalStretch>true</horizontalStretch>
+    <groupHorizontalAlign>Center</groupHorizontalAlign>
+    <placementArea>UserCmds</placementArea>
+    <textColor xsi:type="core:ColorRef">
+      <color>Style.ButonTextColor</color>
+    </textColor>
+    <backColor xsi:type="core:ColorRef">
+      <color>Style.BottonBackgroundColor</color>
+    </backColor>
+    <font xsi:type="core:FontRef">
+      <font>Style.BottonFont</font>
+    </font>
+    <picture xsi:type="core:PictureRef">
+      <picture>CommonPicture.Закупки128</picture>
+    </picture>
+    <representationInContextMenu>Auto</representationInContextMenu>
+    <shape>Oval</shape>
+  </items>
+  <items xsi:type="form:Button">
     <name>ЗаданияНаПересчет</name>
     <id>3</id>
     <visible>true</visible>
@@ -154,6 +196,52 @@
     <action xsi:type="form:FormCommandHandlerContainer">
       <handler>
         <name>FacturesDeVente</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>Приемка</name>
+    <title>
+      <key>ru</key>
+      <value>Приёмка</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Réception</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Receiving</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Recepción</value>
+    </title>
+    <id>3</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Приёмка</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Réception</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Receiving</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Recepción</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>Приемка</name>
       </handler>
     </action>
     <currentRowUse>Auto</currentRowUse>
