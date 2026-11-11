@@ -1225,6 +1225,64 @@
         <textSize>Normal</textSize>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>ТЧТоварыСебестоимость</name>
+      <id>127</id>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Объект.ТЧТовары.Себестоимость</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ТЧТоварыСебестоимостьРасширеннаяПодсказка</name>
+        <id>128</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ТЧТоварыСебестоимостьКонтекстноеМеню</name>
+        <id>129</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <readOnly>true</readOnly>
+      <editMode>Auto</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <footerDataPath xsi:type="form:DataPath">
+        <segments>ОбщаяСебестоимость</segments>
+      </footerDataPath>
+      <footerFont xsi:type="core:FontRef">
+        <font>Style.Шрифт_Подвал</font>
+      </footerFont>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <width>12</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+      </extInfo>
+    </items>
     <autoCommandBar>
       <name>ТЧТоварыКоманднаяПанель</name>
       <id>24</id>
@@ -1336,12 +1394,43 @@
           <representation>Compact</representation>
         </extInfo>
       </items>
+      <items xsi:type="form:Button">
+        <name>ТЧТоварыЗаполнитьОстатками</name>
+        <id>125</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <extendedTooltip>
+          <name>ТЧТоварыЗаполнитьОстаткамиРасширеннаяПодсказка</name>
+          <id>126</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <commandName>Form.Command.Заполнить</commandName>
+        <buttonImportance>Normal</buttonImportance>
+        <representation>Auto</representation>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <placementArea>UserCmds</placementArea>
+        <representationInContextMenu>Auto</representationInContextMenu>
+        <locationInCommandBar>InCommandBar</locationInCommandBar>
+      </items>
       <horizontalAlign>Left</horizontalAlign>
       <autoFill>true</autoFill>
     </autoCommandBar>
     <handlers>
       <event>OnStartEdit</event>
       <name>ТЧТоварыПриНачалеРедактирования</name>
+    </handlers>
+    <handlers>
+      <event>OnChange</event>
+      <name>ТЧТоварыПриИзменении</name>
     </handlers>
     <searchStringAddition>
       <name>ТЧТоварыСтрокаПоиска</name>
@@ -1437,6 +1526,7 @@
     <selectionMode>MultiRow</selectionMode>
     <header>true</header>
     <headerHeight>1</headerHeight>
+    <footer>true</footer>
     <footerHeight>1</footerHeight>
     <horizontalScrollBar>AutoUse</horizontalScrollBar>
     <verticalScrollBar>AutoUse</verticalScrollBar>
@@ -1461,6 +1551,42 @@
     </borderColor>
     <autoMaxCardHeight>true</autoMaxCardHeight>
     <rowFilter xsi:type="core:UndefinedValue"/>
+  </items>
+  <items xsi:type="form:FormField">
+    <name>ТекстАктуальностиСебестоимости</name>
+    <id>130</id>
+    <visible>true</visible>
+    <enabled>true</enabled>
+    <userVisible>
+      <common>true</common>
+    </userVisible>
+    <dataPath xsi:type="form:DataPath">
+      <segments>ТекстАктуальностиСебестоимости</segments>
+    </dataPath>
+    <titleLocation>None</titleLocation>
+    <extendedTooltip>
+      <name>ТекстАктуальностиСебестоимостиРасширеннаяПодсказка</name>
+      <id>131</id>
+      <type>Label</type>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <extInfo xsi:type="form:LabelDecorationExtInfo">
+        <horizontalAlign>Left</horizontalAlign>
+      </extInfo>
+    </extendedTooltip>
+    <contextMenu>
+      <name>ТекстАктуальностиСебестоимостиКонтекстноеМеню</name>
+      <id>132</id>
+      <autoFill>true</autoFill>
+    </contextMenu>
+    <type>LabelField</type>
+    <editMode>Enter</editMode>
+    <extInfo xsi:type="form:LabelFieldExtInfo">
+      <horizontalStretch>true</horizontalStretch>
+      <textColor xsi:type="core:ColorRef">
+        <color>Style.Цвет_Красный</color>
+      </textColor>
+    </extInfo>
   </items>
   <items xsi:type="form:FormGroup">
     <name>ГруппаКомментарий</name>
@@ -1619,42 +1745,136 @@
     </notDefaultUseAlwaysAttributes>
     <main>true</main>
     <savedData>true</savedData>
+    <additionalColumns>
+      <tablePath xsi:type="form:DataPath">
+        <segments>Объект.ТЧТовары</segments>
+      </tablePath>
+      <columns>
+        <name>Себестоимость</name>
+        <title>
+          <key>ru</key>
+          <value>Себестоимость</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Prix de revient</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Cost price</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Precio de costo</value>
+        </title>
+        <id>1</id>
+        <valueType>
+          <types>DefinedType.Сумма</types>
+        </valueType>
+        <view>
+          <common>true</common>
+        </view>
+        <edit>
+          <common>true</common>
+        </edit>
+      </columns>
+    </additionalColumns>
+  </attributes>
+  <attributes>
+    <name>ОбщаяСебестоимость</name>
+    <title>
+      <key>ru</key>
+      <value>Общая себестоимость</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Coût total</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Total cost</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Coste total</value>
+    </title>
+    <id>2</id>
+    <valueType>
+      <types>DefinedType.Сумма</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ТекстАктуальностиСебестоимости</name>
+    <title>
+      <key>ru</key>
+      <value>Актуальность себестоимости</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Actualité du coût</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Cost relevance</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Vigencia del coste</value>
+    </title>
+    <id>3</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
   <formCommands>
     <name>Заполнить</name>
     <title>
       <key>ru</key>
-      <value>Заполнить</value>
+      <value>Заполнить остатками</value>
     </title>
     <title>
       <key>fr</key>
-      <value>Remplir</value>
+      <value>Remplir avec le stock</value>
     </title>
     <title>
       <key>en</key>
-      <value>Fill In</value>
+      <value>Fill with stock</value>
     </title>
     <title>
       <key>es</key>
-      <value>Rellenar</value>
+      <value>Rellenar con existencias</value>
     </title>
     <id>1</id>
     <toolTip>
       <key>ru</key>
-      <value>Заполнить</value>
+      <value>Заменить строки положительными остатками склада-отправителя на дату документа</value>
     </toolTip>
     <toolTip>
       <key>fr</key>
-      <value>Remplir</value>
+      <value>Remplacer les lignes par le stock positif de l&apos;entrepôt expéditeur à la date du document</value>
     </toolTip>
     <toolTip>
       <key>en</key>
-      <value>Fill In</value>
+      <value>Replace the rows with the positive stock of the sending warehouse at the document date</value>
     </toolTip>
     <toolTip>
       <key>es</key>
-      <value>Rellenar</value>
+      <value>Sustituir las filas por las existencias positivas del almacén de origen en la fecha del documento</value>
     </toolTip>
+
     <use>
       <common>true</common>
     </use>
@@ -1671,6 +1891,10 @@
     <commandBar/>
   </commandInterface>
   <extInfo xsi:type="form:DocumentFormExtInfo">
+    <handlers>
+      <event>OnReadAtServer</event>
+      <name>ПриЧтенииНаСервере</name>
+    </handlers>
     <handlers>
       <event>AfterWriteAtServer</event>
       <name>ПослеЗаписиНаСервере</name>
