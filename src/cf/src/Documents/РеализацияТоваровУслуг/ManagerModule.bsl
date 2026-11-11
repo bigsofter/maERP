@@ -166,6 +166,35 @@
 
 #Область Печать
 
+// Строка под товаром чека: номера IMEI строки и гарантия товара в месяцах; пусто - ничего.
+//
+// Параметры:
+//  Ссылка     - ДокументСсылка.РеализацияТоваровУслуг - чек.
+//  Выборка    - ВыборкаИзРезультатаЗапроса - строка чека (Produit, НомерСтрокиТоваров).
+//  СерииСтрок - Соответствие - см. СерийныйУчет.СерииСтрокДокументов.
+//  Гарантии   - Соответствие - см. СерийныйУчет.ГарантияМесяцев.
+//
+// Возвращаемое значение:
+//  Строка - перенос строки и текст или пустая строка.
+//
+Функция ДопСтрокаЧека(Ссылка, Выборка, СерииСтрок, Гарантии)
+	Части = Новый Массив;
+	Если Выборка.НомерСтрокиТоваров > 0 Тогда
+		Ключ = Строка(Ссылка.УникальныйИдентификатор()) + "|" + Формат(Выборка.НомерСтрокиТоваров, "ЧГ=0");
+		Номера = СерииСтрок[Ключ];
+		Если Номера <> Неопределено Тогда
+			Части.Добавить("IMEI: " + СтрСоединить(Номера, ", "));
+		КонецЕсли;
+	КонецЕсли;
+	Месяцев = Гарантии[Выборка.Produit];
+	Если Месяцев <> Неопределено Тогда
+		Шаблон = НСтр("ru = 'гарантия: %1 мес.'; fr = 'garantie : %1 mois'; en = 'warranty: %1 months';
+			|es = 'garantía: %1 meses'");
+		Части.Добавить(СтрШаблон(Шаблон, Формат(Месяцев, "ЧГ=0")));
+	КонецЕсли;
+	Возврат ?(Части.Количество() = 0, "", Символы.ПС + СтрСоединить(Части, "; "));
+КонецФункции
+
 Function PrintTicket(Док, Spreadsheet) Export
 	//{{_PRINT_WIZARD(Печать)
 	//Template = Documents.FactureSortie.GetTemplate(TemplateName);
@@ -183,6 +212,7 @@ Function PrintTicket(Док, Spreadsheet) Export
 	|	Doc.Ссылка.СуммаНДС КАК TotalSommeTVA,
 	|	Doc.Ссылка.Ссылка КАК DocRef,
 	|	Doc.КодСтроки КАК LineNumber,
+	|	Doc.НомерСтроки КАК НомерСтрокиТоваров,
 	|	Doc.Номенклатура КАК Produit,
 	|	Doc.Количество КАК Quantite,
 	//|	Doc.Цена КАК Prix,
@@ -211,6 +241,7 @@ Function PrintTicket(Док, Spreadsheet) Export
 	|	Doc.Ссылка.Сумма,
 	|	Doc.Ссылка.СуммаНДС,
 	|	Doc.Ссылка.Ссылка,
+	|	0,
 	|	0,
 	|	Doc.Номенклатура,
 	|	Doc.Количество,
@@ -284,11 +315,16 @@ Function PrintTicket(Док, Spreadsheet) Export
 		
 		TotalSomme = 0;
 
+		// Под строкой товара - IMEI и гарантия (docs/plans/industry-phones-2.md, п. 3).
+		ДокументыЧека = ОбщегоНазначенияКлиентСервер.ЗначениеВМассиве(Selection.DocRef);
+		СерииСтрок = СерийныйУчет.СерииСтрокДокументов("РеализацияТоваровУслуг", ДокументыЧека);
+		Гарантии = СерийныйУчет.ГарантияМесяцев(Selection.DocRef.ТЧТовары.ВыгрузитьКолонку("Номенклатура"));
 		SelectionTabularSection = Selection.Select();
 		While SelectionTabularSection.Next() Do
 			AreaTabularSection.Parameters.Fill(SelectionTabularSection);
 			AreaTabularSection.Parameters.Code = SelectionTabularSection.Produit.Артикул;
-			AreaTabularSection.Parameters.Descriptif = SelectionTabularSection.Produit.Наименование;
+			AreaTabularSection.Parameters.Descriptif = SelectionTabularSection.Produit.Наименование
+				+ ДопСтрокаЧека(Selection.DocRef, SelectionTabularSection, СерииСтрок, Гарантии);
 			AreaTabularSection.Parameters.Prix = SelectionTabularSection.Prix;
 			Spreadsheet.Put(AreaTabularSection, SelectionTabularSection.Level());
 			TotalSomme = TotalSomme + SelectionTabularSection.Somme;

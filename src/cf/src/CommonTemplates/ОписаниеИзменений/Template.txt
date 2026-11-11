@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.11
+### ru
+- IMEI работает как штрихкод: скан номера в поступлении, реализации, перемещении, оприходовании и на кассе сразу находит телефон и его серию. Повторный скан того же IMEI не добавляет вторую строку, а строка экземпляра всегда одна штука.
+- Если введённое значение одновременно штрихкод одного товара и IMEI другого, товар не подставляется — программа просит выбрать его вручную.
+- В чеке и накладной под строкой телефона печатаются IMEI и гарантия в месяцах (свойство товара «Гарантия, месяцев»).
+- Ошибочно введённый IMEI можно исправить командой «Исправить IMEI» в карточке серии — даже после продажи. Команда доступна руководителю и администратору, исправление записывается в журнал регистрации.
+- Новая настройка «Возврат от покупателя только по документу продажи» (Настройки программы → Номенклатура; включается отраслью «Телефоны и аксессуары»): возврат проводится только по проведённой продаже и не больше проданного, а продажу с проведёнными возвратами нельзя изменить, отменить или удалить, пока возвраты не отменены.
+- Возврат телефона по продаже, покрытой налоговым документом, оформляется по налоговому документу.
+### fr
+- L'IMEI fonctionne comme code-barres : scanner le numéro dans la réception, la vente, le transfert, l'entrée en stock et à la caisse trouve aussitôt le téléphone et sa série. Un second scan du même IMEI n'ajoute pas de ligne, et la ligne d'un exemplaire vaut toujours une pièce.
+- Si la valeur saisie est à la fois le code-barres d'un article et l'IMEI d'un autre, aucun article n'est proposé : le programme demande de le choisir manuellement.
+- Le ticket et le bon de livraison impriment sous la ligne du téléphone l'IMEI et la garantie en mois (propriété « Garantie, mois »).
+- Un IMEI saisi par erreur se corrige avec la commande « Corriger l'IMEI » de la fiche de série, même après la vente. La commande est réservée au dirigeant et à l'administrateur ; la correction est inscrite au journal d'enregistrement.
+- Nouveau paramètre « Retour client uniquement sur le document de vente » (Paramètres du programme → Articles ; activé par le secteur « Téléphones et accessoires ») : le retour se valide uniquement sur une vente validée et sans dépasser la quantité vendue, et une vente avec des retours validés ne peut être ni modifiée, ni annulée, ni supprimée tant que les retours ne sont pas annulés.
+- Le retour d'un téléphone vendu par une vente couverte par un document fiscal se fait sur ce document fiscal.
+### en
+- IMEI works as a barcode: scanning the number in receipts, sales, transfers, stock entries and at the cash register finds the phone and its series at once. Scanning the same IMEI again adds no second row, and a unit row is always one piece.
+- If the entered value is both one item's barcode and another item's IMEI, no item is filled in: the program asks you to choose it manually.
+- The receipt and the delivery note print the IMEI and the warranty in months (item property "Warranty, months") under the phone row.
+- An IMEI entered by mistake can be corrected with the "Correct IMEI" command in the series card, even after the sale. The command is available to the director and the administrator; the correction is written to the event log.
+- New setting "Customer returns only against the sales document" (Program settings → Items; turned on by the "Phones and accessories" industry): a return is posted only against a posted sale and not above the quantity sold, and a sale with posted returns cannot be changed, unposted or deleted until the returns are cancelled.
+- A phone sold by a sale covered by a tax document is returned against that tax document.
+### es
+- El IMEI funciona como código de barras: escanear el número en la recepción, la venta, el traslado, la entrada de stock y en la caja encuentra al instante el teléfono y su serie. Un segundo escaneo del mismo IMEI no añade otra fila, y la fila de una unidad siempre es una pieza.
+- Si el valor introducido es a la vez el código de barras de un artículo y el IMEI de otro, no se propone ningún artículo: el programa pide elegirlo manualmente.
+- El ticket y el albarán imprimen bajo la fila del teléfono el IMEI y la garantía en meses (propiedad «Garantía, meses»).
+- Un IMEI introducido por error se corrige con el comando «Corregir IMEI» de la ficha de la serie, incluso después de la venta. El comando está disponible para el director y el administrador; la corrección queda en el registro de eventos.
+- Nuevo ajuste «Devolución de cliente solo según el documento de venta» (Ajustes del programa → Artículos; lo activa el sector «Teléfonos y accesorios»): la devolución se contabiliza solo según una venta contabilizada y sin superar lo vendido, y una venta con devoluciones contabilizadas no se puede modificar, anular ni eliminar mientras no se anulen las devoluciones.
+- Un teléfono vendido en una venta cubierta por un documento fiscal se devuelve según ese documento fiscal.
+
 ## 2.0.17.10
 ### ru
 - Новая отрасль «Телефоны и аксессуары»: при её выборе включаются серии номенклатуры и у товаров появляются свойства «Модель», «Цвет», «Память», «Гарантия, месяцев» и «Совместимость».
