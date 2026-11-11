@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:ExchangePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2610b988-921a-4b09-b435-f66cfbd213c2">
+  <producedTypes>
+    <objectType typeId="2edc71a7-ef51-4203-93da-31185ef29d3e" valueTypeId="7d2cc726-8ac7-42ba-b236-31df90f3d2d1"/>
+    <refType typeId="a68e1d80-8c31-4d06-8a28-a221e6bb3db1" valueTypeId="754ed6e5-6a3b-4853-ad2d-c1e75431ac52"/>
+    <selectionType typeId="2ce8736d-ed57-4406-ae9a-2727ed88bf07" valueTypeId="d573be45-b77a-4d73-a270-889b8cf77e28"/>
+    <listType typeId="7b29a1da-c24e-4b95-a5e0-5598d7175160" valueTypeId="cf65f5df-1c9d-4f81-8765-452734ce96ce"/>
+    <managerType typeId="5f3d7dec-320d-433e-bdd3-03d7b192fe07" valueTypeId="c3d34713-bdcd-4157-9ea0-5d1bce9b818b"/>
+  </producedTypes>
+  <name>ОбменМеждуБазами</name>
+  <synonym>
+    <key>ru</key>
+    <value>Обмен между базами</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Échange entre bases</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Inter-base exchange</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Intercambio entre bases</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>ExchangePlan.ОбменМеждуБазами.StandardAttribute.Description</inputByString>
+  <inputByString>ExchangePlan.ОбменМеждуБазами.StandardAttribute.Code</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <thisNode>fc2e9d6d-c11c-499f-937a-45bd496a20d2</thisNode>
+  <codeLength>9</codeLength>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <descriptionLength>100</descriptionLength>
+  <content>
+    <mdObject>Document.РеализацияТоваровУслуг</mdObject>
+    <autoRecord>Deny</autoRecord>
+  </content>
+  <content>
+    <mdObject>Document.УстановкаЦенНоменклатуры</mdObject>
+    <autoRecord>Deny</autoRecord>
+  </content>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>ExchangePlan.ОбменМеждуБазами.Form.ФормаУзла</defaultObjectForm>
+  <forms uuid="53702b6c-9152-4acc-9801-eed3476ccce4">
+    <name>ФормаУзла</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма узла</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Formulaire du nœud</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Node form</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Formulario del nodo</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <attributes uuid="8d68ddc0-4ba6-4fae-accf-f10608e7f1ee">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Tiers</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Counterparty</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contraparte</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="5000094e-c6d2-489e-b691-73b9808314ba">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Société</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Company</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Empresa</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="2c8b70ff-c93e-4785-9608-b2b3679e9deb">
+    <name>ВыгружатьРеализации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отправлять реализации</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Envoyer les ventes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Send sales</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Enviar ventas</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="5acd3c5a-6973-4a3e-85db-10269533272a">
+    <name>ВыгружатьЦены</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отправлять цены</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Envoyer les prix</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Send prices</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Enviar precios</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="9f10c099-a30c-430a-836f-a970c5411e25">
+    <name>ПриниматьРеализации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Принимать реализации</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Recevoir les ventes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Receive sales</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Recibir ventas</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="3cfc11a7-30b1-40ab-905d-70d510e2d46d">
+    <name>ПриниматьЦены</name>
+    <synonym>
+      <key>ru</key>
+      <value>Принимать цены</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Recevoir les prix</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Receive prices</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Recibir precios</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="39a3b067-9ea5-4631-bf88-c6ebc61051f7">
+    <name>МестоХранения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад приёма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Entrepôt de réception</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Receiving warehouse</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacén de recepción</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="351e021a-036a-457a-a0fd-60c21d972be0">
+    <name>ОтветственныйЗаПриемку</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный за приёмку</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Responsable de la réception</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Receiving clerk</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Responsable de la recepción</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="fbfd33e6-80ae-4b57-8c34-aa95334379c1">
+    <name>ПроводитьПоступление</name>
+    <synonym>
+      <key>ru</key>
+      <value>Проводить поступление товаров</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Valider la réception des marchandises</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Post goods receipt</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contabilizar la recepción de mercancías</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="35423a90-37ab-47c2-b687-a2010b3091bf">
+    <name>ВидТранспорта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Транспорт</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Transport</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Transport</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Transporte</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидыТранспортаОбменаМеждуБазами</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="812e088d-f495-4a35-9f35-1b5186da8b7a">
+    <name>КаталогОбмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Каталог обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Dossier d'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange folder</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Carpeta de intercambio</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="26e6a1dd-170f-42d0-aaca-fd66819756d7">
+    <name>ДатаНачалаОбмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата начала обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date de début de l'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange start date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha de inicio del intercambio</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="c8eda190-8953-46b3-b54e-29aa0feb6cda">
+    <name>ДатаЗапретаОбмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата запрета обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date de clôture de l'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange closing date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha de cierre del intercambio</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="5ff7c4ec-27e5-4e0a-a85b-ec8ab57c9d1e">
+    <name>ОбменВключен</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обмен включён</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Échange activé</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange enabled</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Intercambio activado</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="565d5045-f51f-40fd-bc8f-2f48b32984e5">
+    <name>ПоколениеФильтров</name>
+    <synonym>
+      <key>ru</key>
+      <value>Поколение фильтров</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Génération des filtres</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Filter generation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Generación de filtros</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="3d38ecb4-5e48-43db-8060-db58781323cd">
+    <name>ПоколениеОбмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Поколение обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Génération d'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange generation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Generación de intercambio</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <attributes uuid="d1aa2192-1a9a-4290-b670-144b7421c1b3">
+    <name>ВерсияПравилКонвертации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Версия правил конвертации</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Version des règles de conversion</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Conversion rules version</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Versión de reglas de conversión</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <dataHistory>Use</dataHistory>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <tabularSections uuid="d3bad2cc-35b2-4849-b1b1-6fa866d3cb57">
+    <producedTypes>
+      <objectType typeId="0c75bc1c-a9bb-400e-9284-40e8ec2d4d91" valueTypeId="d203d839-36eb-456d-9366-6aba03e8e333"/>
+      <rowType typeId="92ad0d27-81c0-48cf-aa75-203a83b89031" valueTypeId="5a950174-703b-420f-8d36-6af6c3c3da62"/>
+    </producedTypes>
+    <name>ВидыЦенВыгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Виды цен для отправки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Types de prix à envoyer</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Price types to send</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipos de precio a enviar</value>
+    </synonym>
+    <attributes uuid="509d2761-b0ca-43bf-8e55-acda1f7dcd5b">
+      <name>ВидЦены</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид цены</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de prix</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Price type</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de precio</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ВидыЦен</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="121247e2-e614-4028-8520-47404a759c41">
+    <producedTypes>
+      <objectType typeId="edd59fcf-00ce-4f44-aa78-c978bc926348" valueTypeId="692ffa38-1353-40e5-ae3b-ebd35eecbee6"/>
+      <rowType typeId="9c532993-4ecb-48bd-ac46-da4135c75f97" valueTypeId="40e3a633-2d48-4bac-880c-04e05212b4fd"/>
+    </producedTypes>
+    <name>ВидыЦенПриема</name>
+    <synonym>
+      <key>ru</key>
+      <value>Виды цен для приёма</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Types de prix à recevoir</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Price types to receive</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipos de precio a recibir</value>
+    </synonym>
+    <attributes uuid="466eff1f-7457-4ecf-a0f9-0b3a2dc18fc4">
+      <name>ИдВидаЦеныПартнера</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид цены партнёра (Ид)</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de prix du partenaire (Id)</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Partner price type (Id)</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de precio del socio (Id)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>36</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="7b5df094-2634-44e0-8510-61457bbc3c29">
+      <name>НаименованиеУПартнера</name>
+      <synonym>
+        <key>ru</key>
+        <value>Наименование у партнёра</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Nom chez le partenaire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Partner name</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Nombre en el socio</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="4b1ab0b1-bc51-43df-8db2-11e31be8896e">
+      <name>ВидЦены</name>
+      <synonym>
+        <key>ru</key>
+        <value>Свой вид цены</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Type de prix propre</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Own price type</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Tipo de precio propio</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ВидыЦен</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+</mdclass:ExchangePlan>

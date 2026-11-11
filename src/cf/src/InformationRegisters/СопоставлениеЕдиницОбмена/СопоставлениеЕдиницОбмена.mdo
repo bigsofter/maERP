@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="ac3c0f54-293f-4045-9a71-87900f2d8348">
+  <producedTypes>
+    <selectionType typeId="5d339400-0a54-4ced-8ea1-d6ce424d2dec" valueTypeId="56e758fd-7a43-4745-a436-f1d7d844822a"/>
+    <listType typeId="a1c82806-5952-4b7e-aa09-fcbc86ef52c6" valueTypeId="12ac02de-41b0-4939-a504-f7e1846c574c"/>
+    <managerType typeId="6886805d-2172-46b8-94fa-5e436d8f3071" valueTypeId="a1a9620d-43c6-4c18-81cb-2f842f7faad5"/>
+    <recordSetType typeId="e80452f1-a06c-4549-bd87-c4c97fb6af2f" valueTypeId="c8f00969-f058-450a-b82f-bbd00a7cdde1"/>
+    <recordKeyType typeId="77c8cb8e-1594-48fd-bfec-c448a0350885" valueTypeId="cf0844f5-0354-45ed-9bc9-5e80190aef8f"/>
+    <recordType typeId="f787a657-0026-403e-9137-5251571dc57e" valueTypeId="e773ad9f-21af-4f32-8eee-adc376877e5a"/>
+    <recordManagerType typeId="2daad6cb-1f70-4005-a70b-46e50b26c2fd" valueTypeId="ff8cc914-822e-49b3-95e7-0775018f2dc1"/>
+  </producedTypes>
+  <name>СопоставлениеЕдиницОбмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сопоставление единиц обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Correspondance des unités d'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange unit mapping</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Correspondencia de unidades de intercambio</value>
+    </synonym>
+  <useStandardCommands>false</useStandardCommands>
+  <editType>InDialog</editType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="3ff3dd26-804d-46cd-aa4d-c640a8e4c945">
+    <name>Коэффициент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Коэффициент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Coefficient</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Factor</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Coeficiente</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>6</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="7ae47eb2-37ae-4d88-99c0-1ef6b6665266">
+    <name>Узел</name>
+    <synonym>
+      <key>ru</key>
+      <value>Узел обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nœud d'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange node</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nodo de intercambio</value>
+    </synonym>
+    <type>
+      <types>ExchangePlanRef.ОбменМеждуБазами</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="63330ade-d029-4994-ba10-2e557d141ae6">
+    <name>ИдЕдиницыИсточника</name>
+    <synonym>
+      <key>ru</key>
+      <value>Единица партнёра</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Unité du partenaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Partner unit</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Unidad del socio</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>36</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="4d419dac-f5c9-4897-9c92-8c44a65bdf3a">
+    <name>ЕдиницаПриемника</name>
+    <synonym>
+      <key>ru</key>
+      <value>Своя единица</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Unité propre</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Own unit</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Unidad propia</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.УпаковкиЕдиницыИзмерения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

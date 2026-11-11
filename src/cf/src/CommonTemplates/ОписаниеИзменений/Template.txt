@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.17
+### ru
+- Обмен между базами maERP: реализация продавца приходит покупателю поступлением, установка цен — установкой цен в виде цен покупателя. Узел обмена (Настройки программы → Обмен между базами) задаёт контрагента, организацию, что отправлять и принимать, склад приёма, дату начала обмена.
+- Поступление из обмена создаётся непроведённым (на ордерный склад без услуг — проведённым, если это включено в узле); проведённое — покупателем или сразу при создании — считается принятым, и последующие изменения реализации не меняют его, а попадают в отложенные. Суммы — окончательные суммы реализации после скидок; валюта и курс — по курсам базы покупателя.
+- Товары сопоставляются по штрихкоду и артикулу, единицы партнёра — один раз вручную в мониторе обмена; не сопоставленное откладывается и применяется кнопкой «Повторить» после сопоставления.
+- Транспорт — общий каталог: сообщения подписываются ключом пары, повторная доставка не задваивает документы, обмен узла не запускается дважды одновременно.
+- Проведённую реализацию и установку цен, переданные по обмену, с изменениями можно только перепровести; установку цен, полученную по обмену, меняет только обмен.
+- Касса: проверка «позиция уже в избранном» больше не завершается ошибкой.
+### fr
+- Échange entre bases maERP : la vente du vendeur arrive chez l'acheteur comme réception, le document de prix comme document de prix dans le type de prix de l'acheteur. Le nœud d'échange (Paramètres → Échange entre bases) définit le tiers, la société, ce qui est envoyé et reçu, l'entrepôt de réception et la date de début.
+- La réception issue de l'échange est créée non validée (validée sur un entrepôt à ordres sans services, si le nœud le prévoit) ; une fois validée, par l'acheteur ou dès la création, elle est acceptée et les modifications ultérieures de la vente ne la changent pas mais passent en attente. Les montants sont les montants finaux de la vente après remises ; devise et taux selon les cours de la base de l'acheteur.
+- Les articles sont associés par code-barres et référence, les unités du partenaire une fois à la main dans le moniteur ; ce qui n'est pas associé est mis en attente et appliqué par « Rejouer » après association.
+- Transport par dossier partagé : messages signés par la clé de la paire, une nouvelle livraison ne duplique pas les documents, l'échange d'un nœud ne tourne pas deux fois en même temps.
+- Une vente ou un document de prix validé transmis par l'échange ne peut être modifié qu'en le revalidant ; un document de prix reçu par l'échange n'est modifié que par l'échange.
+- Caisse : la vérification « article déjà en favoris » ne renvoie plus d'erreur.
+### en
+- Exchange between maERP bases: the seller's sale arrives at the buyer as a goods receipt, a price setting as a price setting in the buyer's price type. The exchange node (Settings → Inter-base exchange) sets the counterparty, company, what to send and receive, the receiving warehouse and the exchange start date.
+- The goods receipt from the exchange is created unposted (posted for an order-based warehouse without services, if the node enables it); once posted, by the buyer or on creation, it is accepted and later sale changes do not alter it but go to deferred objects. Amounts are the sale's final amounts after discounts; currency and rate follow the buyer base's rates.
+- Items are matched by barcode and article, partner units once manually in the exchange monitor; anything unmatched is deferred and applied with "Retry" after mapping.
+- Transport is a shared folder: messages are signed with the pair key, redelivery does not duplicate documents, a node's exchange never runs twice at once.
+- A posted sale or price setting sent by the exchange can only be changed by reposting; a price setting received by the exchange is changed only by the exchange.
+- POS: checking whether an item is already in favourites no longer fails with an error.
+### es
+- Intercambio entre bases maERP: la venta del vendedor llega al comprador como recepción y la fijación de precios como fijación de precios en el tipo de precio del comprador. El nodo de intercambio (Configuración → Intercambio entre bases) define la contraparte, la empresa, qué se envía y recibe, el almacén de recepción y la fecha de inicio.
+- La recepción del intercambio se crea sin contabilizar (contabilizada en un almacén por órdenes sin servicios, si el nodo lo indica); una vez contabilizada, por el comprador o al crearse, queda aceptada y los cambios posteriores de la venta no la modifican, sino que quedan pendientes. Los importes son los finales de la venta tras descuentos; moneda y tipo de cambio según la base del comprador.
+- Los artículos se asocian por código de barras y referencia, las unidades del socio una vez a mano en el monitor; lo no asociado queda pendiente y se aplica con «Reintentar» tras asociarlo.
+- Transporte por carpeta compartida: mensajes firmados con la clave del par, la reentrega no duplica documentos, el intercambio de un nodo no se ejecuta dos veces a la vez.
+- Una venta o fijación de precios contabilizada enviada por el intercambio solo se modifica volviendo a contabilizarla; una fijación de precios recibida por el intercambio solo la modifica el intercambio.
+- Caja: la comprobación de si el artículo ya está en favoritos ya no da error.
+
 ## 2.0.17.16
 ### ru
 - Мобильная приёмка: менеджер назначает в поступлении на ордерный склад «Ответственного за приёмку», и кладовщик принимает товар с телефона (Приёмка в мобильном меню) — сканом штрихкода или вводом количества; каждое действие сразу сохраняется, после обрыва связи приёмка продолжается с того же места, повторная отправка не удваивает количество.

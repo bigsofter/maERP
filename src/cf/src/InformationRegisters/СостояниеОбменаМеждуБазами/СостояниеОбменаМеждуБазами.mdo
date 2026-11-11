@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e167bf4c-ea02-4a8d-8b77-2898a55ebdd8">
+  <producedTypes>
+    <selectionType typeId="55ed3112-96bb-4814-9b9d-942f2fac72ff" valueTypeId="dd28c9a8-a2ce-48d2-b24d-03dc3bae0d26"/>
+    <listType typeId="775e01a7-f1e1-4010-9c00-ca52ddaf2649" valueTypeId="a7a6eca7-0d5c-4770-ad4f-32e7847a76fc"/>
+    <managerType typeId="86b3091a-454c-47c6-b0bb-f6fca4e4812f" valueTypeId="921f09b3-1f47-424b-8e82-cd79eb112161"/>
+    <recordSetType typeId="060759bf-9210-498a-b200-daec8955e698" valueTypeId="0bfc9754-1587-44b7-be4b-e9f6f2fa8f59"/>
+    <recordKeyType typeId="43e039ea-9060-4e3c-9aa2-cd9296ce5595" valueTypeId="88faade2-a8b1-4d9a-a7e3-173b2d712966"/>
+    <recordType typeId="fd2d66b9-836d-4969-a353-3806732824a8" valueTypeId="2194f66c-c92a-443f-8dfb-6d6263b2f815"/>
+    <recordManagerType typeId="9a1602ac-9cae-4e12-bfcd-e84da811bec9" valueTypeId="e8a154e4-bd9b-4da3-9cec-ac2ccdfbe021"/>
+  </producedTypes>
+  <name>СостояниеОбменаМеждуБазами</name>
+    <synonym>
+      <key>ru</key>
+      <value>Состояние обмена между базами</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>État de l'échange entre bases</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Inter-base exchange state</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Estado del intercambio entre bases</value>
+    </synonym>
+  <useStandardCommands>false</useStandardCommands>
+  <editType>InDialog</editType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="5ed46ae7-7bdf-415c-af89-e1886e7ae56a">
+    <name>ДатаВыгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выгрузка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Export</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Export</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Exportación</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="ff9f8792-5cd8-4d6a-b66b-a27864a4eee3">
+    <name>ДатаЗагрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Загрузка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Import</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Import</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importación</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="f477cdc8-b7eb-4999-bf80-77f632e60fd6">
+    <name>РезультатВыгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Результат выгрузки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résultat de l'export</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Export result</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Resultado de la exportación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="5d6674eb-ae0a-4cd0-ba1e-04b03ad2d33b">
+    <name>РезультатЗагрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Результат загрузки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Résultat de l'import</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Import result</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Resultado de la importación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="61188da5-103a-404f-9f01-79f7866ac22e">
+    <name>ТекстОшибки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текст ошибки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Texte d'erreur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Error text</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Texto del error</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="198edeb9-6056-4303-a24e-1e36de11a41b">
+    <name>ОтправленоОбъектов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отправлено</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Envoyés</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sent</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Enviados</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="c96eac1d-3989-4b23-a389-66eef7493f10">
+    <name>ПринятоОбъектов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Принято</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Reçus</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Received</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Recibidos</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="3a43754f-e570-41b0-b01b-79bc0fe4af45">
+    <name>ОтложеноОбъектов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отложено</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>En attente</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Deferred</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Pendientes</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="a2180e07-a82a-4b41-a820-7ca890c80948">
+    <name>ПоколениеСобытий</name>
+    <synonym>
+      <key>ru</key>
+      <value>События</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Événements</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Events</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Eventos</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="2d06a235-3556-4f3c-9b20-d408aa4e2446">
+    <name>ПоколениеОбработано</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обработано событий</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Événements traités</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Processed events</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Eventos procesados</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="dffb47f3-dc9f-4ccf-827c-bacf1e7e9543">
+    <name>ПоколениеСверки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Поколение сверки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Génération du rapprochement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Reconciliation generation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Generación de la conciliación</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="2e49a834-6c77-4001-93a1-4cc3a7ddb1f8">
+    <name>ПоколениеЗавершеннойСверки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Завершённая сверка</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Rapprochement terminé</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Completed reconciliation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Conciliación terminada</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="29367649-d438-49a8-aab4-3ba136a39d34">
+    <name>СтатусСверки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус сверки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Statut du rapprochement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Reconciliation status</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Estado de la conciliación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="ce42e8c5-ba71-4577-ba08-c95334ae3281">
+    <name>ЭтапСверки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Этап сверки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Étape du rapprochement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Reconciliation stage</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Etapa de la conciliación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="1ff218ee-1ee7-4150-b2f9-f456c79aa14c">
+    <name>КурсорСверки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Курсор сверки</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Curseur du rapprochement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Reconciliation cursor</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cursor de la conciliación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>200</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="5fe8f490-b5b3-406d-9a82-fe2e43aad6ad">
+    <name>ВыполняетсяС</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выполняется с</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>En cours depuis</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Running since</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>En curso desde</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="5a2e7b85-03a5-4273-b2df-3b345ab35345">
+    <name>СеансВыполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сеанс выполнения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Session d'exécution</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Running session</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Sesión de ejecución</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="c671313b-95b7-46ca-9008-fcdd06cf6923">
+    <name>НачалоСеансаВыполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало сеанса</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Début de session</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Session start</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Inicio de sesión</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="26b34bea-257c-4dde-9a74-6c9fd65ee8e1">
+    <name>ТокенВыполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Токен выполнения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Jeton d'exécution</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Run token</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Token de ejecución</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>36</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="f803efeb-15dd-45e3-85f4-618ac4796c4b">
+    <name>РежимВосстановления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Режим восстановления</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Mode de restauration</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Recovery mode</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Modo de recuperación</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="ba10432a-5719-4b6c-b105-dc3dad075652">
+    <name>ШагВосстановления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаг восстановления</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Étape de restauration</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Recovery step</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Paso de recuperación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="ab828d78-6d46-49c0-a774-2c1a63c980fa">
+    <name>МойНомерНаблюдения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер наблюдения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Numéro d'observation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Observation number</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Número de observación</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="2580eae7-2e95-43da-947d-b51d923ebaec">
+    <name>НаблюдениеПартнера</name>
+    <synonym>
+      <key>ru</key>
+      <value>Наблюдение партнёра</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Observation du partenaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Partner observation</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Observación del socio</value>
+    </synonym>
+    <type>
+      <types>ValueStorage</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="93986c90-9e0e-432a-be63-394276d77ff1">
+    <name>ХешиПринятых</name>
+    <synonym>
+      <key>ru</key>
+      <value>Хеши принятых сообщений</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Empreintes des messages reçus</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Received message hashes</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Huellas de mensajes recibidos</value>
+    </synonym>
+    <type>
+      <types>ValueStorage</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="84ddff16-f181-46e2-b63d-f7f0760d77c5">
+    <name>Диагностика</name>
+    <synonym>
+      <key>ru</key>
+      <value>Диагностика</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Diagnostic</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Diagnostics</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Diagnóstico</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="9fd091f0-61c1-49b1-b236-84cd6e4586f2">
+    <name>ОтправленныйНомер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отправленный номер</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Numéro envoyé</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sent number</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Número enviado</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="3e57c4d6-9be0-4baa-82df-95817d8a2ac0">
+    <name>ПринятыйНомер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Принятый номер</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Numéro reçu</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Received number</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Número recibido</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="22751a96-ee97-4b6c-9620-3d3c61ae15eb">
+    <name>Узел</name>
+    <synonym>
+      <key>ru</key>
+      <value>Узел обмена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Nœud d'échange</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Exchange node</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Nodo de intercambio</value>
+    </synonym>
+    <type>
+      <types>ExchangePlanRef.ОбменМеждуБазами</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>
