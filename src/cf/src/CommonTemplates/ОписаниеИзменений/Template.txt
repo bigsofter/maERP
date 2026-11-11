@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.12
+### ru
+- Касса не проводит продажу дважды: если ответ сервера потерялся (обрыв связи, зависание), повторная оплата того же чека возвращает уже записанную продажу, а не создаёт вторую.
+- При открытии кассы показываются незавершённые чеки — записанные, но не напечатанные: касса печатает их, и только после этого принимается новая оплата.
+- Оплата чека записывается целиком: продажа и все платежи — вместе или ничего; неполная оплата не проходит.
+- Смена кассы: у кассы одна открытая смена, суммы открытия и закрытия считаются по наличным в кассе автоматически; перед закрытием касса предупреждает о продажах с долгом и отложенных чеках.
+- Закрытая смена не меняется: документы закрытой смены нельзя провести, изменить или удалить — откройте последнюю смену, исправьте и закройте снова.
+- Оплаченную продажу кассы нельзя отменить — оформляется возврат; отменённую продажу нельзя оплатить.
+### fr
+- La caisse ne valide jamais une vente deux fois : si la réponse du serveur est perdue (coupure, blocage), un nouveau paiement du même ticket renvoie la vente déjà enregistrée au lieu d'en créer une seconde.
+- À l'ouverture de la caisse, les tickets inachevés — enregistrés mais non imprimés — sont affichés : la caisse les imprime, et seulement ensuite un nouveau paiement est accepté.
+- Le paiement d'un ticket s'enregistre d'un seul bloc : la vente et tous les paiements ensemble ou rien ; un paiement incomplet est refusé.
+- Session de caisse : une seule session ouverte par caisse, les montants d'ouverture et de clôture sont calculés automatiquement d'après les espèces en caisse ; avant la clôture, la caisse signale les ventes avec dette et les tickets en attente.
+- Une session fermée ne se modifie pas : ses documents ne peuvent être ni validés, ni modifiés, ni supprimés — rouvrez la dernière session, corrigez et refermez-la.
+- Une vente de caisse payée ne peut pas être annulée — on établit un retour ; une vente annulée ne peut pas être payée.
+### en
+- The cash register never posts a sale twice: if the server response is lost (connection drop, freeze), paying the same receipt again returns the sale already recorded instead of creating a second one.
+- When the cash register opens, it shows unfinished receipts — recorded but not printed: it prints them, and only then is a new payment accepted.
+- A receipt payment is recorded as a whole: the sale and all payments together or nothing; an incomplete payment is refused.
+- Cash session: one open session per cash desk, opening and closing amounts are calculated automatically from the cash on hand; before closing, the register warns about sales with debt and pending receipts.
+- A closed session cannot be changed: its documents cannot be posted, changed or deleted — reopen the last session, fix them and close it again.
+- A paid cash register sale cannot be cancelled — issue a return; a cancelled sale cannot be paid.
+### es
+- La caja nunca contabiliza una venta dos veces: si se pierde la respuesta del servidor (corte, bloqueo), volver a pagar el mismo ticket devuelve la venta ya registrada en lugar de crear otra.
+- Al abrir la caja se muestran los tickets sin finalizar — registrados pero no impresos: la caja los imprime, y solo después se acepta un nuevo pago.
+- El pago de un ticket se registra por completo: la venta y todos los pagos juntos o nada; un pago incompleto se rechaza.
+- Turno de caja: un solo turno abierto por caja, los importes de apertura y cierre se calculan automáticamente según el efectivo en caja; antes del cierre la caja avisa de las ventas con deuda y los tickets pendientes.
+- Un turno cerrado no se modifica: sus documentos no se pueden contabilizar, modificar ni eliminar — vuelva a abrir el último turno, corrija y ciérrelo de nuevo.
+- Una venta de caja pagada no se puede anular — se emite una devolución; una venta anulada no se puede pagar.
+
 ## 2.0.17.11
 ### ru
 - IMEI работает как штрихкод: скан номера в поступлении, реализации, перемещении, оприходовании и на кассе сразу находит телефон и его серию. Повторный скан того же IMEI не добавляет вторую строку, а строка экземпляра всегда одна штука.
