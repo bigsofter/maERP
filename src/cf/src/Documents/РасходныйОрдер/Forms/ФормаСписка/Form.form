@@ -974,6 +974,63 @@
             </extInfo>
           </items>
           <items xsi:type="form:FormField">
+            <name>ОтборТовар</name>
+            <id>122</id>
+            <title>
+              <key>ru</key>
+              <value>Товар</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Article</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Product</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Artículo</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ОтборТовар</segments>
+            </dataPath>
+            <titleLocation>Top</titleLocation>
+            <handlers>
+              <event>OnChange</event>
+              <name>ОтборПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ОтборТоварРасширеннаяПодсказка</name>
+              <id>123</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ОтборТоварКонтекстноеМеню</name>
+              <id>124</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>InputField</type>
+            <editMode>Enter</editMode>
+            <extInfo xsi:type="form:InputFieldExtInfo">
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <choiceFoldersAndItems>Items</choiceFoldersAndItems>
+              <textEdit>true</textEdit>
+              <textSize>Normal</textSize>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
             <name>ОтборСклад</name>
             <id>66</id>
             <title>
@@ -1516,7 +1573,13 @@
 	Док.Ответственный КАК Ответственный,
 	Док.Комментарий КАК Комментарий,
 	ЕСТЬNULL(Количества.Количество, 0) КАК Количество,
-	ЕСТЬNULL(Остатки.КОформлению, 0) КАК КОформлению
+	ЕСТЬNULL(Остатки.КОформлению, 0) КАК КОформлению,
+	Док.ТЧТовары.(
+		Номенклатура КАК Номенклатура
+	) КАК ТЧТовары,
+	Док.ТЧФизическийСостав.(
+		Номенклатура КАК Номенклатура
+	) КАК ТЧФизическийСостав
 ИЗ
 	Документ.РасходныйОрдер КАК Док
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
@@ -1658,6 +1721,19 @@
     <id>12</id>
     <valueType>
       <types>Boolean</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ОтборТовар</name>
+    <id>125</id>
+    <valueType>
+      <types>CatalogRef.Номенклатура</types>
     </valueType>
     <view>
       <common>true</common>

@@ -15,7 +15,12 @@ mainTable. Ни CheckConfig, ни EDT, ни смок-тест такого не 
   1. поля колонок: каждый путь «Список.Поле» в таблице формы должен быть среди
      псевдонимов (КАК Поле) или полей верхнего уровня запроса;
   2. основная таблица: mainTable должна встречаться в тексте запроса — иначе
-     список выбирает данные не того объекта.
+     список выбирает данные не того объекта;
+  3. фильтр «Товар» (поле ОтборТовар, ОтборыСписков.УстановитьОтборПоТовару):
+     запрос списка «Список» выбирает все товарные поля документа — реквизиты
+     шапки и вложенные табличные части с реквизитами типа «Номенклатура».
+     Поля нет в запросе — отбор по нему недоступен, и список при выборе товара
+     не получает данных (эксперимент 2026-11-11 на списке реализаций).
 
 Стандартные поля списка (Ref/Ссылка у справочников и документов, Code,
 Description, DefaultPicture и родня) платформа отдаёт без запроса — они в
@@ -38,6 +43,7 @@ import os
 import re
 import sys
 import unicodedata
+import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DEFAULT = os.path.join(ROOT, "src", "cf", "src")
@@ -152,6 +158,8 @@ class Checker:
             query = unescape(query.group(1))
             self.check_main_table(where, name, body, query)
             self.check_columns(where, name, text, query)
+            if name == "Список" and "<name>ОтборТовар</name>" in text:
+                self.check_product_fields(where, name, path, query)
 
     def dynamic_lists(self, text):
         for match in re.finditer(r"<attributes>\s*<name>(" + IDENT + r")</name>(.*?)</attributes>", text, re.S):
@@ -191,6 +199,47 @@ class Checker:
                 where,
                 "колонка «%s.%s» — поля нет в запросе списка" % (name, column),
             ))
+
+
+    def check_product_fields(self, where, name, path, query):
+        parts = os.path.normpath(path).split(os.sep)
+        doc = parts[parts.index("Documents") + 1]
+        mdo = os.path.join(self.src, "Documents", doc, doc + ".mdo")
+        head, tables = product_fields(mdo)
+        query = nfc(query)
+        select = top_level_head(query)
+        fields = top_level_fields(query)
+        missing = [h for h in head if h not in fields]
+        for table, attrs in tables.items():
+            nested = re.search(r"\." + re.escape(table) + r"\.\((.*?)\)", select, re.S)
+            for attr in attrs:
+                if not nested or not re.search(r"\b" + re.escape(attr) + r"\b", nested.group(1)):
+                    missing.append(table + "." + attr)
+        for field in missing:
+            self.findings.append((
+                "%s|%s|ТОВАР %s" % (where, name, field),
+                where,
+                "фильтр «Товар»: запрос списка «%s» не выбирает товарное поле %s" % (name, field),
+            ))
+
+
+def product_fields(mdo):
+    """Товарные поля документа (тип CatalogRef.Номенклатура): реквизиты шапки и {табличная часть: реквизиты}."""
+    root = ET.parse(mdo).getroot()
+
+    def is_product(node):
+        return any(x.text == "CatalogRef.Номенклатура" for x in node.iter() if x.tag.endswith("types"))
+
+    head, tables = [], {}
+    for child in root:
+        tag = child.tag.split("}")[-1]
+        if tag == "attributes" and is_product(child):
+            head.append(nfc(child.find("name").text))
+        elif tag == "tabularSections":
+            attrs = [nfc(a.find("name").text) for a in child.findall("attributes") if is_product(a)]
+            if attrs:
+                tables[nfc(child.find("name").text)] = attrs
+    return head, tables
 
 
 def read_known():

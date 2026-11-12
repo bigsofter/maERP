@@ -564,6 +564,101 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>ДатаПоследнейОтгрузки</name>
+      <id>835</id>
+      <title>
+        <key>ru</key>
+        <value>Отгружен</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Expédiée le</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>Shipped on</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Enviado el</value>
+      </title>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Список.ДатаПоследнейОтгрузки</segments>
+      </dataPath>
+      <toolTip>
+        <key>ru</key>
+        <value>Дата последней проведённой реализации по заказу</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Date de la dernière vente validée de la commande</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Date of the last posted sale for the order</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Fecha de la última venta contabilizada del pedido</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ДатаПоследнейОтгрузкиРасширеннаяПодсказка</name>
+        <id>836</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДатаПоследнейОтгрузкиКонтекстноеМеню</name>
+        <id>837</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>LabelField</type>
+      <horizontalAlign>Center</horizontalAlign>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Center</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:LabelFieldExtInfo">
+        <width>10</width>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <horizontalStretch>false</horizontalStretch>
+        <format>
+          <key>ru</key>
+          <value>ДЛФ=D</value>
+        </format>
+        <format>
+          <key>fr</key>
+          <value>ДЛФ=D</value>
+        </format>
+        <format>
+          <key>en</key>
+          <value>ДЛФ=D</value>
+        </format>
+        <format>
+          <key>es</key>
+          <value>ДЛФ=D</value>
+        </format>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>Контрагент</name>
       <id>38</id>
       <titleFont xsi:type="core:FontRef">
@@ -1815,6 +1910,63 @@
             <extInfo xsi:type="form:InputFieldExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
               <autoMaxHeight>true</autoMaxHeight>
+              <textEdit>true</textEdit>
+              <textSize>Normal</textSize>
+            </extInfo>
+          </items>
+          <items xsi:type="form:FormField">
+            <name>ОтборТовар</name>
+            <id>831</id>
+            <title>
+              <key>ru</key>
+              <value>Товар</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Article</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Product</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Artículo</value>
+            </title>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <dataPath xsi:type="form:DataPath">
+              <segments>ОтборТовар</segments>
+            </dataPath>
+            <titleLocation>Top</titleLocation>
+            <handlers>
+              <event>OnChange</event>
+              <name>ОтборПриИзменении</name>
+            </handlers>
+            <extendedTooltip>
+              <name>ОтборТоварРасширеннаяПодсказка</name>
+              <id>832</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <contextMenu>
+              <name>ОтборТоварКонтекстноеМеню</name>
+              <id>833</id>
+              <autoFill>true</autoFill>
+            </contextMenu>
+            <type>InputField</type>
+            <editMode>Enter</editMode>
+            <extInfo xsi:type="form:InputFieldExtInfo">
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <choiceFoldersAndItems>Items</choiceFoldersAndItems>
               <textEdit>true</textEdit>
               <textSize>Normal</textSize>
             </extInfo>
@@ -3675,7 +3827,11 @@
 				ИНАЧЕ 2
 			КОНЕЦ
 	КОНЕЦ КАК НомерКартинкиОплаты,
-	ЕСТЬNULL(ВзаиморасчётыСПокупателямиОстатки.СуммаОстаток, 0) КАК Долг
+	ЕСТЬNULL(ВзаиморасчётыСПокупателямиОстатки.СуммаОстаток, 0) КАК Долг,
+	ДокументЗаказПокупателя.ТЧМатериалы.(
+		Номенклатура КАК Номенклатура
+	) КАК ТЧМатериалы,
+	ОтгрузкиПоЗаказу.ДатаПоследнейОтгрузки КАК ДатаПоследнейОтгрузки
 ИЗ
 	Документ.ЗаказПокупателя КАК ДокументЗаказПокупателя
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ИсторияЗаказовПокупателейПоСтатусам.СрезПоследних КАК ИсторияЗаказовПокупателейПоСтатусамСрезПоследних
@@ -3727,7 +3883,8 @@
 		ПО ДокументЗаказПокупателя.Ссылка = РасчётыПоЗаказу.Заказ
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
 			Начисления.Заказ КАК Заказ,
-			СУММА(Начисления.Сумма) КАК Отгружено
+			СУММА(Начисления.Сумма) КАК Отгружено,
+			МАКСИМУМ(Начисления.ДатаОтгрузки) КАК ДатаПоследнейОтгрузки
 		ИЗ
 			(ВЫБРАТЬ
 				Отгрузки.Основание КАК Заказ,
@@ -3735,7 +3892,8 @@
 					КОГДА Отгрузки.ВВалюте
 						ТОГДА Отгрузки.СуммаРегл
 					ИНАЧЕ Отгрузки.Сумма
-				КОНЕЦ КАК Сумма
+				КОНЕЦ КАК Сумма,
+				Отгрузки.Дата КАК ДатаОтгрузки
 			ИЗ
 				Документ.РеализацияТоваровУслуг КАК Отгрузки
 			ГДЕ
@@ -3746,7 +3904,8 @@
 
 			ВЫБРАТЬ
 				Возвраты.Основание.Основание,
-				-Возвраты.Сумма
+				-Возвраты.Сумма,
+				NULL
 			ИЗ
 				Документ.ВозвратОтПокупателя КАК Возвраты
 			ГДЕ
@@ -4337,6 +4496,19 @@
       <autoFillAvailableFields>true</autoFillAvailableFields>
       <getInvisibleFieldPresentations>true</getInvisibleFieldPresentations>
     </extInfo>
+  </attributes>
+  <attributes>
+    <name>ОтборТовар</name>
+    <id>834</id>
+    <valueType>
+      <types>CatalogRef.Номенклатура</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
   </attributes>
 
   <formCommands>
