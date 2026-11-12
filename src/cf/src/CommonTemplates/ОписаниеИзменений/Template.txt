@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.20
+### ru
+- Переход на maERP с прежней редакции 1C:Commerce: выгрузка данных до обновления (с проверкой, что ничего не потеряется), загрузка после обновления и сверка остатков товаров, денег, взаиморасчётов, продаж и убытков «до/после».
+- Кассовые ордера, чьи движения по убыткам перенесены из прежней системы, защищены: их нельзя перепровести, распровести, изменить или удалить — история не меняется.
+- В перемещении товаров — «Срок перемещения (дн.)», в списании товаров — «Контрагент».
+- Файлы можно прикреплять к поступлениям и списаниям безналичных денег.
+- Обновление базы не останавливается на старых возвратах, вернувших товара больше, чем продано: перечень таких продаж записывается в журнал регистрации.
+### fr
+- Passage à maERP depuis l'ancienne édition de 1C:Commerce : export des données avant la mise à jour (avec contrôle qu'aucune donnée ne se perd), chargement après la mise à jour et rapprochement avant/après des stocks, de la trésorerie, des comptes tiers, des ventes et des pertes.
+- Les bons de caisse dont les mouvements de pertes ont été repris de l'ancien système sont protégés : ils ne peuvent être revalidés, dévalidés, modifiés ni supprimés.
+- Transfert de marchandises : « Délai de transfert (j.) » ; sortie de stock : « Tiers ».
+- Les fichiers peuvent être joints aux encaissements et décaissements bancaires.
+- La mise à jour ne s'arrête plus sur d'anciens retours ayant restitué plus que la quantité vendue : la liste de ces ventes est inscrite au journal.
+### en
+- Moving to maERP from the previous edition of 1C:Commerce: data export before the update (with a check that nothing is lost), load after the update and a before/after reconciliation of stock, cash, settlements, sales and losses.
+- Cash orders whose loss movements were carried over from the previous system are protected: they cannot be reposted, unposted, changed or deleted.
+- Goods transfer: "Transfer lead time (days)"; goods write-off: "Counterparty".
+- Files can be attached to bank receipts and payments.
+- The update no longer stops on old returns that brought back more than was sold: the list of such sales is written to the event log.
+### es
+- Paso a maERP desde la edición anterior de 1C:Commerce: exportación de datos antes de la actualización (comprobando que no se pierde nada), carga después de la actualización y conciliación antes/después de existencias, dinero, cuentas con terceros, ventas y pérdidas.
+- Las órdenes de caja cuyos movimientos de pérdidas se trasladaron del sistema anterior están protegidas: no se pueden volver a contabilizar, anular, modificar ni eliminar.
+- Traslado de mercancías: «Plazo del traslado (días)»; baja de mercancías: «Contraparte».
+- Se pueden adjuntar archivos a cobros y pagos bancarios.
+- La actualización ya no se detiene en devoluciones antiguas que devolvieron más de lo vendido: la lista de esas ventas se anota en el registro de eventos.
+
 ## 2.0.17.19
 ### ru
 - Обмен между базами по интернету (HTTPS): одна база запускает обмен, вторая отвечает через опубликованный HTTP-сервис. В узле обмена — адрес сервиса партнёра (только https://), логин и пароль у партнёра (хранятся в базе, на форме не показываются), пользователь сервиса этой базы и команда «Проверить подключение».

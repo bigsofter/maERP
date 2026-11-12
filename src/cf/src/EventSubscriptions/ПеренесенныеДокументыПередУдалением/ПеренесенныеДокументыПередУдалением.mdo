@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="0f2d34fe-61a8-4114-8000-119460c3e6e9">
+  <name>ПеренесенныеДокументыПередУдалением</name>
+  <synonym>
+    <key>ru</key>
+    <value>Перенесённые документы: перед удалением</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Documents transférés : avant la suppression</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Transferred documents: before deletion</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Documentos trasladados: antes de eliminar</value>
+  </synonym>
+  <source>
+    <types>DocumentObject.ПриходныйКассовыйОрдер</types>
+    <types>DocumentObject.РасходныйКассовыйОрдер</types>
+    <types>DocumentObject.КорректировкаРегистров</types>
+    <types>DocumentObject.СписаниеТоваров</types>
+  </source>
+  <event>BeforeDelete</event>
+  <handler>CommonModule.ПеренесенныеДокументы.ПередУдалениемПеренесенного</handler>
+</mdclass:EventSubscription>
