@@ -27,7 +27,7 @@ echo "База: $IB"
 # Тонкий клиент обязателен: толстый компилирует общие модули «Сервер + Вызов сервера»
 # дважды и падает на старте.
 V8C="${V8_DIR}/1cv8c"
-rm -f "$REPORT" "$CLIENT_LOG"
+rm -f "$REPORT" "$REPORT.progress" "$CLIENT_LOG"
 "$V8C" ENTERPRISE /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /C "ТестыДокументов;$REPORT" \
 	"${V8_BATCH[@]}" /Out "$CLIENT_LOG" || true
 
@@ -41,6 +41,7 @@ fi
 
 if ! wait_report_mark "ТестыДокументов;$REPORT" "$REPORT" "ИТОГ;"; then
 	echo "Прогон не отработал: нет строки ИТОГ в $REPORT (клиентский лог: $CLIENT_LOG)"
+	[ -f "$REPORT.progress" ] && echo "Последний начатый сценарий: $(tail -1 "$REPORT.progress")"
 	[ -f "$CLIENT_LOG" ] && cat "$CLIENT_LOG"
 	echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"
 	exit 1

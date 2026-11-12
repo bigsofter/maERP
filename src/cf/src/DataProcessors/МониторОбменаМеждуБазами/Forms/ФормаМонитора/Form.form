@@ -1016,6 +1016,70 @@
         <textEdit>true</textEdit>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>ЕдиницыНоменклатура</name>
+      <id>88</id>
+      <titleFont xsi:type="core:FontRef">
+        <font>Style.NormalTextFont</font>
+        <bold>false</bold>
+        <italic>false</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+        <scale>100</scale>
+      </titleFont>
+      <title>
+        <key>ru</key>
+        <value>Только для товара</value>
+      </title>
+      <title>
+        <key>fr</key>
+        <value>Pour l'article seulement</value>
+      </title>
+      <title>
+        <key>en</key>
+        <value>For the item only</value>
+      </title>
+      <title>
+        <key>es</key>
+        <value>Solo para el artículo</value>
+      </title>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>Единицы.Номенклатура</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>ЕдиницыНоменклатураРасширеннаяПодсказка</name>
+        <id>89</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ЕдиницыНоменклатураКонтекстноеМеню</name>
+        <id>90</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+      </extInfo>
+    </items>
     <changeRowSet>false</changeRowSet>
     <changeRowOrder>false</changeRowOrder>
 
@@ -1704,6 +1768,19 @@
           <precision>15</precision>
           <scale>3</scale>
         </numberQualifiers>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>Номенклатура</name>
+      <id>6</id>
+      <valueType>
+        <types>CatalogRef.Номенклатура</types>
       </valueType>
       <view>
         <common>true</common>

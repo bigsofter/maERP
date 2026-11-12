@@ -10,6 +10,32 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.19
+### ru
+- Обмен между базами по интернету (HTTPS): одна база запускает обмен, вторая отвечает через опубликованный HTTP-сервис. В узле обмена — адрес сервиса партнёра (только https://), логин и пароль у партнёра (хранятся в базе, на форме не показываются), пользователь сервиса этой базы и команда «Проверить подключение».
+- Для входа партнёра в базу заводится отдельный пользователь с ролью «Сервис обмена между базами» — по одному на каждый узел; пакеты обмена подписываются ключом пары, ответы с перенаправлением и без подписи не принимаются.
+- Обмен идёт сам: регламентное задание раз в минуту проверяет узлы и отправляет новые документы, принимает файлы из каталога и опрашивает партнёра не реже раза в 15 минут. Задание включается и выключается само вместе с узлами обмена.
+- Коэффициент единиц партнёра можно задать для отдельного товара: в мониторе обмена колонка «Только для товара».
+- Цены из обмена записываются за базовую единицу товара; дата запрета для обмена учитывает и автозакрытие периода.
+### fr
+- Échange entre bases via Internet (HTTPS) : une base lance l'échange, l'autre répond via un service HTTP publié. Le nœud indique l'adresse du service du partenaire (https:// uniquement), l'identifiant et le mot de passe chez le partenaire (stockés dans la base, non affichés), l'utilisateur du service de cette base et la commande « Vérifier la connexion ».
+- Le partenaire se connecte avec un utilisateur dédié ayant le rôle « Service d'échange entre bases », un par nœud ; les paquets sont signés par la clé de la paire, les réponses avec redirection ou sans signature sont refusées.
+- L'échange est automatique : une tâche planifiée vérifie les nœuds chaque minute, envoie les nouveaux documents, reçoit les fichiers du dossier et interroge le partenaire au moins toutes les 15 minutes. La tâche s'active et se désactive avec les nœuds.
+- Le coefficient d'unité du partenaire peut être défini pour un article précis : colonne « Pour l'article seulement » du moniteur.
+- Les prix reçus sont enregistrés par unité de base ; la date de clôture de l'échange tient compte aussi de la clôture automatique de période.
+### en
+- Exchange between bases over the Internet (HTTPS): one base starts the exchange, the other answers through a published HTTP service. The node holds the partner service address (https:// only), the login and password at the partner (stored in the base, not shown), the service user of this base and the "Check connection" command.
+- The partner signs in with a dedicated user with the "Inter-base exchange service" role, one per node; packets are signed with the pair key, responses with a redirect or without a signature are rejected.
+- The exchange runs by itself: a scheduled job checks nodes every minute, sends new documents, takes files from the folder and polls the partner at least every 15 minutes. The job turns on and off together with exchange nodes.
+- A partner unit coefficient can be set for a single item: "For the item only" column in the exchange monitor.
+- Received prices are stored per base unit; the exchange closing date also respects automatic period closing.
+### es
+- Intercambio entre bases por Internet (HTTPS): una base inicia el intercambio y la otra responde mediante un servicio HTTP publicado. El nodo indica la dirección del servicio del socio (solo https://), el usuario y la contraseña en el socio (guardados en la base, no se muestran), el usuario del servicio de esta base y el comando «Comprobar conexión».
+- El socio entra con un usuario propio con el rol «Servicio de intercambio entre bases», uno por nodo; los paquetes se firman con la clave del par y se rechazan las respuestas con redirección o sin firma.
+- El intercambio es automático: una tarea programada revisa los nodos cada minuto, envía documentos nuevos, recoge los archivos de la carpeta y consulta al socio al menos cada 15 minutos. La tarea se activa y desactiva junto con los nodos.
+- El coeficiente de unidad del socio puede definirse para un artículo concreto: columna «Solo para el artículo» del monitor.
+- Los precios recibidos se guardan por unidad base; la fecha de cierre del intercambio respeta también el cierre automático del período.
+
 ## 2.0.17.17
 ### ru
 - Обмен между базами maERP: реализация продавца приходит покупателю поступлением, установка цен — установкой цен в виде цен покупателя. Узел обмена (Настройки программы → Обмен между базами) задаёт контрагента, организацию, что отправлять и принимать, склад приёма, дату начала обмена.
