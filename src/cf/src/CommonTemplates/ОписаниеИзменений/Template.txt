@@ -10,6 +10,16 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.21
+### ru
+- В сборку вошли правки параллельного потока 2.0.17.8–2.0.17.18: сортировка списков кликом по колонке вместо собственного постраничного просмотра, команда «Файлы» в документах, номер и дата заказа клиента, фильтр «Товар» в списках документов, «Детали» в списке КП, колонка «Отгружен» в заказах.
+### fr
+- Intégration des modifications du flux parallèle 2.0.17.8–2.0.17.18 : tri des listes par clic sur la colonne à la place de notre pagination, commande « Fichiers » dans les documents, numéro et date de commande du client, filtre « Article » dans les listes de documents, « Détails » dans la liste des devis, colonne « Expédié » dans les commandes.
+### en
+- The build includes the parallel stream changes 2.0.17.8–2.0.17.18: list sorting by clicking a column instead of our own paging, the "Files" command in documents, customer order number and date, the "Item" filter in document lists, "Details" in the quotation list, the "Shipped" column in orders.
+### es
+- La versión incluye los cambios del flujo paralelo 2.0.17.8–2.0.17.18: ordenación de listas con clic en la columna en lugar de nuestra paginación, comando «Archivos» en los documentos, número y fecha del pedido del cliente, filtro «Artículo» en las listas de documentos, «Detalles» en la lista de presupuestos, columna «Enviado» en los pedidos.
+
 ## 2.0.17.20
 ### ru
 - Переход на maERP с прежней редакции 1C:Commerce: выгрузка данных до обновления (с проверкой, что ничего не потеряется), загрузка после обновления и сверка остатков товаров, денег, взаиморасчётов, продаж и убытков «до/после».
@@ -61,6 +71,24 @@
 - El intercambio es automático: una tarea programada revisa los nodos cada minuto, envía documentos nuevos, recoge los archivos de la carpeta y consulta al socio al menos cada 15 minutos. La tarea se activa y desactiva junto con los nodos.
 - El coeficiente de unidad del socio puede definirse para un artículo concreto: columna «Solo para el artículo» del monitor.
 - Los precios recibidos se guardan por unidad base; la fecha de cierre del intercambio respeta también el cierre automático del período.
+
+## 2.0.17.18
+### ru
+- В списках документов с товарами (продажи, закупки, налоговые накладные, коммерческие предложения, склад, производство) на закладке «Фильтры» правой панели появился фильтр «Товар». Выберите товар — в списке останутся документы, в строках которых он есть; при вводе части наименования или артикула программа предложит подходящие товары. Очистите поле — фильтр снимется.
+- В списке коммерческих предложений на правой панели появилась закладка «Детали»: наша компания, ответственный, менеджер, комментарий, сумма и состав предложения по товарам — как в списках остальных документов.
+- В списке заказов покупателей появилась колонка «Отгружен» — дата последней проведённой реализации по заказу. Плановая дата отгрузки из карточки заказа остаётся отдельной колонкой; по частично отгруженному заказу видна дата последней отгрузки.
+### fr
+- Dans les listes de documents avec articles (ventes, achats, factures fiscales, offres commerciales, stock, production), l'onglet « Filtres » du panneau de droite comporte un filtre « Article ». Choisissez un article : la liste ne garde que les documents dont les lignes le contiennent ; en saisissant une partie du nom ou de la référence, le programme propose les articles correspondants. Videz le champ pour retirer le filtre.
+- Dans la liste des offres commerciales, le panneau de droite comporte un onglet « Détails » : notre société, responsable, manager, commentaire, montant et composition de l'offre par article, comme dans les listes des autres documents.
+- La liste des commandes clients comporte une colonne « Expédiée le » : date de la dernière vente validée de la commande. La date d'expédition prévue de la fiche reste une colonne à part ; pour une commande expédiée en partie, c'est la date de la dernière expédition qui s'affiche.
+### en
+- Lists of documents with products (sales, purchases, tax invoices, commercial offers, warehouse, production) have a new "Product" filter on the "Filters" tab of the right panel. Choose a product and the list keeps only the documents whose lines contain it; typing part of the name or SKU offers matching products. Clear the field to remove the filter.
+- The commercial offer list has a new "Details" tab on the right panel: our company, responsible, manager, comment, amount and the offer's products, as in the lists of other documents.
+- The customer order list has a new "Shipped on" column: the date of the last posted sale for the order. The planned shipment date from the order form stays a separate column; for a partially shipped order the date of the last shipment is shown.
+### es
+- En las listas de documentos con artículos (ventas, compras, facturas fiscales, ofertas comerciales, almacén, producción), la pestaña «Filtros» del panel derecho tiene un nuevo filtro «Artículo». Elija un artículo y la lista mostrará solo los documentos cuyas líneas lo contienen; al escribir parte del nombre o de la referencia, el programa propone los artículos que coinciden. Vacíe el campo para quitar el filtro.
+- En la lista de ofertas comerciales, el panel derecho tiene una nueva pestaña «Detalles»: nuestra empresa, responsable, gerente, comentario, importe y composición de la oferta por artículos, como en las listas de los demás documentos.
+- La lista de pedidos de clientes tiene una nueva columna «Enviado el»: fecha de la última venta contabilizada del pedido. La fecha de envío prevista de la ficha sigue siendo una columna aparte; en un pedido enviado en parte se muestra la fecha del último envío.
 
 ## 2.0.17.17
 ### ru
@@ -214,6 +242,8 @@
 - Ошибочно введённый IMEI можно исправить командой «Исправить IMEI» в карточке серии — даже после продажи. Команда доступна руководителю и администратору, исправление записывается в журнал регистрации.
 - Новая настройка «Возврат от покупателя только по документу продажи» (Настройки программы → Номенклатура; включается отраслью «Телефоны и аксессуары»): возврат проводится только по проведённой продаже и не больше проданного, а продажу с проведёнными возвратами нельзя изменить, отменить или удалить, пока возвраты не отменены.
 - Возврат телефона по продаже, покрытой налоговым документом, оформляется по налоговому документу.
+- Счёт-фактура и проформа налоговой накладной печатают номер и дату нашего заказа покупателя: «Заказ № … от …» вслед за документом отгрузки. Если накладная закрывает несколько отгрузок по разным заказам, печатаются все заказы.
+- Поля «Номер заказа клиента» и «Дата заказа клиента» из сборки 2.0.17.10 убраны: в документах печатается номер нашего заказа, который присваивает программа, вводить отдельный номер не нужно.
 ### fr
 - L'IMEI fonctionne comme code-barres : scanner le numéro dans la réception, la vente, le transfert, l'entrée en stock et à la caisse trouve aussitôt le téléphone et sa série. Un second scan du même IMEI n'ajoute pas de ligne, et la ligne d'un exemplaire vaut toujours une pièce.
 - Si la valeur saisie est à la fois le code-barres d'un article et l'IMEI d'un autre, aucun article n'est proposé : le programme demande de le choisir manuellement.
@@ -221,6 +251,8 @@
 - Un IMEI saisi par erreur se corrige avec la commande « Corriger l'IMEI » de la fiche de série, même après la vente. La commande est réservée au dirigeant et à l'administrateur ; la correction est inscrite au journal d'enregistrement.
 - Nouveau paramètre « Retour client uniquement sur le document de vente » (Paramètres du programme → Articles ; activé par le secteur « Téléphones et accessoires ») : le retour se valide uniquement sur une vente validée et sans dépasser la quantité vendue, et une vente avec des retours validés ne peut être ni modifiée, ni annulée, ni supprimée tant que les retours ne sont pas annulés.
 - Le retour d'un téléphone vendu par une vente couverte par un document fiscal se fait sur ce document fiscal.
+- La facture et la proforma de la facture fiscale impriment le numéro et la date de notre commande client : « Commande n° … du … » après la livraison. Si la facture couvre plusieurs livraisons de commandes différentes, toutes les commandes sont imprimées.
+- Les champs « N° de commande client » et « Date de commande client » de la version 2.0.17.10 sont retirés : les documents impriment le numéro de notre commande, attribué par le programme, aucune saisie séparée n'est nécessaire.
 ### en
 - IMEI works as a barcode: scanning the number in receipts, sales, transfers, stock entries and at the cash register finds the phone and its series at once. Scanning the same IMEI again adds no second row, and a unit row is always one piece.
 - If the entered value is both one item's barcode and another item's IMEI, no item is filled in: the program asks you to choose it manually.
@@ -228,6 +260,8 @@
 - An IMEI entered by mistake can be corrected with the "Correct IMEI" command in the series card, even after the sale. The command is available to the director and the administrator; the correction is written to the event log.
 - New setting "Customer returns only against the sales document" (Program settings → Items; turned on by the "Phones and accessories" industry): a return is posted only against a posted sale and not above the quantity sold, and a sale with posted returns cannot be changed, unposted or deleted until the returns are cancelled.
 - A phone sold by a sale covered by a tax document is returned against that tax document.
+- The invoice and proforma of a tax invoice print the number and date of our customer order: "Order No. … dated …" after the delivery. If the tax invoice covers several deliveries from different orders, all orders are printed.
+- The "Customer order number" and "Customer order date" fields of build 2.0.17.10 are removed: documents print the number of our order assigned by the program, no separate number needs to be entered.
 ### es
 - El IMEI funciona como código de barras: escanear el número en la recepción, la venta, el traslado, la entrada de stock y en la caja encuentra al instante el teléfono y su serie. Un segundo escaneo del mismo IMEI no añade otra fila, y la fila de una unidad siempre es una pieza.
 - Si el valor introducido es a la vez el código de barras de un artículo y el IMEI de otro, no se propone ningún artículo: el programa pide elegirlo manualmente.
@@ -235,6 +269,8 @@
 - Un IMEI introducido por error se corrige con el comando «Corregir IMEI» de la ficha de la serie, incluso después de la venta. El comando está disponible para el director y el administrador; la corrección queda en el registro de eventos.
 - Nuevo ajuste «Devolución de cliente solo según el documento de venta» (Ajustes del programa → Artículos; lo activa el sector «Teléfonos y accesorios»): la devolución se contabiliza solo según una venta contabilizada y sin superar lo vendido, y una venta con devoluciones contabilizadas no se puede modificar, anular ni eliminar mientras no se anulen las devoluciones.
 - Un teléfono vendido en una venta cubierta por un documento fiscal se devuelve según ese documento fiscal.
+- La factura y la proforma de la factura fiscal imprimen el número y la fecha de nuestro pedido de cliente: «Pedido n.º … del …» después de la entrega. Si la factura cubre varias entregas de pedidos distintos, se imprimen todos los pedidos.
+- Se eliminan los campos «N.º de pedido del cliente» y «Fecha del pedido del cliente» de la versión 2.0.17.10: los documentos imprimen el número de nuestro pedido, que asigna el programa, no hace falta introducir otro número.
 
 ## 2.0.17.10
 ### ru
@@ -243,24 +279,81 @@
 - Товар с IMEI поступает с номером на каждую единицу; без номера он приходит только перемещением, возвратом по продаже или из остатка, набранного до включения учёта. Возврат от покупателя — только по документу продажи и не больше проданного.
 - Флажок ставится только товару без характеристик и вне техкарт и после включения не снимается; при включении программа проверяет историю движений товара. Ордерные склады и склады с подчинённым складом для товаров с IMEI недоступны.
 - Документ с движениями товара с IMEI не удаляется, пока не отменено его проведение; серия с движениями не удаляется и не переименовывается.
+- В заказе покупателя появились поля «Номер заказа клиента» и «Дата заказа клиента» — номер и дата заказа в системе клиента. Поля стоят в карточке под договором, номер выведен колонкой в списке заказов и ищется строкой поиска.
+- Номер и дата заказа клиента печатаются строкой «Ваш заказ № … от …» в проформе, бланке заказа и счёте заказа, а также в счёте-фактуре, накладной, счёте и проформе реализации по этому заказу — в реализацию номер не переносится, печать берёт его из заказа.
+- При копировании заказа номер и дата заказа клиента не копируются.
 ### fr
 - Nouveau secteur « Téléphones et accessoires » : il active les séries d'articles et ajoute aux articles les propriétés « Modèle », « Couleur », « Mémoire », « Garantie, mois » et « Compatibilité ».
 - Suivi par numéros de série (IMEI) : case à cocher dans la fiche article. Chaque IMEI est un seul exemplaire : il ne peut pas figurer deux fois, dans deux entrepôts à la fois ni passer en négatif, et un numéro n'appartient qu'à un article.
 - Un article à IMEI entre avec un numéro par unité ; sans numéro, il n'entre que par transfert, par retour d'une vente ou depuis le stock constitué avant l'activation du suivi. Le retour client se fait uniquement sur le document de vente et sans dépasser la quantité vendue.
 - La case ne se coche que pour un article sans caractéristiques et hors fiches techniques, et ne se décoche plus ; à l'activation, le programme contrôle l'historique des mouvements. Les entrepôts par ordres et ceux avec entrepôt subordonné ne sont pas disponibles pour les articles à IMEI.
 - Un document avec des mouvements d'articles à IMEI ne se supprime pas tant que sa validation n'est pas annulée ; une série avec des mouvements ne se supprime ni ne se renomme.
+- La commande client comporte les champs « N° de commande client » et « Date de commande client » : numéro et date de la commande dans le système du client. Ils figurent dans la fiche sous le contrat ; le numéro est affiché en colonne dans la liste des commandes et se recherche par la barre de recherche.
+- Le numéro et la date de commande client s'impriment sous la forme « Votre commande n° … du … » sur la proforma, le bon de commande et la facture de la commande, ainsi que sur la facture, le bon de livraison et la proforma de la vente issue de cette commande : le numéro n'est pas recopié dans la vente, l'impression le prend dans la commande.
+- La copie d'une commande ne reprend pas le numéro ni la date de commande client.
 ### en
 - New industry "Phones and accessories": it turns on item series and adds the item properties "Model", "Color", "Storage", "Warranty, months" and "Compatibility".
 - Serial number (IMEI) tracking: a checkbox in the item card. Each IMEI is one unit: it cannot be counted twice, sit in two warehouses at once or go negative, and a number belongs to one item only.
 - An IMEI item is received with a number for each unit; without a number it comes in only by transfer, by return of a sale or from stock built up before tracking was turned on. A customer return is made only against the sales document and not above the quantity sold.
 - The checkbox can be set only for an item without characteristics and outside BOMs, and cannot be cleared afterwards; when it is set, the program checks the item's movement history. Order-based warehouses and warehouses with a subordinate warehouse are not available for IMEI items.
 - A document with IMEI item movements cannot be deleted until it is unposted; a series with movements cannot be deleted or renamed.
+- Customer orders have new fields "Customer order number" and "Customer order date": the order number and date in the customer's system. They are in the order form under the contract; the number is shown as a column in the order list and can be found with the search bar.
+- The customer order number and date are printed as "Your order No. … dated …" on the order's proforma, order form and invoice, and on the invoice, delivery note and proforma of sales based on that order: the number is not copied into the sale, printing takes it from the order.
+- Copying an order does not copy the customer order number and date.
 ### es
 - Nuevo sector «Teléfonos y accesorios»: activa las series de artículos y añade a los artículos las propiedades «Modelo», «Color», «Memoria», «Garantía, meses» y «Compatibilidad».
 - Control por números de serie (IMEI): casilla en la ficha del artículo. Cada IMEI es una sola unidad: no puede figurar dos veces, estar en dos almacenes a la vez ni quedar en negativo, y un número pertenece a un solo artículo.
 - Un artículo con IMEI entra con un número por unidad; sin número, solo entra por traslado, por devolución de una venta o desde las existencias reunidas antes de activar el control. La devolución de cliente se hace solo sobre el documento de venta y sin superar lo vendido.
 - La casilla solo se marca en un artículo sin características y fuera de fichas técnicas, y ya no se desmarca; al activarla, el programa comprueba el historial de movimientos. Los almacenes por órdenes y los que tienen almacén subordinado no están disponibles para artículos con IMEI.
 - Un documento con movimientos de artículos con IMEI no se elimina mientras no se anule su contabilización; una serie con movimientos no se elimina ni se renombra.
+- El pedido de cliente tiene los campos «N.º de pedido del cliente» y «Fecha del pedido del cliente»: número y fecha del pedido en el sistema del cliente. Están en la ficha debajo del contrato; el número se muestra como columna en la lista de pedidos y se puede buscar con la barra de búsqueda.
+- El número y la fecha del pedido del cliente se imprimen como «Su pedido n.º … del …» en la proforma, la hoja de pedido y la factura del pedido, y también en la factura, el albarán y la proforma de la venta basada en ese pedido: el número no se copia a la venta, la impresión lo toma del pedido.
+- Al copiar un pedido no se copian el número ni la fecha del pedido del cliente.
+
+## 2.0.17.9
+### ru
+- В документах появилась кнопка «Файлы» со скрепкой: к записанному документу можно присоединить сканы, фотографии, договоры и любые другие файлы, открыть их двойным щелчком, сохранить на диск и удалить.
+- Добавлять и удалять файлы документа может тот, кто может изменять сам документ; у кого документ только для просмотра, файлы может открыть и сохранить.
+- Удаление файла из списка файлов надёжнее: файл на диске удаляет сервер только для действительно удалённой записи.
+### fr
+- Les documents disposent d'un bouton « Fichiers » avec un trombone : on peut joindre au document enregistré des scans, photos, contrats et tout autre fichier, les ouvrir par double-clic, les enregistrer sur le disque et les supprimer.
+- Ajouter et supprimer les fichiers d'un document est réservé à ceux qui peuvent modifier le document ; ceux qui ne peuvent que le consulter peuvent ouvrir et enregistrer ses fichiers.
+- La suppression d'un fichier depuis la liste des fichiers est plus sûre : le serveur ne supprime le fichier sur le disque que pour un enregistrement réellement supprimé.
+### en
+- Documents have a "Files" button with a paperclip: scans, photos, contracts and any other files can be attached to a saved document, opened by double-click, saved to disk and deleted.
+- Adding and deleting a document's files is allowed to those who can edit the document; those who can only view it can open and save its files.
+- Deleting a file from the file list is safer: the server removes the file on disk only for a record that was actually deleted.
+### es
+- Los documentos tienen un botón «Archivos» con un clip: al documento guardado se pueden adjuntar escaneos, fotos, contratos y cualquier otro archivo, abrirlos con doble clic, guardarlos en el disco y eliminarlos.
+- Añadir y eliminar archivos de un documento solo puede hacerlo quien puede modificar el documento; quien solo puede consultarlo puede abrir y guardar sus archivos.
+- La eliminación de un archivo desde la lista de archivos es más segura: el servidor borra el archivo del disco solo para un registro realmente eliminado.
+
+## 2.0.17.8
+### ru
+- Сортировка по клику на заголовок колонки работает во всех списках документов: список сортируется целиком, а не только 50 строк текущей страницы.
+- Под списками документов больше нет кнопок перехода по страницам «◀◀ ◀ ▶ ▶▶» и счётчика «1-50 из N»: список листается прокруткой и подгружает документы сам, отборы правой панели работают как раньше.
+- Список коммерческих предложений, приходных и расходных ордеров теперь сортируется кликом по колонке.
+- Рабочее место производства: список заказов сортируется кликом по любой колонке (по умолчанию — от новых к старым), закладка «Документы» показывает все документы за период без деления на страницы.
+- Рабочее место закупок: заказы и поступления показываются целиком, без страниц; таблицы рабочих мест закупок и производства сортируются кликом по заголовку колонки.
+### fr
+- Le tri par clic sur l'en-tête de colonne fonctionne dans toutes les listes de documents : toute la liste est triée, et non plus seulement les 50 lignes de la page en cours.
+- Les boutons de pagination « ◀◀ ◀ ▶ ▶▶ » et le compteur « 1-50 sur N » disparaissent sous les listes de documents : la liste défile et charge les documents d'elle-même, les filtres du panneau de droite fonctionnent comme avant.
+- Les listes d'offres commerciales, de bons d'entrée et de bons de sortie se trient désormais par clic sur une colonne.
+- Poste de production : la liste des commandes se trie par clic sur n'importe quelle colonne (par défaut des plus récentes aux plus anciennes), l'onglet « Documents » affiche tous les documents de la période sans pagination.
+- Poste des achats : les commandes et les réceptions s'affichent en entier, sans pages ; les tableaux des postes achats et production se trient par clic sur l'en-tête de colonne.
+### en
+- Sorting by clicking a column header works in all document lists: the whole list is sorted, not just the 50 rows of the current page.
+- The page buttons "◀◀ ◀ ▶ ▶▶" and the "1-50 of N" counter are gone from document lists: the list scrolls and loads documents by itself, the right panel filters work as before.
+- The commercial offer, receiving order and issue order lists can now be sorted by clicking a column.
+- Production workplace: the order list sorts by clicking any column (newest first by default), the "Documents" tab shows all documents of the period without pages.
+- Purchasing workplace: orders and receipts are shown in full, without pages; the tables of the purchasing and production workplaces sort by clicking a column header.
+### es
+- La ordenación al hacer clic en el encabezado de una columna funciona en todas las listas de documentos: se ordena toda la lista, no solo las 50 filas de la página actual.
+- Desaparecen de las listas de documentos los botones de página «◀◀ ◀ ▶ ▶▶» y el contador «1-50 de N»: la lista se desplaza y carga los documentos por sí misma, los filtros del panel derecho funcionan como antes.
+- Las listas de ofertas comerciales, órdenes de entrada y órdenes de salida ahora se ordenan con un clic en una columna.
+- Puesto de producción: la lista de pedidos se ordena con un clic en cualquier columna (por defecto, de los más recientes a los más antiguos), la pestaña «Documentos» muestra todos los documentos del periodo sin páginas.
+- Puesto de compras: los pedidos y las recepciones se muestran completos, sin páginas; las tablas de los puestos de compras y de producción se ordenan con un clic en el encabezado de la columna.
+
 
 ## 2.0.17.7
 ### ru
