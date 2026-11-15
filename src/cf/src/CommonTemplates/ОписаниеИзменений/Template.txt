@@ -10,6 +10,52 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.24
+### ru
+- Удержание НДС у источника (RAS TVA): в карточке клиента — флажок и процент (75 или 100), налоговая накладная получает их из карточки и считает сумму удержания.
+- Удержание НДС оформляется отдельным документом «Удержание НДС покупателем»: его создаёт и проводит налоговая накладная, он гасит долг накладной без денег; в документ вносится справка об удержании.
+- Оплата на основании налоговой накладной с удержанием — на сумму к оплате; в Facture — строки «RAS TVA» и «Total à payer», в списке накладных — колонка «RAS TVA».
+- Оплата прямо на налоговую накладную гасит долг накладной и её отгрузок, остаток становится авансом; накладная без отгрузки больше не даёт переплату.
+- Налоговая накладная на другого покупателя: долг переходит к покупателю накладной и больше не задваивается.
+- Налоговая накладная не проводится по отгрузке, по которой уже проведён возврат или сертификат; накладную, на которую записали оплаты или возвраты, нельзя изменить или отменить.
+- Возврат переплаты покупателю оформляется на основании исходного платежа; возврат по налоговой накладной запрещён.
+- Дата начала учёта взаиморасчётов (настройки «Бухгалтерия»): документы раньше этой даты не пишут взаиморасчёты.
+- Коммерческое предложение: без настройки «Заверение цен» цены и скидки не редактируются; «Скидка на цену» закрыта и в заказе, и в реализации.
+- Для администратора: исторические налоговые накладные, перенесённые из прежней базы, замораживаются — их можно перепровести только без изменений.
+### fr
+- Retenue de TVA à la source (RAS TVA) : dans la fiche client, case et taux (75 ou 100) ; la facture fiscale les reprend et calcule le montant de la retenue.
+- La retenue fait l'objet d'un document distinct « Retenue de TVA à la source » : créé et validé par la facture fiscale, il solde sa dette sans argent ; l'attestation de retenue y est saisie.
+- Le paiement sur la base d'une facture avec retenue se fait pour le montant à payer ; la Facture imprime les lignes « RAS TVA » et « Total à payer », la liste des factures affiche la colonne « RAS TVA ».
+- Un paiement directement sur la facture fiscale solde la dette de la facture et de ses livraisons, le reste devient une avance ; une facture sans livraison ne crée plus de trop-perçu.
+- Facture fiscale au nom d'un autre client : la dette passe au client de la facture et n'est plus doublée.
+- La facture fiscale ne se valide pas sur une livraison déjà retournée ou payée par bon ; une facture sur laquelle des paiements ou retours sont inscrits ne peut être ni modifiée ni annulée.
+- Le remboursement d'un trop-perçu se fait sur la base du paiement d'origine ; le remboursement sur facture fiscale est interdit.
+- Date de début du suivi des règlements (paramètres « Comptabilité ») : les documents antérieurs n'inscrivent pas de règlements.
+- Offre commerciale : sans le paramètre « Validation des prix », prix et remises ne sont pas modifiables ; « Remise sur prix » est verrouillée aussi dans la commande et la vente.
+- Pour l'administrateur : les factures fiscales historiques transférées de l'ancienne base sont gelées — elles ne se revalident que sans modification.
+### en
+- VAT withholding at source (RAS TVA): the customer card has a flag and a rate (75 or 100); the tax invoice takes them from the card and calculates the withheld amount.
+- The withholding is a separate document "VAT withheld by customer": the tax invoice creates and posts it, it settles the invoice debt without money; the withholding certificate is entered in it.
+- Payment based on a tax invoice with withholding is for the amount payable; the Facture prints "RAS TVA" and "Total à payer" lines, the invoice list shows a "RAS TVA" column.
+- A payment made directly on a tax invoice settles the debt of the invoice and its deliveries, the rest becomes an advance; an invoice without a delivery no longer creates an overpayment.
+- Tax invoice issued to another customer: the debt moves to the invoice customer and is no longer doubled.
+- A tax invoice cannot be posted on a delivery that already has a posted return or voucher; an invoice with payments or returns recorded on it cannot be changed or unposted.
+- An overpayment refund is entered on the basis of the original payment; a refund on a tax invoice is not allowed.
+- Settlements accounting start date ("Accounting" settings): documents before this date do not record settlements.
+- Commercial offer: without the "Price approval" setting, prices and discounts are read-only; "Discount on price" is locked in the order and the sale too.
+- For the administrator: historical tax invoices transferred from the previous database are frozen — they can be reposted only without changes.
+### es
+- Retención del IVA en la fuente (RAS TVA): en la ficha del cliente, casilla y porcentaje (75 o 100); la factura fiscal los toma de la ficha y calcula el importe retenido.
+- La retención es un documento aparte «IVA retenido por el cliente»: lo crea y contabiliza la factura fiscal, liquida su deuda sin dinero; en él se registra el certificado de retención.
+- El pago sobre la base de una factura con retención se hace por el importe a pagar; la Facture imprime las líneas «RAS TVA» y «Total à payer», la lista de facturas muestra la columna «RAS TVA».
+- Un pago directo sobre la factura fiscal liquida la deuda de la factura y de sus entregas, el resto queda como anticipo; una factura sin entrega ya no genera pago en exceso.
+- Factura fiscal a nombre de otro cliente: la deuda pasa al cliente de la factura y ya no se duplica.
+- La factura fiscal no se contabiliza sobre una entrega con devolución o vale ya contabilizados; una factura con pagos o devoluciones registrados no se puede modificar ni anular.
+- La devolución de un pago en exceso se registra sobre la base del pago original; la devolución sobre factura fiscal está prohibida.
+- Fecha de inicio de la contabilidad de liquidaciones (ajustes «Contabilidad»): los documentos anteriores no registran liquidaciones.
+- Oferta comercial: sin el ajuste «Validación de precios», precios y descuentos no se editan; «Descuento sobre precio» se bloquea también en el pedido y la venta.
+- Para el administrador: las facturas fiscales históricas trasladadas de la base anterior se congelan — solo se recontabilizan sin cambios.
+
 ## 2.0.17.22
 ### ru
 - Номер банковского счёта вмещает до 30 знаков: марокканский RIB из 24 цифр сохраняется целиком, в том числе при загрузке банковской выписки.
