@@ -59,7 +59,8 @@ for C in Бренды ВидыЦен TypesDePayment; do
 done
 apply_cfg "$XML_STR" string-codes
 echo "== 4б. Коды трёх справочников - цифрами"
-"$D/run-epf.sh" "$IB" Codes "$D/codes.bsl" "$LOGS/codes.txt" > /dev/null || { cat "$LOGS/codes.txt"; exit 1; }
+# Первый вход на CF maERP выполняет обработчики обновления (у базы с годами истории - часы): запас как у загрузки.
+TIMEOUT=${TIMEOUT:-14400} "$D/run-epf.sh" "$IB" Codes "$D/codes.bsl" "$LOGS/codes.txt" > /dev/null || { cat "$LOGS/codes.txt"; exit 1; }
 grep -q "ИТОГ;ОК" "$LOGS/codes.txt" || { cat "$LOGS/codes.txt"; exit 1; }
 grep -a "КОДЫ;" "$LOGS/codes.txt"
 # Справочники с предопределёнными элементами меняют тип кода только без автообновления предопределённых: иначе
