@@ -60,6 +60,16 @@ def env():
     return vals.get("DEVCOST_URL", "https://my.tinycio.com").rstrip("/"), vals.get("DEVCOST_TOKEN", "")
 
 
+def agent_token():
+    """Агентский токен (право agent) — отдельно от токена учёта часов: им действуют от имени владельца."""
+    f = CFG / "devcost.env"
+    if f.exists():
+        for line in f.read_text().splitlines():
+            if line.strip().startswith("DEVCOST_AGENT_TOKEN="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return ""
+
+
 def repo_name(cwd=None):
     try:
         d = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=cwd,
@@ -97,8 +107,9 @@ def check_url(url):
         sys.exit(f"DEVCOST_URL {url!r}: только https://my.tinycio.com (или localhost для тестов) — токен не отправлен")
 
 
-def call(method, path, body=None, query=None):
-    url, token = env()
+def call(method, path, body=None, query=None, token=None):
+    url, default_token = env()
+    token = token if token is not None else default_token
     if not token:
         # Без токена — как без сети: задача ляжет в очередь и уйдёт после выпуска токена.
         return 0, {"error": "нет DEVCOST_TOKEN в ~/.config/tinycio/devcost.env"}
@@ -217,15 +228,18 @@ def main(argv):
         if len(argv) < 2:
             sys.exit(__doc__)
         act = argv[1]
+        at = agent_token()
+        if not at:
+            sys.exit("нет DEVCOST_AGENT_TOKEN в ~/.config/tinycio/devcost.env — попросите владельца: devcost_setup.sh agent-token")
         if act == "my-tasks":
-            code, resp = call("GET", "/api/devcost/agent/my-tasks")
+            code, resp = call("GET", "/api/devcost/agent/my-tasks", token=at)
         elif act == "ticket" and len(argv) > 2:
-            code, resp = call("GET", "/api/devcost/agent/tickets/" + urllib.parse.quote(argv[2], safe=""))
+            code, resp = call("GET", "/api/devcost/agent/tickets/" + urllib.parse.quote(argv[2], safe=""), token=at)
         elif act in ("take", "steps", "note", "handover", "resume", "complete") and len(argv) > 2:
             body = {}
             if len(argv) > 3:
                 body = json.loads(sys.stdin.read() if argv[3] == "-" else pathlib.Path(argv[3]).read_text())
-            code, resp = call("POST", f"/api/devcost/agent/tickets/{urllib.parse.quote(argv[2], safe='')}/{act}", body)
+            code, resp = call("POST", f"/api/devcost/agent/tickets/{urllib.parse.quote(argv[2], safe='')}/{act}", body, token=at)
         else:
             sys.exit(__doc__)
         print(json.dumps(resp, ensure_ascii=False, indent=1))
