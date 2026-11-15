@@ -24,6 +24,14 @@
    Командой печати считается команда документа с именем «Печать*» или с
    модулем, вызывающим печать (АктОбОказанииУслуг, PrintLettreDePaiement).
 
+3. Роль вне EXTERNAL_ROLES, которая видит хоть одну команду печати документа, видит
+   и окно печати CommonForm.ПечатьДокументов. Без него каждая печать падает
+   «Недостаточно прав для просмотра»: права 26.08 остались на удалённой форме
+   ПредварительныйПросмотр, окно открывал только администратор (тикет 2605475,
+   2026-11-15).
+4. Право роли на общую форму, которой нет в CommonForms, — висячее: так и
+   осталось незамеченным переименование окна печати.
+
 Проверяются все роли: роль без своего права на клиент работает в паре с другой
 («Складские ордера» с «Оператором производства»).
 
@@ -40,6 +48,7 @@ KINDS = ("Catalog.", "Document.", "ChartOfCharacteristicTypes.", "ChartOfAccount
 OBJECT = re.compile(r"<object>\s*<name>([^<]+)</name>(.*?)</object>", re.S)
 RIGHT = re.compile(r"<name>(\w+)</name>\s*<value>(\w+)</value>")
 EXTERNAL_ROLES = ("Клиент", "ECommerce", "ОбменМобильнаяДоставка")
+PRINT_FORM = "CommonForm.ПечатьДокументов"
 PRICE_COMMANDS = {
     "ОператорПроизводства": (
         "Document.ЗаказПокупателя.Command.ПечатьПроформа",
@@ -79,6 +88,7 @@ def main():
     admin = open(os.path.join(roles, "Администратор", "Rights.rights"), encoding="utf-8").read()
     denied = {match.group(1) for match in OBJECT.finditer(admin)
               if dict(RIGHT.findall(match.group(2))).get("InputByString") == "false"}
+    common_forms = {unicodedata.normalize("NFC", name) for name in os.listdir(os.path.join(src, "CommonForms"))}
     findings = []
     for role in sorted(os.listdir(roles)):
         path = os.path.join(roles, role, "Rights.rights")
@@ -88,6 +98,10 @@ def main():
         if "<setForNewObjects>true" in text:
             continue
         objects = {match.group(1): dict(RIGHT.findall(match.group(2))) for match in OBJECT.finditer(text)}
+        for name in objects:
+            if name.startswith("CommonForm.") and name.split(".", 1)[1] not in common_forms:
+                findings.append(f"Право на несуществующую общую форму — {role}: {name}")
+        sees_print = False
         for name, rights in objects.items():
             if not name.startswith(KINDS) or name.count(".") != 1 or rights.get("View") != "true":
                 continue
@@ -102,6 +116,13 @@ def main():
                         findings.append(f"Форма с ценами у роли без цен — {role}: {full}")
                 elif objects.get(full, {}).get("View") != "true":
                     findings.append(f"Документ виден, команда печати нет — {role}: {full}")
+        for name, rights in objects.items():
+            if (name.startswith("Document.") and ".Command." in name and rights.get("View") == "true"
+                    and name.split(".Command.")[1] in print_commands(src, name.split(".")[1])):
+                sees_print = True
+                break
+        if sees_print and role not in EXTERNAL_ROLES and objects.get(PRINT_FORM, {}).get("View") != "true":
+            findings.append(f"Команды печати есть, окна печати нет — {role}: {PRINT_FORM}")
     for line in findings:
         print(line)
     return 1 if findings else 0
