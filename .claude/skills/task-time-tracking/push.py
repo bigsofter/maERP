@@ -96,7 +96,8 @@ def check_url(url):
 def call(method, path, body=None, query=None):
     url, token = env()
     if not token:
-        sys.exit("нет DEVCOST_TOKEN: положите его в ~/.config/tinycio/devcost.env")
+        # Без токена — как без сети: задача ляжет в очередь и уйдёт после выпуска токена.
+        return 0, {"error": "нет DEVCOST_TOKEN в ~/.config/tinycio/devcost.env"}
     check_url(url)
     full = url + path + ("?" + urllib.parse.urlencode(query) if query else "")
     data = json.dumps(body, ensure_ascii=False).encode() if body is not None else None
