@@ -628,7 +628,7 @@
             </extInfo>
           </extendedTooltip>
           <type>UsualButton</type>
-          <commandName>Form.Item.TabularSection.StandardCommand.Delete</commandName>
+          <commandName>Form.Command.УдалитьСтроки</commandName>
           <buttonImportance>Normal</buttonImportance>
           <representation>PictureAndText</representation>
           <width>10</width>
@@ -1686,7 +1686,7 @@
             <segments>СуммаДокументаБезСкидок</segments>
           </dataPath>
           <skipOnInput>true</skipOnInput>
-          <titleLocation>Top</titleLocation>
+          <titleLocation>Left</titleLocation>
           <extendedTooltip>
             <name>СуммаДокументаБезСкидокExtendedTooltip</name>
             <id>86</id>
@@ -1849,7 +1849,7 @@
             <segments>СуммаОплачено</segments>
           </dataPath>
           <skipOnInput>true</skipOnInput>
-          <titleLocation>Top</titleLocation>
+          <titleLocation>Left</titleLocation>
           <extendedTooltip>
             <name>СуммаКОплаченоРасширеннаяПодсказка</name>
             <id>127</id>
@@ -1946,7 +1946,7 @@
             <segments>СуммаКОплате</segments>
           </dataPath>
           <skipOnInput>true</skipOnInput>
-          <titleLocation>Top</titleLocation>
+          <titleLocation>Left</titleLocation>
           <extendedTooltip>
             <name>СуммаКОплатеExtendedTooltip</name>
             <id>92</id>
@@ -3009,6 +3009,7 @@
       <changeRowOrder>true</changeRowOrder>
       <autoMaxWidth>true</autoMaxWidth>
       <autoMaxHeight>true</autoMaxHeight>
+      <heightInTableRows>3</heightInTableRows>
       <autoMaxRowsCount>true</autoMaxRowsCount>
       <selectionMode>MultiRow</selectionMode>
       <header>true</header>
@@ -7254,6 +7255,58 @@
     </action>
     <currentRowUse>DontUse</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>УдалитьСтроки</name>
+    <title>
+      <key>ru</key>
+      <value>Удалить</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Supprimer</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Delete</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Eliminar</value>
+    </title>
+    <id>29</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Удалить выделенные строки товаров из продажи</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Supprimer les lignes d'articles sélectionnées de la vente</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Delete the selected product lines from the sale</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Eliminar de la venta las líneas de productos seleccionadas</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Delete</picture>
+    </picture>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>УдалитьСтроки</name>
+      </handler>
+    </action>
+    <currentRowUse>Auto</currentRowUse>
+    <associatedTableElementId xsi:type="core:StringValue">
+      <value>TabularSection</value>
+    </associatedTableElementId>
+    <selectedRowsUse>Use</selectedRowsUse>
   </formCommands>
   <commandInterface>
     <navigationPanel/>
