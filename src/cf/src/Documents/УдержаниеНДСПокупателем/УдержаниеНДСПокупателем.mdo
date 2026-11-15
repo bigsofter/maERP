@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e379da16-33a6-4cbc-8664-0567be2c2291">
+  <producedTypes>
+    <objectType typeId="c1ca4a7b-bac2-44b8-94cb-066f71160781" valueTypeId="dd65a4d2-9aba-4fd4-a296-002a9fa7700c"/>
+    <refType typeId="b93ef12b-9015-4ff3-bc7d-76e4ec54071e" valueTypeId="da18da85-4b58-4869-ae5a-ca674186030b"/>
+    <selectionType typeId="672f0902-5787-4c36-98e9-178b82598cab" valueTypeId="bf86803f-f329-466d-b075-11c1dc429b92"/>
+    <listType typeId="6b3d424c-8ee1-4568-91e1-2b8df696107b" valueTypeId="646baf35-fbe7-4a08-9c83-31367afbff91"/>
+    <managerType typeId="a0abebee-afd8-4e17-b8fb-9c02167d70a5" valueTypeId="fb166326-4e2a-4b92-aeee-e866cf6f07f0"/>
+  </producedTypes>
+  <name>УдержаниеНДСПокупателем</name>
+  <synonym>
+    <key>ru</key>
+    <value>Удержание НДС покупателем</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Retenue de TVA à la source</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>VAT withheld by customer</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>IVA retenido por el cliente</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Document.УдержаниеНДСПокупателем.StandardAttribute.Number</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Posted</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Ref</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>DeletionMark</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Date</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Number</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <createOnInput>DontUse</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <numberLength>9</numberLength>
+  <numberAllowedLength>Variable</numberAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <registerRecords>AccumulationRegister.ВзаиморасчётыСПокупателями</registerRecords>
+  <registerRecords>AccumulationRegister.ВзаиморасчётыСПокупателямиНалоговый</registerRecords>
+  <postInPrivilegedMode>true</postInPrivilegedMode>
+  <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
+  <attributes uuid="e10dba49-2f8a-4863-9241-118be61611a3">
+    <name>Основание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Налоговая накладная</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Facture fiscale</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Tax invoice</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Factura fiscal</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.НалоговаяНакладная</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="b0847de5-dd0d-491a-8ba8-d037b7bd1aaa">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Organisation</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Organization</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Organización</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="27f9b26b-d107-402f-bca8-66be1b5df0e9">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Tiers</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Counterparty</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contraparte</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="1a630241-19f6-42b4-848b-8f739a0223d3">
+    <name>Договор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Договор</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Contrat</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Contract</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Contrato</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ДоговорыСКонтрагентами</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="9b725992-9412-44f5-92e7-439d151f029f">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма удержания</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant retenu</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Amount withheld</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe retenido</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>В основной валюте, по курсу накладной</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>En devise principale, au taux de la facture</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>In the main currency, at the invoice rate</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>En la moneda principal, al tipo de la factura</value>
+    </toolTip>
+    <type>
+      <types>DefinedType.СуммаНеотрицательная</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="e2e327dc-3a06-430d-b962-814da8e378bb">
+    <name>НомерСправки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер справки об удержании</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>N° de l'attestation de retenue</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Withholding certificate No.</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>N.º del certificado de retención</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="111eef58-2286-4fa1-b366-f35a6406d23f">
+    <name>ДатаСправки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата справки об удержании</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date de l'attestation de retenue</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Withholding certificate date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha del certificado de retención</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="72ca09c9-30c4-4486-b7e0-c289b09a46d6">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Commentaire</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Comment</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comentario</value>
+    </synonym>
+    <type>
+      <types>DefinedType.Комментарий</types>
+    </type>
+    <multiLine>true</multiLine>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+</mdclass:Document>
