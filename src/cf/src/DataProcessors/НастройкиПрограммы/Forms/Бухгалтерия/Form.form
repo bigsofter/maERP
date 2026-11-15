@@ -216,6 +216,70 @@
         <checkBoxType>Switcher</checkBoxType>
       </extInfo>
     </items>
+    <items xsi:type="form:FormField">
+      <name>ДатаНачалаУчетаВзаиморасчетов</name>
+      <id>15</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ДатаНачалаУчетаВзаиморасчетов</segments>
+      </dataPath>
+      <toolTip>
+        <key>ru</key>
+        <value>Документы раньше этой даты не пишут взаиморасчёты; остатки на дату вводятся корректировкой; изменение применяется при перепроведении</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Les documents antérieurs à cette date n'inscrivent pas de règlements ; les soldes à la date se saisissent par une correction ; le changement s'applique à la revalidation</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>Documents earlier than this date do not record settlements; balances on the date are entered by an adjustment; a change applies on reposting</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>Los documentos anteriores a esta fecha no registran liquidaciones; los saldos a la fecha se introducen con un ajuste; el cambio se aplica al recontabilizar</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ДатаНачалаУчетаВзаиморасчетовРасширеннаяПодсказка</name>
+        <id>16</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ДатаНачалаУчетаВзаиморасчетовКонтекстноеМеню</name>
+        <id>17</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <wrap>true</wrap>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+        <textSize>Normal</textSize>
+        <font xsi:type="core:FontRef">
+          <font>Style.Шрифт_Основной</font>
+        </font>
+      </extInfo>
+    </items>
     <visible>true</visible>
     <enabled>true</enabled>
     <userVisible>

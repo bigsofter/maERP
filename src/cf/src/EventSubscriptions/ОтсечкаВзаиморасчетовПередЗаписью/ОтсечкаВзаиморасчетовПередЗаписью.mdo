@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7f187975-0631-4cf6-b63f-68bf8ca1da14">
+  <name>ОтсечкаВзаиморасчетовПередЗаписью</name>
+  <synonym>
+    <key>ru</key>
+    <value>Отсечка взаиморасчётов: перед записью набора</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Seuil des règlements : avant l'écriture du jeu</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Settlements cutoff: before writing the record set</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Corte de liquidaciones: antes de grabar el conjunto</value>
+  </synonym>
+  <source>
+    <types>AccumulationRegisterRecordSet.ВзаиморасчётыСПокупателями</types>
+    <types>AccumulationRegisterRecordSet.ВзаиморасчётыСПоставщиками</types>
+    <types>AccumulationRegisterRecordSet.ВзаиморасчётыСКонтрагентамиПрочие</types>
+  </source>
+  <event>BeforeWrite</event>
+  <handler>CommonModule.ОтсечкаВзаиморасчетов.ПередЗаписьюНабора</handler>
+</mdclass:EventSubscription>
