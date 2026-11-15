@@ -7,6 +7,10 @@
   push.py targets             — маршруты «продукт × заказчик»
   push.py target-put JSON     — завести маршрут на нового заказчика
   push.py product             — продукт текущего репозитория
+  push.py agent my-tasks                      — «Мои задачи» владельца + тикеты на John Dow
+  push.py agent ticket N                      — карточка, лента, шаги, вложения, учёт времени
+  push.py agent take|steps|note|handover|resume|complete N [BODY.json|-]
+        BODY: {"note","john_steps":[{title,description,minutes}],"owner_steps":[…],"to_status"}
 
 TASK.json: {product?, billto?, executor?, date, title, subtasks:[{task,hours,descr,category,role}], source?, ref?}
 product по умолчанию — из корня репозитория, ref — product:date:sha1(product|billto|date|title)[:16].
@@ -208,6 +212,25 @@ def main(argv):
     if cmd == "target-put":
         code, resp = call("PUT", "/api/devcost/targets", json.loads(argv[1]))
         print(code, json.dumps(resp, ensure_ascii=False))
+        sys.exit(0 if code == 200 else 2)
+    if cmd == "agent":
+        if len(argv) < 2:
+            sys.exit(__doc__)
+        act = argv[1]
+        if act == "my-tasks":
+            code, resp = call("GET", "/api/devcost/agent/my-tasks")
+        elif act == "ticket" and len(argv) > 2:
+            code, resp = call("GET", "/api/devcost/agent/tickets/" + urllib.parse.quote(argv[2], safe=""))
+        elif act in ("take", "steps", "note", "handover", "resume", "complete") and len(argv) > 2:
+            body = {}
+            if len(argv) > 3:
+                body = json.loads(sys.stdin.read() if argv[3] == "-" else pathlib.Path(argv[3]).read_text())
+            code, resp = call("POST", f"/api/devcost/agent/tickets/{urllib.parse.quote(argv[2], safe='')}/{act}", body)
+        else:
+            sys.exit(__doc__)
+        print(json.dumps(resp, ensure_ascii=False, indent=1))
+        if code == 0:
+            print("портал недоступен или нет токена — действие НЕ выполнено (в очередь не ставится)", file=sys.stderr)
         sys.exit(0 if code == 200 else 2)
     if cmd == "product":
         prod, name = detect_product()
