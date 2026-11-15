@@ -27,8 +27,11 @@ echo "База: $IB"
 # Тонкий клиент обязателен: толстый компилирует общие модули «Сервер + Вызов сервера»
 # дважды и падает на старте.
 V8C="${V8_DIR}/1cv8c"
+# DOCTESTS_ONLY - имена сценариев через запятую: отладочный прогон части сценариев (третья часть параметра запуска).
+LAUNCH="ТестыДокументов;$REPORT"
+[ -n "${DOCTESTS_ONLY:-}" ] && LAUNCH="$LAUNCH;$DOCTESTS_ONLY"
 rm -f "$REPORT" "$REPORT.progress" "$CLIENT_LOG"
-"$V8C" ENTERPRISE /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /C "ТестыДокументов;$REPORT" \
+"$V8C" ENTERPRISE /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /C "$LAUNCH" \
 	"${V8_BATCH[@]}" /Out "$CLIENT_LOG" || true
 
 if ! wait_client_start "ТестыДокументов;$REPORT" "$REPORT"; then
