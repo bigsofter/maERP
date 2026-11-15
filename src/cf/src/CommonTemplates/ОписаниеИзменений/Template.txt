@@ -10,49 +10,7 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
-## 2.0.17.28
-### ru
-- Касса: кнопка «Удалить» снова видна — она появляется, когда в таблице товаров выбрана строка, и удаляет все выделенные строки, пока продажа не пробита (новая продажа или возврат).
-### fr
-- Caisse : le bouton « Supprimer » est de nouveau visible — il apparaît lorsqu'une ligne est sélectionnée dans le tableau des articles et supprime toutes les lignes sélectionnées tant que la vente n'est pas encaissée (nouvelle vente ou retour).
-### en
-- Cash register: the "Delete" button is visible again — it appears when a line is selected in the product table and deletes all selected lines while the sale is not yet rung up (new sale or return).
-### es
-- Caja: el botón «Eliminar» vuelve a verse — aparece cuando hay una línea seleccionada en la tabla de productos y elimina todas las líneas seleccionadas mientras la venta no esté cobrada (venta nueva o devolución).
-
-## 2.0.17.27
-### ru
-- Касса: окно продажи помещается на небольшом экране без полосы прокрутки — подписи полей сумм стоят слева от полей, таблица товаров занимает оставшееся место.
-- Подбор товаров кнопкой «Добавить» в кассе: группы товаров слева идут списком сверху вниз, окно подбора без полосы прокрутки.
-### fr
-- Caisse : la fenêtre de vente tient sur un petit écran sans barre de défilement — les libellés des montants sont à gauche des champs, le tableau des articles occupe l'espace restant.
-- Sélection des articles par le bouton « Ajouter » de la caisse : les groupes d'articles à gauche s'affichent en liste de haut en bas, la fenêtre de sélection sans barre de défilement.
-### en
-- Cash register: the sale window fits a small screen without a scroll bar — the amount labels sit to the left of the fields, and the product table takes the remaining space.
-- Product selection with the "Add" button in the cash register: product groups on the left are listed top to bottom, and the selection window has no scroll bar.
-### es
-- Caja: la ventana de venta cabe en una pantalla pequeña sin barra de desplazamiento — las etiquetas de los importes están a la izquierda de los campos y la tabla de productos ocupa el espacio restante.
-- Selección de productos con el botón «Añadir» de la caja: los grupos de productos a la izquierda se muestran en lista de arriba abajo y la ventana de selección no tiene barra de desplazamiento.
-
-## 2.0.17.26
-### ru
-- Печать снова работает у всех пользователей, а не только у администратора: у кладовщика, менеджеров, кассира, оператора производства и других ролей окно печати открывалось с ошибкой «Недостаточно прав для просмотра».
-- Рабочее место производства: «Печать» на закладках с документами остаётся в панели, когда строки отмечены флажком, и печатает документы всех отмеченных строк одним окном. Если среди отмеченных есть документы другого вида, программа сообщает, сколько строк не напечатано.
-- Рабочее место производства снова открывается у пользователя с ролью «Оператор производства»: начиная с 2.0.16.144 оно открывалось у него с ошибкой «Нарушение прав доступа».
-### fr
-- L'impression fonctionne de nouveau pour tous les utilisateurs, et pas seulement pour l'administrateur : pour le magasinier, les gestionnaires, le caissier, l'opérateur de production et les autres rôles, la fenêtre d'impression s'ouvrait avec l'erreur « Droits insuffisants pour l'affichage ».
-- Poste de production : « Impression » sur les onglets de documents reste dans la barre lorsque des lignes sont cochées et imprime les documents de toutes les lignes cochées dans une seule fenêtre. Si des lignes cochées portent sur un autre type de document, le programme indique combien de lignes n'ont pas été imprimées.
-- Le poste de production s'ouvre de nouveau pour l'utilisateur ayant le rôle « Opérateur de production » : depuis la 2.0.16.144, il s'ouvrait avec l'erreur « Violation des droits d'accès ».
-### en
-- Printing works again for all users, not only the administrator: for the storekeeper, managers, cashier, production operator and other roles the print window opened with the error "Insufficient rights to view".
-- Production workstation: "Print" on the document tabs stays in the bar when lines are ticked and prints the documents of all ticked lines in one window. If ticked lines belong to another document type, the program reports how many lines were not printed.
-- The production workstation opens again for a user with the "Production operator" role: since 2.0.16.144 it opened with the error "Access rights violation".
-### es
-- La impresión vuelve a funcionar para todos los usuarios y no solo para el administrador: para el almacenero, los gestores, el cajero, el operador de producción y otros roles, la ventana de impresión se abría con el error «Derechos insuficientes para ver».
-- Puesto de producción: «Impresión» en las pestañas de documentos permanece en la barra cuando hay líneas marcadas e imprime los documentos de todas las líneas marcadas en una sola ventana. Si entre las marcadas hay documentos de otro tipo, el programa indica cuántas líneas no se imprimieron.
-- El puesto de producción vuelve a abrirse para el usuario con el rol «Operador de producción»: desde la 2.0.16.144 se abría con el error «Violación de los derechos de acceso».
-
-## 2.0.17.24
+## 2.0.17.29
 ### ru
 - Удержание НДС у источника (RAS TVA): в карточке клиента — флажок и процент (75 или 100), налоговая накладная получает их из карточки и считает сумму удержания.
 - Удержание НДС оформляется отдельным документом «Удержание НДС покупателем»: его создаёт и проводит налоговая накладная, он гасит долг накладной без денег; в документ вносится справка об удержании.
@@ -109,6 +67,48 @@
 - Al actualizar, las liquidaciones de periodos anteriores pasan al nuevo esquema: las facturas fiscales a nombre de otro cliente, sus pagos directos, devoluciones y vales se recontabilizan; los documentos no convertidos se registran en el registro de eventos y el administrador repite la conversión con el botón «Repetir el paso de las facturas al nuevo modelo» del procesamiento «Volver a contabilizar documentos».
 - El certificado de retención del IVA (número y fecha) se introduce en el formulario del documento «IVA retenido por el cliente»; los demás campos los rellena la factura fiscal.
 - La devolución de un pago en exceso sobre la base de un pago debe coincidir con el pago original en organización, cliente y contrato y no puede superar su anticipo.
+
+## 2.0.17.28
+### ru
+- Касса: кнопка «Удалить» снова видна — она появляется, когда в таблице товаров выбрана строка, и удаляет все выделенные строки, пока продажа не пробита (новая продажа или возврат).
+### fr
+- Caisse : le bouton « Supprimer » est de nouveau visible — il apparaît lorsqu'une ligne est sélectionnée dans le tableau des articles et supprime toutes les lignes sélectionnées tant que la vente n'est pas encaissée (nouvelle vente ou retour).
+### en
+- Cash register: the "Delete" button is visible again — it appears when a line is selected in the product table and deletes all selected lines while the sale is not yet rung up (new sale or return).
+### es
+- Caja: el botón «Eliminar» vuelve a verse — aparece cuando hay una línea seleccionada en la tabla de productos y elimina todas las líneas seleccionadas mientras la venta no esté cobrada (venta nueva o devolución).
+
+## 2.0.17.27
+### ru
+- Касса: окно продажи помещается на небольшом экране без полосы прокрутки — подписи полей сумм стоят слева от полей, таблица товаров занимает оставшееся место.
+- Подбор товаров кнопкой «Добавить» в кассе: группы товаров слева идут списком сверху вниз, окно подбора без полосы прокрутки.
+### fr
+- Caisse : la fenêtre de vente tient sur un petit écran sans barre de défilement — les libellés des montants sont à gauche des champs, le tableau des articles occupe l'espace restant.
+- Sélection des articles par le bouton « Ajouter » de la caisse : les groupes d'articles à gauche s'affichent en liste de haut en bas, la fenêtre de sélection sans barre de défilement.
+### en
+- Cash register: the sale window fits a small screen without a scroll bar — the amount labels sit to the left of the fields, and the product table takes the remaining space.
+- Product selection with the "Add" button in the cash register: product groups on the left are listed top to bottom, and the selection window has no scroll bar.
+### es
+- Caja: la ventana de venta cabe en una pantalla pequeña sin barra de desplazamiento — las etiquetas de los importes están a la izquierda de los campos y la tabla de productos ocupa el espacio restante.
+- Selección de productos con el botón «Añadir» de la caja: los grupos de productos a la izquierda se muestran en lista de arriba abajo y la ventana de selección no tiene barra de desplazamiento.
+
+## 2.0.17.26
+### ru
+- Печать снова работает у всех пользователей, а не только у администратора: у кладовщика, менеджеров, кассира, оператора производства и других ролей окно печати открывалось с ошибкой «Недостаточно прав для просмотра».
+- Рабочее место производства: «Печать» на закладках с документами остаётся в панели, когда строки отмечены флажком, и печатает документы всех отмеченных строк одним окном. Если среди отмеченных есть документы другого вида, программа сообщает, сколько строк не напечатано.
+- Рабочее место производства снова открывается у пользователя с ролью «Оператор производства»: начиная с 2.0.16.144 оно открывалось у него с ошибкой «Нарушение прав доступа».
+### fr
+- L'impression fonctionne de nouveau pour tous les utilisateurs, et pas seulement pour l'administrateur : pour le magasinier, les gestionnaires, le caissier, l'opérateur de production et les autres rôles, la fenêtre d'impression s'ouvrait avec l'erreur « Droits insuffisants pour l'affichage ».
+- Poste de production : « Impression » sur les onglets de documents reste dans la barre lorsque des lignes sont cochées et imprime les documents de toutes les lignes cochées dans une seule fenêtre. Si des lignes cochées portent sur un autre type de document, le programme indique combien de lignes n'ont pas été imprimées.
+- Le poste de production s'ouvre de nouveau pour l'utilisateur ayant le rôle « Opérateur de production » : depuis la 2.0.16.144, il s'ouvrait avec l'erreur « Violation des droits d'accès ».
+### en
+- Printing works again for all users, not only the administrator: for the storekeeper, managers, cashier, production operator and other roles the print window opened with the error "Insufficient rights to view".
+- Production workstation: "Print" on the document tabs stays in the bar when lines are ticked and prints the documents of all ticked lines in one window. If ticked lines belong to another document type, the program reports how many lines were not printed.
+- The production workstation opens again for a user with the "Production operator" role: since 2.0.16.144 it opened with the error "Access rights violation".
+### es
+- La impresión vuelve a funcionar para todos los usuarios y no solo para el administrador: para el almacenero, los gestores, el cajero, el operador de producción y otros roles, la ventana de impresión se abría con el error «Derechos insuficientes para ver».
+- Puesto de producción: «Impresión» en las pestañas de documentos permanece en la barra cuando hay líneas marcadas e imprime los documentos de todas las líneas marcadas en una sola ventana. Si entre las marcadas hay documentos de otro tipo, el programa indica cuántas líneas no se imprimieron.
+- El puesto de producción vuelve a abrirse para el usuario con el rol «Operador de producción»: desde la 2.0.16.144 se abría con el error «Violación de los derechos de acceso».
 
 ## 2.0.17.23
 ### ru
