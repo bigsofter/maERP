@@ -10,6 +10,60 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.22
+### ru
+- Номер банковского счёта вмещает до 30 знаков: марокканский RIB из 24 цифр сохраняется целиком, в том числе при загрузке банковской выписки.
+- В строках товаров реализации, заказа покупателя и коммерческого предложения появилось меню «Изменить»: скидка в процентах или суммой, итог документа, снятие скидок, изменение цен на процент и округление цен. Меню действует на выделенные строки, а если выделена одна строка или ни одной — на все.
+- Скидка суммой теперь сохраняется точно и при ценах без НДС.
+- Сумма скидок показывается в подвале таблицы товаров, в реализации — ещё и в итогах документа.
+- В кассе можно включить вопрос «Напечатать чек?» после оплаты (настройка пользователя «Задавать вопрос перед печатью чека»).
+- На этикетке печатается логотип вашей организации; добавлен тип этикетки «EAN-13 без QR». Этикетка по своему макету без рисунков QR или штрихкода печатается без ошибки.
+- Возврат поставщику можно распечатать.
+- В оприходовании колонка цены называется «Себестоимость»; если товара нет на остатке, «По себестоимости» берёт последний прайс поставщика.
+- В выборе поступления виден номер накладной (BL) поставщика.
+- Если у товара нет прайса поставщика, закупочная цена в карточке считается по средней цене остатков.
+- Поступление переноса остатков больше не меняет цены товаров.
+- Новая печатная форма заказа покупателя «Бланк заказа с фото».
+### fr
+- Le numéro de compte bancaire accepte jusqu'à 30 caractères : le RIB marocain de 24 chiffres est conservé en entier, y compris à l'import du relevé bancaire.
+- Dans les lignes d'articles des bons de livraison, commandes clients et devis, un nouveau menu « Modifier » : remise en pourcentage ou en montant, total du document, suppression des remises, variation des prix en pourcentage et arrondi des prix. Il s'applique aux lignes sélectionnées, ou à toutes si une seule ou aucune n'est sélectionnée.
+- La remise en montant est désormais conservée exactement, même avec des prix HT.
+- Le total des remises s'affiche en pied du tableau des articles, et pour le bon de livraison aussi dans les totaux.
+- En caisse, la question « Imprimer le ticket ? » après le paiement peut être activée (paramètre utilisateur « Demander avant d'imprimer le ticket »).
+- L'étiquette imprime le logo de votre société ; nouveau type d'étiquette « EAN-13 sans QR ». Une étiquette sur votre propre modèle sans image QR ou code-barres s'imprime sans erreur.
+- Le retour fournisseur peut être imprimé.
+- Dans l'entrée de marchandises, la colonne de prix s'appelle « Coût unitaire » ; sans stock, « Par coût de revient » prend le dernier tarif fournisseur.
+- Le numéro de BL du fournisseur apparaît dans le choix d'une réception.
+- Sans tarif fournisseur, le prix d'achat de la fiche article est calculé au prix moyen du stock.
+- La réception de reprise des stocks ne modifie plus les prix des articles.
+- Nouvel imprimé de la commande client « Bon de commande avec photos ».
+### en
+- The bank account number now holds up to 30 characters: a 24-digit Moroccan RIB is kept in full, including on bank statement import.
+- Product lines of sales documents, customer orders and quotations have a new "Change" menu: discount by percentage or amount, document total, remove discounts, change prices by a percentage and round prices. It applies to the selected lines, or to all lines when one or none is selected.
+- A discount entered as an amount is now kept exactly, even with prices excluding VAT.
+- The discount total is shown in the footer of the product table, and in the sales document also in the totals.
+- At the cash desk, a "Print the receipt?" question after payment can be turned on (user setting "Ask before printing the receipt").
+- The label prints your company logo; new label type "EAN-13 without QR". A label on your own template without a QR or barcode picture prints without an error.
+- A return to supplier can be printed.
+- In stock receipts, the price column is called "Unit cost"; when the item is out of stock, "By cost" takes the latest supplier price.
+- The supplier's delivery note (BL) number is shown when choosing a goods receipt.
+- When an item has no supplier price, the purchase price on the item card is the average cost of the stock.
+- A stock transfer receipt no longer changes item prices.
+- New customer order print form "Order form with photos".
+### es
+- El número de cuenta bancaria admite hasta 30 caracteres: el RIB marroquí de 24 dígitos se guarda completo, también al importar el extracto bancario.
+- En las líneas de artículos de albaranes, pedidos de clientes y presupuestos hay un nuevo menú «Modificar»: descuento en porcentaje o en importe, total del documento, quitar descuentos, cambiar precios en un porcentaje y redondear precios. Se aplica a las líneas seleccionadas, o a todas si hay una o ninguna seleccionada.
+- El descuento en importe ahora se conserva exactamente, también con precios sin IVA.
+- El total de descuentos se muestra al pie de la tabla de artículos y, en el albarán, también en los totales.
+- En la caja se puede activar la pregunta «¿Imprimir el ticket?» después del pago (ajuste de usuario «Preguntar antes de imprimir el ticket»).
+- La etiqueta imprime el logotipo de su empresa; nuevo tipo de etiqueta «EAN-13 sin QR». Una etiqueta con su propia plantilla sin imagen QR o de código de barras se imprime sin error.
+- La devolución al proveedor se puede imprimir.
+- En la entrada de mercancías, la columna de precio se llama «Coste unitario»; si el artículo no tiene existencias, «Por coste» toma la última tarifa del proveedor.
+- El número de albarán (BL) del proveedor aparece al elegir una recepción.
+- Si el artículo no tiene tarifa de proveedor, el precio de compra de la ficha se calcula con el precio medio de las existencias.
+- La recepción de traspaso de existencias ya no cambia los precios de los artículos.
+- Nuevo formulario de impresión del pedido de cliente «Hoja de pedido con fotos».
+
 ## 2.0.17.21
 ### ru
 - В сборку вошли правки параллельного потока 2.0.17.8–2.0.17.18: сортировка списков кликом по колонке вместо собственного постраничного просмотра, команда «Файлы» в документах, номер и дата заказа клиента, фильтр «Товар» в списках документов, «Детали» в списке КП, колонка «Отгружен» в заказах.
