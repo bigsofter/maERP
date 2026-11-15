@@ -13,8 +13,13 @@ python3 "$D/build_epf.py" "$NAME" "$BODY" "$WORK"
 AUTH=()
 [ -n "${SMOKE_USER:-}" ] && AUTH+=(/N "$SMOKE_USER")
 [ -n "${SMOKE_PWD:-}" ] && AUTH+=(/P "$SMOKE_PWD")
-"$V8" DESIGNER /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /LoadExternalDataProcessorOrReportFromFiles "$WORK/$NAME.xml" "$EPF" \
-	"${V8_BATCH[@]}" /Out "$WORK.build.log" || true
+# Сразу после клиента, упавшего на выходе (Abort trap), база бывает ещё занята - сборка повторяется.
+for TRY in 1 2 3 4 5 6; do
+	"$V8" DESIGNER /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /LoadExternalDataProcessorOrReportFromFiles "$WORK/$NAME.xml" "$EPF" \
+		"${V8_BATCH[@]}" /Out "$WORK.build.log" || true
+	[ -f "$EPF" ] && break
+	sleep 10
+done
 [ -f "$EPF" ] || { cat "$WORK.build.log"; echo "Внешняя обработка не собрана"; exit 1; }
 # Регламентные задания в сеансах переноса не выполняются (файловая база выполняет их в клиенте): перепроведение
 # истории до переноса границы последовательности изменило бы перенесённые движения.
