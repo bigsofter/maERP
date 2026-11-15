@@ -22,6 +22,9 @@
 - Дата начала учёта взаиморасчётов (настройки «Бухгалтерия»): документы раньше этой даты не пишут взаиморасчёты.
 - Коммерческое предложение: без настройки «Заверение цен» цены и скидки не редактируются; «Скидка на цену» закрыта и в заказе, и в реализации.
 - Для администратора: исторические налоговые накладные, перенесённые из прежней базы, замораживаются — их можно перепровести только без изменений.
+- При обновлении взаиморасчёты прошлых периодов приводятся к новой схеме: налоговые накладные на другого покупателя, их прямые оплаты, возвраты и сертификаты перепроводятся; документы, которые не удалось перевести, записываются в журнал регистрации, а администратор повторяет перевод кнопкой «Повторить перевод накладных на новую модель» в обработке «Перепроведение документов».
+- Справка об удержании НДС (номер и дата) вводится в форме документа «Удержание НДС покупателем»; остальные поля документа заполняет налоговая накладная.
+- Возврат переплаты на основании платежа должен совпадать с исходным платежом по организации, покупателю и договору и не может превышать его аванс.
 ### fr
 - Retenue de TVA à la source (RAS TVA) : dans la fiche client, case et taux (75 ou 100) ; la facture fiscale les reprend et calcule le montant de la retenue.
 - La retenue fait l'objet d'un document distinct « Retenue de TVA à la source » : créé et validé par la facture fiscale, il solde sa dette sans argent ; l'attestation de retenue y est saisie.
@@ -33,6 +36,9 @@
 - Date de début du suivi des règlements (paramètres « Comptabilité ») : les documents antérieurs n'inscrivent pas de règlements.
 - Offre commerciale : sans le paramètre « Validation des prix », prix et remises ne sont pas modifiables ; « Remise sur prix » est verrouillée aussi dans la commande et la vente.
 - Pour l'administrateur : les factures fiscales historiques transférées de l'ancienne base sont gelées — elles ne se revalident que sans modification.
+- Lors de la mise à jour, les règlements des périodes antérieures passent au nouveau schéma : les factures fiscales au nom d'un autre client, leurs paiements directs, retours et bons sont revalidés ; les documents non convertis sont inscrits au journal, et l'administrateur relance la conversion par le bouton « Relancer le passage des factures au nouveau modèle » du traitement « Repasser les documents ».
+- L'attestation de retenue de TVA (numéro et date) se saisit dans la fiche du document « Retenue de TVA à la source » ; les autres champs sont remplis par la facture fiscale.
+- Le remboursement d'un trop-perçu sur la base d'un paiement doit avoir la même organisation, le même client et le même contrat que le paiement d'origine et ne peut dépasser son avance.
 ### en
 - VAT withholding at source (RAS TVA): the customer card has a flag and a rate (75 or 100); the tax invoice takes them from the card and calculates the withheld amount.
 - The withholding is a separate document "VAT withheld by customer": the tax invoice creates and posts it, it settles the invoice debt without money; the withholding certificate is entered in it.
@@ -44,6 +50,9 @@
 - Settlements accounting start date ("Accounting" settings): documents before this date do not record settlements.
 - Commercial offer: without the "Price approval" setting, prices and discounts are read-only; "Discount on price" is locked in the order and the sale too.
 - For the administrator: historical tax invoices transferred from the previous database are frozen — they can be reposted only without changes.
+- On update, settlements of past periods are moved to the new scheme: tax invoices issued to another customer, their direct payments, returns and vouchers are reposted; documents that could not be converted are written to the event log, and the administrator reruns the conversion with the "Retry moving invoices to the new model" button in the "Document reposting" data processor.
+- The VAT withholding certificate (number and date) is entered in the "VAT withheld by customer" document form; the other fields are filled by the tax invoice.
+- An overpayment refund based on a payment must match the original payment's organization, customer and contract and cannot exceed its advance.
 ### es
 - Retención del IVA en la fuente (RAS TVA): en la ficha del cliente, casilla y porcentaje (75 o 100); la factura fiscal los toma de la ficha y calcula el importe retenido.
 - La retención es un documento aparte «IVA retenido por el cliente»: lo crea y contabiliza la factura fiscal, liquida su deuda sin dinero; en él se registra el certificado de retención.
@@ -55,6 +64,9 @@
 - Fecha de inicio de la contabilidad de liquidaciones (ajustes «Contabilidad»): los documentos anteriores no registran liquidaciones.
 - Oferta comercial: sin el ajuste «Validación de precios», precios y descuentos no se editan; «Descuento sobre precio» se bloquea también en el pedido y la venta.
 - Para el administrador: las facturas fiscales históricas trasladadas de la base anterior se congelan — solo se recontabilizan sin cambios.
+- Al actualizar, las liquidaciones de periodos anteriores pasan al nuevo esquema: las facturas fiscales a nombre de otro cliente, sus pagos directos, devoluciones y vales se recontabilizan; los documentos no convertidos se registran en el registro de eventos y el administrador repite la conversión con el botón «Repetir el paso de las facturas al nuevo modelo» del procesamiento «Volver a contabilizar documentos».
+- El certificado de retención del IVA (número y fecha) se introduce en el formulario del documento «IVA retenido por el cliente»; los demás campos los rellena la factura fiscal.
+- La devolución de un pago en exceso sobre la base de un pago debe coincidir con el pago original en organización, cliente y contrato y no puede superar su anticipo.
 
 ## 2.0.17.22
 ### ru
