@@ -23,6 +23,7 @@ import hashlib
 import json
 import os
 import pathlib
+import re
 import subprocess
 import sys
 import urllib.error
@@ -188,6 +189,65 @@ def send_one(t, from_queue=None):
     return False
 
 
+def fetch_bytes(path, token, query):
+    """GET байтов (вложение тикета) — (код, байты); без редиректов, только разрешённый хост."""
+    url, _ = env()
+    check_url(url)
+    req = urllib.request.Request(url + path + "?" + urllib.parse.urlencode(query), method="GET",
+                                 headers={"Authorization": "Bearer " + token})
+    try:
+        with OPENER.open(req, timeout=120) as r:
+            return r.status, r.read(30 << 20)
+    except urllib.error.HTTPError as e:
+        return e.code, b""
+    except (urllib.error.URLError, TimeoutError, OSError):
+        return 0, b""
+
+
+def ticket_dump(number, token):
+    """Карточка целиком (поля, свойства стадий, лента, шаги, учёт времени) → ticket.json и ВСЕ вложения
+    (скрины, файлы, голосовые с расшифровкой, PDF-инструкции) → ~/.cache/tinycio/tickets/<N>/.
+    Печатает пути: агент открывает их Read (картинки и PDF Read показывает)."""
+    q = urllib.parse.quote(number, safe="")
+    code, resp = call("GET", "/api/devcost/agent/tickets/" + q, token=token)
+    if code != 200:
+        print(json.dumps(resp, ensure_ascii=False, indent=1))
+        return 2
+    d = pathlib.Path.home() / ".cache" / "tinycio" / "tickets" / number.replace("/", "_")
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "ticket.json").write_text(json.dumps(resp, ensure_ascii=False, indent=1))
+    t = resp.get("ticket") or {}
+    print(f"{t.get('number')} · {t.get('status')}/{t.get('state')} · {t.get('client_name', '')} · {t.get('title', '')}")
+    print(f"карточка целиком (поля, свойства, лента, шаги): {d / 'ticket.json'}")
+    seen = set()
+    for i, it in enumerate(resp.get("attachments") or []):
+        fid, href = it.get("file_id") or "", it.get("href") or ""
+        key = fid or href
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        name = re.sub(r"[^\w.\-]+", "_", it.get("file_name") or it.get("type") or "file")[:80]
+        if "." not in name:
+            ext = {"image/jpeg": ".jpg", "image/png": ".png", "application/pdf": ".pdf", "audio/ogg": ".ogg",
+                   "video/mp4": ".mp4"}.get(it.get("mime_type") or "", "")
+            if not ext and (it.get("type") == "photo" or it.get("kind") == "photo"):
+                ext = ".jpg"
+            name += ext
+        out = d / f"{i + 1:02d}_{name}"
+        code, data = fetch_bytes(f"/api/devcost/agent/tickets/{q}/file", token, {"file_id": fid} if fid else {"href": href})
+        if code == 200 and data:
+            out.write_bytes(data)
+            line = f"  файл: {out}"
+        else:
+            line = f"  файл не скачан ({code}): {it.get('file_name') or key}"
+        if it.get("transcript"):
+            line += f" · расшифровка: {it['transcript'][:200]}"
+        print(line)
+    tl = resp.get("timeline") or []
+    print(f"лента: {len(tl) if isinstance(tl, list) else '?'} записей — читай ticket.json → timeline (сообщения, авторы, вложения, статусы)")
+    return 0
+
+
 def flush():
     if not OUTBOX.exists():
         return
@@ -234,7 +294,7 @@ def main(argv):
         if act == "my-tasks":
             code, resp = call("GET", "/api/devcost/agent/my-tasks", token=at)
         elif act == "ticket" and len(argv) > 2:
-            code, resp = call("GET", "/api/devcost/agent/tickets/" + urllib.parse.quote(argv[2], safe=""), token=at)
+            sys.exit(ticket_dump(argv[2], at))
         elif act in ("take", "steps", "note", "handover", "resume", "complete") and len(argv) > 2:
             body = {}
             if len(argv) > 3:
