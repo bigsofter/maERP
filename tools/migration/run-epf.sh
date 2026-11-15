@@ -6,8 +6,9 @@ set -euo pipefail
 D=$(cd "$(dirname "$0")" && pwd)
 source "$D/../../scripts/env.sh"
 IB=$1; NAME=$2; BODY=$3; REP=$4; EXTRA=${5:-}
-WORK="$BUILD/migration-epf/$NAME"; EPF="$WORK.epf"
-mkdir -p "$BUILD/migration-epf"; rm -rf "$WORK" "$EPF" "$REP"
+# MIGRATION_EPF - каталог сборки обработок (свой на каждую базу - прогоны параллельно).
+EPFDIR="${MIGRATION_EPF:-$BUILD/migration-epf}"; WORK="$EPFDIR/$NAME"; EPF="$WORK.epf"
+mkdir -p "$EPFDIR"; rm -rf "$WORK" "$EPF" "$REP"
 python3 "$D/build_epf.py" "$NAME" "$BODY" "$WORK"
 AUTH=()
 [ -n "${SMOKE_USER:-}" ] && AUTH+=(/N "$SMOKE_USER")
