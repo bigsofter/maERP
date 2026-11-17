@@ -6078,58 +6078,6 @@
               <contextMenu>
                 <name>ОплатыКонтекстноеМеню</name>
                 <id>259</id>
-                <items xsi:type="form:Button">
-                  <name>ОплатыСортироватьПоВозрастанию</name>
-                  <id>570</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>ОплатыСортироватьПоВозрастаниюРасширеннаяПодсказка</name>
-                    <id>571</id>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <commandName>Form.Command.СортироватьПоВозрастанию</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                  <buttonImportance>Normal</buttonImportance>
-                </items>
-                <items xsi:type="form:Button">
-                  <name>ОплатыСортироватьПоУбыванию</name>
-                  <id>572</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>ОплатыСортироватьПоУбываниюРасширеннаяПодсказка</name>
-                    <id>573</id>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <commandName>Form.Command.СортироватьПоУбыванию</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                  <buttonImportance>Normal</buttonImportance>
-                </items>
                 <autoFill>true</autoFill>
               </contextMenu>
               <autoCommandBar>
@@ -6138,6 +6086,77 @@
                 <horizontalAlign>Left</horizontalAlign>
                 <autoFill>false</autoFill>
               </autoCommandBar>
+              <searchStringAddition>
+                <name>ОплатыСтрокаПоиска</name>
+                <id>636</id>
+                <extendedTooltip>
+                  <name>ОплатыСтрокаПоискаРасширеннаяПодсказка</name>
+                  <id>637</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ОплатыСтрокаПоискаКонтекстноеМеню</name>
+                  <id>638</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <source>Оплаты</source>
+                <extInfo xsi:type="form:SearchStringAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </searchStringAddition>
+              <viewStatusAddition>
+                <name>ОплатыСостояниеПросмотра</name>
+                <id>639</id>
+                <extendedTooltip>
+                  <name>ОплатыСостояниеПросмотраРасширеннаяПодсказка</name>
+                  <id>640</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ОплатыСостояниеПросмотраКонтекстноеМеню</name>
+                  <id>641</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>ViewStatusAddition</type>
+                <source>Оплаты</source>
+                <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </viewStatusAddition>
+              <searchControlAddition>
+                <name>ОплатыУправлениеПоиском</name>
+                <id>642</id>
+                <extendedTooltip>
+                  <name>ОплатыУправлениеПоискомРасширеннаяПодсказка</name>
+                  <id>643</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ОплатыУправлениеПоискомКонтекстноеМеню</name>
+                  <id>644</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>SearchControlAddition</type>
+                <source>Оплаты</source>
+                <extInfo xsi:type="form:SearchControlAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </searchControlAddition>
               <handlers>
                 <event>Selection</event>
                 <name>ОплатыВыбор</name>
@@ -6408,7 +6427,17 @@
               <borderColor xsi:type="core:ColorRef">
                 <color>Style.FormBackColor</color>
               </borderColor>
+              <searchControlLocation>None</searchControlLocation>
               <autoMaxCardHeight>true</autoMaxCardHeight>
+              <extInfo xsi:type="form:DynamicListTableExtInfo">
+                <period>
+                  <startDate>0001-01-01T00:00:00</startDate>
+                  <endDate>0001-01-01T00:00:00</endDate>
+                </period>
+                <topLevelParent xsi:type="core:UndefinedValue"/>
+                <showRoot>true</showRoot>
+                <allowGettingCurrentRowURL>true</allowGettingCurrentRowURL>
+              </extInfo>
             </items>
             <type>Page</type>
             <extInfo xsi:type="form:PageGroupExtInfo">
@@ -6476,58 +6505,6 @@
               <contextMenu>
                 <name>ДокументыКонтекстноеМеню</name>
                 <id>277</id>
-                <items xsi:type="form:Button">
-                  <name>ДокументыСортироватьПоВозрастанию</name>
-                  <id>566</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>ДокументыСортироватьПоВозрастаниюРасширеннаяПодсказка</name>
-                    <id>567</id>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <commandName>Form.Command.СортироватьПоВозрастанию</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                  <buttonImportance>Normal</buttonImportance>
-                </items>
-                <items xsi:type="form:Button">
-                  <name>ДокументыСортироватьПоУбыванию</name>
-                  <id>568</id>
-                  <visible>true</visible>
-                  <enabled>true</enabled>
-                  <userVisible>
-                    <common>true</common>
-                  </userVisible>
-                  <extendedTooltip>
-                    <name>ДокументыСортироватьПоУбываниюРасширеннаяПодсказка</name>
-                    <id>569</id>
-                    <type>Label</type>
-                    <autoMaxWidth>true</autoMaxWidth>
-                    <autoMaxHeight>true</autoMaxHeight>
-                    <extInfo xsi:type="form:LabelDecorationExtInfo">
-                      <horizontalAlign>Left</horizontalAlign>
-                    </extInfo>
-                  </extendedTooltip>
-                  <commandName>Form.Command.СортироватьПоУбыванию</commandName>
-                  <representation>Auto</representation>
-                  <autoMaxWidth>true</autoMaxWidth>
-                  <autoMaxHeight>true</autoMaxHeight>
-                  <placementArea>UserCmds</placementArea>
-                  <representationInContextMenu>Auto</representationInContextMenu>
-                  <buttonImportance>Normal</buttonImportance>
-                </items>
                 <autoFill>true</autoFill>
               </contextMenu>
               <autoCommandBar>
@@ -6536,6 +6513,77 @@
                 <horizontalAlign>Left</horizontalAlign>
                 <autoFill>false</autoFill>
               </autoCommandBar>
+              <searchStringAddition>
+                <name>ДокументыСтрокаПоиска</name>
+                <id>645</id>
+                <extendedTooltip>
+                  <name>ДокументыСтрокаПоискаРасширеннаяПодсказка</name>
+                  <id>646</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ДокументыСтрокаПоискаКонтекстноеМеню</name>
+                  <id>647</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <source>Документы</source>
+                <extInfo xsi:type="form:SearchStringAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </searchStringAddition>
+              <viewStatusAddition>
+                <name>ДокументыСостояниеПросмотра</name>
+                <id>648</id>
+                <extendedTooltip>
+                  <name>ДокументыСостояниеПросмотраРасширеннаяПодсказка</name>
+                  <id>649</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ДокументыСостояниеПросмотраКонтекстноеМеню</name>
+                  <id>650</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>ViewStatusAddition</type>
+                <source>Документы</source>
+                <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </viewStatusAddition>
+              <searchControlAddition>
+                <name>ДокументыУправлениеПоиском</name>
+                <id>651</id>
+                <extendedTooltip>
+                  <name>ДокументыУправлениеПоискомРасширеннаяПодсказка</name>
+                  <id>652</id>
+                  <type>Label</type>
+                  <autoMaxWidth>true</autoMaxWidth>
+                  <autoMaxHeight>true</autoMaxHeight>
+                  <extInfo xsi:type="form:LabelDecorationExtInfo">
+                    <horizontalAlign>Left</horizontalAlign>
+                  </extInfo>
+                </extendedTooltip>
+                <contextMenu>
+                  <name>ДокументыУправлениеПоискомКонтекстноеМеню</name>
+                  <id>653</id>
+                  <autoFill>true</autoFill>
+                </contextMenu>
+                <type>SearchControlAddition</type>
+                <source>Документы</source>
+                <extInfo xsi:type="form:SearchControlAdditionExtInfo">
+                  <autoMaxWidth>true</autoMaxWidth>
+                </extInfo>
+              </searchControlAddition>
               <handlers>
                 <event>Selection</event>
                 <name>ДокументыВыбор</name>
@@ -6867,7 +6915,17 @@
               <borderColor xsi:type="core:ColorRef">
                 <color>Style.FormBackColor</color>
               </borderColor>
+              <searchControlLocation>None</searchControlLocation>
               <autoMaxCardHeight>true</autoMaxCardHeight>
+              <extInfo xsi:type="form:DynamicListTableExtInfo">
+                <period>
+                  <startDate>0001-01-01T00:00:00</startDate>
+                  <endDate>0001-01-01T00:00:00</endDate>
+                </period>
+                <topLevelParent xsi:type="core:UndefinedValue"/>
+                <showRoot>true</showRoot>
+                <allowGettingCurrentRowURL>true</allowGettingCurrentRowURL>
+              </extInfo>
             </items>
             <type>Page</type>
             <extInfo xsi:type="form:PageGroupExtInfo">
@@ -11630,7 +11688,7 @@
     <name>Оплаты</name>
     <id>6</id>
     <valueType>
-      <types>ValueTable</types>
+      <types>DynamicList</types>
     </valueType>
     <view>
       <common>true</common>
@@ -11638,139 +11696,83 @@
     <edit>
       <common>true</common>
     </edit>
-    <columns>
-      <name>Документ</name>
-      <title>
-        <key>ru</key>
-        <value>Документ</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Document</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Document</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Documento</value>
-      </title>
-      <id>1</id>
-      <valueType>
-        <types>DocumentRef.СписаниеБезналичныхДенежныхСредств</types>
-        <types>DocumentRef.РасходныйКассовыйОрдер</types>
-        <types>DocumentRef.ПоступлениеБезналичныхДенежныхСредств</types>
-        <types>DocumentRef.ПриходныйКассовыйОрдер</types>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Дата</name>
-      <title>
-        <key>ru</key>
-        <value>Дата</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Date</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Date</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Fecha</value>
-      </title>
-      <id>2</id>
-      <valueType>
-        <types>Date</types>
-        <dateQualifiers>
-          <dateFractions>DateTime</dateFractions>
-        </dateQualifiers>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Основание</name>
-      <title>
-        <key>ru</key>
-        <value>По документу</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Pour le document</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>For document</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Por documento</value>
-      </title>
-      <id>3</id>
-      <valueType>
-        <types>DocumentRef.ПоступлениеТоваровУслуг</types>
-        <types>DocumentRef.НалоговаяНакладнаяПокупка</types>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Сумма</name>
-      <title>
-        <key>ru</key>
-        <value>Сумма</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Montant</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Amount</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Importe</value>
-      </title>
-      <id>4</id>
-      <valueType>
-        <types>Number</types>
-        <numberQualifiers>
-          <precision>15</precision>
-          <scale>2</scale>
-        </numberQualifiers>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>Оплаты.Документ</segments>
+    </notDefaultUseAlwaysAttributes>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>Оплаты.Основание</segments>
+    </notDefaultUseAlwaysAttributes>
+    <extInfo xsi:type="form:DynamicListExtInfo">
+      <queryText>ВЫБРАТЬ
+	Касса.Регистратор КАК Документ,
+	МАКСИМУМ(Касса.Период) КАК Дата,
+	Касса.ДокументПродажи КАК Основание,
+	СУММА(ВЫБОР
+			КОГДА Касса.ТипДвижения = ЗНАЧЕНИЕ(Перечисление.ТипыДвиженияДенежныхСредств.Поступление)
+				ТОГДА -Касса.СуммаОборот
+			ИНАЧЕ Касса.СуммаОборот
+		КОНЕЦ) КАК Сумма
+ИЗ
+	РегистрНакопления.ДвиженияПоКассе.Обороты(
+			,
+			,
+			Регистратор,
+			&amp;ЕстьЗаказ
+				И ДокументПродажи В (ВЫБРАТЬ
+	ПоступленияОплат.Ссылка КАК Объект
+ИЗ
+	Документ.ПоступлениеТоваровУслуг КАК ПоступленияОплат
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияОплат.Основание = &amp;Заказ
+	И ПоступленияОплат.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	НакладныеОплат.Ссылка
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка КАК НакладныеОплат
+ГДЕ
+	&amp;ЕстьЗаказ
+	И НакладныеОплат.Проведен
+	И НакладныеОплат.Ссылка В (ВЫБРАТЬ
+	Товары.Ссылка КАК Накладная
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка.ТЧТовары КАК Товары
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступленияТоваров
+		ПО Товары.ПоступлениеТовара = ПоступленияТоваров.Ссылка
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияТоваров.Основание = &amp;Заказ
+	И ПоступленияТоваров.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Услуги.Ссылка
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка.ТЧУслуги КАК Услуги
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступленияУслуг
+		ПО Услуги.ПоступлениеТовара = ПоступленияУслуг.Ссылка
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияУслуг.Основание = &amp;Заказ
+	И ПоступленияУслуг.Проведен))) КАК Касса
+
+СГРУППИРОВАТЬ ПО
+	Касса.Регистратор,
+	Касса.ДокументПродажи</queryText>
+      <autoFillAvailableFields>true</autoFillAvailableFields>
+      <customQuery>true</customQuery>
+      <getInvisibleFieldPresentations>true</getInvisibleFieldPresentations>
+    </extInfo>
   </attributes>
   <attributes>
     <name>Документы</name>
     <id>7</id>
     <valueType>
-      <types>ValueTable</types>
+      <types>DynamicList</types>
     </valueType>
     <view>
       <common>true</common>
@@ -11778,203 +11780,200 @@
     <edit>
       <common>true</common>
     </edit>
-    <columns>
-      <name>Документ</name>
-      <title>
-        <key>ru</key>
-        <value>Документ</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Document</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Document</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Documento</value>
-      </title>
-      <id>1</id>
-      <valueType>
-        <types>DocumentRef.ЗаказПоставщику</types>
-        <types>DocumentRef.ПоступлениеТоваровУслуг</types>
-        <types>DocumentRef.ВозвратПоставщику</types>
-        <types>DocumentRef.НалоговаяНакладнаяПокупка</types>
-        <types>DocumentRef.СписаниеБезналичныхДенежныхСредств</types>
-        <types>DocumentRef.РасходныйКассовыйОрдер</types>
-        <types>DocumentRef.ПоступлениеБезналичныхДенежныхСредств</types>
-        <types>DocumentRef.ПриходныйКассовыйОрдер</types>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Вид</name>
-      <title>
-        <key>ru</key>
-        <value>Вид</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Type</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Type</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Tipo</value>
-      </title>
-      <id>2</id>
-      <valueType>
-        <types>String</types>
-        <stringQualifiers>
-          <length>150</length>
-        </stringQualifiers>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Номер</name>
-      <title>
-        <key>ru</key>
-        <value>Номер</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Numéro</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Number</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Número</value>
-      </title>
-      <id>3</id>
-      <valueType>
-        <types>String</types>
-        <stringQualifiers>
-          <length>150</length>
-        </stringQualifiers>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Дата</name>
-      <title>
-        <key>ru</key>
-        <value>Дата</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Date</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Date</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Fecha</value>
-      </title>
-      <id>4</id>
-      <valueType>
-        <types>Date</types>
-        <dateQualifiers>
-          <dateFractions>DateTime</dateFractions>
-        </dateQualifiers>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Сумма</name>
-      <title>
-        <key>ru</key>
-        <value>Сумма</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Montant</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Amount</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Importe</value>
-      </title>
-      <id>5</id>
-      <valueType>
-        <types>Number</types>
-        <numberQualifiers>
-          <precision>15</precision>
-          <scale>2</scale>
-        </numberQualifiers>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
-    <columns>
-      <name>Статус</name>
-      <title>
-        <key>ru</key>
-        <value>Статус</value>
-      </title>
-      <title>
-        <key>fr</key>
-        <value>Statut</value>
-      </title>
-      <title>
-        <key>en</key>
-        <value>Status</value>
-      </title>
-      <title>
-        <key>es</key>
-        <value>Estado</value>
-      </title>
-      <id>6</id>
-      <valueType>
-        <types>String</types>
-        <stringQualifiers>
-          <length>150</length>
-        </stringQualifiers>
-      </valueType>
-      <view>
-        <common>true</common>
-      </view>
-      <edit>
-        <common>true</common>
-      </edit>
-    </columns>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>Документы.Документ</segments>
+    </notDefaultUseAlwaysAttributes>
+    <extInfo xsi:type="form:DynamicListExtInfo">
+      <queryText>ВЫБРАТЬ
+	Цепочка.Документ КАК Документ,
+	Цепочка.Вид КАК Вид,
+	Цепочка.Номер КАК Номер,
+	Цепочка.Дата КАК Дата,
+	Цепочка.Сумма КАК Сумма,
+	Цепочка.Проведен КАК Проведен,
+	Цепочка.ПометкаУдаления КАК ПометкаУдаления,
+	ВЫБОР
+		КОГДА Цепочка.ПометкаУдаления
+			ТОГДА &amp;СтатусПомечен
+		КОГДА Цепочка.Проведен
+			ТОГДА &amp;СтатусПроведен
+		ИНАЧЕ &amp;СтатусЧерновик
+	КОНЕЦ КАК Статус
+ИЗ
+	(ВЫБРАТЬ
+		Заказы.Ссылка КАК Документ,
+		&amp;ВидЗаказПоставщику КАК Вид,
+		Заказы.Номер КАК Номер,
+		Заказы.Дата КАК Дата,
+		Заказы.Сумма КАК Сумма,
+		Заказы.Проведен КАК Проведен,
+		Заказы.ПометкаУдаления КАК ПометкаУдаления
+	ИЗ
+		Документ.ЗаказПоставщику КАК Заказы
+	ГДЕ
+		&amp;ЕстьЗаказ
+		И Заказы.Ссылка = &amp;Заказ
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Поступления.Ссылка,
+		&amp;ВидПоступлениеТоваровУслуг,
+		Поступления.Номер,
+		Поступления.Дата,
+		Поступления.Сумма,
+		Поступления.Проведен,
+		Поступления.ПометкаУдаления
+	ИЗ
+		Документ.ПоступлениеТоваровУслуг КАК Поступления
+	ГДЕ
+		&amp;ЕстьЗаказ
+		И Поступления.Основание = &amp;Заказ
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Возвраты.Ссылка,
+		&amp;ВидВозвратПоставщику,
+		Возвраты.Номер,
+		Возвраты.Дата,
+		Возвраты.Сумма,
+		Возвраты.Проведен,
+		Возвраты.ПометкаУдаления
+	ИЗ
+		Документ.ВозвратПоставщику КАК Возвраты
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступленияВозвратов
+			ПО Возвраты.Основание = ПоступленияВозвратов.Ссылка
+	ГДЕ
+		&amp;ЕстьЗаказ
+		И ПоступленияВозвратов.Основание = &amp;Заказ
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Накладные.Ссылка,
+		&amp;ВидНалоговаяНакладнаяПокупка,
+		Накладные.Номер,
+		Накладные.Дата,
+		Накладные.Сумма,
+		Накладные.Проведен,
+		Накладные.ПометкаУдаления
+	ИЗ
+		Документ.НалоговаяНакладнаяПокупка КАК Накладные
+	ГДЕ
+		&amp;ЕстьЗаказ
+		И Накладные.Проведен
+		И Накладные.Ссылка В (ВЫБРАТЬ
+	Товары.Ссылка КАК Накладная
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка.ТЧТовары КАК Товары
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступленияТоваров
+		ПО Товары.ПоступлениеТовара = ПоступленияТоваров.Ссылка
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияТоваров.Основание = &amp;Заказ
+	И ПоступленияТоваров.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Услуги.Ссылка
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка.ТЧУслуги КАК Услуги
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступленияУслуг
+		ПО Услуги.ПоступлениеТовара = ПоступленияУслуг.Ссылка
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияУслуг.Основание = &amp;Заказ
+	И ПоступленияУслуг.Проведен)
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Платежи.Регистратор,
+		ВЫБОР
+			КОГДА НЕ Списания.Ссылка ЕСТЬ NULL
+				ТОГДА &amp;ВидСписаниеБезналичныхДенежныхСредств
+			КОГДА НЕ Расходники.Ссылка ЕСТЬ NULL
+				ТОГДА &amp;ВидРасходныйКассовыйОрдер
+			КОГДА НЕ ПоступленияДенег.Ссылка ЕСТЬ NULL
+				ТОГДА &amp;ВидПоступлениеБезналичныхДенежныхСредств
+			ИНАЧЕ &amp;ВидПриходныйКассовыйОрдер
+		КОНЕЦ,
+		ЕСТЬNULL(Списания.Номер, ЕСТЬNULL(Расходники.Номер, ЕСТЬNULL(ПоступленияДенег.Номер, Приходники.Номер))),
+		ЕСТЬNULL(Списания.Дата, ЕСТЬNULL(Расходники.Дата, ЕСТЬNULL(ПоступленияДенег.Дата, Приходники.Дата))),
+		ЕСТЬNULL(Списания.Сумма, ЕСТЬNULL(Расходники.Сумма, ЕСТЬNULL(ПоступленияДенег.Сумма, Приходники.Сумма))),
+		ЕСТЬNULL(Списания.Проведен, ЕСТЬNULL(Расходники.Проведен, ЕСТЬNULL(ПоступленияДенег.Проведен,
+			Приходники.Проведен))),
+		ЕСТЬNULL(Списания.ПометкаУдаления, ЕСТЬNULL(Расходники.ПометкаУдаления,
+			ЕСТЬNULL(ПоступленияДенег.ПометкаУдаления, Приходники.ПометкаУдаления)))
+	ИЗ
+		(ВЫБРАТЬ РАЗЛИЧНЫЕ
+			Касса.Регистратор КАК Регистратор
+		ИЗ
+			РегистрНакопления.ДвиженияПоКассе.Обороты(
+					,
+					,
+					Регистратор,
+					&amp;ЕстьЗаказ
+						И ДокументПродажи В (ВЫБРАТЬ
+	ПоступленияОплат.Ссылка КАК Объект
+ИЗ
+	Документ.ПоступлениеТоваровУслуг КАК ПоступленияОплат
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияОплат.Основание = &amp;Заказ
+	И ПоступленияОплат.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	НакладныеОплат.Ссылка
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка КАК НакладныеОплат
+ГДЕ
+	&amp;ЕстьЗаказ
+	И НакладныеОплат.Проведен
+	И НакладныеОплат.Ссылка В (ВЫБРАТЬ
+	Товары.Ссылка КАК Накладная
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка.ТЧТовары КАК Товары
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступленияТоваров
+		ПО Товары.ПоступлениеТовара = ПоступленияТоваров.Ссылка
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияТоваров.Основание = &amp;Заказ
+	И ПоступленияТоваров.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Услуги.Ссылка
+ИЗ
+	Документ.НалоговаяНакладнаяПокупка.ТЧУслуги КАК Услуги
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступленияУслуг
+		ПО Услуги.ПоступлениеТовара = ПоступленияУслуг.Ссылка
+ГДЕ
+	&amp;ЕстьЗаказ
+	И ПоступленияУслуг.Основание = &amp;Заказ
+	И ПоступленияУслуг.Проведен))) КАК Касса) КАК Платежи
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.СписаниеБезналичныхДенежныхСредств КАК Списания
+			ПО Платежи.Регистратор = Списания.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.РасходныйКассовыйОрдер КАК Расходники
+			ПО Платежи.Регистратор = Расходники.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеБезналичныхДенежныхСредств КАК ПоступленияДенег
+			ПО Платежи.Регистратор = ПоступленияДенег.Ссылка
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПриходныйКассовыйОрдер КАК Приходники
+			ПО Платежи.Регистратор = Приходники.Ссылка
+	ГДЕ
+		НЕ (Списания.Ссылка ЕСТЬ NULL
+				И Расходники.Ссылка ЕСТЬ NULL
+				И ПоступленияДенег.Ссылка ЕСТЬ NULL
+				И Приходники.Ссылка ЕСТЬ NULL)) КАК Цепочка</queryText>
+      <autoFillAvailableFields>true</autoFillAvailableFields>
+      <customQuery>true</customQuery>
+      <getInvisibleFieldPresentations>true</getInvisibleFieldPresentations>
+    </extInfo>
   </attributes>
   <attributes>
     <name>ТекущийЗаказ</name>
