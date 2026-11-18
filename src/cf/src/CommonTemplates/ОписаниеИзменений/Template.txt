@@ -10,6 +10,44 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.36
+### ru
+- Зоны контрагентов. Новый справочник «Зоны» (раздел «Продажи» → «Клиенты»): зону можно отметить как освобождённую от НДС и указать для неё ставку освобождения. Зона выбирается в карточке клиента, поле «Зона» — рядом с родом деятельности.
+- У ставки НДС появились флажок «Освобождение от НДС» и поле «Основание освобождения». Основание обязательно и печатается в документах. Ставку, которую назначает освобождённая зона, нельзя сделать облагаемой, пока зона на неё ссылается.
+- Клиенту освобождённой зоны ставка подставляется сама: при выборе товара, подборе, вводе штрихкода, смене вида цены и пересчёте цен — в реализации, заказе, коммерческом предложении и возврате без документа-основания. Цена берётся без НДС: из розничной цены 120 с НДС 20 % выходит 100.
+- При смене клиента в документе ставки строк пересчитываются: на клиента освобождённой зоны — ставка зоны, на обычного клиента — ставка товара вместо ставки освобождения. Цена строки без НДС при этом не меняется, цены, введённые вручную, сохраняются. Ставки, выбранные вручную, у обычного клиента не меняются.
+- Если у клиента освобождённой зоны в строке стоит другая ставка, при записи документа появляется предупреждение. Документ при этом записывается.
+- В печатных формах (Facture, Proforma, накладные, Avoir, коммерческое предложение, бланк заказа) под итогами мелким шрифтом печатается сноска «* Освобождение от НДС: <основание>», а у ставки строки и у строки НДС в итогах — звёздочка. Сноска печатается и с изменённым ранее макетом печати.
+- При создании новой базы справочник ставок НДС заполняется ставками страны: для Марокко — 20 %, 10 %, освобождения для зон ускорения промышленности и экспорта; для Франции — 20 %, 10 %, 5,5 %, 2,1 %, освобождения для экспорта и поставок в ЕС.
+- Исправлено: в возврате по реализации смена клиента или организации больше не меняет признак «Цена включает НДС» — он остаётся как в реализации.
+### fr
+- Zones des tiers. Nouveau référentiel « Zones » (section « Ventes » → « Clients ») : une zone peut être marquée comme exonérée de TVA, avec son taux d'exonération. La zone se choisit dans la fiche client, le champ « Zone » se trouve à côté du secteur d'activité.
+- Le taux de TVA a une case « Exonération de TVA » et un champ « Motif d'exonération ». Le motif est obligatoire et s'imprime sur les documents. Un taux attribué par une zone exonérée ne peut pas redevenir imposable tant que la zone y fait référence.
+- Pour un client d'une zone exonérée, le taux se renseigne tout seul : au choix de l'article, à la sélection, à la lecture du code-barres, au changement de type de prix et au recalcul des prix — dans le bon de livraison, la commande, l'offre commerciale et le retour sans document de base. Le prix est pris hors taxes : un prix de détail de 120 TTC à 20 % donne 100.
+- Au changement de client dans un document, les taux des lignes sont recalculés : pour un client d'une zone exonérée — le taux de la zone, pour un client ordinaire — le taux de l'article à la place du taux d'exonération. Le prix HT de la ligne ne change pas, les prix saisis à la main sont conservés. Les taux choisis à la main pour un client ordinaire ne changent pas.
+- Si une ligne d'un client d'une zone exonérée porte un autre taux, un avertissement s'affiche à l'enregistrement. Le document est quand même enregistré.
+- Sur les documents imprimés (Facture, Proforma, bons de livraison, Avoir, offre commerciale, bon de commande), une note en petits caractères s'imprime sous les totaux : « * Exonération de TVA : <motif> », avec un astérisque au taux de la ligne et à la ligne de TVA des totaux. La note s'imprime aussi avec un modèle d'impression modifié auparavant.
+- À la création d'une nouvelle base, les taux de TVA du pays sont créés : pour le Maroc — 20 %, 10 %, exonérations pour les zones d'accélération industrielle et l'export ; pour la France — 20 %, 10 %, 5,5 %, 2,1 %, exonérations pour l'export et les livraisons intracommunautaires.
+- Corrigé : dans un retour sur bon de livraison, le changement de client ou d'organisation ne modifie plus l'indicateur « Prix TTC » — il reste celui du bon de livraison.
+### en
+- Counterparty zones. New "Zones" catalog (section "Sales" → "Customers"): a zone can be marked as VAT-exempt and given an exemption rate. The zone is selected on the customer card; the "Zone" field is next to the line of business.
+- VAT rates have a "VAT exemption" checkbox and an "Exemption reason" field. The reason is required and is printed on documents. A rate assigned by an exempt zone cannot become taxable while the zone refers to it.
+- For a customer in an exempt zone the rate is filled in automatically: when choosing an item, selecting items, scanning a barcode, changing the price type and recalculating prices — in sales invoices, orders, quotations and returns without a base document. The price is taken without VAT: a retail price of 120 including 20% VAT gives 100.
+- When the customer of a document changes, line rates are recalculated: for a customer in an exempt zone — the zone rate; for a regular customer — the item rate instead of the exemption rate. The line price without VAT stays the same, manually entered prices are kept. Rates chosen manually for a regular customer do not change.
+- If a line for a customer in an exempt zone has a different rate, a warning appears when the document is saved. The document is still saved.
+- Printed forms (Facture, Proforma, delivery notes, Avoir, quotation, order form) print a small-type footnote under the totals: "* VAT exemption: <reason>", with an asterisk at the line rate and at the VAT line of the totals. The footnote is printed with a previously modified print template too.
+- When a new database is created, the VAT rates of the country are created: for Morocco — 20%, 10%, exemptions for industrial acceleration zones and export; for France — 20%, 10%, 5.5%, 2.1%, exemptions for export and intra-EU supplies.
+- Fixed: in a return based on a sales invoice, changing the customer or the organization no longer changes the "Price includes VAT" flag — it stays as in the sales invoice.
+### es
+- Zonas de terceros. Nuevo catálogo «Zonas» (sección «Ventas» → «Clientes»): una zona puede marcarse como exenta de IVA, con su tipo de exención. La zona se elige en la ficha del cliente; el campo «Zona» está junto al sector de actividad.
+- El tipo de IVA tiene la casilla «Exención de IVA» y el campo «Motivo de exención». El motivo es obligatorio y se imprime en los documentos. Un tipo asignado por una zona exenta no puede volver a ser gravado mientras la zona lo use.
+- Para un cliente de una zona exenta el tipo se rellena solo: al elegir el artículo, en la selección, al leer el código de barras, al cambiar el tipo de precio y al recalcular precios — en la factura de venta, el pedido, la oferta comercial y la devolución sin documento base. El precio se toma sin IVA: un precio minorista de 120 con IVA del 20 % da 100.
+- Al cambiar el cliente de un documento, los tipos de las líneas se recalculan: para un cliente de una zona exenta — el tipo de la zona; para un cliente normal — el tipo del artículo en lugar del tipo de exención. El precio sin IVA de la línea no cambia, los precios introducidos a mano se conservan. Los tipos elegidos a mano para un cliente normal no cambian.
+- Si una línea de un cliente de una zona exenta tiene otro tipo, al guardar el documento aparece un aviso. El documento se guarda igualmente.
+- En los documentos impresos (Facture, Proforma, albaranes, Avoir, oferta comercial, hoja de pedido) se imprime bajo los totales una nota en letra pequeña: «* Exención de IVA: <motivo>», con un asterisco en el tipo de la línea y en la línea de IVA de los totales. La nota se imprime también con una plantilla de impresión modificada anteriormente.
+- Al crear una base nueva se crean los tipos de IVA del país: para Marruecos — 20 %, 10 %, exenciones para zonas de aceleración industrial y exportación; para Francia — 20 %, 10 %, 5,5 %, 2,1 %, exenciones para exportación y entregas intracomunitarias.
+- Corregido: en una devolución basada en una factura de venta, el cambio de cliente u organización ya no modifica el indicador «Precio con IVA» — se mantiene como en la factura.
+
 ## 2.0.17.35
 ### ru
 - Список расходных накладных: новая закладка «Товары». На ней видны строки товаров последних накладных — клиент, товар, количество, цена, сумма, статус документа, — и с ними можно работать прямо в таблице, не открывая документ.
