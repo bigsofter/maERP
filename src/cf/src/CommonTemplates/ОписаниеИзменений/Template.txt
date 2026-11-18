@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.35
+### ru
+- Список расходных накладных: новая закладка «Товары». На ней видны строки товаров последних накладных — клиент, товар, количество, цена, сумма, статус документа, — и с ними можно работать прямо в таблице, не открывая документ.
+- Новая строка сверху таблицы сама создаёт и проводит расходную накладную: цена подставляется из прайса клиента, как в форме документа. В колонке «Документ» можно выбрать сегодняшнюю накладную того же клиента — строка добавится в неё.
+- Количество, упаковку и характеристику записанной строки можно поправить в таблице: накладная перепроведётся. Удаление строки убирает её из накладной; накладная без строк помечается на удаление.
+- Кнопка «Печать» печатает накладные выделенных строк — любой печатной формой реализации. Двойной щелчок по документу открывает накладную целиком.
+- Таблица подчиняется фильтрам правой панели (клиент, товар, склад, организация, ответственный, сумма, долг) и сортируется из контекстного меню. Показываются строки последних 200 накладных — больше находится фильтрами.
+- Накладные по заказу, кассовые продажи, накладные с услугами, ордерами, серийными номерами (IMEI) или налоговой накладной на закладке только показываются — их правят в форме документа.
+### fr
+- Liste des bons de livraison : nouvel onglet « Articles ». Il affiche les lignes d'articles des dernières ventes — client, article, quantité, prix, montant, statut du document — et permet de les modifier directement dans le tableau, sans ouvrir le document.
+- Une nouvelle ligne en haut du tableau crée et valide elle-même le bon de livraison : le prix vient du tarif du client, comme dans le document. Dans la colonne « Document », on peut choisir une vente du jour du même client — la ligne y sera ajoutée.
+- La quantité, le conditionnement et la caractéristique d'une ligne enregistrée se corrigent dans le tableau : la vente est revalidée. Supprimer une ligne la retire de la vente ; une vente sans lignes est marquée pour suppression.
+- Le bouton « Impression » imprime les ventes des lignes sélectionnées, avec n'importe quel formulaire d'impression de la vente. Un double-clic sur le document ouvre la vente complète.
+- Le tableau suit les filtres du panneau de droite (client, article, entrepôt, société, responsable, montant, dette) et se trie depuis le menu contextuel. Les lignes des 200 dernières ventes sont affichées — les autres se trouvent par les filtres.
+- Les ventes sur commande, les ventes de caisse, les ventes avec services, bons de sortie, numéros de série (IMEI) ou facture fiscale sont seulement affichées dans l'onglet — elles se modifient dans le document.
+### en
+- Delivery notes list: new "Items" tab. It shows the item lines of the latest sales — customer, item, quantity, price, amount, document status — and lets you work with them right in the table, without opening the document.
+- A new line at the top of the table creates and posts the delivery note by itself: the price comes from the customer's price list, as in the document form. In the "Document" column you can pick today's sale of the same customer — the line is added to it.
+- Quantity, package and characteristic of a saved line can be corrected in the table: the sale is reposted. Deleting a line removes it from the sale; a sale without lines is marked for deletion.
+- The "Print" button prints the sales of the selected lines with any sale print form. Double-clicking the document opens the full sale.
+- The table follows the right panel filters (customer, item, warehouse, company, responsible, amount, debt) and is sorted from the context menu. Lines of the last 200 sales are shown — the rest are found with filters.
+- Sales based on an order, cash sales, sales with services, shipping orders, serial numbers (IMEI) or a tax invoice are only shown on the tab — they are edited in the document form.
+### es
+- Lista de albaranes de venta: nueva pestaña «Artículos». Muestra las líneas de artículos de las últimas ventas — cliente, artículo, cantidad, precio, importe, estado del documento — y permite trabajar con ellas directamente en la tabla, sin abrir el documento.
+- Una línea nueva arriba de la tabla crea y contabiliza el albarán por sí sola: el precio sale de la tarifa del cliente, como en el documento. En la columna «Documento» se puede elegir una venta de hoy del mismo cliente: la línea se añade a ella.
+- La cantidad, el envase y la característica de una línea guardada se corrigen en la tabla: la venta se vuelve a contabilizar. Eliminar una línea la quita de la venta; una venta sin líneas se marca para eliminar.
+- El botón «Impresión» imprime las ventas de las líneas seleccionadas con cualquier formulario de impresión de la venta. Un doble clic en el documento abre la venta completa.
+- La tabla sigue los filtros del panel derecho (cliente, artículo, almacén, empresa, responsable, importe, deuda) y se ordena desde el menú contextual. Se muestran las líneas de las últimas 200 ventas; el resto se encuentra con los filtros.
+- Las ventas por pedido, las ventas de caja y las ventas con servicios, órdenes de salida, números de serie (IMEI) o factura fiscal solo se muestran en la pestaña: se editan en el documento.
+
 ## 2.0.17.34
 ### ru
 - Рабочее место закупок: «Источники» строки потребности сортируются щелчком по заголовку колонки. Колонка «Источник» сортируется по заказу, а не по его названию; пополнение склада подписано как раньше. Цифры те же, что в строке потребности: сортировка ничего не пересчитывает.
