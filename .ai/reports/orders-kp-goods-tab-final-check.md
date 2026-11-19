@@ -1,5 +1,5 @@
 # Final check — orders-kp-goods-tab
-_20261119T121543Z_
+_20261119T125401Z_
 
 
 ## Scope
@@ -189,10 +189,7 @@ _20261119T121543Z_
 .ai/reviews/order-list-columns/03-code-review.json
 .ai/reviews/order-list-columns/03b-code-review-verify.json
 .ai/reviews/order-payment-state/02-plan-review.json
-.ai/reviews/orders-kp-goods-tab/02-plan-review-round8.json
-.ai/reviews/orders-kp-goods-tab/02-plan-review.json
 .ai/reviews/orders-kp-goods-tab/03-code-review.json
-.ai/reviews/orders-kp-goods-tab/03b-code-review-verify.json
 .ai/reviews/orders-kp-goods-tab/05-security-review.json
 .ai/reviews/performance-vt/02-plan-review.json
 .ai/reviews/performance-vt/04-database-review.json
@@ -237,21 +234,18 @@ _20261119T121543Z_
 .ai/reviews/wo-techdebt2/02-plan-review.json
 docs/.!95431!TESTS.xlsx
 docs/plans/order-payment-state.md
-docs/plans/orders-kp-goods-tab.md
-docs/ROADMAP.md
 docs/TECHDEBT.md
 docs/TESTING.md
 docs/TESTS.xlsx
-src/cf/src/CommonModules/СтрокиТоваровСписков/СтрокиТоваровСписков.mdo
 src/cf/src/CommonModules/СтрокиТоваровСписков/Module.bsl
 src/cf/src/CommonTemplates/ОписаниеИзменений/Template.txt
 src/cf/src/Configuration/Configuration.mdo
 src/cf/src/DataProcessors/ТестыДокументов/ManagerModule.bsl
-src/cf/src/Documents/ЗаказПокупателя/Forms/ФормаСписка/Form.form
+src/cf/src/Documents/КоммерческоеПредложение/Forms/ФормаСписка/Form.form
 src/cf/src/Documents/ЗаказПокупателя/Forms/ФормаСписка/Module.bsl
 src/cf/src/Documents/РеализацияТоваровУслуг/Forms/ФормаСписка/Module.bsl
-src/cf/src/Documents/ЗаказПокупателя/ManagerModule.bsl
-src/cf/src/Documents/РеализацияТоваровУслуг/ManagerModule.bsl
+src/cf/src/Documents/КоммерческоеПредложение/Forms/ФормаСписка/Module.bsl
+src/cf/src/Documents/КоммерческоеПредложение/ManagerModule.bsl
 ```
 
 ## Gates
@@ -260,9 +254,9 @@ src/cf/src/Documents/РеализацияТоваровУслуг/ManagerModule.
 ```
 line 1:0 token recognition error at: '﻿'
 line 1:0 token recognition error at: '﻿'
-2026-11-19T13:15:51.543+01:00  INFO 61390 --- [BSL Language Server] [-types-warmup-1] _.b.l.t.r.PlatformContextProviderFactory : Loaded 2614 platform contexts from 1C syntax helper
-Analyzing files...   0% [                              ]   0/899 (0:00:00 / ?) Analyzing files...   1% [                        ]   9/899 (0:00:01 / 0:01:39) Analyzing files...   8% [=                       ]  74/899 (0:00:02 / 0:00:22) Analyzing files...  24% [=====                   ] 216/899 (0:00:03 / 0:00:09) Analyzing files...  37% [=========               ] 340/899 (0:00:04 / 0:00:06) Analyzing files...  46% [===========             ] 419/899 (0:00:05 / 0:00:05) Analyzing files...  48% [===========             ] 439/899 (0:00:06 / 0:00:06) Analyzing files...  51% [============            ] 465/899 (0:00:07 / 0:00:06) Analyzing files...  61% [==============          ] 550/899 (0:00:08 / 0:00:05) Analyzing files...  70% [================        ] 634/899 (0:00:09 / 0:00:03) Analyzing files...  84% [====================    ] 759/899 (0:00:10 / 0:00:01) Analyzing files... 100% [========================] 899/899 (0:00:10 / 0:00:00) Analyzing files... 100% [========================] 899/899 (0:00:10 / 0:00:00) 
-2026-11-19T13:16:06.753+01:00  INFO 61390 --- [BSL Language Server] [           main] c.g._.b.l.reporters.JsonReporter         : JSON report saved to /Users/ivan-gurkin/Dev/maERP/build/./bsl-json.json
+2026-11-19T13:54:10.326+01:00  INFO 15688 --- [BSL Language Server] [-types-warmup-1] _.b.l.t.r.PlatformContextProviderFactory : Loaded 2614 platform contexts from 1C syntax helper
+Analyzing files...   0% [                              ]   0/899 (0:00:00 / ?) Analyzing files...   1% [                        ]   9/899 (0:00:01 / 0:01:39) Analyzing files...  13% [===                     ] 125/899 (0:00:02 / 0:00:12) Analyzing files...  29% [=======                 ] 263/899 (0:00:03 / 0:00:07) Analyzing files...  49% [===========             ] 442/899 (0:00:04 / 0:00:04) Analyzing files...  68% [================        ] 615/899 (0:00:05 / 0:00:02) Analyzing files...  70% [================        ] 633/899 (0:00:06 / 0:00:02) Analyzing files...  79% [===================     ] 713/899 (0:00:07 / 0:00:01) Analyzing files...  90% [=====================   ] 813/899 (0:00:08 / 0:00:00) Analyzing files... 100% [========================] 899/899 (0:00:08 / 0:00:00) Analyzing files... 100% [========================] 899/899 (0:00:08 / 0:00:00) 
+2026-11-19T13:54:23.202+01:00  INFO 15688 --- [BSL Language Server] [           main] c.g._.b.l.reporters.JsonReporter         : JSON report saved to /Users/ivan-gurkin/Dev/maERP/build/./bsl-json.json
 Отчёт: /Users/ivan-gurkin/Dev/maERP/build/bsl-json.json
 ```
 **PASS**
@@ -289,9 +283,9 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 6
 **PASS**
 ### ОписаниеИзменений: секция текущей версии на ru/fr/en/es
 ```
-Языков: 4, пунктов изменений: 8
-Описание изменений: /Users/ivan-gurkin/Dev/maERP/build/changelog-2.0.17.40.json
-версия 2.0.17.40: ru=2, fr=2, en=2, es=2
+Языков: 4, пунктов изменений: 16
+Описание изменений: /Users/ivan-gurkin/Dev/maERP/build/changelog-2.0.17.41.json
+версия 2.0.17.41: ru=4, fr=4, en=4, es=4
 ```
 **PASS**
 
@@ -299,20 +293,21 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 6
 
 ### git status
 ```
- M docs/ROADMAP.md
+ M .ai/reports/orders-kp-goods-tab-final-check.md
+ M .ai/reviews/orders-kp-goods-tab/03-code-review.json
+ M .ai/reviews/orders-kp-goods-tab/05-security-review.json
  M docs/TECHDEBT.md
  M docs/TESTING.md
  M docs/TESTS.xlsx
- A src/cf/src/CommonModules/СтрокиТоваровСписков/Module.bsl
- A src/cf/src/CommonModules/СтрокиТоваровСписков/СтрокиТоваровСписков.mdo
+ M src/cf/src/CommonModules/СтрокиТоваровСписков/Module.bsl
  M src/cf/src/CommonTemplates/ОписаниеИзменений/Template.txt
  M src/cf/src/Configuration/Configuration.mdo
  M src/cf/src/DataProcessors/ТестыДокументов/ManagerModule.bsl
- M src/cf/src/Documents/ЗаказПокупателя/Forms/ФормаСписка/Form.form
  M src/cf/src/Documents/ЗаказПокупателя/Forms/ФормаСписка/Module.bsl
- M src/cf/src/Documents/ЗаказПокупателя/ManagerModule.bsl
+ M src/cf/src/Documents/КоммерческоеПредложение/Forms/ФормаСписка/Form.form
+ M src/cf/src/Documents/КоммерческоеПредложение/Forms/ФормаСписка/Module.bsl
+ M src/cf/src/Documents/КоммерческоеПредложение/ManagerModule.bsl
  M src/cf/src/Documents/РеализацияТоваровУслуг/Forms/ФормаСписка/Module.bsl
- M src/cf/src/Documents/РеализацияТоваровУслуг/ManagerModule.bsl
 ?? .ai/reports/arm-current-row-final-check.md
 ?? .ai/reports/arm-pf-output-final-check.md
 ?? .ai/reports/arm-production-print-final-check.md
@@ -346,7 +341,6 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 6
 ?? .ai/reports/order-list-columns-final-check.md
 ?? .ai/reports/order-money-status-final-check.md
 ?? .ai/reports/order-stock-places-final-check.md
-?? .ai/reports/orders-kp-goods-tab-final-check.md
 ?? .ai/reports/print-preview-client-pdf-final-check.md
 ?? .ai/reports/processing-by-processor-final-check.md
 ?? .ai/reports/production-top-row-final-check.md
@@ -443,7 +437,6 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 6
 ?? .ai/reviews/machine-form/
 ?? .ai/reviews/order-list-columns/
 ?? .ai/reviews/order-payment-state/
-?? .ai/reviews/orders-kp-goods-tab/
 ?? .ai/reviews/performance-vt/
 ?? .ai/reviews/production-top-row/
 ?? .ai/reviews/retail-cash-unfinished/
@@ -461,7 +454,6 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 6
 ?? .ai/reviews/wo-techdebt2/
 ?? docs/.!95431!TESTS.xlsx
 ?? docs/plans/order-payment-state.md
-?? docs/plans/orders-kp-goods-tab.md
 ```
 
 ### Запретные пути (CLAUDE.md «Не трогаю»)
@@ -481,31 +473,23 @@ none found
 
 ### Новые подавления BSL LS (added lines only)
 ```
-+		// BSLLS:IsInRoleMethod-off - закладка закрыта ролям внешних пользователей целиком.
-+		// BSLLS:IsInRoleMethod-on
-+	// BSLLS:MagicNumber-off - предел объявлен этой функцией.
++	// BSLLS:MagicNumber-off - количества и цены сценария.
 +	// BSLLS:MagicNumber-on
-+	// BSLLS:MagicNumber-off - значения объявлены списком выбора тумблера знака на форме.
++	// BSLLS:MagicNumber-off - коэффициент упаковки сценария.
 +	// BSLLS:MagicNumber-on
 +	// BSLLS:MagicNumber-off - количества и цены сценария.
 +	// BSLLS:MagicNumber-on
-+	// BSLLS:MagicNumber-off - цена сценария.
-+	// BSLLS:MagicNumber-on
-+	// BSLLS:MagicNumber-off - цена сценария.
-+	// BSLLS:MagicNumber-on
 +	// BSLLS:MagicNumber-off - количество сценария.
 +	// BSLLS:MagicNumber-on
-+	// BSLLS:MagicNumber-off - количество и цена сценария.
++	// BSLLS:YoLetterUsage-off
++	// BSLLS:YoLetterUsage-on
++	// BSLLS:MagicNumber-off - количества и цены сценария.
 +	// BSLLS:MagicNumber-on
-+	// BSLLS:SetPrivilegedMode-off - узкая проверка факта статуса, см. комментарий выше.
-+	// BSLLS:SetPrivilegedMode-on
-+	// BSLLS:SetPrivilegedMode-off - снятие режима, включённого выше.
-+	// BSLLS:SetPrivilegedMode-on
 ```
 Каждое подавление — осознанное: проверь, что оно не прячет настоящую ошибку.
 
 ### Версия конфигурации
-2.0.17.39 → 2.0.17.40
+2.0.17.40 → 2.0.17.41
 
 ### Регламент тестов (docs/TESTING.md, п. 2) — напоминания, не FAIL
 - уровни 1–3 проверяют build/ib, а её обновляет из EDT владелец: без Refresh и обновления базы смок гоняет код прошлой сборки
