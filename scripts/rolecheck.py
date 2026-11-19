@@ -31,6 +31,17 @@
    2026-11-15).
 4. Право роли на общую форму, которой нет в CommonForms, — висячее: так и
    осталось незамеченным переименование окна печати.
+5. Роль вне NAV_EXTERNAL_ROLES, которая видит объект (обработку, отчёт, справочник,
+   документ, регистр), видит и его команды навигации: группы NavigationPanel*,
+   FormNavigationPanel*, «Отчёты» и «Перейти». Право на команду у ролей без
+   «независимых прав подчинённых» отдельное: без него команды нет в меню раздела и в
+   панели «Перейти», хотя объект роли доступен. Открытие при запуске
+   (ОткрытьФорму) этого права не требует — так АРМ закупок и производства пропали
+   из раздела «Производство» у оператора и складских ордеров, а живая проверка
+   через автозапуск их видела (тикет 2605465, 2026-11-19). Команды печати — п. 2,
+   «Отправить почтой» и действия в командной панели формы — решение по роли, не
+   проверяются. NAV_BROKEN — команды с неверным обработчиком: право им не выдаётся,
+   пока обработчик не исправлен (docs/TECHDEBT.md).
 
 Проверяются все роли: роль без своего права на клиент работает в паре с другой
 («Складские ордера» с «Оператором производства»).
@@ -48,6 +59,17 @@ KINDS = ("Catalog.", "Document.", "ChartOfCharacteristicTypes.", "ChartOfAccount
 OBJECT = re.compile(r"<object>\s*<name>([^<]+)</name>(.*?)</object>", re.S)
 RIGHT = re.compile(r"<name>(\w+)</name>\s*<value>(\w+)</value>")
 EXTERNAL_ROLES = ("Клиент", "ECommerce", "ОбменМобильнаяДоставка")
+NAV_EXTERNAL_ROLES = EXTERNAL_ROLES + ("ЛичныйКабинет", "MobileClient")
+NAV_GROUPS = ("NavigationPanel", "FormNavigationPanel", "CommandGroup.Отчёты", "CommandGroup.Перейти")
+FOLDERS = {"Catalog": "Catalogs", "Document": "Documents", "DataProcessor": "DataProcessors", "Report": "Reports",
+           "InformationRegister": "InformationRegisters", "AccumulationRegister": "AccumulationRegisters",
+           "AccountingRegister": "AccountingRegisters", "CalculationRegister": "CalculationRegisters",
+           "ChartOfCharacteristicTypes": "ChartsOfCharacteristicTypes", "ChartOfAccounts": "ChartsOfAccounts",
+           "ChartOfCalculationTypes": "ChartsOfCalculationTypes", "ExchangePlan": "ExchangePlans",
+           "BusinessProcess": "BusinessProcesses", "Task": "Tasks", "DocumentJournal": "DocumentJournals"}
+# Команда «Планирование закупок» открывает «Ведомость по продажам» (обработчик скопирован) — TECHDEBT.
+NAV_BROKEN = ("Report.ПланированиеЗакупок.Command.ВедомостьПоПродажам",)
+COMMAND = re.compile(r"<commands uuid=\"[^\"]*\">(.*?)</commands>", re.S)
 PRINT_FORM = "CommonForm.ПечатьДокументов"
 PRICE_COMMANDS = {
     "ОператорПроизводства": (
@@ -76,6 +98,25 @@ def print_commands(src_dir, document):
         if name.startswith("Печать") or "ПечатныеФормыКлиент." in text:
             commands.append(name)
     return commands
+
+
+def navigation_commands(src_dir, name, cache={}):
+    """Команды навигации объекта метаданных «Вид.Имя»: имена команд из его .mdo."""
+    if name not in cache:
+        kind, short = name.split(".")
+        path = os.path.join(src_dir, FOLDERS.get(kind, ""), short, short + ".mdo")
+        if kind not in FOLDERS or not os.path.exists(path):
+            path = os.path.join(src_dir, FOLDERS.get(kind, ""), unicodedata.normalize("NFD", short),
+                                unicodedata.normalize("NFD", short) + ".mdo")
+        text = unicodedata.normalize("NFC", open(path, encoding="utf-8").read()) if os.path.exists(path) else ""
+        result = []
+        for block in COMMAND.finditer(text):
+            command = re.search(r"<name>([^<]+)</name>", block.group(1)).group(1)
+            group = re.search(r"<group>([^<]+)</group>", block.group(1))
+            if group and group.group(1).startswith(NAV_GROUPS):
+                result.append(command)
+        cache[name] = result
+    return cache[name]
 
 
 def main():
@@ -121,6 +162,14 @@ def main():
                     and name.split(".Command.")[1] in print_commands(src, name.split(".")[1])):
                 sees_print = True
                 break
+        if unicodedata.normalize("NFC", role) not in NAV_EXTERNAL_ROLES:
+            for name, rights in objects.items():
+                if name.count(".") != 1 or rights.get("View") != "true" or name.split(".")[0] not in FOLDERS:
+                    continue
+                for command in navigation_commands(src, name):
+                    full = f"{name}.Command.{command}"
+                    if full not in NAV_BROKEN and objects.get(full, {}).get("View") != "true":
+                        findings.append(f"Объект виден, команды навигации нет — {role}: {full}")
         if sees_print and role not in EXTERNAL_ROLES and objects.get(PRINT_FORM, {}).get("View") != "true":
             findings.append(f"Команды печати есть, окна печати нет — {role}: {PRINT_FORM}")
     for line in findings:
