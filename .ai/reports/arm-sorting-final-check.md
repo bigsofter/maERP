@@ -1,5 +1,5 @@
 # Final check — arm-sorting
-_20261117T102729Z_
+_20261119T163354Z_
 
 
 ## Scope
@@ -70,6 +70,7 @@ _20261117T102729Z_
 .ai/reports/tabs-handlers-final-check.md
 .ai/reports/transfer-act-print-final-check.md
 .ai/reports/transfer-row-product-field-final-check.md
+.ai/reports/vat-zones-final-check.md
 .ai/reports/warehouse-orders-cost-f3-final-check.md
 .ai/reports/warehouse-orders-cost-f4-final-check.md
 .ai/reports/warehouse-orders-cost-f5-final-check.md
@@ -81,9 +82,7 @@ _20261117T102729Z_
 .ai/reviews/arm-purchasing-receipt-lines/02-plan-review.json
 .ai/reviews/arm-purchasing-receipt-lines/03-code-review.json
 .ai/reviews/arm-purchasing-receipt-lines/03b-code-review-verify.json
-.ai/reviews/arm-sorting/02-plan-review-claude.md
-.ai/reviews/arm-sorting/03-code-review-claude.md
-.ai/reviews/arm-sorting/03b-code-review-verify-claude.md
+.ai/reviews/arm-sorting/03-code-review.json
 .ai/reviews/card-crash-filters/03-code-review.json
 .ai/reviews/commerce-two-orgs/03-code-review-r1.json
 .ai/reviews/commerce-two-orgs/03-code-review-r10.json
@@ -236,23 +235,12 @@ docs/.!95431!TESTS.xlsx
 docs/FORMS-STYLE.md
 docs/plans/arm-sorting.md
 docs/plans/order-payment-state.md
-docs/ROADMAP.md
-docs/TECHDEBT.md
-docs/TESTING.md
-docs/TESTS.xlsx
-src/cf/src/CommonModules/СортировкаТаблицФормы/СортировкаТаблицФормы.mdo
-src/cf/src/CommonModules/СортировкаТаблицФормы/Module.bsl
 src/cf/src/CommonTemplates/ОписаниеИзменений/Template.txt
 src/cf/src/Configuration/Configuration.mdo
-src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Attributes/ЗаказыТовара/ExtInfo/ListSettings.dcss
-src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Attributes/ОстаткиТовара/ExtInfo/ListSettings.dcss
-src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Attributes/ПредложенияТовара/ExtInfo/ListSettings.dcss
 src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Form.form
 src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Form.form
 src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Module.bsl
 src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Module.bsl
-src/cf/src/DataProcessors/АРМЗакупки/ManagerModule.bsl
-src/cf/src/DataProcessors/ТестыДокументов/ManagerModule.bsl
 ```
 
 ## Gates
@@ -261,15 +249,15 @@ src/cf/src/DataProcessors/ТестыДокументов/ManagerModule.bsl
 ```
 line 1:0 token recognition error at: '﻿'
 line 1:0 token recognition error at: '﻿'
-2026-11-17T11:27:39.253+01:00  INFO 29955 --- [BSL Language Server] [-types-warmup-1] _.b.l.t.r.PlatformContextProviderFactory : Loaded 2614 platform contexts from 1C syntax helper
-Analyzing files...   0% [                              ]   0/895 (0:00:00 / ?) Analyzing files...   1% [                        ]   9/895 (0:00:01 / 0:01:38) Analyzing files...   4% [=                       ]  39/895 (0:00:02 / 0:00:43) Analyzing files...   8% [=                       ]  74/895 (0:00:03 / 0:00:33) Analyzing files...   8% [==                      ]  76/895 (0:00:04 / 0:00:43) Analyzing files...   8% [==                      ]  77/895 (0:00:05 / 0:00:53) Analyzing files...  14% [===                     ] 131/895 (0:00:06 / 0:00:35) Analyzing files...  19% [====                    ] 176/895 (0:00:07 / 0:00:28) Analyzing files...  27% [======                  ] 246/895 (0:00:08 / 0:00:21) Analyzing files...  48% [===========             ] 431/895 (0:00:09 / 0:00:09) Analyzing files...  66% [===============         ] 595/895 (0:00:10 / 0:00:05) Analyzing files...  89% [=====================   ] 801/895 (0:00:11 / 0:00:01) Analyzing files... 100% [========================] 895/895 (0:00:11 / 0:00:00) Analyzing files... 100% [========================] 895/895 (0:00:11 / 0:00:00) 
-2026-11-17T11:27:55.367+01:00  INFO 29955 --- [BSL Language Server] [           main] c.g._.b.l.reporters.JsonReporter         : JSON report saved to /Users/ivan-gurkin/Dev/maERP/build/./bsl-json.json
+2026-11-19T17:34:03.203+01:00  INFO 1142 --- [BSL Language Server] [-types-warmup-1] _.b.l.t.r.PlatformContextProviderFactory : Loaded 2614 platform contexts from 1C syntax helper
+Analyzing files...   0% [                              ]   0/899 (0:00:00 / ?) Analyzing files...   1% [                        ]   9/899 (0:00:01 / 0:01:38) Analyzing files...   7% [=                       ]  70/899 (0:00:02 / 0:00:23) Analyzing files...  18% [====                    ] 168/899 (0:00:03 / 0:00:13) Analyzing files...  36% [========                ] 325/899 (0:00:04 / 0:00:07) Analyzing files...  42% [==========              ] 380/899 (0:00:05 / 0:00:06) Analyzing files...  49% [===========             ] 441/899 (0:00:06 / 0:00:06) Analyzing files...  59% [==============          ] 535/899 (0:00:07 / 0:00:04) Analyzing files...  72% [=================       ] 653/899 (0:00:08 / 0:00:03) Analyzing files...  99% [======================= ] 891/899 (0:00:09 / 0:00:00) Analyzing files... 100% [========================] 899/899 (0:00:09 / 0:00:00) Analyzing files... 100% [========================] 899/899 (0:00:09 / 0:00:00) 
+2026-11-19T17:34:16.310+01:00  INFO 1142 --- [BSL Language Server] [           main] c.g._.b.l.reporters.JsonReporter         : JSON report saved to /Users/ivan-gurkin/Dev/maERP/build/./bsl-json.json
 Отчёт: /Users/ivan-gurkin/Dev/maERP/build/bsl-json.json
 ```
 **PASS**
 ### уровень 0: нет новых замечаний BSL LS против baseline в изменённых модулях
 ```
-baseline: 2026-10-18 20:37:12; изменённых модулей: 5
+baseline: 2026-10-18 20:37:12; изменённых модулей: 2
 новых замечаний нет
 ```
 **PASS**
@@ -290,9 +278,9 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 5
 **PASS**
 ### ОписаниеИзменений: секция текущей версии на ru/fr/en/es
 ```
-Языков: 4, пунктов изменений: 20
-Описание изменений: /Users/ivan-gurkin/Dev/maERP/build/changelog-2.0.17.32.json
-версия 2.0.17.32: ru=5, fr=5, en=5, es=5
+Языков: 4, пунктов изменений: 4
+Описание изменений: /Users/ivan-gurkin/Dev/maERP/build/changelog-2.0.17.42.json
+версия 2.0.17.42: ru=1, fr=1, en=1, es=1
 ```
 **PASS**
 
@@ -300,19 +288,15 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 5
 
 ### git status
 ```
+ M .ai/reports/arm-sorting-final-check.md
  M docs/FORMS-STYLE.md
- M docs/ROADMAP.md
- M docs/TECHDEBT.md
- M docs/TESTING.md
- M docs/TESTS.xlsx
+ M docs/plans/arm-sorting.md
  M src/cf/src/CommonTemplates/ОписаниеИзменений/Template.txt
  M src/cf/src/Configuration/Configuration.mdo
  M src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Form.form
  M src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Module.bsl
- M src/cf/src/DataProcessors/АРМЗакупки/ManagerModule.bsl
  M src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Form.form
  M src/cf/src/DataProcessors/АРМПроизводство/Forms/Форма/Module.bsl
- M src/cf/src/DataProcessors/ТестыДокументов/ManagerModule.bsl
 ?? .ai/reports/arm-current-row-final-check.md
 ?? .ai/reports/arm-pf-output-final-check.md
 ?? .ai/reports/arm-production-print-final-check.md
@@ -324,7 +308,6 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 5
 ?? .ai/reports/arm-purchasing-receipts-final-check.md
 ?? .ai/reports/arm-purchasing-receipts-s2-final-check.md
 ?? .ai/reports/arm-receipt-lines-edit-final-check.md
-?? .ai/reports/arm-sorting-final-check.md
 ?? .ai/reports/bulk-edit-platform-check-final-check.md
 ?? .ai/reports/calendar-country-choice-final-check.md
 ?? .ai/reports/card-crash-filters-final-check.md
@@ -378,6 +361,7 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 5
 ?? .ai/reports/tabs-handlers-final-check.md
 ?? .ai/reports/transfer-act-print-final-check.md
 ?? .ai/reports/transfer-row-product-field-final-check.md
+?? .ai/reports/vat-zones-final-check.md
 ?? .ai/reports/warehouse-orders-cost-f3-final-check.md
 ?? .ai/reports/warehouse-orders-cost-f4-final-check.md
 ?? .ai/reports/warehouse-orders-cost-f5-final-check.md
@@ -385,7 +369,7 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 5
 ?? .ai/reviews/arm-current-row/
 ?? .ai/reviews/arm-production-print/
 ?? .ai/reviews/arm-purchasing-receipt-lines/
-?? .ai/reviews/arm-sorting/
+?? .ai/reviews/arm-sorting/03-code-review.json
 ?? .ai/reviews/card-crash-filters/
 ?? .ai/reviews/commerce-two-orgs/03-code-review-r1.json
 ?? .ai/reviews/commerce-two-orgs/03-code-review-r10.json
@@ -459,10 +443,7 @@ baseline: 2026-10-18 20:37:12; изменённых модулей: 5
 ?? .ai/reviews/warehouse-orders-option/
 ?? .ai/reviews/wo-techdebt2/
 ?? docs/.!95431!TESTS.xlsx
-?? docs/plans/arm-sorting.md
 ?? docs/plans/order-payment-state.md
-?? src/cf/src/CommonModules/СортировкаТаблицФормы/
-?? src/cf/src/DataProcessors/АРМЗакупки/Forms/Форма/Attributes/
 ```
 
 ### Запретные пути (CLAUDE.md «Не трогаю»)
@@ -481,18 +462,10 @@ no hits (grep heuristic only — not a real secret scanner)
 none found
 
 ### Новые подавления BSL LS (added lines only)
-```
-+	// BSLLS:JoinWithSubQuery-off
-+	// BSLLS:JoinWithSubQuery-on
-+	// BSLLS:JoinWithVirtualTable-off
-+	// BSLLS:JoinWithVirtualTable-on
-+	// BSLLS:JoinWithSubQuery-off
-+	// BSLLS:JoinWithSubQuery-on
-```
-Каждое подавление — осознанное: проверь, что оно не прячет настоящую ошибку.
+none found
 
 ### Версия конфигурации
-2.0.17.29 → 2.0.17.32
+2.0.17.41 → 2.0.17.42
 
 ### Регламент тестов (docs/TESTING.md, п. 2) — напоминания, не FAIL
 - уровни 1–3 проверяют build/ib, а её обновляет из EDT владелец: без Refresh и обновления базы смок гоняет код прошлой сборки
