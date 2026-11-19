@@ -10,6 +10,36 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.17.44
+### ru
+- Дополнительные реквизиты товара со списком значений (например, материал, цвет, тип обработки) показывают название значения — раньше в полях и в окне значения было «<>». Значение можно найти, набрав его название в поле.
+- Рабочее место производства, закладка передачи переработчику: панель «Свойства изделия» показывает свойства готовой продукции заказа — и когда переработчику передаётся полуфабрикат, и когда передаётся сырьё полуфабриката. Если строка относится к нескольким изделиям, панель пуста и подсказывает выбрать изделие.
+- Акт передачи в переработку: строки переданных материалов и ожидаемой продукции стали компактными — без свойств и веса под строкой; свойства изделия печатаются отдельным блоком под таблицей, крупнее строк, с названием изделия. В накладных и Bon de sortie свойства по-прежнему под строкой товара.
+- Поступление из переработки: новые поля «Документ подрядчика № … от …».
+- Отчёт «Переработка по переработчикам»: в колонке поступления — номер и дата документа подрядчика (если не заполнены — наш номер); оформление как у остальных отчётов; внизу строка «Итого по отчёту»: передано, получено, остаток у переработчиков и сроки. Исправлено: строки одного поступления, относящиеся к разным заказам, теперь все входят в итог переработчика.
+- Отчёт «Деньги и статусы заказов клиентов»: новый вариант «Долги по отгрузкам» — заказчик, документ расчётов (накладная или счёт-фактура) с начислением, оплатами, корректировками и долгом, под ним отгрузки с заказом, товарами и количеством.
+### fr
+- Les attributs supplémentaires d'article à liste de valeurs (matière, couleur, type de traitement…) affichent le nom de la valeur — auparavant les champs et la fenêtre de la valeur montraient « <> ». On trouve une valeur en tapant son nom dans le champ.
+- Poste de production, onglet du transfert au sous-traitant : le panneau « Propriétés du produit fini » montre les propriétés du produit fini de la commande, que l'on transfère un semi-fini ou la matière d'un semi-fini. Si la ligne concerne plusieurs produits, le panneau reste vide et invite à choisir le produit.
+- Bon de transfert en sous-traitance : les lignes des matières transférées et des produits attendus sont compactes — sans propriétés ni poids sous la ligne ; les propriétés du produit s'impriment dans un bloc séparé sous le tableau, en plus grand, avec le nom du produit. Dans les bons de livraison et Bon de sortie, les propriétés restent sous la ligne d'article.
+- Réception de sous-traitance : nouveaux champs « Document du sous-traitant n° … du … ».
+- Rapport « Sous-traitance par sous-traitant » : la colonne de réception montre le numéro et la date du document du sous-traitant (à défaut, notre numéro) ; présentation identique aux autres rapports ; en bas, la ligne « Total du rapport » : envoyé, reçu, solde chez les sous-traitants et délais. Corrigé : les lignes d'une même réception rattachées à des commandes différentes entrent toutes dans le total du sous-traitant.
+- Rapport « Argent et statuts des commandes clients » : nouvelle variante « Dettes par livraison » — client, document de règlement (bon de livraison ou facture) avec facturé, paiements, ajustements et dette, puis les livraisons avec commande, articles et quantités.
+### en
+- Additional item attributes with a value list (material, color, treatment type…) show the value name — fields and the value window used to show "<>". A value can be found by typing its name in the field.
+- Production workstation, transfer-to-processor tab: the "Finished product properties" panel shows the properties of the order's finished product, whether a semi-finished good or its raw material is transferred. If the line relates to several products, the panel stays empty and asks to choose the product.
+- Transfer for processing act: lines of transferred materials and expected products are compact — no properties or weight under the line; the product properties are printed in a separate block below the table, larger, with the product name. Delivery notes and Bon de sortie still show properties under the item line.
+- Receipt from processing: new fields "Processor document no. … dated …".
+- "Processing by processor" report: the receipt column shows the processor's document number and date (our number if not filled); same look as the other reports; a "Report total" line at the bottom: sent, received, balance at processors and lead times. Fixed: lines of one receipt belonging to different orders now all count in the processor total.
+- "Customer order money and statuses" report: new "Debts by shipment" variant — customer, settlement document (delivery note or invoice) with charged, payments, adjustments and debt, then its shipments with order, items and quantities.
+### es
+- Los atributos adicionales de artículo con lista de valores (material, color, tipo de tratamiento…) muestran el nombre del valor — antes los campos y la ventana del valor mostraban «<>». Un valor se encuentra escribiendo su nombre en el campo.
+- Puesto de producción, pestaña de envío al subcontratista: el panel «Propiedades del producto terminado» muestra las propiedades del producto terminado del pedido, tanto si se envía un semielaborado como su materia prima. Si la línea corresponde a varios productos, el panel queda vacío y pide elegir el producto.
+- Acta de transferencia a procesamiento: las líneas de materiales enviados y productos esperados son compactas — sin propiedades ni peso bajo la línea; las propiedades del producto se imprimen en un bloque aparte bajo la tabla, más grandes, con el nombre del producto. En los albaranes y Bon de sortie las propiedades siguen bajo la línea del artículo.
+- Recepción de procesamiento: nuevos campos «Documento del subcontratista n.º … del …».
+- Informe «Procesamiento por procesador»: la columna de recepción muestra el número y la fecha del documento del subcontratista (si no se rellenan, nuestro número); mismo aspecto que los demás informes; abajo, la línea «Total del informe»: enviado, recibido, saldo en los procesadores y plazos. Corregido: las líneas de una misma recepción que pertenecen a pedidos distintos ahora entran todas en el total del procesador.
+- Informe «Dinero y estados de pedidos de clientes»: nueva variante «Deudas por envío» — cliente, documento de liquidación (albarán o factura) con cargado, pagos, ajustes y deuda, y debajo sus envíos con pedido, artículos y cantidades.
+
 ## 2.0.17.43
 ### ru
 - Мастер первого запуска: добавление второго и следующих пользователей больше не прерывается ошибкой «Недопустимое значение параметра»; пользователя из списка мастера можно удалить кнопкой рядом с его логином.
