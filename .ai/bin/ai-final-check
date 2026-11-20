@@ -186,6 +186,12 @@ else
   gate_skipped "уровень 0.8 (queryfields) — в диффе нет src/cf/** и scripts/queryfields*"
 fi
 
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/navcheck"; then
+  run_gate "уровень 0.85: scripts/navcheck.py" python3 scripts/navcheck.py
+else
+  gate_skipped "уровень 0.85 (navcheck) — в диффе нет src/cf/** и scripts/navcheck*"
+fi
+
 if ai_changed_has "$CHANGED" "src/cf/"; then
   run_gate "ОписаниеИзменений: секция текущей версии на ru/fr/en/es" changelog_section
   gate_skipped "EDT: синтаксический контроль и ссылочная целостность метаданных — только у владельца после Refresh (CLAUDE.md), отсюда не запускается"
