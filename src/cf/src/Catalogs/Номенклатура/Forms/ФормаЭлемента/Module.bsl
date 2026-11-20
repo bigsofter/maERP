@@ -160,7 +160,7 @@
 			|fr = 'Pour travailler avec les images et les fichiers de l''article, installez l''extension pour travailler avec 1C:Entreprise.';
 			|en = 'To work with item images and files, install the 1C:Enterprise extension.';
 			|es = 'Para trabajar con las imágenes y los archivos del artículo, instale la extensión para trabajar con 1C:Empresa.'"));
-	// Карточка всегда открывается на описании и свойствах товара, а не на закладке, восстановленной из настроек окна.
+	// Карточка всегда открывается на свойствах товара, а не на закладке, восстановленной из настроек окна.
 	Элементы.ГруппаСтраницы.ТекущаяСтраница = Элементы.СтраницаОсновное;
 	// Если платформа всё же открыла другую закладку - её данные грузятся сразу, как при переходе на неё.
 	Если ЗакладкаЖдетЗагрузки(ЭтотОбъект, Элементы.ГруппаСтраницы.ТекущаяСтраница.Имя) Тогда

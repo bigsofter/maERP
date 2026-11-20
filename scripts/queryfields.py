@@ -13,6 +13,12 @@
   2. каждое «П.Поле» внутри того же запроса пакета и той же ветки ОБЪЕДИНИТЬ — среди реквизитов
      и табличных частей .mdo, стандартных полей и общих реквизитов.
 Разыменование через точку глубже первого уровня («П.Поле.Реквизит») не проверяется.
+  5. булево поле таблицы, присоединённой ЛЕВЫМ или ПОЛНЫМ соединением, выбрано без ЕСТЬNULL, а модуль
+     проверяет его условием («Если Шапка.КонтрольКредита Тогда»): при пустой ссылке соединения поле приходит NULL,
+     и условие падает «Cannot convert value to Boolean» (инцидент 2026-11-20, панель «Клиент» 22 списков документов
+     при незаполненном контрагенте; смок активацию строки не делает).
+     ПРАВОЕ соединение не проверяется: NULL там приходит у полей левой стороны (в конфигурации таких соединений нет,
+     2026-11-20) — появится, проверку расширить на левую сторону.
 
 В модулях форм документа (Documents/Имя/Forms/Форма/Module.bsl), где текст запроса объявляет «Документ.Имя КАК Док»,
 дополнительно проверяются:
@@ -68,6 +74,22 @@ class Metadata:
         common = os.path.join(src, "CommonAttributes")
         self.common = {nfc(n) for n in os.listdir(common)} if os.path.isdir(common) else set()
         self.cache = {}
+
+    def booleans(self, collection, name):
+        """Булевы реквизиты шапки объекта."""
+        key = ("bool", collection, name)
+        if key not in self.cache:
+            folder = self.dirs.get((collection, name))
+            result = set()
+            files = [f for f in os.listdir(folder) if f.endswith(".mdo")] if folder else []
+            if files:
+                text = nfc(io.open(os.path.join(folder, files[0]), encoding="utf-8").read())
+                text = re.sub(r'<tabularSections uuid="[^"]*">.*?\n  </tabularSections>', "", text, flags=re.S)
+                for match in re.finditer(r'<attributes uuid="[^"]*">\s*<name>([^<]+)</name>(.*?)</attributes>', text, re.S):
+                    if re.search(r"<types>Boolean</types>", match.group(2)):
+                        result.add(match.group(1))
+            self.cache[key] = result
+        return self.cache[key]
 
     def fields(self, collection, name, section):
         key = (collection, name, section)
@@ -142,6 +164,7 @@ class Checker:
         for line, text in query_literals(lines):
             for branch in parts(text):
                 self.check_branch(where, line, branch)
+                self.check_nullable_booleans(where, line, branch, source)
         self.check_form_filters(where, lines)
 
     def check_form_filters(self, where, lines):
@@ -203,6 +226,29 @@ class Checker:
                     "%s|%s|%s" % (where, table, field),
                     "%s:%d" % (where, line),
                     "поле «%s.%s» — у %s нет реквизита «%s»" % (alias, field, table, field),
+                ))
+
+
+    def check_nullable_booleans(self, where, line, branch, source):
+        # У ПРАВОГО соединения NULL приходят поля левой стороны, а не присоединённой: проверяются только ЛЕВОЕ и ПОЛНОЕ.
+        joined = r"(?:ЛЕВОЕ|ПОЛНОЕ)\s+(?:ВНЕШНЕЕ\s+)?СОЕДИНЕНИЕ\s+(Документ|Справочник)\.(" + IDENT + r")\s+КАК\s+(" + IDENT + r")"
+        for match in re.finditer(joined, branch):
+            collection, name, alias = match.groups()
+            booleans = self.meta.booleans(collection, name)
+            selected = r"(?m)^\s*" + re.escape(alias) + r"\.(" + IDENT + r")(?:\s+КАК\s+(" + IDENT + r"))?\s*,?\s*$"
+            for field, label in re.findall(selected, branch):
+                if field not in booleans:
+                    continue
+                label = label or field
+                condition = r"(?:\bЕсли|\bИначеЕсли|\bПока|\bНе|\bИ|\bИЛИ|\?\()\s+(?:Не\s+)?" + IDENT + r"\." + re.escape(label) + r"\b(?!\s*[=<>])"
+                code = "\n".join(l for l in source.split("\n") if not l.lstrip().startswith(("|", "//")))
+                if not re.search(condition, code):
+                    continue
+                self.findings.append((
+                    "%s|%s.%s|%s:NULL" % (where, collection, name, field),
+                    "%s:%d" % (where, line),
+                    "булево «%s.%s» из внешнего соединения без ЕСТЬNULL проверяется условием «%s» — NULL при пустой ссылке"
+                    % (alias, field, label),
                 ))
 
 
