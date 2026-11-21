@@ -5,6 +5,1017 @@
 к старым, на всех языках конфигурации — ровно так, как их видел владелец в окне
 «Что нового».
 
+# Релиз 2.0.17.48 (2026-11-21)
+
+Поставка: `maERP-2.0.17.48.cf`; обновление с опубликованных релизов 1.0.11.1 … 2.0.16.150 — `maERP-2.0.17.48.cfu`.
+Розничная сеть: отрасль «Телефоны и аксессуары» с учётом по IMEI, надёжная касса, обмен между базами maERP, зоны НДС
+и удержание у источника, закладка «Товары» в списках документов, режим работы рабочих мест, печать инвентаризации.
+
+## 2.0.17.48
+### ru
+- Инвентаризация (пересчёт товаров): новые печатные формы. «Инвентаризационная опись» — все строки с количеством и себестоимостью по учёту, фактически и разницей, итоги по суммам и подписи ответственного и исполнителя. «Сличительная ведомость» — только строки с расхождением; если расхождений нет, так и написано. Себестоимость — средняя по остаткам всех складов на дату документа, без НДС. Пользователь без права видеть цены получает только количества.
+- Список «Установка плановых показателей»: панель сведений справа больше не выдаёт ошибку при выборе строки.
+### fr
+- Inventaire (comptage des marchandises) : nouveaux formulaires d'impression. « Inventaire valorisé » — toutes les lignes avec la quantité et le coût de revient théoriques, réels et l'écart, les totaux des montants et les signatures du responsable et de la personne qui a compté. « État des écarts d'inventaire » — seulement les lignes avec un écart ; sans écart, le document l'indique. Le coût de revient est le coût moyen du stock de tous les entrepôts à la date du document, HT. Un utilisateur sans droit de voir les prix n'obtient que les quantités.
+- Liste « Définition des indicateurs planifiés » : le panneau d'informations à droite n'affiche plus d'erreur lors du choix d'une ligne.
+### en
+- Stock count: new print forms. "Valued stock count" — all lines with book, actual and difference quantities and costs, amount totals and signatures of the responsible person and the counter. "Stock count variance report" — only lines with a difference; with no differences, it says so. The cost is the average of the stock of all warehouses at the document date, excluding VAT. A user without the right to see prices gets quantities only.
+- "Planned indicators" list: the information panel on the right no longer fails when a line is selected.
+### es
+- Inventario (recuento de mercancías): nuevos formularios de impresión. «Inventario valorado» — todas las líneas con la cantidad y el coste contables, reales y la diferencia, los totales de importes y las firmas del responsable y de quien contó. «Hoja de diferencias de inventario» — solo las líneas con diferencia; si no hay diferencias, lo indica. El coste es el promedio de las existencias de todos los almacenes a la fecha del documento, sin IVA. Un usuario sin derecho a ver precios obtiene solo las cantidades.
+- Lista «Establecimiento de indicadores planificados»: el panel de información de la derecha ya no da error al elegir una línea.
+
+## 2.0.17.47
+### ru
+- Списки документов (реализации, поступления, заказы, кассовые и банковские документы, возвраты и другие): панель «Клиент» справа больше не выдаёт ошибку «Cannot convert value to Boolean», когда в документе не указан контрагент.
+- Карточка товара: описание перенесено на отдельную закладку «Описание», первой открывается закладка «Свойства» (бренд, качество, товарная группа, дополнительные свойства). Закладка «Стикер» скрыта, её данные сохранены.
+- Рабочие места: в настройках пользователя появился «Режим работы с АРМ». «Товары» — рабочее место производства открывается на закладке «Продукция», закупок — на «Потребности» и «Товарах»; «Документы» или пусто — как раньше.
+- Рабочее место производства, «Продукция»: колонки идут в порядке «Клиент, Товар, Количество, Единица»; колонка единицы во всех таблицах называется «Ед.». В фильтрах появился флажок «Показывать выполненные» — с ним видны выполненные, отгруженные и доставленные заказы; при отборе по стадии они видны и без флажка.
+### fr
+- Listes des documents (ventes, réceptions, commandes, documents de caisse et de banque, retours et autres) : le panneau « Client » à droite n'affiche plus l'erreur « Cannot convert value to Boolean » lorsque le document n'a pas de contrepartie.
+- Fiche article : la description passe sur un onglet séparé « Description », la fiche s'ouvre sur l'onglet « Propriétés » (marque, qualité, groupe d'articles, propriétés supplémentaires). L'onglet « Étiquette » est masqué, ses données sont conservées.
+- Postes de travail : les « Paramètres utilisateur » ont un « Mode de travail des postes ». « Articles » — le poste de production s'ouvre sur l'onglet « Produit », celui des achats sur « Besoin » et « Articles » ; « Documents » ou vide — comme avant.
+- Poste de production, « Produit » : les colonnes suivent l'ordre « Client, Article, Quantité, Unité » ; la colonne d'unité s'appelle « Unité » dans tous les tableaux. Les filtres ont une case « Afficher les commandes terminées » : avec elle, les commandes terminées, expédiées et livrées sont visibles ; avec un filtre par étape, elles le sont aussi sans la case.
+### en
+- Document lists (sales, receipts, orders, cash and bank documents, returns and others): the "Client" panel on the right no longer fails with "Cannot convert value to Boolean" when the document has no counterparty.
+- Item card: the description moves to a separate "Description" tab, the card opens on the "Properties" tab (brand, quality, item group, additional properties). The "Label" tab is hidden, its data is kept.
+- Workplaces: "User settings" have a "Workplace mode". "Goods" — the production workplace opens on the "Product" tab, the purchasing one on "Need" and "Items"; "Documents" or empty — as before.
+- Production workplace, "Product": columns go in the order "Client, Item, Quantity, Unit"; the unit column is called "Unit" in all tables. The filters have a "Show completed" check box: with it, completed, shipped and delivered orders are shown; with a stage filter they are shown without it too.
+### es
+- Listas de documentos (ventas, recepciones, pedidos, documentos de caja y banco, devoluciones y otros): el panel «Cliente» de la derecha ya no da el error «Cannot convert value to Boolean» cuando el documento no tiene contraparte.
+- Ficha del artículo: la descripción pasa a una pestaña aparte «Descripción», la ficha se abre en la pestaña «Propiedades» (marca, calidad, grupo de artículos, propiedades adicionales). La pestaña «Etiqueta» se oculta, sus datos se conservan.
+- Puestos de trabajo: la «Configuración de usuario» tiene un «Modo de trabajo de los puestos». «Artículos» — el puesto de producción se abre en la pestaña «Producto», el de compras en «Necesidad» y «Artículos»; «Documentos» o vacío — como antes.
+- Puesto de producción, «Producto»: las columnas van en el orden «Cliente, Artículo, Cantidad, Unidad»; la columna de unidad se llama «Unidad» en todas las tablas. Los filtros tienen la casilla «Mostrar terminados»: con ella se ven los pedidos terminados, enviados y entregados; con un filtro por etapa se ven también sin la casilla.
+
+## 2.0.17.46
+### ru
+- Формы документов: убран переключатель «Основное / Файлы» над шапкой — из-за него команды документа (печать, «Создать на основании», «Перейти») уезжали из строки заголовка во вторую строку, а сам заголовок оставался пустым. Файлы документа открываются кнопкой «Файлы» со скрепкой.
+- Дополнительные реквизиты: новая форма реквизита. Тип выбирается из списка (текст, число, дата, да/нет, значение из списка, контрагент, номенклатура), у числа — число цифр и знаков после запятой с подсказкой о пределе (до запятой не больше 12 цифр, после запятой не больше 3). Раньше штатное окно типа позволяло ввести длину больше допустимой и не давало сохранить реквизит с типом «Число».
+### fr
+- Formulaires des documents : le sélecteur « Principal / Fichiers » au-dessus de l'en-tête est supprimé — à cause de lui, les commandes du document (impression, « Créer sur la base de », « Aller ») passaient de la ligne du titre à une deuxième ligne, et le titre restait vide. Les fichiers du document s'ouvrent avec le bouton « Fichiers » (trombone).
+- Attributs supplémentaires : nouveau formulaire d'attribut. Le type se choisit dans une liste (texte, nombre, date, oui/non, valeur d'une liste, contrepartie, article) ; pour un nombre, on indique le nombre de chiffres et de décimales avec un rappel de la limite (au plus 12 chiffres avant la virgule et 3 après). Auparavant, la fenêtre standard du type acceptait une longueur trop grande et empêchait d'enregistrer un attribut de type « Nombre ».
+### en
+- Document forms: the "Main / Files" switcher above the header is removed — because of it, the document commands (print, "Create based on", "Go to") moved from the title line to a second line and the title line stayed empty. Document files open with the "Files" button (paper clip).
+- Additional attributes: new attribute form. The type is chosen from a list (text, number, date, yes/no, value from a list, counterparty, item); for a number, the number of digits and decimals is set with a reminder of the limit (up to 12 digits before the decimal point and 3 after). Previously the standard type window accepted a length that was too large and would not save an attribute of type "Number".
+### es
+- Formularios de documentos: se quita el selector «Principal / Archivos» sobre la cabecera — por él, los comandos del documento (impresión, «Crear basándose en», «Ir a») pasaban de la línea del título a una segunda línea y el título quedaba vacío. Los archivos del documento se abren con el botón «Archivos» (clip).
+- Atributos adicionales: nuevo formulario del atributo. El tipo se elige de una lista (texto, número, fecha, sí/no, valor de una lista, contraparte, artículo); para un número se indican los dígitos y decimales con un recordatorio del límite (hasta 12 dígitos antes de la coma y 3 después). Antes, la ventana estándar del tipo aceptaba una longitud demasiado grande y no dejaba guardar un atributo de tipo «Número».
+
+## 2.0.17.45
+### ru
+- Меню «Печать» заказа клиента: остались бланк заказа и бланк заказа с фото. Внутренний лист заказа и счёт-проформа из меню убраны.
+- Меню «Печать» налоговой накладной: остались Facture и Facture на бланке, счёт-проформа из меню убран.
+- Поле срока оплаты, где это дата (накладные, поступления, продажи, история статусов заказов), по-французски называется «Date d'échéance», по-английски «Due date», по-испански «Fecha de vencimiento». У клиента и договора срок оплаты в днях называется по-прежнему.
+- Рабочее место кассира: цифры, точка, «C», «Ввод» и «Отменить» на клавиатуре в окне правки строки, в сложной оплате и в окне ввода числа — крупный текст вместо мелких картинок.
+- Рабочее место кассира, выбор клиента: убрана стандартная кнопка «Создать» (новый клиент — кнопкой «Новый клиент»); в окне нового клиента убраны поля «Категория», «Тип цены» и «Не показывать кассиру».
+### fr
+- Menu « Impression » de la commande client : restent le bon de commande et le bon de commande avec photos. La fiche interne de commande et la facture proforma sont retirées du menu.
+- Menu « Impression » de la facture fiscale : restent Facture et Facture (papier à en-tête), la facture proforma est retirée du menu.
+- Le champ d'échéance de paiement, lorsqu'il s'agit d'une date (factures, réceptions, ventes, historique des statuts de commande), s'appelle désormais « Date d'échéance ». Chez le client et dans le contrat, le délai de paiement en jours garde son nom.
+- Caisse : chiffres, point, « C », « Entrée » et « Annuler » du clavier dans la fenêtre de modification de ligne, le paiement complexe et la saisie de nombre — en grand texte au lieu de petites images.
+- Caisse, choix du client : le bouton standard « Créer » est retiré (nouveau client — bouton « Nouveau client ») ; dans la fenêtre du nouveau client, les champs « Catégorie », « Type de prix » et « Ne pas afficher au caissier » sont retirés.
+### en
+- Customer order "Print" menu: the order form and the order form with photos remain. The internal order sheet and the proforma invoice are removed from the menu.
+- Tax invoice "Print" menu: Facture and Facture on letterhead remain, the proforma invoice is removed from the menu.
+- The payment due field, where it is a date (invoices, receipts, sales, order status history), is now called "Due date" (French "Date d'échéance", Spanish "Fecha de vencimiento"). The payment term in days on the customer and the contract keeps its name.
+- Cashier workstation: digits, point, "C", "Enter" and "Cancel" on the keypad of the line edit window, complex payment and number entry — large text instead of small pictures.
+- Cashier workstation, customer selection: the standard "Create" button is removed (new customer — "New customer" button); the new customer window no longer shows "Category", "Price type" and "Do not show to cashier".
+### es
+- Menú «Impresión» del pedido de cliente: quedan el formulario de pedido y el formulario de pedido con fotos. La hoja interna del pedido y la factura proforma se quitan del menú.
+- Menú «Impresión» de la factura fiscal: quedan Facture y Facture con membrete, la factura proforma se quita del menú.
+- El campo de vencimiento del pago, cuando es una fecha (facturas, recepciones, ventas, historial de estados de pedidos), se llama ahora «Fecha de vencimiento». En el cliente y el contrato, el plazo de pago en días conserva su nombre.
+- Puesto de caja: dígitos, punto, «C», «Intro» y «Cancelar» del teclado en la ventana de edición de línea, el pago complejo y la entrada de número — texto grande en lugar de imágenes pequeñas.
+- Puesto de caja, selección de cliente: se quita el botón estándar «Crear» (cliente nuevo — botón «Nuevo cliente»); en la ventana del cliente nuevo se quitan los campos «Categoría», «Tipo de precio» y «No mostrar al cajero».
+
+## 2.0.17.44
+### ru
+- Дополнительные реквизиты товара со списком значений (например, материал, цвет, тип обработки) показывают название значения — раньше в полях и в окне значения было «<>». Значение можно найти, набрав его название в поле.
+- Рабочее место производства, закладка передачи переработчику: панель «Свойства изделия» показывает свойства готовой продукции заказа — и когда переработчику передаётся полуфабрикат, и когда передаётся сырьё полуфабриката. Если строка относится к нескольким изделиям, панель пуста и подсказывает выбрать изделие.
+- Акт передачи в переработку: строки переданных материалов и ожидаемой продукции стали компактными — без свойств и веса под строкой; свойства изделия печатаются отдельным блоком под таблицей, крупнее строк, с названием изделия. В накладных и Bon de sortie свойства по-прежнему под строкой товара.
+- Поступление из переработки: новые поля «Документ подрядчика № … от …».
+- Отчёт «Переработка по переработчикам»: в колонке поступления — номер и дата документа подрядчика (если не заполнены — наш номер); оформление как у остальных отчётов; внизу строка «Итого по отчёту»: передано, получено, остаток у переработчиков и сроки. Исправлено: строки одного поступления, относящиеся к разным заказам, теперь все входят в итог переработчика.
+- Отчёт «Деньги и статусы заказов клиентов»: новый вариант «Долги по отгрузкам» — заказчик, документ расчётов (накладная или счёт-фактура) с начислением, оплатами, корректировками и долгом, под ним отгрузки с заказом, товарами и количеством.
+### fr
+- Les attributs supplémentaires d'article à liste de valeurs (matière, couleur, type de traitement…) affichent le nom de la valeur — auparavant les champs et la fenêtre de la valeur montraient « <> ». On trouve une valeur en tapant son nom dans le champ.
+- Poste de production, onglet du transfert au sous-traitant : le panneau « Propriétés du produit fini » montre les propriétés du produit fini de la commande, que l'on transfère un semi-fini ou la matière d'un semi-fini. Si la ligne concerne plusieurs produits, le panneau reste vide et invite à choisir le produit.
+- Bon de transfert en sous-traitance : les lignes des matières transférées et des produits attendus sont compactes — sans propriétés ni poids sous la ligne ; les propriétés du produit s'impriment dans un bloc séparé sous le tableau, en plus grand, avec le nom du produit. Dans les bons de livraison et Bon de sortie, les propriétés restent sous la ligne d'article.
+- Réception de sous-traitance : nouveaux champs « Document du sous-traitant n° … du … ».
+- Rapport « Sous-traitance par sous-traitant » : la colonne de réception montre le numéro et la date du document du sous-traitant (à défaut, notre numéro) ; présentation identique aux autres rapports ; en bas, la ligne « Total du rapport » : envoyé, reçu, solde chez les sous-traitants et délais. Corrigé : les lignes d'une même réception rattachées à des commandes différentes entrent toutes dans le total du sous-traitant.
+- Rapport « Argent et statuts des commandes clients » : nouvelle variante « Dettes par livraison » — client, document de règlement (bon de livraison ou facture) avec facturé, paiements, ajustements et dette, puis les livraisons avec commande, articles et quantités.
+### en
+- Additional item attributes with a value list (material, color, treatment type…) show the value name — fields and the value window used to show "<>". A value can be found by typing its name in the field.
+- Production workstation, transfer-to-processor tab: the "Finished product properties" panel shows the properties of the order's finished product, whether a semi-finished good or its raw material is transferred. If the line relates to several products, the panel stays empty and asks to choose the product.
+- Transfer for processing act: lines of transferred materials and expected products are compact — no properties or weight under the line; the product properties are printed in a separate block below the table, larger, with the product name. Delivery notes and Bon de sortie still show properties under the item line.
+- Receipt from processing: new fields "Processor document no. … dated …".
+- "Processing by processor" report: the receipt column shows the processor's document number and date (our number if not filled); same look as the other reports; a "Report total" line at the bottom: sent, received, balance at processors and lead times. Fixed: lines of one receipt belonging to different orders now all count in the processor total.
+- "Customer order money and statuses" report: new "Debts by shipment" variant — customer, settlement document (delivery note or invoice) with charged, payments, adjustments and debt, then its shipments with order, items and quantities.
+### es
+- Los atributos adicionales de artículo con lista de valores (material, color, tipo de tratamiento…) muestran el nombre del valor — antes los campos y la ventana del valor mostraban «<>». Un valor se encuentra escribiendo su nombre en el campo.
+- Puesto de producción, pestaña de envío al subcontratista: el panel «Propiedades del producto terminado» muestra las propiedades del producto terminado del pedido, tanto si se envía un semielaborado como su materia prima. Si la línea corresponde a varios productos, el panel queda vacío y pide elegir el producto.
+- Acta de transferencia a procesamiento: las líneas de materiales enviados y productos esperados son compactas — sin propiedades ni peso bajo la línea; las propiedades del producto se imprimen en un bloque aparte bajo la tabla, más grandes, con el nombre del producto. En los albaranes y Bon de sortie las propiedades siguen bajo la línea del artículo.
+- Recepción de procesamiento: nuevos campos «Documento del subcontratista n.º … del …».
+- Informe «Procesamiento por procesador»: la columna de recepción muestra el número y la fecha del documento del subcontratista (si no se rellenan, nuestro número); mismo aspecto que los demás informes; abajo, la línea «Total del informe»: enviado, recibido, saldo en los procesadores y plazos. Corregido: las líneas de una misma recepción que pertenecen a pedidos distintos ahora entran todas en el total del procesador.
+- Informe «Dinero y estados de pedidos de clientes»: nueva variante «Deudas por envío» — cliente, documento de liquidación (albarán o factura) con cargado, pagos, ajustes y deuda, y debajo sus envíos con pedido, artículos y cantidades.
+
+## 2.0.17.43
+### ru
+- Мастер первого запуска: добавление второго и следующих пользователей больше не прерывается ошибкой «Недопустимое значение параметра»; пользователя из списка мастера можно удалить кнопкой рядом с его логином.
+- Личный кабинет партнёра: корзина обновляется без ошибки при изменении количества, добавлении и удалении товаров.
+### fr
+- Assistant de premier lancement : l'ajout du deuxième utilisateur et des suivants n'est plus interrompu par l'erreur « Valeur de paramètre non valide » ; un utilisateur peut être retiré de la liste de l'assistant avec le bouton à côté de son identifiant.
+- Espace partenaire : le panier se met à jour sans erreur quand on modifie les quantités, ajoute ou retire des articles.
+### en
+- First launch wizard: adding the second and further users is no longer interrupted by the "Invalid parameter value" error; a user can be removed from the wizard's list with the button next to their login.
+- Partner portal: the cart updates without errors when you change quantities, add or remove items.
+### es
+- Asistente de primer inicio: añadir el segundo usuario y los siguientes ya no se interrumpe con el error «Valor de parámetro no válido»; un usuario se puede quitar de la lista del asistente con el botón junto a su inicio de sesión.
+- Portal del socio: el carrito se actualiza sin errores al cambiar cantidades, añadir o quitar artículos.
+
+## 2.0.17.42
+### ru
+- Рабочие места производства и закупок: у каждой редактируемой таблицы в командной панели появилась кнопка «Сортировка» с пунктами «Сортировать по возрастанию» и «Сортировать по убыванию» — строки упорядочиваются по колонке, в которой стоит курсор. Эти же пункты теперь всегда есть в меню правой кнопки мыши: раньше клиент 8.5 показывал их лишь изредка. Списки, которые сортируются щелчком по заголовку колонки, работают по-прежнему.
+### fr
+- Postes de production et d'achats : chaque tableau modifiable a dans sa barre de commandes un bouton « Tri » avec « Trier par ordre croissant » et « Trier par ordre décroissant » — les lignes sont triées selon la colonne où se trouve le curseur. Ces commandes sont désormais toujours présentes dans le menu du clic droit : auparavant, le client 8.5 ne les affichait que rarement. Les listes triées par un clic sur l'en-tête de colonne fonctionnent comme avant.
+### en
+- Production and purchasing workstations: every editable table now has a "Sort" button in its command bar with "Sort ascending" and "Sort descending" — the rows are ordered by the column where the cursor is. The same commands are now always in the right-click menu: the 8.5 client used to show them only rarely. Lists sorted by clicking a column header work as before.
+### es
+- Puestos de producción y de compras: cada tabla editable tiene en su barra de comandos un botón «Ordenar» con «Ordenar ascendente» y «Ordenar descendente»: las filas se ordenan por la columna donde está el cursor. Estos comandos ahora siempre están en el menú del clic derecho: antes el cliente 8.5 solo los mostraba de vez en cuando. Las listas que se ordenan con un clic en el encabezado de columna funcionan como antes.
+
+## 2.0.17.41
+### ru
+- Список коммерческих предложений: новая закладка «Товары» — строки товаров предложений в одной таблице, как в списках реализаций и заказов клиентов. Строку можно добавить, изменить количество, удалить, распечатать предложение; новая строка без выбранного предложения сама создаёт черновик предложения с ценой по прайсу клиента и описанием товара из карточки, а предложение без строк помечается на удаление. Все отборы панели справа — клиент, организация, ответственный, менеджер, договор, сумма, дата отгрузки, статус и товар — действуют и на закладку. Правка уже отправленного предложения, как и в форме документа, сохраняет новую редакцию.
+- У записанной строки предложения на закладке меняется только количество (и цена — при настройке «Заверение цен»); другую упаковку или характеристику вводят новой строкой. Без настройки «Заверение цен» новое предложение создаётся в основной валюте.
+- Только для просмотра на закладке: предложения, введённые на основании реализации; созданные реализацией автоматически; помеченные на удаление; предложения со строками старого формата. Их правят в форме предложения. Если опция «Коммерческие предложения» выключена и предложения создаются из реализаций, вся закладка только для просмотра.
+- Кнопки «Создать заказ клиента» и «Создать заказ на производство» перенесены в верхнюю панель списка и видны на закладке «Предложения».
+- Закладка «Товары» в списках реализаций, заказов и КП: если при закрытии списка часть правок не записалась и закрытие отменено, уже записанные строки остаются в таблице.
+### fr
+- Liste des devis : nouvel onglet « Articles » — les lignes d'articles des devis dans un seul tableau, comme dans les listes de ventes et de commandes clients. On peut ajouter une ligne, modifier la quantité, la supprimer, imprimer le devis ; une nouvelle ligne sans devis choisi crée elle-même un devis brouillon au prix du tarif du client et avec la description de l'article de sa fiche, et un devis sans lignes est marqué pour suppression. Tous les filtres du panneau de droite — client, société, responsable, responsable commercial, contrat, montant, date d'expédition, statut et article — s'appliquent aussi à l'onglet. Modifier un devis déjà envoyé enregistre une nouvelle révision, comme dans le formulaire du document.
+- Sur une ligne de devis enregistrée, l'onglet ne modifie que la quantité (et le prix avec le paramètre « Validation des prix ») ; un autre conditionnement ou une autre caractéristique se saisit sur une nouvelle ligne. Sans le paramètre « Validation des prix », un nouveau devis est créé dans la devise principale.
+- En lecture seule dans l'onglet : les devis créés à partir d'un bon de livraison, ceux créés automatiquement par le bon de livraison, ceux marqués pour suppression et les devis avec des lignes d'ancien format. Ils se modifient dans le formulaire du devis. Si l'option « Devis » est désactivée et que les devis sont créés à partir des bons de livraison, tout l'onglet est en lecture seule.
+- Les boutons « Créer une commande client » et « Créer une commande en production » passent dans la barre du haut de la liste et sont visibles sur l'onglet « Devis ».
+- Onglet « Articles » des listes de ventes, de commandes et d'offres : si une partie des modifications n'a pas été enregistrée à la fermeture et que la fermeture est annulée, les lignes déjà enregistrées restent dans le tableau.
+### en
+- Quotations list: new "Items" tab — the item lines of quotations in one table, as in the sales and customer order lists. You can add a line, change the quantity, delete it and print the quotation; a new line with no quotation chosen creates a draft quotation itself, priced from the customer's price list and with the item description from its card, and a quotation left without lines is marked for deletion. All filters on the right panel — customer, company, responsible person, sales manager, contract, amount, shipping date, status and item — apply to the tab too. Editing a quotation that was already sent saves a new revision, as in the document form.
+- On a saved quotation line the tab changes only the quantity (and the price with the "Price approval" setting); another package or characteristic is entered as a new line. Without the "Price approval" setting a new quotation is created in the main currency.
+- Read-only on the tab: quotations based on a sales document, those created automatically by a sales document, those marked for deletion and quotations with lines in the old format. Edit them in the quotation form. If the Quotations option is off and quotations are created from sales documents, the whole tab is read-only.
+- The "Create customer order" and "Create production order" buttons moved to the top bar of the list and are shown on the "Quotations" tab.
+- "Items" tab in the sales, order and offer lists: if some changes were not saved when closing the list and the closing is cancelled, the lines already saved stay in the table.
+### es
+- Lista de presupuestos: nueva pestaña «Artículos» — las líneas de artículos de los presupuestos en una sola tabla, como en las listas de ventas y de pedidos de clientes. Se puede añadir una línea, cambiar la cantidad, eliminarla e imprimir el presupuesto; una línea nueva sin presupuesto elegido crea ella misma un presupuesto borrador con el precio de la tarifa del cliente y la descripción del artículo de su ficha, y un presupuesto sin líneas se marca para eliminar. Todos los filtros del panel derecho — cliente, empresa, responsable, gerente comercial, contrato, importe, fecha de envío, estado y artículo — también se aplican a la pestaña. Editar un presupuesto ya enviado guarda una nueva revisión, como en el formulario del documento.
+- En una línea de presupuesto guardada la pestaña solo cambia la cantidad (y el precio con el ajuste «Aprobación de precios»); otro embalaje u otra característica se introduce como línea nueva. Sin el ajuste «Aprobación de precios» un presupuesto nuevo se crea en la moneda principal.
+- De solo lectura en la pestaña: los presupuestos basados en un albarán, los creados automáticamente por un albarán, los marcados para eliminar y los presupuestos con líneas de formato antiguo. Se editan en el formulario del presupuesto. Si la opción «Presupuestos» está desactivada y los presupuestos se crean desde los albaranes, toda la pestaña es de solo lectura.
+- Los botones «Crear pedido de cliente» y «Crear pedido para producción» pasan a la barra superior de la lista y se ven en la pestaña «Presupuestos».
+- Pestaña «Artículos» de las listas de ventas, pedidos y ofertas: si al cerrar la lista algunos cambios no se guardaron y se cancela el cierre, las líneas ya guardadas permanecen en la tabla.
+
+## 2.0.17.40
+### ru
+- Список заказов клиентов: новая закладка «Товары» — строки товаров заказов в одной таблице, как в списке реализаций. Строку можно добавить, изменить количество, упаковку или цену, удалить, распечатать заказ; новая строка без выбранного заказа сама создаёт заказ клиента, а заказ без строк помечается на удаление. Отборы клиента, организации, ответственного, суммы и товара с панели справа действуют и на закладку. Собранные, отгруженные и выполненные заказы и заказы на производство на закладке только просматриваются — их правят в форме заказа.
+- Пункт меню «Заказы клиентов» теперь открывает список только заказов на продажу. Заказы на производство ведутся в своём списке «Заказы клиентов на производство» и в рабочем месте производства.
+- Закладка «Товары» в списках реализаций и заказов: если документ тем временем изменил другой пользователь, строки перечитываются, такой документ не печатается, а закрытие списка спрашивает подтверждение, — правки не теряются незаметно.
+### fr
+- Liste des commandes clients : nouvel onglet « Articles » — les lignes d'articles des commandes dans un seul tableau, comme dans la liste des ventes. On peut ajouter une ligne, modifier la quantité, le conditionnement ou le prix, la supprimer, imprimer la commande ; une nouvelle ligne sans commande choisie crée elle-même la commande client, et une commande sans lignes est marquée pour suppression. Les filtres client, société, responsable, montant et article du panneau de droite s'appliquent aussi à l'onglet. Les commandes préparées, expédiées ou terminées et les commandes en production y sont en lecture seule : elles se modifient dans le formulaire de la commande.
+- Le menu « Commandes clients » ouvre désormais la liste des seules commandes de vente. Les commandes en production se gèrent dans leur liste « Commandes clients en production » et dans le poste de production.
+- Onglet « Articles » des listes de ventes et de commandes : si un autre utilisateur a modifié le document entre-temps, les lignes sont relues, ce document n'est pas imprimé et la fermeture de la liste demande une confirmation — les modifications ne se perdent plus sans avertissement.
+### en
+- Customer orders list: new "Items" tab — the item lines of orders in one table, as in the sales list. You can add a line, change the quantity, package or price, delete it and print the order; a new line with no order chosen creates the customer order itself, and an order left without lines is marked for deletion. The customer, company, responsible person, amount and item filters on the right panel apply to the tab too. Picked, shipped and completed orders and production orders are read-only there: edit them in the order form.
+- The "Customer orders" menu item now opens a list of sales orders only. Production orders are kept in their own "Customer production orders" list and in the production workstation.
+- "Items" tab in the sales and order lists: if another user changed the document in the meantime, the lines are reloaded, that document is not printed and closing the list asks for confirmation, so changes are no longer lost silently.
+### es
+- Lista de pedidos de clientes: nueva pestaña «Artículos» — las líneas de artículos de los pedidos en una sola tabla, como en la lista de ventas. Se puede añadir una línea, cambiar la cantidad, el embalaje o el precio, eliminarla e imprimir el pedido; una línea nueva sin pedido elegido crea ella misma el pedido de cliente, y un pedido sin líneas se marca para eliminar. Los filtros de cliente, empresa, responsable, importe y artículo del panel derecho también se aplican a la pestaña. Los pedidos preparados, enviados o completados y los pedidos para producción son de solo lectura en ella: se editan en el formulario del pedido.
+- El menú «Pedidos de clientes» abre ahora la lista solo de pedidos de venta. Los pedidos para producción se llevan en su lista «Pedidos de clientes para producción» y en el puesto de producción.
+- Pestaña «Artículos» de las listas de ventas y pedidos: si otro usuario cambió el documento mientras tanto, las líneas se releen, ese documento no se imprime y cerrar la lista pide confirmación, así los cambios ya no se pierden sin aviso.
+
+## 2.0.17.39
+### ru
+- Список реализаций, закладка «Товары»: колонки идут в порядке документ, товар, количество, сумма, клиент, остальные — дальше и уже по ширине, чтобы таблица помещалась на экране. Колонки «Дата» и «Статус» убраны: дата видна в колонке «Документ», а состояние документа (проведён, записан, помечен на удаление) показывает значок в начале строки, как в обычном списке документов.
+### fr
+- Liste des ventes, onglet « Articles » : les colonnes se suivent dans l'ordre document, article, quantité, montant, client, les autres viennent ensuite et sont plus étroites pour que le tableau tienne à l'écran. Les colonnes « Date » et « Statut » sont supprimées : la date figure dans la colonne « Document », et l'état du document (validé, enregistré, marqué pour suppression) est indiqué par une icône en début de ligne, comme dans une liste de documents habituelle.
+### en
+- Sales list, "Items" tab: columns now run document, item, quantity, amount, customer, with the rest after them and narrower so the table fits on screen. The "Date" and "Status" columns are gone: the date is shown in the "Document" column, and the document state (posted, saved, marked for deletion) is shown by an icon at the start of the row, as in a regular document list.
+### es
+- Lista de ventas, pestaña «Artículos»: las columnas van en el orden documento, artículo, cantidad, importe, cliente; las demás vienen después y son más estrechas para que la tabla quepa en pantalla. Se quitan las columnas «Fecha» y «Estado»: la fecha se ve en la columna «Documento» y el estado del documento (contabilizado, guardado, marcado para eliminar) lo indica un icono al inicio de la fila, como en una lista de documentos habitual.
+
+## 2.0.17.38
+### ru
+- Исправлено: пользователю с ролями «Оператор производства» и «Складские ордера» в разделе «Производство» не были видны «Рабочее место производства», «Рабочее место закупок» и «Управление станками» — открывались они только сами при запуске. Теперь все три есть в меню раздела, и каждое открывается вручную. «Рабочее место закупок» вернулось и в меню менеджера по закупкам.
+- Исправлено: у пользователей с ограниченными ролями (кладовщик, логист, кассир, менеджеры, оператор, бухгалтер по зарплате, касса) в меню не показывались пункты, к которым у них есть доступ: дашборд, «Избранные отчёты» и «Все отчёты», списки номенклатуры по видам (товары, сырьё, полуфабрикаты, готовая продукция), контрагенты по видам (поставщики, покупатели, перевозчики, переработчики), договоры, сотрудники, перемещения товаров, подключаемое оборудование. В карточке товара появились переходы к штрихкодам и дополнительным сведениям, в документах — отчёты «Товары в наличии» и «Движения документа».
+### fr
+- Corrigé : pour un utilisateur ayant les rôles « Opérateur de production » et « Bons d'entrepôt », le « Poste de production », le « Poste des achats » et la « Gestion des machines » n'apparaissaient pas dans la section « Production » — ils ne s'ouvraient qu'automatiquement au démarrage. Les trois figurent maintenant dans le menu de la section et chacun s'ouvre à la main. Le « Poste des achats » est aussi revenu dans le menu du responsable des achats.
+- Corrigé : pour les utilisateurs aux rôles restreints (magasinier, logisticien, caissier, commerciaux, opérateur, gestionnaire de paie, caisse), le menu n'affichait pas des éléments auxquels ils ont accès : tableau de bord, « Rapports favoris » et « Tous les rapports », listes d'articles par type (marchandises, matières premières, semi-finis, produits finis), tiers par type (fournisseurs, clients, transporteurs, sous-traitants), contrats, employés, transferts de stock, équipements connectés. La fiche article donne accès aux codes-barres et aux informations complémentaires, les documents aux rapports « Stock disponible » et « Mouvements du document ».
+### en
+- Fixed: for a user with the "Production operator" and "Warehouse orders" roles, the "Production workstation", "Purchasing workstation" and "Machine management" were missing from the "Production" section — they only opened automatically at startup. All three are now in the section menu and each can be opened by hand. The "Purchasing workstation" is also back in the purchasing manager's menu.
+- Fixed: users with restricted roles (storekeeper, logistician, cashier, managers, operator, payroll accountant, point of sale) did not see menu items they have access to: dashboard, "Favourite reports" and "All reports", item lists by type (goods, raw materials, semi-finished, finished products), counterparties by type (suppliers, customers, carriers, subcontractors), contracts, employees, stock transfers, connected equipment. The item card now links to barcodes and additional information, and documents to the "Stock on hand" and "Document movements" reports.
+### es
+- Corregido: para un usuario con los roles «Operador de producción» y «Órdenes de almacén», el «Puesto de producción», el «Puesto de compras» y la «Gestión de máquinas» no aparecían en la sección «Producción»: solo se abrían automáticamente al iniciar. Ahora los tres están en el menú de la sección y cada uno se abre a mano. El «Puesto de compras» también vuelve al menú del responsable de compras.
+- Corregido: los usuarios con roles restringidos (almacenero, logístico, cajero, comerciales, operador, contable de nóminas, punto de venta) no veían en el menú elementos a los que tienen acceso: panel, «Informes favoritos» y «Todos los informes», listas de artículos por tipo (mercancías, materias primas, semielaborados, productos terminados), contrapartes por tipo (proveedores, clientes, transportistas, subcontratistas), contratos, empleados, traslados de mercancías, equipos conectados. La ficha del artículo enlaza con los códigos de barras y la información adicional, y los documentos con los informes «Existencias» y «Movimientos del documento».
+
+## 2.0.17.37
+### ru
+- Исправлено: при создании новой базы ставки НДС Франции 5,5 % и 2,1 % заводились как 55 % и 21 %.
+### fr
+- Corrigé : à la création d'une nouvelle base, les taux de TVA français de 5,5 % et 2,1 % étaient créés à 55 % et 21 %.
+### en
+- Fixed: when a new database was created, the French VAT rates of 5.5% and 2.1% were created as 55% and 21%.
+### es
+- Corregido: al crear una base nueva, los tipos de IVA franceses del 5,5 % y el 2,1 % se creaban como 55 % y 21 %.
+
+## 2.0.17.36
+### ru
+- Зоны контрагентов. Новый справочник «Зоны» (раздел «Продажи» → «Клиенты»): зону можно отметить как освобождённую от НДС и указать для неё ставку освобождения. Зона выбирается в карточке клиента, поле «Зона» — рядом с родом деятельности.
+- У ставки НДС появились флажок «Освобождение от НДС» и поле «Основание освобождения». Основание обязательно и печатается в документах. Ставку, которую назначает освобождённая зона, нельзя сделать облагаемой, пока зона на неё ссылается.
+- Клиенту освобождённой зоны ставка подставляется сама: при выборе товара, подборе, вводе штрихкода, смене вида цены и пересчёте цен — в реализации, заказе, коммерческом предложении и возврате без документа-основания. Цена берётся без НДС: из розничной цены 120 с НДС 20 % выходит 100.
+- При смене клиента в документе ставки строк пересчитываются: на клиента освобождённой зоны — ставка зоны, на обычного клиента — ставка товара вместо ставки освобождения. Цена строки без НДС при этом не меняется, цены, введённые вручную, сохраняются. Ставки, выбранные вручную, у обычного клиента не меняются.
+- Если у клиента освобождённой зоны в строке стоит другая ставка, при записи документа появляется предупреждение. Документ при этом записывается.
+- В печатных формах (Facture, Proforma, накладные, Avoir, коммерческое предложение, бланк заказа) под итогами мелким шрифтом печатается сноска «* Освобождение от НДС: <основание>», а у ставки строки и у строки НДС в итогах — звёздочка. Сноска печатается и с изменённым ранее макетом печати.
+- При создании новой базы справочник ставок НДС заполняется ставками страны: для Марокко — 20 %, 10 %, освобождения для зон ускорения промышленности и экспорта; для Франции — 20 %, 10 %, 5,5 %, 2,1 %, освобождения для экспорта и поставок в ЕС.
+- Исправлено: в возврате по реализации смена клиента или организации больше не меняет признак «Цена включает НДС» — он остаётся как в реализации.
+### fr
+- Zones des tiers. Nouveau référentiel « Zones » (section « Ventes » → « Clients ») : une zone peut être marquée comme exonérée de TVA, avec son taux d'exonération. La zone se choisit dans la fiche client, le champ « Zone » se trouve à côté du secteur d'activité.
+- Le taux de TVA a une case « Exonération de TVA » et un champ « Motif d'exonération ». Le motif est obligatoire et s'imprime sur les documents. Un taux attribué par une zone exonérée ne peut pas redevenir imposable tant que la zone y fait référence.
+- Pour un client d'une zone exonérée, le taux se renseigne tout seul : au choix de l'article, à la sélection, à la lecture du code-barres, au changement de type de prix et au recalcul des prix — dans le bon de livraison, la commande, l'offre commerciale et le retour sans document de base. Le prix est pris hors taxes : un prix de détail de 120 TTC à 20 % donne 100.
+- Au changement de client dans un document, les taux des lignes sont recalculés : pour un client d'une zone exonérée — le taux de la zone, pour un client ordinaire — le taux de l'article à la place du taux d'exonération. Le prix HT de la ligne ne change pas, les prix saisis à la main sont conservés. Les taux choisis à la main pour un client ordinaire ne changent pas.
+- Si une ligne d'un client d'une zone exonérée porte un autre taux, un avertissement s'affiche à l'enregistrement. Le document est quand même enregistré.
+- Sur les documents imprimés (Facture, Proforma, bons de livraison, Avoir, offre commerciale, bon de commande), une note en petits caractères s'imprime sous les totaux : « * Exonération de TVA : <motif> », avec un astérisque au taux de la ligne et à la ligne de TVA des totaux. La note s'imprime aussi avec un modèle d'impression modifié auparavant.
+- À la création d'une nouvelle base, les taux de TVA du pays sont créés : pour le Maroc — 20 %, 10 %, exonérations pour les zones d'accélération industrielle et l'export ; pour la France — 20 %, 10 %, 5,5 %, 2,1 %, exonérations pour l'export et les livraisons intracommunautaires.
+- Corrigé : dans un retour sur bon de livraison, le changement de client ou d'organisation ne modifie plus l'indicateur « Prix TTC » — il reste celui du bon de livraison.
+### en
+- Counterparty zones. New "Zones" catalog (section "Sales" → "Customers"): a zone can be marked as VAT-exempt and given an exemption rate. The zone is selected on the customer card; the "Zone" field is next to the line of business.
+- VAT rates have a "VAT exemption" checkbox and an "Exemption reason" field. The reason is required and is printed on documents. A rate assigned by an exempt zone cannot become taxable while the zone refers to it.
+- For a customer in an exempt zone the rate is filled in automatically: when choosing an item, selecting items, scanning a barcode, changing the price type and recalculating prices — in sales invoices, orders, quotations and returns without a base document. The price is taken without VAT: a retail price of 120 including 20% VAT gives 100.
+- When the customer of a document changes, line rates are recalculated: for a customer in an exempt zone — the zone rate; for a regular customer — the item rate instead of the exemption rate. The line price without VAT stays the same, manually entered prices are kept. Rates chosen manually for a regular customer do not change.
+- If a line for a customer in an exempt zone has a different rate, a warning appears when the document is saved. The document is still saved.
+- Printed forms (Facture, Proforma, delivery notes, Avoir, quotation, order form) print a small-type footnote under the totals: "* VAT exemption: <reason>", with an asterisk at the line rate and at the VAT line of the totals. The footnote is printed with a previously modified print template too.
+- When a new database is created, the VAT rates of the country are created: for Morocco — 20%, 10%, exemptions for industrial acceleration zones and export; for France — 20%, 10%, 5.5%, 2.1%, exemptions for export and intra-EU supplies.
+- Fixed: in a return based on a sales invoice, changing the customer or the organization no longer changes the "Price includes VAT" flag — it stays as in the sales invoice.
+### es
+- Zonas de terceros. Nuevo catálogo «Zonas» (sección «Ventas» → «Clientes»): una zona puede marcarse como exenta de IVA, con su tipo de exención. La zona se elige en la ficha del cliente; el campo «Zona» está junto al sector de actividad.
+- El tipo de IVA tiene la casilla «Exención de IVA» y el campo «Motivo de exención». El motivo es obligatorio y se imprime en los documentos. Un tipo asignado por una zona exenta no puede volver a ser gravado mientras la zona lo use.
+- Para un cliente de una zona exenta el tipo se rellena solo: al elegir el artículo, en la selección, al leer el código de barras, al cambiar el tipo de precio y al recalcular precios — en la factura de venta, el pedido, la oferta comercial y la devolución sin documento base. El precio se toma sin IVA: un precio minorista de 120 con IVA del 20 % da 100.
+- Al cambiar el cliente de un documento, los tipos de las líneas se recalculan: para un cliente de una zona exenta — el tipo de la zona; para un cliente normal — el tipo del artículo en lugar del tipo de exención. El precio sin IVA de la línea no cambia, los precios introducidos a mano se conservan. Los tipos elegidos a mano para un cliente normal no cambian.
+- Si una línea de un cliente de una zona exenta tiene otro tipo, al guardar el documento aparece un aviso. El documento se guarda igualmente.
+- En los documentos impresos (Facture, Proforma, albaranes, Avoir, oferta comercial, hoja de pedido) se imprime bajo los totales una nota en letra pequeña: «* Exención de IVA: <motivo>», con un asterisco en el tipo de la línea y en la línea de IVA de los totales. La nota se imprime también con una plantilla de impresión modificada anteriormente.
+- Al crear una base nueva se crean los tipos de IVA del país: para Marruecos — 20 %, 10 %, exenciones para zonas de aceleración industrial y exportación; para Francia — 20 %, 10 %, 5,5 %, 2,1 %, exenciones para exportación y entregas intracomunitarias.
+- Corregido: en una devolución basada en una factura de venta, el cambio de cliente u organización ya no modifica el indicador «Precio con IVA» — se mantiene como en la factura.
+
+## 2.0.17.35
+### ru
+- Список расходных накладных: новая закладка «Товары». На ней видны строки товаров последних накладных — клиент, товар, количество, цена, сумма, статус документа, — и с ними можно работать прямо в таблице, не открывая документ.
+- Новая строка сверху таблицы сама создаёт и проводит расходную накладную: цена подставляется из прайса клиента, как в форме документа. В колонке «Документ» можно выбрать сегодняшнюю накладную того же клиента — строка добавится в неё.
+- Количество, упаковку и характеристику записанной строки можно поправить в таблице: накладная перепроведётся. Удаление строки убирает её из накладной; накладная без строк помечается на удаление.
+- Кнопка «Печать» печатает накладные выделенных строк — любой печатной формой реализации. Двойной щелчок по документу открывает накладную целиком.
+- Таблица подчиняется фильтрам правой панели (клиент, товар, склад, организация, ответственный, сумма, долг) и сортируется из контекстного меню. Показываются строки последних 200 накладных — больше находится фильтрами.
+- Накладные по заказу, кассовые продажи, накладные с услугами, ордерами, серийными номерами (IMEI) или налоговой накладной на закладке только показываются — их правят в форме документа.
+### fr
+- Liste des bons de livraison : nouvel onglet « Articles ». Il affiche les lignes d'articles des dernières ventes — client, article, quantité, prix, montant, statut du document — et permet de les modifier directement dans le tableau, sans ouvrir le document.
+- Une nouvelle ligne en haut du tableau crée et valide elle-même le bon de livraison : le prix vient du tarif du client, comme dans le document. Dans la colonne « Document », on peut choisir une vente du jour du même client — la ligne y sera ajoutée.
+- La quantité, le conditionnement et la caractéristique d'une ligne enregistrée se corrigent dans le tableau : la vente est revalidée. Supprimer une ligne la retire de la vente ; une vente sans lignes est marquée pour suppression.
+- Le bouton « Impression » imprime les ventes des lignes sélectionnées, avec n'importe quel formulaire d'impression de la vente. Un double-clic sur le document ouvre la vente complète.
+- Le tableau suit les filtres du panneau de droite (client, article, entrepôt, société, responsable, montant, dette) et se trie depuis le menu contextuel. Les lignes des 200 dernières ventes sont affichées — les autres se trouvent par les filtres.
+- Les ventes sur commande, les ventes de caisse, les ventes avec services, bons de sortie, numéros de série (IMEI) ou facture fiscale sont seulement affichées dans l'onglet — elles se modifient dans le document.
+### en
+- Delivery notes list: new "Items" tab. It shows the item lines of the latest sales — customer, item, quantity, price, amount, document status — and lets you work with them right in the table, without opening the document.
+- A new line at the top of the table creates and posts the delivery note by itself: the price comes from the customer's price list, as in the document form. In the "Document" column you can pick today's sale of the same customer — the line is added to it.
+- Quantity, package and characteristic of a saved line can be corrected in the table: the sale is reposted. Deleting a line removes it from the sale; a sale without lines is marked for deletion.
+- The "Print" button prints the sales of the selected lines with any sale print form. Double-clicking the document opens the full sale.
+- The table follows the right panel filters (customer, item, warehouse, company, responsible, amount, debt) and is sorted from the context menu. Lines of the last 200 sales are shown — the rest are found with filters.
+- Sales based on an order, cash sales, sales with services, shipping orders, serial numbers (IMEI) or a tax invoice are only shown on the tab — they are edited in the document form.
+### es
+- Lista de albaranes de venta: nueva pestaña «Artículos». Muestra las líneas de artículos de las últimas ventas — cliente, artículo, cantidad, precio, importe, estado del documento — y permite trabajar con ellas directamente en la tabla, sin abrir el documento.
+- Una línea nueva arriba de la tabla crea y contabiliza el albarán por sí sola: el precio sale de la tarifa del cliente, como en el documento. En la columna «Documento» se puede elegir una venta de hoy del mismo cliente: la línea se añade a ella.
+- La cantidad, el envase y la característica de una línea guardada se corrigen en la tabla: la venta se vuelve a contabilizar. Eliminar una línea la quita de la venta; una venta sin líneas se marca para eliminar.
+- El botón «Impresión» imprime las ventas de las líneas seleccionadas con cualquier formulario de impresión de la venta. Un doble clic en el documento abre la venta completa.
+- La tabla sigue los filtros del panel derecho (cliente, artículo, almacén, empresa, responsable, importe, deuda) y se ordena desde el menú contextual. Se muestran las líneas de las últimas 200 ventas; el resto se encuentra con los filtros.
+- Las ventas por pedido, las ventas de caja y las ventas con servicios, órdenes de salida, números de serie (IMEI) o factura fiscal solo se muestran en la pestaña: se editan en el documento.
+
+## 2.0.17.34
+### ru
+- Рабочее место закупок: «Источники» строки потребности сортируются щелчком по заголовку колонки. Колонка «Источник» сортируется по заказу, а не по его названию; пополнение склада подписано как раньше. Цифры те же, что в строке потребности: сортировка ничего не пересчитывает.
+- Если у товара больше 100 источников, показываются 100 строк: пополнение склада и ближайшие по дате отгрузки; в заголовке закладки видно, сколько их всего.
+### fr
+- Poste d'achats : les « Sources » de la ligne de besoin se trient par un clic sur l'en-tête de colonne. La colonne « Source » se trie par commande et non par son libellé ; le réapprovisionnement du stock est libellé comme avant. Les chiffres sont ceux de la ligne de besoin : le tri ne recalcule rien.
+- Si un article a plus de 100 sources, 100 lignes sont affichées : le réapprovisionnement du stock et les plus proches par date d'expédition ; le titre de l'onglet indique leur nombre total.
+### en
+- Purchasing workplace: the "Sources" of a demand line are sorted by clicking the column header. The "Source" column is sorted by order, not by its name; stock replenishment is labelled as before. The figures are the same as in the demand line: sorting recalculates nothing.
+- If an item has more than 100 sources, 100 rows are shown: the stock replenishment and the nearest by shipping date; the tab title shows how many there are in total.
+### es
+- Puesto de compras: los «Orígenes» de la línea de necesidad se ordenan con un clic en el encabezado de la columna. La columna «Origen» se ordena por pedido y no por su nombre; la reposición de almacén se rotula como antes. Las cifras son las de la línea de necesidad: ordenar no recalcula nada.
+- Si un artículo tiene más de 100 orígenes, se muestran 100 filas: la reposición de almacén y los más próximos por fecha de envío; el título de la pestaña indica cuántos hay en total.
+
+## 2.0.17.33
+### ru
+- Рабочее место закупок: «Оплаты» и «Документы» заказа сортируются щелчком по заголовку колонки.
+- Рабочее место производства: «Документы» заказа сортируются щелчком по заголовку колонки, в том числе по количеству продукции и материалов. Приход по-прежнему зелёный со знаком «+», расход — красный; итоги внизу и число документов в заголовке закладки — как раньше.
+- После закрытия документа список документов заказа перечитывается сразу, курсор остаётся на той же строке.
+### fr
+- Poste d'achats : « Paiements » et « Documents » de la commande se trient par un clic sur l'en-tête de colonne.
+- Poste de production : les « Documents » de la commande se trient par un clic sur l'en-tête de colonne, y compris par quantité de produits et de matières. Les entrées restent en vert avec le signe « + », les sorties en rouge ; les totaux en bas et le nombre de documents dans le titre de l'onglet sont inchangés.
+- Après la fermeture d'un document, la liste des documents de la commande est relue aussitôt et le curseur reste sur la même ligne.
+### en
+- Purchasing workplace: the order's "Payments" and "Documents" are sorted by clicking the column header.
+- Production workplace: the order's "Documents" are sorted by clicking the column header, including by product and material quantities. Receipts are still green with a "+" sign and issues red; the totals at the bottom and the document count in the tab title are as before.
+- After a document is closed, the order's document list is reread at once and the cursor stays on the same row.
+### es
+- Puesto de compras: «Pagos» y «Documentos» del pedido se ordenan con un clic en el encabezado de la columna.
+- Puesto de producción: los «Documentos» del pedido se ordenan con un clic en el encabezado de la columna, también por cantidad de productos y de materiales. Las entradas siguen en verde con el signo «+» y las salidas en rojo; los totales abajo y el número de documentos en el título de la pestaña no cambian.
+- Al cerrar un documento, la lista de documentos del pedido se vuelve a leer en el acto y el cursor se queda en la misma fila.
+
+## 2.0.17.32
+### ru
+- Рабочие места производства и закупок: строки можно сортировать во всех таблицах с данными. В закупках на «Поступлениях» и на «Потребности» (заказы поставщикам, остатки и предложения товара) теперь достаточно щёлкнуть по заголовку колонки.
+- В таблицах, где строки вводятся и правятся прямо в рабочем месте, а также в «Материалах», «Документах», «Оплатах» и «Источниках»: щёлкните правой кнопкой по ячейке нужной колонки и выберите «Сортировать по возрастанию» или «Сортировать по убыванию». В заголовке колонки появится стрелка ▲ или ▼.
+- Выбранный порядок сохраняется при смене заказа, после записи строки и после обновления; при новом открытии рабочего места порядок снова по умолчанию.
+- Документы сортируются по дате, а не по тексту «№ … от …»; новые незаписанные строки остаются вверху; в «Материалах» строки сортируются внутри каждого уровня.
+- На «Поступлениях» колонка «Заказ» показывает сам заказ поставщику; в предложениях поставщиков вместо «N из M» — две колонки: «Покрыто» и «Из дефицитов».
+### fr
+- Postes de production et d'achats : les lignes peuvent être triées dans tous les tableaux de données. Aux achats, sur « Réceptions » et sur « Besoins » (commandes fournisseurs, stocks et offres de l'article), un clic sur l'en-tête de colonne suffit désormais.
+- Dans les tableaux où les lignes se saisissent et se modifient directement dans le poste, ainsi que dans « Matières », « Documents », « Paiements » et « Sources » : clic droit sur une cellule de la colonne voulue, puis « Trier par ordre croissant » ou « Trier par ordre décroissant ». Une flèche ▲ ou ▼ apparaît dans l'en-tête de la colonne.
+- L'ordre choisi est conservé au changement de commande, après l'enregistrement d'une ligne et après l'actualisation ; à la réouverture du poste, l'ordre par défaut revient.
+- Les documents se trient par date et non par le texte « N° … du … » ; les nouvelles lignes non enregistrées restent en haut ; dans « Matières », les lignes se trient à l'intérieur de chaque niveau.
+- Sur « Réceptions », la colonne « Commande » affiche la commande fournisseur elle-même ; dans les offres fournisseurs, « N sur M » est remplacé par deux colonnes : « Couvert » et « Sur manques ».
+### en
+- Production and purchasing workplaces: rows can be sorted in every data table. In purchasing, on "Receipts" and on "Requirements" (supplier orders, stock and offers for the item), clicking the column header now does it.
+- In tables where rows are entered and edited right in the workplace, and in "Materials", "Documents", "Payments" and "Sources": right-click a cell of the column you want and choose "Sort ascending" or "Sort descending". An ▲ or ▼ arrow appears in the column header.
+- The chosen order is kept when you switch orders, after a row is saved and after a refresh; when the workplace is reopened, the default order is back.
+- Documents are sorted by date, not by the "No. … of …" text; new unsaved rows stay on top; in "Materials" rows are sorted within each level.
+- On "Receipts" the "Order" column shows the supplier order itself; in supplier offers "N of M" is replaced by two columns: "Covered" and "Of shortages".
+### es
+- Puestos de producción y de compras: las filas se pueden ordenar en todas las tablas de datos. En compras, en «Recepciones» y en «Necesidades» (pedidos a proveedor, existencias y ofertas del artículo), ahora basta un clic en el encabezado de la columna.
+- En las tablas donde las filas se introducen y editan directamente en el puesto, y en «Materiales», «Documentos», «Pagos» y «Fuentes»: clic derecho en una celda de la columna deseada y elija «Ordenar ascendente» u «Ordenar descendente». En el encabezado de la columna aparece una flecha ▲ o ▼.
+- El orden elegido se mantiene al cambiar de pedido, después de guardar una fila y después de actualizar; al volver a abrir el puesto, vuelve el orden por defecto.
+- Los documentos se ordenan por fecha y no por el texto «N.º … del …»; las filas nuevas sin guardar se quedan arriba; en «Materiales» las filas se ordenan dentro de cada nivel.
+- En «Recepciones» la columna «Pedido» muestra el propio pedido a proveedor; en las ofertas de proveedores «N de M» se sustituye por dos columnas: «Cubierto» y «De déficits».
+
+## 2.0.17.29
+### ru
+- Удержание НДС у источника (RAS TVA): в карточке клиента — флажок и процент (75 или 100), налоговая накладная получает их из карточки и считает сумму удержания.
+- Удержание НДС оформляется отдельным документом «Удержание НДС покупателем»: его создаёт и проводит налоговая накладная, он гасит долг накладной без денег; в документ вносится справка об удержании.
+- Оплата на основании налоговой накладной с удержанием — на сумму к оплате; в Facture — строки «RAS TVA» и «Total à payer», в списке накладных — колонка «RAS TVA».
+- Оплата прямо на налоговую накладную гасит долг накладной и её отгрузок, остаток становится авансом; накладная без отгрузки больше не даёт переплату.
+- Налоговая накладная на другого покупателя: долг переходит к покупателю накладной и больше не задваивается.
+- Налоговая накладная не проводится по отгрузке, по которой уже проведён возврат или сертификат; накладную, на которую записали оплаты или возвраты, нельзя изменить или отменить.
+- Возврат переплаты покупателю оформляется на основании исходного платежа; возврат по налоговой накладной запрещён.
+- Дата начала учёта взаиморасчётов (настройки «Бухгалтерия»): документы раньше этой даты не пишут взаиморасчёты.
+- Коммерческое предложение: без настройки «Заверение цен» цены и скидки не редактируются; «Скидка на цену» закрыта и в заказе, и в реализации.
+- Для администратора: исторические налоговые накладные, перенесённые из прежней базы, замораживаются — их можно перепровести только без изменений.
+- При обновлении взаиморасчёты прошлых периодов приводятся к новой схеме: налоговые накладные на другого покупателя, их прямые оплаты, возвраты и сертификаты перепроводятся; документы, которые не удалось перевести, записываются в журнал регистрации, а администратор повторяет перевод кнопкой «Повторить перевод накладных на новую модель» в обработке «Перепроведение документов».
+- Справка об удержании НДС (номер и дата) вводится в форме документа «Удержание НДС покупателем»; остальные поля документа заполняет налоговая накладная.
+- Возврат переплаты на основании платежа должен совпадать с исходным платежом по организации, покупателю и договору и не может превышать его аванс.
+### fr
+- Retenue de TVA à la source (RAS TVA) : dans la fiche client, case et taux (75 ou 100) ; la facture fiscale les reprend et calcule le montant de la retenue.
+- La retenue fait l'objet d'un document distinct « Retenue de TVA à la source » : créé et validé par la facture fiscale, il solde sa dette sans argent ; l'attestation de retenue y est saisie.
+- Le paiement sur la base d'une facture avec retenue se fait pour le montant à payer ; la Facture imprime les lignes « RAS TVA » et « Total à payer », la liste des factures affiche la colonne « RAS TVA ».
+- Un paiement directement sur la facture fiscale solde la dette de la facture et de ses livraisons, le reste devient une avance ; une facture sans livraison ne crée plus de trop-perçu.
+- Facture fiscale au nom d'un autre client : la dette passe au client de la facture et n'est plus doublée.
+- La facture fiscale ne se valide pas sur une livraison déjà retournée ou payée par bon ; une facture sur laquelle des paiements ou retours sont inscrits ne peut être ni modifiée ni annulée.
+- Le remboursement d'un trop-perçu se fait sur la base du paiement d'origine ; le remboursement sur facture fiscale est interdit.
+- Date de début du suivi des règlements (paramètres « Comptabilité ») : les documents antérieurs n'inscrivent pas de règlements.
+- Offre commerciale : sans le paramètre « Validation des prix », prix et remises ne sont pas modifiables ; « Remise sur prix » est verrouillée aussi dans la commande et la vente.
+- Pour l'administrateur : les factures fiscales historiques transférées de l'ancienne base sont gelées — elles ne se revalident que sans modification.
+- Lors de la mise à jour, les règlements des périodes antérieures passent au nouveau schéma : les factures fiscales au nom d'un autre client, leurs paiements directs, retours et bons sont revalidés ; les documents non convertis sont inscrits au journal, et l'administrateur relance la conversion par le bouton « Relancer le passage des factures au nouveau modèle » du traitement « Repasser les documents ».
+- L'attestation de retenue de TVA (numéro et date) se saisit dans la fiche du document « Retenue de TVA à la source » ; les autres champs sont remplis par la facture fiscale.
+- Le remboursement d'un trop-perçu sur la base d'un paiement doit avoir la même organisation, le même client et le même contrat que le paiement d'origine et ne peut dépasser son avance.
+### en
+- VAT withholding at source (RAS TVA): the customer card has a flag and a rate (75 or 100); the tax invoice takes them from the card and calculates the withheld amount.
+- The withholding is a separate document "VAT withheld by customer": the tax invoice creates and posts it, it settles the invoice debt without money; the withholding certificate is entered in it.
+- Payment based on a tax invoice with withholding is for the amount payable; the Facture prints "RAS TVA" and "Total à payer" lines, the invoice list shows a "RAS TVA" column.
+- A payment made directly on a tax invoice settles the debt of the invoice and its deliveries, the rest becomes an advance; an invoice without a delivery no longer creates an overpayment.
+- Tax invoice issued to another customer: the debt moves to the invoice customer and is no longer doubled.
+- A tax invoice cannot be posted on a delivery that already has a posted return or voucher; an invoice with payments or returns recorded on it cannot be changed or unposted.
+- An overpayment refund is entered on the basis of the original payment; a refund on a tax invoice is not allowed.
+- Settlements accounting start date ("Accounting" settings): documents before this date do not record settlements.
+- Commercial offer: without the "Price approval" setting, prices and discounts are read-only; "Discount on price" is locked in the order and the sale too.
+- For the administrator: historical tax invoices transferred from the previous database are frozen — they can be reposted only without changes.
+- On update, settlements of past periods are moved to the new scheme: tax invoices issued to another customer, their direct payments, returns and vouchers are reposted; documents that could not be converted are written to the event log, and the administrator reruns the conversion with the "Retry moving invoices to the new model" button in the "Document reposting" data processor.
+- The VAT withholding certificate (number and date) is entered in the "VAT withheld by customer" document form; the other fields are filled by the tax invoice.
+- An overpayment refund based on a payment must match the original payment's organization, customer and contract and cannot exceed its advance.
+### es
+- Retención del IVA en la fuente (RAS TVA): en la ficha del cliente, casilla y porcentaje (75 o 100); la factura fiscal los toma de la ficha y calcula el importe retenido.
+- La retención es un documento aparte «IVA retenido por el cliente»: lo crea y contabiliza la factura fiscal, liquida su deuda sin dinero; en él se registra el certificado de retención.
+- El pago sobre la base de una factura con retención se hace por el importe a pagar; la Facture imprime las líneas «RAS TVA» y «Total à payer», la lista de facturas muestra la columna «RAS TVA».
+- Un pago directo sobre la factura fiscal liquida la deuda de la factura y de sus entregas, el resto queda como anticipo; una factura sin entrega ya no genera pago en exceso.
+- Factura fiscal a nombre de otro cliente: la deuda pasa al cliente de la factura y ya no se duplica.
+- La factura fiscal no se contabiliza sobre una entrega con devolución o vale ya contabilizados; una factura con pagos o devoluciones registrados no se puede modificar ni anular.
+- La devolución de un pago en exceso se registra sobre la base del pago original; la devolución sobre factura fiscal está prohibida.
+- Fecha de inicio de la contabilidad de liquidaciones (ajustes «Contabilidad»): los documentos anteriores no registran liquidaciones.
+- Oferta comercial: sin el ajuste «Validación de precios», precios y descuentos no se editan; «Descuento sobre precio» se bloquea también en el pedido y la venta.
+- Para el administrador: las facturas fiscales históricas trasladadas de la base anterior se congelan — solo se recontabilizan sin cambios.
+- Al actualizar, las liquidaciones de periodos anteriores pasan al nuevo esquema: las facturas fiscales a nombre de otro cliente, sus pagos directos, devoluciones y vales se recontabilizan; los documentos no convertidos se registran en el registro de eventos y el administrador repite la conversión con el botón «Repetir el paso de las facturas al nuevo modelo» del procesamiento «Volver a contabilizar documentos».
+- El certificado de retención del IVA (número y fecha) se introduce en el formulario del documento «IVA retenido por el cliente»; los demás campos los rellena la factura fiscal.
+- La devolución de un pago en exceso sobre la base de un pago debe coincidir con el pago original en organización, cliente y contrato y no puede superar su anticipo.
+
+## 2.0.17.28
+### ru
+- Касса: кнопка «Удалить» снова видна — она появляется, когда в таблице товаров выбрана строка, и удаляет все выделенные строки, пока продажа не пробита (новая продажа или возврат).
+### fr
+- Caisse : le bouton « Supprimer » est de nouveau visible — il apparaît lorsqu'une ligne est sélectionnée dans le tableau des articles et supprime toutes les lignes sélectionnées tant que la vente n'est pas encaissée (nouvelle vente ou retour).
+### en
+- Cash register: the "Delete" button is visible again — it appears when a line is selected in the product table and deletes all selected lines while the sale is not yet rung up (new sale or return).
+### es
+- Caja: el botón «Eliminar» vuelve a verse — aparece cuando hay una línea seleccionada en la tabla de productos y elimina todas las líneas seleccionadas mientras la venta no esté cobrada (venta nueva o devolución).
+
+## 2.0.17.27
+### ru
+- Касса: окно продажи помещается на небольшом экране без полосы прокрутки — подписи полей сумм стоят слева от полей, таблица товаров занимает оставшееся место.
+- Подбор товаров кнопкой «Добавить» в кассе: группы товаров слева идут списком сверху вниз, окно подбора без полосы прокрутки.
+### fr
+- Caisse : la fenêtre de vente tient sur un petit écran sans barre de défilement — les libellés des montants sont à gauche des champs, le tableau des articles occupe l'espace restant.
+- Sélection des articles par le bouton « Ajouter » de la caisse : les groupes d'articles à gauche s'affichent en liste de haut en bas, la fenêtre de sélection sans barre de défilement.
+### en
+- Cash register: the sale window fits a small screen without a scroll bar — the amount labels sit to the left of the fields, and the product table takes the remaining space.
+- Product selection with the "Add" button in the cash register: product groups on the left are listed top to bottom, and the selection window has no scroll bar.
+### es
+- Caja: la ventana de venta cabe en una pantalla pequeña sin barra de desplazamiento — las etiquetas de los importes están a la izquierda de los campos y la tabla de productos ocupa el espacio restante.
+- Selección de productos con el botón «Añadir» de la caja: los grupos de productos a la izquierda se muestran en lista de arriba abajo y la ventana de selección no tiene barra de desplazamiento.
+
+## 2.0.17.26
+### ru
+- Печать снова работает у всех пользователей, а не только у администратора: у кладовщика, менеджеров, кассира, оператора производства и других ролей окно печати открывалось с ошибкой «Недостаточно прав для просмотра».
+- Рабочее место производства: «Печать» на закладках с документами остаётся в панели, когда строки отмечены флажком, и печатает документы всех отмеченных строк одним окном. Если среди отмеченных есть документы другого вида, программа сообщает, сколько строк не напечатано.
+- Рабочее место производства снова открывается у пользователя с ролью «Оператор производства»: начиная с 2.0.16.144 оно открывалось у него с ошибкой «Нарушение прав доступа».
+### fr
+- L'impression fonctionne de nouveau pour tous les utilisateurs, et pas seulement pour l'administrateur : pour le magasinier, les gestionnaires, le caissier, l'opérateur de production et les autres rôles, la fenêtre d'impression s'ouvrait avec l'erreur « Droits insuffisants pour l'affichage ».
+- Poste de production : « Impression » sur les onglets de documents reste dans la barre lorsque des lignes sont cochées et imprime les documents de toutes les lignes cochées dans une seule fenêtre. Si des lignes cochées portent sur un autre type de document, le programme indique combien de lignes n'ont pas été imprimées.
+- Le poste de production s'ouvre de nouveau pour l'utilisateur ayant le rôle « Opérateur de production » : depuis la 2.0.16.144, il s'ouvrait avec l'erreur « Violation des droits d'accès ».
+### en
+- Printing works again for all users, not only the administrator: for the storekeeper, managers, cashier, production operator and other roles the print window opened with the error "Insufficient rights to view".
+- Production workstation: "Print" on the document tabs stays in the bar when lines are ticked and prints the documents of all ticked lines in one window. If ticked lines belong to another document type, the program reports how many lines were not printed.
+- The production workstation opens again for a user with the "Production operator" role: since 2.0.16.144 it opened with the error "Access rights violation".
+### es
+- La impresión vuelve a funcionar para todos los usuarios y no solo para el administrador: para el almacenero, los gestores, el cajero, el operador de producción y otros roles, la ventana de impresión se abría con el error «Derechos insuficientes para ver».
+- Puesto de producción: «Impresión» en las pestañas de documentos permanece en la barra cuando hay líneas marcadas e imprime los documentos de todas las líneas marcadas en una sola ventana. Si entre las marcadas hay documentos de otro tipo, el programa indica cuántas líneas no se imprimieron.
+- El puesto de producción vuelve a abrirse para el usuario con el rol «Operador de producción»: desde la 2.0.16.144 se abría con el error «Violación de los derechos de acceso».
+
+## 2.0.17.23
+### ru
+- Рабочее место производства: выделение в «Заказах» или «Продукции» двух и более заказов больше не прерывается ошибкой «Нельзя присвоить значение реквизиту формы типа ДинамическийСписок». Закладки «Передача в переработку» и «Поступления из переработки» показывают строки всех выделенных заказов.
+### fr
+- Poste de production : la sélection de deux commandes ou plus dans « Commandes » ou « Production » ne s'interrompt plus sur l'erreur « Impossible d'affecter une valeur à un attribut de formulaire de type ListeDynamique ». Les onglets « Transfert en sous-traitance » et « Réceptions de sous-traitance » affichent les lignes de toutes les commandes sélectionnées.
+### en
+- Production workstation: selecting two or more orders in "Orders" or "Products" no longer stops with the error "Cannot assign a value to a form attribute of DynamicList type". The "Subcontracting transfer" and "Subcontracting receipts" tabs show the lines of all selected orders.
+### es
+- Puesto de producción: seleccionar dos o más pedidos en «Pedidos» o «Producción» ya no se interrumpe con el error «No se puede asignar un valor a un atributo de formulario de tipo ListaDinámica». Las pestañas «Envío a subcontratación» y «Recepciones de subcontratación» muestran las líneas de todos los pedidos seleccionados.
+
+## 2.0.17.22
+### ru
+- Номер банковского счёта вмещает до 30 знаков: марокканский RIB из 24 цифр сохраняется целиком, в том числе при загрузке банковской выписки.
+- В строках товаров реализации, заказа покупателя и коммерческого предложения появилось меню «Изменить»: скидка в процентах или суммой, итог документа, снятие скидок, изменение цен на процент и округление цен. Меню действует на выделенные строки, а если выделена одна строка или ни одной — на все.
+- Скидка суммой теперь сохраняется точно и при ценах без НДС.
+- Сумма скидок показывается в подвале таблицы товаров, в реализации — ещё и в итогах документа.
+- В кассе можно включить вопрос «Напечатать чек?» после оплаты (настройка пользователя «Задавать вопрос перед печатью чека»).
+- На этикетке печатается логотип вашей организации; добавлен тип этикетки «EAN-13 без QR». Этикетка по своему макету без рисунков QR или штрихкода печатается без ошибки.
+- Возврат поставщику можно распечатать.
+- В оприходовании колонка цены называется «Себестоимость»; если товара нет на остатке, «По себестоимости» берёт последний прайс поставщика.
+- В выборе поступления виден номер накладной (BL) поставщика.
+- Если у товара нет прайса поставщика, закупочная цена в карточке считается по средней цене остатков.
+- Поступление переноса остатков больше не меняет цены товаров.
+- Новая печатная форма заказа покупателя «Бланк заказа с фото».
+### fr
+- Le numéro de compte bancaire accepte jusqu'à 30 caractères : le RIB marocain de 24 chiffres est conservé en entier, y compris à l'import du relevé bancaire.
+- Dans les lignes d'articles des bons de livraison, commandes clients et devis, un nouveau menu « Modifier » : remise en pourcentage ou en montant, total du document, suppression des remises, variation des prix en pourcentage et arrondi des prix. Il s'applique aux lignes sélectionnées, ou à toutes si une seule ou aucune n'est sélectionnée.
+- La remise en montant est désormais conservée exactement, même avec des prix HT.
+- Le total des remises s'affiche en pied du tableau des articles, et pour le bon de livraison aussi dans les totaux.
+- En caisse, la question « Imprimer le ticket ? » après le paiement peut être activée (paramètre utilisateur « Demander avant d'imprimer le ticket »).
+- L'étiquette imprime le logo de votre société ; nouveau type d'étiquette « EAN-13 sans QR ». Une étiquette sur votre propre modèle sans image QR ou code-barres s'imprime sans erreur.
+- Le retour fournisseur peut être imprimé.
+- Dans l'entrée de marchandises, la colonne de prix s'appelle « Coût unitaire » ; sans stock, « Par coût de revient » prend le dernier tarif fournisseur.
+- Le numéro de BL du fournisseur apparaît dans le choix d'une réception.
+- Sans tarif fournisseur, le prix d'achat de la fiche article est calculé au prix moyen du stock.
+- La réception de reprise des stocks ne modifie plus les prix des articles.
+- Nouvel imprimé de la commande client « Bon de commande avec photos ».
+### en
+- The bank account number now holds up to 30 characters: a 24-digit Moroccan RIB is kept in full, including on bank statement import.
+- Product lines of sales documents, customer orders and quotations have a new "Change" menu: discount by percentage or amount, document total, remove discounts, change prices by a percentage and round prices. It applies to the selected lines, or to all lines when one or none is selected.
+- A discount entered as an amount is now kept exactly, even with prices excluding VAT.
+- The discount total is shown in the footer of the product table, and in the sales document also in the totals.
+- At the cash desk, a "Print the receipt?" question after payment can be turned on (user setting "Ask before printing the receipt").
+- The label prints your company logo; new label type "EAN-13 without QR". A label on your own template without a QR or barcode picture prints without an error.
+- A return to supplier can be printed.
+- In stock receipts, the price column is called "Unit cost"; when the item is out of stock, "By cost" takes the latest supplier price.
+- The supplier's delivery note (BL) number is shown when choosing a goods receipt.
+- When an item has no supplier price, the purchase price on the item card is the average cost of the stock.
+- A stock transfer receipt no longer changes item prices.
+- New customer order print form "Order form with photos".
+### es
+- El número de cuenta bancaria admite hasta 30 caracteres: el RIB marroquí de 24 dígitos se guarda completo, también al importar el extracto bancario.
+- En las líneas de artículos de albaranes, pedidos de clientes y presupuestos hay un nuevo menú «Modificar»: descuento en porcentaje o en importe, total del documento, quitar descuentos, cambiar precios en un porcentaje y redondear precios. Se aplica a las líneas seleccionadas, o a todas si hay una o ninguna seleccionada.
+- El descuento en importe ahora se conserva exactamente, también con precios sin IVA.
+- El total de descuentos se muestra al pie de la tabla de artículos y, en el albarán, también en los totales.
+- En la caja se puede activar la pregunta «¿Imprimir el ticket?» después del pago (ajuste de usuario «Preguntar antes de imprimir el ticket»).
+- La etiqueta imprime el logotipo de su empresa; nuevo tipo de etiqueta «EAN-13 sin QR». Una etiqueta con su propia plantilla sin imagen QR o de código de barras se imprime sin error.
+- La devolución al proveedor se puede imprimir.
+- En la entrada de mercancías, la columna de precio se llama «Coste unitario»; si el artículo no tiene existencias, «Por coste» toma la última tarifa del proveedor.
+- El número de albarán (BL) del proveedor aparece al elegir una recepción.
+- Si el artículo no tiene tarifa de proveedor, el precio de compra de la ficha se calcula con el precio medio de las existencias.
+- La recepción de traspaso de existencias ya no cambia los precios de los artículos.
+- Nuevo formulario de impresión del pedido de cliente «Hoja de pedido con fotos».
+
+## 2.0.17.21
+### ru
+- В сборку вошли правки параллельного потока 2.0.17.8–2.0.17.18: сортировка списков кликом по колонке вместо собственного постраничного просмотра, команда «Файлы» в документах, номер и дата заказа клиента, фильтр «Товар» в списках документов, «Детали» в списке КП, колонка «Отгружен» в заказах.
+### fr
+- Intégration des modifications du flux parallèle 2.0.17.8–2.0.17.18 : tri des listes par clic sur la colonne à la place de notre pagination, commande « Fichiers » dans les documents, numéro et date de commande du client, filtre « Article » dans les listes de documents, « Détails » dans la liste des devis, colonne « Expédié » dans les commandes.
+### en
+- The build includes the parallel stream changes 2.0.17.8–2.0.17.18: list sorting by clicking a column instead of our own paging, the "Files" command in documents, customer order number and date, the "Item" filter in document lists, "Details" in the quotation list, the "Shipped" column in orders.
+### es
+- La versión incluye los cambios del flujo paralelo 2.0.17.8–2.0.17.18: ordenación de listas con clic en la columna en lugar de nuestra paginación, comando «Archivos» en los documentos, número y fecha del pedido del cliente, filtro «Artículo» en las listas de documentos, «Detalles» en la lista de presupuestos, columna «Enviado» en los pedidos.
+
+## 2.0.17.20
+### ru
+- Переход на maERP с прежней редакции 1C:Commerce: выгрузка данных до обновления (с проверкой, что ничего не потеряется), загрузка после обновления и сверка остатков товаров, денег, взаиморасчётов, продаж и убытков «до/после».
+- Кассовые ордера, чьи движения по убыткам перенесены из прежней системы, защищены: их нельзя перепровести, распровести, изменить или удалить — история не меняется.
+- В перемещении товаров — «Срок перемещения (дн.)», в списании товаров — «Контрагент».
+- Файлы можно прикреплять к поступлениям и списаниям безналичных денег.
+- Обновление базы не останавливается на старых возвратах, вернувших товара больше, чем продано: перечень таких продаж записывается в журнал регистрации.
+### fr
+- Passage à maERP depuis l'ancienne édition de 1C:Commerce : export des données avant la mise à jour (avec contrôle qu'aucune donnée ne se perd), chargement après la mise à jour et rapprochement avant/après des stocks, de la trésorerie, des comptes tiers, des ventes et des pertes.
+- Les bons de caisse dont les mouvements de pertes ont été repris de l'ancien système sont protégés : ils ne peuvent être revalidés, dévalidés, modifiés ni supprimés.
+- Transfert de marchandises : « Délai de transfert (j.) » ; sortie de stock : « Tiers ».
+- Les fichiers peuvent être joints aux encaissements et décaissements bancaires.
+- La mise à jour ne s'arrête plus sur d'anciens retours ayant restitué plus que la quantité vendue : la liste de ces ventes est inscrite au journal.
+### en
+- Moving to maERP from the previous edition of 1C:Commerce: data export before the update (with a check that nothing is lost), load after the update and a before/after reconciliation of stock, cash, settlements, sales and losses.
+- Cash orders whose loss movements were carried over from the previous system are protected: they cannot be reposted, unposted, changed or deleted.
+- Goods transfer: "Transfer lead time (days)"; goods write-off: "Counterparty".
+- Files can be attached to bank receipts and payments.
+- The update no longer stops on old returns that brought back more than was sold: the list of such sales is written to the event log.
+### es
+- Paso a maERP desde la edición anterior de 1C:Commerce: exportación de datos antes de la actualización (comprobando que no se pierde nada), carga después de la actualización y conciliación antes/después de existencias, dinero, cuentas con terceros, ventas y pérdidas.
+- Las órdenes de caja cuyos movimientos de pérdidas se trasladaron del sistema anterior están protegidas: no se pueden volver a contabilizar, anular, modificar ni eliminar.
+- Traslado de mercancías: «Plazo del traslado (días)»; baja de mercancías: «Contraparte».
+- Se pueden adjuntar archivos a cobros y pagos bancarios.
+- La actualización ya no se detiene en devoluciones antiguas que devolvieron más de lo vendido: la lista de esas ventas se anota en el registro de eventos.
+
+## 2.0.17.19
+### ru
+- Обмен между базами по интернету (HTTPS): одна база запускает обмен, вторая отвечает через опубликованный HTTP-сервис. В узле обмена — адрес сервиса партнёра (только https://), логин и пароль у партнёра (хранятся в базе, на форме не показываются), пользователь сервиса этой базы и команда «Проверить подключение».
+- Для входа партнёра в базу заводится отдельный пользователь с ролью «Сервис обмена между базами» — по одному на каждый узел; пакеты обмена подписываются ключом пары, ответы с перенаправлением и без подписи не принимаются.
+- Обмен идёт сам: регламентное задание раз в минуту проверяет узлы и отправляет новые документы, принимает файлы из каталога и опрашивает партнёра не реже раза в 15 минут. Задание включается и выключается само вместе с узлами обмена.
+- Коэффициент единиц партнёра можно задать для отдельного товара: в мониторе обмена колонка «Только для товара».
+- Цены из обмена записываются за базовую единицу товара; дата запрета для обмена учитывает и автозакрытие периода.
+### fr
+- Échange entre bases via Internet (HTTPS) : une base lance l'échange, l'autre répond via un service HTTP publié. Le nœud indique l'adresse du service du partenaire (https:// uniquement), l'identifiant et le mot de passe chez le partenaire (stockés dans la base, non affichés), l'utilisateur du service de cette base et la commande « Vérifier la connexion ».
+- Le partenaire se connecte avec un utilisateur dédié ayant le rôle « Service d'échange entre bases », un par nœud ; les paquets sont signés par la clé de la paire, les réponses avec redirection ou sans signature sont refusées.
+- L'échange est automatique : une tâche planifiée vérifie les nœuds chaque minute, envoie les nouveaux documents, reçoit les fichiers du dossier et interroge le partenaire au moins toutes les 15 minutes. La tâche s'active et se désactive avec les nœuds.
+- Le coefficient d'unité du partenaire peut être défini pour un article précis : colonne « Pour l'article seulement » du moniteur.
+- Les prix reçus sont enregistrés par unité de base ; la date de clôture de l'échange tient compte aussi de la clôture automatique de période.
+### en
+- Exchange between bases over the Internet (HTTPS): one base starts the exchange, the other answers through a published HTTP service. The node holds the partner service address (https:// only), the login and password at the partner (stored in the base, not shown), the service user of this base and the "Check connection" command.
+- The partner signs in with a dedicated user with the "Inter-base exchange service" role, one per node; packets are signed with the pair key, responses with a redirect or without a signature are rejected.
+- The exchange runs by itself: a scheduled job checks nodes every minute, sends new documents, takes files from the folder and polls the partner at least every 15 minutes. The job turns on and off together with exchange nodes.
+- A partner unit coefficient can be set for a single item: "For the item only" column in the exchange monitor.
+- Received prices are stored per base unit; the exchange closing date also respects automatic period closing.
+### es
+- Intercambio entre bases por Internet (HTTPS): una base inicia el intercambio y la otra responde mediante un servicio HTTP publicado. El nodo indica la dirección del servicio del socio (solo https://), el usuario y la contraseña en el socio (guardados en la base, no se muestran), el usuario del servicio de esta base y el comando «Comprobar conexión».
+- El socio entra con un usuario propio con el rol «Servicio de intercambio entre bases», uno por nodo; los paquetes se firman con la clave del par y se rechazan las respuestas con redirección o sin firma.
+- El intercambio es automático: una tarea programada revisa los nodos cada minuto, envía documentos nuevos, recoge los archivos de la carpeta y consulta al socio al menos cada 15 minutos. La tarea se activa y desactiva junto con los nodos.
+- El coeficiente de unidad del socio puede definirse para un artículo concreto: columna «Solo para el artículo» del monitor.
+- Los precios recibidos se guardan por unidad base; la fecha de cierre del intercambio respeta también el cierre automático del período.
+
+## 2.0.17.18
+### ru
+- В списках документов с товарами (продажи, закупки, налоговые накладные, коммерческие предложения, склад, производство) на закладке «Фильтры» правой панели появился фильтр «Товар». Выберите товар — в списке останутся документы, в строках которых он есть; при вводе части наименования или артикула программа предложит подходящие товары. Очистите поле — фильтр снимется.
+- В списке коммерческих предложений на правой панели появилась закладка «Детали»: наша компания, ответственный, менеджер, комментарий, сумма и состав предложения по товарам — как в списках остальных документов.
+- В списке заказов покупателей появилась колонка «Отгружен» — дата последней проведённой реализации по заказу. Плановая дата отгрузки из карточки заказа остаётся отдельной колонкой; по частично отгруженному заказу видна дата последней отгрузки.
+### fr
+- Dans les listes de documents avec articles (ventes, achats, factures fiscales, offres commerciales, stock, production), l'onglet « Filtres » du panneau de droite comporte un filtre « Article ». Choisissez un article : la liste ne garde que les documents dont les lignes le contiennent ; en saisissant une partie du nom ou de la référence, le programme propose les articles correspondants. Videz le champ pour retirer le filtre.
+- Dans la liste des offres commerciales, le panneau de droite comporte un onglet « Détails » : notre société, responsable, manager, commentaire, montant et composition de l'offre par article, comme dans les listes des autres documents.
+- La liste des commandes clients comporte une colonne « Expédiée le » : date de la dernière vente validée de la commande. La date d'expédition prévue de la fiche reste une colonne à part ; pour une commande expédiée en partie, c'est la date de la dernière expédition qui s'affiche.
+### en
+- Lists of documents with products (sales, purchases, tax invoices, commercial offers, warehouse, production) have a new "Product" filter on the "Filters" tab of the right panel. Choose a product and the list keeps only the documents whose lines contain it; typing part of the name or SKU offers matching products. Clear the field to remove the filter.
+- The commercial offer list has a new "Details" tab on the right panel: our company, responsible, manager, comment, amount and the offer's products, as in the lists of other documents.
+- The customer order list has a new "Shipped on" column: the date of the last posted sale for the order. The planned shipment date from the order form stays a separate column; for a partially shipped order the date of the last shipment is shown.
+### es
+- En las listas de documentos con artículos (ventas, compras, facturas fiscales, ofertas comerciales, almacén, producción), la pestaña «Filtros» del panel derecho tiene un nuevo filtro «Artículo». Elija un artículo y la lista mostrará solo los documentos cuyas líneas lo contienen; al escribir parte del nombre o de la referencia, el programa propone los artículos que coinciden. Vacíe el campo para quitar el filtro.
+- En la lista de ofertas comerciales, el panel derecho tiene una nueva pestaña «Detalles»: nuestra empresa, responsable, gerente, comentario, importe y composición de la oferta por artículos, como en las listas de los demás documentos.
+- La lista de pedidos de clientes tiene una nueva columna «Enviado el»: fecha de la última venta contabilizada del pedido. La fecha de envío prevista de la ficha sigue siendo una columna aparte; en un pedido enviado en parte se muestra la fecha del último envío.
+
+## 2.0.17.17
+### ru
+- Обмен между базами maERP: реализация продавца приходит покупателю поступлением, установка цен — установкой цен в виде цен покупателя. Узел обмена (Настройки программы → Обмен между базами) задаёт контрагента, организацию, что отправлять и принимать, склад приёма, дату начала обмена.
+- Поступление из обмена создаётся непроведённым (на ордерный склад без услуг — проведённым, если это включено в узле); проведённое — покупателем или сразу при создании — считается принятым, и последующие изменения реализации не меняют его, а попадают в отложенные. Суммы — окончательные суммы реализации после скидок; валюта и курс — по курсам базы покупателя.
+- Товары сопоставляются по штрихкоду и артикулу, единицы партнёра — один раз вручную в мониторе обмена; не сопоставленное откладывается и применяется кнопкой «Повторить» после сопоставления.
+- Транспорт — общий каталог: сообщения подписываются ключом пары, повторная доставка не задваивает документы, обмен узла не запускается дважды одновременно.
+- Проведённую реализацию и установку цен, переданные по обмену, с изменениями можно только перепровести; установку цен, полученную по обмену, меняет только обмен.
+- Касса: проверка «позиция уже в избранном» больше не завершается ошибкой.
+### fr
+- Échange entre bases maERP : la vente du vendeur arrive chez l'acheteur comme réception, le document de prix comme document de prix dans le type de prix de l'acheteur. Le nœud d'échange (Paramètres → Échange entre bases) définit le tiers, la société, ce qui est envoyé et reçu, l'entrepôt de réception et la date de début.
+- La réception issue de l'échange est créée non validée (validée sur un entrepôt à ordres sans services, si le nœud le prévoit) ; une fois validée, par l'acheteur ou dès la création, elle est acceptée et les modifications ultérieures de la vente ne la changent pas mais passent en attente. Les montants sont les montants finaux de la vente après remises ; devise et taux selon les cours de la base de l'acheteur.
+- Les articles sont associés par code-barres et référence, les unités du partenaire une fois à la main dans le moniteur ; ce qui n'est pas associé est mis en attente et appliqué par « Rejouer » après association.
+- Transport par dossier partagé : messages signés par la clé de la paire, une nouvelle livraison ne duplique pas les documents, l'échange d'un nœud ne tourne pas deux fois en même temps.
+- Une vente ou un document de prix validé transmis par l'échange ne peut être modifié qu'en le revalidant ; un document de prix reçu par l'échange n'est modifié que par l'échange.
+- Caisse : la vérification « article déjà en favoris » ne renvoie plus d'erreur.
+### en
+- Exchange between maERP bases: the seller's sale arrives at the buyer as a goods receipt, a price setting as a price setting in the buyer's price type. The exchange node (Settings → Inter-base exchange) sets the counterparty, company, what to send and receive, the receiving warehouse and the exchange start date.
+- The goods receipt from the exchange is created unposted (posted for an order-based warehouse without services, if the node enables it); once posted, by the buyer or on creation, it is accepted and later sale changes do not alter it but go to deferred objects. Amounts are the sale's final amounts after discounts; currency and rate follow the buyer base's rates.
+- Items are matched by barcode and article, partner units once manually in the exchange monitor; anything unmatched is deferred and applied with "Retry" after mapping.
+- Transport is a shared folder: messages are signed with the pair key, redelivery does not duplicate documents, a node's exchange never runs twice at once.
+- A posted sale or price setting sent by the exchange can only be changed by reposting; a price setting received by the exchange is changed only by the exchange.
+- POS: checking whether an item is already in favourites no longer fails with an error.
+### es
+- Intercambio entre bases maERP: la venta del vendedor llega al comprador como recepción y la fijación de precios como fijación de precios en el tipo de precio del comprador. El nodo de intercambio (Configuración → Intercambio entre bases) define la contraparte, la empresa, qué se envía y recibe, el almacén de recepción y la fecha de inicio.
+- La recepción del intercambio se crea sin contabilizar (contabilizada en un almacén por órdenes sin servicios, si el nodo lo indica); una vez contabilizada, por el comprador o al crearse, queda aceptada y los cambios posteriores de la venta no la modifican, sino que quedan pendientes. Los importes son los finales de la venta tras descuentos; moneda y tipo de cambio según la base del comprador.
+- Los artículos se asocian por código de barras y referencia, las unidades del socio una vez a mano en el monitor; lo no asociado queda pendiente y se aplica con «Reintentar» tras asociarlo.
+- Transporte por carpeta compartida: mensajes firmados con la clave del par, la reentrega no duplica documentos, el intercambio de un nodo no se ejecuta dos veces a la vez.
+- Una venta o fijación de precios contabilizada enviada por el intercambio solo se modifica volviendo a contabilizarla; una fijación de precios recibida por el intercambio solo la modifica el intercambio.
+- Caja: la comprobación de si el artículo ya está en favoritos ya no da error.
+
+## 2.0.17.16
+### ru
+- Мобильная приёмка: менеджер назначает в поступлении на ордерный склад «Ответственного за приёмку», и кладовщик принимает товар с телефона (Приёмка в мобильном меню) — сканом штрихкода или вводом количества; каждое действие сразу сохраняется, после обрыва связи приёмка продолжается с того же места, повторная отправка не удваивает количество.
+- Частичная приёмка: проведённый приходный ордер оформляет принятое, остаток ждёт следующей приёмки; если поступление изменили, приёмка показывает расхождения и приводится к поступлению по кнопке.
+- Пока по поступлению есть незавершённая приёмка, переназначить кладовщика нельзя; приходный ордер можно вывести из мобильной приёмки командой в его форме.
+- Назначает кладовщика приёмки менеджер без права на приходные ордера или администратор; ордер мобильной приёмки изменяет, проводит и выводит из приёмки только назначенный кладовщик или администратор.
+- Телефоны с IMEI мобильной приёмкой не принимаются (на ордерных складах их учёт не ведётся).
+### fr
+- Réception mobile : le responsable affecte dans la réception vers un entrepôt à bons un « Responsable de la réception », et le magasinier reçoit la marchandise depuis son téléphone (Réception dans le menu mobile) — par scan du code-barres ou saisie de la quantité ; chaque action est enregistrée aussitôt, après une coupure la réception reprend au même point, un renvoi ne double pas la quantité.
+- Réception partielle : le bon d'entrée validé enregistre ce qui est reçu, le reste attend la réception suivante ; si la réception a été modifiée, l'écran montre les écarts et s'aligne sur la réception par un bouton.
+- Tant qu'une réception est inachevée, le magasinier ne peut pas être réaffecté ; un bon d'entrée peut être sorti de la réception mobile depuis son formulaire.
+- Le magasinier de réception est affecté par un responsable sans droit sur les bons d'entrée ou par l'administrateur ; seul le magasinier affecté ou l'administrateur modifie, valide ou sort de la réception un bon de réception mobile.
+- Les téléphones avec IMEI ne sont pas reçus en mobile (leur suivi n'existe pas sur les entrepôts à bons).
+### en
+- Mobile receiving: the manager assigns a "Receiving clerk" in a goods receipt to an order-based warehouse, and the clerk receives the goods from the phone (Receiving in the mobile menu) — by scanning the barcode or entering the quantity; every action is saved at once, after a connection drop the receiving continues from the same point, resending does not double the quantity.
+- Partial receiving: the posted receipt order records what was received, the rest waits for the next receiving; if the goods receipt was changed, the screen shows the differences and aligns with the receipt by a button.
+- While a receiving is unfinished, the clerk cannot be reassigned; a receipt order can be removed from mobile receiving from its form.
+- The receiving clerk is assigned by a manager without receipt order rights or by an administrator; only the assigned clerk or an administrator changes, posts or removes a mobile receiving order.
+- Phones with IMEI are not received in mobile receiving (they are not tracked on order-based warehouses).
+### es
+- Recepción móvil: el responsable asigna en la recepción a un almacén con órdenes un «Responsable de la recepción», y el almacenero recibe la mercancía desde el teléfono (Recepción en el menú móvil) — escaneando el código de barras o introduciendo la cantidad; cada acción se guarda al momento, tras un corte la recepción continúa desde el mismo punto, el reenvío no duplica la cantidad.
+- Recepción parcial: la orden de entrada contabilizada registra lo recibido, el resto espera la siguiente recepción; si la recepción cambió, la pantalla muestra las diferencias y se ajusta con un botón.
+- Mientras haya una recepción sin terminar, no se puede reasignar al almacenero; una orden de entrada puede sacarse de la recepción móvil desde su formulario.
+- Asigna el almacenero de recepción un responsable sin derecho a órdenes de entrada o el administrador; solo el almacenero asignado o el administrador modifica, contabiliza o saca de la recepción una orden de recepción móvil.
+- Los teléfonos con IMEI no se reciben en la recepción móvil (no se controlan en almacenes con órdenes).
+
+## 2.0.17.15
+### ru
+- Новые роли-допуски «Изменение проведённых реализаций» и «Редактирование поступлений товаров»: добавляются к основной роли пользователя и разрешают править проведённые реализации или поступления; отмену проведения поступлений допуск не даёт (дата запрета редактирования действует как прежде).
+- Мобильное приложение: в главном меню — пункт «Задания на пересчёт»; список заданий на телефоне открывается в мобильной форме.
+### fr
+- Nouveaux rôles d'autorisation « Modification des ventes validées » et « Modification des réceptions de marchandises » : ils s'ajoutent au rôle principal de l'utilisateur et permettent de modifier les ventes ou réceptions validées ; l'annulation de la validation des réceptions n'est pas accordée (la date d'interdiction de modification s'applique comme avant).
+- Application mobile : le menu principal propose « Tâches d'inventaire » ; la liste des tâches s'ouvre sur le téléphone dans le formulaire mobile.
+### en
+- New permission roles "Changing posted sales" and "Editing goods receipts": they are added to the user's main role and allow editing posted sales or receipts; unposting receipts is not granted (the editing lock date applies as before).
+- Mobile app: the main menu has a "Stock count tasks" item; the task list opens on the phone in the mobile form.
+### es
+- Nuevos roles de permiso «Modificación de ventas contabilizadas» y «Edición de recepciones de mercancías»: se añaden al rol principal del usuario y permiten modificar ventas o recepciones contabilizadas; no conceden anular la contabilización de recepciones (la fecha de bloqueo de edición se aplica como antes).
+- Aplicación móvil: el menú principal incluye «Tareas de recuento»; la lista de tareas se abre en el teléfono en el formulario móvil.
+
+## 2.0.17.14
+### ru
+- Перемещение товаров: команда «Заполнить остатками» заполняет отгрузку всеми положительными остатками склада-отправителя (телефоны — строкой на каждый IMEI).
+- В перемещении видна себестоимость строк и итог (только тем, кому видны суммы); если себестоимость ещё пересчитывается, форма это показывает. В накладной на перемещение себестоимость печатается отдельным блоком.
+- Печать этикеток: новые виды «60×40 с QR» и «Только наименование»; выбранный вид запоминается.
+### fr
+- Transfert de marchandises : la commande « Remplir avec le stock » remplit l'expédition avec tout le stock positif de l'entrepôt expéditeur (téléphones — une ligne par IMEI).
+- Le transfert affiche le coût des lignes et le total (uniquement pour les utilisateurs qui voient les montants) ; si le coût est en cours de recalcul, le formulaire l'indique. Le bon de transfert imprime le coût dans un bloc séparé.
+- Impression d'étiquettes : nouveaux types « 60×40 avec QR » et « Nom seulement » ; le type choisi est mémorisé.
+### en
+- Goods transfer: the "Fill with stock" command fills the shipment with all positive stock of the sending warehouse (phones — one row per IMEI).
+- The transfer shows the cost of rows and the total (only to users who can see amounts); if the cost is being recalculated, the form says so. The transfer note prints the cost in a separate block.
+- Label printing: new "60×40 with QR" and "Name only" types; the chosen type is remembered.
+### es
+- Traslado de mercancías: el comando «Rellenar con existencias» rellena el envío con todas las existencias positivas del almacén de origen (teléfonos — una fila por IMEI).
+- El traslado muestra el coste de las filas y el total (solo para quienes ven importes); si el coste se está recalculando, el formulario lo indica. El albarán de traslado imprime el coste en un bloque aparte.
+- Impresión de etiquetas: nuevos tipos «60×40 con QR» y «Solo el nombre»; el tipo elegido se recuerda.
+
+## 2.0.17.13
+### ru
+- Новый отчёт «Анализ инвентаризаций» (Склад): по пересчёту — остаток после прошлой инвентаризации, что за это время поступило, продано, списано, оприходовано и перемещено, учёт, факт и расхождение. Открывается командой из пересчёта товаров. Если движения до пересчёта изменили задним числом, отчёт это показывает.
+- Новый отчёт «Отгрузки с изменёнными ценами» (Продажи): продажи, цена которых отличается от прайса на момент продажи, с отклонением в сумме и процентах. Себестоимость в отчёте видят только те, кому видны суммы.
+- Прайс-чекер (Продажи → Розничные продажи): отсканируйте штрихкод или IMEI — на экране товар и цена вашего склада, та же, что на кассе.
+- Настройка пользователя «Только свой склад»: отчёт «Товары в наличии» показывает только склад пользователя.
+- Отчёт «Движения товара»: оприходование и перемещение (отгружено и получено) — отдельными показателями, а не в «Прочем». Итоги по складу не меняются.
+### fr
+- Nouveau rapport « Analyse des inventaires » (Stock) : pour un inventaire — le stock après l'inventaire précédent, ce qui a été reçu, vendu, sorti, entré et transféré entre-temps, le comptable, le réel et l'écart. Il s'ouvre par une commande depuis l'inventaire. Si des mouvements antérieurs à l'inventaire ont été modifiés après coup, le rapport le signale.
+- Nouveau rapport « Ventes à prix modifiés » (Ventes) : les ventes dont le prix diffère du tarif au moment de la vente, avec l'écart en montant et en pourcentage. Le coût n'est visible que pour les utilisateurs qui voient les montants.
+- Vérificateur de prix (Ventes → Ventes au détail) : scannez un code-barres ou un IMEI — l'article et le prix de votre entrepôt s'affichent, le même qu'à la caisse.
+- Paramètre utilisateur « Seulement mon entrepôt » : le rapport « Marchandises en stock » n'affiche que l'entrepôt de l'utilisateur.
+- Rapport « Mouvements de l'article » : les entrées en stock et les transferts (sortie et entrée) ont leurs propres indicateurs au lieu de « Autres ». Les totaux par entrepôt ne changent pas.
+### en
+- New "Stock count analysis" report (Warehouse): for a stock count — the balance after the previous count, what was received, sold, written off, entered and transferred in between, the book quantity, the actual quantity and the difference. It opens with a command from the stock count. If movements before the count were changed afterwards, the report shows it.
+- New "Sales with changed prices" report (Sales): sales whose price differs from the price list at the moment of sale, with the deviation in amount and percent. The cost is visible only to users who can see amounts.
+- Price checker (Sales → Retail sales): scan a barcode or an IMEI — the item and the price of your warehouse are shown, the same as at the cash register.
+- User setting "Only my warehouse": the "Goods in stock" report shows only the user's warehouse.
+- "Item movements" report: stock entries and transfers (out and in) have their own indicators instead of "Other". Warehouse totals do not change.
+### es
+- Nuevo informe «Análisis de inventarios» (Almacén): para un recuento — el saldo tras el inventario anterior, lo recibido, vendido, dado de baja, entrado y trasladado en ese tiempo, lo contable, lo real y la diferencia. Se abre con un comando desde el recuento. Si los movimientos anteriores al recuento se modificaron después, el informe lo indica.
+- Nuevo informe «Ventas con precios modificados» (Ventas): ventas cuyo precio difiere de la tarifa en el momento de la venta, con la desviación en importe y porcentaje. El coste solo lo ven los usuarios que ven importes.
+- Comprobador de precios (Ventas → Ventas al por menor): escanee un código de barras o un IMEI — se muestran el artículo y el precio de su almacén, el mismo que en la caja.
+- Ajuste de usuario «Solo mi almacén»: el informe «Productos en stock» muestra solo el almacén del usuario.
+- Informe «Movimientos del artículo»: las entradas de stock y los traslados (salida y entrada) tienen sus propios indicadores en lugar de «Otros». Los totales por almacén no cambian.
+
+## 2.0.17.12
+### ru
+- Касса не проводит продажу дважды: если ответ сервера потерялся (обрыв связи, зависание), повторная оплата того же чека возвращает уже записанную продажу, а не создаёт вторую.
+- При открытии кассы показываются незавершённые чеки — записанные, но не напечатанные: касса печатает их, и только после этого принимается новая оплата.
+- Оплата чека записывается целиком: продажа и все платежи — вместе или ничего; неполная оплата не проходит.
+- Смена кассы: у кассы одна открытая смена, суммы открытия и закрытия считаются по наличным в кассе автоматически; перед закрытием касса предупреждает о продажах с долгом и отложенных чеках.
+- Закрытая смена не меняется: документы закрытой смены нельзя провести, изменить или удалить — откройте последнюю смену, исправьте и закройте снова.
+- Оплаченную продажу кассы нельзя отменить — оформляется возврат; отменённую продажу нельзя оплатить.
+### fr
+- La caisse ne valide jamais une vente deux fois : si la réponse du serveur est perdue (coupure, blocage), un nouveau paiement du même ticket renvoie la vente déjà enregistrée au lieu d'en créer une seconde.
+- À l'ouverture de la caisse, les tickets inachevés — enregistrés mais non imprimés — sont affichés : la caisse les imprime, et seulement ensuite un nouveau paiement est accepté.
+- Le paiement d'un ticket s'enregistre d'un seul bloc : la vente et tous les paiements ensemble ou rien ; un paiement incomplet est refusé.
+- Session de caisse : une seule session ouverte par caisse, les montants d'ouverture et de clôture sont calculés automatiquement d'après les espèces en caisse ; avant la clôture, la caisse signale les ventes avec dette et les tickets en attente.
+- Une session fermée ne se modifie pas : ses documents ne peuvent être ni validés, ni modifiés, ni supprimés — rouvrez la dernière session, corrigez et refermez-la.
+- Une vente de caisse payée ne peut pas être annulée — on établit un retour ; une vente annulée ne peut pas être payée.
+### en
+- The cash register never posts a sale twice: if the server response is lost (connection drop, freeze), paying the same receipt again returns the sale already recorded instead of creating a second one.
+- When the cash register opens, it shows unfinished receipts — recorded but not printed: it prints them, and only then is a new payment accepted.
+- A receipt payment is recorded as a whole: the sale and all payments together or nothing; an incomplete payment is refused.
+- Cash session: one open session per cash desk, opening and closing amounts are calculated automatically from the cash on hand; before closing, the register warns about sales with debt and pending receipts.
+- A closed session cannot be changed: its documents cannot be posted, changed or deleted — reopen the last session, fix them and close it again.
+- A paid cash register sale cannot be cancelled — issue a return; a cancelled sale cannot be paid.
+### es
+- La caja nunca contabiliza una venta dos veces: si se pierde la respuesta del servidor (corte, bloqueo), volver a pagar el mismo ticket devuelve la venta ya registrada en lugar de crear otra.
+- Al abrir la caja se muestran los tickets sin finalizar — registrados pero no impresos: la caja los imprime, y solo después se acepta un nuevo pago.
+- El pago de un ticket se registra por completo: la venta y todos los pagos juntos o nada; un pago incompleto se rechaza.
+- Turno de caja: un solo turno abierto por caja, los importes de apertura y cierre se calculan automáticamente según el efectivo en caja; antes del cierre la caja avisa de las ventas con deuda y los tickets pendientes.
+- Un turno cerrado no se modifica: sus documentos no se pueden contabilizar, modificar ni eliminar — vuelva a abrir el último turno, corrija y ciérrelo de nuevo.
+- Una venta de caja pagada no se puede anular — se emite una devolución; una venta anulada no se puede pagar.
+
+## 2.0.17.11
+### ru
+- IMEI работает как штрихкод: скан номера в поступлении, реализации, перемещении, оприходовании и на кассе сразу находит телефон и его серию. Повторный скан того же IMEI не добавляет вторую строку, а строка экземпляра всегда одна штука.
+- Если введённое значение одновременно штрихкод одного товара и IMEI другого, товар не подставляется — программа просит выбрать его вручную.
+- В чеке и накладной под строкой телефона печатаются IMEI и гарантия в месяцах (свойство товара «Гарантия, месяцев»).
+- Ошибочно введённый IMEI можно исправить командой «Исправить IMEI» в карточке серии — даже после продажи. Команда доступна руководителю и администратору, исправление записывается в журнал регистрации.
+- Новая настройка «Возврат от покупателя только по документу продажи» (Настройки программы → Номенклатура; включается отраслью «Телефоны и аксессуары»): возврат проводится только по проведённой продаже и не больше проданного, а продажу с проведёнными возвратами нельзя изменить, отменить или удалить, пока возвраты не отменены.
+- Возврат телефона по продаже, покрытой налоговым документом, оформляется по налоговому документу.
+- Счёт-фактура и проформа налоговой накладной печатают номер и дату нашего заказа покупателя: «Заказ № … от …» вслед за документом отгрузки. Если накладная закрывает несколько отгрузок по разным заказам, печатаются все заказы.
+- Поля «Номер заказа клиента» и «Дата заказа клиента» из сборки 2.0.17.10 убраны: в документах печатается номер нашего заказа, который присваивает программа, вводить отдельный номер не нужно.
+### fr
+- L'IMEI fonctionne comme code-barres : scanner le numéro dans la réception, la vente, le transfert, l'entrée en stock et à la caisse trouve aussitôt le téléphone et sa série. Un second scan du même IMEI n'ajoute pas de ligne, et la ligne d'un exemplaire vaut toujours une pièce.
+- Si la valeur saisie est à la fois le code-barres d'un article et l'IMEI d'un autre, aucun article n'est proposé : le programme demande de le choisir manuellement.
+- Le ticket et le bon de livraison impriment sous la ligne du téléphone l'IMEI et la garantie en mois (propriété « Garantie, mois »).
+- Un IMEI saisi par erreur se corrige avec la commande « Corriger l'IMEI » de la fiche de série, même après la vente. La commande est réservée au dirigeant et à l'administrateur ; la correction est inscrite au journal d'enregistrement.
+- Nouveau paramètre « Retour client uniquement sur le document de vente » (Paramètres du programme → Articles ; activé par le secteur « Téléphones et accessoires ») : le retour se valide uniquement sur une vente validée et sans dépasser la quantité vendue, et une vente avec des retours validés ne peut être ni modifiée, ni annulée, ni supprimée tant que les retours ne sont pas annulés.
+- Le retour d'un téléphone vendu par une vente couverte par un document fiscal se fait sur ce document fiscal.
+- La facture et la proforma de la facture fiscale impriment le numéro et la date de notre commande client : « Commande n° … du … » après la livraison. Si la facture couvre plusieurs livraisons de commandes différentes, toutes les commandes sont imprimées.
+- Les champs « N° de commande client » et « Date de commande client » de la version 2.0.17.10 sont retirés : les documents impriment le numéro de notre commande, attribué par le programme, aucune saisie séparée n'est nécessaire.
+### en
+- IMEI works as a barcode: scanning the number in receipts, sales, transfers, stock entries and at the cash register finds the phone and its series at once. Scanning the same IMEI again adds no second row, and a unit row is always one piece.
+- If the entered value is both one item's barcode and another item's IMEI, no item is filled in: the program asks you to choose it manually.
+- The receipt and the delivery note print the IMEI and the warranty in months (item property "Warranty, months") under the phone row.
+- An IMEI entered by mistake can be corrected with the "Correct IMEI" command in the series card, even after the sale. The command is available to the director and the administrator; the correction is written to the event log.
+- New setting "Customer returns only against the sales document" (Program settings → Items; turned on by the "Phones and accessories" industry): a return is posted only against a posted sale and not above the quantity sold, and a sale with posted returns cannot be changed, unposted or deleted until the returns are cancelled.
+- A phone sold by a sale covered by a tax document is returned against that tax document.
+- The invoice and proforma of a tax invoice print the number and date of our customer order: "Order No. … dated …" after the delivery. If the tax invoice covers several deliveries from different orders, all orders are printed.
+- The "Customer order number" and "Customer order date" fields of build 2.0.17.10 are removed: documents print the number of our order assigned by the program, no separate number needs to be entered.
+### es
+- El IMEI funciona como código de barras: escanear el número en la recepción, la venta, el traslado, la entrada de stock y en la caja encuentra al instante el teléfono y su serie. Un segundo escaneo del mismo IMEI no añade otra fila, y la fila de una unidad siempre es una pieza.
+- Si el valor introducido es a la vez el código de barras de un artículo y el IMEI de otro, no se propone ningún artículo: el programa pide elegirlo manualmente.
+- El ticket y el albarán imprimen bajo la fila del teléfono el IMEI y la garantía en meses (propiedad «Garantía, meses»).
+- Un IMEI introducido por error se corrige con el comando «Corregir IMEI» de la ficha de la serie, incluso después de la venta. El comando está disponible para el director y el administrador; la corrección queda en el registro de eventos.
+- Nuevo ajuste «Devolución de cliente solo según el documento de venta» (Ajustes del programa → Artículos; lo activa el sector «Teléfonos y accesorios»): la devolución se contabiliza solo según una venta contabilizada y sin superar lo vendido, y una venta con devoluciones contabilizadas no se puede modificar, anular ni eliminar mientras no se anulen las devoluciones.
+- Un teléfono vendido en una venta cubierta por un documento fiscal se devuelve según ese documento fiscal.
+- La factura y la proforma de la factura fiscal imprimen el número y la fecha de nuestro pedido de cliente: «Pedido n.º … del …» después de la entrega. Si la factura cubre varias entregas de pedidos distintos, se imprimen todos los pedidos.
+- Se eliminan los campos «N.º de pedido del cliente» y «Fecha del pedido del cliente» de la versión 2.0.17.10: los documentos imprimen el número de nuestro pedido, que asigna el programa, no hace falta introducir otro número.
+
+## 2.0.17.10
+### ru
+- Новая отрасль «Телефоны и аксессуары»: при её выборе включаются серии номенклатуры и у товаров появляются свойства «Модель», «Цвет», «Память», «Гарантия, месяцев» и «Совместимость».
+- Учёт по серийным номерам (IMEI): флажок в карточке товара. Каждый IMEI — один экземпляр: он не может числиться дважды, на двух складах сразу или уйти в минус, а номер не повторяется у двух товаров.
+- Товар с IMEI поступает с номером на каждую единицу; без номера он приходит только перемещением, возвратом по продаже или из остатка, набранного до включения учёта. Возврат от покупателя — только по документу продажи и не больше проданного.
+- Флажок ставится только товару без характеристик и вне техкарт и после включения не снимается; при включении программа проверяет историю движений товара. Ордерные склады и склады с подчинённым складом для товаров с IMEI недоступны.
+- Документ с движениями товара с IMEI не удаляется, пока не отменено его проведение; серия с движениями не удаляется и не переименовывается.
+- В заказе покупателя появились поля «Номер заказа клиента» и «Дата заказа клиента» — номер и дата заказа в системе клиента. Поля стоят в карточке под договором, номер выведен колонкой в списке заказов и ищется строкой поиска.
+- Номер и дата заказа клиента печатаются строкой «Ваш заказ № … от …» в проформе, бланке заказа и счёте заказа, а также в счёте-фактуре, накладной, счёте и проформе реализации по этому заказу — в реализацию номер не переносится, печать берёт его из заказа.
+- При копировании заказа номер и дата заказа клиента не копируются.
+### fr
+- Nouveau secteur « Téléphones et accessoires » : il active les séries d'articles et ajoute aux articles les propriétés « Modèle », « Couleur », « Mémoire », « Garantie, mois » et « Compatibilité ».
+- Suivi par numéros de série (IMEI) : case à cocher dans la fiche article. Chaque IMEI est un seul exemplaire : il ne peut pas figurer deux fois, dans deux entrepôts à la fois ni passer en négatif, et un numéro n'appartient qu'à un article.
+- Un article à IMEI entre avec un numéro par unité ; sans numéro, il n'entre que par transfert, par retour d'une vente ou depuis le stock constitué avant l'activation du suivi. Le retour client se fait uniquement sur le document de vente et sans dépasser la quantité vendue.
+- La case ne se coche que pour un article sans caractéristiques et hors fiches techniques, et ne se décoche plus ; à l'activation, le programme contrôle l'historique des mouvements. Les entrepôts par ordres et ceux avec entrepôt subordonné ne sont pas disponibles pour les articles à IMEI.
+- Un document avec des mouvements d'articles à IMEI ne se supprime pas tant que sa validation n'est pas annulée ; une série avec des mouvements ne se supprime ni ne se renomme.
+- La commande client comporte les champs « N° de commande client » et « Date de commande client » : numéro et date de la commande dans le système du client. Ils figurent dans la fiche sous le contrat ; le numéro est affiché en colonne dans la liste des commandes et se recherche par la barre de recherche.
+- Le numéro et la date de commande client s'impriment sous la forme « Votre commande n° … du … » sur la proforma, le bon de commande et la facture de la commande, ainsi que sur la facture, le bon de livraison et la proforma de la vente issue de cette commande : le numéro n'est pas recopié dans la vente, l'impression le prend dans la commande.
+- La copie d'une commande ne reprend pas le numéro ni la date de commande client.
+### en
+- New industry "Phones and accessories": it turns on item series and adds the item properties "Model", "Color", "Storage", "Warranty, months" and "Compatibility".
+- Serial number (IMEI) tracking: a checkbox in the item card. Each IMEI is one unit: it cannot be counted twice, sit in two warehouses at once or go negative, and a number belongs to one item only.
+- An IMEI item is received with a number for each unit; without a number it comes in only by transfer, by return of a sale or from stock built up before tracking was turned on. A customer return is made only against the sales document and not above the quantity sold.
+- The checkbox can be set only for an item without characteristics and outside BOMs, and cannot be cleared afterwards; when it is set, the program checks the item's movement history. Order-based warehouses and warehouses with a subordinate warehouse are not available for IMEI items.
+- A document with IMEI item movements cannot be deleted until it is unposted; a series with movements cannot be deleted or renamed.
+- Customer orders have new fields "Customer order number" and "Customer order date": the order number and date in the customer's system. They are in the order form under the contract; the number is shown as a column in the order list and can be found with the search bar.
+- The customer order number and date are printed as "Your order No. … dated …" on the order's proforma, order form and invoice, and on the invoice, delivery note and proforma of sales based on that order: the number is not copied into the sale, printing takes it from the order.
+- Copying an order does not copy the customer order number and date.
+### es
+- Nuevo sector «Teléfonos y accesorios»: activa las series de artículos y añade a los artículos las propiedades «Modelo», «Color», «Memoria», «Garantía, meses» y «Compatibilidad».
+- Control por números de serie (IMEI): casilla en la ficha del artículo. Cada IMEI es una sola unidad: no puede figurar dos veces, estar en dos almacenes a la vez ni quedar en negativo, y un número pertenece a un solo artículo.
+- Un artículo con IMEI entra con un número por unidad; sin número, solo entra por traslado, por devolución de una venta o desde las existencias reunidas antes de activar el control. La devolución de cliente se hace solo sobre el documento de venta y sin superar lo vendido.
+- La casilla solo se marca en un artículo sin características y fuera de fichas técnicas, y ya no se desmarca; al activarla, el programa comprueba el historial de movimientos. Los almacenes por órdenes y los que tienen almacén subordinado no están disponibles para artículos con IMEI.
+- Un documento con movimientos de artículos con IMEI no se elimina mientras no se anule su contabilización; una serie con movimientos no se elimina ni se renombra.
+- El pedido de cliente tiene los campos «N.º de pedido del cliente» y «Fecha del pedido del cliente»: número y fecha del pedido en el sistema del cliente. Están en la ficha debajo del contrato; el número se muestra como columna en la lista de pedidos y se puede buscar con la barra de búsqueda.
+- El número y la fecha del pedido del cliente se imprimen como «Su pedido n.º … del …» en la proforma, la hoja de pedido y la factura del pedido, y también en la factura, el albarán y la proforma de la venta basada en ese pedido: el número no se copia a la venta, la impresión lo toma del pedido.
+- Al copiar un pedido no se copian el número ni la fecha del pedido del cliente.
+
+## 2.0.17.9
+### ru
+- В документах появилась кнопка «Файлы» со скрепкой: к записанному документу можно присоединить сканы, фотографии, договоры и любые другие файлы, открыть их двойным щелчком, сохранить на диск и удалить.
+- Добавлять и удалять файлы документа может тот, кто может изменять сам документ; у кого документ только для просмотра, файлы может открыть и сохранить.
+- Удаление файла из списка файлов надёжнее: файл на диске удаляет сервер только для действительно удалённой записи.
+### fr
+- Les documents disposent d'un bouton « Fichiers » avec un trombone : on peut joindre au document enregistré des scans, photos, contrats et tout autre fichier, les ouvrir par double-clic, les enregistrer sur le disque et les supprimer.
+- Ajouter et supprimer les fichiers d'un document est réservé à ceux qui peuvent modifier le document ; ceux qui ne peuvent que le consulter peuvent ouvrir et enregistrer ses fichiers.
+- La suppression d'un fichier depuis la liste des fichiers est plus sûre : le serveur ne supprime le fichier sur le disque que pour un enregistrement réellement supprimé.
+### en
+- Documents have a "Files" button with a paperclip: scans, photos, contracts and any other files can be attached to a saved document, opened by double-click, saved to disk and deleted.
+- Adding and deleting a document's files is allowed to those who can edit the document; those who can only view it can open and save its files.
+- Deleting a file from the file list is safer: the server removes the file on disk only for a record that was actually deleted.
+### es
+- Los documentos tienen un botón «Archivos» con un clip: al documento guardado se pueden adjuntar escaneos, fotos, contratos y cualquier otro archivo, abrirlos con doble clic, guardarlos en el disco y eliminarlos.
+- Añadir y eliminar archivos de un documento solo puede hacerlo quien puede modificar el documento; quien solo puede consultarlo puede abrir y guardar sus archivos.
+- La eliminación de un archivo desde la lista de archivos es más segura: el servidor borra el archivo del disco solo para un registro realmente eliminado.
+
+## 2.0.17.8
+### ru
+- Сортировка по клику на заголовок колонки работает во всех списках документов: список сортируется целиком, а не только 50 строк текущей страницы.
+- Под списками документов больше нет кнопок перехода по страницам «◀◀ ◀ ▶ ▶▶» и счётчика «1-50 из N»: список листается прокруткой и подгружает документы сам, отборы правой панели работают как раньше.
+- Список коммерческих предложений, приходных и расходных ордеров теперь сортируется кликом по колонке.
+- Рабочее место производства: список заказов сортируется кликом по любой колонке (по умолчанию — от новых к старым), закладка «Документы» показывает все документы за период без деления на страницы.
+- Рабочее место закупок: заказы и поступления показываются целиком, без страниц; таблицы рабочих мест закупок и производства сортируются кликом по заголовку колонки.
+### fr
+- Le tri par clic sur l'en-tête de colonne fonctionne dans toutes les listes de documents : toute la liste est triée, et non plus seulement les 50 lignes de la page en cours.
+- Les boutons de pagination « ◀◀ ◀ ▶ ▶▶ » et le compteur « 1-50 sur N » disparaissent sous les listes de documents : la liste défile et charge les documents d'elle-même, les filtres du panneau de droite fonctionnent comme avant.
+- Les listes d'offres commerciales, de bons d'entrée et de bons de sortie se trient désormais par clic sur une colonne.
+- Poste de production : la liste des commandes se trie par clic sur n'importe quelle colonne (par défaut des plus récentes aux plus anciennes), l'onglet « Documents » affiche tous les documents de la période sans pagination.
+- Poste des achats : les commandes et les réceptions s'affichent en entier, sans pages ; les tableaux des postes achats et production se trient par clic sur l'en-tête de colonne.
+### en
+- Sorting by clicking a column header works in all document lists: the whole list is sorted, not just the 50 rows of the current page.
+- The page buttons "◀◀ ◀ ▶ ▶▶" and the "1-50 of N" counter are gone from document lists: the list scrolls and loads documents by itself, the right panel filters work as before.
+- The commercial offer, receiving order and issue order lists can now be sorted by clicking a column.
+- Production workplace: the order list sorts by clicking any column (newest first by default), the "Documents" tab shows all documents of the period without pages.
+- Purchasing workplace: orders and receipts are shown in full, without pages; the tables of the purchasing and production workplaces sort by clicking a column header.
+### es
+- La ordenación al hacer clic en el encabezado de una columna funciona en todas las listas de documentos: se ordena toda la lista, no solo las 50 filas de la página actual.
+- Desaparecen de las listas de documentos los botones de página «◀◀ ◀ ▶ ▶▶» y el contador «1-50 de N»: la lista se desplaza y carga los documentos por sí misma, los filtros del panel derecho funcionan como antes.
+- Las listas de ofertas comerciales, órdenes de entrada y órdenes de salida ahora se ordenan con un clic en una columna.
+- Puesto de producción: la lista de pedidos se ordena con un clic en cualquier columna (por defecto, de los más recientes a los más antiguos), la pestaña «Documentos» muestra todos los documentos del periodo sin páginas.
+- Puesto de compras: los pedidos y las recepciones se muestran completos, sin páginas; las tablas de los puestos de compras y de producción se ordenan con un clic en el encabezado de la columna.
+
+
+## 2.0.17.7
+### ru
+- Универсальная загрузка из Excel и CSV: команда «Загрузить из файла» в документах с товарами загружает строки в записанный документ. Колонки файла сопоставляются с колонками документа по заголовкам автоматически и вручную, товар ищется по штрихкоду (с характеристикой и серией), артикулу, коду поставщика, коду и наименованию. «Проверить» показывает, что будет загружено и какие строки с ошибками.
+- Настройки загрузки сохраняются (личные или общие) и выбираются из последних пяти для документа.
+- Кнопка загрузки в реализации, поступлении, налоговых накладных, заказе и предложении поставщика работает на новом механизме: упаковка, ставка НДС и цена из файла сохраняются, цены без колонки подбираются как при ручном вводе, пустой файл не очищает таблицу. Загрузка доступна менеджерам, кладовщикам, операторам и руководителю.
+- Загрузка в проведённый документ запрещена — сначала отмените проведение.
+### fr
+- Import universel depuis Excel et CSV : la commande « Charger depuis un fichier » des documents avec articles charge les lignes dans un document enregistré. Les colonnes du fichier sont associées aux colonnes du document par en-têtes, automatiquement et manuellement ; l'article est recherché par code-barres (avec caractéristique et série), référence, code fournisseur, code et désignation. « Contrôler » affiche ce qui sera chargé et les lignes en erreur.
+- Les paramètres d'import sont enregistrés (personnels ou partagés) et choisis parmi les cinq derniers du document.
+- Le bouton d'import de la vente, de la réception, des factures fiscales, de la commande et de l'offre fournisseur utilise le nouveau mécanisme : l'unité, le taux de TVA et le prix du fichier sont conservés, les prix sans colonne sont choisis comme à la saisie manuelle, un fichier vide ne vide plus le tableau. L'import est ouvert aux gestionnaires, magasiniers, opérateurs et au dirigeant.
+- L'import dans un document validé est interdit : annulez d'abord la validation.
+### en
+- Universal import from Excel and CSV: the "Import from file" command of documents with items loads rows into a saved document. File columns are mapped to document columns by headers, automatically and manually; the item is found by barcode (with characteristic and series), article, supplier code, code and name. "Check" shows what will be imported and which rows have errors.
+- Import settings are saved (personal or shared) and picked from the last five for the document.
+- The import button in sales, receipts, tax invoices, purchase orders and supplier offers uses the new engine: unit, VAT rate and price from the file are kept, prices without a column are picked as in manual entry, an empty file no longer clears the table. Import is available to managers, storekeepers, operators and the director.
+- Importing into a posted document is not allowed: unpost it first.
+### es
+- Carga universal desde Excel y CSV: el comando «Cargar desde archivo» de los documentos con artículos carga las filas en un documento guardado. Las columnas del archivo se asignan a las del documento por encabezados, automática y manualmente; el artículo se busca por código de barras (con característica y serie), referencia, código de proveedor, código y nombre. «Comprobar» muestra qué se cargará y qué filas tienen errores.
+- Los ajustes de carga se guardan (personales o compartidos) y se eligen entre los cinco últimos del documento.
+- El botón de carga en ventas, recepciones, facturas fiscales, pedidos y ofertas de proveedor usa el nuevo mecanismo: la unidad, el tipo de IVA y el precio del archivo se conservan, los precios sin columna se eligen como en la entrada manual, un archivo vacío ya no vacía la tabla. La carga está disponible para gestores, almaceneros, operadores y el director.
+- No se puede cargar en un documento contabilizado: anule primero la contabilización.
+
+## 2.0.17.6
+### ru
+- Оповещения по потребностям точек: склад снабжения получает оповещение о новой потребности (получатели — в карточке склада, таблица «Получатели оповещений»), автор — о принятии, отклонении, закрытии и об отгрузке.
+- Системные оповещения теперь видит и меняет только их получатель.
+### fr
+- Notifications des besoins des points de vente : l'entrepôt d'approvisionnement est notifié d'un nouveau besoin (destinataires dans la fiche de l'entrepôt, tableau « Destinataires des notifications »), l'auteur de l'acceptation, du refus, de la clôture et de l'expédition.
+- Seul leur destinataire voit et modifie désormais les notifications système.
+### en
+- Store need notifications: the supply warehouse is notified of a new need (recipients on the warehouse card, "Notification recipients" table), the author of acceptance, rejection, closing and shipment.
+- System notifications are now visible to and editable by their recipient only.
+### es
+- Notificaciones de necesidades de los puntos de venta: el almacén de abastecimiento recibe aviso de una nueva necesidad (destinatarios en la ficha del almacén, tabla «Destinatarios de las notificaciones»), el autor de la aceptación, el rechazo, el cierre y el envío.
+- Las notificaciones del sistema ahora solo las ve y modifica su destinatario.
+
+## 2.0.17.5
+### ru
+- Список потребностей торговых точек показывает исполнение: запрошено, принято, отгружено, получено, состояние (частично отгружена, отгружена, получена) и признак «Просрочена» по желаемой дате. Точка видит только свои потребности.
+- Команда «Заполнить по анализу» в черновике потребности: строки заполняются по продажам точки за период анализа, остатку, товару в пути и уже открытым потребностям, с учётом минимального и максимального остатка склада. У склада появились настройки «Дней запаса» и «Дней анализа продаж».
+### fr
+- La liste des besoins des points de vente affiche l'exécution : demandé, accepté, expédié, reçu, l'état (partiellement expédié, expédié, reçu) et l'indicateur « En retard » selon la date souhaitée. Le point de vente ne voit que ses propres besoins.
+- Commande « Remplir par analyse » dans un brouillon de besoin : les lignes sont remplies d'après les ventes du point sur la période d'analyse, le stock, les articles en transit et les besoins déjà ouverts, en tenant compte du stock minimal et maximal de l'entrepôt. L'entrepôt dispose des paramètres « Jours de stock » et « Jours d'analyse des ventes ».
+### en
+- The store needs list shows fulfilment: requested, accepted, shipped, received, the state (partially shipped, shipped, received) and an "Overdue" flag by the desired date. A store sees only its own needs.
+- The "Fill by analysis" command in a draft need fills the lines from the store sales over the analysis period, stock, goods in transit and needs already open, respecting the warehouse minimum and maximum stock. Warehouses have "Days of stock" and "Sales analysis days" settings.
+### es
+- La lista de necesidades de los puntos de venta muestra la ejecución: solicitado, aceptado, enviado, recibido, el estado (enviada parcialmente, enviada, recibida) y la marca «Atrasada» según la fecha deseada. El punto de venta solo ve sus propias necesidades.
+- El comando «Rellenar por análisis» en un borrador de necesidad rellena las líneas según las ventas del punto en el período de análisis, las existencias, la mercancía en tránsito y las necesidades ya abiertas, respetando el stock mínimo y máximo del almacén. El almacén tiene los ajustes «Días de existencias» y «Días de análisis de ventas».
+
+## 2.0.17.4
+### ru
+- Новый документ «Потребность торговой точки» (раздел «Склад»): точка заказывает товар со склада снабжения, отправляет потребность, склад принимает её полностью или по строкам, отклоняет или закрывает. Кто и когда менял статус, видно в истории статусов.
+- Перемещение вводится на основании принятой потребности — с остатком к отгрузке. Отгруженное и полученное учитываются по каждой строке потребности; отгрузить больше принятого и получить больше отгруженного нельзя.
+- Точка получает товар командой «Получить отгрузку» в потребности — оприходование проводится само, отдельного права на перемещения точке не нужно.
+- У склада появились признак «Склад снабжения точек» и поле «Склад снабжения» у точки; в перемещении — «Перевозчик».
+- Новая роль «Потребности торговой точки» и настройка доступа «Точка потребностей»: точка записывает только свои потребности, точку пользователю назначает администратор.
+### fr
+- Nouveau document « Besoin du point de vente » (section « Entrepôt ») : le point de vente commande des articles à l'entrepôt d'approvisionnement, envoie le besoin, l'entrepôt l'accepte en totalité ou par ligne, le refuse ou le clôture. L'historique des statuts montre qui a changé le statut et quand.
+- Le transfert se saisit sur la base d'un besoin accepté — avec le reste à expédier. L'expédié et le reçu sont suivis par ligne de besoin ; impossible d'expédier plus que l'accepté ou de recevoir plus que l'expédié.
+- Le point de vente réceptionne les articles par la commande « Réceptionner l'expédition » du besoin — la réception est validée automatiquement, sans droit particulier sur les transferts.
+- L'entrepôt dispose de l'option « Approvisionne les points de vente » et le point de vente du champ « Entrepôt d'approvisionnement » ; le transfert du champ « Transporteur ».
+- Nouveau rôle « Besoins du point de vente » et paramètre d'accès « Point de vente des besoins » : le point n'enregistre que ses propres besoins, l'administrateur attribue le point à l'utilisateur.
+### en
+- New document "Store need" (Warehouse section): a store orders items from its supply warehouse and sends the need; the warehouse accepts it in full or line by line, rejects or closes it. The status history shows who changed the status and when.
+- A transfer is entered from an accepted need, with the quantity left to ship. Shipped and received quantities are tracked per need line; shipping more than accepted or receiving more than shipped is not allowed.
+- The store receives the goods with the "Receive the shipment" command of the need — the receipt is posted automatically, the store needs no separate right on transfers.
+- Warehouses have a "Supplies stores" flag and stores a "Supply warehouse" field; transfers have a "Carrier".
+- New role "Store needs" and access setting "Store for needs": a store saves only its own needs, the administrator assigns the store to the user.
+### es
+- Nuevo documento «Necesidad del punto de venta» (sección «Almacén»): el punto pide artículos a su almacén de abastecimiento y envía la necesidad; el almacén la acepta entera o por líneas, la rechaza o la cierra. El historial de estados muestra quién cambió el estado y cuándo.
+- El traslado se introduce sobre una necesidad aceptada, con lo pendiente de enviar. Lo enviado y lo recibido se controlan por línea de necesidad; no se puede enviar más de lo aceptado ni recibir más de lo enviado.
+- El punto recibe los artículos con el comando «Recibir el envío» de la necesidad: la recepción se contabiliza sola, sin un derecho aparte sobre los traslados.
+- El almacén tiene la casilla «Abastece puntos de venta» y el punto el campo «Almacén de abastecimiento»; el traslado, «Transportista».
+- Nuevo rol «Necesidades del punto de venta» y ajuste de acceso «Punto de venta de las necesidades»: el punto guarda solo sus necesidades, el administrador asigna el punto al usuario.
+
+## 2.0.17.3
+### ru
+- Касса проверяет минимальную цену склада: если склад контролирует цену («не ниже вида цен» или «не ниже себестоимости»), чек с ценой ниже порога (в том числе после скидки) не оплачивается — касса показывает строки, оплата не открывается. Продать ниже порога может пользователь с ролью «Продажа ниже минимальной цены».
+- Редактор строки кассы не даёт ввести цену ниже минимальной для склада и сообщает об этом; пользователю с правом видеть суммы показывает минимальную цену.
+- Оплата долга по проведённому чеку больше не переписывает чек: дата, строки и покупатель продажи не меняются. Если чек изменили в другом окне или другая касса уже приняла оплату, касса просит открыть чек заново.
+- Сертификат, уже привязанный к чеку, повторно не принимается. Проведённый чек нельзя отложить в ожидание; ошибка при откладывании больше не сбрасывает чек.
+- Черновик продажи в валюте на кассе не открывается — его открывают в форме реализации.
+### fr
+- La caisse contrôle le prix minimal de l'entrepôt : si l'entrepôt contrôle le prix (« pas en dessous du type de prix » ou « pas en dessous du coût de revient »), un ticket dont le prix est inférieur au seuil (y compris après remise) n'est pas encaissé — la caisse affiche les lignes et le paiement ne s'ouvre pas. Un utilisateur ayant le rôle « Vente en dessous du prix minimal » peut vendre en dessous du seuil.
+- L'éditeur de ligne de la caisse n'accepte pas un prix inférieur au minimum de l'entrepôt et le signale ; il affiche le prix minimal à l'utilisateur autorisé à voir les montants.
+- Le paiement d'une dette sur un ticket validé ne réécrit plus le ticket : la date, les lignes et le client de la vente ne changent pas. Si le ticket a été modifié dans une autre fenêtre ou si une autre caisse a déjà encaissé, la caisse demande de rouvrir le ticket.
+- Un certificat déjà lié à un ticket n'est pas accepté une seconde fois. Un ticket validé ne peut pas être mis en attente ; une erreur de mise en attente ne réinitialise plus le ticket.
+- Un brouillon de vente en devise ne s'ouvre pas en caisse — il s'ouvre dans le formulaire de la vente.
+### en
+- The cash desk checks the warehouse minimum price: if the warehouse controls the price ("not below a price type" or "not below cost"), a receipt priced below the threshold (including after a discount) cannot be paid — the cash desk lists the lines and the payment does not open. A user with the "Sale below minimum price" role can sell below the threshold.
+- The cash desk line editor does not accept a price below the warehouse minimum and says so; a user allowed to see amounts sees the minimum price.
+- Paying a debt on a posted receipt no longer rewrites the receipt: the sale date, lines and customer stay the same. If the receipt was changed in another window or another cash desk has already taken the payment, the cash desk asks to reopen the receipt.
+- A certificate already linked to a receipt is not accepted again. A posted receipt cannot be put on hold; an error while putting a receipt on hold no longer clears it.
+- A sales draft in a foreign currency does not open at the cash desk — it opens in the sales form.
+### es
+- La caja controla el precio mínimo del almacén: si el almacén controla el precio («no inferior al tipo de precio» o «no inferior al coste»), un ticket con precio inferior al umbral (también después del descuento) no se cobra: la caja muestra las líneas y el pago no se abre. Un usuario con el rol «Venta por debajo del precio mínimo» puede vender por debajo del umbral.
+- El editor de línea de la caja no admite un precio inferior al mínimo del almacén y lo indica; al usuario con derecho a ver importes le muestra el precio mínimo.
+- El pago de una deuda de un ticket contabilizado ya no reescribe el ticket: la fecha, las líneas y el cliente de la venta no cambian. Si el ticket se modificó en otra ventana u otra caja ya cobró, la caja pide volver a abrir el ticket.
+- Un certificado ya vinculado a un ticket no se acepta de nuevo. Un ticket contabilizado no se puede poner en espera; un error al ponerlo en espera ya no borra el ticket.
+- Un borrador de venta en divisa no se abre en la caja: se abre en el formulario de la venta.
+
+## 2.0.17.2
+### ru
+- Касса: скидка на чек теперь попадает в документ продажи. Раньше покупатель платил сумму со скидкой, а продажа записывалась на полную сумму, и у покупателя оставался долг на размер скидки.
+- Касса: итог чека больше не уменьшается сам при удалении строки, отметке строк или открытии отложенного чека — скидка считается один раз.
+- Касса: отложенный чек открывается со своей скидкой.
+- Касса: возврат по чеку со скидкой выплачивает сумму со скидкой, а не полную цену. Повторный возврат по тому же чеку не может выплатить больше, чем покупатель заплатил. Часть строки возвращается долей суммы этой строки.
+- Касса: документы чека и оплаты записываются вместе — если один не записался, не записывается ни один, и касса показывает ошибку. Сертификат, уже использованный в другом чеке, второй раз не принимается.
+- Касса: подсказка строки показывает процент скидки правильно (раньше 10% выглядели как 1000%).
+### fr
+- Caisse : la remise sur le ticket est désormais reprise dans le document de vente. Auparavant, le client payait le montant remisé alors que la vente était enregistrée au montant total, ce qui laissait au client une dette égale à la remise.
+- Caisse : le total du ticket ne diminue plus de lui-même lors de la suppression d'une ligne, du marquage des lignes ou de l'ouverture d'un ticket en attente — la remise n'est calculée qu'une fois.
+- Caisse : un ticket en attente s'ouvre avec sa remise.
+- Caisse : le retour d'un ticket remisé rembourse le montant remisé, et non le prix plein. Un nouveau retour sur le même ticket ne peut pas rembourser plus que ce que le client a payé. Une partie de ligne est remboursée au prorata du montant de cette ligne.
+- Caisse : les documents du ticket et du paiement sont enregistrés ensemble — si l'un échoue, aucun n'est enregistré et la caisse affiche l'erreur. Un certificat déjà utilisé sur un autre ticket n'est pas accepté une seconde fois.
+- Caisse : l'info-bulle de la ligne affiche correctement le pourcentage de remise (auparavant 10 % apparaissait comme 1000 %).
+### en
+- Cash desk: the receipt discount now reaches the sales document. Previously the customer paid the discounted amount while the sale was recorded at the full amount, leaving the customer owing the discount.
+- Cash desk: the receipt total no longer shrinks on its own when a line is deleted, lines are marked or a held receipt is opened — the discount is applied once.
+- Cash desk: a held receipt opens with its discount.
+- Cash desk: a return of a discounted receipt refunds the discounted amount, not the full price. A repeat return of the same receipt cannot refund more than the customer paid. Part of a line is refunded as a share of that line's amount.
+- Cash desk: the receipt and payment documents are saved together — if one fails, none is saved and the cash desk shows the error. A certificate already used on another receipt is not accepted again.
+- Cash desk: the line hint shows the discount percentage correctly (10% used to look like 1000%).
+### es
+- Caja: el descuento del ticket ahora llega al documento de venta. Antes el cliente pagaba el importe con descuento y la venta se registraba por el importe total, dejando al cliente una deuda igual al descuento.
+- Caja: el total del ticket ya no disminuye solo al eliminar una línea, marcar líneas o abrir un ticket en espera: el descuento se aplica una sola vez.
+- Caja: un ticket en espera se abre con su descuento.
+- Caja: la devolución de un ticket con descuento reembolsa el importe con descuento, no el precio completo. Una nueva devolución del mismo ticket no puede reembolsar más de lo que pagó el cliente. Una parte de la línea se reembolsa en proporción al importe de esa línea.
+- Caja: los documentos del ticket y del pago se guardan juntos: si uno falla, no se guarda ninguno y la caja muestra el error. Un certificado ya usado en otro ticket no se acepta de nuevo.
+- Caja: la ayuda de la línea muestra correctamente el porcentaje de descuento (antes el 10 % aparecía como 1000 %).
+
+## 2.0.17.1
+### ru
+- У склада появился «Вид цены продажи». Касса берёт цены этого вида при сканировании, вводе штрихкода, в подборе и в избранном; если цены этого вида у товара нет, берётся «Розничная». В реализации, возвратах и налоговой накладной вид цены склада подставляется, когда у покупателя свой вид цены не задан. Пустое поле — всё работает как раньше.
+- Новая настройка склада «Контроль минимальной цены»: не контролировать, не ниже вида цен (по умолчанию «Минимальная цена продажи») или не ниже себестоимости. Продажа ниже порога не проводится, а в сообщении перечислены строки с ценой и порогом. Продать ниже порога может пользователь с новой ролью «Продажа ниже минимальной цены». Себестоимость считается по самой дорогой партии на складе вместе с дополнительными расходами. Контроль на кассе включится в следующей сборке — сейчас проверяются продажи, проведённые вне кассы.
+- Справочник «Города» в разделе «Продажи» и поле «Город» в карточке контрагента.
+- Флажок контрагента «Не показывать кассиру»: такой контрагент не предлагается в выборе покупателя на кассе.
+- На кассе появилась кнопка «Комментарий»: комментарий к продаже сохраняется в документе продажи и восстанавливается в отложенном чеке.
+- Исправлено: в подборе на кассе кнопка «Выбрать» больше не падает с ошибкой, а остатки и цены показываются по складу продажи (в отложенном чеке — по складу этого чека).
+### fr
+- L'entrepôt dispose désormais d'un « Type de prix de vente ». La caisse applique les prix de ce type lors du scan, de la saisie du code-barres, dans la sélection et dans les favoris ; si l'article n'a pas de prix de ce type, le prix « Détail » est utilisé. Dans la vente, les retours et la facture fiscale, le type de prix de l'entrepôt est proposé lorsque le client n'a pas son propre type de prix. Champ vide — tout fonctionne comme avant.
+- Nouveau paramètre de l'entrepôt « Contrôle du prix minimal » : ne pas contrôler, pas en dessous du type de prix (par défaut « Prix minimal de vente ») ou pas en dessous du coût de revient. Une vente en dessous du seuil n'est pas validée, et le message liste les lignes avec le prix et le seuil. Un utilisateur ayant le nouveau rôle « Vente en dessous du prix minimal » peut vendre en dessous du seuil. Le coût de revient est celui du lot le plus cher de l'entrepôt, frais supplémentaires compris. Le contrôle à la caisse sera activé dans la prochaine version — pour l'instant, les ventes validées hors caisse sont vérifiées.
+- Référentiel « Villes » dans la section « Ventes » et champ « Ville » dans la fiche de la contrepartie.
+- Case de la contrepartie « Ne pas afficher au caissier » : une telle contrepartie n'est pas proposée dans le choix du client à la caisse.
+- La caisse dispose d'un bouton « Commentaire » : le commentaire de la vente est enregistré dans le document de vente et restauré dans un ticket mis en attente.
+- Corrigé : dans la sélection de la caisse, le bouton « Choisir » ne provoque plus d'erreur, et les stocks et prix sont affichés pour l'entrepôt de vente (pour un ticket en attente — celui de ce ticket).
+### en
+- Warehouses now have a "Sales price type". The cash desk uses prices of this type when scanning, entering a barcode, in the item picker and in favourites; if an item has no price of this type, the Retail price is used. In sales, customer returns and tax invoices the warehouse price type is suggested when the customer has no price type of their own. An empty field keeps everything as before.
+- New warehouse setting "Minimum price check": do not check, not below a price type (by default "Minimum sale price") or not below cost. A sale below the threshold is not posted, and the message lists the lines with their price and threshold. A user with the new "Sale below minimum price" role can sell below the threshold. Cost is that of the most expensive batch in the warehouse, including additional costs. The check at the cash desk will be enabled in the next build — for now sales posted outside the cash desk are checked.
+- "Cities" catalog in the Sales section and a "City" field on the counterparty card.
+- Counterparty flag "Hide from cashier": such a counterparty is not offered when choosing a customer at the cash desk.
+- The cash desk has a "Comment" button: the sale comment is saved to the sales document and restored in a held receipt.
+- Fixed: in the cash desk item picker the "Choose" button no longer fails with an error, and stock and prices are shown for the sales warehouse (for a held receipt — the warehouse of that receipt).
+### es
+- El almacén tiene ahora un «Tipo de precio de venta». La caja usa los precios de este tipo al escanear, al introducir el código de barras, en la selección y en los favoritos; si el artículo no tiene precio de este tipo, se usa el precio «Minorista». En la venta, las devoluciones y la factura fiscal se propone el tipo de precio del almacén cuando el cliente no tiene su propio tipo de precio. Campo vacío: todo funciona como antes.
+- Nuevo ajuste del almacén «Control del precio mínimo»: no controlar, no inferior al tipo de precio (por defecto «Precio mínimo de venta») o no inferior al coste. Una venta por debajo del umbral no se contabiliza, y el mensaje enumera las líneas con su precio y umbral. Un usuario con el nuevo rol «Venta por debajo del precio mínimo» puede vender por debajo del umbral. El coste es el del lote más caro del almacén, con los gastos adicionales. El control en la caja se activará en la próxima versión: por ahora se verifican las ventas contabilizadas fuera de la caja.
+- Catálogo «Ciudades» en la sección «Ventas» y campo «Ciudad» en la ficha de la contraparte.
+- Casilla de la contraparte «No mostrar al cajero»: esa contraparte no se ofrece al elegir el cliente en la caja.
+- La caja tiene un botón «Comentario»: el comentario de la venta se guarda en el documento de venta y se restaura en un ticket en espera.
+- Corregido: en la selección de la caja el botón «Elegir» ya no da error, y las existencias y precios se muestran para el almacén de venta (en un ticket en espera, el de ese ticket).
+
 # Релиз 2.0.16.150 (2026-11-09)
 
 Поставка: `maERP-2.0.16.150.cf`; обновление с опубликованных релизов 1.0.11.1 … 2.0.15.71 — `maERP-2.0.16.150.cfu`.
