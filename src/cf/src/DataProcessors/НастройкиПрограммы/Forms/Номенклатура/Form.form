@@ -161,6 +161,62 @@
       </extInfo>
     </items>
     <items xsi:type="form:FormField">
+      <name>ВозвратТолькоПоПродаже</name>
+      <id>31</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>НаборКонстант.ВозвратТолькоПоПродаже</segments>
+      </dataPath>
+      <titleLocation>Right</titleLocation>
+      <toolTip>
+        <key>ru</key>
+        <value>Возврат от покупателя проводится только по проведённому документу продажи и не больше проданного</value>
+      </toolTip>
+      <toolTip>
+        <key>fr</key>
+        <value>Le retour client se valide uniquement sur un document de vente validé et sans dépasser la quantité vendue</value>
+      </toolTip>
+      <toolTip>
+        <key>en</key>
+        <value>A customer return is posted only against a posted sales document and not above the quantity sold</value>
+      </toolTip>
+      <toolTip>
+        <key>es</key>
+        <value>La devolución de cliente se contabiliza solo según un documento de venta contabilizado y sin superar lo vendido</value>
+      </toolTip>
+      <extendedTooltip>
+        <name>ВозвратТолькоПоПродажеРасширеннаяПодсказка</name>
+        <id>32</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>ВозвратТолькоПоПродажеКонтекстноеМеню</name>
+        <id>33</id>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>CheckBoxField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+        <handlers>
+          <event>OnChange</event>
+          <name>НастройкаПриИзменении</name>
+        </handlers>
+        <checkBoxType>Switcher</checkBoxType>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
       <name>ИспользоватьУпаковку</name>
       <id>28</id>
       <visible>true</visible>

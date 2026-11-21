@@ -80,6 +80,33 @@
       <placementArea>UserCmds</placementArea>
       <representationInContextMenu>Auto</representationInContextMenu>
     </items>
+    <items xsi:type="form:Button">
+      <name>ФормаПовторитьПереводНакладных</name>
+      <id>109</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <extendedTooltip>
+        <name>ФормаПовторитьПереводНакладныхExtendedTooltip</name>
+        <id>110</id>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <type>UsualButton</type>
+      <commandName>Form.Command.ПовторитьПереводНакладных</commandName>
+      <buttonImportance>Normal</buttonImportance>
+      <representation>Auto</representation>
+      <autoMaxWidth>true</autoMaxWidth>
+      <autoMaxHeight>true</autoMaxHeight>
+      <placementArea>UserCmds</placementArea>
+      <representationInContextMenu>Auto</representationInContextMenu>
+    </items>
     <items xsi:type="form:FormField">
       <name>Граница</name>
       <id>81</id>
@@ -1142,6 +1169,53 @@
       </handler>
     </action>
     <representation>TextPicture</representation>
+    <currentRowUse>DontUse</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ПовторитьПереводНакладных</name>
+    <title>
+      <key>ru</key>
+      <value>Повторить перевод накладных на новую модель</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Relancer le passage des factures au nouveau modèle</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Retry moving invoices to the new model</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Repetir el paso de las facturas al nuevo modelo</value>
+    </title>
+    <id>2</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Перепровести налоговые накладные «к ручной правке» из журнала регистрации с их платежами и возвратами (только администратор)</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Revalider les factures fiscales « à corriger manuellement » du journal avec leurs paiements et retours (administrateur seulement)</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Repost tax invoices marked "to fix manually" in the event log with their payments and returns (administrator only)</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Revalidar las facturas fiscales «para corregir manualmente» del registro con sus pagos y devoluciones (solo administrador)</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ПовторитьПереводНакладных</name>
+      </handler>
+    </action>
+    <representation>Auto</representation>
     <currentRowUse>DontUse</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>

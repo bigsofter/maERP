@@ -660,10 +660,11 @@
       <key>es</key>
       <value>Número (ent.)</value>
     </synonym>
+    <comment>Не используется (TECHDEBT). Длина 50 - с 2.0.17.10, не сужать: данные обрежутся</comment>
     <type>
       <types>String</types>
       <stringQualifiers>
-        <length>10</length>
+        <length>50</length>
       </stringQualifiers>
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
@@ -1820,6 +1821,34 @@
     <synonym>
       <key>es</key>
       <value>Pedido del cliente</value>
+    </synonym>
+    <group>CommandGroup.Печать</group>
+    <commandParameterType>
+      <types>DocumentRef.ЗаказПокупателя</types>
+    </commandParameterType>
+    <parameterUseMode>Multiple</parameterUseMode>
+    <representation>PictureAndText</representation>
+    <picture xsi:type="core:PictureRef">
+      <picture>StdPicture.Print</picture>
+    </picture>
+  </commands>
+  <commands uuid="9bd633d8-bec9-4388-89b8-b29419a90acf">
+    <name>ПечатьЗаказаКлиентаСФото</name>
+    <synonym>
+      <key>ru</key>
+      <value>Бланк заказа с фото</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Bon de commande avec photos</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Order form with photos</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Hoja de pedido con fotos</value>
     </synonym>
     <group>CommandGroup.Печать</group>
     <commandParameterType>

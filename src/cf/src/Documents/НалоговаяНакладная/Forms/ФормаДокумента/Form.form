@@ -166,15 +166,15 @@
       </title>
       <title>
         <key>fr</key>
-        <value>Terme de paiement</value>
+        <value>Date d'échéance</value>
       </title>
       <title>
         <key>en</key>
-        <value>Payment term</value>
+        <value>Due date</value>
       </title>
       <title>
         <key>es</key>
-        <value>Plazo de pago</value>
+        <value>Fecha de vencimiento</value>
       </title>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1485,6 +1485,249 @@
           <font xsi:type="core:FontRef">
             <font>Style.Шрифт_Основной</font>
           </font>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormGroup">
+        <name>ГруппаУдержаниеНДС</name>
+        <id>559</id>
+        <items xsi:type="form:FormField">
+          <name>УдержаниеНДС</name>
+          <id>561</id>
+          <title>
+            <key>ru</key>
+            <value>RAS TVA</value>
+          </title>
+          <title>
+            <key>fr</key>
+            <value>RAS TVA</value>
+          </title>
+          <title>
+            <key>en</key>
+            <value>RAS TVA</value>
+          </title>
+          <title>
+            <key>es</key>
+            <value>RAS TVA</value>
+          </title>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.УдержаниеНДС</segments>
+          </dataPath>
+          <titleLocation>Right</titleLocation>
+          <handlers>
+            <event>OnChange</event>
+            <name>УдержаниеНДСПриИзменении</name>
+          </handlers>
+          <extendedTooltip>
+            <name>УдержаниеНДСРасширеннаяПодсказка</name>
+            <id>562</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>УдержаниеНДСКонтекстноеМеню</name>
+            <id>563</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>CheckBoxField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:CheckBoxFieldExtInfo">
+            <checkBoxType>Auto</checkBoxType>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>ПроцентУдержанияНДС</name>
+          <id>564</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ПроцентУдержанияНДС</segments>
+          </dataPath>
+          <titleLocation>None</titleLocation>
+          <handlers>
+            <event>OnChange</event>
+            <name>ПроцентУдержанияНДСПриИзменении</name>
+          </handlers>
+          <extendedTooltip>
+            <name>ПроцентУдержанияНДСРасширеннаяПодсказка</name>
+            <id>565</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ПроцентУдержанияНДСКонтекстноеМеню</name>
+            <id>566</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>6</width>
+            <autoMaxWidth>false</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <listChoiceMode>true</listChoiceMode>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>СуммаУдержанияНДС</name>
+          <id>567</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <readOnly>true</readOnly>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.СуммаУдержанияНДС</segments>
+          </dataPath>
+          <titleLocation>None</titleLocation>
+          <extendedTooltip>
+            <name>СуммаУдержанияНДСРасширеннаяПодсказка</name>
+            <id>568</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>СуммаУдержанияНДСКонтекстноеМеню</name>
+            <id>569</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>12</width>
+            <autoMaxWidth>false</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+          </extInfo>
+        </items>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <title>
+          <key>ru</key>
+          <value>Удержание НДС у источника</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Retenue à la source TVA</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>VAT withholding at source</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Retención del IVA en la fuente</value>
+        </title>
+        <extendedTooltip>
+          <name>ГруппаУдержаниеНДСРасширеннаяПодсказка</name>
+          <id>560</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <type>UsualGroup</type>
+        <extInfo xsi:type="form:UsualGroupExtInfo">
+          <group>AlwaysHorizontal</group>
+          <behavior>Auto</behavior>
+          <representation>None</representation>
+          <showLeftMargin>true</showLeftMargin>
+          <united>true</united>
+          <showTitle>false</showTitle>
+          <throughAlign>Auto</throughAlign>
+          <currentRowUse>Auto</currentRowUse>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
+        <name>ДокументУдержанияНДС</name>
+        <id>570</id>
+        <title>
+          <key>ru</key>
+          <value>Удержание НДС</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Retenue TVA</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>VAT withheld</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>IVA retenido</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ДокументУдержанияНДС</segments>
+        </dataPath>
+        <titleLocation>Left</titleLocation>
+        <extendedTooltip>
+          <name>ДокументУдержанияНДСРасширеннаяПодсказка</name>
+          <id>571</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ДокументУдержанияНДСКонтекстноеМеню</name>
+          <id>572</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>LabelField</type>
+        <editMode>Auto</editMode>
+        <showInHeader>true</showInHeader>
+        <headerHorizontalAlign>Left</headerHorizontalAlign>
+        <showInFooter>true</showInFooter>
+        <extInfo xsi:type="form:LabelFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
         </extInfo>
       </items>
       <visible>true</visible>
@@ -3541,6 +3784,10 @@
           <name>ТЧТоварыПриОкончанииРедактирования</name>
         </handlers>
         <handlers>
+          <event>AfterDeleteRow</event>
+          <name>ТЧТоварыПослеУдаления</name>
+        </handlers>
+        <handlers>
           <event>BeforeDeleteRow</event>
           <name>ТЧТоварыПередУдалением</name>
         </handlers>
@@ -4425,6 +4672,10 @@
         <handlers>
           <event>OnEditEnd</event>
           <name>ТЧУслугиПриОкончанииРедактирования</name>
+        </handlers>
+        <handlers>
+          <event>AfterDeleteRow</event>
+          <name>ТЧУслугиПослеУдаления</name>
         </handlers>
         <searchStringAddition>
           <name>ТЧУслугиСтрокаПоиска</name>
@@ -6725,7 +6976,7 @@
       <items xsi:type="form:Button">
         <name>КнопкаПечатьСчетНаОплату</name>
         <id>540</id>
-        <visible>true</visible>
+        <visible>false</visible>
         <enabled>true</enabled>
         <userVisible>
           <common>true</common>
@@ -7087,15 +7338,15 @@
     </title>
     <title>
       <key>fr</key>
-      <value>Terme de paiement</value>
+      <value>Date d'échéance</value>
     </title>
     <title>
       <key>en</key>
-      <value>Payment term</value>
+      <value>Due date</value>
     </title>
     <title>
       <key>es</key>
-      <value>Plazo de pago</value>
+      <value>Fecha de vencimiento</value>
     </title>
     <id>9</id>
     <valueType>
@@ -7103,6 +7354,35 @@
       <dateQualifiers>
         <dateFractions>Date</dateFractions>
       </dateQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>ДокументУдержанияНДС</name>
+    <title>
+      <key>ru</key>
+      <value>Удержание НДС</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Retenue TVA</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>VAT withheld</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>IVA retenido</value>
+    </title>
+    <id>10</id>
+    <valueType>
+      <types>DocumentRef.УдержаниеНДСПокупателем</types>
     </valueType>
     <view>
       <common>true</common>
@@ -7490,7 +7770,12 @@
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
   <commandInterface>
-    <navigationPanel/>
+    <navigationPanel>
+      <cmiFragmentRecord>
+        <command>InformationRegister.ПрисоединённыеФайлы.StandardCommand.OpenByValue.Объект</command>
+        <userVisible/>
+      </cmiFragmentRecord>
+    </navigationPanel>
     <commandBar>
       <cmiFragmentRecord>
         <command>0</command>

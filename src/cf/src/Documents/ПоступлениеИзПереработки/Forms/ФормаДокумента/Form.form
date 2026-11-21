@@ -463,6 +463,158 @@
           </font>
         </extInfo>
       </items>
+      <items xsi:type="form:FormGroup">
+        <name>ГруппаДокументПодрядчика</name>
+        <id>441</id>
+        <items xsi:type="form:FormField">
+          <name>НомерВходящегоДокумента</name>
+          <id>442</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.НомерВходящегоДокумента</segments>
+          </dataPath>
+          <titleLocation>Left</titleLocation>
+          <extendedTooltip>
+            <name>НомерВходящегоДокументаРасширеннаяПодсказка</name>
+            <id>443</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>НомерВходящегоДокументаКонтекстноеМеню</name>
+            <id>444</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>12</width>
+            <maxWidth>12</maxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <horizontalStretch>false</horizontalStretch>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+            <font xsi:type="core:FontRef">
+              <font>Style.Шрифт_Основной</font>
+            </font>
+          </extInfo>
+        </items>
+        <items xsi:type="form:FormField">
+          <name>ДатаВходящегоДокумента</name>
+          <id>445</id>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Объект.ДатаВходящегоДокумента</segments>
+          </dataPath>
+          <titleLocation>Left</titleLocation>
+          <extendedTooltip>
+            <name>ДатаВходящегоДокументаРасширеннаяПодсказка</name>
+            <id>446</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ДатаВходящегоДокументаКонтекстноеМеню</name>
+            <id>447</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>InputField</type>
+          <editMode>Enter</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:InputFieldExtInfo">
+            <width>15</width>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <horizontalStretch>false</horizontalStretch>
+            <wrap>true</wrap>
+            <chooseType>true</chooseType>
+            <typeDomainEnabled>true</typeDomainEnabled>
+            <textEdit>true</textEdit>
+            <textSize>Normal</textSize>
+            <font xsi:type="core:FontRef">
+              <font>Style.Шрифт_Основной</font>
+            </font>
+          </extInfo>
+        </items>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <title>
+          <key>ru</key>
+          <value>Документ подрядчика</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Document du sous-traitant</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Processor document</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Documento del subcontratista</value>
+        </title>
+        <toolTip>
+          <key>ru</key>
+          <value>Документ подрядчика</value>
+        </toolTip>
+        <toolTip>
+          <key>fr</key>
+          <value>Document du sous-traitant</value>
+        </toolTip>
+        <toolTip>
+          <key>en</key>
+          <value>Processor document</value>
+        </toolTip>
+        <toolTip>
+          <key>es</key>
+          <value>Documento del subcontratista</value>
+        </toolTip>
+        <extendedTooltip>
+          <name>ГруппаДокументПодрядчикаРасширеннаяПодсказка</name>
+          <id>448</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <type>UsualGroup</type>
+        <extInfo xsi:type="form:UsualGroupExtInfo">
+          <showLeftMargin>true</showLeftMargin>
+          <united>true</united>
+          <throughAlign>Auto</throughAlign>
+          <currentRowUse>Auto</currentRowUse>
+        </extInfo>
+      </items>
       <items xsi:type="form:FormField">
         <name>СырьеИзмененоВручную</name>
         <id>421</id>
@@ -3184,7 +3336,12 @@
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
   <commandInterface>
-    <navigationPanel/>
+    <navigationPanel>
+      <cmiFragmentRecord>
+        <command>InformationRegister.ПрисоединённыеФайлы.StandardCommand.OpenByValue.Объект</command>
+        <userVisible/>
+      </cmiFragmentRecord>
+    </navigationPanel>
     <commandBar/>
   </commandInterface>
   <extInfo xsi:type="form:DocumentFormExtInfo">

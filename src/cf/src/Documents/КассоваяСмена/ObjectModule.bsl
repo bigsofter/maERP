@@ -19,6 +19,11 @@
 			|en = 'A cash session works only with a cash desk in the base currency.';
 			|es = 'El turno de caja solo funciona con una caja en la moneda principal.'"), ЭтотОбъект, "Касса", , Отказ);
 	КонецЕсли;
+	// Одна открытая смена на кассу, неизменность закрытой, сумма закрытия под блокировками
+	// (docs/plans/retail-cash-unfinished.md, п. 3).
+	Если Не Отказ Тогда
+		НезавершенныеПродажиКассы.ПередЗаписьюСмены(ЭтотОбъект, Отказ);
+	КонецЕсли;
 КонецПроцедуры
 
 #КонецОбласти

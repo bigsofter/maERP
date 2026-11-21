@@ -5,6 +5,3296 @@
 к старым, на всех языках конфигурации — ровно так, как их видел владелец в окне
 «Что нового».
 
+# Релиз 2.0.16.150 (2026-11-09)
+
+Поставка: `maERP-2.0.16.150.cf`; обновление с опубликованных релизов 1.0.11.1 … 2.0.15.71 — `maERP-2.0.16.150.cfu`.
+Станки, ордерные склады, валюта и фирменная печать: рабочие места производства, закупок и управления станками, ордерные склады, переработка по нескольким
+заказам, себестоимость и маржа по партиям, документы в валюте, раздельный управленческий и налоговый учёт, фирменные
+печатные формы с предпросмотром, перестроенное меню, отчёты и список товаров.
+
+## 2.0.16.150
+### ru
+- Предпросмотр в окне печати больше не искажает печатные формы с арабским текстом и шрифтами, которых нет на сервере 1С. Раньше такой текст вылезал из ячеек и наезжал на соседний: просмотр собирался шрифтами сервера. Теперь в приложении 1С он собирается шрифтами компьютера пользователя — теми же, которыми печатает принтер. В браузере просмотр, как и раньше, собирается на сервере.
+### fr
+- L'aperçu de la fenêtre d'impression ne déforme plus les formulaires imprimables contenant du texte arabe ou des polices absentes du serveur 1C. Auparavant, ce texte débordait des cellules et chevauchait le texte voisin, car l'aperçu était généré avec les polices du serveur. Dans l'application 1C, il est désormais généré avec les polices de l'ordinateur de l'utilisateur, les mêmes que celles utilisées par l'imprimante. Dans le navigateur, l'aperçu reste généré sur le serveur.
+### en
+- The print window preview no longer distorts print forms with Arabic text or with fonts that are missing on the 1C server. Previously such text spilled out of its cells and overlapped neighbouring text because the preview was built with the server's fonts. In the 1C application it is now built with the fonts of the user's computer, the same ones the printer uses. In a browser the preview is still built on the server.
+### es
+- La vista previa de la ventana de impresión ya no deforma los formularios de impresión con texto árabe o con fuentes que no están en el servidor 1C. Antes ese texto se salía de las celdas y se superponía al texto vecino, porque la vista previa se generaba con las fuentes del servidor. En la aplicación 1C ahora se genera con las fuentes del ordenador del usuario, las mismas que usa la impresora. En el navegador la vista previa sigue generándose en el servidor.
+
+## 2.0.16.149
+### ru
+- В задании на пересчёт в строки товаров теперь можно выбрать не только товары, но и продукцию, полуфабрикаты и сырьё. Услуги и комплекты в выборе по-прежнему не предлагаются: складских остатков у них нет.
+### fr
+- Dans la tâche d'inventaire, les lignes d'articles acceptent désormais non seulement les marchandises, mais aussi les produits finis, les produits semi-finis et les matières premières. Les services et les kits ne sont toujours pas proposés : ils n'ont pas de stock.
+### en
+- In the stocktaking task, the goods lines now accept not only goods but also finished products, semi-finished products and raw materials. Services and kits are still not offered for selection: they have no stock balances.
+### es
+- En la tarea de recuento, las líneas de artículos ahora admiten no solo mercancías, sino también productos terminados, semielaborados y materias primas. Los servicios y los kits siguen sin ofrecerse: no tienen existencias.
+
+## 2.0.16.148
+### ru
+- Групповое изменение реквизитов (Настройки программы → Обслуживание) снова открывается. Раньше обработка останавливалась с сообщением, что она предназначена для платформы 8.3, и не запускалась вовсе.
+### fr
+- La modification groupée des attributs (Paramètres du programme → Maintenance) s'ouvre de nouveau. Auparavant, le traitement s'arrêtait avec un message indiquant qu'il était conçu pour la plate-forme 8.3 et ne démarrait pas du tout.
+### en
+- Bulk attribute editing (Application settings → Maintenance) opens again. Previously the data processor stopped with a message that it was intended for platform 8.3 and did not start at all.
+### es
+- La modificación masiva de atributos (Ajustes del programa → Mantenimiento) vuelve a abrirse. Antes el procesamiento se detenía con un mensaje de que estaba diseñado para la plataforma 8.3 y no se iniciaba.
+
+## 2.0.16.147
+### ru
+- Настройки «Компания и учёт» и производственный календарь: страна календаря выбирается из списка стран, для которых в программе есть праздничные дни, например «Марокко (MA)». Раньше код страны вписывался вручную двумя буквами, и опечатка оставляла календарь без праздников.
+### fr
+- Paramètres « Entreprise et comptabilité » et calendrier de production : le pays du calendrier se choisit dans la liste des pays dont les jours fériés sont fournis par le programme, par exemple « Maroc (MA) ». Auparavant, le code du pays se saisissait à la main en deux lettres, et une faute de frappe laissait le calendrier sans jours fériés.
+### en
+- "Company and accounting" settings and production calendar: the calendar country is chosen from the list of countries whose public holidays the application provides, for example "Morocco (MA)". Previously the two-letter country code was typed by hand, and a typo left the calendar without holidays.
+### es
+- Ajustes «Empresa y contabilidad» y calendario de producción: el país del calendario se elige de la lista de países cuyos días festivos incluye el programa, por ejemplo «Marruecos (MA)». Antes el código del país se escribía a mano con dos letras, y un error de escritura dejaba el calendario sin festivos.
+
+## 2.0.16.146
+### ru
+- Рабочие места производства и закупок: после закрытия документа, открытого из таблицы, курсор остаётся на той строке, с которой документ открывали. Раньше таблицы перечитывались, и курсор уходил на первую строку — на закладке «Продукция» производства вместе с ним менялся и заказ нижних закладок.
+### fr
+- Postes de production et d'achats : après la fermeture d'un document ouvert depuis un tableau, le curseur reste sur la ligne d'où il a été ouvert. Auparavant, les tableaux étaient relus et le curseur revenait à la première ligne — dans l'onglet « Production » du poste de production, la commande des onglets inférieurs changeait avec lui.
+### en
+- Production and purchasing workstations: after closing a document opened from a table, the cursor stays on the line it was opened from. Previously the tables were reloaded and the cursor jumped to the first line — on the "Products" tab of the production workstation, the order shown on the lower tabs changed along with it.
+### es
+- Puestos de producción y de compras: al cerrar un documento abierto desde una tabla, el cursor permanece en la línea desde la que se abrió. Antes las tablas se releían y el cursor volvía a la primera línea; en la pestaña «Producción» del puesto de producción, con él cambiaba también el pedido de las pestañas inferiores.
+
+## 2.0.16.145
+### ru
+- Поступление из переработки: новый документ, заполненный по передаче, проведённой сегодня, больше не сообщает, что сырья у подрядчика нет. Раньше остатки у подрядчика брались на начало дня, и помогала только смена даты документа.
+### fr
+- Réception de sous-traitance : un nouveau document rempli à partir d'un transfert validé aujourd'hui n'indique plus qu'il n'y a pas de matières chez le sous-traitant. Auparavant, le stock chez le sous-traitant était lu au début de la journée, et seul un changement de date du document aidait.
+### en
+- Subcontracting receipt: a new document filled from a transfer posted today no longer reports that the subcontractor holds no materials. Previously the subcontractor's stock was read as of the start of the day, and only changing the document date helped.
+### es
+- Recepción de subcontratación: un documento nuevo rellenado desde un envío contabilizado hoy ya no indica que el subcontratista no tiene materias. Antes el stock del subcontratista se leía al inicio del día, y solo ayudaba cambiar la fecha del documento.
+
+## 2.0.16.144
+### ru
+- Рабочее место производства: новая верхняя закладка «Документы» рядом с «Заказами» и «Продукцией». На ней одна таблица на всю высоту окна, сверху — вид, режим показа и отборы: подрядчик, склад, период (по умолчанию — текущий месяц), «Только незакрытые». Документы — от новых к старым, по 50 на странице.
+- Вид «Переработка», режим «Документы»: передачи в переработку и поступления из переработки с подрядчиком, складом, заказами (у документа нескольких заказов — все его заказы), количеством продукции, которую ещё ждут от подрядчика, суммой услуг и статусом. «Только незакрытые» — передачи, по которым ждут продукцию, и черновики (период — не больше трёх месяцев).
+- Режим «Строки» — строки сырья передач и продукции поступлений текущей страницы с заказом и клиентом каждой строки. Режим «У подрядчиков (на сейчас)» — что сейчас лежит у подрядчиков по передачам и заказам и какая продукция ожидается к приёму.
+- Команды закладки: «Провести» и «Отменить проведение» выделенных документов (документ нескольких заказов — в его форме), «Поступление из переработки» по передаче текущей строки, «Печать» документа строки; двойной щелчок открывает документ. Суммы видны по праву «Видеть суммы (производство)».
+- Вид «Выпуски»: ручные выпуски и автовыпуски периода с основанием и продукцией. В режиме «Строки» можно ввести выпуск без заказа прямо строкой: продукция и количество (склад — из отбора закладки, без него — склад выпуска по умолчанию) — создаётся и проводится выпуск без основания на основную организацию пользователя; его строку можно поправить или удалить там же.
+- Вид «Требования-накладные» (виден, если не включён автовыпуск при отгрузке): требования периода со станком, заказом, планом и фактом, статусом и выпусками по ним; в режиме «Строки» — материалы требований. Команда «Статус»: «Запустить», «Завершить» (с вводом выпущенного количества), «Отменить», «Вернуть в работу» — как в рабочем месте станков.
+### fr
+- Poste de production : nouvel onglet supérieur « Documents » à côté de « Commandes » et « Production ». Il affiche un seul tableau sur toute la hauteur, avec en haut le type, le mode d'affichage et les filtres : sous-traitant, entrepôt, période (par défaut le mois en cours), « Non clôturés seulement ». Documents du plus récent au plus ancien, 50 par page.
+- Type « Sous-traitance », mode « Documents » : transferts et réceptions de sous-traitance avec sous-traitant, entrepôt, commandes (toutes les commandes d'un document de plusieurs commandes), quantité de produits encore attendue du sous-traitant, montant des services et statut. « Non clôturés seulement » : transferts avec des produits attendus et brouillons (période de trois mois au plus).
+- Mode « Lignes » : lignes de matières des transferts et de produits des réceptions de la page, avec la commande et le client de chaque ligne. Mode « Chez les sous-traitants (maintenant) » : ce qui se trouve actuellement chez les sous-traitants par transfert et commande, et les produits attendus à la réception.
+- Commandes de l'onglet : « Valider » et « Annuler la validation » des documents sélectionnés (un document de plusieurs commandes se valide dans son formulaire), « Réception de sous-traitance » selon le transfert de la ligne, « Impression » du document de la ligne ; un double clic ouvre le document. Les montants sont visibles selon le droit « Voir les montants (production) ».
+- Type « Productions » : productions manuelles et automatiques de la période avec leur base et leurs produits. En mode « Lignes », une production sans commande se saisit directement en ligne : produit et quantité (entrepôt du filtre de l'onglet, sinon l'entrepôt de production par défaut) — une production sans base est créée et validée pour l'organisation principale de l'utilisateur ; sa ligne se modifie ou se supprime au même endroit.
+- Type « Bons de consommation » (visible si la production automatique à l'expédition n'est pas activée) : bons de la période avec machine, commande, prévu et réel, statut et productions associées ; en mode « Lignes », matières des bons. Commande « Statut » : « Lancer », « Terminer » (avec saisie de la quantité produite), « Annuler », « Remettre en cours » — comme dans le poste des machines.
+### en
+- Production workstation: new top tab "Documents" next to "Orders" and "Products". It shows one full-height table with the kind, display mode and filters on top: subcontractor, warehouse, period (current month by default), "Open only". Documents are listed newest first, 50 per page.
+- Kind "Subcontracting", mode "Documents": subcontracting transfers and receipts with subcontractor, warehouse, orders (all orders of a several-orders document), quantity of products still expected from the subcontractor, services amount and status. "Open only" shows transfers with expected products and drafts (period of three months at most).
+- Mode "Lines": material lines of transfers and product lines of receipts on the page, with the order and customer of each line. Mode "At subcontractors (now)": what is currently held by subcontractors per transfer and order, and the products expected to be received.
+- Tab commands: "Post" and "Unpost" for the selected documents (a several-orders document is posted in its form), "Subcontract receipt" for the transfer of the current line, "Print" for the line document; a double click opens the document. Amounts are shown according to the "See amounts (production)" right.
+- Kind "Outputs": manual and automatic outputs of the period with their basis and products. In mode "Lines" an output without an order can be entered right as a line: product and quantity (warehouse from the tab filter, otherwise the default output warehouse) — an output without a basis is created and posted for the user's main company; its line can be edited or deleted in the same place.
+- Kind "Requisitions" (shown when automatic output on shipment is off): requisitions of the period with machine, order, planned and actual quantity, status and related outputs; in mode "Lines", requisition materials. "Status" command: "Start", "Complete" (entering the produced quantity), "Cancel", "Return to work" — as in the machines workstation.
+### es
+- Puesto de producción: nueva pestaña superior «Documentos» junto a «Pedidos» y «Producción». Muestra una sola tabla a toda la altura, con el tipo, el modo de visualización y los filtros arriba: subcontratista, almacén, período (por defecto el mes en curso), «Solo abiertos». Documentos de más reciente a más antiguo, 50 por página.
+- Tipo «Subcontratación», modo «Documentos»: envíos y recepciones de subcontratación con subcontratista, almacén, pedidos (todos los pedidos de un documento de varios pedidos), cantidad de productos aún pendiente del subcontratista, importe de servicios y estado. «Solo abiertos»: envíos con productos pendientes y borradores (período de tres meses como máximo).
+- Modo «Líneas»: líneas de materias de los envíos y de productos de las recepciones de la página, con el pedido y el cliente de cada línea. Modo «En subcontratistas (ahora)»: lo que tienen ahora los subcontratistas por envío y pedido, y los productos pendientes de recibir.
+- Comandos de la pestaña: «Contabilizar» y «Anular contabilización» de los documentos seleccionados (un documento de varios pedidos se contabiliza en su formulario), «Recepción de subcontratación» según el envío de la línea, «Impresión» del documento de la línea; un doble clic abre el documento. Los importes se ven según el derecho «Ver importes (producción)».
+- Tipo «Producciones»: producciones manuales y automáticas del período con su base y productos. En el modo «Líneas», una producción sin pedido se introduce directamente como línea: producto y cantidad (almacén del filtro de la pestaña o, si no hay, el almacén de producción por defecto) — se crea y contabiliza una producción sin base para la organización principal del usuario; su línea se corrige o elimina en el mismo lugar.
+- Tipo «Vales de consumo» (visible si la producción automática al enviar no está activada): vales del período con máquina, pedido, plan y real, estado y producciones asociadas; en el modo «Líneas», las materias de los vales. Comando «Estado»: «Iniciar», «Terminar» (indicando la cantidad producida), «Cancelar», «Devolver a producción» — como en el puesto de máquinas.
+
+## 2.0.16.143
+### ru
+- Рабочее место производства, режим нескольких заказов: выделите в «Заказах» или в «Продукции» больше одного заказа — закладки «Передача в переработку» и «Поступления из переработки» покажут строки всех выделенных заказов с колонкой «Заказ», в заголовке закладки — число заказов.
+- Новая строка передачи в этом режиме идёт в общую передачу подрядчику (документ нескольких заказов): заказ строки выбирается из выделенных, следующие строки того же подрядчика за сегодня дописываются в ту же передачу. В передачу одного заказа такие строки не попадают.
+- Команда «Заполнить по потребностям» на закладке «Передача в переработку» (видна в режиме нескольких заказов): подрядчик, склад и способ — по этапам переработчика (сырьё ПФ подрядчика, ещё не переданное), по выпущенным ПФ (свои выпущенные ПФ для подрядчика) или пустая (строки вручную). Строки предпросмотра можно снять или поправить количество; «Заполнить» создаёт и проводит общую передачу. Если пока окно было открыто данные изменились, передача не создаётся и предпросмотр пересчитывается.
+- Поступление из переработки в режиме нескольких заказов: в колонке «Передача» — передачи всех выделенных заказов, включая общие; продукция общей передачи выбирается с её заказом.
+- В быстром выборе передачи в переработку (например, в поле «Основание» поступления из переработки) рядом с номером и датой виден подрядчик.
+### fr
+- Poste de production, mode plusieurs commandes : sélectionnez plus d'une commande dans « Commandes » ou « Production » : les onglets « Transfert en sous-traitance » et « Réceptions de sous-traitance » affichent les lignes de toutes les commandes sélectionnées avec une colonne « Commande », et le titre de l'onglet indique le nombre de commandes.
+- Dans ce mode, une nouvelle ligne de transfert va dans un transfert commun au sous-traitant (document de plusieurs commandes) : la commande de la ligne se choisit parmi les commandes sélectionnées, les lignes suivantes du même sous-traitant du jour s'ajoutent au même transfert. Elles ne vont jamais dans un transfert d'une seule commande.
+- Commande « Remplir selon les besoins » dans l'onglet « Transfert en sous-traitance » (visible en mode plusieurs commandes) : sous-traitant, entrepôt et mode — par étapes du sous-traitant (matières des semi-finis du sous-traitant non encore transférées), par semi-finis produits (vos semi-finis produits pour le sous-traitant) ou vide (lignes à la main). On peut décocher des lignes de l'aperçu ou corriger les quantités ; « Remplir » crée et valide le transfert commun. Si les données ont changé pendant que la fenêtre était ouverte, le transfert n'est pas créé et l'aperçu est recalculé.
+- Réception de sous-traitance en mode plusieurs commandes : la colonne « Transfert » propose les transferts de toutes les commandes sélectionnées, y compris les transferts communs ; les produits d'un transfert commun se choisissent avec leur commande.
+- Dans le choix rapide d'un transfert en sous-traitance (par exemple, le champ « Base » d'une réception de sous-traitance), le sous-traitant s'affiche à côté du numéro et de la date.
+### en
+- Production workstation, several-orders mode: select more than one order in "Orders" or "Products": the "Subcontracting transfer" and "Subcontracting receipts" tabs show the lines of all selected orders with an "Order" column, and the tab title shows the number of orders.
+- In this mode a new transfer line goes to a shared transfer to the subcontractor (a several-orders document): the line order is chosen from the selected orders, and the next lines of the same subcontractor for today are added to the same transfer. Such lines never go to a single-order transfer.
+- "Fill by requirements" command on the "Subcontracting transfer" tab (visible in several-orders mode): subcontractor, warehouse and method — by subcontractor stages (materials of the subcontractor's semi-finished goods not yet transferred), by produced semi-finished goods (your own semi-finished goods produced for the subcontractor) or empty (lines by hand). Preview lines can be unticked or their quantities corrected; "Fill" creates and posts the shared transfer. If the data changed while the window was open, the transfer is not created and the preview is recalculated.
+- Subcontracting receipt in several-orders mode: the "Transfer" column offers the transfers of all selected orders, including shared ones; products of a shared transfer are chosen with their order.
+- In the quick choice of a subcontracting transfer (for example, the "Basis" field of a subcontracting receipt) the subcontractor is shown next to the number and date.
+### es
+- Puesto de producción, modo de varios pedidos: seleccione más de un pedido en «Pedidos» o «Producción»: las pestañas «Envío a subcontratación» y «Recepciones de subcontratación» muestran las líneas de todos los pedidos seleccionados con una columna «Pedido», y el título de la pestaña indica el número de pedidos.
+- En este modo, una línea nueva de envío va a un envío común al subcontratista (documento de varios pedidos): el pedido de la línea se elige entre los seleccionados y las líneas siguientes del mismo subcontratista del día se añaden al mismo envío. Nunca van a un envío de un solo pedido.
+- Comando «Rellenar según necesidades» en la pestaña «Envío a subcontratación» (visible en modo de varios pedidos): subcontratista, almacén y modo — por etapas del subcontratista (materias de los semielaborados del subcontratista aún no enviadas), por semielaborados producidos (sus semielaborados producidos para el subcontratista) o vacío (líneas a mano). Las líneas de la vista previa se pueden desmarcar o corregir; «Rellenar» crea y contabiliza el envío común. Si los datos cambiaron mientras la ventana estaba abierta, el envío no se crea y la vista previa se recalcula.
+- Recepción de subcontratación en modo de varios pedidos: la columna «Envío» ofrece los envíos de todos los pedidos seleccionados, incluidos los comunes; los productos de un envío común se eligen con su pedido.
+- En la selección rápida de un envío a subcontratación (por ejemplo, el campo «Base» de una recepción de subcontratación) se muestra el subcontratista junto al número y la fecha.
+
+## 2.0.16.142
+### ru
+- Передача в переработку по нескольким заказам: одним документом подрядчику можно передать материалы разных заказов и разных клиентов. В форме передачи отметьте «Несколько заказов» — у строк товаров и ожидаемой продукции появится колонка «Заказ». Без флажка документ работает как раньше, по одному заказу.
+- Поступление из переработки по такой передаче принимает продукцию всех её заказов одним документом: заказ каждой строки берётся из передачи, сырьё списывается отдельно по каждому заказу, себестоимость продукции заказа складывается только из его сырья. Если сырья одного заказа не хватает, недостающее не берётся из сырья другого заказа — документ не проводится и называет заказ.
+- Акт передачи и акт приёмки по нескольким заказам печатают список заказов с клиентами и группируют строки по заказу.
+- Стадии заказов, потребности производства, связанные документы, отчёт по переработке и прослеживаемость партий учитывают заказ каждой строки.
+- Проведённую передачу нельзя перенести на другой заказ или подрядчика простой записью — только перепроведением; после поступления продукции по ней заказ, подрядчик и дата не меняются, а отмена проведения и удаление запрещены.
+- В рабочем месте производства строки документов по нескольким заказам видны на закладке каждого заказа; правятся они в форме документа.
+- При обновлении заказ строк существующих передач и поступлений заполняется по их движениям; документы, у которых заказ шапки расходился с движениями, записываются в журнал регистрации.
+- Заказ, продукция которого принята поступлением из переработки по передаче, теперь получает стадию «Получен от субподрядчика» — раньше оставался «Передан субподрядчику».
+### fr
+- Transfert en sous-traitance pour plusieurs commandes : un seul document peut envoyer au sous-traitant les matières de commandes et de clients différents. Dans le transfert, cochez « Plusieurs commandes » : une colonne « Commande » apparaît dans les lignes d'articles et de produits attendus. Sans la case, le document fonctionne comme avant, pour une seule commande.
+- La réception de sous-traitance d'un tel transfert reçoit les produits de toutes ses commandes en un seul document : la commande de chaque ligne vient du transfert, les matières sont sorties séparément par commande, et le coût des produits d'une commande ne comprend que ses propres matières. S'il manque des matières pour une commande, elles ne sont pas prises sur une autre commande : le document n'est pas validé et indique la commande.
+- Le bon de transfert et le procès-verbal de réception pour plusieurs commandes impriment la liste des commandes avec les clients et regroupent les lignes par commande.
+- Les étapes des commandes, les besoins de production, les documents liés, le rapport de sous-traitance et la traçabilité des lots tiennent compte de la commande de chaque ligne.
+- Un transfert validé ne peut plus être rattaché à une autre commande ou à un autre sous-traitant par un simple enregistrement, seulement en le revalidant ; après une réception sur ce transfert, la commande, le sous-traitant et la date ne changent plus, l'annulation et la suppression sont interdites.
+- Dans le poste de production, les lignes des documents à plusieurs commandes s'affichent dans l'onglet de chaque commande ; elles se modifient dans le formulaire du document.
+- Lors de la mise à jour, la commande des lignes des transferts et réceptions existants est remplie d'après leurs mouvements ; les documents dont la commande d'en-tête divergeait des mouvements sont inscrits au journal.
+- Une commande dont les produits sont reçus par une réception de sous-traitance sur un transfert passe désormais au statut « Reçue du sous-traitant » ; avant, elle restait « Transmise au sous-traitant ».
+### en
+- Subcontracting transfer for several orders: one document can send the subcontractor materials of different orders and different customers. In the transfer, check "Several orders": an "Order" column appears in the item and expected product lines. Without the flag the document works as before, for one order.
+- A subcontracting receipt for such a transfer receives the products of all its orders in one document: each line's order comes from the transfer, materials are written off separately per order, and the cost of an order's products includes only its own materials. If one order lacks materials, they are not taken from another order: the document is not posted and names the order.
+- The transfer note and the acceptance report for several orders print the list of orders with customers and group lines by order.
+- Order stages, production requirements, related documents, the subcontracting report and lot traceability take each line's order into account.
+- A posted transfer can no longer be moved to another order or subcontractor by a plain save, only by reposting; once products have been received against it, the order, subcontractor and date cannot change, and unposting and deletion are blocked.
+- In the production workstation, lines of multi-order documents are shown on each order's tab; they are edited in the document form.
+- During the update, the line order of existing transfers and receipts is filled from their movements; documents whose header order differed from the movements are written to the event log.
+- An order whose products are received by a subcontracting receipt against a transfer now gets the "Received from subcontractor" status; before, it stayed "Sent to subcontractor".
+### es
+- Envío a subcontratación para varios pedidos: un solo documento puede enviar al subcontratista materiales de pedidos y clientes distintos. En el envío, marque «Varios pedidos»: aparece una columna «Pedido» en las líneas de artículos y de productos esperados. Sin la casilla, el documento funciona como antes, para un solo pedido.
+- La recepción de subcontratación de ese envío recibe los productos de todos sus pedidos en un solo documento: el pedido de cada línea viene del envío, las materias se dan de baja por separado por pedido y el coste de los productos de un pedido incluye solo sus propias materias. Si faltan materias de un pedido, no se toman de otro: el documento no se contabiliza e indica el pedido.
+- El albarán de envío y el acta de recepción de varios pedidos imprimen la lista de pedidos con sus clientes y agrupan las líneas por pedido.
+- Las etapas de los pedidos, las necesidades de producción, los documentos relacionados, el informe de subcontratación y la trazabilidad de lotes tienen en cuenta el pedido de cada línea.
+- Un envío contabilizado ya no puede pasar a otro pedido o subcontratista con un simple guardado, solo volviendo a contabilizarlo; tras una recepción por él, el pedido, el subcontratista y la fecha no cambian, y la anulación y la eliminación están bloqueadas.
+- En el puesto de producción, las líneas de documentos de varios pedidos se muestran en la pestaña de cada pedido; se editan en el formulario del documento.
+- Durante la actualización, el pedido de las líneas de envíos y recepciones existentes se rellena según sus movimientos; los documentos cuyo pedido de cabecera difería de los movimientos se anotan en el registro de eventos.
+- Un pedido cuyos productos se reciben con una recepción de subcontratación por un envío pasa ahora al estado «Recibido del subcontratista»; antes se quedaba en «Enviado al subcontratista».
+
+## 2.0.16.141
+### ru
+- Карточка товара перестроена. Вверху — небольшое фото и шапка: тип товара (первым — от него зависит вид карточки), наименование и артикул, категория и способ пополнения, остаток и цены. Смена типа больше не сдвигает поля шапки.
+- Карточка всегда открывается на закладке «Описание и свойства»: описание товара, бренд, качество, товарная группа и дополнительные свойства. Единицы, вес, ставка НДС, поставщик, производитель и упаковки — на закладке «Учёт», код и прочее служебное — на «Служебном».
+- На закладках «Склад» и «Производство» каждая таблица — на своей вкладке: остатки, минимумы и максимумы по складам, ячейки и условия хранения, материалы на станках; техкарта, станки, выработка станков, «где используется». Короткие поля с близким смыслом стоят в одну строку.
+- Цены, техкарта, остатки и штрихкоды снова загружаются при переходе на свою закладку.
+### fr
+- La fiche article a été réorganisée. En haut : une petite photo et l'en-tête : le type d'article (en premier, car il détermine l'aspect de la fiche), la désignation et la référence, la catégorie et le mode de réapprovisionnement, le stock et les prix. Changer le type ne décale plus les champs de l'en-tête.
+- La fiche s'ouvre toujours sur l'onglet « Description et propriétés » : description de l'article, marque, qualité, groupe d'articles et propriétés supplémentaires. Unités, poids, taux de TVA, fournisseur, fabricant et conditionnements sont dans l'onglet « Gestion », le code et les autres données techniques dans « Service ».
+- Dans les onglets « Stock » et « Production », chaque tableau a son propre sous-onglet : stocks, minimums et maximums par entrepôt, emplacements et conditions de stockage, matières sur les machines ; gamme de fabrication, machines, rendement des machines, « où est utilisé ». Les champs courts de sens proche sont sur une même ligne.
+- Les prix, la gamme de fabrication, les stocks et les codes-barres se chargent de nouveau à l'ouverture de leur onglet.
+### en
+- The item card has been reorganized. At the top: a small photo and the header: item type (first, as it defines how the card looks), name and SKU, category and replenishment method, stock and prices. Changing the type no longer shifts the header fields.
+- The card always opens on the "Description and properties" tab: item description, brand, quality, product group and additional properties. Units, weight, VAT rate, supplier, manufacturer and packaging are on the "Accounting" tab; the code and other technical data are on "Service".
+- On the "Stock" and "Production" tabs, each table has its own sub-tab: stock, minimums and maximums by warehouse, bins and storage conditions, materials on machines; production routing, machines, machine output, "where used". Short fields with related meaning share one line.
+- Prices, production routing, stock and barcodes load again when their tab is opened.
+### es
+- Se ha reorganizado la ficha del artículo. Arriba: una foto pequeña y la cabecera: el tipo de artículo (primero, ya que define el aspecto de la ficha), nombre y referencia, categoría y forma de reposición, existencias y precios. Cambiar el tipo ya no desplaza los campos de la cabecera.
+- La ficha se abre siempre en la pestaña «Descripción y propiedades»: descripción del artículo, marca, calidad, grupo de artículos y propiedades adicionales. Unidades, peso, tipo de IVA, proveedor, fabricante y embalajes están en la pestaña «Gestión»; el código y otros datos técnicos, en «Servicio».
+- En las pestañas «Almacén» y «Producción», cada tabla tiene su propia subpestaña: existencias, mínimos y máximos por almacén, ubicaciones y condiciones de almacenamiento, materiales en máquinas; ruta de fabricación, máquinas, rendimiento de máquinas, «dónde se usa». Los campos cortos de sentido parecido están en una misma línea.
+- Los precios, la ruta de fabricación, las existencias y los códigos de barras vuelven a cargarse al abrir su pestaña.
+
+## 2.0.16.140
+### ru
+- Рабочее место производства, закладка «Передача в переработку»: исправлена ошибка «Поле объекта не обнаружено (Продукция)» при завершении редактирования уже записанной строки.
+### fr
+- Poste de production, onglet « Transfert en sous-traitance » : correction de l'erreur « Le champ de l'objet n'est pas défini (Продукция) » à la fin de la modification d'une ligne déjà enregistrée.
+### en
+- Production workplace, "Subcontracting transfer" tab: fixed the "Object field not found (Продукция)" error when finishing editing a line that was already saved.
+### es
+- Puesto de producción, pestaña «Envío a subcontratación»: corregido el error «Campo del objeto no encontrado (Продукция)» al terminar de editar una línea ya guardada.
+
+## 2.0.16.139
+### ru
+- Рабочее место производства, закладка «Передача в переработку»: панель «Свойства ПФ/ГП» показывает свойства и тогда, когда в строке не выбран ПФ/ГП, — берётся изделие заказа, в которое входит переданный материал (для переданного полуфабриката — готовая продукция). В заголовке панели указано, чьи это свойства; править их можно там же. Раньше без выбранного ПФ/ГП панель была пустой.
+### fr
+- Poste de production, onglet « Transfert en sous-traitance » : le panneau « Propriétés SF/PF » affiche les propriétés même si aucun SF/PF n'est choisi dans la ligne : il prend l'article de la commande dans lequel entre la matière transférée (pour un semi-fini transféré, le produit fini). Le titre du panneau indique à quel article elles appartiennent ; elles se modifient au même endroit. Auparavant, sans SF/PF choisi, le panneau restait vide.
+### en
+- Production workplace, "Subcontracting transfer" tab: the "SFG/FG properties" panel now shows properties even when no SFG/FG is selected in the line: it takes the order item the transferred material goes into (for a transferred semi-finished good, the finished product). The panel title shows whose properties they are; they can be edited there. Before, the panel stayed empty without a selected SFG/FG.
+### es
+- Puesto de producción, pestaña «Envío a subcontratación»: el panel «Propiedades SE/PT» muestra las propiedades aunque no se haya elegido SE/PT en la línea: toma el artículo del pedido en el que entra el material enviado (para un semielaborado enviado, el producto terminado). El título del panel indica de qué artículo son; se editan allí mismo. Antes, sin SE/PT elegido, el panel quedaba vacío.
+
+## 2.0.16.138
+### ru
+- Рабочее место производства, закладка «Поступления из переработки»: после частичной приёмки новая строка по той же передаче предлагает в колонке «Продукция» только оставшееся количество. Раньше строка, введённая в тот же день, попадала в сегодняшний документ приёмки и снова предлагала всё ожидаемое количество.
+### fr
+- Poste de production, onglet « Réceptions de sous-traitance » : après une réception partielle, une nouvelle ligne du même transfert ne propose dans la colonne « Produit » que la quantité restante. Auparavant, une ligne saisie le même jour allait dans la réception du jour et proposait de nouveau toute la quantité attendue.
+### en
+- Production workplace, "Subcontracting receipts" tab: after a partial receipt, a new line for the same transfer offers only the remaining quantity in the "Product" column. Before, a line entered on the same day went into that day's receipt and offered the full expected quantity again.
+### es
+- Puesto de producción, pestaña «Recepciones de subcontratación»: tras una recepción parcial, una nueva línea del mismo envío solo propone en la columna «Producto» la cantidad restante. Antes, una línea introducida el mismo día iba a la recepción del día y volvía a proponer toda la cantidad esperada.
+
+## 2.0.16.137
+### ru
+- Печатная форма коммерческого предложения обновлена по образцу: в строке номера — дата редакции; у клиента вместо договора — адрес и ICE; под именем вашего контакта — его телефон, e-mail и дата отгрузки; артикул больше не добавляется к наименованию товара; строка «Цены без НДС» и подпись «С уважением» убраны. Уже отправленные редакции печатаются с прежним содержанием (товары, цены, реквизиты на дату отправки), но в новом оформлении и с датой своей редакции.
+- В итогах предложения появилась строка скидки, если в предложении есть скидка.
+- В коммерческом предложении новые поля: «Действует до» (по умолчанию — месяц от даты создания), условия поставки Incoterms с местом и срок поставки. Внизу печатной формы — блок условий: срок действия, условия оплаты из карточки клиента, условия и срок поставки.
+- Новая печать «Коммерческое предложение с вложениями»: картинки, прикреплённые к предложению кнопкой «Вложения», печатаются после него с новой страницы, по две на страницу. Прикреплять и удалять файлы предложения может тот, кто вправе изменять само предложение.
+### fr
+- Le devis imprimé est mis à jour selon le modèle : la ligne du numéro porte la date de la révision ; pour le client, l'adresse et l'ICE remplacent le contrat ; sous le nom de votre contact figurent son téléphone, son e-mail et la date d'expédition ; la référence n'est plus ajoutée à la désignation de l'article ; la ligne « Prix HT » et la formule « Cordialement » sont supprimées. Les révisions déjà envoyées gardent leur contenu (articles, prix, coordonnées à la date d'envoi) mais s'impriment dans la nouvelle présentation, avec la date de leur révision.
+- Les totaux du devis affichent une ligne de remise lorsque le devis comporte une remise.
+- Nouveaux champs dans le devis : date de validité (par défaut un mois après la création), conditions de livraison Incoterms avec le lieu et délais de livraison. En bas du devis imprimé, un bloc de conditions : validité, conditions de paiement de la fiche client, conditions et délais de livraison.
+- Nouvelle impression « Devis avec pièces jointes » : les images jointes au devis par le bouton « Pièces jointes » s'impriment après le devis, sur une nouvelle page, deux par page. Seul un utilisateur autorisé à modifier le devis peut y joindre ou en supprimer des fichiers.
+### en
+- The printed quotation now follows the sample: the number line shows the revision date; the customer block shows the address and ICE instead of the contract; your contact's phone, e-mail and the shipping date appear under the contact name; the item code is no longer added to the item name; the "Prices exclude VAT" line and the "Kind regards" signature are removed. Revisions already sent keep their content (items, prices, details as of sending) but print in the new layout with their revision date.
+- Quotation totals show a discount line when the quotation has a discount.
+- New quotation fields: valid until (one month after creation by default), Incoterms delivery terms with the place, and delivery lead time. A terms block at the bottom of the printed quotation shows validity, payment terms from the customer card, and delivery terms and lead time.
+- New print "Quotation with attachments": images attached to the quotation with the "Attachments" button are printed after it on a new page, two per page. Only a user allowed to change the quotation can attach or delete its files.
+### es
+- El presupuesto impreso sigue ahora el modelo: la línea del número muestra la fecha de la revisión; el bloque del cliente muestra la dirección y el ICE en lugar del contrato; bajo el nombre de su contacto aparecen su teléfono, su e-mail y la fecha de envío; la referencia ya no se añade al nombre del artículo; se eliminan la línea «Precios sin IVA» y la firma «Atentamente». Las revisiones ya enviadas conservan su contenido (artículos, precios, datos a la fecha de envío), pero se imprimen con el nuevo diseño y la fecha de su revisión.
+- Los totales del presupuesto muestran una línea de descuento cuando el presupuesto tiene descuento.
+- Nuevos campos del presupuesto: válido hasta (por defecto, un mes desde la creación), condiciones de entrega Incoterms con el lugar y plazo de entrega. Al pie del presupuesto impreso, un bloque de condiciones: validez, condiciones de pago de la ficha del cliente, condiciones y plazo de entrega.
+- Nueva impresión «Presupuesto con adjuntos»: las imágenes adjuntadas al presupuesto con el botón «Adjuntos» se imprimen después de él, en una página nueva, dos por página. Solo un usuario autorizado a modificar el presupuesto puede adjuntar o eliminar sus archivos.
+
+## 2.0.16.136
+### ru
+- Печать доступна всем пользователям, которые видят документ: раньше у кладовщика, менеджеров, кассира, логиста, оператора и других ролей часть печатных форм в меню «Печать» не появлялась, а у администратора была (счета, накладные, чеки, акты сверки, кассовые ордера, прайс, перемещение, списание, оприходование и другие).
+- Оператору производства в рабочем месте доступны бланк заказа и накладные BL — без цен, как и другие суммы, скрытые от его роли. Формы, в которых цены — суть документа (счёт-проформа, счёт-фактура, чек, поступление товаров), ему по-прежнему недоступны.
+- Пользователь, от которого скрыты суммы (оператор производства, в том числе вместе с другими ролями), печатает акт списания и накладную на оприходование без цен и сумм. Формы с ценами ему не печатаются и не показываются в меню рабочих мест, даже если право на них дала другая роль.
+### fr
+- L'impression est disponible pour tous les utilisateurs qui voient le document : auparavant, pour le magasinier, les commerciaux, le caissier, le logisticien, l'opérateur et d'autres rôles, une partie des formulaires n'apparaissait pas dans le menu « Impression », alors qu'elle apparaissait pour l'administrateur (factures, bons de livraison, tickets, rapprochements, pièces de caisse, liste de prix, transferts, mises au rebut, entrées en stock, etc.).
+- L'opérateur de production peut imprimer le bon de commande et les bons de livraison BL sans prix, comme les autres montants masqués pour son rôle. Les formulaires dont les prix sont l'essentiel (facture proforma, facture, ticket, réception de marchandises) lui restent inaccessibles.
+- L'utilisateur pour qui les montants sont masqués (opérateur de production, y compris avec d'autres rôles) imprime la sortie de marchandises et l'entrée des marchandises sans prix ni montants. Les formulaires avec prix ne lui sont ni imprimés ni proposés dans les menus des postes, même si un autre rôle en donne le droit.
+### en
+- Printing is available to every user who can see the document: previously, for the storekeeper, managers, cashier, logistician, operator and other roles, some print forms did not appear in the "Print" menu, while they did for the administrator (invoices, delivery notes, receipts, reconciliation statements, cash documents, price list, transfers, write-offs, stock receipts and others).
+- The production operator can print the order form and BL delivery notes without prices, like other amounts hidden from this role. Forms where prices are the essence of the document (proforma invoice, invoice, receipt, goods receipt) remain unavailable to the operator.
+- A user whose amounts are hidden (production operator, including together with other roles) prints the write-off act and the stock receipt note without prices and amounts. Forms with prices are neither printed for this user nor shown in workplace menus, even when another role grants the right.
+### es
+- La impresión está disponible para todos los usuarios que ven el documento: antes, para el almacenero, los comerciales, el cajero, el logístico, el operador y otros roles, parte de los formularios no aparecía en el menú «Impresión», mientras que para el administrador sí (facturas, albaranes, tickets, conciliaciones, documentos de caja, lista de precios, traslados, bajas, entradas de stock y otros).
+- El operador de producción puede imprimir la hoja de pedido y los albaranes BL sin precios, como los demás importes ocultos para su rol. Los formularios cuyo contenido son los precios (factura proforma, factura, ticket, recepción de mercancías) siguen sin estar disponibles para él.
+- El usuario para quien los importes están ocultos (operador de producción, también junto con otros roles) imprime el acta de baja y la entrada de mercancías sin precios ni importes. Los formularios con precios no se le imprimen ni se muestran en los menús de los puestos, aunque otro rol dé el derecho.
+
+## 2.0.16.135
+### ru
+- Оператору производства доступна печать на закладках «Передача в переработку» и «Поступления из переработки» рабочего места производства (акт передачи и акт приёмки): раньше меню «Печать» там было только у администратора. Акт приёмки печатается оператору без себестоимости и стоимости услуг, как и другие суммы, скрытые от его роли.
+### fr
+- L'opérateur de production peut imprimer depuis les onglets « Transfert en sous-traitance » et « Réceptions de sous-traitance » du poste de production (bon de transfert et bon de réception) : auparavant le menu « Impression » n'y était disponible que pour l'administrateur. Le bon de réception est imprimé pour l'opérateur sans coût de revient ni coût des services, comme les autres montants masqués pour son rôle.
+### en
+- The production operator can print from the "Subcontracting transfer" and "Subcontracting receipts" tabs of the production workplace (transfer act and receipt act): previously the "Print" menu there was available only to the administrator. The receipt act is printed for the operator without cost and service amounts, like other amounts hidden from this role.
+### es
+- El operador de producción puede imprimir desde las pestañas «Envío a subcontratación» y «Recepciones de subcontratación» del puesto de producción (acta de transferencia y acta de recepción): antes el menú «Impresión» solo estaba disponible para el administrador. El acta de recepción se imprime para el operador sin coste ni importe de los servicios, como los demás importes ocultos para su rol.
+
+## 2.0.16.134
+### ru
+- У пользователей без полных прав снова работает подбор по набранному тексту в полях выбора (клиент, товар и другие справочники): раньше такое поле показывало только недавно выбранные значения, у администратора всё работало. Исправлено во всех ролях.
+### fr
+- La saisie semi-automatique dans les champs de sélection (client, produit et autres référentiels) fonctionne de nouveau pour les utilisateurs sans droits complets : auparavant le champ ne proposait que les valeurs choisies récemment, alors que tout fonctionnait pour l'administrateur. Corrigé dans tous les rôles.
+### en
+- Typing to search in selection fields (customer, product and other catalogs) works again for users without full rights: previously such a field offered only recently selected values, while everything worked for the administrator. Fixed in all roles.
+### es
+- La búsqueda al escribir en los campos de selección (cliente, producto y otros catálogos) vuelve a funcionar para los usuarios sin derechos completos: antes el campo solo ofrecía los valores elegidos recientemente, mientras que para el administrador todo funcionaba. Corregido en todos los roles.
+
+## 2.0.16.133
+### ru
+- Рабочие места производства, закупок и управления станками можно открывать автоматически при запуске программы: меню «Настройки» (шестерёнка) в самом рабочем месте → флажок «Открывать при запуске».
+- В карточке пользователя новая закладка «При запуске»: список рабочих мест, которые у него открываются при запуске; лишнее можно удалить.
+- Новая роль «Складские ордера». Вместе с «Оператором производства» она открывает рабочее место закупок в режиме приёмки: заказы поставщикам видны без цен и сумм, выбранные заказы принимаются приходными ордерами (кнопка «Создать поступление» на ордерном складе). Заказы, статусы, потребность, оплаты и документы с ценами в этом режиме недоступны. Рабочее место закупок у такого пользователя — в разделе «Производство».
+- Рабочее место закупок больше не падает с ошибкой прав у пользователей без доступа к документам оплат: закладки «Оплаты» и «Документы» у них просто скрыты.
+### fr
+- Les postes de production, des achats et des machines peuvent s'ouvrir automatiquement au démarrage : menu « Paramètres » (roue dentée) du poste → case « Ouvrir au démarrage ».
+- Nouvel onglet « Au démarrage » dans la fiche utilisateur : la liste des postes ouverts au démarrage ; on peut en retirer.
+- Nouveau rôle « Bons d'entrepôt ». Avec « Opérateur de production », il ouvre le poste des achats en mode réception : les commandes fournisseurs sont visibles sans prix ni montants, les commandes sélectionnées sont reçues par bons d'entrée (bouton « Créer une réception » sur un entrepôt à bons). Commandes, statuts, besoins, paiements et documents avec prix ne sont pas accessibles dans ce mode. Pour cet utilisateur, le poste des achats est dans la section « Production ».
+- Le poste des achats ne s'arrête plus sur une erreur de droits chez les utilisateurs sans accès aux documents de paiement : les onglets « Paiements » et « Documents » sont simplement masqués.
+### en
+- The production, purchasing and machine workplaces can open automatically at startup: the "Settings" menu (gear) of the workplace → "Open at startup".
+- New "At startup" tab in the user card: the list of workplaces opened at startup; entries can be removed.
+- New "Warehouse orders" role. Together with "Production operator" it opens the purchasing workplace in receiving mode: purchase orders are shown without prices and amounts, selected orders are received with receiving orders (the "Create receipt" button on a warehouse that uses receiving orders). Orders, statuses, demand, payments and documents with prices are not available in this mode. For such a user the purchasing workplace is in the "Production" section.
+- The purchasing workplace no longer fails with an access error for users without access to payment documents: the "Payments" and "Documents" tabs are simply hidden.
+### es
+- Los puestos de producción, compras y máquinas pueden abrirse automáticamente al iniciar: menú «Configuración» (engranaje) del puesto → casilla «Abrir al iniciar».
+- Nueva pestaña «Al iniciar» en la ficha del usuario: la lista de puestos que se abren al iniciar; se pueden quitar.
+- Nuevo rol «Órdenes de almacén». Junto con «Operador de producción» abre el puesto de compras en modo de recepción: los pedidos a proveedores se ven sin precios ni importes, los pedidos seleccionados se reciben con órdenes de entrada (botón «Crear recepción» en un almacén con órdenes). Pedidos, estados, necesidades, pagos y documentos con precios no están disponibles en este modo. Para este usuario, el puesto de compras está en la sección «Producción».
+- El puesto de compras ya no falla con un error de derechos para usuarios sin acceso a los documentos de pago: las pestañas «Pagos» y «Documentos» simplemente se ocultan.
+
+## 2.0.16.132
+### ru
+- Приходный и расходный ордер: под таблицей — итог количества по каждой единице измерения (килограммы и метры считаются отдельно).
+- Расходный ордер: стороны в шапке называются «Отправитель» и «Получатель» вместо «Продавец» и «Покупатель».
+- Основание в печатной форме ордеров — «Заказ клиента № 5 от 27.10.2026» на языке печати, без времени документа.
+- Меню «Печать» реализации сокращено: остались накладные BL (обычная, A4, A4 без НДС, A4 без цен) и чеки. Facture, Facture proforma, акт об оказании услуг, заказ и коммерческое предложение из меню убраны.
+### fr
+- Bon de réception et bon de sortie : sous le tableau, le total des quantités par unité de mesure (kilogrammes et mètres sont comptés séparément).
+- Bon de sortie : les parties de l'en-tête s'appellent « Expéditeur » et « Destinataire » au lieu de « Vendeur » et « Acheteur ».
+- Le document de base dans l'impression des bons s'affiche comme « Commande client n° 5 du 27/10/2026 » dans la langue d'impression, sans l'heure du document.
+- Le menu « Impression » du bon de livraison est réduit : restent les bons de livraison (normal, A4, A4 HT, A4 sans prix) et les tickets. Facture, Facture proforma, acte de prestation de services, commande et devis sont retirés du menu.
+### en
+- Goods receipt and goods issue notes: below the table, the total quantity for each unit of measure (kilograms and metres are counted separately).
+- Goods issue note: the parties in the header are called "Sender" and "Recipient" instead of "Seller" and "Buyer".
+- The basis document in the printed notes reads "Customer order No. 5 dated 10/27/2026" in the print language, without the document time.
+- The "Print" menu of the sales document is shortened: delivery notes (standard, A4, A4 without VAT, A4 without prices) and receipts remain. Invoice, proforma invoice, act of provision of services, order and quotation are removed from the menu.
+### es
+- Orden de entrada y orden de salida: debajo de la tabla, el total de cantidades por unidad de medida (kilogramos y metros se cuentan por separado).
+- Orden de salida: las partes del encabezado se llaman «Remitente» y «Destinatario» en lugar de «Vendedor» y «Comprador».
+- El documento base en la impresión de las órdenes aparece como «Pedido del cliente n.º 5 del 27/10/2026» en el idioma de impresión, sin la hora del documento.
+- El menú «Impresión» del albarán se reduce: quedan los albaranes de entrega (normal, A4, A4 sin IVA, A4 sin precios) y los tickets. Factura, factura proforma, acta de prestación de servicios, pedido y presupuesto se quitan del menú.
+
+## 2.0.16.131
+### ru
+- Начальное заполнение базы заполняет у дирхама, евро, доллара США и рубля параметры суммы прописью на всех языках (русский, английский, французский): единицы целой и дробной части и род. Таблицу «Параметры исчисления» в карточке валюты больше не нужно заполнять вручную, её можно поправить — повторное заполнение исправленные строки не меняет.
+- Сумма прописью по-русски учитывает род, указанный в карточке валюты: «один сантим», а не «одна сантим».
+### fr
+- Le remplissage initial de la base renseigne pour le dirham, l'euro, le dollar US et le rouble les paramètres du montant en toutes lettres dans toutes les langues (russe, anglais, français) : unités de la partie entière et fractionnaire et genre. Le tableau « Paramètres de calcul » de la fiche devise n'est plus à remplir à la main ; il peut être corrigé, un nouveau remplissage ne modifie pas les lignes corrigées.
+- Le montant en toutes lettres en russe tient compte du genre indiqué dans la fiche devise.
+### en
+- Initial database filling now sets the amount-in-words parameters for the dirham, euro, US dollar and ruble in all languages (Russian, English, French): units of the integer and fractional parts and gender. The "Calculation parameters" table in the currency card no longer has to be filled in by hand; it can be edited, and filling again does not change edited rows.
+- The amount in words in Russian takes into account the gender set in the currency card.
+### es
+- El llenado inicial de la base completa para el dírham, el euro, el dólar estadounidense y el rublo los parámetros del importe en letras en todos los idiomas (ruso, inglés, francés): unidades de la parte entera y fraccionaria y género. La tabla «Parámetros de cálculo» de la ficha de la moneda ya no se rellena a mano; se puede corregir y un nuevo llenado no cambia las filas corregidas.
+- El importe en letras en ruso tiene en cuenta el género indicado en la ficha de la moneda.
+
+## 2.0.16.130
+### ru
+- Новый отчёт «Деньги и статусы заказов клиентов» (раздел «Продажи»): по каждому заказу — сумма заказа, отгружено, оплачено, долг, сколько осталось оплатить, выручка без НДС, себестоимость, маржа и маржинальность.
+- Вариант «Деньги по заказам» группирует заказы по заказчику и показывает его общий долг и строку «Не распределено по заказам» — авансы и долги, не привязанные к заказам, чтобы итог по заказчику сходился с его долгом.
+- Вариант «Статусы заказов» — таблица заказов с текущим статусом, плановой датой отгрузки, процентом отгруженного и просрочкой отгрузки в днях; просроченные заказы выделены цветом.
+- Процент отгруженного считается по каждой позиции: перегруз одной позиции не закрывает недогруз другой. Учитываются отгрузки со склада расходными ордерами и возвраты.
+- В отчёт попадают заказы, созданные в периоде, и все незакрытые на конец периода: не отгруженные полностью, не реализованные полностью или с долгом.
+### fr
+- Nouveau rapport « Argent et statuts des commandes clients » (section « Ventes ») : pour chaque commande — montant, expédié, payé, dette, reste à payer, chiffre d'affaires HT, coût de revient, marge et taux de marge.
+- La variante « Argent par commandes » regroupe les commandes par client et montre sa dette totale ainsi que la ligne « Non réparti par commandes » — avances et dettes non liées à une commande, pour que le total du client corresponde à sa dette.
+- La variante « Statuts des commandes » est un tableau des commandes avec le statut actuel, la date d'expédition prévue, le pourcentage expédié et le retard d'expédition en jours ; les commandes en retard sont mises en couleur.
+- Le pourcentage expédié est calculé par article : l'excédent d'un article ne compense pas le manque d'un autre. Les sorties de stock par bons de sortie et les retours sont pris en compte.
+- Le rapport contient les commandes créées dans la période et toutes celles non clôturées à la fin de la période : pas entièrement expédiées, pas entièrement facturées ou avec une dette.
+### en
+- New report "Customer order money and statuses" ("Sales" section): for each order — order amount, shipped, paid, debt, left to pay, revenue excl. VAT, cost, margin and margin rate.
+- The "Money by orders" variant groups orders by customer and shows the customer's total debt and a "Not allocated to orders" line — advances and debts not linked to an order, so that the customer total matches the customer's debt.
+- The "Order statuses" variant is a table of orders with the current status, planned shipment date, percent shipped and shipment delay in days; overdue orders are highlighted.
+- Percent shipped is calculated per item: overshipping one item does not cover a shortfall of another. Shipments by goods issue notes and returns are taken into account.
+- The report includes orders created in the period and all orders still open at the end of the period: not fully shipped, not fully invoiced or with a debt.
+### es
+- Nuevo informe «Dinero y estados de pedidos de clientes» (sección «Ventas»): para cada pedido — importe, enviado, pagado, deuda, pendiente de pago, ingresos sin IVA, coste, margen y porcentaje de margen.
+- La variante «Dinero por pedidos» agrupa los pedidos por cliente y muestra su deuda total y la línea «No asignado a pedidos» — anticipos y deudas no vinculados a un pedido, para que el total del cliente coincida con su deuda.
+- La variante «Estados de los pedidos» es una tabla de pedidos con el estado actual, la fecha de envío prevista, el porcentaje enviado y el retraso del envío en días; los pedidos atrasados se resaltan en color.
+- El porcentaje enviado se calcula por artículo: el exceso de un artículo no compensa la falta de otro. Se tienen en cuenta las salidas por órdenes de salida y las devoluciones.
+- El informe incluye los pedidos creados en el período y todos los no cerrados al final del período: no enviados por completo, no facturados por completo o con deuda.
+
+## 2.0.16.129
+### ru
+- Новый отчёт «Переработка по переработчикам» (раздел «Производство»): по каждому переработчику — что передано, что принято и что ещё у него лежит, с разбивкой по заказам клиентов. В каждом заказе три колонки: передачи, приёмы продукции и остаток у переработчика с датой самой старой передачи.
+- В шапке переработчика и заказа — итоги по единицам измерения, средний срок переработки (от передачи до приёма) и сколько дней лежит самая старая незакрытая передача.
+- Если одно поступление из переработки закрыло сырьё нескольких заказов, его продукция показана в каждом заказе с пометкой «◐», а в итог переработчика входит один раз. Приём продукции без сырья помечается «хвост без сырья».
+- Отчёт можно отобрать по переработчику, клиенту или заказу и добавить в «Избранные отчёты».
+### fr
+- Nouveau rapport « Sous-traitance par sous-traitant » (section « Production ») : pour chaque sous-traitant — ce qui a été envoyé, reçu et ce qui reste chez lui, par commande client. Dans chaque commande, trois colonnes : envois, réceptions de produits et solde chez le sous-traitant avec la date de l'envoi le plus ancien.
+- Dans l'en-tête du sous-traitant et de la commande : totaux par unité de mesure, délai moyen de traitement (de l'envoi à la réception) et nombre de jours de l'envoi ouvert le plus ancien.
+- Si une réception de sous-traitance a soldé la matière de plusieurs commandes, son produit est montré dans chacune avec la marque « ◐ » et compte une seule fois dans le total du sous-traitant. Une réception de produit sans matière est marquée « reliquat sans matière ».
+- Le rapport se filtre par sous-traitant, client ou commande et peut être ajouté aux « Rapports favoris ».
+### en
+- New report "Processing by processor" ("Production" section): for each processor — what was sent, what was received and what is still at the processor, broken down by customer order. Each order has three columns: transfers, product receipts and the balance at the processor with the date of the oldest transfer.
+- The processor and order headers show totals per unit of measure, the average processing time (from transfer to receipt) and how many days the oldest open transfer has been waiting.
+- If one receipt from processing closed raw material of several orders, its product is shown in each order marked "◐" and counts once in the processor total. A product receipt without raw material is marked "tail without raw material".
+- The report can be filtered by processor, customer or order and added to "Favourite reports".
+### es
+- Nuevo informe «Procesamiento por procesador» (sección «Producción»): para cada procesador — lo enviado, lo recibido y lo que aún tiene, desglosado por pedido de cliente. En cada pedido, tres columnas: envíos, recepciones de producto y saldo en el procesador con la fecha del envío más antiguo.
+- En la cabecera del procesador y del pedido: totales por unidad de medida, plazo medio de procesamiento (del envío a la recepción) y días que lleva abierto el envío más antiguo.
+- Si una recepción de procesamiento cerró materia prima de varios pedidos, su producto se muestra en cada pedido con la marca «◐» y cuenta una sola vez en el total del procesador. Una recepción de producto sin materia prima se marca «remanente sin materia prima».
+- El informe se puede filtrar por procesador, cliente o pedido y añadir a «Informes favoritos».
+
+## 2.0.16.128
+### ru
+- Новый отчёт «Прослеживаемость партий материала» (раздел «Производство»): по каждой партии материала — дата прихода, лот (номер документа поставщика), приход и остаток, а рядом четыре колонки воронки: выпуск полуфабриката из партии, передача полуфабриката переработчику, отгрузка готовой продукции клиенту. Внизу колонки отгрузки — остаток продукции на складе.
+- Документы в отчёте открываются щелчком; возврат покупателя показывается строкой с минусом, списание — отдельной строкой «прочее выбытие».
+- Если выпуск или поступление из переработки собраны из нескольких партий, строка помечается «◐»: количество относится ко всем этим партиям сразу и долями не делится.
+- Отбор по клиенту оставляет только выпуски, передачи и отгрузки его заказов; поиск по лоту — по части номера документа поставщика. Отчёт можно добавить в «Избранные отчёты».
+### fr
+- Nouveau rapport « Traçabilité des lots de matière » (section « Production ») : pour chaque lot de matière — date de réception, lot (n° du document fournisseur), entrée et stock, et à côté quatre colonnes : fabrication du semi-fini à partir du lot, envoi du semi-fini au sous-traitant, livraison du produit fini au client. En bas de la colonne livraison — le stock de produit restant.
+- Les documents du rapport s'ouvrent d'un clic ; un retour client apparaît en ligne négative, une mise au rebut en ligne « autre sortie ».
+- Si une fabrication ou une réception de sous-traitance regroupe plusieurs lots, la ligne est marquée « ◐ » : la quantité concerne tous ces lots à la fois et n'est pas répartie.
+- Le filtre client ne garde que les fabrications, envois et livraisons de ses commandes ; la recherche par lot se fait sur une partie du n° fournisseur. Le rapport peut être ajouté aux « Rapports favoris ».
+### en
+- New report "Material lot traceability" ("Production" section): for each material lot — receipt date, lot (supplier document number), quantity received and balance, and next to it four columns: semi-finished output from the lot, transfer of the semi-finished goods to the processor, shipment of the finished product to the customer. At the bottom of the shipment column — product still in stock.
+- Documents in the report open with a click; a customer return is shown as a negative line, a write-off as a separate "other disposal" line.
+- If an output or a receipt from processing combines several lots, the line is marked "◐": the quantity covers all those lots together and is not split.
+- The customer filter keeps only the outputs, transfers and shipments of that customer's orders; the lot search matches part of the supplier document number. The report can be added to "Favourite reports".
+### es
+- Nuevo informe «Trazabilidad de lotes de material» (sección «Producción»): para cada lote de material — fecha de entrada, lote (n.º del documento del proveedor), entrada y saldo, y al lado cuatro columnas: producción del semielaborado a partir del lote, envío del semielaborado al procesador, expedición del producto terminado al cliente. Al final de la columna de expedición — el producto que queda en almacén.
+- Los documentos del informe se abren con un clic; una devolución del cliente aparece como línea negativa y una baja como línea aparte «otra salida».
+- Si una producción o una recepción de procesamiento reúne varios lotes, la línea se marca con «◐»: la cantidad corresponde a todos esos lotes a la vez y no se reparte.
+- El filtro por cliente deja solo las producciones, envíos y expediciones de sus pedidos; la búsqueda por lote coincide con parte del n.º del proveedor. El informe se puede añadir a «Informes favoritos».
+
+## 2.0.16.127
+### ru
+- В отчётах можно сохранять свои именованные варианты: «Ещё» → «Сохранить вариант…», «Выбрать вариант…» и «Изменить вариант…» (поля, группировки, отборы). Сохранённые варианты видны в «Все отчёты» с пометкой «(мой)», их можно открыть, добавить в избранное или удалить.
+### fr
+- Les rapports permettent d'enregistrer vos propres variantes nommées : « Plus » → « Enregistrer la variante… », « Choisir la variante… » et « Modifier la variante… » (champs, regroupements, filtres). Les variantes enregistrées apparaissent dans « Tous les rapports » avec la mention « (le mien) » ; on peut les ouvrir, les ajouter aux favoris ou les supprimer.
+### en
+- Reports can now save your own named variants: "More" → "Save variant…", "Select variant…" and "Change variant…" (fields, groupings, filters). Saved variants appear in "All reports" marked "(mine)" and can be opened, added to favourites or deleted.
+### es
+- Los informes permiten guardar sus propias variantes con nombre: «Más» → «Guardar variante…», «Seleccionar variante…» y «Modificar variante…» (campos, agrupaciones, filtros). Las variantes guardadas aparecen en «Todos los informes» con la marca «(mío)» y se pueden abrir, añadir a favoritos o eliminar.
+
+## 2.0.16.126
+### ru
+- В разделе «Главное» появились «Избранные отчёты»: панель с уменьшенными образами ваших любимых отчётов. Щелчок по образу или заголовку открывает отчёт с теми же отборами и настройками. Образы обновляются сами, если им больше часа, или по кнопке; плитки можно переименовать, переставить и убрать.
+- «Все отчёты» в разделе «Главное»: все доступные вам отчёты по разделам с быстрым поиском по названию и описанию. Отчёт открывается двойным щелчком, кнопка «В избранное» добавляет его на панель.
+- В открытом отчёте появилась кнопка «В избранное»: настройте отборы и добавьте отчёт на панель — он откроется именно с этими настройками. Бухгалтерские и зарплатные отчёты со своими формами добавляются ярлыком, без образа.
+- У каждого пользователя своё избранное; отчёт, к которому у пользователя нет доступа, на панели не показывается.
+### fr
+- La section « Principal » propose désormais les « Rapports favoris » : un panneau avec des aperçus réduits de vos rapports préférés. Un clic sur l'aperçu ou le titre ouvre le rapport avec les mêmes filtres et paramètres. Les aperçus se mettent à jour d'eux-mêmes s'ils datent de plus d'une heure, ou par un bouton ; les tuiles peuvent être renommées, déplacées et retirées.
+- « Tous les rapports » dans la section « Principal » : tous les rapports auxquels vous avez accès, par section, avec une recherche rapide par nom et description. Un double clic ouvre le rapport, le bouton « Ajouter aux favoris » l'ajoute au panneau.
+- Un rapport ouvert propose le bouton « Ajouter aux favoris » : réglez les filtres et ajoutez le rapport au panneau — il s'ouvrira avec exactement ces paramètres. Les rapports comptables et de paie ayant leurs propres formulaires sont ajoutés comme raccourci, sans aperçu.
+- Chaque utilisateur a ses propres favoris ; un rapport auquel l'utilisateur n'a pas accès n'est pas affiché dans le panneau.
+### en
+- The "Main" section now has "Favourite reports": a panel with reduced snapshots of your favourite reports. Clicking a snapshot or title opens the report with the same filters and settings. Snapshots refresh by themselves when older than an hour, or with a button; tiles can be renamed, reordered and removed.
+- "All reports" in the "Main" section: all reports available to you, by section, with a quick search by name and description. Double-click opens a report, the "Add to favourites" button adds it to the panel.
+- An open report now has an "Add to favourites" button: set the filters and add the report to the panel — it will open with exactly these settings. Accounting and payroll reports with their own forms are added as a shortcut, without a snapshot.
+- Each user has their own favourites; a report the user has no access to is not shown on the panel.
+### es
+- La sección «Principal» ahora tiene «Informes favoritos»: un panel con vistas reducidas de sus informes preferidos. Un clic en la vista o el título abre el informe con los mismos filtros y ajustes. Las vistas se actualizan solas si tienen más de una hora, o con un botón; los mosaicos se pueden renombrar, reordenar y quitar.
+- «Todos los informes» en la sección «Principal»: todos los informes a los que tiene acceso, por sección, con búsqueda rápida por nombre y descripción. Un doble clic abre el informe, el botón «Añadir a favoritos» lo añade al panel.
+- Un informe abierto tiene ahora el botón «Añadir a favoritos»: ajuste los filtros y añada el informe al panel; se abrirá exactamente con esos ajustes. Los informes contables y de nómina con formularios propios se añaden como acceso directo, sin vista.
+- Cada usuario tiene sus propios favoritos; un informe al que el usuario no tiene acceso no se muestra en el panel.
+
+## 2.0.16.125
+### ru
+- Акт передачи в переработку: в шапке рядом с заказом печатается клиент заказа.
+- Акт передачи в переработку, накладная BL и расходный ордер: под строкой товара отдельными строками печатаются его вес и заполненные дополнительные реквизиты (например, материал, цвет, ширина, тип обработки). Вес не повторяется, если количество строки уже указано в весовой единице.
+### fr
+- Bon de transfert en sous-traitance : le client de la commande est imprimé dans l'en-tête, à côté de la commande.
+- Bon de transfert en sous-traitance, bon de livraison et bon de sortie : sous la ligne d'article, son poids et ses attributs supplémentaires renseignés (par exemple matière, couleur, largeur, type de traitement) sont imprimés chacun sur sa propre ligne. Le poids n'est pas répété si la quantité de la ligne est déjà exprimée dans une unité de poids.
+### en
+- Transfer for processing act: the order's customer is printed in the header, next to the order.
+- Transfer for processing act, delivery note and goods issue order: below the item line, its weight and filled-in additional attributes (for example material, colour, width, processing type) are printed, each on its own line. The weight is not repeated if the line quantity is already in a unit of weight.
+### es
+- Acta de transferencia a procesamiento: el cliente del pedido se imprime en el encabezado, junto al pedido.
+- Acta de transferencia a procesamiento, albarán de entrega y orden de salida: bajo la línea del artículo se imprimen su peso y sus atributos adicionales rellenados (por ejemplo material, color, ancho, tipo de tratamiento), cada uno en su propia línea. El peso no se repite si la cantidad de la línea ya está en una unidad de peso.
+
+## 2.0.16.124
+### ru
+- Остатки на складах ведутся одним регистром — партиями «Товаров в наличии»: физический остаток, остатки в подборе, в документах, отчётах и на дашборде — это сумма партий позиции. Цифры не меняются, но отдельной копии остатков больше нет, и расходиться им не с чем.
+- При обновлении ордера, проведённые до перехода на партии и ещё не переведённые, переводятся автоматически.
+- Оповещение о минимальном остатке работает как прежде; налоговые документы на основаниях его не вызывают.
+### fr
+- Les stocks des entrepôts sont tenus dans un seul registre — les lots des « Produits en stock » : le stock physique, les stocks dans la sélection, les documents, les rapports et le tableau de bord sont la somme des lots de l'article. Les chiffres ne changent pas, mais il n'y a plus de copie séparée des stocks qui pourrait diverger.
+- Lors de la mise à jour, les bons validés avant le passage aux lots et pas encore convertis sont convertis automatiquement.
+- La notification de stock minimum fonctionne comme avant ; les documents fiscaux sur bases ne la déclenchent pas.
+### en
+- Warehouse stock is kept in a single register — the batches of «Products in stock»: physical stock, stock in selection, documents, reports and the dashboard are the sum of the item's batches. The figures do not change, but there is no separate copy of stock left to diverge.
+- On update, orders posted before the move to batches and not yet converted are converted automatically.
+- The minimum stock notification works as before; tax documents on bases do not trigger it.
+### es
+- Las existencias de los almacenes se llevan en un solo registro — los lotes de «Productos en stock»: las existencias físicas, en la selección, en documentos, informes y el panel son la suma de los lotes del artículo. Las cifras no cambian, pero ya no hay una copia aparte de existencias que pueda divergir.
+- Al actualizar, las órdenes contabilizadas antes del paso a lotes y aún no convertidas se convierten automáticamente.
+- La notificación de existencias mínimas funciona como antes; los documentos fiscales sobre bases no la activan.
+
+## 2.0.16.123
+### ru
+- Ордерный склад: поступление и реализацию можно провести и без ордера — документ первым. Товар ждёт приёмки или отгрузки, а кладовщик вводит приходный или расходный ордер на основании документа: строки заполняются тем, что ещё не принято или не отгружено.
+- В одном документе можно сочетать строки по ордерам и строки без ордера.
+- Партия, принятая по поступлению частями, получает стоимость по своей доле строки; изменение цены поступления сразу пересчитывает партии всех его приёмок.
+- Себестоимость реализации, проведённой раньше отгрузки, появляется по мере отгрузки расходными ордерами. В отчётах стоимости и маржи видно, сколько реализаций ещё не отгружено полностью.
+- Вернуть по реализации ордерного склада можно только то, что уже отгружено; отменить отгрузку, которую покупатель вернул, нельзя.
+- Дополнительные расходы на поступление, ещё не принятое полностью, распределяются по мере приёмки; программа сообщает, какая часть ждёт приёмки.
+- Поступление, принятое ордером, и строки, по которым принят товар, защищены от отмены и удаления: сначала отменяется ордер.
+- В отчёте «Остатки на складах» — колонки «Ожидает приёмки» и «Ожидает отгрузки». Раз в сутки приходит оповещение, если ордера или документы ждут оформления дольше трёх дней (порог настраивается).
+- При выпуске из материала, стоимость которого ещё не подтверждена поступлением, программа предупреждает об этом.
+### fr
+- Entrepôt à bons : la réception et la vente peuvent être validées sans bon — le document d'abord. La marchandise attend la réception ou l'expédition, et le magasinier saisit un bon d'entrée ou de sortie à partir du document : les lignes reprennent ce qui n'est pas encore reçu ou expédié.
+- Un même document peut combiner des lignes sur bons et des lignes sans bon.
+- Un lot reçu en plusieurs fois reçoit le coût de sa part de ligne ; un changement de prix de la réception recalcule aussitôt les lots de toutes ses réceptions.
+- Le coût d'une vente validée avant l'expédition apparaît au fur et à mesure des bons de sortie. Les rapports de coût et de marge indiquent combien de ventes ne sont pas encore entièrement expédiées.
+- Pour une vente d'entrepôt à bons, seul l'expédié peut être retourné ; une expédition retournée par le client ne peut pas être annulée.
+- Les frais d'une réception pas encore entièrement reçue sont répartis au fil des réceptions ; le programme indique la part en attente.
+- Une réception reçue par bon et ses lignes reçues sont protégées contre l'annulation et la suppression : il faut d'abord annuler le bon.
+- Le rapport « Stocks des entrepôts » a les colonnes « En attente de réception » et « En attente d'expédition ». Une notification quotidienne signale les bons ou documents en attente depuis plus de trois jours (seuil réglable).
+- Lors d'une fabrication à partir d'un matériau dont le coût n'est pas encore confirmé par une réception, le programme le signale.
+### en
+- Order-based warehouse: a receipt or a sale can now be posted without an order — document first. The goods wait for receipt or shipment, and the storekeeper enters a receipt or issue order based on the document: the lines are filled with what is not yet received or shipped.
+- One document can combine lines on orders and lines without an order.
+- A batch received in parts gets the cost of its share of the line; a change of the receipt price immediately recalculates the batches of all its receipts.
+- The cost of a sale posted before shipment appears as issue orders ship it. Cost and margin reports show how many sales are not yet fully shipped.
+- For an order-based warehouse sale only goods already shipped can be returned; a shipment returned by the customer cannot be cancelled.
+- Additional costs of a receipt not yet fully received are allocated as goods are received; the program shows the part still waiting.
+- A receipt received by order and its received lines are protected from unposting and deletion: cancel the order first.
+- The «Warehouse stock» report has «Awaiting receipt» and «Awaiting shipment» columns. A daily notification warns when orders or documents have waited more than three days (configurable threshold).
+- When production uses a material whose cost is not yet confirmed by a receipt, the program warns about it.
+### es
+- Almacén con órdenes: la recepción y la venta pueden contabilizarse sin orden — el documento primero. La mercancía espera la recepción o el envío, y el almacenero introduce una orden de entrada o de salida a partir del documento: las líneas se rellenan con lo que aún no se ha recibido o enviado.
+- Un mismo documento puede combinar líneas por órdenes y líneas sin orden.
+- Un lote recibido por partes recibe el coste de su parte de la línea; un cambio de precio de la recepción recalcula al instante los lotes de todas sus recepciones.
+- El coste de una venta contabilizada antes del envío aparece a medida que lo envían las órdenes de salida. Los informes de coste y margen muestran cuántas ventas aún no se han enviado por completo.
+- En una venta de almacén con órdenes solo se devuelve lo ya enviado; un envío devuelto por el cliente no se puede anular.
+- Los gastos de una recepción aún no recibida por completo se reparten a medida que se recibe; el programa indica la parte pendiente.
+- Una recepción recibida por orden y sus líneas recibidas están protegidas contra la anulación y la eliminación: primero se anula la orden.
+- El informe «Existencias en almacenes» tiene las columnas «Pendiente de recepción» y «Pendiente de envío». Una notificación diaria avisa cuando órdenes o documentos esperan más de tres días (umbral configurable).
+- Al fabricar con un material cuyo coste aún no está confirmado por una recepción, el programa lo advierte.
+
+## 2.0.16.122
+### ru
+- Ордерный склад: приходный ордер сразу создаёт партию — материал, принятый кладовщиком, можно списывать в производство, перемещать и отгружать до того, как менеджер оформит поступление.
+- Стоимость такой партии — 0 до оформления поступления, без оценки. Когда поступление оформлено, стоимость партии пересчитывается сразу, а себестоимость выпуска, списаний и продаж из неё — при пересчёте себестоимости («Сервис — Перепроведение документов» или по расписанию).
+- Расходный ордер списывает партии со склада сам; реализация по ордеру получает себестоимость из этого списания — по своей части отгрузки. Если партий на складе не хватает, расходный ордер не проводится.
+- Пока у партии ордерного склада есть неоформленный остаток или её расходы ещё не пересчитаны, её стоимость в расчёт цен не попадает: средняя себестоимость для цен и правила ценообразования берут только подтверждённые партии. В отчётах стоимости и маржи видно, сколько партий со стоимостью, не подтверждённой поступлением.
+- Дополнительные расходы поступления ордерного склада и документ дополнительных расходов по такому поступлению ложатся на партии ордеров. Дополнительный расход партии с нулевой стоимостью списывается пропорционально количеству.
+- Документ, оформивший ордер, нельзя удалить, не отменив сначала его проведение; ордер должен быть раньше оформляющего документа. Налоговый документ на основаниях с ордерного склада не оформляется.
+- Ордера, проведённые до обновления, переходят на партии при повторном проведении ордера или при пересчёте себестоимости; ордера, оформленные одним документом, переводятся вместе. До этого документы, оформившие такой ордер, повторно не проводятся — программа подскажет, что сделать.
+- Поступление ордерного склада, на которое распределены дополнительные расходы отдельным документом, нельзя отменить, пока не отменён этот документ.
+### fr
+- Entrepôt à bons : le bon d'entrée crée immédiatement le lot — la matière reçue par le magasinier peut être consommée en production, transférée et expédiée avant que le gestionnaire n'enregistre la réception.
+- Le coût d'un tel lot est 0 tant que la réception n'est pas enregistrée, sans estimation. Une fois la réception enregistrée, le coût du lot est recalculé aussitôt, et le coût de la production, des sorties et des ventes qui en proviennent — lors du recalcul du coût (« Service — Repasser les documents » ou selon la planification).
+- Le bon de sortie consomme lui-même les lots de l'entrepôt ; la vente sur bon reçoit son coût de cette sortie, pour sa part de l'expédition. Si les lots de l'entrepôt ne suffisent pas, le bon de sortie n'est pas validé.
+- Tant qu'un lot de l'entrepôt à bons a un reste non régularisé ou que ses sorties ne sont pas recalculées, son coût n'entre pas dans le calcul des prix : le coût moyen pour les prix et les règles de tarification ne prennent que les lots confirmés. Les rapports de coût et de marge indiquent le nombre de lots au coût non confirmé par une réception.
+- Les frais supplémentaires d'une réception de l'entrepôt à bons et le document de frais supplémentaires sur une telle réception sont imputés aux lots des bons. Les frais supplémentaires d'un lot à coût nul sont sortis au prorata de la quantité.
+- Un document qui a régularisé un bon ne peut pas être supprimé sans être d'abord dévalidé ; le bon doit précéder le document de régularisation. Aucun document fiscal sur bases n'est établi depuis un entrepôt à bons.
+- Les bons validés avant la mise à jour passent aux lots lors d'une nouvelle validation du bon ou du recalcul du coût ; les bons régularisés par un même document sont convertis ensemble. D'ici là, les documents qui ont régularisé un tel bon ne sont pas revalidés — le programme indique quoi faire.
+- Une réception d'entrepôt à bons sur laquelle des frais sont répartis par un document séparé ne peut pas être dévalidée tant que ce document n'est pas dévalidé.
+### en
+- Order-based warehouse: a receipt order creates the batch right away — material accepted by the storekeeper can be consumed in production, transferred and shipped before the manager documents the purchase receipt.
+- The cost of such a batch is 0 until the receipt is documented, with no estimate. Once the receipt is documented, the batch cost is recalculated at once, and the cost of production, write-offs and sales made from it — during cost recalculation ("Service — Document reposting" or on schedule).
+- An issue order writes off batches from the warehouse itself; a sale documenting the order gets its cost from that write-off, for its share of the shipment. If the warehouse lacks batches, the issue order is not posted.
+- While a batch of an order-based warehouse has an undocumented remainder or its write-offs are not yet recalculated, its cost stays out of pricing: the average cost for prices and the pricing rules use confirmed batches only. Cost and margin reports show how many batches have a cost not confirmed by a receipt.
+- Additional costs of a receipt at an order-based warehouse and an additional cost document for such a receipt go to the order batches. The additional cost of a zero-cost batch is written off in proportion to quantity.
+- A document that documented an order cannot be deleted without being unposted first; the order must be earlier than the documenting document. A tax document on bases is not issued from an order-based warehouse.
+- Orders posted before the update move to batches when the order is posted again or during cost recalculation; orders documented by the same document are converted together. Until then, documents that documented such an order are not reposted — the program tells you what to do.
+- An order-based warehouse receipt with additional costs allocated by a separate document cannot be unposted until that document is unposted.
+### es
+- Almacén por órdenes: la orden de entrada crea el lote al momento — el material recibido por el almacenero puede consumirse en producción, trasladarse y enviarse antes de que el gestor registre la recepción.
+- El coste de ese lote es 0 hasta que se registra la recepción, sin estimación. Al registrar la recepción, el coste del lote se recalcula en el acto, y el coste de la producción, las bajas y las ventas que salen de él — en el recálculo del coste («Servicio — Volver a contabilizar documentos» o según la programación).
+- La orden de salida da de baja los lotes del almacén por sí misma; la venta que formaliza la orden recibe su coste de esa baja, por su parte del envío. Si faltan lotes en el almacén, la orden de salida no se contabiliza.
+- Mientras un lote del almacén por órdenes tenga un resto sin formalizar o sus salidas no estén recalculadas, su coste no entra en el cálculo de precios: el coste medio para precios y las reglas de tarificación toman solo lotes confirmados. Los informes de coste y margen muestran cuántos lotes tienen un coste no confirmado por una recepción.
+- Los gastos adicionales de una recepción del almacén por órdenes y el documento de gastos adicionales sobre esa recepción se imputan a los lotes de las órdenes. El gasto adicional de un lote de coste cero se da de baja en proporción a la cantidad.
+- Un documento que formalizó una orden no puede eliminarse sin anular antes su contabilización; la orden debe ser anterior al documento que la formaliza. No se emite documento fiscal sobre bases desde un almacén por órdenes.
+- Las órdenes contabilizadas antes de la actualización pasan a lotes al volver a contabilizar la orden o al recalcular el coste; las órdenes formalizadas por un mismo documento se convierten juntas. Hasta entonces, los documentos que formalizaron esa orden no se vuelven a contabilizar — el programa indica qué hacer.
+- Una recepción de almacén con órdenes con gastos repartidos por un documento aparte no se puede anular mientras ese documento no se anule.
+
+## 2.0.16.121
+### ru
+- Маржа считается по партиям и статьям дополнительных расходов: себестоимость проданного товара хранится отдельно от выручки — по каждой партии, из которой товар ушёл со склада, и по каждой статье дополнительных расходов (доставка, таможня и другие). Отчёты «Ведомость по продажам», «Финансовый результат», «ABC-анализ продаж», «Проданный товар без накладной», дашборд продаж и расчёт зарплаты от прибыли берут себестоимость оттуда.
+- История продаж перенесена: при обновлении себестоимость всех прежних продаж и возвратов переносится автоматически и сверяется с прежними данными по каждому документу; маржа в отчётах за прошлые периоды не меняется. Если в истории найдутся возвраты, вернувшие больше, чем было продано из партии, обновление остановится и назовёт эти документы.
+- Возврат от покупателя: второй и следующие частичные возвраты по одной продаже возвращают на склад оставшиеся партии, а не первые снова; несколько строк одного товара в возврате тоже не возвращают одну партию дважды. Выручка возврата считается от ещё не возвращённой части продажи — после полного возврата продажа обнуляется точно.
+- «Финансовый результат»: дополнительные расходы в закупочной стоимости проданного теперь вычитаются, а не прибавляются.
+- Продажи, покрытые налоговым документом на основаниях с возвратами, теперь тоже пересчитываются при пересчёте себестоимости вместе с налоговым документом и возвратами по нему.
+- В отчётах «ABC-анализ продаж» и «Проданный товар без накладной» видно, на какой момент себестоимость актуальна. В карточке продажи пользователь личного кабинета не видит себестоимость, прибыль и наценку.
+### fr
+- La marge est calculée par lot et par poste de frais supplémentaires : le coût des marchandises vendues est conservé séparément du chiffre d'affaires — pour chaque lot dont la marchandise est sortie de l'entrepôt et pour chaque poste de frais supplémentaires (transport, douane, etc.). Les rapports « État des ventes », « Résultat financier », « Analyse ABC des ventes », « Produits vendus sans facture », le tableau de bord des ventes et le calcul des salaires sur la marge en tirent le coût.
+- L'historique des ventes est transféré : lors de la mise à jour, le coût de toutes les ventes et de tous les retours passés est transféré automatiquement et rapproché des anciennes données document par document ; la marge des rapports des périodes passées ne change pas. Si l'historique contient des retours ayant restitué plus que ce qui avait été vendu d'un lot, la mise à jour s'arrête et nomme ces documents.
+- Retour client : le deuxième retour partiel et les suivants sur une même vente restituent les lots restants, et non les premiers à nouveau ; plusieurs lignes d'un même article dans un retour ne restituent pas non plus le même lot deux fois. Le chiffre d'affaires du retour est calculé sur la partie de la vente pas encore retournée — après un retour complet, la vente revient exactement à zéro.
+- « Résultat financier » : les frais supplémentaires du coût d'achat des produits vendus sont désormais déduits et non plus ajoutés.
+- Les ventes couvertes par un document fiscal sur bases avec des retours sont désormais elles aussi recalculées lors du recalcul du coût, avec le document fiscal et ses retours.
+- Les rapports « Analyse ABC des ventes » et « Produits vendus sans facture » indiquent à quelle date le coût est à jour. Dans la fiche de vente, l'utilisateur de l'espace client ne voit ni le coût, ni la marge, ni la majoration.
+### en
+- Margin is calculated by batch and by additional cost item: the cost of goods sold is kept separately from revenue — for each batch the goods left the warehouse from and for each additional cost item (delivery, customs and others). The "Sales status", "Financial result", "ABC sales analysis", "Products sold without invoice" reports, the sales dashboard and profit-based payroll take the cost from there.
+- Sales history is transferred: during the update, the cost of all past sales and returns is transferred automatically and reconciled with the previous data document by document; the margin in reports for past periods does not change. If the history contains returns that brought back more than was sold from a batch, the update stops and names those documents.
+- Customer return: the second and further partial returns of the same sale bring back the remaining batches, not the first ones again; several lines of the same item in a return do not bring back one batch twice either. Return revenue is calculated from the part of the sale not yet returned — after a full return the sale comes to exactly zero.
+- "Financial result": additional costs in the purchase cost of goods sold are now subtracted instead of added.
+- Sales covered by a tax document on bases with returns are now also recalculated during cost recalculation, together with the tax document and its returns.
+- The "ABC sales analysis" and "Products sold without invoice" reports show up to which moment the cost is current. In the sale form, a customer portal user does not see the cost, profit and markup.
+### es
+- El margen se calcula por lote y por partida de gastos adicionales: el coste de la mercancía vendida se guarda aparte de los ingresos — por cada lote del que la mercancía salió del almacén y por cada partida de gastos adicionales (transporte, aduana y otras). Los informes «Estado de ventas», «Resultado financiero», «Análisis ABC de ventas», «Productos vendidos sin factura», el panel de ventas y el cálculo de la nómina sobre el beneficio toman el coste de ahí.
+- El historial de ventas se ha trasladado: en la actualización, el coste de todas las ventas y devoluciones anteriores se traslada automáticamente y se concilia con los datos anteriores documento por documento; el margen de los informes de periodos pasados no cambia. Si el historial contiene devoluciones que restituyeron más de lo vendido de un lote, la actualización se detiene y nombra esos documentos.
+- Devolución del cliente: la segunda devolución parcial y las siguientes de una misma venta restituyen los lotes restantes y no los primeros de nuevo; varias líneas de un mismo artículo en una devolución tampoco restituyen un lote dos veces. Los ingresos de la devolución se calculan sobre la parte de la venta aún no devuelta — tras una devolución completa, la venta queda exactamente en cero.
+- «Resultado financiero»: los gastos adicionales del coste de compra de lo vendido ahora se restan en vez de sumarse.
+- Las ventas cubiertas por un documento fiscal sobre bases con devoluciones ahora también se recalculan en el recálculo del coste, junto con el documento fiscal y sus devoluciones.
+- Los informes «Análisis ABC de ventas» y «Productos vendidos sin factura» muestran hasta qué momento el coste está al día. En la ficha de venta, el usuario del área de cliente no ve el coste, el beneficio ni el margen.
+
+## 2.0.16.120
+### ru
+- Себестоимость выпуска продукции, требований-накладных и передачи в переработку теперь пересчитывается вместе с остальными документами: если задним числом провели поступление материала или изменили его цену, себестоимость выпуска и проданной продукции догонит это при пересчёте. Автовыпуск, «из остатка», стадии заказов, загрузка станков и закрепление материалов при пересчёте не меняются.
+- Пересчёт себестоимости теперь идёт сам каждые 30 минут (если администратор не задал своё расписание) и только по документам, которые его ждут. Кнопка «Выполнить» в «Перепроведении документов» начинает с последнего пересчитанного документа; второй пересчёт одновременно не запускается. При ошибке документа пересчёт останавливается на нём — список в «Непроведенных документах».
+- В отчётах «Стоимость склада», «Ведомость по товарам на складах», «Ведомость по продажам», «Финансовый результат», «Себестоимость продукции» видно, на какой момент себестоимость актуальна: пока пересчёт не догнал документы, над отчётом — строка «Себестоимость пересчитана по…». На дашборде продаж — карточка «Себестоимость» со ссылкой «Пересчитать».
+- После обновления первый пересчёт пройдёт и по прежним выпускам и переработке — это может занять время на базе с длинной историей.
+### fr
+- Le coût de revient des productions, des bons de consommation et des transferts en sous-traitance est désormais recalculé avec les autres documents : si une réception de matière a été validée à une date antérieure ou si son prix a changé, le coût de la production et des produits vendus est mis à jour lors du recalcul. La fabrication automatique, le « depuis le stock », les étapes des commandes, la charge des machines et les matières réservées ne changent pas lors du recalcul.
+- Le recalcul du coût s'exécute maintenant automatiquement toutes les 30 minutes (sauf si l'administrateur a défini son propre planning) et uniquement pour les documents qui l'attendent. Le bouton « Exécuter » de « Repasser les documents » commence au dernier document recalculé ; un second recalcul simultané ne démarre pas. En cas d'erreur sur un document, le recalcul s'arrête sur celui-ci — liste dans « Documents non reportés ».
+- Les rapports « Valeur du stock », « État des stocks », « État des ventes », « Résultat financier » et « Coût de revient des produits » indiquent à quelle date le coût est à jour : tant que le recalcul n'a pas rattrapé les documents, une ligne « Coût de revient recalculé jusqu'au… » s'affiche au-dessus du rapport. Le tableau de bord des ventes a une carte « Coût de revient » avec le lien « Recalculer ».
+- Après la mise à jour, le premier recalcul passera aussi sur les productions et la sous-traitance existantes — cela peut prendre du temps sur une base avec un long historique.
+### en
+- The cost of production output, requisitions and transfers for subcontracting is now recalculated together with the other documents: if a material receipt was posted backdated or its price changed, the cost of the output and of the products sold catches up during recalculation. Automatic output, "from stock", order stages, machine load and reserved materials do not change during recalculation.
+- Cost recalculation now runs by itself every 30 minutes (unless the administrator set a schedule of their own) and only for the documents waiting for it. The "Run" button in "Document reposting" starts from the last recalculated document; a second recalculation does not start at the same time. If a document fails, recalculation stops on it — see the list in "Documents not postponed".
+- The "Warehouse value", "Inventory status", "Sales status", "Financial result" and "Product cost" reports show up to which moment the cost is current: while recalculation has not caught up with the documents, a "Cost recalculated up to…" line is shown above the report. The sales dashboard has a "Cost" card with a "Recalculate" link.
+- After the update, the first recalculation also goes through existing production output and subcontracting — it may take a while on a database with a long history.
+### es
+- El coste de la producción, de los vales de consumo y de las transferencias a subcontratación ahora se recalcula junto con los demás documentos: si una recepción de materia se contabilizó con fecha anterior o cambió su precio, el coste de la producción y de los productos vendidos se pone al día en el recálculo. La fabricación automática, el «desde el stock», las etapas de los pedidos, la carga de las máquinas y los materiales reservados no cambian en el recálculo.
+- El recálculo del coste ahora se ejecuta solo cada 30 minutos (salvo que el administrador haya fijado su propia programación) y solo para los documentos que lo esperan. El botón «Ejecutar» de «Volver a contabilizar documentos» empieza por el último documento recalculado; un segundo recálculo no se inicia a la vez. Si un documento falla, el recálculo se detiene en él — lista en «Documentos no aplazados».
+- Los informes «Valor del almacén», «Estado del inventario», «Estado de ventas», «Resultado financiero» y «Coste de los productos» muestran hasta qué momento el coste está al día: mientras el recálculo no alcanza a los documentos, sobre el informe aparece la línea «Coste recalculado hasta…». El panel de ventas tiene una tarjeta «Coste» con el enlace «Recalcular».
+- Tras la actualización, el primer recálculo pasará también por las producciones y subcontrataciones existentes; puede tardar en una base con un historial largo.
+
+## 2.0.16.119
+### ru
+- Отгрузка продукции, полученной от переработчика: если отгрузку (например, расходный ордер) создали заранее, а продукция пришла позже её даты, программа больше не пытается произвести эту продукцию заново и не пишет о нехватке сырья. Вместо этого она называет поступление из переработки и подсказывает, на какую дату перенести отгрузку, чтобы её провести.
+### fr
+- Expédition d'un produit reçu du sous-traitant : si l'expédition (par exemple un bon de sortie) a été créée à l'avance et que le produit est arrivé après sa date, le programme n'essaie plus de refabriquer ce produit et n'annonce plus un manque de matières. Il indique la réception de sous-traitance et la date à laquelle reporter l'expédition pour la valider.
+### en
+- Shipping a product received from the subcontractor: if the shipment (for example, a goods issue order) was created in advance and the product arrived after its date, the program no longer tries to produce the product again or reports missing materials. Instead, it names the subcontracting receipt and suggests the date to move the shipment to so that it can be posted.
+### es
+- Envío de un producto recibido del subcontratista: si el envío (por ejemplo, una orden de salida) se creó de antemano y el producto llegó después de su fecha, el programa ya no intenta volver a fabricarlo ni informa de falta de materias. En su lugar, indica la recepción de subcontratación y la fecha a la que mover el envío para contabilizarlo.
+
+## 2.0.16.118
+### ru
+- Кнопки, которые работают с выделенными строками, теперь действительно остаются в панели, когда строки отмечены флажками: «Оформить поступлением» и «Оформить реализацией» в списках приходных и расходных ордеров и остальные кнопки из сборки 2.0.16.117.
+- Списки приходных и расходных ордеров: снова видны дата и номер ордера, появились колонки «Наша компания» и «Количество» (сколько товара в ордере всего), колонка места хранения называется «Склад».
+### fr
+- Les boutons qui agissent sur les lignes sélectionnées restent maintenant vraiment dans la barre quand des lignes sont cochées : « Régulariser par une réception » et « Régulariser par une vente » dans les listes des bons de réception et de sortie, ainsi que les autres boutons de la version 2.0.16.117.
+- Listes des bons de réception et de sortie : la date et le numéro du bon sont de nouveau affichés, les colonnes « Notre société » et « Quantité » (quantité totale d'articles du bon) sont ajoutées, la colonne du lieu de stockage s'appelle « Entrepôt ».
+### en
+- Buttons that act on the selected lines now really stay in the bar when lines are checked: "Document with a receipt" and "Document with a sale" in the goods receipt and goods issue order lists, and the other buttons from build 2.0.16.117.
+- Goods receipt and goods issue order lists: the order date and number are shown again, the "Our company" and "Quantity" (total quantity of goods in the order) columns are added, and the storage place column is now called "Warehouse".
+### es
+- Los botones que actúan sobre las líneas seleccionadas ahora sí permanecen en la barra cuando las líneas están marcadas: «Formalizar con una recepción» y «Formalizar con una venta» en las listas de órdenes de entrada y de salida, y los demás botones de la versión 2.0.16.117.
+- Listas de órdenes de entrada y de salida: vuelven a mostrarse la fecha y el número de la orden, se añaden las columnas «Nuestra empresa» y «Cantidad» (cantidad total de artículos de la orden) y la columna del lugar de almacenamiento se llama «Almacén».
+
+## 2.0.16.117
+### ru
+- Кнопки, которые работают с выделенными строками, теперь остаются в панели и тогда, когда строки отмечены флажками: «Оформить реализацию» и печать «Коммерческое предложение» в списке реализаций, «Оформить поступление» в списке поступлений, «Изменить выделенные» в бухгалтерских операциях, «Сохранить на диск» в присоединённых файлах, фискализация в очереди чеков, «Создать поступление» по заказам в рабочем месте закупок, а также команды служебных обработок регламентных заданий и регистрации изменений для обмена.
+### fr
+- Les boutons qui agissent sur les lignes sélectionnées restent désormais dans la barre quand des lignes sont cochées : « Créer la vente » et l'impression « Devis » dans la liste des ventes, « Créer la réception » dans la liste des réceptions, « Modifier la sélection » dans les opérations comptables, « Enregistrer sur le disque » dans les fichiers joints, la fiscalisation dans la file des tickets, « Créer une réception » par commandes au poste des achats, ainsi que les commandes des traitements de service des tâches planifiées et de l'enregistrement des modifications pour l'échange.
+### en
+- Buttons that act on the selected lines now stay in the bar when lines are checked: "Create sale" and the "Quotation" print in the sales list, "Create receipt" in the receipts list, "Edit the selection" in accounting operations, "Save to disk" in attached files, fiscalization in the receipt queue, "Create receipt" by orders in the purchasing workplace, and the commands of the scheduled jobs and exchange change registration service tools.
+### es
+- Los botones que actúan sobre las líneas seleccionadas ahora permanecen en la barra cuando las líneas están marcadas: «Crear la venta» y la impresión «Presupuesto» en la lista de ventas, «Crear la recepción» en la lista de recepciones, «Edite la selección» en las operaciones contables, «Guardar en disco» en los archivos adjuntos, la fiscalización en la cola de tickets, «Crear recepción» por pedidos en el puesto de compras, y los comandos de los procesamientos de servicio de tareas programadas y del registro de cambios para el intercambio.
+
+## 2.0.16.116
+### ru
+- Списки приходных и расходных ордеров: кнопки «Оформить поступлением» и «Оформить реализацией» больше не пропадают, когда строки отмечены флажками, — отмеченные ордера оформляются одним документом прямо из панели отмеченных строк.
+### fr
+- Listes des bons de réception et de sortie : les boutons « Régulariser par une réception » et « Régulariser par une vente » ne disparaissent plus quand des lignes sont cochées — les bons cochés se régularisent en un seul document directement depuis la barre des lignes cochées.
+### en
+- Goods receipt and goods issue order lists: the "Document with a receipt" and "Document with a sale" buttons no longer disappear when lines are checked — the checked orders are documented with one document right from the checked-lines bar.
+### es
+- Listas de órdenes de entrada y de salida: los botones «Formalizar con una recepción» y «Formalizar con una venta» ya no desaparecen al marcar líneas — las órdenes marcadas se formalizan en un solo documento directamente desde la barra de líneas marcadas.
+
+## 2.0.16.115
+### ru
+- Рабочее место закупок, «Поступления», режим «Товары»: новая строка добавляется сверху, строки идут по документам — свежие сверху, внутри документа последняя добавленная строка первой.
+- Записанную строку теперь можно править как в рабочем месте производства: двойной щелчок по количеству, товару или цене начинает правку, а форму документа открывает щелчок по колонке «Документ» или «Статус». После закрытия документа курсор остаётся на той же строке. Если правку записать нельзя, появляется сообщение и строке возвращаются записанные значения.
+- Новое меню «Изменить статус» — провести, вернуть в черновик или пометить на удаление документы выделенных строк.
+### fr
+- Poste des achats, « Réceptions », mode « Articles » : la nouvelle ligne s'ajoute en haut, les lignes suivent les documents — les plus récents en haut, et dans un document la dernière ligne ajoutée en premier.
+- Une ligne enregistrée se modifie maintenant comme au poste de production : un double-clic sur la quantité, l'article ou le prix lance la modification, et le formulaire du document s'ouvre par un clic sur la colonne « Document » ou « Statut ». Après la fermeture du document, le curseur reste sur la même ligne. Si la modification ne peut pas être enregistrée, un message s'affiche et la ligne reprend ses valeurs enregistrées.
+- Nouveau menu « Changer le statut » : valider, remettre en brouillon ou marquer pour suppression les documents des lignes sélectionnées.
+### en
+- Purchasing workplace, "Receipts", "Items" mode: a new line is added at the top; lines follow documents — newest at the top, and within a document the last added line comes first.
+- A saved line can now be edited as in the production workplace: double-clicking the quantity, item or price starts editing, while clicking the "Document" or "Status" column opens the document form. After the document is closed, the cursor stays on the same line. If a change cannot be saved, a message appears and the line gets its saved values back.
+- New "Change status" menu: post, return to draft, or mark for deletion the documents of the selected lines.
+### es
+- Puesto de compras, «Recepciones», modo «Artículos»: la línea nueva se añade arriba; las líneas siguen los documentos — los más recientes arriba y, dentro de un documento, la última línea añadida primero.
+- Una línea guardada ahora se edita como en el puesto de producción: un doble clic en la cantidad, el artículo o el precio inicia la edición, y el formulario del documento se abre con un clic en la columna «Documento» o «Estado». Al cerrar el documento, el cursor queda en la misma línea. Si el cambio no se puede guardar, aparece un mensaje y la línea recupera sus valores guardados.
+- Nuevo menú «Cambiar estado»: contabilizar, devolver a borrador o marcar para eliminar los documentos de las líneas seleccionadas.
+
+## 2.0.16.114
+### ru
+- Рабочее место производства, закладка «Выпуск»: в списке выбора поля «Продукция» теперь есть каждый полуфабрикат из материалов заказа, а не только тот, под которым в заказе лежит его сырьё. Полуфабрикатом считается материал со способом изготовления «Наше производство» или «Оба», а если способ не указан — позиция, которая производится по техкарте. Закупаемые материалы и материалы переработчика в список не попадают. Чтобы выпуск полуфабриката провёлся, у него должна быть техкарта.
+### fr
+- Poste de production, onglet « Production » : la liste de choix du champ « Produit » propose désormais chaque semi-fini des matières de la commande, et pas seulement celui sous lequel la commande contient ses matières. Est un semi-fini une matière en mode de fabrication « Notre fabrication » ou « Les deux », ou, sans mode indiqué, un article fabriqué selon une gamme. Les matières achetées et celles du sous-traitant n'y figurent pas. Pour que la production du semi-fini soit validée, il lui faut une gamme.
+### en
+- Production workplace, "Output" tab: the choice list of the "Product" field now offers every semi-finished item from the order materials, not only one with its own materials under it in the order. A semi-finished item is a material with the "Our production" or "Both" manufacturing method or, with no method set, an item produced by a routing. Purchased materials and subcontractor materials are not listed. The semi-finished item needs a routing for its output to be posted.
+### es
+- Puesto de producción, pestaña «Producción»: la lista de selección del campo «Producto» ofrece ahora cada semielaborado de los materiales del pedido, no solo el que tiene sus materias debajo en el pedido. Es semielaborado un material con el modo de fabricación «Producción propia» o «Ambos» o, sin modo indicado, un artículo fabricado según una ruta. Los materiales comprados y los del subcontratista no aparecen. Para contabilizar la producción del semielaborado, este necesita una ruta.
+
+## 2.0.16.113
+### ru
+- Полуфабрикат, у которого в карточке способ пополнения «Оба» (делаем и покупаем), теперь производится, если в строке техкарты изделия стоит «Наше производство»: он попадает в дерево материалов заказа со своим сырьём. После обновления проверьте строки таких полуфабрикатов в техкартах — обновление 2.0.16.103 поставило им «Закупка» — и в открытых заказах заполните материалы по техкарте заново.
+- При включённом «Автовыпуске при отгрузке» полуфабрикат снова можно выпустить вручную на закладке «Выпуск» рабочего места производства. Автовыпуск изделия при отгрузке берёт уже выпущенный по заказу полуфабрикат, а его сырьё списывает только на остальное количество — сырьё не списывается дважды.
+### fr
+- Un semi-fini dont la fiche indique le mode d'approvisionnement « Les deux » (fabriqué et acheté) est désormais fabriqué si la ligne de la gamme du produit indique « Notre fabrication » : il entre dans l'arbre des matières de la commande avec ses matières. Après la mise à jour, vérifiez les lignes de ces semi-finis dans les gammes — la mise à jour 2.0.16.103 leur a mis « Achat » — et remplissez à nouveau les matières des commandes ouvertes selon la gamme.
+- Avec la « Production automatique à l'expédition », le semi-fini peut de nouveau être produit manuellement dans l'onglet « Production » du poste de production. La production automatique du produit à l'expédition prend le semi-fini déjà produit pour la commande et ne consomme ses matières que pour le reste — les matières ne sont pas consommées deux fois.
+### en
+- A semi-finished item whose card has the "Both" replenishment method (made and bought) is now produced when the product's routing line says "Our production": it enters the order's material tree with its materials. After the update, check these semi-finished lines in routings — update 2.0.16.103 set them to "Purchase" — and refill materials of open orders from the routing.
+- With "Automatic output on shipment" on, semi-finished items can again be produced manually on the "Output" tab of the production workplace. Automatic output of the product on shipment takes the semi-finished item already produced for the order and consumes its materials only for the rest — materials are not consumed twice.
+### es
+- Un semielaborado con el modo de reposición «Ambos» (se fabrica y se compra) en su ficha ahora se fabrica si la línea de la ruta del producto indica «Producción propia»: entra en el árbol de materiales del pedido con sus materias. Tras la actualización, revise esas líneas en las rutas — la actualización 2.0.16.103 les puso «Compra» — y vuelva a llenar los materiales de los pedidos abiertos según la ruta.
+- Con la «Producción automática al enviar», el semielaborado se puede producir de nuevo a mano en la pestaña «Producción» del puesto de producción. La producción automática del producto al enviar toma el semielaborado ya producido para el pedido y consume sus materias solo para el resto — las materias no se consumen dos veces.
+
+## 2.0.16.112
+### ru
+- Рабочее место закупок, «Поступления», режим «Товары»: колонки «№ накл.» и «Дата накл.» — номер и дата накладной поставщика вводятся прямо в строке и попадают в новое поступление. Строки с тем же номером накладной того же поставщика на том же складе сами попадают в одно сегодняшнее поступление, как в рабочем месте производства.
+### fr
+- Poste des achats, « Réceptions », mode « Articles » : colonnes « N° fact. » et « Date fact. » — le numéro et la date de la facture du fournisseur se saisissent dans la ligne et passent dans la nouvelle réception. Les lignes avec le même numéro de facture du même fournisseur sur le même entrepôt vont d'elles-mêmes dans une seule réception du jour, comme au poste de production.
+### en
+- Purchasing workplace, "Receipts", "Items" mode: "Invoice No." and "Invoice date" columns — the supplier invoice number and date are entered in the line and go into the new receipt. Lines with the same invoice number of the same supplier on the same warehouse go into one receipt of the day, as in the production workplace.
+### es
+- Puesto de compras, «Recepciones», modo «Artículos»: columnas «N.º fact.» y «Fecha fact.» — el número y la fecha de la factura del proveedor se introducen en la línea y pasan a la nueva recepción. Las líneas con el mismo número de factura del mismo proveedor en el mismo almacén van solas a una recepción del día, como en el puesto de producción.
+
+## 2.0.16.111
+### ru
+- Рабочее место закупок, «Поступления», режим «Товары»: новая колонка «Склад». По складу строки программа сама выбирает документ — на ордерном складе приходный ордер, на обычном поступление, как в рабочем месте производства. По умолчанию подставляется склад поступлений из настроек пользователя.
+- При выборе товара в новой строке сразу заполняется единица из карточки товара и видно, к какому заказу поставщику строка будет привязана.
+- Колонка «Характеристика» показывается только при включённом учёте характеристик, «Цена» и «Сумма» — только пользователю, которому в дополнительных настройках разрешён просмотр сумм.
+### fr
+- Poste des achats, « Réceptions », mode « Articles » : nouvelle colonne « Entrepôt ». Selon l'entrepôt de la ligne, le programme choisit le document — bon de réception sur un entrepôt à bons, réception sinon, comme au poste de production. Par défaut, l'entrepôt de réception des paramètres de l'utilisateur.
+- Au choix de l'article dans une nouvelle ligne, l'unité de la fiche article est remplie aussitôt et la commande fournisseur à laquelle la ligne sera rattachée est visible.
+- La colonne « Caractéristique » n'apparaît que si les caractéristiques sont utilisées ; « Prix » et « Montant » seulement pour l'utilisateur autorisé à voir les montants dans ses paramètres supplémentaires.
+### en
+- Purchasing workplace, "Receipts", "Items" mode: new "Warehouse" column. The line's warehouse decides the document — a goods receipt note on an order-based warehouse, a receipt otherwise, as in the production workplace. By default, the receipt warehouse from the user settings.
+- When an item is chosen in a new line, the unit from the item card is filled at once and the supplier order the line will be linked to is shown.
+- The "Characteristic" column is shown only when characteristics are used; "Price" and "Amount" only for users allowed to see amounts in their additional settings.
+### es
+- Puesto de compras, «Recepciones», modo «Artículos»: nueva columna «Almacén». Según el almacén de la línea, el programa elige el documento — orden de entrada en un almacén por órdenes, recepción en otro caso, como en el puesto de producción. Por defecto, el almacén de recepciones de la configuración del usuario.
+- Al elegir el artículo en una línea nueva, la unidad de la ficha se rellena enseguida y se ve el pedido al proveedor al que se vinculará la línea.
+- La columna «Característica» se muestra solo si se usan características; «Precio» e «Importe», solo al usuario con permiso para ver importes en su configuración adicional.
+
+## 2.0.16.110
+### ru
+- Акт передачи в переработку печатается в фирменном оформлении, как наши накладные: логотип, шрифты и цвета, заказчик и переработчик в шапке, переданное сырьё и ожидаемая продукция — разделами одной таблицы, подписи «Отпустил» и «Получил». Если вы меняли прежний макет акта, правка больше не действует (запись в журнале регистрации).
+### fr
+- Le bon de transfert en sous-traitance s'imprime dans la mise en page à en-tête, comme nos bons de livraison : logo, polices et couleurs, donneur d'ordre et sous-traitant en en-tête, matières transférées et produits attendus en sections d'un même tableau, signatures « Remis par » et « Reçu par ». Si vous aviez modifié l'ancien modèle du bon, la modification ne s'applique plus (entrée dans le journal).
+### en
+- The transfer for processing act is printed in the branded layout, like our delivery notes: logo, fonts and colours, customer and processor in the header, transferred materials and expected products as sections of one table, "Issued by" and "Received by" signatures. If you had changed the old act template, the change no longer applies (event log entry).
+### es
+- El acta de transferencia a procesamiento se imprime con el diseño corporativo, como nuestros albaranes: logotipo, fuentes y colores, cliente y subcontratista en la cabecera, materias transferidas y productos esperados como secciones de una misma tabla, firmas «Despachado por» y «Recibido por». Si había modificado la plantilla anterior del acta, el cambio ya no se aplica (entrada en el registro).
+
+## 2.0.16.109
+### ru
+- Ручной выпуск по заказу на производство (строкой рабочего места производства) теперь уменьшает дефицит сырья: материалы, взятые со свободного склада, больше не предлагаются к закупке на закладке «Потребность» рабочего места закупок. Выпуск, проведённый до обновления, этого не делает — если «Потребность» предлагает докупить уже израсходованное сырьё, перепроведите такой выпуск.
+- При включённом «Автовыпуске при отгрузке» рабочее место производства не предлагает вручную выпускать полуфабрикаты: изделие при отгрузке само спишет их сырьё.
+- Рабочее место закупок, открытое на закладке «Поступления», сразу показывает подменю «Создать» (при ордерных складах) — раньше до смены закладки была видна простая кнопка.
+- Исправлен запуск длительных операций в фоне.
+### fr
+- La production manuelle sur commande de fabrication (ligne du poste de production) réduit désormais le manque de matières : les matières prises sur le stock libre ne sont plus proposées à l'achat dans l'onglet « Besoin » du poste des achats. Une production validée avant la mise à jour ne le fait pas : si « Besoin » propose de racheter des matières déjà consommées, revalidez cette production.
+- Avec la « Production automatique à l'expédition », le poste de production ne propose plus de produire manuellement les semi-finis : le produit consommera leurs matières à l'expédition.
+- Le poste des achats ouvert sur l'onglet « Réceptions » affiche tout de suite le sous-menu « Créer » (avec entrepôts à bons) — auparavant, un simple bouton s'affichait jusqu'au changement d'onglet.
+- Correction du lancement des opérations longues en arrière-plan.
+### en
+- Manual output for a production order (a line of the production workplace) now reduces the material shortage: materials taken from free stock are no longer offered for purchase on the "Requirement" tab of the purchasing workplace. Output posted before the update does not do this — if "Requirement" offers to buy materials already consumed, repost that output.
+- With "Automatic output on shipment" enabled, the production workplace no longer offers manual output of semi-finished goods: the product consumes their materials on shipment.
+- The purchasing workplace opened on the "Receipts" tab shows the "Create" submenu right away (with order-based warehouses) — before, a plain button was shown until the tab changed.
+- Fixed starting long-running operations in the background.
+### es
+- La producción manual por pedido de fabricación (línea del puesto de producción) ahora reduce el déficit de materias primas: las tomadas del stock libre ya no se proponen para compra en la pestaña «Necesidad» del puesto de compras. Una producción contabilizada antes de la actualización no lo hace: si «Necesidad» propone comprar materias ya consumidas, vuelva a contabilizar esa producción.
+- Con la «Producción automática al enviar», el puesto de producción ya no propone producir semielaborados a mano: el producto consumirá sus materias al enviar.
+- El puesto de compras abierto en la pestaña «Recepciones» muestra enseguida el submenú «Crear» (con almacenes por órdenes); antes se veía un botón simple hasta cambiar de pestaña.
+- Corregido el inicio de operaciones largas en segundo plano.
+
+## 2.0.16.108
+### ru
+- Рабочее место закупок, закладка «Поступления»: новый переключатель «Документы / Товары». В режиме «Товары» строки поступлений вводятся прямо в таблице: укажите поставщика, товар и количество — при выходе из строки программа сама создаст и проведёт поступление.
+- В колонке «Документ» следующей строки можно выбрать уже созданное сегодня поступление этого поставщика — строка добавится в него. Если ничего не выбирать, создаётся новое поступление.
+- Если у поставщика есть открытый заказ на этот товар, строка сама привязывается к строке заказа и поступление оформляется по заказу. Иначе — поступление без заказа. Одно поступление относится либо к одному заказу, либо ни к какому: программа подскажет, если товар нужно ввести новым поступлением.
+- На ордерном складе вместо поступления создаётся приходный ордер. Строки документов, которые правятся только в форме (с сериями, услугами, оформленные по ордеру), показываются для просмотра.
+### fr
+- Poste de travail des achats, onglet « Réceptions » : nouveau sélecteur « Documents / Articles ». En mode « Articles », les lignes de réception se saisissent directement dans le tableau : indiquez le fournisseur, l'article et la quantité — en quittant la ligne, le programme crée et valide la réception.
+- Dans la colonne « Document » de la ligne suivante, vous pouvez choisir une réception déjà créée aujourd'hui pour ce fournisseur — la ligne y est ajoutée. Sans choix, une nouvelle réception est créée.
+- Si le fournisseur a une commande ouverte pour cet article, la ligne se rattache à la ligne de commande et la réception suit la commande. Sinon, la réception est sans commande. Une réception concerne une seule commande ou aucune : le programme indique quand l'article doit passer par une nouvelle réception.
+- Sur un entrepôt à bons, un bon d'entrée est créé à la place de la réception. Les lignes des documents qui ne se modifient que dans le formulaire (avec séries, services, régularisées par bon) sont affichées en lecture seule.
+### en
+- Purchasing workplace, "Receipts" tab: new "Documents / Items" switch. In "Items" mode, receipt lines are entered directly in the table: specify the supplier, item and quantity — when you leave the line, the program creates and posts the receipt.
+- In the "Document" column of the next line you can select a receipt already created today for this supplier — the line is added to it. Without a choice, a new receipt is created.
+- If the supplier has an open order for this item, the line is linked to the order line and the receipt follows the order. Otherwise the receipt has no order. A receipt belongs to one order or to none: the program tells you when the item must go into a new receipt.
+- On an order-based warehouse a receiving order is created instead of the receipt. Lines of documents that are edited only in the form (with series, services, or settled by an order) are shown read-only.
+### es
+- Puesto de compras, pestaña «Recepciones»: nuevo selector «Documentos / Artículos». En el modo «Artículos», las líneas de recepción se introducen directamente en la tabla: indique el proveedor, el artículo y la cantidad; al salir de la línea, el programa crea y contabiliza la recepción.
+- En la columna «Documento» de la línea siguiente puede elegir una recepción ya creada hoy para este proveedor: la línea se añade a ella. Sin elegir, se crea una recepción nueva.
+- Si el proveedor tiene un pedido abierto de este artículo, la línea se vincula a la línea del pedido y la recepción sigue el pedido. Si no, la recepción va sin pedido. Una recepción pertenece a un solo pedido o a ninguno: el programa avisa cuando el artículo debe ir en una recepción nueva.
+- En un almacén por órdenes se crea una orden de entrada en lugar de la recepción. Las líneas de documentos que solo se editan en el formulario (con series, servicios o regularizadas por orden) se muestran solo para consulta.
+
+## 2.0.16.107
+### ru
+- Новая настройка «Ордерные склады» (настройки программы, раздел «Склад»). Пока она выключена, флажок «Ордерный склад» в карточке склада, приходные и расходные ордера в меню скрыты — программа выглядит проще для тех, кто ордерами не пользуется.
+- В базах, где уже есть ордерные склады или ордера, настройка включается сама при обновлении — ничего не меняется. Выключить её нельзя, пока есть ордерные склады или ордера: программа подскажет, что мешает.
+- Рабочее место закупок, закладка «Поступления»: при включённых ордерных складах кнопка «Создать» открывает меню «Создать поступление» и «Создать приходный ордер». На остальных закладках «Создать» по-прежнему создаёт заказ поставщику.
+### fr
+- Nouveau paramètre « Entrepôts à bons » (paramètres du programme, section « Entrepôt »). Tant qu'il est désactivé, la case « Entrepôt à bons » de la fiche entrepôt ainsi que les bons d'entrée et de sortie du menu sont masqués : le programme est plus simple pour ceux qui n'utilisent pas les bons.
+- Dans les bases qui ont déjà des entrepôts à bons ou des bons, le paramètre s'active tout seul à la mise à jour : rien ne change. Il ne peut pas être désactivé tant qu'il existe des entrepôts à bons ou des bons : le programme indique ce qui l'empêche.
+- Poste de travail des achats, onglet « Réceptions » : avec les entrepôts à bons activés, le bouton « Créer » ouvre le menu « Créer une réception » et « Créer un bon d'entrée ». Sur les autres onglets, « Créer » crée toujours une commande fournisseur.
+### en
+- New "Order-based warehouses" setting (program settings, "Warehouse" section). While it is off, the "Order-based warehouse" flag on the warehouse card and the receiving and goods issue orders in the menu are hidden, so the program is simpler for those who do not use orders.
+- In databases that already have order-based warehouses or orders, the setting turns on by itself during the update, so nothing changes. It cannot be turned off while order-based warehouses or orders exist; the program shows what prevents it.
+- Purchasing workplace, "Receipts" tab: with order-based warehouses on, the "Create" button opens a menu with "Create receipt" and "Create receiving order". On the other tabs, "Create" still creates a supplier order.
+### es
+- Nuevo ajuste «Almacenes con órdenes» (ajustes del programa, sección «Almacén»). Mientras está desactivado, la casilla «Almacén por órdenes» de la ficha del almacén y las órdenes de entrada y salida del menú se ocultan: el programa es más sencillo para quien no usa órdenes.
+- En las bases que ya tienen almacenes por órdenes u órdenes, el ajuste se activa solo al actualizar: no cambia nada. No se puede desactivar mientras existan almacenes por órdenes u órdenes; el programa indica qué lo impide.
+- Puesto de compras, pestaña «Recepciones»: con los almacenes por órdenes activados, el botón «Crear» abre el menú «Crear recepción» y «Crear orden de entrada». En las demás pestañas, «Crear» sigue creando un pedido a proveedor.
+
+## 2.0.16.106
+### ru
+- Карточка товара, закладка «Производство»: смена способа изготовления в строке технологической карты больше не закрывает программу. Если сразу после правки строки записать карточку, правка сохраняется.
+- Расходный ордер на товары и поступление товаров и услуг (строки товаров и дополнительных расходов): можно выбрать любую номенклатуру, а не только товары. Строки услуг по-прежнему принимают только услуги.
+- Рабочее место «Управление станками»: при переходе на закладку «Под риском» риски снова рассчитываются сразу, без нажатия «Обновить».
+### fr
+- Fiche article, onglet « Production » : changer le mode de fabrication d'une ligne de la gamme ne ferme plus l'application. Si la fiche est enregistrée juste après la modification de la ligne, la modification est conservée.
+- Bon de sortie et achat (lignes de marchandises et de dépenses supplémentaires) : tout article peut être choisi, et pas seulement les marchandises. Les lignes de services n'acceptent toujours que des services.
+- Poste « Gestion des machines » : en ouvrant l'onglet « À risque », les risques sont de nouveau calculés aussitôt, sans cliquer sur « Actualiser ».
+### en
+- Item card, "Production" tab: changing the manufacturing method in a routing line no longer closes the application. If the card is saved right after editing the line, the change is kept.
+- Goods issue order and purchase (goods and additional expense lines): any item can be selected, not only goods. Service lines still accept services only.
+- "Machine management" workplace: opening the "At risk" tab again calculates the risks straight away, without clicking "Refresh".
+### es
+- Ficha del artículo, pestaña «Producción»: cambiar el modo de fabricación en una línea de la ruta ya no cierra el programa. Si la ficha se guarda justo después de editar la línea, el cambio se conserva.
+- Orden de salida de mercancías y compra (líneas de mercancías y de gastos adicionales): se puede elegir cualquier artículo, no solo mercancías. Las líneas de servicios siguen admitiendo solo servicios.
+- Puesto «Gestión de máquinas»: al abrir la pestaña «En riesgo», los riesgos vuelven a calcularse en el acto, sin pulsar «Actualizar».
+
+## 2.0.16.105
+### ru
+- Рабочее место закупок: при переключении закладок «Потребность», «Заказы поставщикам» и «Поступления» снова перестраивается нижняя панель и обновляются данные закладки. Раньше нижняя панель могла пропасть и не возвращалась.
+- Карточка товара: при переходе на закладки «Цена», «Склад», «Производство» и «Служебное» снова загружаются цены, технологическая карта и сведения закладки — они не заполнялись с 2.0.16.62.
+
+- Рабочее место производства, закладка «Выпуск»: выпуск полуфабриката, созданный автоматически при передаче в переработку, теперь виден в списке, как автовыпуск при отгрузке.
+- Приходный ордер: в строках можно выбрать любую номенклатуру, а не только товары.
+- Рабочее место производства: легенда индикатора стадий выведена бледным цветом.
+### fr
+- Poste de travail des achats : en changeant d'onglet entre « Besoin », « Commandes fournisseurs » et « Réceptions », le panneau inférieur est de nouveau reconstruit et les données de l'onglet actualisées. Auparavant, le panneau inférieur pouvait disparaître sans revenir.
+- Fiche article : en passant aux onglets « Prix », « Stock », « Production » et « Service », les prix, la gamme et les informations de l'onglet sont de nouveau chargés — ils ne l'étaient plus depuis 2.0.16.62.
+
+- Poste de travail de production, onglet « Production » : la production du semi-fini créée automatiquement au transfert en sous-traitance apparaît désormais dans la liste, comme la production automatique à l'expédition.
+- Bon d'entrée : les lignes acceptent tout article, et pas seulement les marchandises.
+- Poste de travail de production : la légende de l'indicateur d'étapes est affichée en couleur atténuée.
+### en
+- Purchasing workplace: switching between the "Need", "Supplier orders" and "Receipts" tabs again rebuilds the bottom panel and refreshes the tab data. Previously the bottom panel could disappear and not come back.
+- Item card: opening the "Price", "Stock", "Production" and "Service" tabs again loads prices, the routing and the tab details — they had not been filled since 2.0.16.62.
+
+- Production workplace, "Output" tab: the semi-finished output created automatically on transfer for processing is now shown in the list, like the automatic output on shipment.
+- Receiving order: lines accept any item, not only goods.
+- Production workplace: the stage indicator legend is shown in a muted colour.
+### es
+- Puesto de compras: al cambiar entre las pestañas «Necesidad», «Pedidos a proveedores» y «Recepciones», el panel inferior vuelve a reconstruirse y los datos de la pestaña se actualizan. Antes el panel inferior podía desaparecer y no volvía.
+- Ficha del artículo: al pasar a las pestañas «Precio», «Stock», «Producción» y «Servicio» vuelven a cargarse los precios, la ruta y los datos de la pestaña; no se rellenaban desde 2.0.16.62.
+- Puesto de producción, pestaña «Producción»: la producción del semielaborado creada automáticamente al transferir a procesamiento ahora aparece en la lista, como la producción automática al expedir.
+- Orden de entrada: las líneas admiten cualquier artículo, no solo mercancías.
+- Puesto de producción: la leyenda del indicador de etapas se muestra en un color atenuado.
+
+## 2.0.16.104
+### ru
+- Рабочее место производства, закладка «Выпуск»: в выборе продукции теперь есть и полуфабрикаты собственного производства из материалов заказа, с количеством, которое ещё осталось выпустить. Выпуск полуфабриката списывает его сырьё по его технологической карте и приходует полуфабрикат на склад; выпуск изделия затем списывает уже выпущенный полуфабрикат.
+
+### fr
+- Poste de travail de production, onglet « Production » : le choix du produit propose désormais aussi les produits semi-finis de notre production issus des matières de la commande, avec la quantité restant à produire. La production d'un semi-fini consomme ses matières selon sa gamme et entre le semi-fini en stock ; la production du produit consomme ensuite le semi-fini déjà produit.
+
+### en
+- Production workplace, "Output" tab: the product choice now also offers in-house semi-finished products from the order's materials, with the quantity still to be produced. Producing a semi-finished product consumes its materials by its routing and puts it in stock; producing the product then consumes the semi-finished product already produced.
+
+### es
+- Puesto de producción, pestaña «Producción»: la elección del producto ahora también ofrece los semielaborados de producción propia de los materiales del pedido, con la cantidad que queda por producir. Producir un semielaborado consume sus materiales según su ruta y lo da de alta en stock; producir el producto consume después el semielaborado ya producido.
+
+## 2.0.16.103
+### ru
+- Технологическая карта: новый способ изготовления «Закупка». У закупаемых материалов он ставится сам, у производимых — «Наше производство»; при смене материала в строке способ подставляется заново, а выбор «Переработчик» или «Оба» сохраняется. Существующие карты переведены обновлением.
+- Полуфабрикат, который делает переработчик из вашего сырья, теперь раскрывается, если его собственная карта — только из закупаемого сырья и этот полуфабрикат больше нигде в заказе не встречается (отдельной строкой или своим производством); иначе он считается, как раньше. Его сырьё попадает в «Материалы» заказа, в потребность и в рабочее место закупок. Сам полуфабрикат не закупается — его приносит поступление из переработки. Сырьё, переданное переработчику по заказу, считается обеспеченным.
+- При отгрузке изделия программа списывает полуфабрикат, полученный от переработчика, а не его сырьё.
+- Рабочее место производства, закладка «Материалы»: колонка «Способ изготовления» стоит сразу за «Продукцией» и заполнена на всех уровнях.
+- В уже созданных заказах сырьё полуфабриката переработчика появится после команды «Заполнить по техкарте» в заказе.
+
+### fr
+- Gamme de fabrication : nouveau mode de fabrication « Achat ». Il s'applique automatiquement aux matières achetées, « Notre production » aux articles fabriqués ; en changeant la matière d'une ligne, le mode est proposé à nouveau, tandis qu'un choix « Sous-traitant » ou « Les deux » est conservé. Les gammes existantes sont mises à jour.
+- Le produit semi-fini fabriqué par un sous-traitant à partir de vos matières est désormais détaillé, si sa propre gamme ne contient que des matières achetées et qu'il ne figure nulle part ailleurs dans la commande (ligne à part ou notre production) ; sinon, il est compté comme avant. Ses matières apparaissent dans les « Matières » de la commande, dans les besoins et dans le poste de travail des achats. Le semi-fini lui-même n'est pas acheté — il arrive par la réception de sous-traitance. Les matières transférées au sous-traitant pour la commande sont considérées comme couvertes.
+- À l'expédition du produit, le programme sort le semi-fini reçu du sous-traitant, et non ses matières.
+- Poste de travail de production, onglet « Matières » : la colonne « Mode de fabrication » suit directement « Produit » et est renseignée à tous les niveaux.
+- Dans les commandes déjà créées, les matières du semi-fini du sous-traitant apparaissent après la commande « Remplir selon la gamme de fabrication » de la commande.
+
+### en
+- Production routing: new manufacturing method "Purchase". It is set automatically for purchased materials, "In-house production" for manufactured items; when the material of a line changes, the method is suggested again, while a "Subcontractor" or "Both" choice is kept. Existing routings are updated.
+- A semi-finished product made by a subcontractor from your materials is now expanded, if its own routing contains only purchased materials and it appears nowhere else in the order (as a separate line or in-house production); otherwise it is counted as before. Its materials appear in the order's "Materials", in the requirements and in the purchasing workplace. The semi-finished product itself is not purchased — it comes in with the receipt from processing. Materials transferred to the subcontractor for the order count as covered.
+- When the product is shipped, the program writes off the semi-finished product received from the subcontractor, not its materials.
+- Production workplace, "Materials" tab: the "Manufacturing method" column follows "Product" and is filled at every level.
+- In orders created earlier, the subcontracted semi-finished product's materials appear after the order's "Fill from production routing" command.
+
+### es
+- Ruta de fabricación: nuevo método de fabricación «Compra». Se asigna solo a los materiales comprados, «Producción propia» a los fabricados; al cambiar el material de una línea, el método se propone de nuevo, y una elección «Subcontratista» o «Ambos» se conserva. Las rutas existentes se actualizan.
+- El semielaborado que fabrica un subcontratista con sus materiales ahora se despliega, si su propia ruta solo contiene materiales comprados y no aparece en ninguna otra parte del pedido (línea aparte o producción propia); si no, se cuenta como antes. Sus materiales aparecen en los «Materiales» del pedido, en las necesidades y en el puesto de compras. El semielaborado en sí no se compra: llega con la recepción de procesamiento. Los materiales transferidos al subcontratista para el pedido cuentan como cubiertos.
+- Al expedir el producto, el programa da de baja el semielaborado recibido del subcontratista, no sus materiales.
+- Puesto de producción, pestaña «Materiales»: la columna «Método de fabricación» sigue a «Producto» y se rellena en todos los niveles.
+- En los pedidos ya creados, los materiales del semielaborado del subcontratista aparecen tras el comando «Rellenar según ruta de fabricación» del pedido.
+
+## 2.0.16.102
+### ru
+- Карточка товара, закладка «Производство»: смена способа изготовления в строке технологической карты больше не закрывает программу с ошибкой.
+
+### fr
+- Fiche article, onglet « Production » : changer le mode de fabrication d'une ligne de la gamme ne fait plus planter l'application.
+
+### en
+- Item card, "Production" tab: changing the manufacturing method of a routing line no longer crashes the application.
+
+### es
+- Ficha del artículo, pestaña «Producción»: cambiar el modo de fabricación de una línea de la ruta ya no cierra la aplicación con un error.
+
+## 2.0.16.101
+### ru
+- Ордерный склад: товар, принятый приходным ордером, сразу виден в остатке и при подборе товара в рабочем месте кассира — не нужно ждать, пока менеджер оформит поступление. Раньше подбор показывал товар только после поступления.
+- Отчёт «Движения товара»: количество теперь считается по приходным и расходным ордерам (показатели «Поступило» и «Продано»), а сумма — по поступлениям и реализациям, как и раньше.
+- Отчёт «Проданный товар без накладной»: остатки складов — по товару на полке. Строка товара больше не повторяется по числу партий на складе.
+
+- Рабочее место закупок: кнопка «Создать» снова работает — на закладке «Поступления» она открывает новое поступление, а если ваш склад поступлений ордерный — приходный ордер: товар сразу принимается на склад, поступление менеджер оформит потом. На остальных закладках — новый заказ поставщику. Раньше кнопка выдавала ошибку.
+### fr
+- Entrepôt à bons : la marchandise reçue par un bon d'entrée apparaît immédiatement dans le stock et dans la sélection de produits du poste de caisse, sans attendre que le gestionnaire saisisse la réception. Auparavant, la sélection ne la montrait qu'après la réception.
+- Rapport « Mouvement de marchandises » : la quantité est désormais calculée d'après les bons d'entrée et de sortie (indicateurs « Reçu » et « Vendu »), le montant d'après les réceptions et les ventes, comme avant.
+- Rapport « Stock vendu non facturé » : les stocks des entrepôts reflètent la marchandise en rayon. La ligne d'un produit n'est plus répétée autant de fois qu'il y a de lots en stock.
+
+- Poste de travail des achats : le bouton « Créer » fonctionne à nouveau — sur l'onglet « Réceptions », il ouvre une nouvelle réception, ou un bon d'entrée si votre entrepôt de réception fonctionne par bons : la marchandise entre tout de suite en stock, le gestionnaire saisira la réception plus tard. Sur les autres onglets — une nouvelle commande fournisseur. Auparavant, le bouton renvoyait une erreur.
+### en
+- Warehouse with warehouse orders: goods taken in by a receiving order show up in the stock and in the cashier workplace product selection right away, without waiting for the manager to register the receipt. Previously the selection showed them only after the receipt.
+- "Movement of goods" report: the quantity now follows receiving and issuing orders ("Received" and "Sold" indicators), while the amount follows receipts and sales, as before.
+- "Stock sold not invoiced" report: warehouse balances reflect the goods on the shelf. A product line is no longer repeated once per stock batch.
+
+- Purchasing workplace: the "Create" button works again — on the "Receipts" tab it opens a new receipt, or a receiving order if your receiving warehouse works with warehouse orders: the goods enter the stock right away and the manager registers the receipt later. On the other tabs — a new supplier order. Previously the button raised an error.
+### es
+- Almacén con órdenes: la mercancía recibida con una orden de entrada aparece de inmediato en el stock y en la selección de productos del puesto de caja, sin esperar a que el gestor registre la recepción. Antes la selección la mostraba solo después de la recepción.
+- Informe «Circulación de mercancías»: la cantidad se calcula ahora por las órdenes de entrada y de salida (indicadores «Recibido» y «Vendido»), y el importe por las recepciones y ventas, como antes.
+- Informe «Stock vendido no facturado»: los stocks de los almacenes reflejan la mercancía en estantería. La línea de un producto ya no se repite tantas veces como lotes hay en stock.
+- Puesto de trabajo de compras: el botón «Crear» vuelve a funcionar: en la pestaña «Recepciones» abre una nueva recepción, o una orden de entrada si su almacén de recepción funciona con órdenes: la mercancía entra en stock de inmediato y el gestor registra la recepción después. En las demás pestañas, un nuevo pedido a proveedor. Antes el botón daba un error.
+
+## 2.0.16.100
+### ru
+- Рабочее место производства: на закладках с документами — заказы поставщику, поступления, передача в переработку, поступления из переработки, отгрузки — появилась кнопка «Печать». Встаньте на строку документа и нажмите её: печатается весь документ этой строки, со всеми его строками.
+- В «Печати» те же печатные формы, что и в самом документе. Если форм несколько, кнопка открывает список для выбора; формы, на которые у пользователя нет прав, в списке не показываются.
+- На ордерном складе строка поступления или отгрузки может быть приходным или расходным ордером — тогда «Печать» предлагает формы ордера.
+
+### fr
+- Poste de travail de production : les onglets de documents — commandes fournisseur, réceptions, transfert en sous-traitance, réceptions de sous-traitance, expéditions — ont un bouton « Impression ». Placez-vous sur la ligne d'un document et cliquez : tout le document de cette ligne est imprimé, avec toutes ses lignes.
+- « Impression » propose les mêmes formulaires que le document lui-même. S'il y en a plusieurs, le bouton ouvre une liste au choix ; les formulaires pour lesquels l'utilisateur n'a pas de droits n'y figurent pas.
+- Sur un entrepôt à bons, la ligne de réception ou d'expédition peut être un bon d'entrée ou de sortie : « Impression » propose alors les formulaires du bon.
+
+### en
+- Production workplace: the document tabs — supplier orders, receipts, transfer for processing, receipts from processing, shipments — now have a "Print" button. Select a document line and click it: the whole document of that line is printed, with all its lines.
+- "Print" offers the same print forms as the document itself. If there are several, the button opens a list to choose from; forms the user has no rights to are not shown.
+- On a warehouse with warehouse orders, a receipt or shipment line can be a receiving or issuing order — "Print" then offers the order's forms.
+
+### es
+- Puesto de trabajo de producción: las pestañas de documentos — pedidos a proveedor, recepciones, transferencia a procesamiento, recepciones de procesamiento, expediciones — tienen un botón «Impresión». Sitúese en la línea de un documento y púlselo: se imprime todo el documento de esa línea, con todas sus líneas.
+- «Impresión» ofrece los mismos formularios que el propio documento. Si hay varios, el botón abre una lista para elegir; los formularios sobre los que el usuario no tiene derechos no aparecen.
+- En un almacén con órdenes, la línea de recepción o expedición puede ser una orden de entrada o de salida: «Impresión» ofrece entonces los formularios de la orden.
+
+## 2.0.16.99
+### ru
+- Рабочее место закупок, закладка «Потребность»: новая кнопка «Создать поступление». Отметьте строки и нажмите кнопку: по каждому заказу на производство проводится поступление от поставщика строки на недостающее количество, без заказа поставщику и без номера накладной (на ордерном складе — приходный ордер). Затем открывается закладка «Поступления».
+- «Создать поступление» принимает только недостающее заказам на производство. Пополнение склада до минимального остатка оформляется, как раньше, кнопкой «Заказать» или новым поступлением на закладке «Поступления». Если под заказ уже есть неоформленный черновик поступления, программа предложит сначала провести или удалить его.
+- Поступление под заказ на производство без заказа поставщику теперь уменьшает недостачу и тогда, когда по тому же материалу открыт заказ поставщику: материал больше не заказывается и не принимается второй раз.
+- Такое поступление распределяется на изделия, которым материала не хватает, с учётом уже взятого со склада и заказанного.
+- Возврат поставщику по такому поступлению возвращает недостачу заказу. Стадия заказа на производство учитывает поступления без заказа поставщику.
+- При обновлении программа размечает ранее проведённые поступления без заказа поставщику, чтобы недостача по заказам в работе стала верной.
+
+### fr
+- Poste de travail des achats, onglet « Besoin » : nouveau bouton « Créer une réception ». Cochez les lignes et cliquez : pour chaque commande de production, une réception du fournisseur de la ligne est validée pour la quantité manquante, sans commande fournisseur ni numéro de facture (bon d'entrée sur un entrepôt à bons). L'onglet « Réceptions » s'ouvre ensuite.
+- « Créer une réception » ne réceptionne que le manque des commandes de production. Le réapprovisionnement au stock minimum se fait comme avant avec « Commander » ou par une nouvelle réception dans l'onglet « Réceptions ». S'il existe déjà un brouillon de réception pour la commande, le programme propose de le valider ou de le supprimer d'abord.
+- Une réception pour une commande de production sans commande fournisseur réduit désormais le manque même si une commande fournisseur est ouverte pour la même matière : la matière n'est plus commandée ni réceptionnée une seconde fois.
+- Cette réception est répartie sur les produits qui manquent de matière, en tenant compte de ce qui a déjà été pris en stock et commandé.
+- Un retour fournisseur de cette réception rend le manque à la commande. L'étape de la commande de production tient compte des réceptions sans commande fournisseur.
+- Lors de la mise à jour, le programme marque les réceptions sans commande fournisseur déjà validées afin que le manque des commandes en cours soit correct.
+
+### en
+- Purchasing workplace, "Need" tab: new "Create receipt" button. Tick the lines and click it: for each production order a receipt from the line's supplier is posted for the missing quantity, without a supplier order and without an invoice number (a receiving order on a warehouse with receiving orders). The "Receipts" tab opens afterwards.
+- "Create receipt" only receives what production orders are missing. Replenishment to the minimum stock is done as before with "Order" or with a new receipt on the "Receipts" tab. If there is already a draft receipt for the order, the program asks to post or delete it first.
+- A receipt for a production order without a supplier order now reduces the shortage even when a supplier order is open for the same material: the material is no longer ordered or received a second time.
+- Such a receipt is allocated to the products that lack the material, taking into account what was already taken from stock and ordered.
+- A supplier return of such a receipt gives the shortage back to the order. The production order stage takes receipts without a supplier order into account.
+- During the update, the program marks already posted receipts without a supplier order so that the shortage of orders in progress is correct.
+
+### es
+- Puesto de trabajo de compras, pestaña «Necesidad»: nuevo botón «Crear recepción». Marque las líneas y púlselo: para cada pedido de producción se contabiliza una recepción del proveedor de la línea por la cantidad que falta, sin pedido a proveedor ni número de factura (una orden de entrada en un almacén con órdenes). Después se abre la pestaña «Recepciones».
+- «Crear recepción» solo recibe lo que falta a los pedidos de producción. La reposición al stock mínimo se hace como antes con «Pedir» o con una recepción nueva en la pestaña «Recepciones». Si ya hay un borrador de recepción para el pedido, el programa pide contabilizarlo o eliminarlo primero.
+- Una recepción para un pedido de producción sin pedido a proveedor ahora reduce el faltante aunque haya un pedido a proveedor abierto del mismo material: el material ya no se pide ni se recibe por segunda vez.
+- Esa recepción se reparte entre los productos a los que les falta el material, teniendo en cuenta lo ya tomado del almacén y lo pedido.
+- Una devolución al proveedor de esa recepción devuelve el faltante al pedido. La etapa del pedido de producción tiene en cuenta las recepciones sin pedido a proveedor.
+- Durante la actualización, el programa marca las recepciones sin pedido a proveedor ya contabilizadas para que el faltante de los pedidos en curso sea correcto.
+
+## 2.0.16.98
+### ru
+- Рабочее место закупок: закладка «К поступлению» заменена закладкой «Поступления» — список поступлений товаров и приходных ордеров с отборами панели и постраничным просмотром. Двойной щелчок открывает документ, щелчок по колонке «Заказ поставщику» — заказ.
+- На закладке «Поступления» кнопка «Создать» открывает новое поступление — без заказа поставщику и без потребности.
+- На закладке «Заказы поставщикам» появились флажки и кнопка «Создать поступление»: отметьте заказы (или выделите строки) и нажмите кнопку. По каждому заказу проводится поступление на всё, что ещё не пришло, а на ордерном складе — приходный ордер. Номер накладной поставщика вводится потом в самом документе. После этого открывается закладка «Поступления».
+- Если по заказу уже всё пришло, он не проведён или предварительный, поступление не создаётся, и программа сообщает причину. Повторное нажатие не принимает товар второй раз.
+
+### fr
+- Poste de travail des achats : l'onglet « À réceptionner » est remplacé par l'onglet « Réceptions » — la liste des réceptions de marchandises et des bons d'entrée, avec les filtres du panneau et un affichage par pages. Un double-clic ouvre le document, un clic sur la colonne « Commande fournisseur » ouvre la commande.
+- Dans l'onglet « Réceptions », le bouton « Créer » ouvre une nouvelle réception, sans commande fournisseur ni besoin.
+- L'onglet « Commandes fournisseurs » a des cases à cocher et un bouton « Créer une réception » : cochez les commandes (ou sélectionnez les lignes) et cliquez. Pour chaque commande, une réception est validée pour tout ce qui n'est pas encore arrivé, et un bon d'entrée sur un entrepôt à bons. Le numéro de facture du fournisseur se saisit ensuite dans le document. L'onglet « Réceptions » s'ouvre ensuite.
+- Si tout est déjà reçu pour une commande, ou si elle n'est pas validée ou est préliminaire, aucune réception n'est créée et le programme en indique la raison. Un nouveau clic ne réceptionne pas la marchandise une seconde fois.
+
+### en
+- Purchasing workplace: the "To receive" tab is replaced by the "Receipts" tab — a list of goods receipts and receiving orders with the panel filters and page-by-page view. Double-click opens the document; a click on the "Supplier order" column opens the order.
+- On the "Receipts" tab, the "Create" button opens a new receipt — with no supplier order and no need.
+- The "Supplier orders" tab has check boxes and a "Create receipt" button: tick the orders (or select the rows) and click it. For each order a receipt is posted for everything not yet received, or a receiving order on a warehouse with receiving orders. The supplier invoice number is entered later in the document itself. The "Receipts" tab opens afterwards.
+- If everything has already been received for an order, or it is not posted or is preliminary, no receipt is created and the program tells why. Clicking again does not receive the goods a second time.
+
+### es
+- Puesto de trabajo de compras: la pestaña «Por recibir» se sustituye por la pestaña «Recepciones» — la lista de recepciones de mercancías y órdenes de entrada, con los filtros del panel y vista por páginas. Un doble clic abre el documento; un clic en la columna «Pedido a proveedor» abre el pedido.
+- En la pestaña «Recepciones», el botón «Crear» abre una recepción nueva, sin pedido a proveedor ni necesidad.
+- La pestaña «Pedidos a proveedores» tiene casillas y un botón «Crear recepción»: marque los pedidos (o seleccione las filas) y púlselo. Para cada pedido se contabiliza una recepción de todo lo que aún no ha llegado, o una orden de entrada en un almacén con órdenes. El número de factura del proveedor se introduce después en el propio documento. Después se abre la pestaña «Recepciones».
+- Si ya se recibió todo de un pedido, o no está contabilizado o es preliminar, no se crea la recepción y el programa indica el motivo. Pulsar de nuevo no recibe la mercancía por segunda vez.
+
+## 2.0.16.97
+### ru
+- Налоговый документ на основании неналоговых (при раздельном учёте): в реализации и поступлении — страница «Основания» и кнопка «Подобрать основания». Отметьте неналоговые документы того же клиента или поставщика — строки товаров заполнятся по ним, цену строки можно поправить. Документ покрывает выбранные документы целиком.
+- Такой документ не отгружает и не принимает товар второй раз: фактические остатки, продажи и долги не меняются, а покрытые товары, продажи и долг переходят в налоговый учёт по ценам налогового документа. Оплаты покрытых документов, в том числе введённые позже, переносятся на налоговый документ.
+- Покрытый документ нельзя распровести, удалить, пометить и изменить, пока проведён налоговый документ. Возврат покупателя оформляется по налоговой реализации и тоже налоговый; по покрытой реализации возврат не проводится. Возврат поставщику по налоговому поступлению пока недоступен — оформляйте его до налогового документа.
+
+### fr
+- Document fiscal établi sur des documents non fiscaux (en comptabilité séparée) : la vente et la réception ont une page « Documents de base » et un bouton « Sélectionner les documents de base ». Cochez les documents non fiscaux du même client ou fournisseur — les lignes d'articles se remplissent, le prix d'une ligne peut être corrigé. Le document couvre entièrement les documents choisis.
+- Ce document ne livre ni ne reçoit la marchandise une seconde fois : les stocks, ventes et dettes réels ne changent pas, les articles, ventes et dettes couverts passent en comptabilité fiscale aux prix du document fiscal. Les paiements des documents couverts, y compris ultérieurs, sont reportés sur le document fiscal.
+- Un document couvert ne peut pas être dévalidé, supprimé, marqué ni modifié tant que le document fiscal est validé. Le retour client se fait sur la vente fiscale et il est fiscal ; un retour sur la vente couverte n'est pas validé. Le retour fournisseur sur une réception fiscale n'est pas encore disponible : faites-le avant le document fiscal.
+
+### en
+- Tax document based on non-tax documents (with separate accounting): sales and receipts have a "Bases" page and a "Select bases" button. Tick non-tax documents of the same customer or supplier — goods lines are filled from them, and a line price can be corrected. The document covers the selected documents in full.
+- Such a document does not ship or receive goods a second time: actual stock, sales and debts stay the same, while the covered goods, sales and debt move to tax accounting at the tax document prices. Payments of covered documents, including later ones, are carried to the tax document.
+- A covered document cannot be unposted, deleted, marked or changed while the tax document is posted. Customer returns are made on the tax sale and are tax returns; a return on the covered sale is not posted. A return to supplier on a tax receipt is not available yet: make it before the tax document.
+
+### es
+- Documento fiscal sobre documentos no fiscales (con contabilidad separada): la venta y la recepción tienen la página «Bases» y el botón «Seleccionar bases». Marque los documentos no fiscales del mismo cliente o proveedor: las líneas de mercancías se rellenan y el precio de una línea se puede corregir. El documento cubre por completo los documentos elegidos.
+- Este documento no envía ni recibe la mercancía por segunda vez: las existencias, ventas y deudas reales no cambian, y las mercancías, ventas y deuda cubiertas pasan a la contabilidad fiscal a los precios del documento fiscal. Los pagos de los documentos cubiertos, también los posteriores, se trasladan al documento fiscal.
+- Un documento cubierto no se puede anular, eliminar, marcar ni modificar mientras el documento fiscal esté contabilizado. La devolución del cliente se hace sobre la venta fiscal y es fiscal; una devolución sobre la venta cubierta no se contabiliza. La devolución al proveedor sobre una recepción fiscal aún no está disponible: hágala antes del documento fiscal.
+
+## 2.0.16.96
+### ru
+- Раздельный управленческий и налоговый учёт (Настройки → Бухгалтерия, по умолчанию выключен). Когда он включён, у реализации, поступления, возвратов, приходного и расходного кассового ордера, списания и чека в рабочем месте кассира появляется флажок «Налоговый». Документ без флажка проводится только по управленческому учёту.
+- Остатки товаров, долги клиентов и поставщикам, продажи и касса хранят, налоговое движение или нет: полная картина остаётся прежней, а налоговая теперь видна отдельно. Банк всегда налоговый, касса — по документу.
+- Новые документы налоговые по умолчанию; это можно изменить настройкой пользователя «Налоговый по умолчанию». В рабочем месте кассира флажок задаётся для каждого чека, оплата чека попадает в кассу с тем же признаком.
+- Раздельный учёт нельзя выключить, если в базе уже есть документы только управленческого учёта.
+
+### fr
+- Comptabilité de gestion et fiscale séparées (Paramètres → Comptabilité, désactivée par défaut). Une fois activée, la vente, la réception, les retours, les bons d'encaissement et de décaissement, la sortie de stock et le ticket du poste de caisse reçoivent une case « Fiscal ». Un document sans cette case n'est comptabilisé qu'en gestion.
+- Les stocks, les dettes clients et fournisseurs, les ventes et la caisse indiquent si le mouvement est fiscal ou non : la vue complète reste la même, la vue fiscale est désormais visible à part. La banque est toujours fiscale, la caisse suit le document.
+- Les nouveaux documents sont fiscaux par défaut ; le réglage utilisateur « Documents fiscaux par défaut » permet de le changer. Au poste de caisse, la case se règle pour chaque ticket et le paiement du ticket entre en caisse avec le même indicateur.
+- La comptabilité séparée ne peut pas être désactivée si la base contient déjà des documents de gestion uniquement.
+
+### en
+- Separate management and tax accounting (Settings → Accounting, off by default). When it is on, sales, receipts, returns, cash receipt and payment orders, write-offs and the cashier workplace ticket get a "Tax" box. A document without it is posted to management accounting only.
+- Stock, customer and supplier debts, sales and cash record whether a movement is tax or not: the full picture stays the same, and the tax picture can now be seen separately. Bank is always tax, cash follows the document.
+- New documents are tax by default; the "Tax documents by default" user setting changes this. In the cashier workplace the box is set for each ticket, and the ticket payment goes to cash with the same flag.
+- Separate accounting cannot be turned off once the database has management-only documents.
+
+### es
+- Contabilidad de gestión y fiscal separadas (Configuración → Contabilidad, desactivada por defecto). Al activarla, la venta, la recepción, las devoluciones, las órdenes de cobro y de pago en caja, la baja de existencias y el ticket del puesto de cajero reciben la casilla «Fiscal». Un documento sin ella solo se contabiliza en gestión.
+- Las existencias, las deudas de clientes y proveedores, las ventas y la caja registran si el movimiento es fiscal o no: la vista completa no cambia y la vista fiscal se ve ahora por separado. El banco siempre es fiscal; la caja sigue al documento.
+- Los documentos nuevos son fiscales por defecto; el ajuste de usuario «Documentos fiscales por defecto» lo cambia. En el puesto de cajero la casilla se fija para cada ticket y el pago del ticket entra en caja con el mismo indicador.
+- La contabilidad separada no se puede desactivar si la base ya tiene documentos solo de gestión.
+
+## 2.0.16.95
+### ru
+- Рабочее место кассы больше не «теряется»: программа узнаёт компьютер и не создаёт новое рабочее место с пустым списком оборудования. Если компьютер незнаком, открывается выбор рабочего места — сначала места с тем же именем компьютера и их оборудование; создать новое можно, только если своего места в списке нет.
+- Рабочее место кассира: если компьютер ещё не связан с рабочим местом, выбор открывается сразу, а после выбора сканер подключается без переоткрытия окна. Кнопка «Рабочее место» в нижней панели — сменить рабочее место в любой момент.
+- В документах со сканером при неизвестном компьютере — одно напоминание «Оборудование не подключено» со ссылкой на выбор рабочего места; после выбора сканер подключается во всех открытых окнах.
+- Карточка рабочего места: список компьютеров этого места, «Перенести на другое рабочее место» и «Перенести оборудование с другого рабочего места» (для администратора).
+- Список рабочих мест: «Объединить с...» — дубли, накопленные раньше, объединяются в одно место; совпадающие устройства подсвечены, лишние можно снять.
+- При обновлении компьютеры существующих рабочих мест переносятся автоматически; одинаковые рабочие места не сливаются сами — их объединяет администратор.
+
+### fr
+- Le poste de travail de la caisse ne « se perd » plus : le programme reconnaît l'ordinateur et ne crée plus de nouveau poste avec une liste de matériel vide. Si l'ordinateur est inconnu, le choix du poste de travail s'ouvre — d'abord les postes portant le même nom d'ordinateur, avec leur matériel ; un nouveau poste ne se crée que si le vôtre n'est pas dans la liste.
+- Poste du caissier : si l'ordinateur n'est encore lié à aucun poste, le choix s'ouvre aussitôt, et après le choix le scanner se connecte sans rouvrir la fenêtre. Le bouton « Poste de travail » du panneau inférieur permet de changer de poste à tout moment.
+- Dans les documents avec scanner, sur un ordinateur inconnu : un seul rappel « Matériel non connecté » avec un lien vers le choix du poste ; après le choix, le scanner se connecte dans toutes les fenêtres ouvertes.
+- Fiche du poste de travail : la liste des ordinateurs de ce poste, « Transférer vers un autre poste » et « Transférer le matériel d'un autre poste » (pour l'administrateur).
+- Liste des postes de travail : « Fusionner avec... » — les doublons accumulés auparavant sont réunis en un seul poste ; les appareils identiques sont signalés, ceux en trop peuvent être décochés.
+- Lors de la mise à jour, les ordinateurs des postes existants sont repris automatiquement ; les postes identiques ne sont pas fusionnés d'eux-mêmes — l'administrateur les fusionne.
+
+### en
+- The till workplace is no longer "lost": the program recognises the computer and no longer creates a new workplace with an empty equipment list. If the computer is unknown, workplace selection opens — workplaces with the same computer name and their equipment come first; a new one can be created only if yours is not in the list.
+- Cashier workplace: if the computer is not yet linked to a workplace, the selection opens right away, and after choosing the scanner connects without reopening the window. The "Workplace" button in the bottom panel changes the workplace at any time.
+- In documents with a scanner on an unknown computer: a single "Equipment not connected" reminder with a link to workplace selection; after choosing, the scanner connects in all open windows.
+- Workplace card: the list of computers of this workplace, "Move to another workplace" and "Move equipment from another workplace" (for the administrator).
+- Workplace list: "Merge with..." — duplicates accumulated earlier are merged into one workplace; identical devices are highlighted, extra ones can be cleared.
+- On update, the computers of existing workplaces are carried over automatically; identical workplaces are not merged by themselves — the administrator merges them.
+
+### es
+- El lugar de trabajo de la caja ya no «se pierde»: el programa reconoce el equipo y ya no crea un nuevo lugar de trabajo con la lista de equipos vacía. Si el equipo es desconocido, se abre la elección del lugar de trabajo: primero los lugares con el mismo nombre de equipo y sus dispositivos; crear uno nuevo solo si el suyo no está en la lista.
+- Puesto de cajero: si el equipo aún no está vinculado a un lugar de trabajo, la elección se abre de inmediato y, tras elegir, el escáner se conecta sin volver a abrir la ventana. El botón «Lugar de trabajo» del panel inferior cambia el lugar en cualquier momento.
+- En los documentos con escáner en un equipo desconocido: un solo aviso «Equipo no conectado» con un enlace a la elección del lugar de trabajo; tras elegir, el escáner se conecta en todas las ventanas abiertas.
+- Ficha del lugar de trabajo: la lista de equipos de este lugar, «Trasladar a otro lugar de trabajo» y «Trasladar equipo de otro lugar de trabajo» (para el administrador).
+- Lista de lugares de trabajo: «Fusionar con...» — los duplicados acumulados antes se unen en un solo lugar; los dispositivos idénticos se resaltan y los sobrantes pueden desmarcarse.
+- Al actualizar, los equipos de los lugares existentes se trasladan automáticamente; los lugares idénticos no se fusionan solos: los fusiona el administrador.
+
+## 2.0.16.94
+### ru
+- Рабочее место производства: Tab с последней колонки переводит в первую колонку следующей строки, а не на флажок выделения строки.
+- Индикатор выполнения заказа: кружок «частично» больше не мельче остальных — все пять кружков одного размера в рабочих местах производства и закупок, в списке заказов и в заказе.
+- Поиск товара при вводе в поле: найденный текст в выпадающем списке выделяется фирменным янтарным цветом вместо зелёного, который сливался с фоном. Товары без остатка показываются приглушённо на всех языках интерфейса, а не только на русском.
+
+### fr
+- Poste de production : Tab depuis la dernière colonne mène à la première colonne de la ligne suivante, et non plus à la case de sélection de la ligne.
+- Indicateur d'avancement de la commande : le cercle « partiel » n'est plus plus petit que les autres — les cinq cercles ont la même taille dans les postes de production et d'achats, dans la liste des commandes et dans la commande.
+- Recherche d'un article à la saisie : le texte trouvé dans la liste déroulante est mis en évidence en ambre, la couleur de la marque, au lieu du vert qui se confondait avec le fond. Les articles hors stock sont affichés atténués dans toutes les langues de l'interface, et plus seulement en russe.
+
+### en
+- Production workplace: Tab from the last column moves to the first column of the next line instead of the line selection checkbox.
+- Order progress indicator: the «partial» circle is no longer smaller than the others — all five circles have the same size in the production and purchasing workplaces, in the order list and in the order.
+- Product search while typing in a field: the found text in the drop-down list is highlighted in the brand amber instead of green, which blended with the background. Out-of-stock products are shown dimmed in every interface language, not only in Russian.
+
+### es
+- Puesto de producción: Tab desde la última columna lleva a la primera columna de la línea siguiente y no a la casilla de selección de la línea.
+- Indicador de avance del pedido: el círculo «parcial» ya no es más pequeño que los demás — los cinco círculos tienen el mismo tamaño en los puestos de producción y de compras, en la lista de pedidos y en el pedido.
+- Búsqueda de un artículo al escribir en un campo: el texto encontrado en la lista desplegable se resalta en ámbar, el color de la marca, en lugar del verde que se confundía con el fondo. Los artículos sin existencias se muestran atenuados en todos los idiomas de la interfaz, no solo en ruso.
+
+## 2.0.16.93
+### ru
+- Рабочее место производства помещается в окно без общей прокрутки: таблицы заказов, производства и нижних закладок растягиваются по свободной высоте, а не задают её, панель фильтров всегда стоит справа и не уходит под таблицы на узком экране.
+- Сообщения рабочего места (ошибки записи и проведения, подсказки) больше не появляются внизу формы и не сдвигают таблицы: они собираются на новой закладке «Сообщения» панели справа, новые — сверху, с временем. В свёрнутой панели значок сообщений показывает число непрочитанных; кнопка «Очистить» очищает список.
+- Подписи фильтров в панели — слева от поля.
+- Переход между закладками «Заказы» и «Производство» обновляет нижние закладки по текущей строке открытой закладки. Раньше они оставались от строки прежней закладки.
+
+### fr
+- Le poste de production tient dans la fenêtre sans défilement général : les tableaux des commandes, de la production et des onglets du bas s'étirent sur la hauteur libre au lieu de l'imposer ; le panneau des filtres reste toujours à droite et ne passe plus sous les tableaux sur un écran étroit.
+- Les messages du poste (erreurs d'enregistrement et de validation, indications) n'apparaissent plus en bas du formulaire et ne décalent plus les tableaux : ils sont regroupés dans le nouvel onglet « Messages » du panneau de droite, les plus récents en haut, avec l'heure. Panneau replié, l'icône des messages affiche le nombre de messages non lus ; le bouton « Effacer » vide la liste.
+- Les libellés des filtres du panneau sont à gauche du champ.
+- Le passage entre les onglets « Commandes » et « Production » met à jour les onglets du bas selon la ligne courante de l'onglet ouvert. Auparavant, ils restaient sur la ligne de l'onglet précédent.
+
+### en
+- The production workplace fits the window without a form-wide scroll: the orders, production and bottom-tab tables stretch over the free height instead of setting it; the filter panel always stays on the right and no longer drops under the tables on a narrow screen.
+- Workplace messages (saving and posting errors, hints) no longer appear at the bottom of the form or shift the tables: they are collected in the new «Messages» tab of the right panel, newest first, with the time. With the panel collapsed, the messages icon shows the number of unread messages; the «Clear» button empties the list.
+- Filter labels in the panel are to the left of the field.
+- Switching between the «Orders» and «Production» tabs refreshes the bottom tabs for the current line of the open tab. Previously they kept the line of the previous tab.
+
+### es
+- El puesto de producción cabe en la ventana sin desplazamiento general: las tablas de pedidos, de producción y de las pestañas inferiores se estiran por la altura libre en lugar de imponerla; el panel de filtros queda siempre a la derecha y ya no pasa debajo de las tablas en una pantalla estrecha.
+- Los mensajes del puesto (errores de guardado y contabilización, avisos) ya no aparecen al pie del formulario ni desplazan las tablas: se reúnen en la nueva pestaña «Mensajes» del panel derecho, los más recientes arriba, con la hora. Con el panel plegado, el icono de mensajes muestra el número de no leídos; el botón «Borrar» vacía la lista.
+- Las etiquetas de los filtros del panel están a la izquierda del campo.
+- El paso entre las pestañas «Pedidos» y «Producción» actualiza las pestañas inferiores según la línea actual de la pestaña abierta. Antes conservaban la línea de la pestaña anterior.
+
+## 2.0.16.92
+### ru
+- Рабочее место производства: закладка «Отгрузки» перенесена в конец, перед «Документами» — после переработки.
+
+### fr
+- Poste de production : l'onglet « Expéditions » est déplacé à la fin, avant « Documents » — après la sous-traitance.
+
+### en
+- Production workplace: the «Shipments» tab is moved to the end, before «Documents» — after subcontracting.
+
+### es
+- Puesto de producción: la pestaña «Envíos» se traslada al final, antes de «Documentos» — después de la subcontratación.
+
+## 2.0.16.91
+### ru
+- Рабочее место производства, закладка «Производство»: склад новой строки выпуска заполняется из настроек пользователя и выбирается вручную, пока строка не записана. Раньше колонка «Склад» не редактировалась, и без склада по умолчанию выпуск не записывался («Списать с» не заполнено).
+- Карточка пользователя: новая закладка «Склады» — склад по умолчанию, склад поступлений и склад отгрузок.
+- Новые поступления товаров, поступления из переработки, приходные ордера и возвраты от покупателей берут склад поступлений пользователя; реализации, расходные ордера и возвраты поставщикам — склад отгрузок. Если свой склад не задан — склад по умолчанию пользователя, затем основной склад.
+
+### fr
+- Poste de production, onglet « Production » : l'entrepôt d'une nouvelle ligne de production est rempli depuis les paramètres de l'utilisateur et se choisit à la main tant que la ligne n'est pas enregistrée. Auparavant, la colonne « Entrepôt » n'était pas modifiable et, sans entrepôt par défaut, la production ne s'enregistrait pas (« Radier de » non rempli).
+- Fiche utilisateur : nouvel onglet « Entrepôts » — entrepôt par défaut, entrepôt des réceptions et entrepôt des expéditions.
+- Les nouvelles réceptions de marchandises, réceptions de sous-traitance, bons d'entrée et retours clients prennent l'entrepôt des réceptions de l'utilisateur ; les ventes, bons de sortie et retours fournisseurs — l'entrepôt des expéditions. S'il n'est pas défini, l'entrepôt par défaut de l'utilisateur, puis l'entrepôt principal.
+
+### en
+- Production workplace, «Production» tab: the warehouse of a new output line is filled from the user settings and can be chosen manually until the line is saved. Previously the «Warehouse» column was not editable and, without a default warehouse, the output could not be saved («Write off from» not filled).
+- User card: new «Warehouses» tab — default warehouse, receipts warehouse and shipments warehouse.
+- New goods receipts, subcontracting receipts, receipt orders and customer returns take the user's receipts warehouse; sales, issue orders and supplier returns take the shipments warehouse. If it is not set — the user's default warehouse, then the main warehouse.
+
+### es
+- Puesto de producción, pestaña «Producción»: el almacén de una nueva línea de producción se rellena desde la configuración del usuario y se elige a mano mientras la línea no esté guardada. Antes la columna «Almacén» no era editable y, sin almacén predeterminado, la producción no se guardaba («Dar de baja de» sin rellenar).
+- Ficha de usuario: nueva pestaña «Almacenes» — almacén predeterminado, almacén de recepciones y almacén de expediciones.
+- Las nuevas recepciones de mercancías, recepciones de subcontratación, órdenes de entrada y devoluciones de clientes toman el almacén de recepciones del usuario; las ventas, órdenes de salida y devoluciones a proveedores, el almacén de expediciones. Si no está definido, el almacén predeterminado del usuario y luego el almacén principal.
+
+## 2.0.16.90
+### ru
+- Колонки со своим списком выбора (продукция, материалы, ПФ/ГП, выпуск и отгрузка рабочего места производства, товар поступления в рабочем месте закупок, продукция и материалы заказа на производство) больше не показывают сначала пустой тёмный список с «Показать все»: кнопка выбора в самом поле сразу открывает предзаполненный список.
+- Во всех полях выбора справочников и документов включена история выбора: выпадающий список показывает последние выбранные значения, а не пусто.
+- Колонка товара в документах при входе показывает последние выбранные товары, а пока их нет — последние созданные с остатком и ценой.
+
+### fr
+- Les colonnes qui ont leur propre liste de choix (produit, matières, semi-fini/produit fini, production et expédition du poste de production, article de réception du poste d'achats, produit et matières de la commande de production) n'affichent plus d'abord une liste sombre vide avec « Afficher tout » : le bouton de sélection dans le champ ouvre directement la liste préremplie.
+- L'historique de sélection est activé dans tous les champs de choix de référentiels et de documents : la liste déroulante affiche les dernières valeurs choisies au lieu d'être vide.
+- La colonne article des documents affiche à l'entrée les derniers articles choisis et, tant qu'il n'y en a pas, les derniers créés avec le stock et le prix.
+
+### en
+- Columns with their own choice list (product, materials, semi-finished/finished goods, output and shipment in the production workplace, receipt item in the purchasing workplace, product and materials of a production order) no longer first show an empty dark list with «Show all»: the choice button in the field opens the prefilled list at once.
+- Choice history is enabled in all catalog and document choice fields: the drop-down list shows the last selected values instead of being empty.
+- The item column in documents shows the last selected items on entry and, until there are any, the most recently created ones with stock and price.
+
+### es
+- Las columnas con su propia lista de selección (producto, materiales, semielaborado/producto terminado, producción y expedición del puesto de producción, artículo de recepción del puesto de compras, producto y materiales del pedido de producción) ya no muestran primero una lista oscura vacía con «Mostrar todo»: el botón de selección del campo abre directamente la lista precargada.
+- El historial de selección está activado en todos los campos de selección de catálogos y documentos: la lista desplegable muestra los últimos valores elegidos en lugar de quedar vacía.
+- La columna de artículo de los documentos muestra al entrar los últimos artículos elegidos y, mientras no los haya, los últimos creados con existencias y precio.
+
+## 2.0.16.89
+### ru
+- Рабочее место производства, закладка «Продукция»: записанная строка остаётся там, где её ввели, — новая строка после записи остаётся вверху списка, а не уходит к остальным строкам своего заказа.
+
+### fr
+- Poste de production, onglet « Produit » : la ligne enregistrée reste là où elle a été saisie — après l'enregistrement, la nouvelle ligne reste en haut de la liste au lieu de rejoindre les autres lignes de sa commande.
+
+### en
+- Production workplace, «Product» tab: a saved line stays where it was entered — after saving, a new line stays at the top of the list instead of moving to the other lines of its order.
+
+### es
+- Puesto de producción, pestaña «Producto»: la línea guardada se queda donde se introdujo — tras guardarla, la línea nueva permanece arriba de la lista en lugar de irse con las demás líneas de su pedido.
+
+## 2.0.16.88
+### ru
+- Карточка станка открывается без вертикальной прокрутки: поля — на закладке «Основное» с подписью слева, по строкам одной темы (выработка, время на смену заказа и стоимость часа; склад станка и оператор; признаки). Таблицы «Выработка по номенклатуре» и «Режим работы» — на своих закладках, с числом строк в заголовке.
+
+### fr
+- La fiche de la machine s'ouvre sans défilement vertical : les champs sont sur l'onglet « Principal » avec le libellé à gauche, regroupés par ligne de même thème (rendement, temps de changement de commande et coût horaire ; entrepôt de la machine et opérateur ; indicateurs). Les tableaux « Cadence par article » et « Horaires de travail » ont chacun leur onglet, avec le nombre de lignes dans le titre.
+
+### en
+- The machine card opens without vertical scrolling: fields are on the «Main» tab with the label on the left, in rows of the same topic (output rate, order changeover time and hourly cost; machine warehouse and operator; flags). The «Output rate by item» and «Working schedule» tables each have their own tab, with the row count in the title.
+
+### es
+- La ficha de la máquina se abre sin desplazamiento vertical: los campos están en la pestaña «Principal» con la etiqueta a la izquierda, en filas del mismo tema (rendimiento, tiempo de cambio de pedido y coste por hora; almacén de la máquina y operador; indicadores). Las tablas «Rendimiento por artículo» y «Horario de trabajo» tienen cada una su pestaña, con el número de filas en el título.
+
+## 2.0.16.87
+### ru
+- Рабочее место «Управление станками» перекомпоновано по высоте: таблица станков и таблицы на закладках внизу больше не растягиваются, всё свободное место окна отдано графику загрузки — строки станков видны без вертикальной прокрутки графика.
+
+### fr
+- Le poste « Gestion des machines » est réorganisé en hauteur : le tableau des machines et les tableaux des onglets du bas ne s'étirent plus, toute la place libre de la fenêtre revient au planning de charge — les lignes des machines sont visibles sans défilement vertical du planning.
+
+### en
+- The «Machine management» workplace is rearranged vertically: the machine table and the tables on the bottom tabs no longer stretch, all free window space goes to the load chart — machine rows are visible without scrolling the chart vertically.
+
+### es
+- El puesto «Gestión de máquinas» se reorganiza en altura: la tabla de máquinas y las tablas de las pestañas inferiores ya no se estiran, todo el espacio libre de la ventana pasa al gráfico de carga: las filas de las máquinas se ven sin desplazamiento vertical del gráfico.
+
+## 2.0.16.86
+### ru
+- «Заполнить демо-данными» в базе без валюты регламентированного учёта больше не обрывается ошибкой «Не указан курс валюты EUR» на реализациях и оплатах: кнопка сразу просит указать валюту в «Компания и учёт» и записать настройки. Касса и банк демо-набора, заведённые раньше в другой валюте и ещё без документов, при следующем заполнении переводятся в валюту учёта.
+
+### fr
+- « Remplir avec des données de démonstration » dans une base sans devise de comptabilité réglementée ne s'interrompt plus sur l'erreur « Le taux de change de EUR n'est pas indiqué » aux ventes et paiements : le bouton demande d'abord d'indiquer la devise dans « Entreprise et comptabilité » et d'enregistrer les paramètres. La caisse et la banque du jeu de démo créées auparavant dans une autre devise et encore sans documents passent dans la devise de comptabilité au remplissage suivant.
+
+### en
+- «Fill with demo data» in an infobase without a regulated accounting currency no longer stops with «The EUR exchange rate is not specified» on sales and payments: the button first asks to specify the currency in «Company and accounting» and save the settings. The demo cash desk and bank created earlier in another currency and still without documents switch to the accounting currency on the next fill.
+
+### es
+- «Llenar con datos de demostración» en una base sin moneda contable regulada ya no se interrumpe con «No se indica el tipo de cambio de EUR» en ventas y pagos: el botón pide primero indicar la moneda en «Empresa y contabilidad» y guardar los ajustes. La caja y el banco del conjunto demo creados antes en otra moneda y aún sin documentos pasan a la moneda contable en el siguiente llenado.
+
+## 2.0.16.85
+### ru
+- В мастере первого запуска на шаге выбора возможностей появились флажки, которые раньше были только в «Параметрах»: «Учёт станков» и «Автоматическое создание выпусков при отгрузке» в разделе «Производство», «Выбор партии при продаже» в разделе «Продажи». Без производства учёт станков и автовыпуск не включаются — как и в «Параметрах».
+
+### fr
+- À l'étape de choix des fonctionnalités de l'assistant de premier lancement, de nouvelles cases qui n'existaient que dans « Paramètres » : « Gestion des machines » et « Création automatique des fabrications à l'expédition » dans « Production », « Sélection du lot lors de la vente » dans « Ventes ». Sans production, la gestion des machines et la fabrication automatique ne s'activent pas — comme dans « Paramètres ».
+
+### en
+- The first-run wizard's feature step now has the checkboxes that were only in «Settings»: «Machine management» and «Automatic creation of production outputs on shipment» under «Production», «Batch selection on sale» under «Sales». Without production, machine management and automatic output are not turned on — as in «Settings».
+
+### es
+- En el paso de selección de funciones del asistente de primer inicio aparecen las casillas que antes solo estaban en «Parámetros»: «Gestión de máquinas» y «Creación automática de fabricaciones en el envío» en «Producción», «Selección de lote en la venta» en «Ventas». Sin producción, la gestión de máquinas y la fabricación automática no se activan, como en «Parámetros».
+
+## 2.0.16.84
+### ru
+- Кнопка «Заполнить демо-данными» («Компания и учёт») работает и в базе с рабочими документами: демо-набор добавляется рядом с ними — свои склады, товары, контрагенты, касса и банк с пометкой «Démo». Документы набора оформляются от организации базы и видны в её отчётах вместе с рабочими — об этом предупреждают вопрос перед заполнением и итог.
+
+### fr
+- Le bouton « Remplir avec des données de démonstration » (« Société et comptabilité ») fonctionne aussi dans une base contenant des documents de travail : le jeu de démo s'ajoute à côté — ses propres entrepôts, articles, tiers, caisse et banque marqués « Démo ». Les documents du jeu sont établis au nom de la société de la base et apparaissent dans ses rapports avec les documents de travail — la question avant le remplissage et le résultat le signalent.
+
+### en
+- The «Fill with demo data» button («Company and accounting») also works in an infobase with working documents: the demo set is added alongside them — its own warehouses, products, counterparties, cash and bank marked «Démo». Demo documents are issued by the infobase company and appear in its reports together with working documents — the question before filling and the result warn about it.
+
+### es
+- El botón «Llenar con datos de demostración» («Empresa y contabilidad») funciona también en una base con documentos de trabajo: el conjunto demo se añade junto a ellos — sus propios almacenes, artículos, contrapartes, caja y banco marcados «Démo». Los documentos del conjunto se emiten a nombre de la empresa de la base y se ven en sus informes junto con los de trabajo — lo advierten la pregunta antes de llenar y el resultado.
+
+## 2.0.16.83
+### ru
+- Обработка «Формирование заказов поставщику» правильно считает «Заказано»: раньше у заказа, по которому уже были поступления, количество умножалось на их число, и программа предлагала дозаказать меньше нужного.
+- Контроль кредита по всем клиентам (регламентная проверка запрета отгрузок) учитывает только долги по реализациям и налоговым накладным. Раньше в долг могли попасть и другие документы расчётов.
+- Быстрее работают проведение документов со списанием товара, продаж и заказов поставщику, подбор товара по вводу в строке, сканирование штрихкода в рознице, выбор контрагента и договора в документах и пересчёт розничных цен.
+
+### fr
+- Le traitement « Génération des commandes fournisseurs » calcule correctement « Commandé » : auparavant, pour une commande déjà partiellement reçue, la quantité était multipliée par le nombre de réceptions et le programme proposait de commander moins que nécessaire.
+- Le contrôle de crédit de tous les clients (vérification planifiée de l'interdiction de livrer) ne prend en compte que les dettes des ventes et des factures fiscales. Auparavant, d'autres documents de règlement pouvaient être comptés.
+- Plus rapides : la validation des documents qui sortent du stock, des ventes et des commandes fournisseurs, la sélection d'articles à la saisie, le scan de code-barres en caisse, le choix du tiers et du contrat dans les documents et le recalcul des prix de détail.
+
+### en
+- The «Purchase order generation» processor calculates «Ordered» correctly: previously, for an order that already had receipts, the quantity was multiplied by their number and the program suggested ordering less than needed.
+- Credit control for all customers (the scheduled shipment ban check) counts only debts from sales and tax invoices. Previously other settlement documents could be counted as debt.
+- Faster: posting documents that write off stock, sales and purchase orders, item selection while typing, barcode scanning at the till, choosing the counterparty and contract in documents, and retail price recalculation.
+
+### es
+- El procesamiento «Generación de pedidos a proveedor» calcula bien «Pedido»: antes, en un pedido con recepciones, la cantidad se multiplicaba por su número y el programa proponía pedir menos de lo necesario.
+- El control de crédito de todos los clientes (comprobación programada de la prohibición de envíos) solo tiene en cuenta las deudas de ventas y facturas fiscales. Antes podían contarse otros documentos de liquidación.
+- Más rápido: la contabilización de documentos que dan de baja existencias, de ventas y de pedidos a proveedor, la selección de artículos al escribir, el escaneo de códigos de barras en caja, la elección de contraparte y contrato en los documentos y el recálculo de precios minoristas.
+
+## 2.0.16.82
+### ru
+- Из формы выбора реализации убраны пустые колонки «Торговая точка», «Статус накладной» и «Вторая ходка», из журнала безналичных платежей — пустая колонка «Тип платёжного документа». Эти поля остались от прежней конфигурации и данных не показывали.
+- Расширены автоматические проверки программы: проведение поступления из переработки задним числом, автовыпуск с округлённым до нуля расходом материала, обработчик стадий заказов и права ролей личного кабинета и оператора производства.
+
+### fr
+- Les colonnes vides « Point de vente », « Statut du bon » et « Deuxième tournée » sont retirées du formulaire de choix des ventes, et la colonne vide « Type de document de paiement » du journal des paiements par virement. Ces champs venaient de l'ancienne configuration et n'affichaient aucune donnée.
+- Les contrôles automatiques du programme sont étendus : validation d'une réception de sous-traitance antidatée, production automatique avec une consommation de matière arrondie à zéro, traitement des étapes des commandes et droits des rôles espace client et opérateur de production.
+
+### en
+- The empty «Sales outlet», «Invoice status» and «Second trip» columns are removed from the sale choice form, and the empty «Payment document type» column from the bank payments journal. These fields came from the former configuration and showed no data.
+- The program's automatic checks are extended: posting a backdated receipt from processing, automatic production with material consumption rounded to zero, the order stage handler, and the rights of the customer portal and production operator roles.
+
+### es
+- Se quitan las columnas vacías «Punto de venta», «Estado del albarán» y «Segundo viaje» del formulario de selección de ventas, y la columna vacía «Tipo de documento de pago» del diario de pagos por transferencia. Estos campos venían de la configuración anterior y no mostraban datos.
+- Se amplían las comprobaciones automáticas del programa: contabilización de una recepción de transformación con fecha anterior, producción automática con consumo de material redondeado a cero, el procesamiento de etapas de pedidos y los derechos de los roles de portal de clientes y operador de producción.
+
+## 2.0.16.81
+### ru
+- Оповещение о минимальном остатке приходит и тогда, когда из проведённого документа удалили строку и провели его снова: остаток товара из удалённой строки проверяется на минимум. Раньше такое перепроведение — например, приходного ордера, реализации или передачи в переработку — оповещения не давало.
+- Фирменные печатные формы на выбранном в окне печати языке печатают и тексты бланка, и сумму прописью на этом языке без исключений: язык передаётся бланку напрямую.
+
+### fr
+- L'alerte de stock minimum arrive aussi quand une ligne est supprimée d'un document validé puis que le document est revalidé : le stock de l'article de la ligne supprimée est contrôlé par rapport au minimum. Auparavant, une telle revalidation — par exemple d'un bon de réception, d'une vente ou d'un envoi en sous-traitance — ne donnait pas d'alerte.
+- Les formulaires à en-tête imprimés dans la langue choisie dans la fenêtre d'impression impriment toujours les textes du modèle et le montant en lettres dans cette langue : la langue est transmise directement au modèle.
+
+### en
+- The minimum stock alert now also arrives when a line is deleted from a posted document and the document is posted again: the stock of the item from the deleted line is checked against the minimum. Previously such reposting — for example of a receipt order, a sale or a transfer to processing — gave no alert.
+- Branded print forms in the language chosen in the print window always print the template texts and the amount in words in that language: the language is passed to the template directly.
+
+### es
+- El aviso de existencias mínimas llega también cuando se elimina una línea de un documento contabilizado y se vuelve a contabilizar: las existencias del artículo de la línea eliminada se comprueban frente al mínimo. Antes, esa recontabilización —por ejemplo de una orden de entrada, una venta o un envío a transformación— no daba aviso.
+- Los formularios corporativos impresos en el idioma elegido en la ventana de impresión imprimen siempre los textos de la plantilla y el importe en letras en ese idioma: el idioma se pasa directamente a la plantilla.
+
+## 2.0.16.80
+### ru
+- Отчёт «Планирование закупок» считает правильно. Раньше проданное количество умножалось на число партий товара на складе, а остаток в итоге по товару показывался по одному складу вместо суммы по всем. Теперь «Продано» — ровно проданное за период, а «Текущий остаток» — сколько товара физически лежит на складе, включая приход по ордерам, ещё не оформленный поступлением. У проданного товара видны и склады, где он лежит без продаж за период. Отбор по месту хранения теперь работает.
+- Отчёт «Товары в наличии» (и команда «Товары в наличии» в карточке товара) показывает, сколько товара физически лежит на складе, одной строкой на товар, характеристику и серию, без разбивки по партиям. Если в сохранённой настройке отчёта был отбор или колонка «Партия», этот элемент при открытии пропадёт. Остатки по партиям и стоимости — в «Ведомости по товарам на складах».
+- Мобильная форма продажи работает с ордерным складом так же, как основная: в новой продаже ордерный склад не предлагается, а продажа, оформленная по расходным ордерам, показывает колонку «Ордер» и не даёт сменить склад.
+
+### fr
+- Le rapport « Planification des achats » calcule correctement. Auparavant, la quantité vendue était multipliée par le nombre de lots de l'article en entrepôt, et le total par article montrait le stock d'un seul entrepôt au lieu de la somme de tous. Désormais « Vendu » est exactement la quantité vendue sur la période, et « Stock actuel » la quantité physiquement en entrepôt, y compris l'entrée par bons pas encore régularisée par une réception. Pour un article vendu, les entrepôts où il est en stock sans vente sur la période apparaissent aussi. Le filtre par entrepôt fonctionne désormais.
+- Le rapport « Marchandises en stock » (et la commande « Marchandises en stock » de la fiche article) montre la quantité physiquement en entrepôt, une ligne par article, caractéristique et série, sans détail par lot. Si un paramétrage enregistré du rapport avait un filtre ou une colonne « Lot », cet élément disparaît à l'ouverture. Les stocks par lot et en valeur sont dans le rapport « État des stocks ».
+- Le formulaire mobile de vente fonctionne avec l'entrepôt à bons comme le formulaire principal : une nouvelle vente ne propose pas d'entrepôt à bons, et une vente qui régularise des bons de sortie affiche la colonne « Bon » et ne permet pas de changer d'entrepôt.
+
+### en
+- The «Purchase planning» report now calculates correctly. Previously the quantity sold was multiplied by the number of batches of the item in the warehouse, and the item total showed the stock of a single warehouse instead of the sum of all. Now «Sold» is exactly the quantity sold in the period, and «Current stock» is the quantity physically in the warehouse, including receipts by orders not yet documented by a purchase receipt. For a sold item, the warehouses holding it without sales in the period are shown too. The filter by warehouse now works.
+- The «Goods in stock» report (and the «Goods in stock» command on the product card) shows the quantity physically in the warehouse, one line per product, characteristic and serial, without a breakdown by batch. If a saved report setting had a filter or column «Batch», that element is dropped on opening. Stock by batch and by value is in the «Inventory status» report.
+- The mobile sale form works with an order-based warehouse like the main form: a new sale does not offer an order-based warehouse, and a sale that documents issue orders shows the «Order» column and does not allow changing the warehouse.
+
+### es
+- El informe «Planificación de compras» calcula correctamente. Antes, la cantidad vendida se multiplicaba por el número de lotes del artículo en el almacén, y el total por artículo mostraba las existencias de un solo almacén en lugar de la suma de todos. Ahora «Vendido» es exactamente lo vendido en el periodo, y «Existencias actuales» la cantidad física en el almacén, incluida la entrada por órdenes aún no formalizada con una recepción. Para un artículo vendido también se ven los almacenes donde está sin ventas en el periodo. El filtro por almacén ya funciona.
+- El informe «Productos en stock» (y el comando «Productos en stock» de la ficha del artículo) muestra la cantidad física en el almacén, una línea por artículo, característica y serie, sin desglose por lote. Si una configuración guardada del informe tenía un filtro o una columna «Lote», ese elemento desaparece al abrirla. Las existencias por lote y en valor están en el informe «Estado del inventario».
+- El formulario móvil de venta funciona con el almacén por órdenes como el principal: una venta nueva no ofrece un almacén por órdenes, y una venta que formaliza órdenes de salida muestra la columna «Orden» y no permite cambiar el almacén.
+
+## 2.0.16.79
+### ru
+- Очередь «К оформлению»: в списках приходных и расходных ордеров появилась колонка «К оформлению» — сколько по ордеру ещё не оформлено поступлением или реализацией, и флажок «Только к оформлению» в панели фильтров. Кнопка «Оформить поступлением» / «Оформить реализацией» создаёт один документ по выделенным ордерам; ордера должны быть с одного склада, одной организации, одного контрагента и по одному заказу. После записи документа список обновляется сам.
+- Списки ордеров доступны и в разделах продаж (расходные) и закупок (приходные) — менеджерам не нужен раздел «Склад».
+- Новый отчёт «Остатки на складах» (разделы «Склад» и «Продажи»): сколько товара физически лежит на складе на выбранную дату, сколько прихода и расхода по ордерам ещё не оформлено и сколько будет по учёту после оформления.
+
+### fr
+- File « À régulariser » : les listes des bons de réception et de sortie ont une colonne « À régulariser » — ce qui n'est pas encore régularisé par une réception ou une vente — et une case « À régulariser seulement » dans le panneau des filtres. Le bouton « Régulariser par une réception » / « Régulariser par une vente » crée un document pour les bons sélectionnés ; ils doivent être du même entrepôt, de la même société, du même tiers et de la même commande. Après l'enregistrement du document, la liste se met à jour.
+- Les listes des bons sont aussi disponibles dans les sections ventes (bons de sortie) et achats (bons de réception) — les responsables n'ont pas besoin de la section « Entrepôt ».
+- Nouveau rapport « Stocks en entrepôt » (sections « Entrepôt » et « Ventes ») : la quantité physiquement en entrepôt à la date choisie, l'entrée et la sortie par bons pas encore régularisées et la quantité selon la comptabilité après régularisation.
+
+### en
+- «To document» queue: the receipt and issue order lists have a «To document» column — what has not yet been documented by a purchase receipt or a sale — and a «To document only» flag in the filter panel. The «Document with a receipt» / «Document with a sale» button creates one document for the selected orders; they must be from one warehouse, one company, one counterparty and one order. After the document is saved, the list refreshes itself.
+- The order lists are also available in the sales (issue orders) and purchasing (receipt orders) sections — managers do not need the «Warehouse» section.
+- New «Warehouse stock» report («Warehouse» and «Sales» sections): the quantity physically in the warehouse on the selected date, the receipts and issues by orders not yet documented, and the quantity per accounting after documenting.
+
+### es
+- Cola «Por formalizar»: las listas de órdenes de entrada y salida tienen la columna «Por formalizar» — lo que aún no está formalizado por una recepción o una venta — y la casilla «Solo por formalizar» en el panel de filtros. El botón «Formalizar con una recepción» / «Formalizar con una venta» crea un documento para las órdenes seleccionadas; deben ser del mismo almacén, la misma empresa, el mismo contraparte y el mismo pedido. Tras guardar el documento, la lista se actualiza sola.
+- Las listas de órdenes están también en las secciones de ventas (órdenes de salida) y compras (órdenes de entrada): los gestores no necesitan la sección «Almacén».
+- Nuevo informe «Existencias en almacenes» (secciones «Almacén» y «Ventas»): la cantidad física en el almacén en la fecha elegida, la entrada y salida por órdenes aún no formalizadas y la cantidad según contabilidad tras formalizar.
+
+## 2.0.16.78
+### ru
+- Рабочее место производства работает с ордерным складом. Если склад нового документа ордерный, строка закладки «Поступления» создаёт приходный ордер, а строка закладки «Отгрузки» — расходный ордер вместо поступления и реализации. Кнопки «Поступление» и «Отгрузка» на таком складе открывают форму ордера.
+- Строки ордеров видны на тех же закладках, без цены и суммы. Ордер, по которому уже оформлены поступление или реализация, в рабочем месте только для просмотра. Строки поступлений и реализаций, оформивших ордера, на закладках не повторяются: приход и отгрузку на складе показывает ордер.
+- Приходный ордер, введённый строкой по заказу поставщику, закрывает выбранную строку заказа. В выборе строк заказа поставщику и в остатке к поступлению учитываются и приходные ордера, в том числе непроведённые.
+- Закладка «Документы заказа» показывает ордера с движением продукции и материалов, а также автовыпуски по расходным ордерам. Реализация или поступление, оформившие ордер, «отгружено» и «приход» не удваивают.
+
+### fr
+- Le poste de travail production fonctionne avec l'entrepôt à bons. Si l'entrepôt du nouveau document fonctionne par bons, une ligne de l'onglet « Réceptions » crée un bon de réception et une ligne de l'onglet « Expéditions » un bon de sortie, à la place de la réception et de la vente. Les boutons « Réception » et « Expédition » ouvrent alors le formulaire du bon.
+- Les lignes des bons apparaissent dans les mêmes onglets, sans prix ni montant. Un bon déjà régularisé par une réception ou une vente est en lecture seule dans le poste de travail. Les lignes des réceptions et ventes qui régularisent des bons ne sont pas répétées dans les onglets : l'entrée et la sortie en entrepôt sont montrées par le bon.
+- Un bon de réception saisi en ligne sur une commande fournisseur solde la ligne de commande choisie. Le choix des lignes de commande fournisseur et le reste à recevoir tiennent compte des bons de réception, y compris non validés.
+- L'onglet « Documents de la commande » affiche les bons avec le mouvement des produits et des matières, ainsi que les fabrications automatiques des bons de sortie. Une vente ou une réception qui régularise un bon ne double pas « expédié » ni « entrée ».
+
+### en
+- The production workplace works with order-based warehouses. If the warehouse of the new document is order-based, a line on the «Receipts» tab creates a goods receipt order and a line on the «Shipments» tab a goods issue order instead of a purchase receipt and a sale. The «Receipt» and «Shipment» buttons then open the order form.
+- Order lines appear on the same tabs, without price and amount. An order already documented by a receipt or a sale is read-only in the workplace. Lines of receipts and sales that document orders are not repeated on the tabs: the warehouse receipt and shipment are shown by the order.
+- A goods receipt order entered as a line for a purchase order closes the selected order line. The choice of purchase order lines and the remainder to receive take receipt orders into account, including unposted ones.
+- The «Order documents» tab shows orders with the movement of products and materials, as well as automatic releases of issue orders. A sale or a receipt that documents an order does not double «shipped» or «received».
+
+### es
+- El puesto de trabajo de producción trabaja con el almacén por órdenes. Si el almacén del nuevo documento funciona por órdenes, una línea de la pestaña «Recepciones» crea una orden de entrada y una línea de la pestaña «Envíos» una orden de salida, en lugar de la recepción y la venta. Los botones «Recepción» y «Envío» abren entonces el formulario de la orden.
+- Las líneas de las órdenes aparecen en las mismas pestañas, sin precio ni importe. Una orden ya formalizada por una recepción o una venta es de solo lectura en el puesto de trabajo. Las líneas de recepciones y ventas que formalizan órdenes no se repiten en las pestañas: la entrada y la salida del almacén las muestra la orden.
+- Una orden de entrada introducida como línea de un pedido a proveedor cierra la línea del pedido elegida. La elección de líneas del pedido a proveedor y el resto por recibir tienen en cuenta las órdenes de entrada, incluso no contabilizadas.
+- La pestaña «Documentos del pedido» muestra las órdenes con el movimiento de productos y materiales, y las fabricaciones automáticas de las órdenes de salida. Una venta o una recepción que formaliza una orden no duplica «enviado» ni «entrada».
+
+## 2.0.16.77
+### ru
+- Ордерный склад. В карточке склада появились флажок «Ордерный склад» и дата начала ордерной схемы. На таком складе кладовщик фиксирует фактический приход и отгрузку товара приходными и расходными ордерами (раздел «Склад»), а поступление и реализация оформляют их потом — одним документом или частями, в том числе несколько ордеров одним документом. Документы, датированные раньше даты начала схемы, проводятся как прежде, без ордеров.
+- Приходный ордер вводится на основании заказа поставщику, заказа клиента на производство или реализации, расходный — на основании заказа клиента или поступления. Приходный ордер сразу закрывает заказ поставщику и учитывается в потребностях производства; расходный по заказу на производство выпускает продукцию автоматически, как раньше реализация.
+- Поступление и реализация на ордерном складе вводятся на основании ордеров: склад берётся из ордера и не меняется, строки — неоформленный остаток ордеров, колонка «Ордер» показывает, какой ордер оформляет строка. Без ордера такой документ не проводится, оформить больше, чем пришло или ушло по ордеру, нельзя. В поступлении и реализации без ордеров выбор склада предлагает только неордерные склады.
+- Оформленный ордер защищён: его нельзя удалить, отменить, перенести на другой склад или уменьшить ниже уже оформленного количества.
+- Комплект в расходном ордере списывается со склада по составляющим, а реализация по такому ордеру — в тех же количествах.
+- Ордеры печатаются фирменной формой «Приходный ордер» / «Расходный ордер» без цен, с подписями сдавшего и принявшего.
+- Остатки в рабочем месте закупок, на главной панели и в отчёте «Продажи детально» считаются по фактическому количеству на складе.
+- Возврат поставщику по заказу на производство теперь снимает материал с продукции, по которой он ещё числится пришедшим (раньше — в обратном порядке распределения самого поступления). Итог по заказу и материалу тот же.
+- Если по заказу уже возвращено поставщику больше, чем останется принятым после отмены или удаления поступления, программа не даст его отменить: сначала отмените возврат.
+- Новая заставка при запуске программы — карандашный эскиз склада и растущего графика, в духе типовых решений 1С.
+
+### fr
+- Entrepôt à bons. La fiche de l'entrepôt reçoit la case « Entrepôt à bons » et la date de début du schéma par bons. Dans un tel entrepôt, le magasinier enregistre les entrées et sorties réelles de marchandises par des bons de réception et de sortie (section « Entrepôt »), et la réception et la vente les régularisent ensuite — en un document ou par parties, y compris plusieurs bons en un seul document. Les documents datés avant la date de début du schéma sont validés comme avant, sans bons.
+- Le bon de réception se crée à partir d'une commande fournisseur, d'une commande client de production ou d'une vente ; le bon de sortie à partir d'une commande client ou d'une réception. Le bon de réception solde immédiatement la commande fournisseur et compte dans les besoins de production ; le bon de sortie d'une commande de production lance la fabrication automatique, comme la vente auparavant.
+- La réception et la vente dans un entrepôt à bons se créent à partir des bons : l'entrepôt vient du bon et ne change pas, les lignes reprennent le reste non régularisé des bons, la colonne « Bon » indique quel bon la ligne régularise. Sans bon, un tel document n'est pas validé, et l'on ne peut pas régulariser plus que ce qui est entré ou sorti selon le bon. Dans une réception ou une vente sans bons, le choix de l'entrepôt ne propose que les entrepôts sans bons.
+- Un bon régularisé est protégé : on ne peut ni le supprimer, ni l'annuler, ni le changer d'entrepôt, ni le réduire en dessous de la quantité déjà régularisée.
+- Un kit dans un bon de sortie sort de l'entrepôt par composants, et la vente selon ce bon dans les mêmes quantités.
+- Les bons s'impriment avec le formulaire à en-tête « Bon de réception » / « Bon de sortie », sans prix, avec les signatures de celui qui remet et de celui qui reçoit.
+- Les stocks du poste de travail achats, du tableau de bord et du rapport « Ventes en détail » sont calculés sur la quantité réellement en entrepôt.
+- Le retour fournisseur d'une commande de production retire désormais la matière de la production pour laquelle elle est encore comptée comme reçue (auparavant — dans l'ordre inverse de la répartition de la réception elle-même). Le total par commande et matière est le même.
+- Si l'on a déjà retourné au fournisseur plus que ce qui restera reçu après l'annulation ou la suppression d'une réception de la commande, le programme refuse cette annulation : annulez d'abord le retour.
+- Nouvel écran de démarrage du programme — une esquisse au crayon d'un entrepôt et d'un graphique en hausse, dans l'esprit des solutions standard 1C.
+
+### en
+- Order-based warehouse. The warehouse card gets an «Order-based warehouse» flag and the start date of the order scheme. In such a warehouse the storekeeper records the actual receipt and shipment of goods with receipt and issue orders («Warehouse» section), and the purchase receipt and the sale document them later — in one document or in parts, including several orders in one document. Documents dated before the scheme start date are posted as before, without orders.
+- A receipt order is entered based on a purchase order, a customer production order or a sale; an issue order based on a customer order or a purchase receipt. The receipt order closes the purchase order at once and counts in production needs; the issue order of a production order releases the products automatically, as the sale did before.
+- Purchase receipts and sales in an order-based warehouse are entered based on orders: the warehouse comes from the order and does not change, the lines are the undocumented remainder of the orders, the «Order» column shows which order the line documents. Without an order such a document is not posted, and you cannot document more than came in or went out by the order. In receipts and sales without orders, warehouse selection offers only warehouses without orders.
+- A documented order is protected: it cannot be deleted, unposted, moved to another warehouse or reduced below the quantity already documented.
+- A kit in an issue order leaves the warehouse by components, and the sale by that order in the same quantities.
+- Orders print with the branded «Goods receipt note» / «Goods issue note» form without prices, with the signatures of the person handing over and the person receiving.
+- Stock in the purchasing workplace, on the dashboard and in the «Sales in detail» report is calculated from the actual quantity in the warehouse.
+- A return to the supplier for a production order now removes the material from the product for which it is still counted as received (previously — in the reverse order of the receipt's own distribution). The total per order and material is the same.
+- If more has already been returned to the supplier for an order than will remain received after unposting or deleting a receipt, the program does not allow it: unpost the return first.
+- New startup splash screen — a pencil sketch of a warehouse and a rising chart, in the style of standard 1C solutions.
+
+### es
+- Almacén por órdenes. La ficha del almacén recibe la casilla «Almacén por órdenes» y la fecha de inicio del esquema por órdenes. En un almacén así, el almacenero registra la entrada y salida real de mercancías con órdenes de entrada y de salida (sección «Almacén»), y la recepción y la venta las formalizan después — en un documento o por partes, incluso varias órdenes en un solo documento. Los documentos con fecha anterior al inicio del esquema se contabilizan como antes, sin órdenes.
+- La orden de entrada se introduce a partir de un pedido al proveedor, de un pedido de cliente de producción o de una venta; la orden de salida a partir de un pedido de cliente o de una recepción. La orden de entrada cierra de inmediato el pedido al proveedor y cuenta en las necesidades de producción; la orden de salida de un pedido de producción lanza la fabricación automática, como antes la venta.
+- La recepción y la venta en un almacén por órdenes se introducen a partir de las órdenes: el almacén viene de la orden y no cambia, las líneas son el resto no formalizado de las órdenes, la columna «Orden» indica qué orden formaliza la línea. Sin orden, un documento así no se contabiliza, y no se puede formalizar más de lo que entró o salió según la orden. En recepciones y ventas sin órdenes, la elección del almacén solo ofrece almacenes sin órdenes.
+- Una orden formalizada está protegida: no se puede eliminar, anular, cambiar de almacén ni reducir por debajo de la cantidad ya formalizada.
+- Un kit en una orden de salida sale del almacén por componentes, y la venta según esa orden en las mismas cantidades.
+- Las órdenes se imprimen con el formulario corporativo «Orden de entrada» / «Orden de salida», sin precios, con las firmas de quien entrega y quien recibe.
+- Las existencias del puesto de trabajo de compras, del panel principal y del informe «Ventas en detalle» se calculan por la cantidad real en el almacén.
+- La devolución al proveedor de un pedido de producción ahora retira el material de la producción para la que todavía figura como recibido (antes — en el orden inverso del reparto de la propia recepción). El total por pedido y material es el mismo.
+- Si ya se ha devuelto al proveedor más de lo que quedará recibido tras anular o eliminar una recepción del pedido, el programa no lo permite: anule primero la devolución.
+- Nueva pantalla de inicio del programa — un boceto a lápiz de un almacén y un gráfico ascendente, al estilo de las soluciones estándar de 1C.
+
+## 2.0.16.76
+### ru
+- Подготовка склада к ордерной схеме (приходные и расходные ордера кладовщика — в следующих сборках). Рядом с учётом партий и стоимости программа теперь ведёт отдельный учёт физического количества товаров на складах. Пока ордеров нет, оба учёта всегда совпадают, и в работе ничего не меняется.
+- Остатки в формах документов, в подборе и выборе серий, в списке и карточке товара, в отчётах «Недостаточные запасы», «Налоговые накладные: нехватка товара на складе» и «Товары для заказа», в рабочих местах закупок и производства считаются по физическому количеству — цифры те же, что и раньше.
+- Оповещение о минимальном остатке приходит и тогда, когда остаток ушёл ровно в ноль.
+- Первое обновление на эту версию займёт дольше обычного: программа один раз переносит историю движений склада в новый учёт и сверяет его с партиями запись за записью. Если сверка найдёт расхождение, обновление остановится с понятным сообщением и база останется на прежней версии — сообщите об этом в поддержку.
+
+### fr
+- Préparation de l'entrepôt au schéma par bons (bons de réception et de sortie du magasinier — dans les prochaines versions). À côté de la gestion des lots et des coûts, le programme tient désormais un suivi séparé des quantités physiques en entrepôt. Tant qu'il n'y a pas de bons, les deux suivis coïncident toujours et rien ne change dans votre travail.
+- Les stocks affichés dans les formulaires de documents, dans la sélection des articles et des séries, dans la liste et la fiche article, dans les rapports « Stocks insuffisants », « Factures fiscales : stock insuffisant » et « Marchandises à commander », dans les postes de travail achats et production sont calculés sur les quantités physiques — les chiffres sont les mêmes qu'avant.
+- L'alerte de stock minimum arrive aussi lorsque le stock tombe exactement à zéro.
+- La première mise à jour vers cette version prendra plus de temps que d'habitude : le programme transfère une fois l'historique des mouvements de stock dans le nouveau suivi et le rapproche des lots enregistrement par enregistrement. Si le rapprochement trouve un écart, la mise à jour s'arrête avec un message clair et la base reste sur la version précédente — signalez-le au support.
+
+### en
+- Preparing the warehouse for the order-based scheme (storekeeper receipt and issue orders come in the next builds). Next to the batch and cost accounting, the program now keeps a separate record of physical quantities in warehouses. As long as there are no orders, both records always match and nothing changes in your work.
+- Stock shown in document forms, in item and series selection, in the item list and card, in the «Insufficient stocks», «Tax invoices: insufficient stock» and «Goods to order» reports, and in the purchasing and production workplaces is calculated from physical quantities — the figures are the same as before.
+- The minimum stock alert now also arrives when the stock drops to exactly zero.
+- The first update to this version takes longer than usual: the program transfers the history of stock movements into the new record once and reconciles it with the batches record by record. If the reconciliation finds a difference, the update stops with a clear message and the database stays on the previous version — please report it to support.
+
+### es
+- Preparación del almacén para el esquema por órdenes (órdenes de entrada y salida del almacenero — en las próximas versiones). Junto a la contabilidad de lotes y costes, el programa lleva ahora un registro aparte de las cantidades físicas en los almacenes. Mientras no haya órdenes, ambos registros coinciden siempre y en su trabajo no cambia nada.
+- Las existencias en los formularios de documentos, en la selección de artículos y series, en la lista y la ficha del artículo, en los informes «Existencias insuficientes», «Facturas fiscales: existencias insuficientes» y «Productos a pedido», y en los puestos de trabajo de compras y producción se calculan por cantidades físicas — las cifras son las mismas que antes.
+- El aviso de existencias mínimas llega también cuando las existencias bajan exactamente a cero.
+- La primera actualización a esta versión tardará más de lo habitual: el programa traslada una vez el historial de movimientos de almacén al nuevo registro y lo concilia con los lotes registro por registro. Si la conciliación encuentra una diferencia, la actualización se detiene con un mensaje claro y la base se queda en la versión anterior — comuníquelo al soporte.
+
+## 2.0.16.75
+### ru
+- Из программы удалены прежние макеты печатных форм, которые заменены фирменными: Facture, счёт и накладные DevisBL реализации, налоговых накладных и накладной покупки, акт об оказании услуг, акт сверки, заказ поставщику, запрос котировок, письмо о платеже, а также давно не используемые макеты товарной накладной (Торг-12) и чека налоговой накладной. Печать не меняется: все команды печатают фирменные формы, как в прошлой сборке.
+- Если вы меняли один из этих макетов, правка не потеряна. Список макетов печатных форм (Настройки программы → Обслуживание → «Пользовательские макеты печати») показывает её строкой с пометкой «удалён из конфигурации» и флажком «Проверить». Откройте её кнопкой «Изменить макет», чтобы скопировать нужное в фирменный макет или сохранить в файл; ненужную правку удалите кнопкой «Удалить изменённый». Так же показываются правки прежних макетов коммерческого предложения.
+
+### fr
+- Les anciens modèles d'impression remplacés par les formulaires à en-tête ont été supprimés du programme : facture, facture proforma et bons de livraison DevisBL des ventes, des factures fiscales et des factures d'achat, acte de prestation de services, relevé de compte, commande fournisseur, demande de cotation, lettre de paiement, ainsi que les modèles inutilisés depuis longtemps du bon de livraison (Torg-12) et du ticket de la facture fiscale. L'impression ne change pas : toutes les commandes impriment les formulaires à en-tête, comme dans la version précédente.
+- Si vous aviez modifié l'un de ces modèles, la modification n'est pas perdue. La liste des modèles d'impression (Paramètres du programme → Maintenance → « Modèles d'impression personnalisés ») l'affiche sur une ligne marquée « supprimé de la configuration » avec la case « À vérifier ». Ouvrez-la avec « Modifier le modèle » pour copier ce qui vous sert dans le modèle à en-tête ou l'enregistrer dans un fichier ; supprimez une modification inutile avec « Supprimer le modifié ». Les modifications des anciens modèles de devis s'affichent de la même façon.
+
+### en
+- The old print templates replaced by the branded forms have been removed from the program: invoice, proforma invoice and DevisBL delivery notes of sales, tax invoices and purchase invoices, the act of services rendered, the reconciliation statement, the purchase order, the request for quotation, the payment letter, as well as the long-unused templates of the goods delivery note (Torg-12) and of the tax invoice receipt. Printing does not change: all commands print the branded forms, as in the previous build.
+- If you changed one of these templates, the change is not lost. The print templates list (Program settings → Maintenance → «Custom print templates») shows it in a row marked «removed from the configuration» with the «Check» flag. Open it with «Edit template» to copy what you need into the branded template or save it to a file; delete a change you no longer need with «Delete the changed one». Changes to the old quotation templates are shown the same way.
+
+### es
+- Se han eliminado del programa las plantillas de impresión antiguas sustituidas por los formularios corporativos: factura, factura proforma y albaranes DevisBL de ventas, facturas fiscales y facturas de compra, acta de prestación de servicios, acta de conciliación, pedido al proveedor, solicitud de cotización, carta de pago, así como las plantillas sin uso desde hace tiempo del albarán de mercancías (Torg-12) y del ticket de la factura fiscal. La impresión no cambia: todos los comandos imprimen los formularios corporativos, como en la versión anterior.
+- Si había modificado alguna de estas plantillas, el cambio no se pierde. La lista de plantillas de impresión (Configuración del programa → Mantenimiento → «Plantillas de impresión personalizadas») lo muestra en una fila marcada «eliminada de la configuración» con la marca «Comprobar». Ábralo con «Editar plantilla» para copiar lo que necesite a la plantilla corporativa o guardarla en un archivo; elimine un cambio innecesario con «Eliminar la modificada». Los cambios de las plantillas antiguas del presupuesto se muestran del mismo modo.
+
+## 2.0.16.74
+### ru
+- Заказ поставщику, запрос котировок (обычный и с фото), запрос цен по предложению поставщика и письмо о платеже по расходному кассовому ордеру печатаются в фирменном оформлении, как счёт-фактура и накладная: логотип, реквизиты сторон, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
+- В документах поставщику поставщик стоит слева, ваша организация — справа, как покупатель; печать организации не ставится, как и раньше.
+- Заказ поставщику: номер, строки с ценами, итоги без НДС, НДС и с НДС, сумма прописью, комментарий, дата печати и ответственный.
+- Запрос котировок: артикул, код поставщика и код производителя товара, единица и количество, без цен. В варианте «с фото» у каждой строки — фото товара: самая новая картинка из карточки товара; у товара без картинки строка печатается без фото. Строка с фото не обрезает длинное наименование и коды.
+- Запрос цен: строки с ценами и итогами, как раньше. Подписи «транспорт» и «клиент» с этой формы убраны — у запроса поставщику их нет.
+- Письмо о платеже: получатель, сумма крупно и прописью, статья движения денег, способ оплаты, оплачиваемые документы — номер, номер и дата накладной (BL) поставщика, сумма.
+- Рассылка заказов поставщикам по e-mail прикладывает фирменный заказ.
+- Если вы меняли макеты прежнего заказа поставщику, запроса котировок, письма о платеже или макет DevisBL_A4, правки сохранены в списке макетов печатных форм, но новые формы печатаются общим фирменным макетом. Правка фирменного макета действует на все фирменные формы всех документов.
+
+### fr
+- La commande fournisseur, la demande de cotation (normale et avec photos), la demande de prix de l'offre fournisseur et la lettre de paiement du bon de décaissement s'impriment avec la présentation à en-tête, comme la facture et le bon de livraison : logo, coordonnées des parties, pied de page des mentions légales sur chaque page. Les commandes restent les mêmes : les entrées de menu, l'impression directe et l'imprimante choisie sont conservées.
+- Dans les documents adressés au fournisseur, le fournisseur figure à gauche et votre société à droite, en tant qu'acheteur ; le cachet de la société n'est pas apposé, comme avant.
+- Commande fournisseur : numéro, lignes avec prix, totaux HT, TVA et TTC, montant en toutes lettres, commentaire, date d'impression et responsable.
+- Demande de cotation : référence, code fournisseur et code fabricant de l'article, unité et quantité, sans prix. Dans la variante « avec photos », chaque ligne porte la photo de l'article : l'image la plus récente de sa fiche ; un article sans image s'imprime sans photo. La ligne avec photo ne tronque pas une désignation ou des codes longs.
+- Demande de prix : lignes avec prix et totaux, comme avant. Les signatures « transport » et « client » sont retirées de ce formulaire : une demande au fournisseur n'en a pas.
+- Lettre de paiement : bénéficiaire, montant en grand et en toutes lettres, rubrique de trésorerie, mode de règlement, documents réglés — numéro, numéro et date du BL fournisseur, montant.
+- L'envoi des commandes fournisseurs par e-mail joint la commande à en-tête.
+- Si vous aviez modifié les modèles de l'ancienne commande fournisseur, de la demande de cotation, de la lettre de paiement ou le modèle DevisBL_A4, vos modifications restent dans la liste des modèles d'impression, mais les nouveaux formulaires utilisent le modèle à en-tête commun. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête de tous les documents.
+
+### en
+- The purchase order, the request for quotation (regular and with photos), the price request of the supplier offer and the payment letter of the cash payment order now print in the branded layout, like the invoice and the delivery note: logo, party details, legal footer on every page. The commands are unchanged: menu items, direct-to-printer settings and the selected printer are kept.
+- In documents to the supplier, the supplier is on the left and your company on the right, as the buyer; the company stamp is not placed, as before.
+- Purchase order: number, lines with prices, totals excluding VAT, VAT and including VAT, amount in words, comment, print date and person responsible.
+- Request for quotation: reference, supplier code and manufacturer code of the item, unit and quantity, no prices. In the «with photos» variant every line shows the item photo: the newest image from the item card; an item without an image prints without a photo. A line with a photo does not cut off a long description or codes.
+- Price request: lines with prices and totals, as before. The «carrier» and «customer» signatures are removed from this form: a request to a supplier has none.
+- Payment letter: recipient, large amount and amount in words, cash flow item, payment method, documents paid — number, supplier delivery note (BL) number and date, amount.
+- Emailing purchase orders to suppliers attaches the branded order.
+- If you modified the templates of the former purchase order, request for quotation, payment letter or the DevisBL_A4 template, your changes stay in the print template list, but the new forms use the common branded template. A change to the branded template applies to all branded forms of all documents.
+
+### es
+- El pedido al proveedor, la solicitud de cotización (normal y con fotos), la solicitud de precios de la oferta del proveedor y la carta de pago de la orden de pago de caja se imprimen con el diseño corporativo, como la factura y el albarán: logotipo, datos de las partes, pie con los datos legales en cada página. Los comandos no cambian: se conservan las opciones del menú, la impresión directa y la impresora elegida.
+- En los documentos al proveedor, el proveedor figura a la izquierda y su empresa a la derecha, como compradora; el sello de la empresa no se estampa, como antes.
+- Pedido al proveedor: número, líneas con precios, totales sin IVA, IVA y con IVA, importe en letras, comentario, fecha de impresión y responsable.
+- Solicitud de cotización: referencia, código del proveedor y código del fabricante del artículo, unidad y cantidad, sin precios. En la variante «con fotos» cada línea lleva la foto del artículo: la imagen más reciente de su ficha; un artículo sin imagen se imprime sin foto. La línea con foto no recorta una descripción o códigos largos.
+- Solicitud de precios: líneas con precios y totales, como antes. Se quitan de este formulario las firmas «transporte» y «cliente»: una solicitud al proveedor no las tiene.
+- Carta de pago: beneficiario, importe grande y en letras, partida de tesorería, forma de pago, documentos pagados — número, número y fecha del albarán (BL) del proveedor, importe.
+- El envío de pedidos a proveedores por correo adjunta el pedido corporativo.
+- Si modificó las plantillas del pedido al proveedor anterior, de la solicitud de cotización, de la carta de pago o la plantilla DevisBL_A4, sus cambios se conservan en la lista de plantillas de impresión, pero los nuevos formularios usan la plantilla corporativa común. Un cambio en la plantilla corporativa se aplica a todos los formularios corporativos de todos los documentos.
+
+## 2.0.16.73
+### ru
+- «Бланк заказа (A4)» заказа покупателя, акт сверки (обычный, с печатью, без НДС) печатаются в фирменном оформлении, как счёт-фактура и накладная: логотип, реквизиты сторон, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
+- Бланк заказа: номер, клиент, строки с ценами, итоги без НДС, НДС и с НДС, сумма прописью, дата печати и кто выписал, подписи транспорта и клиента.
+- Акт сверки: вступление с руководителями сторон, сальдо на начало и конец периода, документы с дебетом и кредитом, обороты, НДС строк по ставкам (кроме варианта «без НДС»), долг стороны суммой и прописью на языке печати. Суммы — в основной валюте учёта. Руководитель организации — по уставу, как раньше; «с печатью» — печать организации и факсимиле подписи руководителя.
+- Акт сверки сравнивает «по нашим данным» и «по данным контрагента» по каждому документу и перечисляет расхождения. Прежняя фраза «по результатам сверки расхождений не выявлено» печаталась всегда; теперь, если расхождений в документе нет, акт пишет, что данные приведены по нашему учёту и подписание акта контрагентом подтверждает отсутствие расхождений.
+- Рассылка актов сверки по e-mail прикладывает фирменный акт.
+- У приходного и расходного кассового ордера новая печатная форма «Квитанция (Reçu)» на листе A4: сумма крупно и прописью, основание, касса, статья, плательщик или получатель, подписи кассира и плательщика, печать организации. Команда «Чек» для принтера чеков не изменилась.
+- Если вы меняли макеты прежнего акта сверки или бланка заказа, правки сохранены в списке макетов печатных форм, но новые формы печатаются общим фирменным макетом. Правка фирменного макета действует на все фирменные формы всех документов.
+
+### fr
+- Le « Bon de commande (A4) » de la commande client et l'acte de rapprochement (normal, avec cachet, hors TVA) s'impriment avec la présentation à en-tête, comme la facture et le bon de livraison : logo, coordonnées des parties, pied de page des mentions légales sur chaque page. Les commandes restent les mêmes : les entrées de menu, l'impression directe et l'imprimante choisie sont conservées.
+- Bon de commande : numéro, client, lignes avec prix, totaux HT, TVA et TTC, montant en toutes lettres, date d'impression et auteur, signatures transport et client.
+- Acte de rapprochement : préambule avec les dirigeants des parties, soldes de début et de fin de période, documents avec débit et crédit, mouvements, TVA des lignes par taux (sauf variante « hors TVA »), dette de la partie en chiffres et en lettres dans la langue d'impression. Les montants sont dans la devise principale. Le dirigeant de la société est celui désigné par les statuts, comme avant ; « avec cachet » ajoute le cachet de la société et le fac-similé de la signature du dirigeant.
+- L'acte compare « selon nos données » et « selon les données de la contrepartie » document par document et liste les divergences. L'ancienne phrase « aucune divergence n'a été identifiée » s'imprimait toujours ; désormais, en l'absence de divergence dans le document, l'acte indique que les données proviennent de notre comptabilité et que la signature de la contrepartie confirme l'absence de divergences.
+- L'envoi des actes de rapprochement par e-mail joint l'acte à en-tête.
+- Le bon d'encaissement et le bon de décaissement ont un nouveau formulaire « Reçu » sur A4 : montant en grand et en toutes lettres, motif, caisse, rubrique, payeur ou bénéficiaire, signatures du caissier et du payeur, cachet de la société. La commande « Ticket » pour l'imprimante de tickets ne change pas.
+- Si vous aviez modifié les modèles de l'ancien acte de rapprochement ou du bon de commande, vos modifications restent dans la liste des modèles d'impression, mais les nouveaux formulaires utilisent le modèle à en-tête commun. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête de tous les documents.
+
+### en
+- The customer order «Order form (A4)» and the reconciliation statement (regular, with stamp, without VAT) now print in the branded layout, like the invoice and the delivery note: logo, party details, legal footer on every page. The commands are unchanged: menu items, direct-to-printer settings and the selected printer are kept.
+- Order form: number, customer, lines with prices, totals excluding VAT, VAT and including VAT, amount in words, print date and issued by, carrier and customer signatures.
+- Reconciliation statement: preamble with the parties' managers, opening and closing balances, documents with debit and credit, turnover, line VAT by rate (except the «without VAT» variant), the party's debt in figures and in words in the print language. Amounts are in the base currency. The company manager is the one appointed by the articles of association, as before; «with stamp» adds the company stamp and the manager's facsimile signature.
+- The statement compares «our records» and «counterparty records» document by document and lists the discrepancies. The former sentence «no discrepancies were identified» was always printed; now, when the document shows no discrepancies, the statement says the data come from our records and the counterparty's signature confirms there are no discrepancies.
+- Emailing reconciliation statements attaches the branded statement.
+- Cash receipt and cash payment orders get a new «Receipt» form on A4: large amount and amount in words, purpose, cash desk, cash flow item, payer or recipient, cashier and payer signatures, company stamp. The «Receipt» command for the receipt printer (Ticket) is unchanged.
+- If you modified the templates of the former reconciliation statement or order form, your changes stay in the print template list, but the new forms use the common branded template. A change to the branded template applies to all branded forms of all documents.
+
+### es
+- La «Hoja de pedido (A4)» del pedido de cliente y el acta de conciliación (normal, con sello, sin IVA) se imprimen con el diseño corporativo, como la factura y el albarán: logotipo, datos de las partes, pie con los datos legales en cada página. Los comandos no cambian: se conservan las opciones del menú, la impresión directa y la impresora elegida.
+- Hoja de pedido: número, cliente, líneas con precios, totales sin IVA, IVA y con IVA, importe en letras, fecha de impresión y emitido por, firmas del transportista y del cliente.
+- Acta de conciliación: preámbulo con los directivos de las partes, saldos inicial y final del período, documentos con debe y haber, movimientos, IVA de las líneas por tipo (salvo la variante «sin IVA»), deuda de la parte en cifras y en letras en el idioma de impresión. Los importes están en la moneda principal. El directivo de la empresa es el designado por los estatutos, como antes; «con sello» añade el sello de la empresa y la firma facsímil del directivo.
+- El acta compara «según nuestros datos» y «según los datos de la contraparte» documento por documento y enumera las discrepancias. La frase anterior «no se identificaron discrepancias» se imprimía siempre; ahora, si el documento no muestra discrepancias, el acta indica que los datos proceden de nuestra contabilidad y que la firma de la contraparte confirma la ausencia de discrepancias.
+- El envío de actas de conciliación por correo adjunta el acta corporativa.
+- Las órdenes de ingreso y de pago de caja tienen un nuevo formulario «Recibo» en A4: importe grande y en letras, concepto, caja, partida de tesorería, pagador o beneficiario, firmas del cajero y del pagador, sello de la empresa. El comando «Recibo» para la impresora de tickets no cambia.
+- Si modificó las plantillas del acta de conciliación anterior o de la hoja de pedido, sus cambios se conservan en la lista de plantillas de impresión, pero los nuevos formularios usan la plantilla corporativa común. Un cambio en la plantilla corporativa se aplica a todos los formularios corporativos de todos los documentos.
+
+## 2.0.16.72
+### ru
+- Накладные BL, возврат (Avoir) и акт об оказании услуг печатаются в фирменном оформлении, как коммерческое предложение и счёт-фактура: логотип, реквизиты организации и клиента, итоги без НДС, НДС и с НДС, сумма прописью, подвал реквизитов на каждой странице. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
+- Накладная BL: оплаты по документу (наличными, чеком, прочие, в кредит) и долг клиента, дата и время печати, кто выписал, подписи транспорта и клиента, номер заказа; адрес доставки клиента, если он отличается от адреса. Варианты «без НДС» и «без цен» — как раньше.
+- Команда «Накладная BL» (прежде «Накладная BL (A5)») печатает на листе A4. Рабочее место кассира в режиме PDV по-прежнему печатает накладную без цен — теперь и без итогов и оплат.
+- Возврат (Avoir) возврата от покупателя и налогового возврата: основание — накладная или счёт-фактура продажи — и причина возврата; прежде вместо номера заказа печатался номер самого возврата.
+- Акт об оказании услуг реализации и поступления печатает только услуги и итоги по ним, сумма прописью — словами; у акта поступления исполнитель — поставщик.
+- Убрана команда «Товарная накладная (прежняя форма)». Возврат печатается командой «Возврат товара» (Avoir); ролям, у которых была прежняя команда, добавлены «Возврат товара» и, где у роли есть права на оплаты, «Товарная накладная» (Facture) реализации.
+- Роль «Оператор производства» видит документы без цен и сумм — накладная, возврат и акт печатаются ей без цен, счёт-фактура не печатается.
+- Если вы меняли макеты прежних накладных BL, акта или «Товарной накладной (прежней формы)», правки сохранены в списке макетов печатных форм, но новые формы печатаются общим фирменным макетом. Правка фирменного макета действует на все фирменные формы всех документов.
+
+### fr
+- Les bons de livraison, les avoirs et l'acte de prestation de services s'impriment désormais avec la présentation à en-tête, comme le devis et la facture : logo, coordonnées de la société et du client, totaux HT, TVA et TTC, montant en toutes lettres, pied de page des mentions légales sur chaque page. Les commandes restent les mêmes : les entrées de menu, l'impression directe et l'imprimante choisie sont conservées.
+- Bon de livraison : règlements du document (espèces, chèque, autres, crédit) et solde client, date et heure d'impression, auteur, signatures transport et client, numéro de commande ; adresse de livraison du client si elle diffère de son adresse. Les variantes « hors TVA » et « sans prix » restent identiques.
+- La commande « Bon de livraison » (auparavant « Bon de livraison (A5) ») imprime sur une feuille A4. Le poste de caisse en mode PDV imprime toujours le bon sans prix — désormais aussi sans totaux ni règlements.
+- Avoir du retour client et du retour fiscal : document d'origine — bon de livraison ou facture de vente — et motif du retour ; auparavant, le numéro du retour lui-même s'imprimait à la place du numéro de commande.
+- L'acte de prestation de services de la vente et de la réception n'imprime que les services et leurs totaux, montant en toutes lettres ; pour l'acte de réception, le prestataire est le fournisseur.
+- La commande « Facture (ancien formulaire) » est supprimée. Le retour s'imprime par la commande « Avoir » ; les rôles qui avaient l'ancienne commande reçoivent « Avoir » et, s'ils ont accès aux règlements, la « Facture » de la vente.
+- Le rôle « Opérateur de production » voit les documents sans prix ni montants : le bon, l'avoir et l'acte s'impriment pour lui sans prix, la facture ne s'imprime pas.
+- Si vous aviez modifié les modèles des anciens bons de livraison, de l'acte ou de la « Facture (ancien formulaire) », vos modifications restent dans la liste des modèles d'impression, mais les nouveaux formulaires utilisent le modèle à en-tête commun. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête de tous les documents.
+
+### en
+- Delivery notes, credit notes (Avoir) and the act of provision of services now print in the branded layout, like the quotation and the invoice: logo, company and customer details, totals excluding VAT, VAT and including VAT, amount in words, legal footer on every page. The commands are unchanged: menu items, direct-to-printer settings and the selected printer are kept.
+- Delivery note: payments on the document (cash, cheque, other, credit) and the customer balance, print date and time, issued by, carrier and customer signatures, order number; the customer delivery address when it differs from the address. The «without VAT» and «without prices» variants work as before.
+- The «Delivery note» command (formerly «Delivery note (A5)») prints on A4. The cashier workstation in PDV mode still prints the note without prices — now also without totals and payments.
+- Credit note of the customer return and the tax return: the source document — sales delivery note or invoice — and the return reason; previously the return's own number was printed instead of the order number.
+- The act of provision of services for sales and receipts prints only the services and their totals, with the amount in words; on the receipt act the contractor is the supplier.
+- The «Invoice (former form)» command is removed. Returns print with the «Credit note» command (formerly shown as «Have»); roles that had the former command get «Credit note» and, where the role can read payments, the sales «Invoice».
+- The «Production operator» role sees documents without prices and amounts: the delivery note, credit note and act print without prices for it, the invoice is not printed.
+- If you modified the templates of the former delivery notes, the act or the «Invoice (former form)», your changes stay in the print template list, but the new forms use the common branded template. A change to the branded template applies to all branded forms of all documents.
+
+### es
+- Los albaranes de entrega, las notas de abono (Avoir) y el acta de prestación de servicios se imprimen ahora con el diseño corporativo, como el presupuesto y la factura: logotipo, datos de la empresa y del cliente, totales sin IVA, IVA y con IVA, importe en letras, pie con los datos legales en cada página. Los comandos no cambian: se conservan las opciones del menú, la impresión directa y la impresora elegida.
+- Albarán de entrega: pagos del documento (efectivo, cheque, otros, crédito) y saldo del cliente, fecha y hora de impresión, emitido por, firmas del transportista y del cliente, número de pedido; dirección de entrega del cliente si difiere de su dirección. Las variantes «sin IVA» y «sin precios» funcionan como antes.
+- El comando «Albarán de entrega» (antes «Albarán de entrega (A5)») imprime en A4. El puesto de caja en modo PDV sigue imprimiendo el albarán sin precios — ahora también sin totales ni pagos.
+- Nota de abono de la devolución de cliente y de la devolución fiscal: documento de origen — albarán o factura de venta — y motivo de la devolución; antes se imprimía el número de la propia devolución en lugar del número de pedido.
+- El acta de prestación de servicios de la venta y de la recepción imprime solo los servicios y sus totales, con el importe en letras; en el acta de recepción el prestador es el proveedor.
+- Se elimina el comando «Factura (formulario anterior)». La devolución se imprime con el comando «Nota de abono» (antes aparecía como «Tener»); los roles que tenían el comando anterior reciben «Nota de abono» y, si pueden leer los pagos, la «Factura» de la venta.
+- El rol «Operador de producción» ve los documentos sin precios ni importes: el albarán, la nota de abono y el acta se le imprimen sin precios, la factura no se imprime.
+- Si modificó las plantillas de los albaranes anteriores, del acta o de la «Factura (formulario anterior)», sus cambios se conservan en la lista de plantillas de impresión, pero los nuevos formularios usan la plantilla corporativa común. Un cambio en la plantilla corporativa se aplica a todos los formularios corporativos de todos los documentos.
+
+## 2.0.16.71
+### ru
+- Отчёты оформлены в едином стиле «Античный» вместо «Арктика».
+- «Ведомость по продажам» группирует сразу по товару и артикулу, без уровня организации.
+- «Ведомость расчётов с покупателями» и «Ведомость расчётов с контрагентами» показывают «Контрагент → объект расчётов» — без уровней организации и договора; «Ведомость расчётов с поставщиками» — без уровней организации и валюты.
+- В «Ценах номенклатуры» из настроек убран параметр «Показывать цены закупки».
+
+### fr
+- Les rapports utilisent désormais le style de présentation unique « Antique » au lieu d'« Arctique ».
+- Le « Relevé des ventes » regroupe directement par article et référence, sans le niveau société.
+- Les relevés des comptes clients et des tiers affichent « Tiers → objet de règlement », sans les niveaux société et contrat ; le relevé des comptes fournisseurs — sans les niveaux société et devise.
+- Dans « Prix des articles », le paramètre « Afficher les prix d'achat » est retiré des réglages.
+
+### en
+- Reports now use the single «Antique» appearance template instead of «Arctic».
+- The «Sales statement» groups directly by item and reference, without the company level.
+- The customer and counterparty settlement statements show «Counterparty → settlement object», without the company and contract levels; the supplier settlement statement — without the company and currency levels.
+- The «Show purchase prices» parameter is removed from the «Item prices» settings.
+
+### es
+- Los informes usan ahora la plantilla de presentación única «Antiguo» en lugar de «Ártico».
+- La «Relación de ventas» agrupa directamente por artículo y referencia, sin el nivel de empresa.
+- Las relaciones de liquidaciones con clientes y con contrapartes muestran «Contraparte → objeto de liquidación», sin los niveles de empresa y contrato; la relación de liquidaciones con proveedores, sin los niveles de empresa y moneda.
+- En «Precios de artículos» se ha quitado de la configuración el parámetro «Mostrar precios de compra».
+
+## 2.0.16.70
+### ru
+- Счёт-фактура (Facture) реализации, налоговой накладной и налоговой накладной покупки, «Товарная накладная на бланке» налоговой накладной, счёт на оплату (Facture proforma) реализации и налоговой накладной и счёт-проформа заказа покупателя печатаются в фирменном оформлении коммерческого предложения. Команды остались прежними: на месте пункты меню, настройки «сразу на принтер» и выбранный принтер.
+- На счёте-фактуре — все реквизиты прежней формы и обязательные реквизиты Марокко: продавец и покупатель в двух колонках с адресом, телефонами и кодами IF, PATENTE, RC, CNSS, ICE, код клиента, номера накладных BL по строкам, артикул, количество и единица, цена, ставка и сумма НДС строки, итоги HT, TVA и TTC, сумма прописью, способ оплаты, банковские реквизиты организации, печать и подпись. Счёт-фактура поставщика печатается со сторонами наоборот: продавец — поставщик, покупатель — ваша организация, с номером счёта поставщика.
+- Сумма прописью («Arrêtée la présente facture à la somme de…») печатается словами в валюте документа: раньше у валют без заполненных параметров прописи — в том числе у дирхама — она выходила цифрами, а у валютных документов — в дирхамах. Исправление действует во всех печатных формах.
+- Крупные итоги фирменных форм (от сотен тысяч до десяти миллионов) печатаются целиком: раньше старшие разряды обрезались.
+- Если вы меняли макеты прежних форм Facture или счёта на оплату в списке макетов, правки больше не применяются: формы печатаются фирменным макетом. Прежние правки сохранены, в журнале регистрации при обновлении — предупреждение. Правка макета «Накладная BL (A4)» больше не действует на счёт-проформу заказа, для накладных BL действует по-прежнему. Правка фирменного макета действует сразу на все фирменные формы.
+
+### fr
+- La facture du bon de livraison, de la facture fiscale et de la facture fiscale d'achat, la « Facture sur papier à en-tête » de la facture fiscale, la facture proforma du bon de livraison et de la facture fiscale ainsi que la facture proforma de la commande client s'impriment avec la présentation à en-tête du devis. Les commandes ne changent pas : les entrées de menu, le réglage « directement sur l'imprimante » et l'imprimante choisie sont conservés.
+- La facture reprend toutes les mentions de l'ancien formulaire et les mentions obligatoires au Maroc : vendeur et client sur deux colonnes avec adresse, téléphones et codes IF, PATENTE, RC, CNSS, ICE, code client, numéros des bons de livraison par ligne, référence, quantité et unité, prix, taux et montant de TVA de la ligne, totaux HT, TVA et TTC, montant en lettres, mode de règlement, coordonnées bancaires de la société, cachet et signature. La facture d'achat s'imprime avec les parties inversées : le vendeur est le fournisseur, le client est votre société, avec le numéro de facture du fournisseur.
+- Le montant en lettres (« Arrêtée la présente facture à la somme de… ») s'imprime en toutes lettres dans la devise du document : auparavant, pour les devises sans paramètres d'écriture en lettres — dont le dirham — il sortait en chiffres, et en dirhams pour les documents en devise. La correction s'applique à tous les formulaires imprimables.
+- Les gros totaux des formulaires à en-tête (de quelques centaines de milliers à dix millions) s'impriment en entier : auparavant les premiers chiffres étaient coupés.
+- Si vous aviez modifié les modèles des anciens formulaires de facture ou de facture proforma dans la liste des modèles, ces modifications ne s'appliquent plus : les formulaires s'impriment avec le modèle à en-tête. Les anciennes modifications sont conservées, un avertissement est écrit dans le journal lors de la mise à jour. La modification du modèle « Bon de livraison (A4) » ne s'applique plus à la facture proforma de la commande, elle reste valable pour les bons de livraison. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête.
+
+### en
+- The invoice (Facture) of the sales document, the tax invoice and the purchase tax invoice, the tax invoice's «Invoice on letterhead», the invoice for payment (Facture proforma) of the sales document and the tax invoice, and the customer order's proforma invoice now print in the branded quotation design. The commands are the same: menu items, the «straight to printer» setting and the chosen printer are kept.
+- The invoice carries every detail of the previous form and the details required in Morocco: seller and buyer in two columns with address, phones and IF, PATENTE, RC, CNSS, ICE codes, customer code, delivery note (BL) numbers by line, reference, quantity and unit, price, VAT rate and VAT amount per line, HT, VAT and TTC totals, amount in words, payment method, the company's bank details, stamp and signature. The purchase invoice prints with the parties reversed: the seller is the supplier, the buyer is your company, with the supplier's invoice number.
+- The amount in words («Arrêtée la présente facture à la somme de…») is printed in words in the document currency: previously, for currencies without spelling parameters — including the dirham — it came out in figures, and documents in foreign currency showed it in dirhams. The fix applies to all print forms.
+- Large totals on branded forms (from hundreds of thousands up to ten million) are printed in full: previously the leading digits were cut off.
+- If you had modified the templates of the previous invoice or invoice-for-payment forms in the template list, those changes no longer apply: the forms print with the branded template. The previous changes are kept, and a warning is written to the event log during the update. A change to the «Delivery note (A4)» template no longer affects the customer order's proforma invoice; it still applies to delivery notes. A change to the branded template applies to all branded forms at once.
+
+### es
+- La factura del albarán, de la factura fiscal y de la factura fiscal de compra, la «Factura en papel con membrete» de la factura fiscal, la factura para pago (Facture proforma) del albarán y de la factura fiscal y la factura proforma del pedido de cliente se imprimen con el diseño corporativo del presupuesto. Los comandos no cambian: se conservan los elementos del menú, el ajuste «directamente a la impresora» y la impresora elegida.
+- La factura incluye todos los datos del formulario anterior y los datos obligatorios en Marruecos: vendedor y cliente en dos columnas con dirección, teléfonos y códigos IF, PATENTE, RC, CNSS, ICE, código de cliente, números de albarán (BL) por línea, referencia, cantidad y unidad, precio, tipo e importe de IVA de la línea, totales HT, IVA y TTC, importe en letras, forma de pago, datos bancarios de la empresa, sello y firma. La factura de compra se imprime con las partes invertidas: el vendedor es el proveedor y el cliente es su empresa, con el número de factura del proveedor.
+- El importe en letras («Arrêtée la présente facture à la somme de…») se imprime en letras en la moneda del documento: antes, en las monedas sin parámetros de escritura en letras —entre ellas el dírham— salía en cifras, y en los documentos en divisa salía en dírhams. La corrección se aplica a todos los formularios de impresión.
+- Los totales grandes de los formularios corporativos (de cientos de miles a diez millones) se imprimen completos: antes se cortaban las primeras cifras.
+- Si había modificado las plantillas de los formularios anteriores de factura o de factura para pago en la lista de plantillas, esos cambios ya no se aplican: los formularios se imprimen con la plantilla corporativa. Los cambios anteriores se conservan y al actualizar se escribe un aviso en el registro. El cambio de la plantilla «Albarán de entrega (A4)» ya no afecta a la factura proforma del pedido; sigue aplicándose a los albaranes. Un cambio de la plantilla corporativa se aplica a la vez a todos los formularios corporativos.
+
+## 2.0.16.69
+### ru
+- Опция «Коммерческие предложения» (Настройки программы, раздел «Продажи») теперь решает, кто создаёт коммерческие предложения. Опция включена — предложения вводит менеджер, как раньше. Опция выключена — реализация сама создаёт своё коммерческое предложение и обновляет его при каждой записи и печати: номер и дата — как у реализации, товары и услуги, цены и суммы — из реализации. Вручную при выключенной опции предложения не вводятся и в программе не видны.
+- При выключенной опции в реализации (в документе и в списке) в меню «Печать» появилась команда «Коммерческое предложение» — она печатает фирменную форму предложения по данным реализации. Из списка можно напечатать сразу несколько реализаций.
+- Если опцию включить, предложения, созданные реализациями, становятся обычными документами: в списке предложений колонка «Из реализации» показывает, по какой реализации создано предложение. Первая ручная правка или отправка клиенту отвязывает предложение от реализации; после выключения опции реализация создаст себе новое.
+- Из заказа покупателя убраны печатные формы «Коммерческое предложение (A5)», «(A4)», «(A4, без НДС)» и «(A4, без цен)»: коммерческое предложение печатает документ «Коммерческое предложение» (или реализация при выключенной опции).
+- Номер ручного коммерческого предложения по-прежнему уникален в пределах года; при совпадении программа сообщает, каким предложением номер уже занят.
+- Описание строки коммерческого предложения больше не ограничено 1024 знаками: длинное описание товара или услуги печатается целиком.
+
+### fr
+- L'option « Devis » (Paramètres du programme, section « Ventes ») détermine désormais qui crée les devis. Option activée : le commercial saisit les devis comme avant. Option désactivée : le bon de livraison crée lui-même son devis et le met à jour à chaque enregistrement et impression — numéro et date identiques à ceux du bon de livraison, articles et services, prix et montants repris du bon de livraison. Option désactivée, les devis ne se saisissent pas manuellement et n'apparaissent pas dans le programme.
+- Option désactivée, le menu « Impression » du bon de livraison (document et liste) propose la commande « Devis » : elle imprime le formulaire à en-tête du devis à partir des données du bon de livraison. Depuis la liste, plusieurs bons de livraison s'impriment d'un coup.
+- Si l'option est activée, les devis créés par les bons de livraison deviennent des documents ordinaires : dans la liste des devis, la colonne « Du bon de livraison » indique le bon d'origine. La première modification manuelle ou l'envoi au client détache le devis du bon de livraison ; après désactivation de l'option, le bon de livraison s'en crée un nouveau.
+- Les formulaires imprimables « Devis (A5) », « (A4) », « (A4, hors TVA) » et « (A4, sans prix) » sont retirés de la commande client : le devis s'imprime depuis le document « Devis » (ou depuis le bon de livraison si l'option est désactivée).
+- Le numéro d'un devis saisi manuellement reste unique dans l'année ; en cas de doublon, le programme indique quel devis utilise déjà ce numéro.
+- La description d'une ligne de devis n'est plus limitée à 1024 caractères : une longue description d'article ou de service s'imprime en entier.
+
+### en
+- The «Quotations» option (Program settings, Sales section) now decides who creates quotations. Option on — managers enter quotations as before. Option off — each sales document creates its own quotation and updates it on every save and print: same number and date as the sales document, goods and services, prices and amounts taken from it. With the option off, quotations are not entered manually and are not shown in the program.
+- With the option off, the «Print» menu of the sales document (form and list) has a «Quotation» command: it prints the branded quotation form from the sales document data. Several sales documents can be printed at once from the list.
+- If you turn the option on, quotations created by sales documents become ordinary documents: the «From sales document» column of the quotation list shows where each one came from. The first manual edit or sending to the customer detaches the quotation from the sales document; after the option is turned off again, the sales document creates a new one.
+- The customer order no longer has the «Quotation (A5)», «(A4)», «(A4, without VAT)» and «(A4, without prices)» print forms: quotations are printed from the «Quotation» document (or from the sales document when the option is off).
+- A manually entered quotation number is still unique within the year; on a clash the program tells you which quotation already uses the number.
+- A quotation line description is no longer limited to 1024 characters: a long item or service description prints in full.
+
+### es
+- La opción «Presupuestos» (Configuración del programa, sección «Ventas») decide ahora quién crea los presupuestos. Opción activada: el comercial introduce los presupuestos como antes. Opción desactivada: cada albarán crea su propio presupuesto y lo actualiza en cada grabación e impresión, con el mismo número y fecha que el albarán y los artículos, servicios, precios e importes del albarán. Con la opción desactivada, los presupuestos no se introducen a mano ni se muestran en el programa.
+- Con la opción desactivada, el menú «Impresión» del albarán (documento y lista) tiene el comando «Presupuesto»: imprime el formulario corporativo del presupuesto con los datos del albarán. Desde la lista se pueden imprimir varios albaranes a la vez.
+- Si activa la opción, los presupuestos creados por los albaranes pasan a ser documentos normales: en la lista de presupuestos la columna «Del albarán» muestra su origen. La primera modificación manual o el envío al cliente desvincula el presupuesto del albarán; al volver a desactivar la opción, el albarán crea uno nuevo.
+- Del pedido de cliente se han quitado los formularios de impresión «Presupuesto (A5)», «(A4)», «(A4, sin IVA)» y «(A4, sin precios)»: el presupuesto se imprime desde el documento «Presupuesto» (o desde el albarán con la opción desactivada).
+- El número de un presupuesto introducido a mano sigue siendo único dentro del año; si coincide, el programa indica qué presupuesto ya lo usa.
+- La descripción de una línea del presupuesto ya no está limitada a 1024 caracteres: una descripción larga de artículo o servicio se imprime completa.
+
+## 2.0.16.68
+### ru
+- Коммерческое предложение печатается общим механизмом фирменных печатных форм — вид формы не изменился. На этот же механизм в следующих сборках переходят счёт-фактура, накладные, возвраты и другие документы для клиентов и поставщиков: все они будут оформлены одинаково.
+- Английская печатная форма коммерческого предложения печатает все надписи по-английски (раньше заголовки таблицы, итогов и подписи выходили по-русски).
+- Если вы меняли макет печатной формы коммерческого предложения в списке макетов, эта правка больше не применяется: форма печатается фирменным макетом. Прежняя правка сохранена, в журнале регистрации при обновлении — предупреждение. Правка фирменного макета действует сразу на все фирменные формы.
+
+### fr
+- Le devis est imprimé par le mécanisme commun des formulaires à en-tête — son aspect n'a pas changé. Dans les prochaines versions, la facture, les bons de livraison, les avoirs et les autres documents destinés aux clients et fournisseurs passeront au même mécanisme : ils auront tous la même présentation.
+- Le formulaire imprimable du devis en anglais imprime tous les libellés en anglais (auparavant les en-têtes du tableau, des totaux et de la signature sortaient en russe).
+- Si vous aviez modifié le modèle du devis dans la liste des modèles, cette modification ne s'applique plus : le formulaire est imprimé avec le modèle à en-tête. L'ancienne modification est conservée, un avertissement est écrit dans le journal lors de la mise à jour. Une modification du modèle à en-tête s'applique à tous les formulaires à en-tête.
+
+### en
+- The quotation is printed by the common branded print form mechanism — the form looks the same. In the next builds the invoice, delivery notes, credit notes and other documents for customers and suppliers move to the same mechanism: they will all share one design.
+- The English quotation print form prints all labels in English (previously the table, totals and signature headings came out in Russian).
+- If you had modified the quotation print template in the template list, that change no longer applies: the form prints with the branded template. The previous change is kept, and a warning is written to the event log during the update. A change to the branded template applies to all branded forms at once.
+
+### es
+- El presupuesto se imprime con el mecanismo común de formularios corporativos: su aspecto no ha cambiado. En las próximas versiones la factura, los albaranes, los abonos y otros documentos para clientes y proveedores pasarán al mismo mecanismo: todos tendrán el mismo diseño.
+- El formulario de impresión del presupuesto en inglés imprime todas las etiquetas en inglés (antes los encabezados de la tabla, los totales y la firma salían en ruso).
+- Si había modificado la plantilla del presupuesto en la lista de plantillas, esa modificación ya no se aplica: el formulario se imprime con la plantilla corporativa. La modificación anterior se conserva y al actualizar se escribe un aviso en el registro de eventos. Una modificación de la plantilla corporativa se aplica a todos los formularios corporativos.
+
+## 2.0.16.67
+### ru
+- Печатная форма коммерческого предложения больше не сжимается по высоте: строки шапки, таблицы, итогов и подписи печатаются полной высоты, текст не наезжает друг на друга.
+- Заголовок коммерческого предложения печатается на всю ширину листа; плашка редакции перенесена в строку номера и печатается, только когда у предложения есть редакция.
+- Длинное наименование товара и единица измерения в строке предложения переносятся на следующую строку, а не обрезаются.
+
+### fr
+- Le formulaire imprimable du devis n'est plus écrasé en hauteur : les lignes de l'en-tête, du tableau, des totaux et de la signature s'impriment en pleine hauteur, le texte ne se chevauche plus.
+- Le titre du devis s'imprime sur toute la largeur de la page ; le bandeau de révision passe sur la ligne du numéro et n'apparaît que si le devis a une révision.
+- Une désignation longue et l'unité de mesure d'une ligne du devis passent à la ligne au lieu d'être coupées.
+
+### en
+- The quotation print form is no longer squashed vertically: header, table, totals and signature rows print at full height, text no longer overlaps.
+- The quotation title prints across the full page width; the revision badge moves to the number line and appears only when the quotation has a revision.
+- A long item name and the unit of measure in a quotation line wrap to the next line instead of being cut off.
+
+### es
+- El formulario de impresión del presupuesto ya no se comprime en altura: las filas del encabezado, la tabla, los totales y la firma se imprimen a altura completa, el texto ya no se superpone.
+- El título del presupuesto se imprime en todo el ancho de la página; la etiqueta de revisión pasa a la línea del número y solo aparece cuando el presupuesto tiene revisión.
+- Un nombre de artículo largo y la unidad de medida de una línea del presupuesto pasan a la línea siguiente en lugar de cortarse.
+
+## 2.0.16.66
+### ru
+- Старые свойства товаров (закладка «Свойства» из прежней базы — виды и значения свойств) при обновлении переносятся в дополнительные реквизиты: на каждый вид свойства заводится дополнительный реквизит, у товара появляется значение последней строки вида. Уже заданные значения не перезаписываются. Старые данные сохраняются без изменений; итог переноса (сколько перенесено, какие значения пустые) — в журнале регистрации.
+
+### fr
+- Les anciennes propriétés des articles (onglet « Propriétés » de l'ancienne base — types et valeurs de propriétés) sont transférées lors de la mise à jour vers les attributs supplémentaires : un attribut supplémentaire est créé pour chaque type de propriété, et l'article reçoit la valeur de la dernière ligne du type. Les valeurs déjà renseignées ne sont pas écrasées. Les anciennes données sont conservées telles quelles ; le bilan du transfert (nombre transféré, valeurs vides) est dans le journal.
+
+### en
+- Old item properties (the "Properties" tab from the former database — property types and values) are moved to additional attributes during the update: an additional attribute is created for each property type, and the item gets the value of the type's last line. Values already set are not overwritten. The old data is kept unchanged; the transfer summary (how many moved, which values were empty) is in the event log.
+
+### es
+- Las propiedades antiguas de los artículos (pestaña «Propiedades» de la base anterior — tipos y valores de propiedades) se trasladan en la actualización a los atributos adicionales: se crea un atributo adicional por cada tipo de propiedad y el artículo recibe el valor de la última línea del tipo. Los valores ya definidos no se sobrescriben. Los datos antiguos se conservan sin cambios; el resumen del traslado (cuántos se trasladaron, qué valores estaban vacíos) queda en el registro de eventos.
+
+## 2.0.16.65
+### ru
+- Фильтры панели в 43 списках документов работают через общий механизм отборов: принудительный отбор склада кассира в списке продаж больше не стирается при смене или очистке фильтра панели по тому же полю. Поведение фильтров не изменилось.
+
+### fr
+- Les filtres du panneau des 43 listes de documents passent par un mécanisme commun : le filtre d'entrepôt imposé au caissier dans la liste des ventes n'est plus effacé quand on change ou vide le filtre du panneau sur le même champ. Le comportement des filtres ne change pas.
+
+### en
+- Panel filters in 43 document lists now use a common filtering mechanism: the cashier's enforced warehouse filter in the sales list is no longer wiped when a panel filter on the same field is changed or cleared. Filter behaviour is otherwise unchanged.
+
+### es
+- Los filtros del panel de 43 listas de documentos usan un mecanismo común: el filtro de almacén impuesto al cajero en la lista de ventas ya no se borra al cambiar o vaciar el filtro del panel por el mismo campo. El comportamiento de los filtros no cambia.
+
+## 2.0.16.64
+### ru
+- Навигатор иерархии (папки, тип, товарная группа, бренд, поставщик, качество, способ пополнения, свойства) появился и в окнах выбора и подбора товара: в документах товар можно искать так же, как в списке. Подбор по назначению (например, продукция в заказе на производство) считает узлы только по своим типам.
+- Удалены неиспользуемые формы номенклатуры и мёртвый код; формулы наценки, листания картинок и открытия упаковок в карточке объединены.
+
+### fr
+- Le navigateur de hiérarchie (dossiers, type, groupe de marchandises, marque, fournisseur, qualité, mode de réapprovisionnement, propriétés) apparaît aussi dans les fenêtres de choix et de sélection d'articles : dans les documents, on cherche un article comme dans la liste. La sélection par destination (par exemple, les produits dans un ordre de fabrication) compte les nœuds sur ses seuls types.
+- Les formulaires d'articles inutilisés et le code mort sont supprimés ; dans la fiche, les calculs de marge, le défilement des images et l'ouverture des conditionnements sont regroupés.
+
+### en
+- The hierarchy navigator (folders, type, product group, brand, supplier, quality, replenishment method, properties) now also appears in the item choice and pick windows: in documents an item can be found the same way as in the list. Picking by purpose (for example, products in a production order) counts nodes only for its own types.
+- Unused item forms and dead code are removed; in the card, markup calculation, image scrolling and opening packages are merged.
+
+### es
+- El navegador de jerarquía (carpetas, tipo, grupo de mercancías, marca, proveedor, calidad, forma de reposición, propiedades) aparece también en las ventanas de selección y de elección de artículos: en los documentos un artículo se busca igual que en la lista. La selección por destino (por ejemplo, productos en un pedido de producción) cuenta los nodos solo por sus propios tipos.
+- Se eliminan formularios de artículos sin uso y código muerto; en la ficha se unifican el cálculo del margen, el desplazamiento de imágenes y la apertura de embalajes.
+
+## 2.0.16.63
+### ru
+- Карточка товара показывает живые данные: на закладке «Склад» — остатки по складам со свободным количеством (без закреплённого за требованиями на станках), «на станках сейчас» по требованиям, заказано поставщикам, потребность производства и продажи за 12 месяцев; на «Производстве» — выработка станков по товару (норма из карточки станка или общая выработка допустимого станка) и для сырья и полуфабрикатов — «где используется»: продукция, в действующие техкарты которой входит товар; на «Служебном» — штрихкоды товара списком.
+- Блоки загружаются при первом открытии своей закладки. Блок, читать данные которого роли не разрешено, не показывается — карточка открывается без ошибок под любой ролью.
+
+### fr
+- La fiche article affiche des données en direct : l'onglet « Stock » — stocks par entrepôt avec la quantité libre (hors matières affectées aux bons sur les machines), « sur les machines maintenant » par bon, commandé aux fournisseurs, besoin de production et ventes sur 12 mois ; « Production » — cadence des machines pour l'article (norme de la fiche machine ou cadence générale d'une machine autorisée) et, pour les matières premières et semi-finis, « utilisé dans » : les produits dont les gammes en vigueur contiennent l'article ; « Service » — les codes-barres de l'article en liste.
+- Les blocs se chargent à la première ouverture de leur onglet. Un bloc dont le rôle n'a pas le droit de lire les données n'est pas affiché : la fiche s'ouvre sans erreur sous tout rôle.
+
+### en
+- The item card shows live data: the "Stock" tab — stock by warehouse with the free quantity (excluding materials reserved for requisitions on machines), "on machines now" by requisition, ordered from suppliers, production need and sales over 12 months; "Production" — machine output for the item (the machine card standard or the general output of an allowed machine) and, for raw materials and semi-finished goods, "used in": products whose current routings contain the item; "Service" — the item barcodes as a list.
+- Blocks load when their tab is first opened. A block whose data the role may not read is not shown, so the card opens without errors under any role.
+
+### es
+- La ficha del artículo muestra datos en vivo: la pestaña «Almacén» — existencias por almacén con la cantidad libre (sin lo reservado para vales en máquinas), «en máquinas ahora» por vale, pedido a proveedores, necesidad de producción y ventas de 12 meses; «Producción» — rendimiento de las máquinas para el artículo (norma de la ficha de la máquina o rendimiento general de una máquina permitida) y, para materias primas y semielaborados, «se usa en»: productos cuyas rutas vigentes contienen el artículo; «Servicio» — los códigos de barras del artículo en lista.
+- Los bloques se cargan al abrir su pestaña por primera vez. Un bloque cuyos datos el rol no puede leer no se muestra: la ficha se abre sin errores con cualquier rol.
+
+## 2.0.16.62
+### ru
+- Карточка товара перегруппирована по важности: в шапке — наименование, артикул, тип, папка и живые показатели (остаток, свободно, розничная и закупочная цена; ниже минимума — красным). Закладки: «Основное», «Цены», «Склад», «Производство», «Комплект», «Свойства», «Описание и печать», «Служебное».
+- Скрытые блоки вернулись на свои закладки: товарная группа, производитель и импортёр (при включённом импорте) — «Основное»; упаковки (при включённой опции упаковок) и условия хранения — «Склад»; данные стикера — «Описание и печать»; код, старый код, полное наименование, ответственный, ECommerce и «Отражать в ЛКП» — «Служебное». Техкарта и станки — разделами закладки «Производство».
+- Карточка открывается быстрее: цены и технологическая карта загружаются при первом переходе на свою закладку. Видимость закладок по типу настраивается ещё до показа формы — без мигания.
+
+### fr
+- La fiche article est réorganisée par importance : l'en-tête montre le nom, la référence, le type, le dossier et des indicateurs en direct (stock, libre, prix de détail et d'achat ; sous le minimum — en rouge). Onglets : « Principal », « Prix », « Stock », « Production », « Kit », « Propriétés », « Description et impression », « Service ».
+- Les blocs masqués reviennent sur leurs onglets : groupe de marchandises, fabricant et importateur (avec l'import activé) — « Principal » ; conditionnements (avec l'option activée) et conditions de stockage — « Stock » ; données de l'étiquette — « Description et impression » ; code, ancien code, nom complet, responsable, ECommerce et « Afficher dans l'espace client » — « Service ». Gamme et machines — sections de l'onglet « Production ».
+- La fiche s'ouvre plus vite : les prix et la gamme de fabrication se chargent à la première ouverture de leur onglet. La visibilité des onglets selon le type est réglée avant l'affichage du formulaire, sans clignotement.
+
+### en
+- The item card is regrouped by importance: the header shows name, article, type, folder and live indicators (stock, free, retail and purchase price; below minimum in red). Tabs: "Main", "Prices", "Stock", "Production", "Kit", "Properties", "Description and printing", "Service".
+- Hidden blocks are back on their tabs: product group, manufacturer and importer (with import enabled) on "Main"; packages (with the packages option enabled) and storage conditions on "Stock"; sticker data on "Description and printing"; code, old code, full name, responsible, ECommerce and "Show in customer portal" on "Service". Routing and machines are sections of the "Production" tab.
+- The card opens faster: prices and the production routing load when their tab is first opened. Tab visibility by type is set before the form is shown, without flicker.
+
+### es
+- La ficha del artículo se reorganiza por importancia: la cabecera muestra nombre, referencia, tipo, carpeta e indicadores en vivo (existencias, libre, precio minorista y de compra; bajo mínimo en rojo). Pestañas: «Principal», «Precios», «Almacén», «Producción», «Kit», «Propiedades», «Descripción e impresión», «Servicio».
+- Los bloques ocultos vuelven a sus pestañas: grupo de mercancías, fabricante e importador (con importación activada) en «Principal»; embalajes (con la opción activada) y condiciones de almacenamiento en «Almacén»; datos de la etiqueta en «Descripción e impresión»; código, código antiguo, nombre completo, responsable, ECommerce y «Mostrar en el portal del cliente» en «Servicio». Ruta y máquinas son secciones de la pestaña «Producción».
+- La ficha se abre más rápido: los precios y la ruta de fabricación se cargan al abrir su pestaña por primera vez. La visibilidad de las pestañas según el tipo se ajusta antes de mostrar el formulario, sin parpadeo.
+
+## 2.0.16.61
+### ru
+- В списке товаров слева появился навигатор иерархии: над ним выбирается режим — папки (как раньше), тип, товарная группа, бренд, основной поставщик, качество, способ пополнения или любое дополнительное свойство товара. Узлы показывают число товаров с учётом фильтров панели и раздела, откуда открыт список; «<не задано>» — товары без значения. Выбор узла отбирает список и складывается с фильтрами панели.
+- Звёздочка рядом с режимом закрепляет его первым в списке режимов; режим, выбранный узел и избранные режимы запоминаются. Кнопка ↻ пересчитывает узлы.
+- На закладке «Фильтры» добавлен отбор «Свойство = значение» по дополнительным реквизитам и сведениям товара — работает в любом режиме навигатора.
+
+### fr
+- La liste des articles reçoit à gauche un navigateur de hiérarchie : au-dessus, on choisit le mode — dossiers (comme avant), type, groupe de marchandises, marque, fournisseur principal, qualité, mode de réapprovisionnement ou toute propriété supplémentaire de l'article. Les nœuds affichent le nombre d'articles en tenant compte des filtres du panneau et de la section d'où la liste est ouverte ; « <non renseigné> » regroupe les articles sans valeur. Le choix d'un nœud filtre la liste et se combine avec les filtres du panneau.
+- L'étoile à côté du mode l'épingle en tête de la liste des modes ; le mode, le nœud choisi et les modes favoris sont mémorisés. Le bouton ↻ recalcule les nœuds.
+- L'onglet « Filtres » reçoit le filtre « Propriété = valeur » sur les attributs et informations supplémentaires de l'article — il fonctionne dans n'importe quel mode du navigateur.
+
+### en
+- The item list gets a hierarchy navigator on the left: above it you choose the mode — folders (as before), type, product group, brand, main supplier, quality, replenishment method or any additional item property. Nodes show the number of items taking into account the panel filters and the section the list was opened from; "<not set>" groups items without a value. Choosing a node filters the list and combines with the panel filters.
+- The star next to the mode pins it at the top of the mode list; the mode, the selected node and favorite modes are remembered. The ↻ button recounts the nodes.
+- The "Filters" tab gets a "Property = value" filter on additional item attributes and information — it works in any navigator mode.
+
+### es
+- La lista de artículos recibe a la izquierda un navegador de jerarquía: encima se elige el modo — carpetas (como antes), tipo, grupo de mercancías, marca, proveedor principal, calidad, forma de reposición o cualquier propiedad adicional del artículo. Los nodos muestran el número de artículos teniendo en cuenta los filtros del panel y la sección desde la que se abrió la lista; «<sin definir>» agrupa los artículos sin valor. Elegir un nodo filtra la lista y se combina con los filtros del panel.
+- La estrella junto al modo lo fija al principio de la lista de modos; el modo, el nodo elegido y los modos favoritos se recuerdan. El botón ↻ recalcula los nodos.
+- La pestaña «Filtros» recibe el filtro «Propiedad = valor» por atributos e información adicionales del artículo; funciona en cualquier modo del navegador.
+
+## 2.0.16.60
+### ru
+- Список товаров получил панель «Сведения» справа, как у списков документов: закладка «Фильтры» — тип, способ пополнения, наличие (в наличии, нет, ниже минимума), склад остатка (по умолчанию — склад пользователя), товарная группа, бренд, основной поставщик, качество и флажок «Показывать помеченные на удаление»; закладка «Товар» — реквизиты и цены текущего товара; «Движение» — остатки по складам со свободным количеством (без закреплённого на станках), заказано поставщикам, потребность производства и продажи за 12 месяцев. Панель сворачивается в столбик значков, фильтры и состояние запоминаются.
+- В таблице списка видны наименование, артикул, единица, остаток и розничная цена — без горизонтальной прокрутки; остальные колонки включаются через «Ещё → Изменить форму». Колонка «Продажи» убрана из списка: продажи — на закладке «Движение».
+- Остаток в списке считается по товару целиком: товар с несколькими партиями больше не показывается несколькими строками.
+
+### fr
+- La liste des articles reçoit le panneau « Informations » à droite, comme les listes de documents : onglet « Filtres » — type, mode de réapprovisionnement, disponibilité (en stock, en rupture, sous le minimum), entrepôt du stock (par défaut celui de l'utilisateur), groupe de marchandises, marque, fournisseur principal, qualité et la case « Afficher les éléments marqués pour suppression » ; onglet « Article » — attributs et prix de l'article courant ; « Mouvements » — stocks par entrepôt avec la quantité libre (hors matières affectées aux machines), commandé aux fournisseurs, besoin de production et ventes sur 12 mois. Le panneau se replie en colonne d'icônes, les filtres et l'état sont mémorisés.
+- Le tableau de la liste montre le nom, la référence, l'unité, le stock et le prix de détail, sans défilement horizontal ; les autres colonnes s'activent par « Plus → Modifier le formulaire ». La colonne « Ventes » est retirée de la liste : les ventes sont dans l'onglet « Mouvements ».
+- Le stock de la liste est compté par article : un article en plusieurs lots n'apparaît plus sur plusieurs lignes.
+
+### en
+- The item list gets the "Details" panel on the right, like document lists: the "Filters" tab — type, replenishment method, availability (in stock, out of stock, below minimum), stock warehouse (the user's warehouse by default), product group, brand, main supplier, quality and the "Show items marked for deletion" check box; the "Item" tab — attributes and prices of the current item; "Movement" — stock by warehouse with the free quantity (excluding materials reserved on machines), ordered from suppliers, production need and sales over 12 months. The panel collapses into a column of icons; filters and state are remembered.
+- The list table shows name, article, unit, stock and retail price without horizontal scrolling; other columns can be enabled via "More → Change form". The "Sales" column is removed from the list: sales are on the "Movement" tab.
+- Stock in the list is counted per item: an item with several batches is no longer shown as several rows.
+
+### es
+- La lista de artículos recibe el panel «Información» a la derecha, como las listas de documentos: pestaña «Filtros» — tipo, forma de reposición, disponibilidad (en stock, agotado, bajo mínimo), almacén de existencias (por defecto el del usuario), grupo de mercancías, marca, proveedor principal, calidad y la casilla «Mostrar marcados para eliminar»; pestaña «Artículo» — atributos y precios del artículo actual; «Movimientos» — existencias por almacén con la cantidad libre (sin lo reservado en máquinas), pedido a proveedores, necesidad de producción y ventas de 12 meses. El panel se pliega en una columna de iconos; los filtros y el estado se recuerdan.
+- La tabla de la lista muestra nombre, referencia, unidad, existencias y precio minorista sin desplazamiento horizontal; las demás columnas se activan con «Más → Cambiar formulario». La columna «Ventas» se quita de la lista: las ventas están en la pestaña «Movimientos».
+- Las existencias de la lista se cuentan por artículo: un artículo con varios lotes ya no aparece en varias filas.
+
+## 2.0.16.59
+### ru
+- Карточка товара больше не перезаписывает чужой штрихкод: если артикул или отсканированный штрихкод уже принадлежит другому товару, штрихкод не записывается, а карточка показывает, чей он. Собственный штрихкод товара с характеристикой, упаковкой или серией при записи карточки больше не теряет их. Так же работают загрузка товаров из Excel (отказы — в сообщениях загрузки) и новая серия: занятый номер EAN-13 генерируется заново.
+- Минимальные и максимальные остатки по складам записываются вместе с товаром: у нового товара они больше не могут сохраниться без товара, а запись карточки меняет только склады, где значение изменилось или ещё не записано.
+- Цены и технологическая карта из карточки записываются вместе с товаром: если документ цен или карта не записались, товар тоже не сохраняется — раньше он оставался сохранённым без них.
+- Проверка «товар с таким артикулом уже существует» срабатывает только у нового товара и при смене артикула: товары с давним дублем артикула снова можно править. Пустое наименование заполняется из полного и наоборот при любой записи товара.
+- Дополнительный реквизит хранит одно значение: при записи из карточки, рабочего места производства или группового изменения лишние строки того же реквизита удаляются, а при чтении из старых дублей берётся последнее значение — как показывает карточка.
+
+### fr
+- La fiche article n'écrase plus le code-barres d'un autre article : si la référence ou le code-barres scanné appartient déjà à un autre article, le code-barres n'est pas enregistré et la fiche indique à qui il appartient. Le code-barres propre de l'article ne perd plus sa variante, son conditionnement ou son lot à l'enregistrement de la fiche. Il en va de même pour l'import des articles depuis Excel (refus affichés dans les messages de l'import) et pour un nouveau lot : un numéro EAN-13 déjà pris est régénéré.
+- Les stocks minimaux et maximaux par entrepôt sont enregistrés avec l'article : pour un nouvel article ils ne peuvent plus être enregistrés sans article, et l'enregistrement de la fiche ne modifie que les entrepôts dont la valeur a changé ou n'existait pas encore.
+- Les prix et la gamme de fabrication de la fiche sont enregistrés avec l'article : si le document de prix ou la gamme échoue, l'article n'est pas enregistré non plus — auparavant il restait enregistré sans eux.
+- Le contrôle « un article avec cette référence existe déjà » ne s'applique qu'à un nouvel article et au changement de référence : les articles avec un ancien doublon de référence se modifient à nouveau. Le nom vide est rempli à partir du nom complet et inversement à chaque enregistrement.
+- Un attribut supplémentaire garde une seule valeur : à l'enregistrement depuis la fiche, le poste de production ou la modification groupée, les lignes en double du même attribut sont supprimées, et la lecture d'anciens doublons prend la dernière valeur, comme la fiche.
+
+### en
+- The item card no longer overwrites another item's barcode: if the article number or a scanned barcode already belongs to another item, the barcode is not saved and the card shows who owns it. The item's own barcode no longer loses its characteristic, package or batch when the card is saved. The same applies to importing items from Excel (refusals are shown in the import messages) and to a new batch: an EAN-13 number already taken is generated again.
+- Minimum and maximum stock by warehouse are saved together with the item: for a new item they can no longer be saved without the item, and saving the card changes only the warehouses whose value changed or was not saved yet.
+- Prices and the production routing from the card are saved together with the item: if the price document or the routing fails, the item is not saved either — previously it stayed saved without them.
+- The "a product with such an article already exists" check applies only to a new item and to an article change: items with an old duplicate article can be edited again. An empty name is filled from the full name and vice versa on every save.
+- An additional attribute keeps a single value: when saved from the card, the production workplace or bulk editing, duplicate lines of the same attribute are removed, and reading old duplicates takes the last value, as the card shows.
+
+### es
+- La ficha del artículo ya no sobrescribe el código de barras de otro artículo: si la referencia o el código escaneado ya pertenece a otro artículo, el código no se guarda y la ficha indica a quién pertenece. El código propio del artículo ya no pierde su característica, embalaje o lote al guardar la ficha. Lo mismo ocurre con la importación de artículos desde Excel (los rechazos aparecen en los mensajes de la importación) y con un lote nuevo: un número EAN-13 ya ocupado se genera de nuevo.
+- Las existencias mínimas y máximas por almacén se guardan junto con el artículo: en un artículo nuevo ya no pueden guardarse sin artículo, y al guardar la ficha solo cambian los almacenes cuyo valor cambió o aún no estaba guardado.
+- Los precios y la ruta de fabricación de la ficha se guardan junto con el artículo: si el documento de precios o la ruta fallan, el artículo tampoco se guarda; antes quedaba guardado sin ellos.
+- La comprobación «ya existe un producto con esta referencia» solo se aplica a un artículo nuevo y al cambiar la referencia: los artículos con un duplicado antiguo de referencia vuelven a poder editarse. El nombre vacío se rellena con el nombre completo y viceversa en cada guardado.
+- Un atributo adicional guarda un solo valor: al guardar desde la ficha, el puesto de producción o la modificación en grupo se eliminan las líneas duplicadas del mismo atributo, y al leer duplicados antiguos se toma el último valor, como muestra la ficha.
+
+## 2.0.16.58
+### ru
+- Материалы, закреплённые за требованиями-накладными на станке, больше не считаются свободными при закупке: в рабочем месте закупок на закладке остатков товара склад станка показывает только свободное количество, отчёт «Товары для заказа» по складу станка и обработка «Формирование заказов поставщикам» вычитают закреплённое.
+- Исправлен отчёт «Недостаточные запасы»: минимальный остаток сравнивался не с тем складом, и отчёт пропускал товары ниже минимума. Теперь остаток считается по товару и складу целиком (по всем партиям), а товар с минимумом и нулевым остатком тоже попадает в отчёт.
+- Удалена служебная форма «Проба планировщика»: планировщик работает в рабочем месте «Управление станками».
+- Роль «Менеджер по закупкам» получила право чтения регистра «Материалы на станках» и справочника станков — без него закупщик не увидел бы свободные остатки складов станков.
+
+### fr
+- Les matières affectées aux bons de consommation sur une machine ne sont plus comptées comme libres pour les achats : dans le poste des achats, l'onglet des stocks de l'article montre pour le stock de la machine la seule quantité libre, le rapport « Marchandises à commander » par stock de machine et le traitement « Génération des commandes fournisseurs » déduisent la quantité affectée.
+- Correction du rapport « Stocks insuffisants » : le stock minimal était comparé au mauvais entrepôt et le rapport omettait des articles sous le minimum. Le stock est désormais compté par article et entrepôt (tous lots confondus), et un article avec un minimum et un stock nul figure aussi dans le rapport.
+- Le formulaire technique « Essai du planificateur » est supprimé : le planificateur fonctionne dans le poste « Gestion des machines ».
+- Le rôle « Responsable des achats » obtient la lecture du registre « Matières sur les machines » et du référentiel des machines, sans laquelle l'acheteur ne verrait pas les stocks libres des machines.
+
+### en
+- Materials reserved for requisitions on a machine are no longer counted as free for purchasing: in the purchasing workplace the item stock tab shows only the free quantity for the machine stock, and the "Goods to order" report for a machine stock and the "Purchase order generation" processor deduct the reserved quantity.
+- Fixed the "Insufficient stocks" report: the minimum stock was compared against the wrong warehouse, so the report missed items below the minimum. Stock is now counted per item and warehouse as a whole (all batches), and an item with a minimum and zero stock is included too.
+- The technical "Planner trial" form has been removed: the planner works in the "Machine management" workplace.
+- The "Purchasing manager" role can now read the "Materials on machines" register and the machine catalog; without it the buyer would not see the free stock of machine stocks.
+
+### es
+- Los materiales reservados para vales de consumo en una máquina ya no se cuentan como libres para compras: en el puesto de compras, la pestaña de existencias del artículo muestra para el almacén de la máquina solo la cantidad libre, y el informe «Productos a pedido» por almacén de máquina y el procesamiento «Generación de pedidos a proveedores» descuentan lo reservado.
+- Corregido el informe «Existencias insuficientes»: el stock mínimo se comparaba con un almacén equivocado y el informe omitía artículos por debajo del mínimo. Ahora el stock se cuenta por artículo y almacén en conjunto (todos los lotes), y un artículo con mínimo y stock cero también aparece en el informe.
+- Se eliminó el formulario técnico «Prueba del planificador»: el planificador funciona en el puesto «Gestión de máquinas».
+- El rol «Gerente de compras» obtiene la lectura del registro «Materiales en máquinas» y del catálogo de máquinas; sin ella el comprador no vería las existencias libres de los almacenes de máquina.
+
+## 2.0.16.57
+### ru
+- Требование-накладная по строке заказа не проводится, если вместе с другими открытыми требованиями этой строки оно больше количества строки. Раньше такое требование, введённое вручную, проходило, если у той же продукции заказа был остаток на другой строке.
+- «Принять автоплан» не размещает строку, если окно на станке изменилось после расчёта черновика (например, сменили выработку станка): строка называется в ошибках, автоплан нужно рассчитать заново. Раньше требование ставилось в другое окно, чем показывал черновик.
+- Отчёт «Эффективность станков (OEE)»: требование, у части материалов которого не задан вес, не входит в производительность — раньше норма по остальным материалам её занижала. Такие позиции перечислены в предупреждении отчёта.
+
+### fr
+- Un bon de consommation sur une ligne de commande n'est pas validé si, avec les autres bons ouverts de cette ligne, il dépasse la quantité de la ligne. Auparavant, un tel bon saisi à la main passait si le même produit de la commande avait un reste sur une autre ligne.
+- « Accepter la planification » ne place pas une ligne si le créneau de la machine a changé depuis le calcul du brouillon (par exemple, cadence de la machine modifiée) : la ligne est citée dans les erreurs, il faut recalculer la planification. Auparavant, le bon était placé dans un autre créneau que celui du brouillon.
+- Rapport « Efficacité des machines (TRS) » : un bon dont une partie des matières n'a pas de poids n'entre plus dans la performance ; la norme calculée sur les autres matières la sous-estimait. Ces articles sont listés dans l'avertissement du rapport.
+
+### en
+- A requisition for an order line is not posted if, together with the other open requisitions of that line, it exceeds the line quantity. Previously such a manually entered requisition went through if the same product of the order had a remainder on another line.
+- "Accept auto-plan" does not place a line if the machine slot changed after the draft was calculated (for example, the machine output rate was changed): the line is listed in the errors and the auto-plan must be recalculated. Previously the requisition was placed in a different slot than the draft showed.
+- "Machine efficiency (OEE)" report: a requisition with some materials lacking a weight no longer counts towards performance; the standard calculated from the other materials understated it. Such items are listed in the report warning.
+
+### es
+- Un vale de consumo de una línea de pedido no se contabiliza si, junto con los demás vales abiertos de esa línea, supera la cantidad de la línea. Antes, un vale así introducido a mano pasaba si el mismo producto del pedido tenía resto en otra línea.
+- «Aceptar planificación» no coloca una línea si el hueco de la máquina cambió después de calcular el borrador (por ejemplo, se cambió el rendimiento de la máquina): la línea aparece en los errores y hay que recalcular la planificación. Antes el vale se colocaba en otro hueco distinto del borrador.
+- Informe «Eficiencia de máquinas (OEE)»: un vale con parte de los materiales sin peso ya no entra en el rendimiento; la norma calculada con los demás materiales lo subestimaba. Esas posiciones se indican en el aviso del informe.
+
+## 2.0.16.56
+### ru
+- В пересчёте, списании и оприходовании «Вид операции» выбирается переключателем «По складу / По станку», а в заголовке документа по станку написано «по станку».
+- В списках пересчётов, списаний и оприходований появилась колонка «Станок» (видна при включённом учёте станков); списки по станку открываются быстрее на больших базах.
+- Если у документа по станку сменить вид на «По складу», станок и склад станка очищаются — склад выбирается заново, а не остаётся складом станка.
+- Если учёт станков выключен, в документе по станку снова виден склад.
+- Кнопки «Заполнить» и «Заполнить остатки» пересчёта считают учётные остатки так же, как прежде, но общим механизмом, который проверяют автотесты.
+
+### fr
+- Dans l'inventaire, la sortie et l'entrée de stock, le « Type d'opération » se choisit par un commutateur « Par entrepôt / Par machine », et le titre d'un document par machine indique « par machine ».
+- Les listes des inventaires, sorties et entrées de stock ont une colonne « Machine » (visible quand la gestion des machines est activée) ; les listes par machine s'ouvrent plus vite sur les grandes bases.
+- Si le type d'un document par machine passe à « Par entrepôt », la machine et son stock sont effacés : l'entrepôt est choisi de nouveau au lieu de rester celui de la machine.
+- Si la gestion des machines est désactivée, l'entrepôt d'un document par machine est de nouveau visible.
+- Les boutons « Remplir » et « Remplir les stocks » de l'inventaire calculent le stock théorique comme avant, mais par un mécanisme commun vérifié par les tests automatiques.
+
+### en
+- In stock counts, write-offs and receipts, the "Operation type" is chosen with a "By warehouse / By machine" switch, and the title of a by-machine document says "by machine".
+- The lists of stock counts, write-offs and receipts have a "Machine" column (shown when machine accounting is on); by-machine lists open faster on large databases.
+- If a by-machine document is switched to "By warehouse", the machine and its stock are cleared: the warehouse is chosen again instead of staying the machine stock.
+- If machine accounting is turned off, the warehouse of a by-machine document is visible again.
+- The stock count "Fill" and "Fill balances" buttons calculate book stock as before, but through a shared mechanism covered by automated tests.
+
+### es
+- En el recuento, la baja y el alta de existencias, el «Tipo de operación» se elige con un conmutador «Por almacén / Por máquina», y el título de un documento por máquina indica «por máquina».
+- Las listas de recuentos, bajas y altas tienen una columna «Máquina» (visible con la contabilidad de máquinas activada); las listas por máquina se abren más rápido en bases grandes.
+- Si un documento por máquina se cambia a «Por almacén», la máquina y su almacén se borran: el almacén se elige de nuevo en lugar de quedarse el de la máquina.
+- Si la contabilidad de máquinas está desactivada, el almacén de un documento por máquina vuelve a verse.
+- Los botones «Rellenar» y «Rellenar saldos» del recuento calculan el stock contable como antes, pero con un mecanismo común cubierto por pruebas automáticas.
+
+## 2.0.16.55
+### ru
+- Отчёт «Простои станков» с флажком «Включать запланированное» больше не считает дважды время, когда у станка одновременно стоят плановое и фактическое обслуживание: плановое учитывается только за пределами фактического, поэтому процент простоя не превышает фонд времени.
+- Время ремонта (MTTR) считается по полной длительности ремонта, даже если ремонт переходит через конец периода отчёта. Раньше в MTTR попадала только часть внутри периода.
+- Станок, выведенный из работы, попадает в отчёт, если в периоде у него была работа, — его наработка входит в MTBF. Раньше такой станок без обслуживания в отчёт не попадал.
+- Отбор отчёта по виду обслуживания, причине, плановости или документу больше не обнуляет процент простоя и MTBF: он отбирает только строки обслуживания, фонд времени и наработка станка остаются. Отбор по часам и показателям не применяется — отчёт сообщает об этом; отбор по станку работает как раньше.
+- Обслуживание станка с окончанием не позже начала не проводится и при записи обработками, а не только из формы.
+
+### fr
+- Le rapport « Arrêts des machines » avec « Inclure le planifié » ne compte plus deux fois le temps où une machine a à la fois une maintenance planifiée et une maintenance réelle : la planifiée n'est comptée qu'en dehors de la réelle, le pourcentage d'arrêt ne dépasse donc plus la capacité.
+- Le temps de réparation (MTTR) est compté sur toute la durée de la réparation, même si elle dépasse la fin de la période du rapport. Auparavant, seule la partie dans la période entrait dans le MTTR.
+- Une machine retirée apparaît dans le rapport si elle a travaillé dans la période : ses heures de fonctionnement entrent dans le MTBF. Auparavant, une telle machine sans maintenance n'apparaissait pas.
+- Le filtre du rapport par type de maintenance, motif, caractère planifié ou document ne met plus à zéro le pourcentage d'arrêt et le MTBF : il ne sélectionne que les lignes de maintenance, la capacité et les heures de fonctionnement de la machine restent. Le filtre par heures et indicateurs n'est pas appliqué, le rapport le signale ; le filtre par machine fonctionne comme avant.
+- Une maintenance de machine dont la fin n'est pas postérieure au début n'est plus validée non plus lorsqu'elle est enregistrée par un traitement, et pas seulement depuis le formulaire.
+
+### en
+- The "Machine downtime" report with "Include planned" no longer counts twice the time when a machine has both planned and actual maintenance: planned maintenance is counted only outside the actual one, so the downtime percentage no longer exceeds capacity.
+- Repair time (MTTR) is calculated over the full duration of the repair, even if the repair runs past the end of the report period. Previously only the part inside the period went into MTTR.
+- A retired machine appears in the report if it worked during the period: its operating hours count towards MTBF. Previously such a machine without maintenance did not appear.
+- Filtering the report by maintenance type, reason, planned flag or document no longer zeroes the downtime percentage and MTBF: it selects only maintenance rows, and machine capacity and operating hours remain. Filtering by hours and indicators is not applied, and the report says so; filtering by machine works as before.
+- Machine maintenance whose end is not later than its start is no longer posted when saved by a data processor either, not only from the form.
+
+### es
+- El informe «Paradas de máquinas» con «Incluir lo planificado» ya no cuenta dos veces el tiempo en que una máquina tiene a la vez mantenimiento planificado y real: el planificado se cuenta solo fuera del real, por lo que el porcentaje de parada ya no supera la capacidad.
+- El tiempo de reparación (MTTR) se calcula con la duración completa de la reparación, aunque pase del final del período del informe. Antes solo entraba en el MTTR la parte dentro del período.
+- Una máquina fuera de servicio aparece en el informe si trabajó en el período: sus horas de funcionamiento entran en el MTBF. Antes esa máquina sin mantenimiento no aparecía.
+- El filtro del informe por tipo de mantenimiento, motivo, carácter planificado o documento ya no pone a cero el porcentaje de parada y el MTBF: solo selecciona las filas de mantenimiento, y la capacidad y las horas de funcionamiento de la máquina se mantienen. El filtro por horas e indicadores no se aplica y el informe lo indica; el filtro por máquina funciona como antes.
+- El mantenimiento de una máquina cuyo fin no es posterior al inicio ya no se contabiliza tampoco al guardarlo con un procesamiento, no solo desde el formulario.
+
+## 2.0.16.54
+### ru
+- Списание и оприходование, введённые на основании пересчёта «По станку», работают со складом этого пересчёта. Раньше, если после пересчёта в карточке станка сменили склад станка, документ при записи подставлял новый склад, и недостача или излишек проводились не на том складе, где их нашли. Сменить у такого документа станок или вид операции нельзя: запись откажет с подсказкой.
+
+### fr
+- Les sorties et entrées de stock créées à partir d'un inventaire « Par machine » utilisent le stock de cet inventaire. Auparavant, si le stock de la machine avait été changé dans sa fiche après l'inventaire, le document prenait le nouveau stock à l'enregistrement, et le manquant ou l'excédent était passé sur un autre stock que celui où il avait été constaté. La machine et le type d'opération d'un tel document ne peuvent plus être changés : l'enregistrement est refusé avec une explication.
+
+### en
+- Write-offs and receipts created from a "By machine" stock count use the stock of that count. Previously, if the machine stock was changed on the machine card after the count, the document took the new stock when saved, and the shortage or surplus was posted to a different stock from where it was found. The machine and operation type of such a document can no longer be changed: saving is refused with an explanation.
+
+### es
+- Las bajas y altas de existencias creadas a partir de un recuento «Por máquina» usan el almacén de ese recuento. Antes, si después del recuento se cambiaba el almacén de la máquina en su ficha, el documento tomaba el almacén nuevo al guardarse, y el faltante o el sobrante se registraba en un almacén distinto de aquel donde se encontró. Ya no se puede cambiar la máquina ni el tipo de operación de ese documento: el guardado se rechaza con una explicación.
+
+## 2.0.16.53
+### ru
+- Списание безналичных денежных средств, созданное не из формы (обработкой, обменом, на основании в коде), больше не останавливается на проверке «Сумма в валюте регл учета не заполнена»: эту сумму документ сам пересчитывает из суммы и курса при записи, как остальные платёжные документы.
+
+### fr
+- Une sortie de fonds bancaire créée hors du formulaire (traitement, échange, saisie par code) ne bloque plus sur le contrôle « Montant en devise comptable non renseigné » : le document recalcule lui-même ce montant à partir du montant et du cours à l'enregistrement, comme les autres documents de paiement.
+
+### en
+- A bank payment created outside its form (by a data processor, exchange or code) no longer stops at the "Amount in accounting currency is not filled" check: the document recalculates this amount from the amount and rate when saved, like the other payment documents.
+
+### es
+- Un pago bancario creado fuera de su formulario (por un procesamiento, intercambio o código) ya no se detiene en la comprobación «Importe en moneda contable no rellenado»: el documento recalcula este importe a partir del importe y el tipo de cambio al guardarse, como los demás documentos de pago.
+
+## 2.0.16.52
+### ru
+- В рабочем месте «Управление станками» появилась закладка «Загрузка»: по каждому станку на две недели от выбранной — фонд, занято (работа и обслуживание), свободно, процент занятости и первое свободное окно не короче заданного (поле «Окно не короче, ч» рядом с неделей). Колонки дней раскрашены: зелёный — есть запас, жёлтый — от 85 %, розовый — 100 % и выше, серый — выходной; станок, занятый на 90 % и больше, выделен полужирным. Внизу — свободные часы каждого дня по всем станкам. Щелчок по станку делает его текущим в списке станков.
+- Закладка «Под риском»: заказы, которые не успевают к дате отгрузки, — по уже запланированной работе (в том числе затянувшейся), по запланированной, но не запущенной вовремя, и по черновику автоплана; работа на выведенном станке — с подсказкой перепланировать. Черновик автоплана — оценка: другое размещение может успеть. Справа — нужные и свободные часы станков до каждой даты отгрузки и нехватка часов. Закладка считается при открытии и по кнопке «Пересчитать».
+- Новый отчёт «План загрузки станков» (Производство → Станки): вариант «По дням» — процент занятости и свободные часы каждого станка по дням периода, вариант «Заказы под риском». Из закладки «Загрузка» подменю «Отчёты» открывает его и отчёты «Загрузка станков», «Простои станков» (с плановым обслуживанием) и «Занятость станков» на период закладки и выбранный станок.
+
+### fr
+- Le poste « Gestion des machines » a un nouvel onglet « Charge » : pour chaque machine, sur deux semaines à partir de la semaine choisie — capacité, occupé (travail et maintenance), libre, pourcentage d'occupation et premier créneau libre d'au moins la durée indiquée (champ « Créneau d'au moins, h » à côté de la semaine). Les colonnes des jours sont colorées : vert — marge, jaune — dès 85 %, rose — 100 % et plus, gris — jour de repos ; une machine occupée à 90 % et plus est en gras. En bas — les heures libres de chaque jour pour toutes les machines. Un clic sur une machine la rend courante dans la liste des machines.
+- Onglet « À risque » : commandes qui ne tiennent pas la date d'expédition — selon les travaux déjà planifiés (y compris en retard d'exécution), les travaux planifiés mais non lancés à temps et le brouillon de planification automatique ; un travail sur une machine retirée est signalé à replanifier. Le brouillon est une estimation : un autre placement peut tenir le délai. À droite — heures nécessaires et libres des machines jusqu'à chaque date d'expédition et heures manquantes. L'onglet se calcule à l'ouverture et par le bouton « Recalculer ».
+- Nouveau rapport « Plan de charge des machines » (Production → Machines) : variante « Par jour » — pourcentage d'occupation et heures libres de chaque machine par jour de la période, variante « Commandes à risque ». Depuis l'onglet « Charge », le sous-menu « Rapports » l'ouvre, ainsi que « Charge des machines », « Arrêts des machines » (avec maintenance prévue) et « Occupation des machines », sur la période de l'onglet et la machine choisie.
+
+### en
+- The "Machine management" workplace has a new "Load" tab: for each machine, for two weeks from the selected week — capacity, busy (work and maintenance), free, busy percentage and the first free slot of at least the given length ("Slot of at least, h" field next to the week). Day columns are coloured: green — spare capacity, yellow — from 85 %, pink — 100 % and above, grey — day off; a machine busy 90 % or more is shown in bold. At the bottom — free hours of each day across all machines. Clicking a machine makes it current in the machine list.
+- "At risk" tab: orders that will not make their shipment date — by work already scheduled (including work running late), by work scheduled but not started on time and by the auto-plan draft; work on a retired machine is flagged for rescheduling. The draft is an estimate: another placement may be in time. On the right — needed and free machine hours up to each shipment date and the shortfall. The tab is calculated when opened and with the "Recalculate" button.
+- New report "Machine load plan" (Production → Machines): "By day" variant — busy percentage and free hours of each machine by day of the period, and the "Orders at risk" variant. From the "Load" tab, the "Reports" submenu opens it as well as "Machine load", "Machine downtime" (with planned maintenance) and "Machine occupancy" for the tab's period and the selected machine.
+
+### es
+- El puesto «Gestión de máquinas» tiene una nueva pestaña «Carga»: para cada máquina, en dos semanas desde la semana elegida — capacidad, ocupado (trabajo y mantenimiento), libre, porcentaje de ocupación y primer hueco libre de al menos la duración indicada (campo «Hueco de al menos, h» junto a la semana). Las columnas de los días están coloreadas: verde — hay margen, amarillo — desde 85 %, rosa — 100 % o más, gris — día de descanso; una máquina ocupada al 90 % o más aparece en negrita. Abajo — las horas libres de cada día de todas las máquinas. Un clic en una máquina la hace actual en la lista de máquinas.
+- Pestaña «En riesgo»: pedidos que no llegan a la fecha de envío — por el trabajo ya planificado (incluido el que se retrasa), por el trabajo planificado pero no iniciado a tiempo y por el borrador de planificación automática; el trabajo en una máquina fuera de servicio se señala para replanificar. El borrador es una estimación: otra ubicación puede llegar a tiempo. A la derecha — horas necesarias y libres de las máquinas hasta cada fecha de envío y horas que faltan. La pestaña se calcula al abrirla y con el botón «Recalcular».
+- Nuevo informe «Plan de carga de máquinas» (Producción → Máquinas): variante «Por días» — porcentaje de ocupación y horas libres de cada máquina por día del período, y variante «Pedidos en riesgo». Desde la pestaña «Carga», el submenú «Informes» lo abre, así como «Carga de máquinas», «Paradas de máquinas» (con mantenimiento previsto) y «Ocupación de máquinas», para el período de la pestaña y la máquina elegida.
+
+## 2.0.16.51
+### ru
+- Исправлена печать коммерческого предложения: в сборке 2.0.16.50 она останавливалась с ошибкой «Поле объекта не обнаружено (Номер)», а шрифты, выравнивание и ширина колонок формы были сбиты.
+- Кнопка печати коммерческого предложения появилась у ролей «Оператор» и «Менеджер по продажам»: в сборке 2.0.16.50 её видели только руководитель и администратор. Цены, суммы и количества на печати оформляются по правилам выбранного языка.
+- Коммерческое предложение с отправленными редакциями снова удаляется: в сборке 2.0.16.50 удаление отказывало с сообщением «Редакции коммерческого предложения записывает только сам документ». Редакции удаляются вместе с предложением.
+- Печать коммерческого предложения полностью выходит на языке, выбранном в окне печати: сумма прописью, пометка редакции, условия, подпись договора и даты. Раньше у отправленной редакции сумма прописью оставалась на языке, на котором предложение записали. Редакции, записанные до этого обновления, печатают сумму прописью и договор по-прежнему на языке записи. По-испански сумма прописью пока выходит по-французски, как и во всех печатных формах.
+- Смена ответственного у отправленного предложения теперь тоже даёт новую редакцию: когда менеджер не указан, на печати стоит ответственный.
+
+### fr
+- Correction de l'impression du devis : dans la version 2.0.16.50, elle s'arrêtait sur l'erreur « Champ d'objet introuvable (Номер) », et les polices, l'alignement et la largeur des colonnes étaient décalés.
+- Le bouton d'impression du devis est disponible pour les rôles « Opérateur » et « Commercial » : dans la version 2.0.16.50, seuls le directeur et l'administrateur le voyaient. Prix, montants et quantités s'impriment selon les règles de la langue choisie.
+- Un devis ayant des révisions envoyées peut de nouveau être supprimé : dans la version 2.0.16.50, la suppression échouait avec le message « Seul le devis lui-même enregistre ses révisions ». Les révisions sont supprimées avec le devis.
+- L'impression du devis sort entièrement dans la langue choisie dans la fenêtre d'impression : montant en lettres, mention de révision, conditions, libellé du contrat et dates. Auparavant, pour une révision envoyée, le montant en lettres restait dans la langue d'enregistrement du devis. Les révisions enregistrées avant cette mise à jour gardent le montant en lettres et le contrat dans la langue d'enregistrement. En espagnol, le montant en lettres sort encore en français, comme dans tous les formulaires imprimables.
+- Changer le responsable d'un devis envoyé crée désormais aussi une nouvelle révision : quand le contact n'est pas renseigné, c'est le responsable qui figure à l'impression.
+
+### en
+- Fixed quotation printing: in build 2.0.16.50 it stopped with the error "Object field not found (Номер)", and the fonts, alignment and column widths of the form were off.
+- The quotation print button is now available to the "Operator" and "Sales manager" roles: in build 2.0.16.50 only the director and the administrator saw it. Prices, amounts and quantities are printed according to the chosen language.
+- A quotation with sent revisions can be deleted again: in build 2.0.16.50 deletion failed with "Only the quotation itself writes its revisions". The revisions are deleted together with the quotation.
+- The quotation now prints entirely in the language chosen in the print window: amount in words, revision label, terms, contract label and dates. Previously a sent revision kept the amount in words in the language the quotation was saved in. Revisions saved before this update still print the amount in words and the contract in the language they were saved in. In Spanish the amount in words is still printed in French, as in all print forms.
+- Changing the person responsible for a sent quotation now also creates a new revision: when no manager is set, the responsible person is printed instead.
+
+### es
+- Corregida la impresión del presupuesto: en la versión 2.0.16.50 se detenía con el error «Campo del objeto no encontrado (Номер)», y las fuentes, la alineación y el ancho de las columnas estaban desajustados.
+- El botón de impresión del presupuesto está disponible para los roles «Operador» y «Gestor de ventas»: en la versión 2.0.16.50 solo lo veían el director y el administrador. Precios, importes y cantidades se imprimen según el idioma elegido.
+- Un presupuesto con revisiones enviadas vuelve a poder eliminarse: en la versión 2.0.16.50 la eliminación fallaba con «Solo el propio presupuesto registra sus revisiones». Las revisiones se eliminan junto con el presupuesto.
+- El presupuesto se imprime por completo en el idioma elegido en la ventana de impresión: importe en letras, marca de revisión, condiciones, etiqueta del contrato y fechas. Antes, en una revisión enviada el importe en letras quedaba en el idioma en que se guardó el presupuesto. Las revisiones guardadas antes de esta actualización siguen imprimiendo el importe en letras y el contrato en el idioma en que se guardaron. En español, el importe en letras todavía sale en francés, como en todos los formularios de impresión.
+- Cambiar el responsable de un presupuesto enviado ahora también crea una nueva revisión: si no se indica el gestor, en la impresión figura el responsable.
+
+## 2.0.16.50
+### ru
+- Новая печатная форма «Коммерческое предложение» (кнопка «Печать» в документе и в списке): логотип организации из её карточки, реквизиты организации, блоки «Клиент» и «Ваш менеджер», таблица с описанием под каждой строкой, итоги без НДС, НДС и к оплате, сумма прописью, условия, подпись и печать организации, реквизиты в подвале каждой страницы. Форма печатается на русском, французском, английском и испанском.
+- У коммерческого предложения появились редакции. Пока предложение в черновике, его можно править сколько угодно. Когда предложение в статусе «Отправлен» (и дальше) записывается с изменениями, номер редакции растёт сам: v1, v2, v3. Смена только статуса новой редакции не создаёт.
+- В шапке предложения — ссылка «Редакция v…» с подсказкой, что будет при записи. По щелчку — список отправленных редакций с датой, суммой и автором; выбранная открывается на просмотр ровно в том виде, в каком ушла клиенту (те же наименования, цены и логотип, даже если их потом изменили), её можно перепечатать.
+- Кнопка «Вернуть эту редакцию» переносит содержимое старой редакции в текущее предложение; номер документа остаётся прежним, при записи появляется новая редакция. Если какой-то товар из старой редакции уже удалён из базы, строка возвращается без него, а программа называет, чего не нашла.
+- На печати отправленное предложение помечено «Редакция v2»; правки после отправки печатаются как «Редакция v3 · черновик». Предложения, отправленные до этого обновления, получают редакцию v1 при первой записи — сохраняется то, что видел клиент.
+- Прежняя печать «Коммерческое предложение (A4)» в формате Devis у документа «Коммерческое предложение» убрана: она печатала без учёта редакций. У заказов клиента и реализаций печать Devis осталась.
+
+### fr
+- Nouveau formulaire imprimable « Devis » (bouton « Imprimer » dans le document et dans la liste) : logo de l'organisation tiré de sa fiche, coordonnées de l'organisation, blocs « Client » et « Votre contact », tableau avec la description sous chaque ligne, totaux HT, TVA et à payer, montant en lettres, conditions, signature et cachet de l'organisation, coordonnées en pied de chaque page. Le formulaire s'imprime en russe, français, anglais et espagnol.
+- Le devis a désormais des révisions. Tant qu'il est en brouillon, on peut le modifier librement. Lorsqu'un devis au statut « Envoyé » (ou suivant) est enregistré avec des modifications, le numéro de révision augmente tout seul : v1, v2, v3. Un simple changement de statut ne crée pas de nouvelle révision.
+- Dans l'en-tête du devis, un lien « Révision v… » indique ce qui se passera à l'enregistrement. Un clic ouvre la liste des révisions envoyées avec date, montant et auteur ; celle choisie s'ouvre en lecture telle qu'elle a été envoyée au client (mêmes désignations, prix et logo, même s'ils ont changé depuis) et peut être réimprimée.
+- Le bouton « Restaurer cette révision » reprend le contenu de l'ancienne révision dans le devis actuel ; le numéro du document ne change pas, une nouvelle révision apparaît à l'enregistrement. Si un article de l'ancienne révision a été supprimé de la base, la ligne revient sans lui et le programme indique ce qu'il n'a pas trouvé.
+- À l'impression, un devis envoyé porte la mention « Révision v2 » ; les modifications après envoi s'impriment comme « Révision v3 · brouillon ». Les devis envoyés avant cette mise à jour reçoivent la révision v1 au premier enregistrement — ce que le client a vu est conservé.
+- L'ancienne impression « Devis (A4) » du document « Devis » est retirée : elle imprimait sans tenir compte des révisions. Les commandes client et les ventes gardent l'impression Devis.
+
+### en
+- New "Quotation" print form ("Print" button in the document and in the list): the organization logo from its card, organization details, "Customer" and "Your contact" blocks, a table with the description under each line, totals excluding VAT, VAT and amount due, amount in words, terms, signature and organization stamp, details in the footer of every page. The form prints in Russian, French, English and Spanish.
+- Quotations now have revisions. While a quotation is a draft, it can be edited freely. When a quotation with the "Sent" status (or later) is written with changes, the revision number goes up by itself: v1, v2, v3. Changing only the status does not create a new revision.
+- The quotation header shows a "Revision v…" link that tells what will happen on write. Clicking it lists the sent revisions with date, amount and author; the chosen one opens read-only exactly as it was sent to the customer (same names, prices and logo, even if they changed later) and can be reprinted.
+- The "Restore this revision" button brings the content of an old revision into the current quotation; the document number stays the same and a new revision appears on write. If an item from the old revision has since been deleted, the line comes back without it and the program names what it could not find.
+- When printed, a sent quotation is marked "Revision v2"; changes after sending print as "Revision v3 · draft". Quotations sent before this update get revision v1 on their first write — what the customer saw is kept.
+- The old "Quotation (A4)" Devis-style print of the "Quotation" document is removed: it printed without regard to revisions. Customer orders and sales keep the Devis print.
+
+### es
+- Nuevo formulario impreso «Presupuesto» (botón «Imprimir» en el documento y en la lista): logotipo de la organización de su ficha, datos de la organización, bloques «Cliente» y «Su contacto», tabla con la descripción bajo cada línea, totales sin IVA, IVA y a pagar, importe en letras, condiciones, firma y sello de la organización, datos en el pie de cada página. El formulario se imprime en ruso, francés, inglés y español.
+- El presupuesto ahora tiene revisiones. Mientras es un borrador, se puede editar libremente. Cuando un presupuesto con estado «Enviado» (o posterior) se graba con cambios, el número de revisión sube solo: v1, v2, v3. Cambiar solo el estado no crea una revisión nueva.
+- En la cabecera del presupuesto hay un enlace «Revisión v…» que indica qué pasará al grabar. Al pulsarlo aparece la lista de revisiones enviadas con fecha, importe y autor; la elegida se abre en modo lectura tal como se envió al cliente (mismos nombres, precios y logotipo, aunque hayan cambiado después) y se puede reimprimir.
+- El botón «Restaurar esta revisión» trae el contenido de la revisión antigua al presupuesto actual; el número del documento no cambia y al grabar aparece una revisión nueva. Si un artículo de la revisión antigua ya se eliminó de la base, la línea vuelve sin él y el programa indica qué no encontró.
+- Al imprimir, un presupuesto enviado lleva la marca «Revisión v2»; los cambios después del envío se imprimen como «Revisión v3 · borrador». Los presupuestos enviados antes de esta actualización reciben la revisión v1 en su primera grabación: se conserva lo que vio el cliente.
+- Se retira la impresión anterior «Presupuesto (A4)» de tipo Devis del documento «Presupuesto»: imprimía sin tener en cuenta las revisiones. Los pedidos de cliente y las ventas conservan la impresión Devis.
+
+## 2.0.16.49
+### ru
+- Станки получили своё рабочее место: «Производство → Управление станками» (в верхней группе раздела и в группе «Станки»). В нём всё, что было на закладке «Станки» рабочего места производства: список станков, планировщик недели, «Готовы к запуску», требования и автоплан. Закладки «Станки» в рабочем месте производства больше нет.
+- Кнопки рабочего места станков — неделя, «Разместить», «Запустить», «Завершить», «Отменить», автоплан, обслуживание и «Обновить» — стоят в панели над списком станков и выглядят так же, как «Статус» и «Потребности» над списком продукции: обычного размера, без разъехавшегося шрифта. Форма помещается на экран без вертикальной прокрутки.
+- Если учёт станков выключен, пункта «Управление станками» в меню нет; открытое по ссылке рабочее место объясняет, почему оно пустое.
+
+### fr
+- Les machines ont leur propre poste : « Production → Gestion des machines » (dans le groupe principal de la section et dans le groupe « Machines »). On y retrouve tout ce qui était dans l'onglet « Machines » du poste de production : liste des machines, planificateur de la semaine, « Prêts à lancer », bons de sortie et planification automatique. L'onglet « Machines » du poste de production n'existe plus.
+- Les boutons du poste des machines — semaine, « Planifier », « Lancer », « Terminer », « Annuler », planification automatique, maintenance et « Actualiser » — sont dans la barre au-dessus de la liste des machines et ont le même aspect que « Statut » et « Besoins » au-dessus de la liste des produits : taille normale, police non étirée. Le formulaire tient à l'écran sans défilement vertical.
+- Si la gestion des machines est désactivée, l'élément « Gestion des machines » n'apparaît pas dans le menu ; ouvert par un lien, le poste explique pourquoi il est vide.
+
+### en
+- Machines now have their own workplace: "Production → Machine management" (in the top group of the section and in the "Machines" group). It holds everything that was on the "Machines" tab of the production workplace: machine list, weekly planner, "Ready to start", requisitions and auto-plan. The production workplace no longer has a "Machines" tab.
+- The machine workplace buttons — week, "Place", "Start", "Complete", "Cancel", auto-plan, maintenance and "Refresh" — are in the bar above the machine list and look the same as "Status" and "Requirements" above the product list: normal size, no stretched font. The form fits on the screen without vertical scrolling.
+- When machine tracking is off, the "Machine management" menu item is not shown; opened from a link, the workplace explains why it is empty.
+
+### es
+- Las máquinas tienen su propio puesto: «Producción → Gestión de máquinas» (en el grupo principal de la sección y en el grupo «Máquinas»). Contiene todo lo que estaba en la pestaña «Máquinas» del puesto de producción: lista de máquinas, planificador de la semana, «Listos para iniciar», vales y plan automático. El puesto de producción ya no tiene la pestaña «Máquinas».
+- Los botones del puesto de máquinas — semana, «Planificar», «Iniciar», «Terminar», «Cancelar», plan automático, mantenimiento y «Actualizar» — están en la barra sobre la lista de máquinas y se ven igual que «Estado» y «Necesidades» sobre la lista de productos: tamaño normal, sin la fuente separada. El formulario cabe en la pantalla sin desplazamiento vertical.
+- Si el control de máquinas está desactivado, el punto «Gestión de máquinas» no aparece en el menú; abierto por un enlace, el puesto explica por qué está vacío.
+
+## 2.0.16.48
+### ru
+- «Заполнить демо-данными»: флажков опций больше нет — заполняется то, что включено в функциональных опциях. Блок учёта станков добавляется, если учёт станков включён; сами опции кнопка не включает.
+- Кнопки «Заполнить демо-данными» и «Создать свойства номенклатуры» в «Компания и учёт» — обычным шрифтом, надпись больше не разъезжается на macOS.
+
+### fr
+- « Remplir avec des données de démonstration » : plus de cases à cocher pour les options — seul ce qui est activé dans les options fonctionnelles est rempli. Le bloc de suivi des machines est ajouté si le suivi des machines est activé ; le bouton n'active pas les options lui-même.
+- Les boutons « Remplir avec des données de démonstration » et « Créer les propriétés des articles » de « Entreprise et comptabilité » utilisent la police normale, le libellé ne s'étale plus sur macOS.
+
+### en
+- "Fill with demo data": no more option checkboxes — only what is turned on in the functional options is filled. The machine tracking block is added when machine tracking is on; the button does not turn options on by itself.
+- The "Fill with demo data" and "Create item properties" buttons in "Company and accounting" use the normal font; the caption no longer spreads out on macOS.
+
+### es
+- «Llenar con datos de demostración»: ya no hay casillas de opciones — solo se llena lo activado en las opciones funcionales. El bloque de control de máquinas se añade si el control de máquinas está activado; el botón no activa las opciones por sí mismo.
+- Los botones «Llenar con datos de demostración» y «Crear propiedades de artículos» de «Empresa y contabilidad» usan la fuente normal; el texto ya no se separa en macOS.
+
+## 2.0.16.47
+### ru
+- Настройка → Параметры → Компания и учёт: для администратора — группа «Демо-данные» с кнопкой «Заполнить демо-данными». Она заводит демонстрационный набор (заказы на производство на каждой стадии, коммерческие предложения, продажи, закупки, возвраты, оплаты, договоры, лиды, заявки) в фоне и по окончании показывает, что создано, что уже было, что пропущено и почему. Перед запуском — подтверждение; флажками можно включить нужные опции (производство, автовыпуск при отгрузке, учёт станков).
+- Кнопка работает только в демонстрационной или тестовой базе: если в базе есть рабочие документы, заполнение отказывает и называет такой документ (вид, номер, дата) — ничего не записывается.
+- Повторное нажатие ничего не дублирует: уже заведённые справочники и документы набора находятся и переиспользуются, недостающие части набора доливаются целиком. Если часть документов какого-то примера удалена вручную, пример помечается «неполным» и не трогается.
+- Новый блок «Учёт станков» (флажок «Добавить блок учёта станков»): три станка, требования-накладные во всех состояниях (запланировано, запущено, завершено, отменено), плановое и аварийное обслуживание, инвентаризация и оприходование материалов на станке. После заполнения все отчёты по станкам и закладка «Станки» рабочего места производства показывают данные. Факт кладётся в последние три завершённые смены станка; если часть пришлась на прошлый месяц, в отчётах выберите период шире «Этого месяца».
+
+### fr
+- Paramétrage → Paramètres → Entreprise et comptabilité : pour l'administrateur, un groupe « Données de démonstration » avec le bouton « Remplir avec des données de démonstration ». Il crée en arrière-plan un jeu de démonstration (commandes de production à chaque étape, devis, ventes, achats, retours, paiements, contrats, prospects, demandes de recherche) et affiche à la fin ce qui a été créé, ce qui existait déjà, ce qui a été ignoré et pourquoi. Une confirmation précède le lancement ; des cases permettent d'activer les options nécessaires (production, production automatique à l'expédition, suivi des machines).
+- Le bouton ne fonctionne que dans une base de démonstration ou de test : si la base contient des documents de travail, le remplissage est refusé et indique un tel document (type, numéro, date) — rien n'est écrit.
+- Un nouveau clic ne duplique rien : les référentiels et documents du jeu déjà créés sont retrouvés et réutilisés, les parties manquantes sont ajoutées en entier. Si une partie des documents d'un exemple a été supprimée à la main, l'exemple est marqué « incomplet » et n'est pas modifié.
+- Nouveau bloc « Suivi des machines » (case « Ajouter le bloc de suivi des machines ») : trois machines, bons de consommation dans tous les états (planifié, lancé, terminé, annulé), maintenance planifiée et panne, inventaire et entrée de matières sur la machine. Après le remplissage, tous les rapports machines et l'onglet « Machines » du poste de production ont des données. Le réalisé est placé dans les trois dernières équipes terminées ; s'il tombe en partie le mois précédent, choisissez dans les rapports une période plus large que « Ce mois ».
+
+### en
+- Settings → Parameters → Company and accounting: for the administrator, a "Demo data" group with the "Fill with demo data" button. It creates a demo set in the background (production orders at every stage, quotations, sales, purchases, returns, payments, contracts, leads, search requests) and at the end shows what was created, what already existed, what was skipped and why. A confirmation comes first; check boxes turn on the options needed (production, automatic output on shipment, machine tracking).
+- The button works only in a demo or test infobase: if the infobase has working documents, filling is refused and names such a document (type, number, date) — nothing is written.
+- Pressing it again duplicates nothing: catalogs and documents of the set already created are found and reused, missing parts of the set are added as a whole. If some documents of an example were deleted by hand, the example is marked "incomplete" and left untouched.
+- New "Machine tracking" block ("Add the machine tracking block" check box): three machines, requisitions in all states (planned, started, completed, cancelled), planned maintenance and a breakdown, stocktaking and materials receipt on a machine. After filling, all machine reports and the "Machines" tab of the production workplace show data. Actuals go into the last three finished shifts of the machine; if part of them falls into the previous month, choose a period wider than "This month" in reports.
+
+### es
+- Configuración → Parámetros → Empresa y contabilidad: para el administrador, un grupo «Datos de demostración» con el botón «Llenar con datos de demostración». Crea en segundo plano un conjunto de demostración (pedidos de producción en cada etapa, presupuestos, ventas, compras, devoluciones, pagos, contratos, clientes potenciales, solicitudes de búsqueda) y al terminar muestra qué se creó, qué ya existía, qué se omitió y por qué. Antes se pide confirmación; las casillas activan las opciones necesarias (producción, producción automática al enviar, control de máquinas).
+- El botón solo funciona en una base de demostración o de prueba: si la base tiene documentos de trabajo, el llenado se rechaza e indica uno de ellos (tipo, número, fecha) — no se escribe nada.
+- Pulsarlo de nuevo no duplica nada: los catálogos y documentos del conjunto ya creados se encuentran y se reutilizan, las partes que faltan se añaden completas. Si parte de los documentos de un ejemplo se eliminó a mano, el ejemplo se marca «incompleto» y no se toca.
+- Nuevo bloque «Control de máquinas» (casilla «Añadir el bloque de control de máquinas»): tres máquinas, vales en todos los estados (planificado, iniciado, terminado, cancelado), mantenimiento planificado y avería, inventario y entrada de materiales en la máquina. Tras el llenado, todos los informes de máquinas y la pestaña «Máquinas» del puesto de producción muestran datos. Lo real se coloca en los tres últimos turnos terminados de la máquina; si una parte cae en el mes anterior, elija en los informes un periodo más amplio que «Este mes».
+
+## 2.0.16.46
+### ru
+- Учёт станков: в карточке станка появилась таблица «Выработка по номенклатуре» — своя выработка, кг/ч, для продукции или материала. Время загрузки на закладке «Станки», «Готовы к запуску», автоплан и норма в отчётах «Выработка станков» и «Эффективность станков» считаются по ней: сначала по норме продукции, иначе по нормам материалов (каждый материал — по своей норме), а где строки нет — по общей выработке станка, как раньше. Уже запланированная загрузка получит новое время, когда её требование будет записано или перенесено, — так же, как при изменении общей выработки.
+
+### fr
+- Gestion des machines : la fiche machine comporte un tableau « Cadence par article » — une cadence propre, en kg/h, pour un produit ou une matière. La durée de charge de l'onglet « Machines », « Prêts au lancement », la planification automatique et la norme des rapports « Rendement des machines » et « Efficacité des machines » l'utilisent : d'abord la cadence du produit, sinon celles des matières (chaque matière à sa cadence), et sans ligne — la cadence générale de la machine, comme avant. Une charge déjà planifiée prend la nouvelle durée quand son bon est enregistré ou déplacé — comme lors d'un changement de la cadence générale.
+
+### en
+- Machine tracking: the machine card has a new "Output rate by item" table — its own output, kg/h, for a product or a material. The load time on the "Machines" tab, "Ready to start", auto-plan and the standard in the "Machine output" and "Machine efficiency" reports use it: first the product's rate, otherwise the materials' rates (each material at its own rate), and without a line — the machine's general output, as before. A load already planned gets the new time when its requisition is saved or moved — the same as when the general output changes.
+
+### es
+- Control de máquinas: la ficha de la máquina tiene la tabla «Rendimiento por artículo» — un rendimiento propio, kg/h, para un producto o un material. El tiempo de carga de la pestaña «Máquinas», «Listos para iniciar», el plan automático y la norma de los informes «Producción de máquinas» y «Eficiencia de máquinas» lo usan: primero el del producto, si no, los de los materiales (cada material a su rendimiento), y sin línea — el rendimiento general de la máquina, como antes. Una carga ya planificada recibe el nuevo tiempo cuando su vale se guarda o se traslada — igual que al cambiar el rendimiento general.
+
+## 2.0.16.45
+### ru
+- Рабочее место производства, закладка «Станки»: закладка помещается на экран без вертикальной прокрутки и больше не растягивает остальные закладки. Список станков, планировщик и нижние таблицы стали ниже и растягиваются на свободное место. Кнопки собраны в одну панель по группам: неделя, действия с загрузками, автоплан, обслуживание и обновление. Правая панель фильтров заказов на этой закладке скрыта — к станкам она не относится.
+
+### fr
+- Poste de production, onglet « Machines » : l'onglet tient à l'écran sans défilement vertical et n'agrandit plus les autres onglets. La liste des machines, le planificateur et les tableaux du bas sont moins hauts et s'étirent sur l'espace libre. Les boutons sont réunis dans une seule barre, par groupes : semaine, actions sur les charges, planification automatique, maintenance et actualisation. Le panneau de droite avec les filtres des commandes est masqué sur cet onglet — il ne concerne pas les machines.
+
+### en
+- Production workplace, "Machines" tab: the tab fits on the screen without vertical scrolling and no longer stretches the other tabs. The machine list, the planner and the lower tables are shorter and stretch to fill the free space. The buttons are gathered in one bar by group: week, load actions, auto-plan, maintenance and refresh. The right-hand panel with order filters is hidden on this tab — it does not apply to machines.
+
+### es
+- Puesto de producción, pestaña «Máquinas»: la pestaña cabe en la pantalla sin desplazamiento vertical y ya no alarga las demás pestañas. La lista de máquinas, el planificador y las tablas inferiores son más bajos y se estiran al espacio libre. Los botones están reunidos en una sola barra por grupos: semana, acciones con cargas, plan automático, mantenimiento y actualizar. El panel derecho con los filtros de pedidos se oculta en esta pestaña — no se aplica a las máquinas.
+
+## 2.0.16.44
+### ru
+- Меню «Производство»: всё, что относится к станкам, собрано в группе «Станки» — справочник станков, обслуживание станков, требования-накладные, инвентаризация, оприходование и списание материалов и все отчёты по станкам. Из верхней группы раздела обслуживание станков и требования-накладные убраны.
+- Если учёт станков выключен, станков в программе не видно: справочник «Станки» пропал из меню, а поле «Оборудование» — из выпуска продукции. Уже заполненные данные сохраняются и появятся снова при включении учёта.
+- Главные документы раздела теперь есть и в своих тематических группах: заказы, продажи и возвраты покупателей — в «Продажи / Опт», доп. расходы на поступление — в «Закупки / Импорт», формирование заказов поставщикам — в «Закупки / Планирование», кассовые документы — в «Казначейство / Касса», безналичные платежи — в «Казначейство / Банк», перемещение товаров — в «Склад / Хранение», печать этикеток — в «Склад / Товары».
+
+### fr
+- Menu « Production » : tout ce qui concerne les machines est regroupé dans « Machines » — le référentiel des machines, la maintenance, les bons de sortie, l'inventaire, l'entrée et la sortie de matières et tous les rapports sur les machines. La maintenance et les bons de sortie ne figurent plus dans le groupe principal de la section.
+- Si la gestion des machines est désactivée, les machines n'apparaissent plus : le référentiel « Machines » disparaît du menu et le champ « Équipement » de la production. Les données déjà saisies sont conservées et réapparaissent à la réactivation.
+- Les documents principaux de chaque section figurent aussi dans leur groupe thématique : commandes, ventes et retours clients dans « Ventes / Gros », frais additionnels de réception dans « Achats / Importation », formation des commandes fournisseurs dans « Achats / Planification », documents de caisse dans « Trésorerie / Caisse », paiements bancaires dans « Trésorerie / Banque », transferts dans « Entrepôt / Stockage », impression d'étiquettes dans « Entrepôt / Articles ».
+
+### en
+- "Production" menu: everything about machines is gathered in the "Machines" group — the machine list, maintenance, material requisitions, stocktaking, material receipt and write-off, and all machine reports. Maintenance and material requisitions are no longer in the top group of the section.
+- When machine tracking is off, machines are no longer shown: the "Machines" list is gone from the menu and the "Equipment" field from production output. Data already entered is kept and comes back when tracking is turned on again.
+- The main documents of each section are now also in their topic groups: customer orders, sales and returns in "Sales / Wholesale", additional receipt costs in "Purchases / Import", supplier order generation in "Purchases / Planning", cash documents in "Treasury / Cash", bank payments in "Treasury / Bank", transfers in "Warehouse / Storage", label printing in "Warehouse / Goods".
+
+### es
+- Menú «Producción»: todo lo relativo a las máquinas está reunido en el grupo «Máquinas» — el catálogo de máquinas, el mantenimiento, los vales de salida, el inventario, la entrada y la baja de materiales y todos los informes de máquinas. El mantenimiento y los vales de salida ya no están en el grupo principal de la sección.
+- Si el control de máquinas está desactivado, las máquinas no se muestran: el catálogo «Máquinas» desaparece del menú y el campo «Equipo» de la producción. Los datos ya introducidos se conservan y vuelven al activar el control.
+- Los documentos principales de cada sección están también en su grupo temático: pedidos, ventas y devoluciones de clientes en «Ventas / Mayorista», gastos adicionales de recepción en «Compras / Importación», formación de pedidos a proveedores en «Compras / Planificación», documentos de caja en «Tesorería / Caja», pagos bancarios en «Tesorería / Banco», traslados en «Almacén / Almacenamiento», impresión de etiquetas en «Almacén / Artículos».
+
+## 2.0.16.43
+### ru
+- Заголовки колонок в списке реализаций и в таблице товаров передачи в переработку больше не разъезжаются на macOS: «Дата», «Клиент», «Сумма», «Долг» и другие колонки выглядят так же, как в остальных списках. Эти колонки пропустило исправление шрифта шапок в 2.0.16.21.
+
+### fr
+- Les en-têtes de colonnes de la liste des ventes et du tableau des articles du transfert en sous-traitance ne s'étalent plus sur macOS : « Date », « Client », « Montant », « Dette » et les autres colonnes s'affichent comme dans les autres listes. Ces colonnes avaient échappé à la correction de la police des en-têtes en 2.0.16.21.
+
+### en
+- Column headers in the sales list and in the goods table of the transfer to subcontracting no longer spread out on macOS: "Date", "Customer", "Amount", "Debt" and the other columns now look the same as in other lists. These columns had been missed by the header font fix in 2.0.16.21.
+
+### es
+- Los encabezados de columnas de la lista de ventas y de la tabla de artículos de la entrega a subcontratación ya no se separan en macOS: «Fecha», «Cliente», «Importe», «Deuda» y las demás columnas se ven igual que en las otras listas. Estas columnas se habían quedado fuera de la corrección de la fuente de encabezados en 2.0.16.21.
+
+## 2.0.16.42
+### ru
+- Учёт станков: новый отчёт «Занятость станков» (Производство → Отчёты) — какие станки сейчас загружены, а какие свободны, на любой момент. По каждому станку видно, что на нём идёт (заказ или обслуживание), когда освободится, с какого времени можно поставить новую работу и до какой даты станок загружен по плану, а также сколько часов работы впереди. Отбором можно оставить только загруженные или только свободные станки.
+- Те же даты «Освободится», «Свободен с» и «Загружен до» появились в списке станков на закладке «Станки» рабочего места производства. Если работа идёт дольше расчёта, дата освобождения не показывается — она станет известна после «Завершить», а в состоянии станка написано «идёт дольше расчёта».
+
+### fr
+- Gestion des machines : nouveau rapport « Occupation des machines » (Production → Rapports) — quelles machines sont occupées et lesquelles sont libres, à n'importe quel moment. Pour chaque machine : ce qui y tourne (commande ou maintenance), quand elle se libère, à partir de quand on peut y placer un nouveau travail, jusqu'à quelle date elle est chargée selon le plan, et combien d'heures de travail restent. Un filtre permet de ne garder que les machines occupées ou libres.
+- Les mêmes dates « Libre à », « Créneau libre » et « Chargée jusqu'au » apparaissent dans la liste des machines de l'onglet « Machines » du poste de production. Si un travail dure plus que prévu, l'heure de libération n'est pas affichée — elle sera connue après « Terminer », et l'état de la machine indique « dure plus que prévu ».
+
+### en
+- Machine tracking: new report "Machine occupancy" (Production → Reports) — which machines are busy and which are free, at any moment. For each machine it shows what is running (an order or maintenance), when it becomes free, from when new work can be placed on it, until what date it is booked by the plan, and how many hours of work are ahead. A filter keeps only busy or only free machines.
+- The same "Free at", "Free slot from" and "Booked until" dates appear in the machine list on the "Machines" tab of the production workplace. If a job runs longer than planned, the free time is not shown — it becomes known after "Finish", and the machine state says "running longer than planned".
+
+### es
+- Control de máquinas: nuevo informe «Ocupación de máquinas» (Producción → Informes) — qué máquinas están ocupadas y cuáles libres, en cualquier momento. Para cada máquina se ve qué está en marcha (pedido o mantenimiento), cuándo queda libre, desde cuándo se puede poner un trabajo nuevo, hasta qué fecha está cargada según el plan y cuántas horas de trabajo quedan. Un filtro deja solo las máquinas ocupadas o solo las libres.
+- Las mismas fechas «Libre a las», «Hueco libre desde» y «Cargada hasta» aparecen en la lista de máquinas de la pestaña «Máquinas» del puesto de producción. Si un trabajo dura más de lo previsto, la hora de liberación no se muestra — se conocerá tras «Terminar», y el estado de la máquina indica «dura más de lo previsto».
+
+## 2.0.16.41
+### ru
+- Права личного кабинета партнёра ограничены: он больше не может напрямую изменять взаиморасчёты, продажи, остатки товаров, заказы поставщикам и историю статусов заказов. Статусы заказов записываются программой, поэтому заказ продажи теперь сохраняется и у ролей без прав на историю статусов (касса, интернет-магазин).
+- Производство: заказ на производство не проводится, если у материала указана упаковка не 1:1 — иначе количество материала и потребность были бы занижены. Автовыпуск отказывает, если расход материала с нормой округлился до нуля, вместо того чтобы молча его потерять. Поступление из переработки нельзя провести задним числом раньше отгрузки заказа с автовыпуском — продукция была бы выпущена дважды.
+- Закупки: закупка не может обеспечивать заказ на производство другой организации. «Заказать у победителя» берёт ставку НДС из предложения поставщика. Заказ поставщику на основании предложения заполняется только оставшимся дефицитом заказа клиента. Заказы на производство, у которых не было рассчитанной стадии, после обновления видны в «Потребности».
+- Деньги: долг перевозчику по реализации в валюте ведётся в основной валюте. Налоговая накладная покупки по валютному поступлению получает его валюту и курс, закупочный налоговый регистр — в основной валюте (старые валютные накладные и возвраты перепроведите — их список после обновления в журнале регистрации; в старой накладной без валюты по валютному поступлению укажите валюту и курс и перепроведите её). Бухгалтерская операция пересчитывает валютные суммы проводок по курсам валют.
+- Пересчёт товаров: при смене склада или станка в заполненном документе учётные остатки перечитываются, фактическое количество очищается.
+
+### fr
+- Droits de l'espace partenaire restreints : il ne peut plus modifier directement les règlements, ventes, stocks, commandes fournisseurs ni l'historique des statuts. Les statuts sont écrits par le programme, la commande client s'enregistre donc aussi pour les rôles sans droits sur l'historique (caisse, boutique en ligne).
+- Production : une commande de production n'est pas validée si une matière a un conditionnement autre que 1:1 — sinon sa quantité et le besoin seraient sous-estimés. La production automatique refuse si la consommation d'une matière avec norme est arrondie à zéro, au lieu de la perdre. Une réception de sous-traitance ne peut pas être validée à une date antérieure à l'expédition de la commande avec production automatique — les produits seraient produits deux fois.
+- Achats : un achat ne peut pas approvisionner la commande de production d'une autre société. « Commander au gagnant » prend le taux de TVA de l'offre du fournisseur. Une commande fournisseur créée depuis une offre ne reprend que le manque restant de la commande client. Les commandes de production sans étape calculée apparaissent dans « Besoins » après la mise à jour.
+- Finances : la dette envers le transporteur d'une vente en devise est tenue en devise principale. La facture fiscale d'achat issue d'une réception en devise reçoit sa devise et son taux, le registre fiscal fournisseurs est en devise principale (revalidez les anciennes factures et retours en devise — leur liste est dans le journal après la mise à jour ; pour une ancienne facture sans devise issue d'une réception en devise, indiquez la devise et le taux puis revalidez-la). L'opération comptable convertit les montants en devise des écritures selon les taux.
+- Inventaire : en changeant d'entrepôt ou de machine dans un document rempli, le stock théorique est relu et la quantité réelle effacée.
+
+### en
+- Partner account rights restricted: it can no longer change settlements, sales, stock, supplier orders or order status history directly. Order statuses are written by the program, so a sales order now saves for roles without rights on the status history (cash desk, online store) too.
+- Production: a production order is not posted if a material has a package other than 1:1 — otherwise the material quantity and requirement would be understated. Automatic output refuses when a normed material consumption rounds to zero instead of silently losing it. A subcontracting receipt cannot be posted back-dated before a shipment of the order with automatic output — the products would be produced twice.
+- Purchasing: a purchase cannot supply a production order of another company. "Order from winner" takes the VAT rate from the supplier offer. A supplier order created from an offer is filled only with the remaining shortage of the customer order. Production orders without a calculated stage show in "Requirements" after the update.
+- Money: the carrier debt of a foreign-currency sale is kept in the base currency. A purchase tax invoice based on a foreign-currency receipt gets its currency and rate, the supplier tax register is in the base currency (repost old foreign-currency invoices and returns — their list is in the event log after the update; for an old invoice without a currency from a foreign-currency receipt, set the currency and rate and repost it). The accounting operation converts foreign-currency entry amounts by exchange rates.
+- Stock count: changing the warehouse or machine in a filled document rereads book stock and clears the actual quantity.
+
+### es
+- Derechos del portal del socio restringidos: ya no puede modificar directamente liquidaciones, ventas, existencias, pedidos a proveedores ni el historial de estados. Los estados los escribe el programa, así que el pedido de venta también se guarda en roles sin derechos sobre el historial (caja, tienda en línea).
+- Producción: un pedido de producción no se contabiliza si un material tiene un envase distinto de 1:1 — de lo contrario su cantidad y la necesidad quedarían subestimadas. La producción automática se rechaza si el consumo de un material con norma se redondea a cero, en lugar de perderlo. Una recepción de subcontratación no puede contabilizarse con fecha anterior al envío del pedido con producción automática — los productos se producirían dos veces.
+- Compras: una compra no puede abastecer el pedido de producción de otra empresa. «Pedir al ganador» toma el tipo de IVA de la oferta del proveedor. Un pedido a proveedor desde una oferta se llena solo con el déficit restante del pedido del cliente. Los pedidos de producción sin etapa calculada aparecen en «Necesidades» tras la actualización.
+- Dinero: la deuda con el transportista de una venta en moneda se lleva en la moneda principal. La factura fiscal de compra de una recepción en moneda recibe su moneda y tipo, el registro fiscal de proveedores está en moneda principal (vuelva a contabilizar las facturas y devoluciones antiguas en moneda — su lista está en el registro de eventos tras actualizar; en una factura antigua sin moneda de una recepción en moneda, indique la moneda y el tipo y vuelva a contabilizarla). La operación contable convierte los importes en moneda de los asientos según los tipos.
+- Recuento: al cambiar el almacén o la máquina en un documento lleno, se relee el stock contable y se borra la cantidad real.
+
+## 2.0.16.40
+### ru
+- Инвентаризация станков: в меню «Производство → Станки» — «Инвентаризация станков», «Оприходование материалов» и «Списание материалов». Каждая команда открывает список уже отобранных документов по станкам; новый документ из такого списка сразу создаётся по станку.
+- В пересчёте, списании и оприходовании товаров появился вид операции «По станку» (при включённом учёте станков): вместо склада выбирается станок, документ работает со складом станка. Учётное количество пересчёта — всё, что лежит на станке. Списание и оприходование на основании пересчёта получают тот же станок.
+- Недостача на станке списывается со свободного остатка станка; материалы, закреплённые за запущенным заказом, списывает его завершение — их списание отклоняется с названием требования. При создании списания и оприходования из пересчёта по станку пустые документы не создаются, а причина отказа проведения показывается.
+
+### fr
+- Inventaire des machines : dans le menu « Production → Machines » — « Inventaire des machines », « Entrée de matières » et « Sortie de matières ». Chaque commande ouvre la liste déjà filtrée des documents par machine ; un nouveau document créé depuis cette liste est d'emblée par machine.
+- L'inventaire, la sortie et l'entrée de marchandises ont un type d'opération « Par machine » (gestion des machines activée) : on choisit la machine au lieu de l'entrepôt, le document travaille avec le stock de la machine. La quantité théorique de l'inventaire est tout ce qui se trouve sur la machine. La sortie et l'entrée créées depuis l'inventaire reprennent la même machine.
+- Un manque sur la machine est sorti du stock libre de la machine ; les matières réservées à une commande lancée sont sorties à sa fin — leur sortie est refusée avec le nom du bon. En créant la sortie et l'entrée depuis un inventaire par machine, aucun document vide n'est créé et le motif d'un refus de validation est affiché.
+
+### en
+- Machine stocktaking: the "Production → Machines" menu has "Machine stocktaking", "Materials receipt" and "Materials write-off". Each command opens the list already filtered to machine documents; a new document from that list is created by machine right away.
+- Stock count, write-off and receipt of goods have a "By machine" operation type (with machine management on): the machine is chosen instead of the warehouse and the document works with the machine stock. The book quantity of the count is everything on the machine. A write-off and receipt created from the count get the same machine.
+- A shortage on the machine is written off from the machine free stock; materials reserved for a started order are written off when it is completed — writing them off is refused, naming the requisition. When a write-off and receipt are created from a machine count, empty documents are not created and the reason for a posting refusal is shown.
+
+### es
+- Inventario de máquinas: en el menú «Producción → Máquinas» — «Inventario de máquinas», «Ingreso de materiales» y «Baja de materiales». Cada comando abre la lista ya filtrada de documentos por máquina; un documento nuevo desde esa lista se crea directamente por máquina.
+- El recuento, la baja y el ingreso de mercancías tienen el tipo de operación «Por máquina» (con la gestión de máquinas activada): se elige la máquina en lugar del almacén y el documento trabaja con el stock de la máquina. La cantidad contable del recuento es todo lo que hay en la máquina. La baja y el ingreso creados desde el recuento toman la misma máquina.
+- Una falta en la máquina se da de baja del stock libre de la máquina; los materiales reservados para un pedido iniciado se dan de baja al terminarlo — su baja se rechaza indicando el vale. Al crear la baja y el ingreso desde un recuento por máquina no se crean documentos vacíos y se muestra el motivo del rechazo de contabilización.
+
+## 2.0.16.39
+### ru
+- На планировщике закладки «Станки» запланированную загрузку и плановое обслуживание можно растянуть или сжать мышью за край. Меняется только время, количество прежнее: длительность загрузки становится равной рабочим часам станка между новым началом и окончанием (с шагом 15 минут) и сохраняется при переносе.
+- В требовании-накладной появилось поле «Длительность вручную, ч»: его заполняет растяжение, его можно поправить руками; очистка поля возвращает расчёт по весу материалов. При переносе загрузки на другой станок ручная длительность сбрасывается — там другая выработка.
+- Отчёты учёта станков точнее: «нет заказа» в «Загрузке станков» больше не искажается округлением часов по отдельным документам; «Материалы на станках» показывают отрицательный свободный остаток и там, где на складе станка остатка нет совсем; выведенный станок попадает в отчёты, если у него в периоде есть план или незавершённая загрузка. Вариант отчётов «Основной» назван на языке интерфейса.
+
+### fr
+- Dans le planificateur de l'onglet « Machines », une charge planifiée et une maintenance planifiée peuvent être étirées ou réduites à la souris par le bord. Seul l'horaire change, la quantité reste la même : la durée devient les heures de travail de la machine entre le nouveau début et la nouvelle fin (au pas de 15 minutes) et elle est conservée lors d'un déplacement.
+- Le bon de consommation a un champ « Durée manuelle, h » : l'étirement le remplit, on peut le corriger à la main ; vider le champ revient au calcul selon le poids des matières. Déplacer la charge sur une autre machine efface la durée manuelle — la cadence y est différente.
+- Rapports des machines plus précis : « sans commande » dans « Charge des machines » n’est plus faussé par l’arrondi des heures par document ; « Matières sur les machines » montre aussi un stock libre négatif quand le stock de la machine est vide ; une machine retirée apparaît dans les rapports si elle a un plan ou une charge non terminée sur la période. La variante « Principal » des rapports est dans la langue de l’interface.
+
+### en
+- On the "Machines" tab planner, a planned load and planned maintenance can be stretched or shrunk with the mouse by their edge. Only the time changes, the quantity stays the same: the load duration becomes the machine working hours between the new start and end (in 15-minute steps) and is kept when the load is moved.
+- The material requisition has a "Manual duration, h" field: stretching fills it, and it can be edited by hand; clearing it brings back the calculation from material weight. Moving the load to another machine clears the manual duration — the output rate there is different.
+- Machine reports are more accurate: "no order" in "Machine utilization" is no longer skewed by rounding hours per document; "Materials on machines" also shows negative free stock where the machine stock is empty; a retired machine appears in reports if it has a plan or an unfinished load in the period. The "Main" report variant is named in the interface language.
+
+### es
+- En el planificador de la pestaña «Máquinas», una carga planificada y un mantenimiento planificado se pueden estirar o encoger con el ratón por el borde. Solo cambia el horario, la cantidad sigue igual: la duración pasa a ser las horas de trabajo de la máquina entre el nuevo inicio y el nuevo fin (en pasos de 15 minutos) y se mantiene al mover la carga.
+- El vale de consumo tiene el campo «Duración manual, h»: lo rellena el estiramiento y se puede corregir a mano; al vaciarlo vuelve el cálculo por el peso de los materiales. Al mover la carga a otra máquina la duración manual se borra — allí el rendimiento es otro.
+- Informes de máquinas más precisos: «sin pedido» en «Carga de máquinas» ya no se distorsiona por el redondeo de horas por documento; «Materiales en máquinas» muestra stock libre negativo también donde la máquina no tiene stock; una máquina retirada aparece en los informes si tiene plan o una carga sin terminar en el período. La variante «Principal» de los informes está en el idioma de la interfaz.
+
+## 2.0.16.38
+### ru
+- Автоплан на закладке «Станки» рабочего места производства: кнопка «Автоплан» раскладывает строки «Готовы к запуску» по станкам в порядке дат отгрузки — каждую строку целиком на станок, который закончит её раньше всех, мимо уже запланированных загрузок и обслуживания. Предложение видно на планировщике светло-зелёным и на закладке «Автоплан»; не успевающие к отгрузке строки — красным, строки, которые поставить нельзя, — с причиной.
+- «Принять автоплан» создаёт требования по предложению; уже запланированное не меняется. Если время за это время заняли, строка не размещается и называется в сообщении; устаревшее предложение нужно рассчитать заново.
+- В карточке продукции — закладка «Станки»: на каких станках её можно делать. Пустой список — любой станок; автоплан ставит продукцию только на станки из списка.
+
+### fr
+- Planification automatique dans l'onglet « Machines » du poste de production : le bouton « Planification auto » répartit les lignes « Prêt à lancer » sur les machines par date d'expédition — chaque ligne entière sur la machine qui la terminera le plus tôt, en évitant les charges et la maintenance déjà planifiées. La proposition apparaît en vert clair dans le planificateur et dans l'onglet « Planification auto » ; les lignes en retard sur l'expédition en rouge, celles qui ne peuvent pas être placées avec leur motif.
+- « Valider la planification » crée les bons selon la proposition ; ce qui est déjà planifié ne change pas. Si le créneau a été pris entre-temps, la ligne n'est pas placée et elle est signalée ; une proposition périmée doit être recalculée.
+- Dans la fiche produit — onglet « Machines » : sur quelles machines le fabriquer. Liste vide — toute machine ; la planification automatique ne place le produit que sur les machines de la liste.
+
+### en
+- Auto-plan on the "Machines" tab of the production workplace: the "Auto-plan" button spreads the "Ready to start" lines over machines in shipment date order — each whole line on the machine that will finish it first, around loads and maintenance already planned. The proposal is shown in light green on the planner and on the "Auto-plan" tab; lines late for shipment are red, lines that cannot be placed show the reason.
+- "Accept auto-plan" creates requisitions from the proposal; what is already planned does not change. If a slot was taken meanwhile, that line is not placed and is named in the message; an outdated proposal must be recalculated.
+- The product card has a "Machines" tab: which machines can make it. Empty list — any machine; auto-plan puts the product only on the listed machines.
+
+### es
+- Planificación automática en la pestaña «Máquinas» del puesto de producción: el botón «Planificación auto» reparte las líneas «Listo para iniciar» entre las máquinas por fecha de envío — cada línea entera en la máquina que la termine antes, sin chocar con cargas y mantenimiento ya planificados. La propuesta se ve en verde claro en el planificador y en la pestaña «Planificación auto»; las líneas que no llegan al envío en rojo, las que no se pueden colocar con su motivo.
+- «Aceptar planificación» crea los vales según la propuesta; lo ya planificado no cambia. Si el hueco se ocupó entretanto, la línea no se coloca y se indica en el mensaje; una propuesta desactualizada hay que recalcularla.
+- En la ficha del producto — pestaña «Máquinas»: en qué máquinas se puede fabricar. Lista vacía — cualquier máquina; la planificación automática solo lo pone en las máquinas de la lista.
+
+## 2.0.16.37
+### ru
+- В отчёте «Простои станков» — надёжность станков: число отказов, наработка на отказ (MTBF) — часы работы станка на один отказ, и среднее время ремонта (MTTR). Отказом считается фактический «Ремонт или авария», не запланированный заранее; ТО, переналадка и запланированный ремонт отказами не считаются.
+
+### fr
+- Dans le rapport « Arrêts des machines » — fiabilité des machines : nombre de pannes, temps moyen entre pannes (MTBF) — heures de travail de la machine par panne, et temps moyen de réparation (MTTR). Une panne est une « Réparation ou panne » réelle non planifiée à l'avance ; la maintenance, le changement de série et une réparation planifiée ne sont pas des pannes.
+
+### en
+- The "Machine downtime" report now shows machine reliability: number of failures, mean time between failures (MTBF) — machine run hours per failure, and mean time to repair (MTTR). A failure is an actual "Repair or breakdown" not planned in advance; maintenance, changeovers and a planned repair are not failures.
+
+### es
+- En el informe «Paradas de máquinas» — fiabilidad de las máquinas: número de averías, tiempo medio entre averías (MTBF) — horas de trabajo de la máquina por avería, y tiempo medio de reparación (MTTR). Una avería es una «Reparación o avería» real no planificada de antemano; el mantenimiento, el cambio de serie y una reparación planificada no son averías.
+
+## 2.0.16.36
+### ru
+- Новый отчёт «Эффективность станков (OEE)» (Производство → Отчёты; при включённом учёте станков): по каждому станку за период — доступность (работа к фонду времени без плановых остановок), производительность (норма выработки к фактическим часам завершённых загрузок), качество (вес выпуска к весу израсходованных материалов) и итоговый OEE.
+- Плановыми остановками считается запланированное обслуживание; если по плану было ТО, а станок в это время работал, остановки не было. Качество считается по весу продукции из её карточки: продукция без веса в качество не входит, отчёт называет её в предупреждении.
+- В документе «Обслуживание станка» сохраняются плановые даты: после перевода планового ТО в факт видно, когда его планировали.
+
+### fr
+- Nouveau rapport « Efficacité des machines (TRS) » (Production → Rapports ; gestion des machines activée) : par machine sur la période — disponibilité (travail sur le temps disponible hors arrêts planifiés), performance (norme de production sur les heures réelles des charges terminées), qualité (poids produit sur poids des matières consommées) et TRS global.
+- Les arrêts planifiés sont la maintenance planifiée ; si une maintenance était prévue mais que la machine a tourné pendant ce temps, il n'y a pas eu d'arrêt. La qualité se calcule avec le poids du produit de sa fiche : un produit sans poids n'entre pas dans la qualité, le rapport le signale.
+- Le document « Maintenance de machine » conserve les dates prévues : après le passage d'une maintenance planifiée en réel, on voit quand elle était prévue.
+
+### en
+- New report "Machine effectiveness (OEE)" (Production → Reports; with machine management on): per machine for the period — availability (run time over available time minus planned stops), performance (standard hours over actual hours of completed loads), quality (output weight over weight of materials used) and overall OEE.
+- Planned stops are planned maintenance; if maintenance was planned but the machine ran during that time, there was no stop. Quality uses the product weight from its card: a product without weight is left out of quality and named in the report warning.
+- The "Machine maintenance" document keeps the planned dates: after planned maintenance is switched to actual, you can see when it was planned.
+
+### es
+- Nuevo informe «Eficiencia de máquinas (OEE)» (Producción → Informes; con la gestión de máquinas activada): por máquina en el período — disponibilidad (trabajo sobre el tiempo disponible sin paradas planificadas), rendimiento (norma sobre las horas reales de las cargas terminadas), calidad (peso producido sobre peso de materiales consumidos) y OEE total.
+- Las paradas planificadas son el mantenimiento planificado; si había mantenimiento previsto pero la máquina trabajó en ese tiempo, no hubo parada. La calidad usa el peso del producto de su ficha: un producto sin peso no entra en la calidad y el informe lo indica.
+- El documento «Mantenimiento de máquina» guarda las fechas previstas: tras pasar un mantenimiento planificado a real, se ve cuándo estaba previsto.
+
+## 2.0.16.35
+### ru
+- Отчёты учёта станков (Производство → Отчёты; при включённом учёте станков): «Загрузка станков», «Деньги по станкам», «Выработка станков», «Материалы на станках».
+- «Загрузка станков» — по каждому станку за период: фонд времени по режиму работы, работа по плану и по факту, ТО и ремонты, простой без заказа и процент загрузки. Время не задваивается: авария посреди загрузки вычитается из работы и считается ремонтом; что осталось от фонда — «нет заказа». Факт считается до текущего момента: оставшиеся часы недели простоем не считаются.
+- «Деньги по станкам» — по завершённым загрузкам: выручка по цене строки заказа без НДС в основной валюте (по курсу заказа), себестоимость материалов выпуска, стоимость часов работы станка (по «Стоимости часа» в карточке станка), затраты на обслуживание; маржа, маржа на час и на кг.
+- «Выработка станков» — кг израсходованных материалов, выпущенное количество и часы по станкам, продукции и операторам; норма по выработке станка и время на смену заказа, отклонение от нормы, кг в час, процент выполнения нормы.
+- «Материалы на станках» — на выбранную дату: что лежит на каждом станке под заказами и свободным остатком, в штуках, кг и по себестоимости.
+- «Вернуть в работу» больше не возвращает загрузку, если после неё на станке уже работала другая — иначе время работы задвоилось бы.
+
+### fr
+- Rapports de gestion des machines (Production → Rapports ; gestion des machines activée) : « Charge des machines », « Rentabilité des machines », « Production des machines », « Matières sur les machines ».
+- « Charge des machines » — par machine sur la période : temps disponible selon les horaires, travail planifié et réel, maintenance et réparations, inactivité sans commande et taux de charge. Le temps n'est pas compté deux fois : une panne pendant une charge est retirée du travail et comptée en réparation ; le reste du temps disponible est « sans commande ». Le réel est compté jusqu'à maintenant : les heures restantes de la semaine ne sont pas de l'inactivité.
+- « Rentabilité des machines » — sur les charges terminées : chiffre d'affaires au prix de la ligne de commande HT en devise principale (au taux de la commande), coût des matières de la production, coût des heures machine (« Coût horaire » de la fiche machine), coûts de maintenance ; marge, marge par heure et par kg.
+- « Production des machines » — kg de matières consommées, quantité produite et heures par machine, produit et opérateur ; norme selon le rendement de la machine et le temps de changement, écart à la norme, kg par heure, respect de la norme en %.
+- « Matières sur les machines » — à la date choisie : ce qui est sur chaque machine pour les commandes et en stock libre, en quantité, kg et au coût.
+- « Remettre en cours » ne relance plus une charge si une autre a déjà tourné sur la machine après elle — sinon le temps de travail serait compté deux fois.
+
+### en
+- Machine management reports (Production → Reports; with machine management on): "Machine utilization", "Machine profitability", "Machine output", "Materials on machines".
+- "Machine utilization" — per machine for the period: available time from the schedule, planned and actual work, maintenance and repairs, idle time without orders and the utilization percentage. Time is never counted twice: a breakdown during a load is taken out of work and counted as repair; what is left of available time is "no order". Actual time is counted up to now: the remaining hours of the week are not idle time.
+- "Machine profitability" — for completed loads: revenue at the order line price excluding VAT in the base currency (at the order rate), material cost of the output, machine hours cost ("Hourly cost" on the machine card), maintenance costs; margin, margin per hour and per kg.
+- "Machine output" — kg of materials used, quantity produced and hours by machine, product and operator; standard from the machine output rate and order changeover time, deviation from the standard, kg per hour, standard achievement in %.
+- "Materials on machines" — as of the chosen date: what is on each machine for orders and as free stock, in units, kg and at cost.
+- "Return to work" no longer reopens a load if another load has already run on the machine after it — otherwise working time would be counted twice.
+
+### es
+- Informes de gestión de máquinas (Producción → Informes; con la gestión de máquinas activada): «Carga de máquinas», «Rentabilidad de máquinas», «Producción de máquinas», «Materiales en máquinas».
+- «Carga de máquinas» — por máquina en el período: tiempo disponible según el horario, trabajo planificado y real, mantenimiento y reparaciones, inactividad sin pedido y porcentaje de carga. El tiempo no se cuenta dos veces: una avería durante una carga se resta del trabajo y cuenta como reparación; lo que queda del tiempo disponible es «sin pedido». Lo real se cuenta hasta ahora: las horas restantes de la semana no son inactividad.
+- «Rentabilidad de máquinas» — de las cargas terminadas: ingresos al precio de la línea del pedido sin IVA en la moneda principal (al tipo del pedido), coste de materiales de la producción, coste de las horas de máquina («Coste por hora» de la ficha), costes de mantenimiento; margen, margen por hora y por kg.
+- «Producción de máquinas» — kg de materiales consumidos, cantidad producida y horas por máquina, producto y operador; norma según el rendimiento de la máquina y el tiempo de cambio, desviación de la norma, kg por hora, cumplimiento de la norma en %.
+- «Materiales en máquinas» — a la fecha elegida: lo que hay en cada máquina para pedidos y como stock libre, en unidades, kg y a coste.
+- «Devolver a producción» ya no reabre una carga si después de ella ya trabajó otra en la máquina — de lo contrario el tiempo de trabajo se contaría dos veces.
+
+## 2.0.16.34
+### ru
+- Закладка «Станки» в рабочем месте производства (при включённом учёте станков): список станков — что на станке сейчас, загрузка недели в процентах от фонда времени, ближайшее плановое обслуживание; планировщик на неделю — станки строками, загрузки по плану голубые, по факту тёмные, обслуживание серое, нерабочее время по режиму станка — фоном. Неделя листается кнопками ◀ ▶.
+- «Готовы к запуску» — строки заказов на производство, которые можно ставить на станок: заказы в производстве и заказы, материалов которых хватает на вашем складе. Видны остаток к размещению, вес материалов в кг и время на выбранном станке; строки идут по дате отгрузки, не успевающие к отгрузке — красным.
+- «Разместить» ставит выбранную строку на выбранный станок в ближайшее свободное окно по режиму работы — мимо других загрузок и обслуживания, с шагом 15 минут. Строку можно перетащить на планировщик в нужное время и на нужный станок. Количество можно разбить: часть — на один станок, остаток — на другой.
+- Запланированную загрузку можно перетащить на планировщике на другое время или станок; на занятое время (другая загрузка, ремонт) перенос не пройдёт. Запуск, завершение с количеством выпуска и отмена загрузки — кнопками закладки; двойной щелчок открывает документ.
+- Загрузка, которая идёт дольше расчёта и не завершена, на планировщике выделена и держит станок занятым, пока её не завершат.
+
+### fr
+- Onglet « Machines » dans le poste de travail de production (gestion des machines activée) : liste des machines — ce qui tourne maintenant, charge de la semaine en pourcentage du temps disponible, prochaine maintenance planifiée ; planificateur de la semaine — machines en lignes, charges planifiées en bleu, réelles en foncé, maintenance en gris, heures hors service en fond. Les boutons ◀ ▶ changent de semaine.
+- « Prêt à lancer » — lignes de commandes de production à mettre sur machine : commandes en production et commandes dont les matières sont disponibles dans votre entrepôt. Reste à planifier, poids des matières en kg et durée sur la machine choisie ; tri par date d'expédition, en rouge les lignes qui ne tiennent pas le délai.
+- « Planifier » place la ligne choisie sur la machine choisie au prochain créneau libre selon ses horaires — en évitant les autres charges et la maintenance, au pas de 15 minutes. La ligne peut aussi être glissée sur le planificateur au moment et sur la machine voulus. La quantité peut être répartie entre plusieurs machines.
+- Une charge planifiée se déplace par glisser-déposer vers un autre moment ou une autre machine ; vers un créneau occupé (autre charge, réparation) le déplacement est refusé. Lancer, terminer avec la quantité produite et annuler — par les boutons de l'onglet ; un double-clic ouvre le document.
+- Une charge lancée qui dure plus que prévu et n'est pas terminée est mise en évidence et garde la machine occupée jusqu'à « Terminer ».
+
+### en
+- "Machines" tab in the production workplace (with machine management on): machine list — what is running now, the week load as a percentage of available time, the next planned maintenance; weekly planner — machines as rows, planned loads in blue, actual in dark, maintenance in grey, off hours from the machine schedule as background. ◀ ▶ buttons switch weeks.
+- "Ready to start" — production order lines that can go on a machine: orders in production and orders whose materials are available in your warehouse. Shows the quantity left to place, material weight in kg and time on the selected machine; lines are sorted by shipment date, those that cannot make the shipment are red.
+- "Place" puts the selected line on the selected machine in the nearest free slot of its schedule — around other loads and maintenance, in 15-minute steps. A line can also be dragged onto the planner at the wanted time and machine. The quantity can be split: part on one machine, the rest on another.
+- A planned load can be dragged on the planner to another time or machine; moving it onto busy time (another load, a repair) is refused. Start, complete with the produced quantity and cancel a load with the tab buttons; a double click opens the document.
+- A started load running longer than calculated and not completed is highlighted and keeps the machine busy until "Complete".
+
+### es
+- Pestaña «Máquinas» en el puesto de producción (con la gestión de máquinas activada): lista de máquinas — qué está en marcha ahora, carga de la semana en porcentaje del tiempo disponible, próximo mantenimiento planificado; planificador semanal — máquinas en filas, cargas planificadas en azul, reales en oscuro, mantenimiento en gris, horas fuera de horario como fondo. Los botones ◀ ▶ cambian de semana.
+- «Listo para iniciar» — líneas de pedidos de producción que se pueden poner en máquina: pedidos en producción y pedidos cuyos materiales hay en su almacén. Muestra lo pendiente de planificar, el peso de los materiales en kg y el tiempo en la máquina elegida; ordenadas por fecha de envío, en rojo las que no llegan a tiempo.
+- «Planificar» pone la línea elegida en la máquina elegida en el hueco libre más próximo de su horario — evitando otras cargas y el mantenimiento, en pasos de 15 minutos. La línea también se puede arrastrar al planificador a la hora y máquina deseadas. La cantidad se puede repartir entre varias máquinas.
+- Una carga planificada se arrastra en el planificador a otra hora o máquina; sobre un tiempo ocupado (otra carga, una reparación) el traslado se rechaza. Iniciar, terminar con la cantidad producida y cancelar una carga, con los botones de la pestaña; doble clic abre el documento.
+- Una carga iniciada que dura más de lo calculado y no se ha terminado se resalta y mantiene la máquina ocupada hasta «Terminar».
+
+## 2.0.16.33
+### ru
+- Документ «Требование-накладная» (Производство → Требования-накладные; при включённом учёте станков): загрузка станка по строке заказа на производство. Выберите станок, заказ и строку продукции — материалы заполнятся по заказу; количество можно поправить. Статусы: «Запланировано», «Запущено», «Завершено», «Отменено» — команды «Разместить», «Запустить», «Завершить», «Отменить».
+- Время загрузки считается само: вес материалов в кг делится на выработку станка и прибавляется время на смену заказа; окончание раскладывается по режиму работы станка. Вес берётся из единицы измерения (кг) или из веса в карточке номенклатуры; если у материала веса нет, требование об этом сообщит.
+- Материалы перемещаются на склад станка при «Запустить» (или при «Разместить», если в настройках производства включено «Списывать материалы на станок при размещении») теми же партиями и по той же себестоимости. «Завершить» создаёт выпуск продукции со склада станка на склад требования; что не израсходовано, остаётся на станке и первым идёт в следующую загрузку. Вернуть остаток на склад можно обычным перемещением.
+- Материалы, закреплённые за запущенным требованием, нельзя ни продать, ни списать, ни увезти со склада станка. На станке одновременно запущено одно требование. Пока по продукции заказа открыто требование, её не выпускает автовыпуск при отгрузке, ручной выпуск и передача в переработку.
+- «Отменить» возвращает материалы на склад, если соседняя загрузка их ещё не израсходовала; иначе они остаются на станке свободным остатком. Ошибочное завершение руководитель или администратор исправляет командой «Вернуть в работу» — пока продукцию выпуска не отгрузили и не списали.
+- Учёт станков и производство нельзя выключить, пока есть открытые требования-накладные. У каждого станка свой склад; на складе станка не должно быть оповещения о минимальном остатке.
+
+### fr
+- Document « Bon de consommation machine » (Production → Bons de consommation machine ; gestion des machines activée) : chargement d'une machine pour une ligne de commande de production. Choisissez la machine, la commande et la ligne de produit — les matières se remplissent selon la commande ; la quantité peut être corrigée. Statuts : « Planifié », « Lancé », « Terminé », « Annulé » — commandes « Planifier », « Lancer », « Terminer », « Annuler ».
+- La durée de charge se calcule seule : le poids des matières en kg est divisé par le rendement de la machine, plus le temps de changement de commande ; la fin est répartie selon les horaires de la machine. Le poids vient de l'unité (kg) ou du poids de la fiche article ; s'il manque, le bon le signale.
+- Les matières sont transférées vers l'entrepôt de la machine au « Lancer » (ou au « Planifier » si « Transférer les matières sur la machine à la planification » est coché dans les paramètres de production), avec les mêmes lots et le même coût. « Terminer » crée la production depuis l'entrepôt de la machine vers l'entrepôt du bon ; le non-consommé reste sur la machine et part en premier dans la charge suivante. Un transfert ordinaire le renvoie en stock.
+- Les matières réservées par un bon lancé ne peuvent être ni vendues, ni sorties, ni transférées de l'entrepôt de la machine. Un seul bon est lancé à la fois sur une machine. Tant qu'un bon est ouvert pour un produit de la commande, ni la production automatique à l'expédition, ni la production manuelle, ni la sous-traitance ne le produisent.
+- « Annuler » renvoie les matières en stock si une autre charge ne les a pas encore consommées ; sinon elles restent sur la machine comme stock libre. Un responsable ou un administrateur corrige une fin erronée avec « Remettre en cours » — tant que les produits n'ont été ni expédiés ni sortis.
+- La gestion des machines et la production ne se désactivent pas tant qu'il reste des bons ouverts. Chaque machine a son propre entrepôt ; l'entrepôt d'une machine ne doit pas avoir d'alerte de stock minimum.
+
+### en
+- "Machine material requisition" document (Production → Machine material requisitions; with machine management on): loading a machine for a production order line. Choose the machine, the order and the product line — materials are filled from the order; the quantity can be edited. Statuses: "Planned", "Started", "Completed", "Cancelled" — commands "Schedule", "Start", "Complete", "Cancel".
+- The load time is calculated automatically: material weight in kg divided by the machine output plus the order changeover time; the end is laid out on the machine working schedule. The weight comes from the unit (kg) or the weight in the item card; if a material has no weight, the requisition says so.
+- Materials are moved to the machine warehouse on "Start" (or on "Schedule" when "Move materials to the machine when scheduling" is on in production settings) with the same batches and cost. "Complete" creates a production output from the machine warehouse to the requisition warehouse; what was not consumed stays on the machine and goes first into the next load. A regular transfer brings it back to stock.
+- Materials reserved by a started requisition cannot be sold, written off or moved out of the machine warehouse. Only one requisition is started on a machine at a time. While a requisition is open for an order product, neither the automatic output on shipment, nor manual output, nor subcontracting produces it.
+- "Cancel" returns the materials to stock if another load has not consumed them yet; otherwise they stay on the machine as free stock. A manager or an administrator fixes a wrong completion with "Return to work" — while the output products are neither shipped nor written off.
+- Machine management and production cannot be turned off while open requisitions exist. Each machine has its own warehouse; a machine warehouse must not have a minimum stock notification.
+
+### es
+- Documento «Vale de consumo de máquina» (Producción → Vales de consumo de máquina; con la gestión de máquinas activada): carga de una máquina para una línea de pedido de producción. Elija la máquina, el pedido y la línea de producto: los materiales se rellenan según el pedido; la cantidad se puede corregir. Estados: «Planificado», «Iniciado», «Terminado», «Cancelado» — comandos «Planificar», «Iniciar», «Terminar», «Cancelar».
+- El tiempo de carga se calcula solo: el peso de los materiales en kg dividido por el rendimiento de la máquina más el tiempo de cambio de pedido; el fin se reparte según el horario de la máquina. El peso sale de la unidad (kg) o del peso de la ficha del artículo; si un material no tiene peso, el vale lo indica.
+- Los materiales pasan al almacén de la máquina al «Iniciar» (o al «Planificar» si en los ajustes de producción está activado «Mover los materiales a la máquina al planificar») con los mismos lotes y el mismo coste. «Terminar» crea la producción desde el almacén de la máquina al almacén del vale; lo no consumido queda en la máquina y va primero a la siguiente carga. Un traslado normal lo devuelve al stock.
+- Los materiales reservados por un vale iniciado no se pueden vender, dar de baja ni sacar del almacén de la máquina. En una máquina solo hay un vale iniciado a la vez. Mientras un vale esté abierto para un producto del pedido, no lo producen ni la producción automática al enviar, ni la producción manual, ni la subcontratación.
+- «Cancelar» devuelve los materiales al stock si otra carga aún no los consumió; si no, quedan en la máquina como stock libre. Un responsable o administrador corrige un fin erróneo con «Devolver a producción», mientras los productos no se hayan enviado ni dado de baja.
+- La gestión de máquinas y la producción no se pueden desactivar mientras haya vales abiertos. Cada máquina tiene su propio almacén; el almacén de una máquina no debe tener aviso de stock mínimo.
+
+## 2.0.16.32
+### ru
+- Учёт станков (Настройки → Производство → «Учёт станков»; доступен при включённом производстве). Справочник «Производственное оборудование» теперь называется «Станки» и стоит в «Производство → Нормативы» рядом с техкартами; там же «Производственный календарь».
+- В карточке станка (при включённом учёте станков): вид станка, выработка в кг/ч, время на смену заказа в минутах, склад станка, стоимость часа работы, оператор по умолчанию, флажок «Выведен» и таблица «Режим работы» — смены по дням недели; смена может переходить через полночь, круглосуточная смена отмечается флажком. Дни производственного календаря (выходные и праздники) для станка нерабочие; для непрерывной работы отметьте «Работает без производственного календаря».
+- В списке станков колонки «Вид станка», «Выработка, кг/ч», «Выведен»; выведенные станки скрыты, флажок «Показывать выведенные станки» их показывает. Выведенный станок не выбирается в новые документы.
+- Документ «Обслуживание станка» (Производство): плановое ТО, ремонт или авария, переналадка; начало и окончание, причина, исполнитель, затраты. Запланированное обслуживание резервирует время станка, после выполнения снимите флажок «Плановое» и укажите фактическое время. Два обслуживания одного станка в одно время не проводятся.
+- Отчёт «Простои станков» (Производство → Отчёты): часы простоя и число случаев по станкам, видам и причинам за период, фонд рабочего времени по режиму станка и процент простоя в рабочее время. Если производственный календарь на год не заполнен, отчёт предупреждает об этом.
+- В настройках производства — флажок «Списывать материалы на станок при размещении»: пока только запоминается, работать начнёт вместе с требованиями-накладными.
+
+### fr
+- Gestion des machines (Paramètres → Production → « Gestion des machines » ; disponible si la production est activée). Le référentiel « Équipement de production » s'appelle désormais « Machines » et se trouve dans « Production → Normes » à côté des gammes ; le « Calendrier » y est aussi.
+- Dans la fiche machine (gestion des machines activée) : type de machine, rendement en kg/h, temps de changement de commande en minutes, entrepôt de la machine, coût horaire, opérateur par défaut, case « Retirée » et tableau « Horaires de travail » — postes par jour de la semaine ; un poste peut passer minuit, un poste 24 h/24 se coche. Les jours du calendrier (week-ends et fériés) sont chômés pour la machine ; pour un fonctionnement continu, cochez « Fonctionne sans le calendrier ».
+- La liste des machines affiche les colonnes « Type de machine », « Rendement, kg/h », « Retirée » ; les machines retirées sont masquées, la case « Afficher les machines retirées » les montre. Une machine retirée n'est pas proposée dans les nouveaux documents.
+- Document « Maintenance de machine » (Production) : maintenance préventive, réparation ou panne, changement de série ; début et fin, motif, intervenant, coûts. La maintenance planifiée réserve le temps de la machine ; une fois faite, décochez « Planifiée » et saisissez les heures réelles. Deux maintenances d'une même machine au même moment ne sont pas validées.
+- Rapport « Arrêts des machines » (Production → Rapports) : heures d'arrêt et nombre de cas par machine, type et motif sur la période, temps disponible selon les horaires de la machine et pourcentage d'arrêt pendant les heures de travail. Si le calendrier de l'année n'est pas rempli, le rapport le signale.
+- Dans les paramètres de production, la case « Transférer les matières sur la machine à la planification » : pour l'instant elle est seulement enregistrée, elle fonctionnera avec les bons de sortie.
+
+### en
+- Machine management (Settings → Production → "Machine management"; available when production is enabled). The "Production equipment" catalog is now called "Machines" and sits in "Production → Standards" next to the routings; the "Calendar" is there too.
+- In the machine card (machine management on): machine type, output in kg/h, order changeover time in minutes, machine warehouse, hourly cost, default operator, the "Retired" flag and the "Working schedule" table — shifts by day of week; a shift may run past midnight, a round-the-clock shift is a checkbox. Calendar days (weekends and holidays) are non-working for the machine; for continuous operation select "Works without the working calendar".
+- The machine list shows "Machine type", "Output, kg/h" and "Retired" columns; retired machines are hidden, "Show retired machines" shows them. A retired machine is not offered in new documents.
+- "Machine maintenance" document (Production): scheduled maintenance, repair or breakdown, changeover; start and end, reason, performed by, costs. Planned maintenance reserves machine time; once done, clear "Planned" and enter the actual time. Two maintenance records of one machine at the same time are not posted.
+- "Machine downtime" report (Production → Reports): downtime hours and number of cases by machine, type and reason for the period, available time by the machine schedule and downtime percentage during working time. If the working calendar for the year is empty, the report warns about it.
+- In production settings, the "Move materials to the machine when scheduling" flag: for now it is only stored, it will work together with material requisitions.
+
+### es
+- Gestión de máquinas (Ajustes → Producción → «Gestión de máquinas»; disponible con la producción activada). El catálogo «Equipo de producción» ahora se llama «Máquinas» y está en «Producción → Normas» junto a las rutas; allí también está el «Calendario».
+- En la ficha de la máquina (gestión de máquinas activada): tipo de máquina, rendimiento en kg/h, tiempo de cambio de pedido en minutos, almacén de la máquina, coste por hora, operador por defecto, casilla «Retirada» y tabla «Horario de trabajo» — turnos por día de la semana; un turno puede pasar la medianoche, un turno de 24 horas se marca con una casilla. Los días del calendario (fines de semana y festivos) no son laborables para la máquina; para funcionamiento continuo marque «Funciona sin el calendario laboral».
+- La lista de máquinas muestra las columnas «Tipo de máquina», «Rendimiento, kg/h» y «Retirada»; las máquinas retiradas se ocultan, la casilla «Mostrar máquinas retiradas» las muestra. Una máquina retirada no se ofrece en documentos nuevos.
+- Documento «Mantenimiento de máquina» (Producción): mantenimiento programado, reparación o avería, cambio de formato; inicio y fin, motivo, ejecutor, costes. El mantenimiento planificado reserva el tiempo de la máquina; una vez hecho, desmarque «Planificado» e indique la hora real. Dos mantenimientos de una misma máquina a la misma hora no se contabilizan.
+- Informe «Paradas de máquinas» (Producción → Informes): horas de parada y número de casos por máquina, tipo y motivo en el período, tiempo disponible según el horario de la máquina y porcentaje de parada en horario laboral. Si el calendario laboral del año está vacío, el informe lo avisa.
+- En los ajustes de producción, la casilla «Trasladar materiales a la máquina al planificar»: por ahora solo se guarda, funcionará junto con los vales de salida.
+
+## 2.0.16.31
+### ru
+- Рабочее место закупок, тендеры (при включённых «Тендерах поставщиков»): на закладке «Потребность» в группировке «по заказу клиента» отметьте строки заказа и нажмите «Запросить предложения» — выберите поставщиков, каждому создаётся черновик предложения с материалами, количеством и ценой из его прайса. Повторно тому же поставщику по тем же материалам предложение не создаётся.
+- Колонка «Тендер» показывает, сколько предложений запрошено и кто победитель. Внизу закладка «Предложения»: поставщик, цена товара, сумма в основной валюте, срок, сколько материалов дефицита закрывает предложение, победитель. Цены вводятся в самом предложении (двойной щелчок).
+- «Победитель» выбирает предложение победителем тендера заказа клиента. «Заказать у победителя» создаёт заказ поставщику под заказ клиента в валюте, по договору и с режимом НДС предложения, по его ценам и на оставшийся дефицит; материалы без дефицита или с черновиком заказа пропускаются с пояснением. Повторно по закрытому дефициту заказ не создаётся.
+- Исправлено: при одновременном выборе победителя двумя пользователями победителей могло стать два.
+
+### fr
+- Poste des achats, appels d'offres (avec « Appels d'offres fournisseurs » activé) : dans l'onglet « Besoin », regroupement « par commande client », cochez les lignes et cliquez sur « Demander des offres » — choisissez les fournisseurs ; chacun reçoit une offre brouillon avec les matières, la quantité et le prix de son tarif. Aucune nouvelle offre n'est créée pour le même fournisseur et les mêmes matières.
+- La colonne « Appel d'offres » indique combien d'offres sont demandées et le gagnant. En bas, l'onglet « Offres » : fournisseur, prix de l'article, montant en devise principale, délai, nombre de matières en manque couvertes, gagnant. Les prix se saisissent dans l'offre (double clic).
+- « Gagnant » désigne l'offre gagnante de l'appel d'offres de la commande client. « Commander au gagnant » crée la commande fournisseur pour la commande client dans la devise, selon le contrat et le mode TVA de l'offre, à ses prix et pour le manque restant ; les matières sans manque ou avec une commande brouillon sont ignorées avec une explication. Aucune nouvelle commande n'est créée pour un manque déjà couvert.
+- Corrigé : si deux utilisateurs désignaient le gagnant en même temps, il pouvait y avoir deux gagnants.
+
+### en
+- Purchasing workstation, tenders (with "Supplier tenders" enabled): on the "Need" tab, grouping "by customer order", check the order lines and click "Request offers" — choose suppliers; each gets a draft offer with the materials, quantity and price from its price list. No new offer is created for the same supplier and materials.
+- The "Tender" column shows how many offers were requested and who won. Below, the "Offers" tab: supplier, item price, amount in main currency, lead time, how many shortage materials the offer covers, winner. Prices are entered in the offer itself (double-click).
+- "Winner" makes the offer the winner of the customer order tender. "Order from winner" creates the supplier order for the customer order in the offer's currency, contract and VAT mode, at its prices and for the remaining shortage; materials without shortage or with a draft order are skipped with an explanation. No new order is created for a shortage already covered.
+- Fixed: when two users chose the winner at the same time, there could be two winners.
+
+### es
+- Puesto de compras, licitaciones (con «Licitaciones de proveedores» activado): en la pestaña «Necesidad», agrupación «por pedido del cliente», marque las líneas y pulse «Pedir ofertas» — elija los proveedores; cada uno recibe una oferta borrador con los materiales, la cantidad y el precio de su tarifa. No se crea otra oferta para el mismo proveedor y materiales.
+- La columna «Licitación» muestra cuántas ofertas se pidieron y quién ganó. Abajo, la pestaña «Ofertas»: proveedor, precio del artículo, importe en moneda principal, plazo, cuántos materiales con déficit cubre la oferta, ganador. Los precios se introducen en la propia oferta (doble clic).
+- «Ganador» hace la oferta ganadora de la licitación del pedido del cliente. «Pedir al ganador» crea el pedido a proveedor para el pedido del cliente en la moneda, contrato y modo de IVA de la oferta, a sus precios y por el déficit restante; los materiales sin déficit o con un borrador de pedido se omiten con una explicación. No se crea otro pedido para un déficit ya cubierto.
+- Corregido: si dos usuarios elegían el ganador a la vez, podía haber dos ganadores.
+
+## 2.0.16.30
+### ru
+- Рабочее место закупок: новая первая закладка «Потребность» — что нужно закупить. Источники: материалы заказов клиентов на производство, которые ещё не выпущены, и пополнение склада до минимального остатка (на складах с оповещением о минимальном остатке).
+- По каждой строке видно: сколько нужно, заказано, пришло, взято со склада, есть на складе, дефицит, основной поставщик и последняя цена. Группировка — по товару (по умолчанию), по заказу клиента или по поставщику; флажок «Только с дефицитом». Внизу по выбранному товару — источники, заказы поставщикам и остатки по складам.
+- Кнопка «Заказать»: отметьте строки, при необходимости поправьте поставщика и количество «К заказу». На каждый заказ клиента создаётся свой заказ поставщику (он закрывает дефицит этого заказа), на пополнение склада — отдельный заказ. Количество сверх дефицита уходит в заказ на пополнение.
+- Повторное нажатие «Заказать» или устаревший экран не создают второй заказ: перед записью дефицит проверяется заново.
+
+### fr
+- Poste des achats : nouvel onglet en tête « Besoin » — ce qu'il faut acheter. Sources : matières des commandes clients en production pas encore fabriquées, et réapprovisionnement du stock jusqu'au minimum (entrepôts avec alerte de stock minimum).
+- Pour chaque ligne : besoin, commandé, reçu, pris du stock, en stock, manque, fournisseur principal et dernier prix. Regroupement par article (par défaut), par commande client ou par fournisseur ; case « Seulement en manque ». En bas, pour l'article sélectionné : sources, commandes fournisseurs et stocks par entrepôt.
+- Bouton « Commander » : cochez les lignes, corrigez au besoin le fournisseur et la quantité « À commander ». Chaque commande client reçoit sa propre commande fournisseur (elle couvre son manque), le réapprovisionnement une commande séparée. La quantité au-delà du manque va dans la commande de réapprovisionnement.
+- Un second clic sur « Commander » ou un écran périmé ne crée pas de deuxième commande : le manque est revérifié avant l'enregistrement.
+
+### en
+- Purchasing workstation: new first tab "Need" — what has to be purchased. Sources: materials of customer production orders not yet produced, and stock replenishment up to the minimum (warehouses with a minimum stock alert).
+- Each line shows: needed, ordered, received, taken from stock, in stock, shortage, main supplier and last price. Grouping by item (default), by customer order or by supplier; "Shortage only" check box. Below, for the selected item: sources, supplier orders and stock by warehouse.
+- "Order" button: check the lines, adjust the supplier and the "To order" quantity if needed. Each customer order gets its own supplier order (it covers that order's shortage), replenishment gets a separate order. Quantity above the shortage goes to the replenishment order.
+- Clicking "Order" again or a stale screen does not create a second order: the shortage is checked again before saving.
+
+### es
+- Puesto de compras: nueva primera pestaña «Necesidad» — lo que hay que comprar. Orígenes: materiales de pedidos de clientes en producción aún no fabricados, y reposición del almacén hasta el mínimo (almacenes con aviso de stock mínimo).
+- Cada línea muestra: necesario, pedido, recibido, tomado del almacén, en almacén, déficit, proveedor principal y último precio. Agrupación por artículo (por defecto), por pedido del cliente o por proveedor; casilla «Solo con déficit». Abajo, para el artículo seleccionado: orígenes, pedidos a proveedores y existencias por almacén.
+- Botón «Pedir»: marque las líneas, corrija si hace falta el proveedor y la cantidad «A pedir». Cada pedido del cliente recibe su propio pedido a proveedor (cubre su déficit), la reposición un pedido aparte. La cantidad por encima del déficit va al pedido de reposición.
+- Pulsar «Pedir» de nuevo o una pantalla desactualizada no crea un segundo pedido: el déficit se vuelve a comprobar antes de guardar.
+
+## 2.0.16.29
+### ru
+- Рабочее место закупок: строки выбранного заказа поставщику вводятся прямо на закладке «Товары» — товар, количество, упаковка, цена; новая позиция берёт цену из прайса поставщика. Правка проведённого заказа перепроводит его. Строку можно добавить в заказ любой даты, не только сегодняшний.
+- Закладка «Поступления»: новая строка — выбор строки заказа с остатком, количество и номер накладной поставщика. Строки с тем же номером накладной попадают в одно поступление.
+- Кнопка «Изменить статус» над списком заказов: «В работу» (провести), «В черновик», «Отменить» (пометить на удаление) — для всех выделенных заказов сразу. Заказ с поступлениями в черновик не уходит.
+- Новая закладка «К поступлению»: все строки проведённых заказов, по которым ещё ждём товар, — поставщик, заказ, товар, сколько осталось, дата поставки, просрочка. Отметьте строки одного поставщика, укажите номер и дату накладной и нажмите «Оформить поступление»: на каждый заказ создаётся своё поступление с этой накладной. Если хоть одна строка не подходит, поступление по заказу не создаётся совсем.
+- Поступление по заказу поставщику в валюте теперь создаётся в валюте заказа по курсу на дату поступления (раньше — в основной валюте). Это исправляет и рабочее место производства. Цена из прайса поставщика пересчитывается в валюту заказа.
+- Строки предварительного заказа, которые забрал другой заказ, больше нельзя уменьшить, удалить или снять с проведения: это увело бы остатки в минус. Заказ, забравший чужие строки, в рабочем месте только просматривается — правьте его в форме документа.
+- Проведение заказа поставщику, поступления и возврата поставщику блокирует остатки заказа. Если двое одновременно оформляют поступление по одной строке, второе оформление по уже полностью поступившей строке отклоняется, а не принимает товар дважды.
+
+### fr
+- Poste des achats : les lignes de la commande fournisseur sélectionnée se saisissent directement dans l'onglet « Articles » — article, quantité, conditionnement, prix ; une nouvelle ligne prend le prix du tarif du fournisseur. Modifier une commande validée la revalide. Une ligne peut s'ajouter à une commande de n'importe quelle date, pas seulement du jour.
+- Onglet « Réceptions » : une nouvelle ligne — choix de la ligne de commande avec reste, quantité et numéro de facture du fournisseur. Les lignes avec le même numéro de facture vont dans la même réception.
+- Bouton « Changer le statut » au-dessus de la liste des commandes : « En cours » (valider), « En brouillon », « Annuler » (marquer pour suppression) — pour toutes les commandes sélectionnées à la fois. Une commande avec des réceptions ne repasse pas en brouillon.
+- Nouvel onglet « À réceptionner » : toutes les lignes des commandes validées encore attendues — fournisseur, commande, article, reste, date de livraison, retard. Cochez les lignes d'un fournisseur, indiquez le numéro et la date de la facture et cliquez sur « Enregistrer la réception » : chaque commande reçoit sa propre réception avec cette facture. Si une seule ligne ne convient pas, aucune réception n'est créée pour la commande.
+- La réception d'une commande fournisseur en devise se crée maintenant dans la devise de la commande au taux de la date de réception (auparavant en devise principale). Cela corrige aussi le poste de production. Le prix du tarif fournisseur est converti dans la devise de la commande.
+- Les lignes d'une commande préliminaire reprises par une autre commande ne peuvent plus être diminuées, supprimées ou dévalidées : les restes deviendraient négatifs. La commande qui a repris ces lignes est en lecture seule dans le poste — modifiez-la dans le formulaire du document.
+- La validation d'une commande fournisseur, d'une réception et d'un retour fournisseur verrouille les restes de la commande. Si deux personnes enregistrent en même temps une réception sur la même ligne, la seconde est refusée lorsque la ligne est déjà entièrement reçue, au lieu de recevoir la marchandise deux fois.
+
+### en
+- Purchasing workstation: lines of the selected supplier order are entered right on the "Items" tab — item, quantity, packaging, price; a new line takes the price from the supplier price list. Editing a posted order reposts it. A line can be added to an order of any date, not only today's.
+- "Receipts" tab: a new line — choose an order line with a remaining quantity, the quantity and the supplier invoice number. Lines with the same invoice number go into one receipt.
+- "Change status" button above the order list: "In progress" (post), "To draft", "Cancel" (mark for deletion) — for all selected orders at once. An order with receipts does not go back to draft.
+- New "To receive" tab: all lines of posted orders still awaited — supplier, order, item, remaining, delivery date, overdue. Check the lines of one supplier, enter the invoice number and date and click "Register receipt": each order gets its own receipt with this invoice. If any line does not fit, no receipt is created for that order.
+- A receipt for a supplier order in a foreign currency is now created in the order currency at the rate of the receipt date (previously in the main currency). This also fixes the production workstation. The supplier price list price is converted to the order currency.
+- Lines of a preliminary order taken by another order can no longer be reduced, deleted or unposted: that would make balances negative. The order that took those lines is read-only in the workstation — edit it in the document form.
+- Posting a supplier order, a receipt and a return to supplier locks the order balances. If two people register a receipt for the same line at the same time, the second one is rejected once the line is fully received, instead of receiving the goods twice.
+
+### es
+- Puesto de compras: las líneas del pedido a proveedor seleccionado se introducen directamente en la pestaña «Artículos» — artículo, cantidad, embalaje, precio; una línea nueva toma el precio de la tarifa del proveedor. Editar un pedido contabilizado lo vuelve a contabilizar. Se puede añadir una línea a un pedido de cualquier fecha, no solo de hoy.
+- Pestaña «Recepciones»: una línea nueva — elección de la línea del pedido con pendiente, cantidad y número de factura del proveedor. Las líneas con el mismo número de factura van a una sola recepción.
+- Botón «Cambiar estado» sobre la lista de pedidos: «En curso» (contabilizar), «A borrador», «Cancelar» (marcar para eliminar) — para todos los pedidos seleccionados a la vez. Un pedido con recepciones no vuelve a borrador.
+- Nueva pestaña «Por recibir»: todas las líneas de pedidos contabilizados aún pendientes — proveedor, pedido, artículo, pendiente, fecha de entrega, retraso. Marque las líneas de un proveedor, indique el número y la fecha de la factura y pulse «Registrar recepción»: cada pedido recibe su propia recepción con esa factura. Si una sola línea no encaja, no se crea ninguna recepción para ese pedido.
+- La recepción de un pedido a proveedor en divisa se crea ahora en la divisa del pedido al tipo de la fecha de recepción (antes, en la moneda principal). Esto corrige también el puesto de producción. El precio de la tarifa del proveedor se convierte a la divisa del pedido.
+- Las líneas de un pedido preliminar tomadas por otro pedido ya no se pueden reducir, eliminar ni descontabilizar: los saldos quedarían negativos. El pedido que tomó esas líneas es de solo lectura en el puesto: edítelo en el formulario del documento.
+- La contabilización de un pedido a proveedor, una recepción y una devolución al proveedor bloquea los saldos del pedido. Si dos personas registran a la vez una recepción de la misma línea, la segunda se rechaza cuando la línea ya está recibida por completo, en lugar de recibir la mercancía dos veces.
+
+## 2.0.16.28
+### ru
+- Новое рабочее место закупок (Закупки → Рабочее место закупок): заказы поставщикам одним списком со статусом — черновик, ожидает поставки, просрочен, частично поступил, поступил, перенесён в другой заказ, отменён. Кружки показывают, сколько пришло и сколько оплачено.
+- Отборы справа: поставщик, товар, статус, дата поставки, ответственный, вид заказа. Предварительные заказы видны только при отборе по виду заказа. Список листается страницами по 50 заказов.
+- По выбранному заказу внизу: товары (заказано, пришло, осталось), поступления с номером накладной поставщика, оплаты и долг или аванс по договору, все документы цепочки. Двойной щелчок открывает документ, после закрытия список обновляется. Кнопка «Создать» открывает новый заказ поставщику.
+- Исправлено: форма документа «Прочие расходы» не открывалась после сборки 2.0.16.25 (пересчёт суммы в основной валюте при смене курса).
+
+### fr
+- Nouveau poste des achats (Achats → Poste des achats) : les commandes fournisseurs dans une seule liste avec leur statut — brouillon, en attente de livraison, en retard, partiellement reçue, reçue, transférée vers une autre commande, annulée. Les cercles montrent ce qui est reçu et ce qui est payé.
+- Filtres à droite : fournisseur, article, statut, date de livraison, responsable, type de commande. Les commandes préliminaires ne s'affichent qu'avec le filtre par type. La liste se parcourt par pages de 50 commandes.
+- Pour la commande sélectionnée, en bas : articles (commandé, reçu, reste), réceptions avec le numéro de facture du fournisseur, paiements et dette ou avance au titre du contrat, tous les documents de la chaîne. Un double clic ouvre le document ; à sa fermeture la liste se met à jour. Le bouton « Créer » ouvre une nouvelle commande fournisseur.
+- Corrigé : le formulaire du document « Autres dépenses » ne s'ouvrait plus depuis la version 2.0.16.25 (recalcul du montant en devise principale au changement de taux).
+
+### en
+- New purchasing workstation (Purchasing → Purchasing workstation): supplier orders in one list with their status — draft, awaiting delivery, overdue, partially received, received, transferred to another order, cancelled. Circles show what has been received and what has been paid.
+- Filters on the right: supplier, item, status, delivery date, responsible, order type. Preliminary orders are shown only with the order type filter. The list is paged by 50 orders.
+- For the selected order, below: items (ordered, received, remaining), receipts with the supplier invoice number, payments and the debt or advance under the contract, all documents of the chain. Double-click opens a document; the list refreshes when it is closed. The "Create" button opens a new supplier order.
+- Fixed: the "Other expenses" document form did not open since build 2.0.16.25 (recalculation of the amount in the main currency when the rate changes).
+
+### es
+- Nuevo puesto de compras (Compras → Puesto de compras): los pedidos a proveedores en una sola lista con su estado — borrador, pendiente de entrega, retrasado, recibido parcialmente, recibido, transferido a otro pedido, cancelado. Los círculos muestran lo recibido y lo pagado.
+- Filtros a la derecha: proveedor, artículo, estado, fecha de entrega, responsable, tipo de pedido. Los pedidos preliminares solo se ven con el filtro por tipo. La lista se pasa por páginas de 50 pedidos.
+- Para el pedido seleccionado, abajo: artículos (pedido, recibido, pendiente), recepciones con el número de factura del proveedor, pagos y la deuda o el anticipo según el contrato, todos los documentos de la cadena. Doble clic abre el documento; al cerrarlo la lista se actualiza. El botón «Crear» abre un nuevo pedido a proveedor.
+- Corregido: el formulario del documento «Otros gastos» no se abría desde la versión 2.0.16.25 (recálculo del importe en la moneda principal al cambiar el tipo).
+
+## 2.0.16.27
+### ru
+- Кнопки перехода по страницам под списками: доступная кнопка выделена цветом, недоступная — блёклая. Сразу видно, куда можно перейти.
+- Рабочее место производства: легенда кружков растянута на всю ширину и прижата к правому краю, в одну строку.
+
+### fr
+- Boutons de navigation entre les pages sous les listes : un bouton disponible est en couleur, un bouton indisponible est estompé. On voit tout de suite où l'on peut aller.
+- Poste de production : la légende des cercles occupe toute la largeur, alignée à droite, sur une seule ligne.
+
+### en
+- Page navigation buttons under lists: an available button is colored, an unavailable one is faded. You can see at once where you can go.
+- Production workplace: the circle legend spans the full width, right-aligned, on one line.
+
+### es
+- Botones de navegación entre páginas bajo las listas: un botón disponible aparece en color, uno no disponible aparece atenuado. Se ve enseguida adónde se puede ir.
+- Puesto de producción: la leyenda de los círculos ocupa todo el ancho, alineada a la derecha, en una sola línea.
+
+## 2.0.16.26
+### ru
+- Закладка окна печати подписана названием печатной формы (например, «Счёт на бланке»), а при нескольких формах — «Печать документов». Раньше заголовок закладки был пустым.
+
+### fr
+- L'onglet de la fenêtre d'impression porte le nom du formulaire imprimable (par exemple « Facture sur papier à en-tête »), et avec plusieurs formulaires — « Impression des documents ». Auparavant le titre de l'onglet était vide.
+
+### en
+- The print window tab now shows the print form name (for example "Invoice on letterhead"), or "Print documents" when there are several forms. Previously the tab title was empty.
+
+### es
+- La pestaña de la ventana de impresión muestra el nombre del formulario de impresión (por ejemplo «Factura en papel con membrete»), y con varios formularios — «Impresión de documentos». Antes el título de la pestaña estaba vacío.
+
+## 2.0.16.25
+### ru
+- Возврат от покупателя по реализации в валюте теперь проводится: валюта и курс берутся из реализации (флажок, валюта и курс видны, но не правятся), цены и суммы — в валюте, колонка «Сумма (MAD)». Возврат закрывает долг реализации и в валюте, и в основной валюте без курсовой разницы, товар возвращается по себестоимости в основной валюте.
+- Налоговая накладная по реализациям в валюте ведётся в их валюте, курс — по отгрузкам. Долг и оплаты переходят с реализаций на накладную в обеих суммах, налоговый учёт — в основной валюте. Отгрузки в разных валютах в одну накладную не входят. Налоговый возврат по накладной в валюте — тоже в её валюте.
+- Прочие расходы и их возврат можно оформлять в валюте: флажок «В валюте», валюта и курс. В расходах и в долге они учитываются в основной валюте по курсу. Возврат берёт валюту и курс расходов, РКО и списание на основании — сумму в основной валюте по курсу расходов.
+- Услуги переработчика в «Поступлении из переработки» можно указать в валюте. Долг переработчику ведётся в валюте, в себестоимость продукции стоимость услуг попадает в основной валюте по курсу.
+- Корректировка долга и сертификат на оплату по документам в валюте подставляют сумму в основной валюте (по курсу документа), колонка подписана основной валютой.
+- РКО на основании валютного возврата берёт сумму по курсу на дату платежа. Печать налоговой накладной пишет сумму прописью в валюте документа.
+
+### fr
+- Le retour client d'une vente en devise est désormais comptabilisé : la devise et le taux sont repris de la vente (case, devise et taux visibles mais non modifiables), prix et montants en devise, colonne « Montant (MAD) ». Le retour solde la dette de la vente en devise et en devise principale sans écart de change, la marchandise revient au coût en devise principale.
+- La facture fiscale des ventes en devise est tenue dans leur devise, au taux des expéditions. La dette et les paiements passent des ventes à la facture dans les deux montants, la comptabilité fiscale reste en devise principale. Des expéditions en devises différentes ne vont pas dans une même facture. Le retour fiscal d'une facture en devise est aussi dans sa devise.
+- Les autres dépenses et leur retour peuvent être saisis en devise : case « En devise », devise et taux. Dans les charges et la dette ils sont comptés en devise principale au taux. Le retour reprend la devise et le taux des dépenses ; le décaissement et le virement saisis à partir d'elles prennent le montant en devise principale au taux des dépenses.
+- Les services du sous-traitant dans la « Réception de sous-traitance » peuvent être indiqués en devise. La dette envers le sous-traitant est tenue en devise ; le coût des services entre dans le coût des produits en devise principale au taux.
+- La régularisation de dette et le certificat de paiement sur des documents en devise proposent le montant en devise principale (au taux du document) ; la colonne indique la devise principale.
+- Un décaissement saisi à partir d'un retour en devise prend le montant au taux du jour du paiement. L'impression de la facture fiscale écrit le montant en lettres dans la devise du document.
+
+### en
+- A customer return for a foreign-currency sale can now be posted: currency and rate are taken from the sale (checkbox, currency and rate are shown but not editable), prices and amounts in the currency, an "Amount (MAD)" column. The return closes the sale debt both in the currency and in base currency without an exchange difference; goods come back at cost in base currency.
+- A tax invoice for foreign-currency sales is kept in their currency at the shipments' rate. Debt and payments move from the sales to the invoice in both amounts; tax accounting stays in base currency. Shipments in different currencies cannot be in one invoice. A tax return on a foreign-currency invoice is in its currency too.
+- Other expenses and their return can be entered in a foreign currency: "In currency" checkbox, currency and rate. Expenses and debt record them in base currency at the rate. The return takes the expenses' currency and rate; a cash or bank payment entered from them takes the amount in base currency at the expenses' rate.
+- Processor services in "Receipt from processing" can be entered in a foreign currency. The debt to the processor is kept in the currency; the services cost enters the product cost in base currency at the rate.
+- Debt adjustment and payment certificate for foreign-currency documents suggest the amount in base currency (at the document rate); the column shows the base currency.
+- A cash payment entered from a foreign-currency return takes the amount at the rate on the payment date. The tax invoice print writes the amount in words in the document currency.
+
+### es
+- La devolución de cliente de una venta en moneda ahora se contabiliza: la moneda y el tipo se toman de la venta (casilla, moneda y tipo visibles pero no editables), precios e importes en moneda, columna «Importe (MAD)». La devolución cierra la deuda de la venta en moneda y en moneda principal sin diferencia de cambio; la mercancía vuelve al coste en moneda principal.
+- La factura fiscal de ventas en moneda se lleva en su moneda, al tipo de los envíos. La deuda y los pagos pasan de las ventas a la factura en ambos importes; la contabilidad fiscal sigue en moneda principal. Envíos en monedas distintas no entran en una misma factura. La devolución fiscal de una factura en moneda también va en su moneda.
+- Los otros gastos y su devolución se pueden registrar en moneda: casilla «En moneda», moneda y tipo. En gastos y deuda se cuentan en moneda principal al tipo. La devolución toma la moneda y el tipo de los gastos; el pago en caja o banco introducido a partir de ellos toma el importe en moneda principal al tipo de los gastos.
+- Los servicios del transformador en la «Recepción de transformación» se pueden indicar en moneda. La deuda con el transformador se lleva en moneda; el coste de los servicios entra en el coste de los productos en moneda principal al tipo.
+- El ajuste de deuda y el certificado de pago sobre documentos en moneda proponen el importe en moneda principal (al tipo del documento); la columna indica la moneda principal.
+- Un pago en caja introducido a partir de una devolución en moneda toma el importe al tipo del día del pago. La impresión de la factura fiscal escribe el importe en letras en la moneda del documento.
+
+## 2.0.16.24
+### ru
+- Заказ клиента, заказ поставщику, коммерческое предложение и предложение поставщика можно оформлять в валюте — так же, как поступление и реализацию: флажок «В валюте», валюта и курс, цены и суммы в валюте документа, колонка «Сумма (MAD)», курс по дате, валюта из договора, вопрос о пересчёте цен при смене валюты.
+- При вводе на основании валюта переносится: реализация из заказа клиента, поступление из заказа поставщику, заказ клиента из коммерческого предложения, заказ поставщику из предложения поставщика. Курс берётся на дату нового документа. «Перезаполнить цены по заказу» в реализации пересчитывает цены заказа в валюту реализации.
+- Оплата и долг по валютному заказу, стадия заказа и картинка оплаты в списке считаются в основной валюте. Аванс по заказу в валюте ведётся в основной валюте и зачитывается реализацией.
+- Тендер сравнивает предложения поставщиков в разных валютах по сумме в основной валюте, а предупреждение «есть предложение дешевле» показывает сумму с валютой.
+- Последние цены закупки и продажи и процент наценки в документе в валюте считаются в валюте документа. Раньше наценка в реализации в евро считалась от закупочной цены в дирхамах.
+- «Заказы поставщикам» по валютному заказу пишутся в основной валюте. ПКО на основании валютной реализации берёт сумму по курсу на дату оплаты, на основании валютного заказа — по курсу заказа: аванс по заказу ведётся в основной валюте.
+- Ввод на основании документа в валюте (в том числе реализации из поступления) теперь берёт курс на дату нового документа, а не курс основания. Копия документа в валюте тоже получает курс на свою дату.
+- Форма заказа для интернет-магазина валюты не знает: валютный заказ в ней открывается только для просмотра.
+
+### fr
+- La commande client, la commande fournisseur, l'offre commerciale et l'offre fournisseur peuvent être établies en devise, comme la réception et la vente : case « En devise », devise et taux, prix et montants dans la devise du document, colonne « Montant (MAD) », taux à la date, devise du contrat, question de conversion des prix au changement de devise.
+- À la saisie à partir d'un document, la devise est reprise : vente depuis la commande client, réception depuis la commande fournisseur, commande client depuis l'offre commerciale, commande fournisseur depuis l'offre fournisseur. Le taux est pris à la date du nouveau document. « Réappliquer les prix de la commande » dans la vente convertit les prix de la commande dans la devise de la vente.
+- Le paiement et la dette d'une commande en devise, l'étape de la commande et l'icône de paiement de la liste sont calculés en devise principale. L'acompte sur une commande en devise est tenu en devise principale et imputé par la vente.
+- L'appel d'offres compare les offres fournisseurs en différentes devises par le montant en devise principale, et l'avertissement « il y a une offre moins chère » affiche le montant avec la devise.
+- Les derniers prix d'achat et de vente et le pourcentage de marge d'un document en devise sont calculés dans la devise du document. Auparavant la marge d'une vente en euros était calculée sur le prix d'achat en dirhams.
+- Les « Commandes fournisseurs » d'une commande en devise sont enregistrées en devise principale. Un encaissement saisi à partir d'une vente en devise prend le montant au taux du jour du paiement, à partir d'une commande en devise — au taux de la commande : l'acompte sur commande est tenu en devise principale.
+- La saisie à partir d'un document en devise (y compris une vente depuis une réception) prend désormais le taux à la date du nouveau document, et non celui du document de base. La copie d'un document en devise reçoit aussi le taux à sa date.
+- Le formulaire de commande de la boutique en ligne ne connaît pas les devises : une commande en devise s'y ouvre en lecture seule.
+
+### en
+- Customer orders, supplier orders, commercial offers and supplier offers can be issued in a foreign currency, like receipts and sales: "In currency" checkbox, currency and rate, prices and amounts in the document currency, an "Amount (MAD)" column, rate for the date, contract currency, a question about converting prices when the currency changes.
+- When a document is entered from another, the currency is carried over: sale from customer order, receipt from supplier order, customer order from commercial offer, supplier order from supplier offer. The rate is taken for the new document's date. "Refill prices from order" in a sale converts order prices to the sale currency.
+- Payment and debt of a foreign-currency order, the order stage and the payment icon in the list are calculated in base currency. An advance on a foreign-currency order is kept in base currency and offset by the sale.
+- The tender compares supplier offers in different currencies by the amount in base currency, and the "there is a cheaper offer" warning shows the amount with its currency.
+- Last purchase and sale prices and the markup percentage of a foreign-currency document are calculated in the document currency. Previously the markup of a sale in euros was calculated from the purchase price in dirhams.
+- "Supplier orders" for a foreign-currency order are recorded in base currency. A cash receipt entered from a foreign-currency sale takes the amount at the rate on the payment date; from a foreign-currency order — at the order rate, since the order advance is kept in base currency.
+- Entering a document from a foreign-currency one (including a sale from a receipt) now takes the rate for the new document's date instead of the source rate. A copy of a foreign-currency document also gets the rate for its date.
+- The online store order form has no currency: a foreign-currency order opens there read-only.
+
+### es
+- El pedido de cliente, el pedido a proveedor, la oferta comercial y la oferta de proveedor se pueden emitir en moneda, como la recepción y la venta: casilla «En moneda», moneda y tipo de cambio, precios e importes en la moneda del documento, columna «Importe (MAD)», tipo a la fecha, moneda del contrato, pregunta de conversión de precios al cambiar la moneda.
+- Al introducir un documento a partir de otro, la moneda se traslada: venta desde pedido de cliente, recepción desde pedido a proveedor, pedido de cliente desde oferta comercial, pedido a proveedor desde oferta de proveedor. El tipo se toma a la fecha del nuevo documento. «Volver a rellenar precios del pedido» en la venta convierte los precios del pedido a la moneda de la venta.
+- El pago y la deuda de un pedido en moneda, la etapa del pedido y el icono de pago de la lista se calculan en moneda principal. El anticipo de un pedido en moneda se lleva en moneda principal y se compensa con la venta.
+- La licitación compara ofertas de proveedores en distintas monedas por el importe en moneda principal, y el aviso «hay una oferta más barata» muestra el importe con la moneda.
+- Los últimos precios de compra y venta y el porcentaje de margen de un documento en moneda se calculan en la moneda del documento. Antes el margen de una venta en euros se calculaba sobre el precio de compra en dírhams.
+- Los «Pedidos a proveedores» de un pedido en moneda se registran en moneda principal. Un cobro introducido a partir de una venta en moneda toma el importe al tipo del día del pago; a partir de un pedido en moneda — al tipo del pedido, ya que el anticipo del pedido se lleva en moneda principal.
+- Al introducir un documento a partir de otro en moneda (también una venta desde una recepción) ahora se toma el tipo a la fecha del nuevo documento y no el del documento base. La copia de un documento en moneda también recibe el tipo a su fecha.
+- El formulario de pedido de la tienda online no conoce monedas: un pedido en moneda se abre allí solo para lectura.
+
+## 2.0.16.23
+### ru
+- ПКО, РКО, поступление и списание безналичных ведутся в валюте кассы или банковского счёта: у евро-счёта платёж в евро. Валюта видна рядом с суммой и задаётся кассой или счётом, курс подставляется на дату платежа и правится вручную. Без курса платёж в валюте не проводится.
+- Остаток валютной кассы или счёта учитывается и в основной валюте, и в валюте кассы или счёта.
+- Курсовые разницы. Оплата закрывает долг в валюте полностью, а разница между деньгами и долгом в основной валюте записывается по новой статье «Курсовые разницы»: при поступлении денег — доход, при списании — расход. Оплата валютного долга дирхамами закрывает его по курсу на дату оплаты.
+- Отчёт «Финансовый результат» и таблица прибылей и убытков показывают курсовые разницы отдельной строкой «2.4. Écarts de change». В чистую прибыль магазина для премий они не входят.
+- При вводе оплаты на основании документа и при заполнении по долгам суммы пересчитываются в валюту кассы или счёта.
+- Исправлено: списание безналичных при оплате поступления в валюте больше не берёт валюту поступления — валюта всегда та, что у счёта. Печать ПКО, РКО и платёжного поручения показывает валюту документа.
+- В валюте проводятся только оплаты клиентов и поставщиков (не чеком) и перемещения денег между кассами и счетами одной валюты. Кассовая смена работает только с кассой в основной валюте. Если в документе выбрать кассу или счёт в другой валюте, сумма и строки оснований пересчитываются в новую валюту. Платежи, оформленные до обновления, остаются в основной валюте.
+
+### fr
+- Les encaissements, décaissements, virements reçus et émis sont tenus dans la devise de la caisse ou du compte bancaire : depuis un compte en euros, le paiement est en euros. La devise s'affiche à côté du montant et vient de la caisse ou du compte, le taux est proposé à la date du paiement et peut être modifié. Sans taux, un paiement en devise n'est pas validé.
+- Le solde d'une caisse ou d'un compte en devise est suivi à la fois en devise principale et dans la devise de la caisse ou du compte.
+- Écarts de change. Le paiement solde entièrement la dette en devise, et l'écart entre l'argent et la dette en devise principale est enregistré sur le nouveau poste « Écarts de change » : gain à l'encaissement, perte au décaissement. Une dette en devise réglée en dirhams est soldée au taux du jour du paiement.
+- Le rapport « Résultat financier » et le tableau des profits et pertes montrent les écarts de change sur une ligne séparée « 2.4. Écarts de change ». Ils ne sont pas inclus dans le bénéfice net du magasin pour les primes.
+- À la saisie d'un paiement à partir d'un document et au remplissage par les dettes, les montants sont convertis dans la devise de la caisse ou du compte.
+- Corrigé : un virement émis pour une réception en devise ne reprend plus la devise de la réception — la devise est toujours celle du compte. L'impression des encaissements, décaissements et ordres de virement indique la devise du document.
+- En devise, seuls les paiements clients et fournisseurs (hors chèque) et les transferts de fonds entre caisses et comptes de même devise sont validés. La session de caisse ne fonctionne qu'avec une caisse en devise principale. Si l'on choisit dans le document une caisse ou un compte d'une autre devise, le montant et les lignes sont convertis dans la nouvelle devise. Les paiements saisis avant la mise à jour restent en devise principale.
+
+### en
+- Cash receipts, cash payments, bank receipts and bank payments are kept in the currency of the cash desk or bank account: from a euro account the payment is in euros. The currency is shown next to the amount and comes from the cash desk or account; the rate is filled in for the payment date and can be edited. Without a rate a foreign-currency payment is not posted.
+- The balance of a foreign-currency cash desk or account is tracked both in base currency and in its own currency.
+- Exchange differences. A payment closes the debt in currency completely, and the difference between the money and the debt in base currency is recorded under the new "Exchange differences" item: a gain on receipt, a loss on payment. A currency debt paid in dirhams is closed at the rate on the payment date.
+- The "Financial result" report and the profit and loss table show exchange differences on a separate "2.4. Écarts de change" line. They are not included in the store's net profit for bonuses.
+- When a payment is entered from a document or filled from debts, amounts are converted to the currency of the cash desk or account.
+- Fixed: a bank payment for a foreign-currency receipt no longer takes the receipt's currency — the currency is always the account's. Printed cash receipts, cash payments and payment orders show the document currency.
+- In a foreign currency only customer and supplier payments (not by cheque) and transfers between cash desks and accounts of the same currency can be posted. A cash session works only with a cash desk in base currency. Choosing a cash desk or account in another currency converts the amount and lines to the new currency. Payments entered before the update stay in base currency.
+
+### es
+- Los cobros y pagos en caja, los ingresos y las transferencias bancarias se llevan en la moneda de la caja o de la cuenta bancaria: desde una cuenta en euros el pago es en euros. La moneda se muestra junto al importe y viene de la caja o la cuenta; el tipo de cambio se rellena a la fecha del pago y se puede corregir. Sin tipo de cambio, un pago en moneda no se contabiliza.
+- El saldo de una caja o cuenta en moneda se lleva tanto en moneda principal como en su propia moneda.
+- Diferencias de cambio. El pago cierra por completo la deuda en moneda, y la diferencia entre el dinero y la deuda en moneda principal se registra en la nueva partida «Diferencias de cambio»: ganancia al cobrar, pérdida al pagar. Una deuda en moneda pagada en dírhams se cierra al tipo de la fecha del pago.
+- El informe «Resultado financiero» y la tabla de pérdidas y ganancias muestran las diferencias de cambio en una línea aparte «2.4. Écarts de change». No se incluyen en el beneficio neto de la tienda para las primas.
+- Al introducir un pago a partir de un documento y al rellenarlo por deudas, los importes se convierten a la moneda de la caja o la cuenta.
+- Corregido: una transferencia emitida para una recepción en moneda ya no toma la moneda de la recepción — la moneda es siempre la de la cuenta. La impresión de cobros, pagos y órdenes de transferencia indica la moneda del documento.
+- En moneda solo se contabilizan pagos de clientes y proveedores (sin cheque) y traspasos entre cajas y cuentas de la misma moneda. El turno de caja solo funciona con una caja en moneda principal. Al elegir en el documento una caja o cuenta de otra moneda, el importe y las líneas se convierten a la nueva moneda. Los pagos introducidos antes de la actualización siguen en moneda principal.
+
+## 2.0.16.22
+### ru
+- «Поступление товаров» и «Реализация товаров» можно оформлять в валюте. На первой закладке появился флажок «В валюте»: он открывает поля «Валюта» и «Курс». Без флажка документ, как и раньше, ведётся в основной валюте (константа «Валюта регламентированного учёта»).
+- Курс подставляется по дате документа из нового справочника курсов «Казначейство — Курсы валют» и правится вручную. Если на дату курса нет, программа об этом скажет. Договор с валютой взаиморасчётов, отличной от основной, сам включает флажок и ставит эту валюту.
+- В документе в валюте колонки «Цена» и «Сумма» в товарах и услугах подписаны валютой документа, например «Цена (EUR)», и открывается колонка «Сумма (MAD)» — сумма в основной валюте по курсу. При смене валюты программа предложит пересчитать цены строк в новую валюту.
+- У вида цен появился реквизит «Валюта». Цены подбираются с учётом валюты: цена вида цен в евро в документе в дирхамах пересчитывается в дирхамы по курсу на дату, в документе в евро подставляется как есть. Цены поставщиков и фиксированные цены клиентов считаются в основной валюте и тоже пересчитываются в валюту документа.
+- При проведении в регистры попадает сумма в основной валюте: себестоимость товаров на складе и дополнительных расходов, выручка и прибыль в продажах, цены поставщиков, заказы поставщикам и взаиморасчёты. Взаиморасчёты дополнительно хранят валюту и сумму в валюте. Оплата в основной валюте закрывает долг по документу в валюте; курсовые разницы пока не считаются.
+- Печать реализации подписывает валюту документа, сумма прописью — в валюте документа.
+- Возврат от покупателя и налоговая накладная по реализации в валюте пока не поддерживаются: программа не даст их провести.
+- При обновлении поступления, уже оформленные в другой валюте, получают флажок «В валюте», их взаиморасчёты и заказы поставщикам пересчитываются в основную валюту.
+
+### fr
+- Les « Réceptions de marchandises » et les « Ventes de marchandises » peuvent être établies en devise. Sur le premier onglet, une nouvelle case « En devise » ouvre les champs « Devise » et « Taux ». Sans cette case, le document reste comme avant dans la devise principale (constante « Devise de comptabilité réglementée »).
+- Le taux est proposé à la date du document depuis le nouveau registre « Trésorerie — Taux de change » et peut être modifié à la main. S'il n'y a pas de taux à cette date, le programme le signale. Un contrat dont la devise de règlement diffère de la devise principale coche la case et met cette devise.
+- Dans un document en devise, les colonnes « Prix » et « Montant » des marchandises et des services portent la devise du document, par exemple « Prix (EUR) », et la colonne « Montant (MAD) » apparaît : le montant en devise principale au taux. Au changement de devise, le programme propose de convertir les prix des lignes.
+- Le type de prix reçoit un attribut « Devise ». Les prix sont repris en tenant compte de la devise : un prix en euros dans un document en dirhams est converti en dirhams au taux du jour, dans un document en euros il est repris tel quel. Les prix fournisseurs et les prix fixes des clients sont considérés en devise principale et sont aussi convertis dans la devise du document.
+- À la validation, les registres reçoivent le montant en devise principale : coût des marchandises en stock et des frais supplémentaires, chiffre d'affaires et marge des ventes, prix fournisseurs, commandes fournisseurs et règlements. Les règlements conservent en plus la devise et le montant en devise. Un paiement en devise principale solde la dette d'un document en devise ; les écarts de change ne sont pas encore calculés.
+- L'impression de la vente indique la devise du document, le montant en lettres est dans la devise du document.
+- Le retour client et la facture fiscale sur une vente en devise ne sont pas encore pris en charge : le programme refuse de les valider.
+- À la mise à jour, les réceptions déjà établies dans une autre devise reçoivent la case « En devise », leurs règlements et commandes fournisseurs sont convertis en devise principale.
+
+### en
+- "Goods receipt" and "Goods sale" documents can now be issued in a foreign currency. A new "In currency" checkbox on the first tab opens the "Currency" and "Rate" fields. Without it, the document stays in the base currency as before (the "Regulated accounting currency" constant).
+- The rate is filled in for the document date from the new "Treasury — Exchange rates" register and can be edited by hand. If there is no rate for that date, the program says so. A contract whose settlement currency differs from the base currency checks the box and sets that currency.
+- In a foreign-currency document, the "Price" and "Amount" columns of goods and services show the document currency, for example "Price (EUR)", and an "Amount (MAD)" column appears: the amount in base currency at the rate. When the currency changes, the program offers to convert line prices to the new currency.
+- Price types get a "Currency" attribute. Prices are filled in with the currency in mind: a price type in euros in a dirham document is converted to dirhams at the rate for the date, in a euro document it is used as is. Supplier prices and fixed customer prices are treated as base currency and are also converted to the document currency.
+- On posting, registers receive the amount in base currency: cost of goods in stock and additional expenses, revenue and margin in sales, supplier prices, supplier orders and settlements. Settlements also keep the currency and the amount in currency. A payment in base currency closes the debt of a foreign-currency document; exchange differences are not calculated yet.
+- The sale print form shows the document currency, the amount in words is in the document currency.
+- Customer returns and tax invoices for a foreign-currency sale are not supported yet: the program refuses to post them.
+- On update, receipts already issued in another currency get the "In currency" checkbox, and their settlements and supplier orders are converted to base currency.
+
+### es
+- Las «Recepciones de mercancías» y las «Ventas de mercancías» se pueden emitir en moneda extranjera. En la primera pestaña aparece la casilla «En moneda», que abre los campos «Moneda» y «Tipo de cambio». Sin la casilla, el documento sigue como antes en la moneda principal (constante «Moneda contable regulada»).
+- El tipo de cambio se rellena a la fecha del documento desde el nuevo registro «Tesorería — Tipos de cambio» y se puede corregir a mano. Si no hay tipo para esa fecha, el programa lo avisa. Un contrato con moneda de liquidación distinta de la principal marca la casilla y pone esa moneda.
+- En un documento en moneda, las columnas «Precio» e «Importe» de mercancías y servicios llevan la moneda del documento, por ejemplo «Precio (EUR)», y aparece la columna «Importe (MAD)»: el importe en moneda principal al tipo de cambio. Al cambiar la moneda, el programa propone convertir los precios de las líneas.
+- El tipo de precio tiene un nuevo atributo «Moneda». Los precios se rellenan teniendo en cuenta la moneda: un precio en euros en un documento en dírhams se convierte a dírhams al tipo de la fecha, en un documento en euros se usa tal cual. Los precios de proveedores y los precios fijos de clientes se consideran en moneda principal y también se convierten a la moneda del documento.
+- Al contabilizar, los registros reciben el importe en moneda principal: coste de las mercancías en almacén y de los gastos adicionales, ingresos y margen de ventas, precios de proveedores, pedidos a proveedores y liquidaciones. Las liquidaciones guardan además la moneda y el importe en moneda. Un pago en moneda principal cierra la deuda de un documento en moneda; las diferencias de cambio aún no se calculan.
+- La impresión de la venta indica la moneda del documento, el importe en letras está en la moneda del documento.
+- La devolución del cliente y la factura fiscal de una venta en moneda aún no se admiten: el programa no permite contabilizarlas.
+- Al actualizar, las recepciones ya emitidas en otra moneda reciben la casilla «En moneda», y sus liquidaciones y pedidos a proveedores se convierten a la moneda principal.
+
+## 2.0.16.21
+### ru
+- Окно печати: справа вместо таблицы — предпросмотр страниц. Печатная форма показывается разбитой на листы так, как её напечатает принтер: с выбранной бумагой, ориентацией, полями и масштабом. Любое изменение параметров слева сразу перерисовывает страницы.
+- В левой панели новые параметры страницы: «Принтер», «Бумага» (с шириной и высотой листа), «Ориентация» (книжная или альбомная), «Поля, мм», «Вписать по ширине» и «Масштаб, %». Для этикеток и нестандартной бумаги — пункт «Свой размер» с шириной и высотой в миллиметрах. «Копий» перенесено вниз, к параметрам принтера.
+- В приложении под Windows (не в веб-клиенте) в «Принтере» — принтеры компьютера, сразу выбран принтер по умолчанию, а в «Бумаге» — форматы бумаги выбранного принтера. «Печать» отправляет задание на выбранный принтер без системного диалога; пункт «Выбрать при печати» возвращает диалог. Под macOS, Linux и в веб-клиенте — стандартные форматы бумаги, принтер выбирается в диалоге печати.
+- Параметры страницы запоминаются для каждой печатной формы отдельно: этикетка в следующий раз откроется со своим принтером и бумагой, счёт — со своими. Если отмечены печатные формы с разными параметрами, каждая печатается своим заданием.
+- Заголовки колонок таблиц на macOS снова читаются: русские буквы в шапках больше не разъезжаются. Шапки всех таблиц и списков выводятся обычным шрифтом интерфейса.
+
+### fr
+- Fenêtre d'impression : à droite, un aperçu des pages remplace le tableau. Le formulaire imprimable est découpé en feuilles comme l'imprimante l'imprimera : avec le papier, l'orientation, les marges et l'échelle choisis. Toute modification des paramètres à gauche redessine aussitôt les pages.
+- Nouveaux paramètres de page dans le panneau de gauche : « Imprimante », « Papier » (avec la largeur et la hauteur de la feuille), « Orientation » (portrait ou paysage), « Marges, mm », « Ajuster à la largeur » et « Échelle, % ». Pour les étiquettes et le papier non standard, l'option « Format personnalisé » avec largeur et hauteur en millimètres. « Copies » est déplacé plus bas, avec les paramètres de l'imprimante.
+- Dans l'application sous Windows (hors client web), « Imprimante » liste les imprimantes de l'ordinateur, l'imprimante par défaut est présélectionnée, et « Papier » propose les formats de l'imprimante choisie. « Imprimer » envoie le travail à l'imprimante choisie sans la boîte de dialogue système ; l'option « Choisir à l'impression » la rétablit. Sous macOS, Linux et dans le client web, formats de papier standard et choix de l'imprimante dans la boîte de dialogue d'impression.
+- Les paramètres de page sont mémorisés pour chaque formulaire imprimable : l'étiquette s'ouvrira la prochaine fois avec son imprimante et son papier, la facture avec les siens. Si des formulaires aux paramètres différents sont cochés, chacun est imprimé dans un travail séparé.
+- Les en-têtes de colonnes des tableaux sont de nouveau lisibles sur macOS : les lettres cyrilliques ne s'écartent plus. Les en-têtes de tous les tableaux et listes utilisent la police normale de l'interface.
+
+### en
+- Print window: a page preview replaces the table on the right. The print form is split into sheets the way the printer will print it: with the chosen paper, orientation, margins and scale. Any change to the settings on the left redraws the pages at once.
+- New page settings in the left panel: "Printer", "Paper" (with sheet width and height), "Orientation" (portrait or landscape), "Margins, mm", "Fit to width" and "Scale, %". For labels and non-standard paper, the "Custom size" option with width and height in millimeters. "Copies" has moved down next to the printer settings.
+- In the Windows application (not the web client), "Printer" lists the computer's printers with the default printer preselected, and "Paper" offers the formats of the selected printer. "Print" sends the job to the selected printer without the system dialog; the "Choose when printing" option brings the dialog back. On macOS, Linux and in the web client, standard paper formats are offered and the printer is chosen in the print dialog.
+- Page settings are remembered for each print form separately: next time the label opens with its own printer and paper, the invoice with its own. If print forms with different settings are selected, each is printed as a separate job.
+- Table column headers are readable again on macOS: Cyrillic letters in headers no longer spread apart. Headers of all tables and lists use the regular interface font.
+
+### es
+- Ventana de impresión: a la derecha, una vista previa de páginas sustituye a la tabla. El formulario de impresión se divide en hojas tal como lo imprimirá la impresora: con el papel, la orientación, los márgenes y la escala elegidos. Cualquier cambio de los parámetros de la izquierda vuelve a dibujar las páginas al instante.
+- Nuevos parámetros de página en el panel izquierdo: «Impresora», «Papel» (con el ancho y el alto de la hoja), «Orientación» (vertical u horizontal), «Márgenes, mm», «Ajustar al ancho» y «Escala, %». Para etiquetas y papel no estándar, la opción «Tamaño personalizado» con ancho y alto en milímetros. «Copias» se ha movido abajo, junto a los parámetros de la impresora.
+- En la aplicación para Windows (no en el cliente web), «Impresora» muestra las impresoras del equipo con la predeterminada ya seleccionada, y «Papel» ofrece los formatos de la impresora elegida. «Imprimir» envía el trabajo a la impresora elegida sin el diálogo del sistema; la opción «Elegir al imprimir» lo recupera. En macOS, Linux y en el cliente web se ofrecen formatos de papel estándar y la impresora se elige en el diálogo de impresión.
+- Los parámetros de página se recuerdan para cada formulario de impresión por separado: la etiqueta se abrirá la próxima vez con su impresora y su papel, la factura con los suyos. Si se marcan formularios con parámetros distintos, cada uno se imprime en un trabajo aparte.
+- Los encabezados de columnas de las tablas vuelven a leerse bien en macOS: las letras cirílicas ya no se separan. Los encabezados de todas las tablas y listas usan la fuente normal de la interfaz.
+
+## 2.0.16.20
+### ru
+- Окно печати: в 2.0.16.19 левая панель показывала только «Копий» — тумблер языка и список печатных форм не отображались, а «Изменить макет» сообщал, что макета нет. Исправлено: панель показывает все настройки, «Изменить макет» открывает макет показанной печатной формы.
+- В тумблере языка вместо названий — короткие коды: RU, FR, EN, ES.
+- Карточка номенклатуры: у блока показателей техкарты (плановая себестоимость, доступный выпуск, маржа) исправлена та же настройка раскладки, что скрывала элементы окна печати.
+
+### fr
+- Fenêtre d'impression : en 2.0.16.19, le panneau de gauche n'affichait que « Copies » — le sélecteur de langue et la liste des formulaires imprimables manquaient, et « Modifier le modèle » indiquait qu'il n'y avait pas de modèle. Corrigé : le panneau affiche tous les réglages, « Modifier le modèle » ouvre le modèle du formulaire affiché.
+- Le sélecteur de langue affiche des codes courts au lieu des noms : RU, FR, EN, ES.
+- Fiche article : le bloc des indicateurs de la fiche technique (coût prévisionnel, production disponible, marge) reçoit la même correction de mise en page que la fenêtre d'impression.
+
+### en
+- Print window: in 2.0.16.19 the left panel showed only "Copies" — the language switch and the list of print forms were missing, and "Edit template" said there was no template. Fixed: the panel shows all settings, "Edit template" opens the template of the displayed print form.
+- The language switch shows short codes instead of names: RU, FR, EN, ES.
+- Item card: the bill of materials indicators block (planned cost, available output, margin) gets the same layout fix as the print window.
+
+### es
+- Ventana de impresión: en 2.0.16.19 el panel izquierdo mostraba solo «Copias» — faltaban el selector de idioma y la lista de formularios de impresión, y «Editar plantilla» decía que no había plantilla. Corregido: el panel muestra todos los ajustes y «Editar plantilla» abre la plantilla del formulario mostrado.
+- El selector de idioma muestra códigos cortos en lugar de nombres: RU, FR, EN, ES.
+- Ficha de artículo: el bloque de indicadores de la ficha técnica (coste previsto, producción disponible, margen) recibe la misma corrección de diseño que la ventana de impresión.
+
+## 2.0.16.19
+### ru
+- Окно печати: тумблер «Язык» перенесён в левую панель — к числу копий и списку печатных форм. Все настройки печати собраны в одной панели слева, печатная форма занимает правую часть окна.
+
+### fr
+- Fenêtre d'impression : le sélecteur « Langue » est déplacé dans le panneau de gauche, avec le nombre de copies et la liste des formulaires imprimables. Tous les réglages d'impression sont réunis dans un seul panneau à gauche, le formulaire imprimable occupe la partie droite de la fenêtre.
+
+### en
+- Print window: the "Language" switch has moved to the left panel, next to the number of copies and the list of print forms. All print settings are now gathered in one panel on the left, and the print form takes the right part of the window.
+
+### es
+- Ventana de impresión: el selector «Idioma» se ha movido al panel izquierdo, junto al número de copias y la lista de formularios de impresión. Todos los ajustes de impresión están reunidos en un panel a la izquierda, y el formulario de impresión ocupa la parte derecha de la ventana.
+
+## 2.0.16.18
+### ru
+- В окне печати появился тумблер «Язык» со всеми языками программы; по умолчанию выбран язык, на котором вы работаете. При переключении печатная форма формируется заново на выбранном языке — так же она печатается и сохраняется в файл. Отметки «Печатать» сохраняются.
+- На выбранном языке выводятся все подписи макета и сумма прописью. Отдельные тексты, которые программа подставляет сама (часть заголовков, значения из списков), пока остаются на языке, на котором вы работаете.
+- Если вы меняли макет печатной формы и исправленная надпись не переведена, на другом языке она показывается как есть, а не пропадает.
+
+### fr
+- La fenêtre d'impression a un sélecteur « Langue » avec toutes les langues du programme ; par défaut, c'est la langue dans laquelle vous travaillez. Au changement, le formulaire imprimable est régénéré dans la langue choisie — il est imprimé et enregistré dans un fichier de la même façon. Les cases « Imprimer » sont conservées.
+- Dans la langue choisie sortent tous les libellés du modèle et le montant en toutes lettres. Certains textes ajoutés par le programme lui-même (une partie des titres, les valeurs des listes) restent pour l'instant dans la langue dans laquelle vous travaillez.
+- Si vous avez modifié le modèle d'un formulaire imprimable et que le libellé corrigé n'est pas traduit, il s'affiche tel quel dans une autre langue au lieu de disparaître.
+
+### en
+- The print window has a "Language" switch with all program languages; by default it is the language you work in. When switched, the print form is regenerated in the selected language — it is printed and saved to a file the same way. The "Print" checkmarks are kept.
+- All template labels and the amount in words come out in the selected language. Some texts the program inserts itself (part of the titles, values from lists) remain in the language you work in for now.
+- If you edited a print form template and the corrected label is not translated, it is shown as is in another language instead of disappearing.
+
+### es
+- La ventana de impresión tiene un selector «Idioma» con todos los idiomas del programa; por defecto está el idioma en el que trabaja. Al cambiarlo, el formulario de impresión se genera de nuevo en el idioma elegido, y así se imprime y se guarda en un archivo. Las marcas «Imprimir» se conservan.
+- En el idioma elegido salen todos los textos de la plantilla y el importe en letras. Algunos textos que el programa añade por sí mismo (parte de los títulos, valores de listas) siguen por ahora en el idioma en el que trabaja.
+- Si modificó la plantilla de un formulario de impresión y el texto corregido no está traducido, en otro idioma se muestra tal cual en lugar de desaparecer.
+
+## 2.0.16.17
+### ru
+- Рабочее место производства: под списком заказов больше нет штатных стрелок прокрутки — листание только нашим пагинатором.
+- Легенда индикатора укорочена и помещается в одну строку рядом с пагинатором.
+- В колонках «Материал» и «ПФ/ГП» кнопка выбора сразу открывает отобранные значения (материалы заказа, ПФ/ГП заказа) — без промежуточного «Показать все». Набор по строке работает как раньше.
+- В передаче в переработку появилась колонка «Кол-во ПФ/ГП» — сколько ПФ/ГП ожидается из материала строки. При выборе ПФ/ГП она заполняется по норме заказа (например, 6 м ткани при норме 2 м на изделие — 3 шт.), значение можно поправить. Поступление из переработки ждёт указанное количество. Если под один ПФ/ГП передано несколько разных материалов, ожидается по самому дефицитному из них. Если количество не указано, всё считается по заказу, как раньше.
+- Колонки передачи переставлены: материал, его количество и упаковка, характеристика, ПФ/ГП и его количество. Те же колонки и тот же порядок — в форме документа «Передача в переработку».
+
+### fr
+- Poste de production : sous la liste des commandes, les flèches de défilement de la plateforme ont disparu — on ne tourne les pages qu'avec notre pagination.
+- La légende de l'indicateur est raccourcie et tient sur une ligne à côté de la pagination.
+- Dans les colonnes « Matière » et « SF/PF », le bouton de sélection ouvre directement les valeurs filtrées (matières de la commande, SF/PF de la commande), sans passer par « Tout afficher ». La saisie par texte fonctionne comme avant.
+- Le transfert en sous-traitance a une colonne « Qté SF/PF » : combien de SF/PF sont attendus de la matière de la ligne. Au choix du SF/PF, elle est remplie selon la norme de la commande (par exemple 6 m de tissu pour une norme de 2 m par article — 3 pièces) ; la valeur peut être corrigée. La réception de sous-traitance attend la quantité indiquée. Si plusieurs matières différentes sont transférées pour un même SF/PF, l'attendu suit la plus déficitaire. Sans quantité indiquée, tout se calcule selon la commande, comme avant.
+- Les colonnes du transfert sont réordonnées : matière, sa quantité et son conditionnement, caractéristique, SF/PF et sa quantité. Mêmes colonnes et même ordre dans le formulaire du document « Transfert en sous-traitance ».
+
+### en
+- Production workstation: the platform scroll arrows under the order list are gone — pages are turned only with our paginator.
+- The indicator legend is shorter and fits on one line next to the paginator.
+- In the "Material" and "SFG/FG" columns the selection button opens the filtered values directly (order materials, order SFG/FG), without the intermediate "Show all". Typing to search works as before.
+- The subcontracting transfer has a new "SFG/FG qty" column: how many SFG/FG are expected from the line material. When the SFG/FG is selected it is filled from the order norm (for example, 6 m of fabric at 2 m per item — 3 pcs); the value can be corrected. The subcontracting receipt expects the specified quantity. If several different materials are transferred for one SFG/FG, the expected quantity follows the scarcest one. Without a quantity everything is calculated from the order, as before.
+- Transfer columns are reordered: material, its quantity and pack, characteristic, SFG/FG and its quantity. The same columns in the same order are in the "Subcontracting transfer" document form.
+
+### es
+- Puesto de producción: bajo la lista de pedidos ya no aparecen las flechas de desplazamiento de la plataforma — las páginas se pasan solo con nuestro paginador.
+- La leyenda del indicador es más corta y cabe en una línea junto al paginador.
+- En las columnas «Material» y «SE/PT» el botón de selección abre directamente los valores filtrados (materiales del pedido, SE/PT del pedido), sin el paso intermedio «Mostrar todo». La búsqueda por texto funciona como antes.
+- El envío a subcontratación tiene una nueva columna «Cant. SE/PT»: cuántos SE/PT se esperan del material de la línea. Al elegir el SE/PT se rellena según la norma del pedido (por ejemplo, 6 m de tela con una norma de 2 m por artículo — 3 uds.); el valor se puede corregir. La recepción de subcontratación espera la cantidad indicada. Si para un mismo SE/PT se envían varios materiales distintos, lo esperado sigue al más deficitario. Sin cantidad indicada, todo se calcula según el pedido, como antes.
+- Las columnas del envío se reordenan: material, su cantidad y embalaje, característica, SE/PT y su cantidad. Las mismas columnas en el mismo orden están en el formulario del documento «Envío a subcontratación».
+
+## 2.0.16.16
+### ru
+- Рабочее место производства: закладка «Переработка» переименована в «Передача в переработку».
+- Во всех таблицах документов рабочего места количественные колонки стали уже, а заголовки короче: «Кол-во», «Упак.», «Характ.», «№ накл.» и так далее. Полное название показывается во всплывающей подсказке заголовка.
+- В передаче в переработку появилась колонка «ПФ/ГП»: для какого полуфабриката или готового изделия заказа передаётся материал. Колонка необязательная. Выбрать можно только ПФ/ГП из заказа, в состав которого входит материал. Если ПФ/ГП указан, поступление из переработки по этой передаче заполняется именно им, количество — по заказу. Если не указан, состав определяется в поступлении, как раньше. Колонка есть и в рабочем месте, и в форме документа передачи.
+- Справа от таблицы передач — таблица свойств ПФ/ГП текущей строки (материал, цвет, ширина и другие дополнительные свойства номенклатуры). Значения можно менять прямо здесь: они записываются в карточку ПФ/ГП и видны везде, где он используется. Оператор производства меняет только эти свойства, остальная карточка номенклатуры ему по-прежнему недоступна. Значения для выбора (список цветов, материалов) пополняет администратор.
+- Новая отрасль «Ткани». Если включено производство, она заводит у номенклатуры свойства «Материал», «Цвет», «Ширина» и «Тип обработки». Отрасль выбирается в мастере первого запуска и в «Настройках программы → Компания и учёт». Там же появилась кнопка «Создать свойства номенклатуры»: она заводит недостающие свойства отрасли, уже созданные не дублируются.
+
+### fr
+- Poste de production : l'onglet « Sous-traitance » est renommé « Transfert en sous-traitance ».
+- Dans toutes les tables de documents du poste, les colonnes de quantité sont plus étroites et les en-têtes plus courts : « Qté », « Cond. », « Caract. », « N° fact. », etc. Le nom complet apparaît dans l'info-bulle de l'en-tête.
+- Le transfert en sous-traitance a une nouvelle colonne « SF/PF » : le semi-fini ou le produit fini de la commande pour lequel la matière est transférée. La colonne est facultative. On ne peut choisir qu'un SF/PF de la commande dont la composition contient la matière. Si le SF/PF est indiqué, la réception de sous-traitance sur ce transfert est remplie avec lui, quantité selon la commande ; sinon la composition se définit dans la réception, comme avant. La colonne existe dans le poste et dans le formulaire du transfert.
+- À droite de la table des transferts, une table affiche les propriétés du SF/PF de la ligne courante (matière, couleur, largeur et autres propriétés supplémentaires de l'article). Les valeurs se modifient sur place : elles sont enregistrées dans la fiche du SF/PF et visibles partout où il est utilisé. L'opérateur de production ne modifie que ces propriétés, le reste de la fiche article lui reste inaccessible. Les valeurs proposées (couleurs, matières) sont complétées par l'administrateur.
+- Nouveau secteur « Textiles ». Si la production est activée, il crée pour les articles les propriétés « Matière », « Couleur », « Largeur » et « Type de traitement ». Le secteur se choisit dans l'assistant de premier lancement et dans « Paramètres du programme → Entreprise et comptabilité », où un bouton « Créer les propriétés des articles » crée les propriétés manquantes du secteur sans dupliquer celles qui existent.
+
+### en
+- Production workstation: the "Subcontracting" tab is renamed "Subcontracting transfer".
+- In all document tables of the workstation, quantity columns are narrower and headers are shorter: "Qty", "Pack", "Charact.", "Inv. no." and so on. The full name is shown in the header tooltip.
+- The subcontracting transfer has a new "SFG/FG" column: the order's semi-finished or finished product the material is transferred for. The column is optional. Only an SFG/FG of the order whose composition includes the material can be selected. If it is set, the subcontracting receipt for this transfer is filled with it, quantity by the order; if not, the composition is defined in the receipt, as before. The column is available both in the workstation and in the transfer document form.
+- To the right of the transfer table, a table shows the properties of the current line's SFG/FG (material, color, width and other additional item properties). Values can be changed right there: they are saved in the SFG/FG card and visible wherever it is used. The production operator changes only these properties; the rest of the item card remains unavailable to them. The selectable values (colors, materials) are maintained by the administrator.
+- New "Textiles" industry. When production is enabled, it creates the "Material", "Color", "Width" and "Finishing type" item properties. The industry is chosen in the first-start wizard and in "Program settings → Company and accounting", where a "Create item properties" button creates the industry's missing properties without duplicating existing ones.
+
+### es
+- Puesto de producción: la pestaña «Subcontratación» pasa a llamarse «Envío a subcontratación».
+- En todas las tablas de documentos del puesto, las columnas de cantidad son más estrechas y los encabezados más cortos: «Cant.», «Emb.», «Caract.», «N.º fact.», etc. El nombre completo aparece en la información emergente del encabezado.
+- El envío a subcontratación tiene una nueva columna «SE/PT»: el semielaborado o producto terminado del pedido para el que se envía el material. La columna es opcional. Solo se puede elegir un SE/PT del pedido cuya composición incluye el material. Si se indica, la recepción de subcontratación de este envío se rellena con él, con la cantidad según el pedido; si no, la composición se define en la recepción, como antes. La columna está en el puesto y en el formulario del envío.
+- A la derecha de la tabla de envíos, una tabla muestra las propiedades del SE/PT de la línea actual (material, color, ancho y otras propiedades adicionales del artículo). Los valores se pueden cambiar ahí mismo: se guardan en la ficha del SE/PT y se ven en todos los sitios donde se usa. El operador de producción solo cambia estas propiedades; el resto de la ficha del artículo le sigue siendo inaccesible. Los valores para elegir (colores, materiales) los mantiene el administrador.
+- Nuevo sector «Textiles». Si la producción está activada, crea las propiedades de artículo «Material», «Color», «Ancho» y «Tipo de acabado». El sector se elige en el asistente de primer inicio y en «Configuración del programa → Empresa y contabilidad», donde un botón «Crear propiedades de artículos» crea las propiedades que faltan del sector sin duplicar las existentes.
+
+## 2.0.16.15
+### ru
+- Права пользователей из группы «Настройки доступа» — «Кассир», «Видеть суммы (производство)», «Редактировать завершённые документы», «Редактировать документы в закрытом периоде», «Не контролировать запрет отгрузок», «Заверение цен» — теперь может выдать или снять только пользователь с ролью «Администратор» или «Руководитель». Остальные пользователи по-прежнему сами меняют свои обычные настройки: принтеры, кассу, склад; при попытке изменить право запись отменяется с сообщением.
+- Пользователь кассы (роль PDV) записывает только свои настройки, чужие — нет.
+- У служебной роли мобильной доставки снято право внешнего соединения (COM): через него можно было обойти любые ограничения прав. Обмен мобильной доставки этим правом не пользуется.
+
+### fr
+- Les droits des utilisateurs du groupe « Paramètres d'accès » — « Caissier », « Voir les montants (production) », « Modifier des documents terminés », « Modifier des documents en période clôturée », « Ne pas contrôler l'interdiction des expéditions », « Validation de prix » — ne peuvent plus être accordés ou retirés que par les utilisateurs ayant le rôle Administrateur ou Dirigeant. Les autres utilisateurs modifient toujours eux-mêmes leurs paramètres courants : imprimantes, caisse, entrepôt ; une tentative de modifier un droit est annulée avec un message.
+- L'utilisateur de caisse (rôle PDV) n'enregistre que ses propres paramètres, et non plus ceux des autres.
+- Le droit de connexion externe (COM) a été retiré au rôle technique de livraison mobile : il permettait de contourner toutes les restrictions de droits. L'échange de livraison mobile n'utilise pas ce droit.
+
+### en
+- User rights from the "Access settings" group — "Cashier", "See amounts (production)", "Edit completed documents", "Edit documents in a closed period", "Do not check the shipment ban", "Price approval" — can now be granted or removed only by users with the Administrator or Leader role. Other users still change their own regular settings themselves: printers, cash desk, warehouse; an attempt to change a right is cancelled with a message.
+- The cash desk user (PDV role) saves only their own settings, no longer other users' settings.
+- The external connection (COM) right has been removed from the mobile delivery service role: it allowed bypassing any rights restriction. The mobile delivery exchange does not use this right.
+
+### es
+- Los derechos de usuario del grupo «Configuración de acceso» — «Cajero», «Ver importes (producción)», «Modificar documentos terminados», «Modificar documentos en período cerrado», «No controlar la prohibición de envíos», «Validación de precios» — ahora solo pueden concederlos o retirarlos los usuarios con el rol Administrador o Líder. Los demás usuarios siguen cambiando ellos mismos sus ajustes habituales: impresoras, caja, almacén; un intento de cambiar un derecho se cancela con un mensaje.
+- El usuario de caja (rol PDV) guarda solo sus propios ajustes, ya no los de otros usuarios.
+- Se ha retirado el derecho de conexión externa (COM) al rol técnico de entrega móvil: permitía eludir cualquier restricción de derechos. El intercambio de entrega móvil no usa este derecho.
+
+## 2.0.16.14
+### ru
+- Рабочее место производства: в панели фильтров клиент и продукция теперь выбираются из справочников, а не вводятся частью названия. Переключатель «Производство / Все» убран — рабочее место всегда показывает заказы на производство. Добавлены фильтры по стадии заказа и по периоду даты отгрузки; заказ без даты отгрузки в отбор по периоду не попадает. Фильтры действуют и на закладке «Заказы», и на закладке «Продукция».
+- Под списком заказов вместо стрелок платформы — наш пагинатор, как в списках документов: «◀◀ ◀ 1 / 3 ▶ ▶▶» и счётчик «1-50 из 124». В той же строке справа — легенда индикатора: что означает каждый кружок и что значат ○, ◐ и ●.
+- Суммы и цены в рабочем месте теперь видны по дополнительному праву пользователя «Видеть суммы (производство)» (Voir les montants (production)). Право задаётся в «Настройка → Пользователи и права → Настройки пользователей»: «Да» — суммы и цены видны и их можно править, «Нет» — скрыты. Пока право пользователю не задано, всё работает как раньше: оператор производства сумм не видит, администратор и остальные видят. Сам список «Настройки пользователей» теперь тоже есть в этом разделе.
+- Закладка «Материалы»: колонки стали уже, заголовки короче (полное название — во всплывающей подсказке заголовка), «Способ изготовления» перенесён в конец таблицы. Колонка характеристики показывается, только если в «Настройках программы → Номенклатура» включено использование характеристик.
+
+### fr
+- Poste de production : dans le panneau des filtres, le client et le produit se choisissent désormais dans les référentiels au lieu d'être saisis comme une partie du nom. Le sélecteur « Production / Toutes » a été retiré — le poste affiche toujours les commandes de production. Des filtres par étape de la commande et par période de date d'expédition ont été ajoutés ; une commande sans date d'expédition n'entre pas dans le filtre par période. Les filtres s'appliquent aux onglets « Commandes » et « Produits ».
+- Sous la liste des commandes, les flèches de la plateforme sont remplacées par notre pagination, comme dans les listes de documents : « ◀◀ ◀ 1 / 3 ▶ ▶▶ » et le compteur « 1-50 sur 124 ». Sur la même ligne, à droite, la légende de l'indicateur : ce que représente chaque cercle et ce que signifient ○, ◐ et ●.
+- Les montants et les prix du poste sont désormais visibles selon le droit supplémentaire de l'utilisateur « Voir les montants (production) ». Le droit se règle dans « Paramètres → Utilisateurs et droits → Paramètres utilisateur » : « Oui » — montants et prix visibles et modifiables, « Non » — masqués. Tant que le droit n'est pas défini pour l'utilisateur, rien ne change : l'opérateur de production ne voit pas les montants, l'administrateur et les autres les voient. La liste « Paramètres utilisateur » figure désormais aussi dans cette section.
+- Onglet « Matières » : les colonnes sont plus étroites, les en-têtes plus courts (le nom complet apparaît dans l'info-bulle de l'en-tête), « Mode de fabrication » est déplacé en fin de tableau. La colonne caractéristique ne s'affiche que si l'utilisation des caractéristiques est activée dans « Paramètres du programme → Articles ».
+
+### en
+- Production workstation: in the filter panel, the customer and the product are now picked from the catalogs instead of being typed as part of the name. The "Production / All" switch has been removed — the workstation always shows production orders. New filters by order stage and by shipment date period have been added; an order without a shipment date does not pass the period filter. The filters apply to both the "Orders" and the "Products" tabs.
+- Below the order list, the platform arrows are replaced by our paginator, as in document lists: "◀◀ ◀ 1 / 3 ▶ ▶▶" and the "1-50 of 124" counter. On the same line, on the right, is the indicator legend: what each circle stands for and what ○, ◐ and ● mean.
+- Amounts and prices in the workstation are now shown according to the additional user right "See amounts (production)" (Voir les montants (production)). The right is set in "Settings → Users and rights → User settings": "Yes" — amounts and prices are shown and can be edited, "No" — hidden. Until the right is set for a user, nothing changes: the production operator does not see amounts, the administrator and everyone else do. The "User settings" list itself is now available in that section too.
+- "Materials" tab: columns are narrower, headers are shorter (the full name is in the header tooltip), "Manufacturing method" has moved to the end of the table. The characteristic column is shown only if characteristics are enabled in "Program settings → Items".
+
+### es
+- Puesto de producción: en el panel de filtros, el cliente y el producto se eligen ahora de los catálogos en lugar de escribir parte del nombre. Se ha quitado el selector «Producción / Todos»: el puesto muestra siempre los pedidos de producción. Se han añadido filtros por etapa del pedido y por período de fecha de envío; un pedido sin fecha de envío no entra en el filtro por período. Los filtros se aplican tanto a la pestaña «Pedidos» como a «Productos».
+- Debajo de la lista de pedidos, las flechas de la plataforma se sustituyen por nuestro paginador, como en las listas de documentos: «◀◀ ◀ 1 / 3 ▶ ▶▶» y el contador «1-50 de 124». En la misma línea, a la derecha, está la leyenda del indicador: qué representa cada círculo y qué significan ○, ◐ y ●.
+- Los importes y precios del puesto se muestran ahora según el derecho adicional del usuario «Ver importes (producción)» (Voir les montants (production)). El derecho se ajusta en «Configuración → Usuarios y derechos → Configuración de usuario»: «Sí» — importes y precios visibles y editables, «No» — ocultos. Mientras el derecho no esté definido para el usuario, nada cambia: el operador de producción no ve los importes, el administrador y los demás sí. La lista «Configuración de usuario» también está ahora en esa sección.
+- Pestaña «Materiales»: las columnas son más estrechas, los encabezados más cortos (el nombre completo aparece en la información emergente del encabezado), «Método de fabricación» pasa al final de la tabla. La columna de característica solo se muestra si el uso de características está activado en «Configuración del programa → Artículos».
+
+## 2.0.16.13
+### ru
+- Французские, английские и испанские названия финансовых справочников и реквизитов приведены к принятым терминам: статья ДДС — «Rubrique de flux de trésorerie» / «Cash flow item», статья затрат и статья расходов — «Nature de charge» / «Expense type», счёт в бухгалтерских отчётах — «Compte comptable» / «General ledger account», отчёт «Движение денежных средств» — «Flux de trésorerie» / «Cash flow», отчёт «Затраты» — «Charges» / «Expenses», типы движения — «Encaissement» и «Décaissement» / «Cash inflow» и «Cash outflow». Русские названия не менялись.
+
+### fr
+- Les libellés des catalogues et des attributs financiers suivent désormais la terminologie comptable française : « Rubrique de flux de trésorerie » (au lieu de « Poste de trésorerie »), « Nature de charge » (au lieu de « Article de coût » et « Article de dépense »), « Compte comptable » dans les états comptables, rapport « Flux de trésorerie » (au lieu de « Mouvement de fonds »), rapport « Charges », types de mouvement « Encaissement » et « Décaissement ».
+
+### en
+- Financial catalog and field names now use standard accounting terms: "Cash flow item", "Expense type" (instead of "Cost item" and "Item of expenditure"), "General ledger account" in accounting reports, the "Cash flow" report (instead of "Movement of funds"), movement types "Cash inflow" and "Cash outflow".
+
+### es
+- Los nombres de los catálogos y campos financieros siguen ahora la terminología contable: «Partida de flujo de efectivo», «Tipo de gasto» (en lugar de «Objeto de los gastos» y «Partida de gastos»), «Cuenta contable» en los informes contables, el informe «Flujo de efectivo» (en lugar de «Movimiento de fondos»), tipos de movimiento «Cobro» y «Pago».
+
+## 2.0.16.12
+### ru
+- В документах с одной таблицей (кассовые ордера, поступление и списание безналичных, возвраты, перемещение, оприходование, списание, заказ поставщику, кадровые и зарплатные документы и другие) команды «Создать на основании», «Перейти» и «Печать» теперь стоят на командной панели формы вверху, а не в панели таблицы.
+
+### fr
+- Dans les documents à un seul tableau (bons d'encaissement et de décaissement, entrées et sorties bancaires, retours, transferts, entrées et sorties de stock, commande fournisseur, documents de personnel et de paie, etc.), les commandes « Générer », « Aller » et « Impression » se trouvent désormais dans la barre de commandes du formulaire, en haut, et non plus dans celle du tableau.
+
+### en
+- In documents with a single table (cash receipts and payments, bank receipts and payments, returns, transfers, stock receipts and write-offs, purchase order, HR and payroll documents and others), the "Generate", "Go to" and "Print" commands are now on the form's command bar at the top instead of the table's bar.
+
+### es
+- En los documentos con una sola tabla (cobros y pagos de caja, entradas y salidas bancarias, devoluciones, traslados, entradas y bajas de existencias, pedido a proveedor, documentos de personal y nómina, etc.), los comandos «Generar», «Ir a» e «Impresión» están ahora en la barra de comandos del formulario, arriba, y no en la de la tabla.
+
+## 2.0.16.11
+### ru
+- «Личный кабинет партнера» теперь есть в меню CRM → «Личный кабинет» для администратора: по кнопке «Войти» выбирается покупатель, и кабинет открывается от его имени — с его ценами, корзиной и историей. Кнопка «Выйти» закрывает только кабинет, работа в программе продолжается.
+- Окно «Что нового» доступно всем сотрудникам: оно открывается после обновления и из меню «Настройка». Раньше у рабочих ролей оно не открывалось.
+- «Отчёт по проводкам» починен и выведен в меню «Бухгалтерии»: в нём снова есть итоги.
+- «Виды оплат» переехали из «Продаж» в «Казначейство → Справочники», «Виды заданий» и «Настройки заданий» — в «Настройка → Параметры».
+- Отчёт «Налоговые накладные: нехватка товара на складе» переехал из «Продаж» в «Склад».
+
+### fr
+- L'« Espace client » du partenaire figure désormais dans le menu CRM → « Espace client » pour l'administrateur : le bouton « Entrer » permet de choisir un client et d'ouvrir l'espace en son nom — avec ses prix, son panier et son historique. Le bouton « Sortir » ferme seulement l'espace, le travail dans le programme continue.
+- La fenêtre « Quoi de neuf » est accessible à tous les employés : elle s'ouvre après la mise à jour et depuis le menu « Paramètres ». Auparavant, elle ne s'ouvrait pas pour les rôles de travail.
+- Le « Rapport sur les écritures » est réparé et ajouté au menu « Comptabilité » : les totaux s'affichent de nouveau.
+- Les « Types de paiement » passent de « Ventes » à « Trésorerie → Catalogues », les « Types de tâches » et « Paramètres des tâches » à « Paramètres → Options ».
+- Le rapport « Factures fiscales : stock insuffisant » passe de « Ventes » à « Entrepôt ».
+
+### en
+- The "Customer area" of a partner is now in the CRM → "Customer portal" menu for the administrator: the "Enter" button lets you pick a customer and open the portal on their behalf — with their prices, cart and history. The "Exit" button closes only the portal; work in the program continues.
+- The "What's new" window is available to all employees: it opens after an update and from the "Settings" menu. Previously it did not open for working roles.
+- The "Transaction report" is fixed and added to the "Accounting" menu: totals are shown again.
+- "Types of payment" moved from "Sales" to "Treasury → Reference books", "Types of tasks" and "Job settings" to "Settings → Options".
+- The "Tax invoices: insufficient stock" report moved from "Sales" to "Warehouse".
+
+### es
+- El «Área de clientes» del socio está ahora en el menú CRM → «Portal del cliente» para el administrador: el botón «Entrar» permite elegir un cliente y abrir el portal en su nombre, con sus precios, su carrito y su historial. El botón «Salir» cierra solo el portal; el trabajo en el programa continúa.
+- La ventana «Qué hay de nuevo» está disponible para todos los empleados: se abre tras la actualización y desde el menú «Configuración». Antes no se abría para los roles de trabajo.
+- El «Informe de transacciones» se ha corregido y se añade al menú «Contabilidad»: vuelve a mostrar los totales.
+- Los «Tipos de pago» pasan de «Ventas» a «Tesorería → Catálogos», los «Tipos de tareas» y la «Configuración de tareas» a «Configuración → Parámetros».
+- El informe «Facturas fiscales: existencias insuficientes» pasa de «Ventas» a «Almacén».
+
+## 2.0.16.10
+### ru
+- Меню перестроено во всех оставшихся разделах: «Казначейство», «Бухгалтерия», «Зарплата и кадры», CRM, «Настройка» и «Главное». Теперь в каждом разделе все пункты показываются явно, в одном месте, а кнопка «Создать» предлагает только документы, с которых начинается работа.
+- «Казначейство»: наверху — кассовые документы и безналичные платежи. Через «Создать» можно сразу оформить приходный и расходный кассовые ордера, поступление на счёт и списание со счёта. Группы: «Касса», «Банк», «Оплаты клиентов» (сертификаты на оплату и банковские чеки; группа исчезает, если альтернативные оплаты выключены), «Расчёты» (корректировки долга и сверки взаиморасчётов — теперь оба списка в меню), «Справочники». «Кассовая книга» переехала сюда из «Бухгалтерии».
+- «Бухгалтерия»: группы «Налоговые документы» (накладные продаж и покупок и возвраты по ним), «Регламентированный учёт» (операции, журнал проводок, план счетов, виды субконто; группа исчезает вместе с регламентированным учётом), «Прочие документы». В меню вышли бухгалтерские отчёты: оборотно-сальдовая ведомость, ведомость по счёту, обороты, анализ и карточка счёта, анализ и карточка субконто.
+- Отчёт «Главная книга» удалён: он повторял «Расчеты с покупателями». Его разрез по объектам расчётов теперь — вариант «По объектам расчётов» отчёта «Расчеты с покупателями».
+- «Производство / Переработка»: новый пункт «Переработчики» — контрагенты с флажком «Субподрядчик» в карточке. Пункты «Сырьё», «Полуфабрикаты» и «Готовая продукция» теперь действительно показывают только номенклатуру своего типа.
+- «Зарплата и кадры»: в меню вышли «Тарифные ставки» и «Отработанное время сотрудников». Вместо общего списка физических лиц — «Сотрудники»: только работающие (принятые и не уволенные). Общий список физических лиц остаётся в «Главном».
+- CRM: лиды, каналы и покупатели; новая группа «Личный кабинет» — корзины и история поиска (переехала из «Продаж»). Раздел виден и тогда, когда включён личный кабинет, а лиды — нет.
+- «Настройка»: группы «Параметры», «Пользователи и права» (туда перешли пользователи), «Оборудование» (одним пунктом, плюс обновление поставляемых драйверов) и новая «Сервисные операции» — перепроведение документов (из «Казначейства»), корректировка регистров, групповое изменение реквизитов, групповое создание документов, загрузка из Excel, регламентные задания, регистрация изменений для обмена, движения документа.
+- «Главное»: добавлен пункт «Право подписи».
+
+### fr
+- Le menu est réorganisé dans toutes les sections restantes : « Trésorerie », « Comptabilité », « Paie et personnel », CRM, « Paramètres » et la section principale. Chaque section affiche désormais tous ses éléments explicitement, à un seul endroit, et le bouton « Créer » ne propose que les documents qui ouvrent le travail.
+- « Trésorerie » : en haut, les documents de caisse et les paiements bancaires. « Créer » permet d'établir directement les encaissements et décaissements de caisse, les entrées et sorties bancaires. Groupes : « Caisse », « Banque », « Paiements des clients » (bons d'achat et chèques bancaires ; le groupe disparaît si les paiements alternatifs sont désactivés), « Règlements » (ajustements de dette et rapprochements — les deux listes sont maintenant au menu), « Catalogues ». Le « Livre de caisse » passe ici depuis « Comptabilité ».
+- « Comptabilité » : groupes « Documents fiscaux » (factures de vente et d'achat et leurs retours), « Comptabilité réglementaire » (opérations, journal des écritures, plan comptable, types de sous-comptes ; le groupe disparaît avec la comptabilité réglementaire), « Autres documents ». Les rapports comptables apparaissent au menu : balance générale, balance par compte, mouvements, analyse et fiche de compte, analyse et fiche de sous-compte.
+- Le rapport « Grand livre » est supprimé : il répétait « Situation client ». Sa ventilation par objet de règlement devient la variante « Par objet de règlement » du rapport « Situation client ».
+- « Production / Sous-traitance » : nouvel élément « Sous-traitants » — les tiers cochés « Sous-traitant » dans leur fiche. « Matières premières », « Produits semi-finis » et « Produits finis » n'affichent désormais que les articles de leur type.
+- « Paie et personnel » : « Tarifs » et « Temps travaillé par les salariés » apparaissent au menu. À la place de la liste générale des personnes : « Employés », uniquement ceux en poste (embauchés et non licenciés). La liste générale des personnes reste dans la section principale.
+- CRM : prospects, canaux et clients ; nouveau groupe « Espace client » — paniers et historique de recherche (venu de « Ventes »). La section reste visible quand l'espace client est activé sans les prospects.
+- « Paramètres » : groupes « Options », « Utilisateurs et droits » (les utilisateurs y passent), « Matériel » (un seul élément, plus la mise à jour des pilotes fournis) et le nouveau groupe « Opérations de service » — repasser les documents (depuis « Trésorerie »), correction des registres, modification et création de documents en lot, import depuis Excel, tâches planifiées, enregistrement des modifications pour l'échange, mouvements du document.
+- Section principale : ajout de l'élément « Droit de signature ».
+
+### en
+- The menu is restructured in all remaining sections: "Treasury", "Accounting", "Payroll and staff", CRM, "Settings" and the main section. Every section now shows all its items explicitly, in one place, and the "Create" button offers only the documents that start the work.
+- "Treasury": cash documents and bank payments at the top. "Create" now lets you issue cash receipts and payments, bank receipts and bank payments directly. Groups: "Cash", "Bank", "Customer payments" (purchase vouchers and bank cheques; the group disappears when alternative payments are off), "Settlements" (debt adjustments and reconciliations — both lists are now in the menu), "Reference books". The "Cash book" moved here from "Accounting".
+- "Accounting": groups "Tax documents" (sales and purchase tax invoices and their returns), "Statutory accounting" (operations, journal of entries, chart of accounts, analytics types; the group disappears together with statutory accounting), "Other documents". Accounting reports are now in the menu: trial balance, account balance, account turnover, account analysis and card, analytics analysis and card.
+- The "General ledger" report is removed: it repeated "Settlements with customers". Its breakdown by settlement object is now the "By settlement object" variant of "Settlements with customers".
+- "Production / Subcontracting": new "Subcontractors" item — counterparties with the "Subcontractor" checkbox in their card. "Raw materials", "Semi-finished products" and "Finished products" now really show only items of their type.
+- "Payroll and staff": "Rates" and "Time worked by employees" are now in the menu. Instead of the general list of individuals — "Employees": only current ones (hired and not dismissed). The general list of individuals stays in the main section.
+- CRM: leads, channels and customers; new "Customer portal" group — carts and search history (moved from "Sales"). The section stays visible when the customer portal is on but leads are off.
+- "Settings": groups "Options", "Users and rights" (users moved here), "Equipment" (a single item, plus updating supplied drivers) and the new "Service operations" — document reposting (from "Treasury"), register adjustment, bulk attribute change and bulk document creation, import from Excel, scheduled jobs, change registration for exchange, document movements.
+- Main section: "Right of signature" item added.
+
+### es
+- El menú se reorganiza en todas las secciones restantes: «Tesorería», «Contabilidad», «Nómina y personal», CRM, «Configuración» y la sección principal. Cada sección muestra ahora todos sus elementos de forma explícita, en un solo lugar, y el botón «Crear» ofrece solo los documentos con los que empieza el trabajo.
+- «Tesorería»: arriba, los documentos de caja y los pagos bancarios. «Crear» permite emitir directamente cobros y pagos de caja, entradas y salidas bancarias. Grupos: «Caja», «Banco», «Pagos de clientes» (vales de compra y cheques bancarios; el grupo desaparece si los pagos alternativos están desactivados), «Liquidaciones» (ajustes de deuda y conciliaciones — ahora ambas listas están en el menú), «Catálogos». El «Libro de caja» pasa aquí desde «Contabilidad».
+- «Contabilidad»: grupos «Documentos fiscales» (facturas de venta y de compra y sus devoluciones), «Contabilidad reglamentaria» (operaciones, diario de asientos, plan de cuentas, tipos de subcuenta; el grupo desaparece junto con la contabilidad reglamentaria), «Otros documentos». Los informes contables aparecen en el menú: balance de sumas y saldos, balance por cuenta, movimientos, análisis y ficha de cuenta, análisis y ficha de subcuenta.
+- Se elimina el informe «Libro mayor»: repetía «Liquidaciones con clientes». Su desglose por objeto de liquidación es ahora la variante «Por objeto de liquidación» de «Liquidaciones con clientes».
+- «Producción / Subcontratación»: nuevo elemento «Subcontratistas» — contrapartes con la casilla «Subcontratista» en su ficha. «Materias primas», «Productos semielaborados» y «Productos terminados» muestran ahora solo los artículos de su tipo.
+- «Nómina y personal»: «Tarifas» y «Tiempo trabajado por empleados» aparecen en el menú. En lugar de la lista general de personas: «Empleados», solo los que están en activo (contratados y no despedidos). La lista general de personas sigue en la sección principal.
+- CRM: leads, canales y clientes; nuevo grupo «Portal del cliente» — carritos e historial de búsqueda (trasladado desde «Ventas»). La sección sigue visible cuando el portal del cliente está activado y los leads no.
+- «Configuración»: grupos «Parámetros», «Usuarios y derechos» (los usuarios pasan aquí), «Equipo» (un solo elemento, más la actualización de los controladores suministrados) y el nuevo «Operaciones de servicio» — volver a contabilizar documentos (desde «Tesorería»), corrección de registros, cambio y creación de documentos en lote, importación desde Excel, tareas programadas, registro de cambios para el intercambio, movimientos del documento.
+- Sección principal: se añade el elemento «Derecho de firma».
+
+## 2.0.16.9
+### ru
+- Раздел «Склад» перестроен по ходу работы. Наверху — перемещения товаров. Остальное разложено по группам: «Инвентаризация» (пересчёты и задания на пересчёт), «Излишки и списания» (оприходования, списания, уценки), «Комплектация» (акты разбора, пересортица), «Товары» и «Хранение». Все отчёты раздела собраны в одном списке отчётов.
+- Группа «Инвентаризация» исчезает из меню целиком, если в «Параметрах» выключены пересчёты, группа «Комплектация» — если выключена комплектация. «Наборы упаковок» уходят из меню вместе с выключенной упаковкой.
+- В «Складе» номенклатура открывается пунктом «Товары» — без услуг и комплектов. В группе «Товары» появился общий список штрихкодов: по нему удобно найти товар по коду или проверить дубли. Штрихкоды по-прежнему ведутся и из карточки номенклатуры.
+- «Перевозчики» переехали из «Продаж» в «Склад» → «Хранение». Логист теперь видит раздел «Склад»: перевозчиков, места хранения и отчёты по остаткам, на которые у него и раньше были права.
+- Отчёт «Движения товара» выведен в меню, его вариант «Отчет по списанию товаров» снова формируется: списания по местам хранения и товарам по дням. Колонка «Оборот (кг)» в обоих вариантах отчёта теперь считает вес всего количества, а не одной единицы товара.
+- Список уценок выведен в меню рядом с созданием уценки (раньше создать уценку было можно, а открыть список — нет).
+- «Стоимость склада» осталась только в «Складе» (раньше была ещё и в «Бухгалтерии»). «Ведомость по поступлениям» — отчёт о приходе товаров от поставщиков — переехала в «Закупки».
+- Кнопка «Создать» в «Складе» предлагает документы, с которых начинается работа: перемещение, оприходование, списание, уценку, пересчёт и задание на пересчёт, акт разбора, пересортицу. Справочники из неё убраны.
+
+### fr
+- La section « Entrepôt » suit désormais l'ordre du travail. En haut : les transferts de marchandises. Le reste est réparti en groupes : « Inventaire » (inventaires et tâches d'inventaire), « Excédents et sorties » (entrées, sorties, démarquages), « Assemblage » (actes de désassemblage, reclassements), « Articles » et « Stockage ». Tous les rapports de la section sont réunis dans une seule liste de rapports.
+- Le groupe « Inventaire » disparaît entièrement du menu si les inventaires sont désactivés dans les « Options », le groupe « Assemblage » — si l'assemblage est désactivé. Les « Ensembles d'emballages » quittent le menu quand les emballages sont désactivés.
+- Dans « Entrepôt », les articles s'ouvrent par « Marchandises » — sans services ni kits. Le groupe « Articles » propose désormais la liste générale des codes-barres : pratique pour retrouver un article par son code ou repérer les doublons. Les codes-barres se saisissent toujours aussi depuis la fiche de l'article.
+- Les « Transporteurs » passent de « Ventes » à « Entrepôt » → « Stockage ». Le logisticien voit désormais la section « Entrepôt » : transporteurs, lieux de stockage et rapports de stock auxquels il avait déjà droit.
+- Le rapport « Mouvement de marchandises » est ajouté au menu ; sa variante « Rapport de sortie de marchandises » se génère à nouveau : sorties par lieu de stockage et par article, jour par jour. Dans les deux variantes du rapport, la colonne « Mouvement (kg) » calcule désormais le poids de toute la quantité, et non d'une seule unité.
+- La liste des démarquages est ajoutée au menu à côté de leur création (auparavant, on pouvait créer un démarquage sans pouvoir ouvrir la liste).
+- « Valeur du stock » reste uniquement dans « Entrepôt » (elle figurait aussi dans « Comptabilité »). Le « Relevé des réceptions » — rapport des entrées de marchandises des fournisseurs — passe dans « Achats ».
+- Le bouton « Créer » de la section « Entrepôt » propose les documents qui ouvrent le travail : transfert, entrée, sortie, démarquage, inventaire et tâche d'inventaire, acte de désassemblage, reclassement. Les catalogues en sont retirés.
+
+### en
+- The "Warehouse" section now follows the course of work. At the top: goods transfers. The rest is grouped into "Stocktaking" (inventories and inventory tasks), "Surpluses and write-offs" (receipts, write-offs, markdowns), "Kitting" (disassembly acts, regrading), "Items" and "Storage". All reports of the section are gathered in one report list.
+- The "Stocktaking" group disappears from the menu entirely when inventories are off in "Options", the "Kitting" group — when kitting is off. "Packaging sets" leave the menu when packaging is off.
+- In "Warehouse", items open as "Goods" — without services and kits. The "Items" group now has the general list of barcodes: handy for finding an item by its code or spotting duplicates. Barcodes can still be entered from the item card.
+- "Carriers" moved from "Sales" to "Warehouse" → "Storage". The logistician now sees the "Warehouse" section: carriers, storage locations and the stock reports they already had rights to.
+- The "Movement of goods" report is added to the menu, and its "Goods output report" variant works again: write-offs by storage location and item, day by day. In both report variants the "Movement (kg)" column now shows the weight of the whole quantity, not of a single unit.
+- The markdown list is added to the menu next to creating a markdown (previously a markdown could be created, but its list could not be opened).
+- "Warehouse value" stays only in "Warehouse" (it was also in "Accounting"). The "Receipt record" — a report on goods received from suppliers — moved to "Purchases".
+- The "Create" button in "Warehouse" offers the documents that start the work: transfer, receipt, write-off, markdown, inventory and inventory task, disassembly act, regrading. Reference books are removed from it.
+
+### es
+- La sección «Almacén» sigue ahora el orden del trabajo. Arriba: los traslados de mercancías. El resto se agrupa en «Inventario» (inventarios y tareas de inventario), «Excedentes y bajas» (entradas, bajas, rebajas de valor), «Ensamblaje» (actas de desmontaje, reclasificaciones), «Artículos» y «Almacenamiento». Todos los informes de la sección están reunidos en una sola lista de informes.
+- El grupo «Inventario» desaparece por completo del menú si los inventarios están desactivados en «Parámetros»; el grupo «Ensamblaje», si el ensamblaje está desactivado. Los «Conjuntos de embalaje» salen del menú cuando el embalaje está desactivado.
+- En «Almacén», los artículos se abren como «Mercancías», sin servicios ni kits. El grupo «Artículos» tiene ahora la lista general de códigos de barras: útil para encontrar un artículo por su código o detectar duplicados. Los códigos de barras se siguen registrando también desde la ficha del artículo.
+- Los «Transportistas» pasan de «Ventas» a «Almacén» → «Almacenamiento». El logístico ve ahora la sección «Almacén»: transportistas, lugares de almacenamiento e informes de existencias a los que ya tenía derecho.
+- El informe «Circulación de mercancías» se añade al menú y su variante «Informe de salida de mercancías» vuelve a generarse: bajas por lugar de almacenamiento y artículo, día a día. En ambas variantes del informe, la columna «Movimiento (kg)» calcula ahora el peso de toda la cantidad, no de una sola unidad.
+- La lista de rebajas de valor se añade al menú junto a su creación (antes se podía crear una rebaja, pero no abrir la lista).
+- «Valor del almacén» queda solo en «Almacén» (también estaba en «Contabilidad»). El «Registro de recibo», informe de las mercancías recibidas de proveedores, pasa a «Compras».
+- El botón «Crear» de la sección «Almacén» ofrece los documentos con los que empieza el trabajo: traslado, entrada, baja, rebaja de valor, inventario y tarea de inventario, acta de desmontaje, reclasificación. Se retiran de él los catálogos.
+
+## 2.0.16.8
+### ru
+- Пункт «Кураторы договоров» в «Продажах» → «Клиенты» теперь видит и кассир: в нём можно посмотреть и поменять, кто из сотрудников ведёт договор.
+
+### fr
+- L'élément « Responsables des contrats » dans « Ventes » → « Clients » est désormais visible aussi pour le caissier : on y voit et modifie quel employé suit chaque contrat.
+
+### en
+- The "Contract managers" item in "Sales" → "Customers" is now visible to cashiers as well: it shows, and lets you change, which employee handles each contract.
+
+### es
+- El elemento «Responsables de contratos» en «Ventas» → «Clientes» ahora también lo ve el cajero: en él se ve y se cambia qué empleado lleva cada contrato.
+
+## 2.0.16.7
+### ru
+- Раздел «Продажи» перестроен по ходу работы. Наверху — заказы покупателей, продажи и возвраты от покупателей, рядом — история заказов по статусам. Остальное разложено по группам: «Опт», «Розница», «Цены», «Клиенты», «Справочники». Все отчёты раздела собраны в одном списке отчётов.
+- Группа «Опт» (коммерческие предложения, задачи по заказам, заявки на поиск товара) исчезает из меню целиком, если все эти возможности выключены в «Параметрах»; группа «Розница» — если выключены розничные продажи. «Заявка на поиск товара» больше не выводится в меню дважды.
+- В «Продажах» номенклатура открывается пунктом «Товары и услуги для продажи» — без сырья и полуфабрикатов, — а договоры пунктом «Договоры с покупателями». Без производства «Товары и услуги для продажи» показывают всю номенклатуру. Поставщики и общие списки контрагентов, номенклатуры и договоров из «Продаж» убраны: они есть в «Закупках», «Складе» и «Казначействе».
+- Администратор и руководитель видят в группе «Клиенты» «Кураторы договоров» — кто из сотрудников ведёт договор.
+- Отчёт «Просроченные долги покупателей» выведен в меню и исправлен: он показывает только долги с истёкшим сроком оплаты и сколько дней они просрочены (раньше — весь долг сверх кредита). Срок оплаты берётся так же, как при контроле кредита: из договора, а если там не задан — из карточки покупателя; если срок не задан нигде — год. Из обоих отчётов просроченных долгов убран параметр «Вариант задолженности», который ни на что не влиял.
+- Отчёты переименованы по тому, что они показывают: «Статистика дневных продаж» — «Продажи по часам», «ABC - анализ продаж» — «ABC-анализ продаж».
+- «Реестр реализаций товаров и услуг» переехал из «Казначейства» в «Продажи». Налоговые «Расчеты с покупателями» и «Ведомость по продажам (налоговая)» остались только в «Бухгалтерии», туда же переехал «Проданный товар без накладной».
+- Кнопка «Создать» в «Продажах» предлагает только документы, с которых начинается работа: заказ покупателя, продажа, коммерческое предложение, установка цен, правило ценообразования.
+- В «Параметрах» → «Продажи» настройки розницы (розничный клиент, договор, печать чека) доступны, только когда розничные продажи включены. Регистр оплат чеками скрывается вместе с альтернативными оплатами.
+
+### fr
+- La section « Ventes » suit désormais l'ordre du travail. En haut : commandes clients, ventes et retours clients, à côté l'historique des commandes par statut. Le reste est réparti en groupes : « Vente en gros », « Vente au détail », « Prix », « Clients », « Catalogues ». Tous les rapports de la section sont réunis dans une seule liste de rapports.
+- Le groupe « Vente en gros » (offres commerciales, tâches de commandes, demandes de recherche d'articles) disparaît entièrement du menu si toutes ces fonctions sont désactivées dans les « Options » ; le groupe « Vente au détail » — si la vente au détail est désactivée. La « Demande de recherche d'article » n'apparaît plus deux fois dans le menu.
+- Dans « Ventes », les articles s'ouvrent par « Articles vendus » — sans matières premières ni produits semi-finis — et les contrats par « Contrats clients ». Sans production, « Articles vendus » affiche tous les articles. Les fournisseurs et les listes générales de tiers, d'articles et de contrats sont retirés de « Ventes » : ils se trouvent dans « Achats », « Entrepôt » et « Trésorerie ».
+- L'administrateur et le dirigeant trouvent dans le groupe « Clients » les « Responsables des contrats » : quel employé suit chaque contrat.
+- Le rapport « Dettes clients en retard » est ajouté au menu et corrigé : il n'affiche que les dettes dont l'échéance est dépassée et le nombre de jours de retard (auparavant, toute la dette au-delà du crédit). Le délai de paiement est déterminé comme pour le contrôle du crédit : depuis le contrat, sinon depuis la fiche du client ; à défaut, un an. Le paramètre « Variante de dette », sans effet, est retiré des deux rapports de dettes en retard.
+- Des rapports sont renommés d'après ce qu'ils affichent : « Statistiques de ventes quotidiennes » devient « Ventes par heure », « ABC - analyse des ventes » devient « Analyse ABC des ventes ».
+- Le « Registre de factures de vente » passe de « Trésorerie » à « Ventes ». Les rapports fiscaux des règlements clients et l'état fiscal des ventes restent uniquement dans « Comptabilité », où passe aussi « Stock vendu non facturé ».
+- Le bouton « Créer » de la section « Ventes » ne propose que les documents qui ouvrent le travail : commande client, vente, offre commerciale, tarification, règle de tarification.
+- Dans « Options » → « Ventes », les réglages de la vente au détail (client de détail, contrat, impression du ticket) ne sont modifiables que si la vente au détail est activée. Le registre des paiements par chèque est masqué avec les paiements alternatifs.
+
+### en
+- The "Sales" section now follows the course of work. At the top: customer orders, sales and customer returns, with the order status history next to them. The rest is grouped into "Wholesale", "Retail", "Prices", "Customers", "Reference books". All reports of the section are gathered in one report list.
+- The "Wholesale" group (commercial offers, order tasks, item search requests) disappears from the menu entirely when all these features are off in "Options"; the "Retail" group — when retail sales are off. "Item search request" no longer appears in the menu twice.
+- In "Sales", items open as "Items for sale" — without raw materials and semi-finished goods — and contracts as "Customer contracts". Without production, "Items for sale" shows all items. Suppliers and the general lists of counterparties, items and contracts are removed from "Sales": they are in "Purchases", "Warehouse" and "Treasury".
+- Administrators and managers see "Contract managers" in the "Customers" group: which employee handles each contract.
+- The "Overdue customer debts" report is added to the menu and fixed: it shows only debts past their due date and how many days they are overdue (previously, all debt above the credit limit). The payment term is taken as in credit control: from the contract, or from the customer card if the contract has none; if neither has one, a year. The "Debt variant" parameter, which had no effect, is removed from both overdue debt reports.
+- Reports are renamed after what they show: "Daily sales statistics" is now "Sales by hour", "ABC - sales analysis" is now "ABC sales analysis".
+- The "Sales invoice register" moved from "Treasury" to "Sales". The tax reports on customer settlements and sales stay only in "Accounting", where "Stock sold not invoiced" moved too.
+- The "Create" button in "Sales" offers only the documents that start the work: customer order, sale, commercial offer, price setting, pricing rule.
+- In "Options" → "Sales", retail settings (retail customer, contract, receipt printing) can be changed only when retail sales are on. The cheque payments register is hidden together with alternative payments.
+
+### es
+- La sección «Ventas» sigue ahora el orden del trabajo. Arriba: pedidos de clientes, ventas y devoluciones de clientes, al lado el historial de pedidos por estado. El resto se agrupa en «Venta al por mayor», «Venta minorista», «Precios», «Clientes», «Manuales». Todos los informes de la sección están reunidos en una sola lista de informes.
+- El grupo «Venta al por mayor» (ofertas comerciales, tareas de pedidos, solicitudes de búsqueda de artículos) desaparece por completo del menú si todas estas funciones están desactivadas en «Parámetros»; el grupo «Venta minorista», si las ventas minoristas están desactivadas. La «Solicitud de búsqueda de artículo» ya no aparece dos veces en el menú.
+- En «Ventas», los artículos se abren con «Artículos para la venta» — sin materias primas ni semielaborados — y los contratos con «Contratos con clientes». Sin producción, «Artículos para la venta» muestra todos los artículos. Los proveedores y las listas generales de contrapartes, artículos y contratos se han quitado de «Ventas»: están en «Compras», «Almacén» y «Tesorería».
+- El administrador y el director ven en el grupo «Clientes» los «Responsables de contratos»: qué empleado lleva cada contrato.
+- El informe «Deudas vencidas de clientes» se ha añadido al menú y corregido: muestra solo las deudas con el plazo de pago vencido y cuántos días llevan vencidas (antes, toda la deuda por encima del crédito). El plazo de pago se toma como en el control de crédito: del contrato o, si no está indicado, de la ficha del cliente; si no figura en ninguno, un año. El parámetro «Variante de deuda», que no tenía efecto, se ha quitado de los dos informes de deudas vencidas.
+- Informes renombrados según lo que muestran: «Estadísticas de ventas diarias» pasa a «Ventas por hora», «ABC-análisis de ventas» pasa a «Análisis ABC de ventas».
+- El «Registro de facturas de ventas» pasa de «Tesorería» a «Ventas». Los informes fiscales de liquidaciones con clientes y de ventas quedan solo en «Contabilidad», adonde pasa también «Stock vendido no facturado».
+- El botón «Crear» de «Ventas» ofrece solo los documentos con los que empieza el trabajo: pedido de cliente, venta, oferta comercial, fijación de precios, regla de precios.
+- En «Parámetros» → «Ventas», los ajustes de venta minorista (cliente minorista, contrato, impresión del ticket) solo se pueden cambiar si las ventas minoristas están activadas. El registro de pagos con cheque se oculta junto con los pagos alternativos.
+
+## 2.0.16.6
+### ru
+- Раздел «Закупки» перестроен по ходу работы. Наверху — заказы поставщикам, поступления товаров и услуг, возвраты поставщикам и обработка «Формирование заказов поставщикам» (раньше её не было в меню). Рядом — доп. расходы на поступление. Остальное разложено по группам: «Планирование», «Поставщики и цены», «Импорт», «Справочники».
+- Группа «Импорт» (коды ТН ВЭД, номера таможенных деклараций) исчезает из меню целиком, если импорт выключен в «Параметрах».
+- В «Закупках» номенклатура открывается пунктом «Закупаемые товары» — только то, что пополняется закупкой, — а договоры пунктом «Договоры с поставщиками». Без производства «Закупаемые товары» показывают всю номенклатуру.
+- В «Планировании» появились «Минимальные остатки по складам»: их используют отчёты «Товары для заказа» и «Недостаточные запасы», а заполнить их из меню раньше было негде. Отчёт «Потребности производства» скрыт, если производство выключено.
+- Отчёт «Просроченные долги поставщиков» исправлен (раньше не формировался) и выведен в меню; он показывает только долги с истёкшим сроком оплаты и сколько дней они просрочены.
+- Отчёт «Еженедельное планирование задолженности поставщиков» называется «Долги поставщиков по товарам на складе» — по тому, что он показывает.
+- «Реестр поступлений товаров и услуг» переехал из «Казначейства» в «Закупки». Налоговый отчёт «Расчеты с поставщиками» остался только в «Бухгалтерии», «Установка цен номенклатуры» — только в «Продажах».
+- Кнопка «Создать» в «Закупках» предлагает только документы, с которых начинается работа: заказ поставщику, поступление, доп. расходы, предложение поставщика.
+- Цены закупки теперь видны в меню и у сотрудников склада, логистики и казначейства, предложения поставщиков — и у казначейства: раньше эту группу видел только администратор. Права на данные не менялись.
+
+### fr
+- La section « Achats » suit désormais l'ordre du travail. En haut : commandes fournisseurs, réceptions de marchandises et services, retours fournisseurs et le traitement « Génération des commandes fournisseurs » (auparavant absent du menu). À côté : les frais annexes de réception. Le reste est réparti en groupes : « Planification », « Fournisseurs et prix », « Importation », « Référentiels ».
+- Le groupe « Importation » (codes SH, numéros de déclaration en douane) disparaît entièrement du menu si l'importation est désactivée dans les « Options ».
+- Dans « Achats », les articles s'ouvrent par « Articles achetés » — uniquement ceux réapprovisionnés par achat — et les contrats par « Contrats fournisseurs ». Sans production, « Articles achetés » affiche tous les articles.
+- La « Planification » propose les « Stocks minimaux par entrepôt » : les rapports « Marchandises à commander » et « Stocks insuffisants » s'en servent, mais aucun menu ne permettait de les saisir. Le rapport « Besoins de production » est masqué si la production est désactivée.
+- Le rapport « Dettes fournisseurs en retard » est corrigé (il ne se générait pas) et ajouté au menu ; il n'affiche que les dettes dont l'échéance est dépassée et le nombre de jours de retard.
+- Le rapport « Planning hebdomadaire de debt fournisseurs » s'appelle « Dettes fournisseurs sur stock en magasin », d'après ce qu'il affiche.
+- Le « Registre des factures d'achat » passe de « Trésorerie » à « Achats ». Le rapport fiscal des règlements fournisseurs reste uniquement dans « Comptabilité », la « Tarification » uniquement dans « Ventes ».
+- Le bouton « Créer » de la section « Achats » ne propose que les documents qui ouvrent le travail : commande fournisseur, réception, frais annexes, offre fournisseur.
+- Les prix d'achat sont désormais visibles dans le menu pour le personnel de l'entrepôt, de la logistique et de la trésorerie, et les offres fournisseurs pour la trésorerie : auparavant seul l'administrateur voyait ce groupe. Les droits sur les données n'ont pas changé.
+
+### en
+- The "Purchases" section now follows the course of work. At the top: purchase orders, goods and services receipts, returns to suppliers and the "Purchase order generation" tool (previously missing from the menu). Next to them: additional receipt costs. The rest is grouped into "Planning", "Suppliers and prices", "Import", "Reference books".
+- The "Import" group (HS codes, customs declaration numbers) disappears from the menu entirely when import is off in "Options".
+- In "Purchases", items open as "Purchased items" — only those replenished by purchase — and contracts as "Supplier contracts". Without production, "Purchased items" shows all items.
+- "Planning" now has "Minimum stock by warehouse": the "Goods to order" and "Insufficient stocks" reports use it, but there was nowhere in the menu to fill it in. The "Production requirements" report is hidden when production is off.
+- The "Overdue supplier debts" report is fixed (it did not generate) and added to the menu; it shows only debts past their due date and how many days they are overdue.
+- The "Weekly schedule of debt suppliers" report is now called "Supplier debts on goods in stock", after what it shows.
+- The "Purchase invoice register" moved from "Treasury" to "Purchases". The tax report on supplier settlements stays only in "Accounting", "Setting item prices" only in "Sales".
+- The "Create" button in "Purchases" offers only the documents that start the work: purchase order, receipt, additional costs, supplier offer.
+- Purchase prices are now visible in the menu to warehouse, logistics and treasury staff, and supplier offers to treasury staff: previously only the administrator saw that group. Data access rights have not changed.
+
+### es
+- La sección «Compras» sigue ahora el orden del trabajo. Arriba: pedidos a proveedores, recepciones de mercancías y servicios, devoluciones a proveedores y el procesamiento «Generación de pedidos a proveedores» (antes no estaba en el menú). Al lado: los gastos adicionales de recepción. El resto se agrupa en «Planificación», «Proveedores y precios», «Importación», «Catálogos».
+- El grupo «Importación» (códigos HS, números de declaración aduanera) desaparece por completo del menú si la importación está desactivada en «Parámetros».
+- En «Compras», los artículos se abren con «Artículos comprados» — solo los que se reponen por compra — y los contratos con «Contratos con proveedores». Sin producción, «Artículos comprados» muestra todos los artículos.
+- En «Planificación» aparecen las «Existencias mínimas por almacén»: las usan los informes «Productos a pedido» y «Existencias insuficientes», pero no había dónde rellenarlas desde el menú. El informe «Necesidades de producción» se oculta si la producción está desactivada.
+- El informe «Deudas vencidas con proveedores» se ha corregido (no se generaba) y se ha añadido al menú; muestra solo las deudas con el plazo de pago vencido y cuántos días llevan vencidas.
+- El informe «Calendario semanal de proveedores de deuda» se llama «Deudas con proveedores por mercancía en almacén», según lo que muestra.
+- El «Registro de facturas de compra» pasa de «Tesorería» a «Compras». El informe fiscal de liquidaciones con proveedores queda solo en «Contabilidad» y la «Fijación de precios de artículos», solo en «Ventas».
+- El botón «Crear» de «Compras» ofrece solo los documentos con los que empieza el trabajo: pedido a proveedor, recepción, gastos adicionales, oferta del proveedor.
+- Los precios de compra ahora son visibles en el menú para el personal de almacén, logística y tesorería, y las ofertas de proveedores para tesorería; antes solo el administrador veía ese grupo. Los derechos sobre los datos no han cambiado.
+
+## 2.0.16.5
+### ru
+- Возможности программы, которыми вы не пользуетесь, можно выключить — тогда они исчезнут из меню. Переключатели собраны в «Настройка» → «Параметры», по форме на раздел: в «Закупках» — импорт (коды ТН ВЭД, таможенные декларации, страна происхождения); в «Продажах» — заказы покупателей, коммерческие предложения, задачи по заказам, заявки на поиск товара, розничные продажи, правила ценообразования; в новой форме «Склад» — ячейки, инвентаризация, комплектация и пересортица; в «Производстве» — переработка; в новых формах «Казначейство» — альтернативные оплаты (сертификаты, банковские чеки), «Бухгалтерия» — раздел и регламентированный учёт (план счетов, проводки, бухгалтерские отчёты), «CRM» — лиды и личный кабинет клиента.
+- После обновления всё, что было у вас в меню, остаётся в меню: новые возможности включены. Регламентированный учёт включён, только если был включён раздел «Бухгалтерия».
+- Переключатель раздела «Бухгалтерия» переехал из формы «Компания и учёт» в форму «Бухгалтерия».
+- В новой базе мастер первого запуска получил шаг «Возможности»: сразу отметьте, чем будете пользоваться, — остальное не попадёт в меню.
+- Номер таможенной декларации у серии больше не требует страну происхождения, если импорт выключен.
+- Тендеры поставщиков включаются, только если включены заказы покупателей или производство: предложение поставщика вводится по заказу. Мастер первого запуска так же выключает зависимые возможности без основной — регламентированный учёт без бухгалтерии, переработку без производства.
+
+### fr
+- Les fonctionnalités que vous n'utilisez pas peuvent être désactivées : elles disparaissent alors du menu. Les interrupteurs se trouvent dans « Paramètres » → « Options », un formulaire par section : dans « Achats » — l'importation (codes SH, déclarations en douane, pays d'origine) ; dans « Ventes » — commandes clients, devis, tâches des commandes, demandes de recherche d'article, vente au détail, règles de tarification ; dans le nouveau formulaire « Entrepôt » — emplacements, inventaire, kits et reclassements ; dans « Production » — la sous-traitance ; dans les nouveaux formulaires « Trésorerie » — moyens de paiement alternatifs (bons, chèques bancaires), « Comptabilité » — la section et la comptabilité réglementée (plan comptable, écritures, états comptables), « CRM » — prospects et espace client.
+- Après la mise à jour, tout ce qui était dans votre menu y reste : les nouvelles fonctionnalités sont activées. La comptabilité réglementée n'est activée que si la section « Comptabilité » l'était.
+- L'interrupteur de la section « Comptabilité » a quitté le formulaire « Entreprise et comptabilité » pour le formulaire « Comptabilité ».
+- Dans une nouvelle base, l'assistant de premier lancement a une étape « Fonctionnalités » : cochez d'emblée ce que vous utiliserez, le reste n'apparaîtra pas dans le menu.
+- Le numéro de déclaration en douane d'une série n'exige plus le pays d'origine si l'importation est désactivée.
+- Les appels d'offres fournisseurs ne s'activent que si les commandes clients ou la production sont activées : l'offre du fournisseur se saisit sur une commande. L'assistant de premier lancement désactive de même les fonctionnalités dépendantes sans la principale — la comptabilité réglementée sans la comptabilité, la sous-traitance sans la production.
+
+### en
+- Features you do not use can now be turned off, and they disappear from the menu. The switches are in "Settings" → "Options", one form per section: in "Purchases" — import (HS codes, customs declarations, country of origin); in "Sales" — customer orders, quotations, order tasks, item search requests, retail sales, pricing rules; in the new "Warehouse" form — storage bins, stock counts, kits and regrading; in "Production" — subcontracting; in the new "Treasury" form — alternative payments (vouchers, bank checks), "Accounting" — the section and statutory accounting (chart of accounts, entries, accounting reports), "CRM" — leads and the customer portal.
+- After the update everything that was in your menu stays there: the new features are on. Statutory accounting is on only if the "Accounting" section was on.
+- The "Accounting" section switch moved from the "Company and accounting" form to the "Accounting" form.
+- In a new infobase the first start wizard has a "Features" step: tick what you will use right away, and the rest stays out of the menu.
+- A customs declaration number on a series no longer requires the country of origin when import is off.
+- Supplier tenders can be turned on only when customer orders or production are on: a supplier offer is entered from an order. The first start wizard likewise turns off dependent features without their main one — statutory accounting without accounting, subcontracting without production.
+
+### es
+- Las funcionalidades que no usa se pueden desactivar y desaparecen del menú. Los interruptores están en «Configuración» → «Parámetros», un formulario por sección: en «Compras» — la importación (códigos HS, declaraciones aduaneras, país de origen); en «Ventas» — pedidos de clientes, presupuestos, tareas de pedidos, solicitudes de búsqueda de artículos, venta minorista, reglas de precios; en el nuevo formulario «Almacén» — ubicaciones, inventario, kits y reclasificaciones; en «Producción» — la subcontratación; en los nuevos formularios «Tesorería» — pagos alternativos (vales, cheques bancarios), «Contabilidad» — la sección y la contabilidad reglamentaria (plan de cuentas, asientos, informes contables), «CRM» — clientes potenciales y portal del cliente.
+- Tras la actualización, todo lo que estaba en su menú sigue en él: las nuevas funcionalidades están activadas. La contabilidad reglamentaria solo se activa si la sección «Contabilidad» lo estaba.
+- El interruptor de la sección «Contabilidad» pasó del formulario «Empresa y contabilidad» al formulario «Contabilidad».
+- En una base nueva, el asistente de primer inicio tiene el paso «Funcionalidades»: marque desde el principio lo que va a usar y el resto no aparecerá en el menú.
+- El número de declaración aduanera de una serie ya no exige el país de origen si la importación está desactivada.
+- Las licitaciones de proveedores solo se activan si los pedidos de clientes o la producción están activados: la oferta del proveedor se introduce a partir de un pedido. El asistente de primer inicio también desactiva las funcionalidades dependientes sin la principal: la contabilidad reglamentaria sin la contabilidad, la subcontratación sin la producción.
+
+## 2.0.16.4
+### ru
+- Разделы программы выстроены по ходу работы: Закупки, Продажи, Склад, Производство, Казначейство, Бухгалтерия, Зарплата и кадры, затем CRM и Настройка. Раздел «E-commerce» называется «CRM», как и в других языках интерфейса. Если вы раньше сами переставляли разделы, программа сохранит ваш порядок.
+- Группа «Настройки программы» в разделе «Настройка» называется «Параметры».
+- Отчёт «Отчет по недостаткам товара» называется «Налоговые накладные: нехватка товара на складе» — по тому, что он показывает.
+- Во французском, английском и испанском интерфейсе названия документов и справочников приведены к принятым в этих странах: налоговые накладные — «Facture fiscale», «Tax invoice», «Factura fiscal»; налоговые возвраты — «Avoir», «Credit note», «Factura rectificativa»; номера ГТД — таможенные декларации (DAU, DUM, DUA); кассовая смена — «Session de caisse», «Cash register shift», «Turno de caja». Исправлены дословные переводы: «Акт разбора», «Кадровый приказ», «Кассовая книга», «Возврат поставщику», виды субконто.
+
+### fr
+- Les sections du programme suivent l'ordre du travail : Achats, Ventes, Entrepôt, Production, Trésorerie, Comptabilité, Paie et personnel, puis CRM et Paramètres. Si vous aviez réorganisé les sections vous-même, votre ordre est conservé.
+- Le groupe « Paramètres du programme » de la section « Paramètres » s'appelle « Options ».
+- Le rapport « Stock brouillon » s'appelle « Factures fiscales : stock insuffisant », d'après ce qu'il affiche.
+- Les noms des documents et des référentiels suivent les usages : la facture comptable devient « Facture fiscale » (et « Facture fiscale fournisseur » à l'achat), les retours fiscaux deviennent « Avoir client » et « Avoir fournisseur », les numéros de déclaration en douane — « Déclarations en douane (DAU, DUM) », la journée de caisse — « Session de caisse », la feuille de caisse — « Livre de caisse », les types de subconto — « Types d'analytique ».
+
+### en
+- The program sections follow the course of work: Purchases, Sales, Warehouse, Production, Treasury, Accounting, Payroll and staff, then CRM and Settings. If you had rearranged the sections yourself, your order is kept.
+- The "Program settings" group of the "Settings" section is now called "Options".
+- The "Draft stock" report is now called "Tax invoices: insufficient stock", to reflect what it shows.
+- Document and catalog names follow common usage: "Accounting invoice" is now "Tax invoice" ("Supplier tax invoice" for purchases); the returns issued with a tax invoice are "Customer credit note" and "Supplier credit note"; customs declaration numbers are "Customs declarations"; "Checkout day" is "Cash register shift"; "Cash sheet" is "Cash book"; "The act of parsing" is "Kit disassembly"; subconto types are "Analytics types"; customer and supplier returns are "Customer return" and "Supplier return".
+
+### es
+- Las secciones del programa siguen el orden del trabajo: Compras, Ventas, Almacén, Producción, Tesorería, Contabilidad, Nómina y personal, después CRM y Configuración. Si había reordenado las secciones usted mismo, se conserva su orden.
+- El grupo «Configuración del programa» de la sección «Configuración» se llama «Parámetros».
+- El informe «Proyecto de stock» se llama «Facturas fiscales: existencias insuficientes», según lo que muestra.
+- Los nombres de documentos y catálogos siguen el uso habitual: la factura contable es «Factura fiscal» («Factura fiscal recibida» en compras); las devoluciones con factura fiscal son «Factura rectificativa emitida» y «Factura rectificativa recibida»; los números de declaración de aduanas son «Declaraciones aduaneras (DUA)»; el cambio de caja es «Turno de caja»; la hoja de efectivo es «Libro de caja»; el acto de análisis es «Desmontaje de kit»; los tipos de subconto son «Tipos de analítica»; también se corrigieron la orden de personal, la devolución de cliente y la devolución al proveedor.
+
+## 2.0.16.3
+### ru
+- Отчёт «Затраты» в разделе «Казначейство» снова формируется. Раньше он останавливался с ошибкой «Поле не найдено "Подразделение"»: группировка была настроена по полю, которого в программе нет. Теперь затраты группируются по организации, месту хранения и статье движения денежных средств.
+
+### fr
+- Le rapport « Dépenses » de la section « Trésorerie » se génère de nouveau. Auparavant il s'arrêtait sur l'erreur « Champ introuvable "Подразделение" » : le regroupement portait sur un champ qui n'existe pas dans le programme. Les dépenses sont maintenant regroupées par organisation, entrepôt et poste de flux de trésorerie.
+
+### en
+- The "Expenses" report in the "Treasury" section generates again. Previously it stopped with the error "Field not found "Подразделение"": it was grouped by a field that does not exist in the program. Expenses are now grouped by organization, warehouse and cash flow item.
+
+### es
+- El informe «Gastos» de la sección «Tesorería» vuelve a generarse. Antes se detenía con el error «Campo no encontrado "Подразделение"»: la agrupación usaba un campo que no existe en el programa. Ahora los gastos se agrupan por organización, almacén y partida de flujo de efectivo.
+
+## 2.0.16.2
+### ru
+- Цена, которую добавили в карточку товара, теперь подставляется в документ продажи. Если товар выбрали в строке коммерческого предложения, заказа или реализации, когда цены у него ещё не было, строка теряла вид цены и дальше считалась строкой с произвольной ценой: цена, установленная позже, не появлялась даже при повторном выборе того же товара. Теперь вид цены в строке сохраняется, и повторный выбор товара подставляет новую цену. В строках, сохранённых раньше, цену подставит кнопка «Перезаполнить цены» (в реализации — «По прайсу»); она перезаполняет цены всех строк документа, в том числе введённые вручную. Цену товара без прайса по-прежнему можно ввести вручную, в том числе в мобильных формах и в заказе интернет-магазина.
+
+### fr
+- Le prix ajouté dans la fiche article est désormais repris dans le document de vente. Si l'article était choisi dans une ligne de devis, de commande ou de vente alors qu'il n'avait pas encore de prix, la ligne perdait son type de prix et était ensuite traitée comme une ligne à prix libre : le prix défini plus tard n'apparaissait pas, même en choisissant de nouveau le même article. Le type de prix de la ligne est maintenant conservé, et choisir de nouveau l'article reprend le nouveau prix. Dans les lignes enregistrées auparavant, le bouton « Actualiser les prix » (dans la vente : « Par liste de prix ») reprend le prix ; il recalcule les prix de toutes les lignes du document, y compris ceux saisis à la main. Le prix d'un article sans tarif peut toujours être saisi à la main, y compris dans les formulaires mobiles et dans la commande de la boutique en ligne.
+
+### en
+- A price added on the item card is now picked up by the sales document. If the item was chosen in a line of a quotation, order or sale while it had no price yet, the line lost its price type and was then treated as a free-price line: a price set later did not appear even when the same item was chosen again. The line now keeps its price type, and choosing the item again fills in the new price. In lines saved earlier, the "Update prices" button (in the sale: "By price list") fills in the price; it refills the prices of all lines of the document, including those entered by hand. The price of an item with no price list entry can still be entered by hand, including in the mobile forms and in the online store order.
+
+### es
+- El precio añadido en la ficha del artículo ahora se aplica en el documento de venta. Si el artículo se elegía en una línea de presupuesto, pedido o venta cuando aún no tenía precio, la línea perdía su tipo de precio y pasaba a tratarse como línea de precio libre: el precio fijado después no aparecía ni al volver a elegir el mismo artículo. Ahora la línea conserva su tipo de precio, y volver a elegir el artículo aplica el nuevo precio. En las líneas guardadas antes, el botón «Reiniciar precios» (en la venta: «Por Price») aplica el precio; vuelve a rellenar los precios de todas las líneas del documento, incluidos los introducidos a mano. El precio de un artículo sin tarifa se puede seguir introduciendo a mano, también en los formularios móviles y en el pedido de la tienda en línea.
+
+## 2.0.16.1
+### ru
+- Налоговые документы больше не двигают товар на складе: налоговая накладная, налоговая накладная покупки и налоговые возвраты от покупателя и поставщику меняют только расчёты и деньги. Остатки ведут реализация и поступление. Раньше налоговая накладная списывала уже проданный товар второй раз и отказывала в проведении, если на складе его не осталось, а налоговая накладная покупки оприходовала товар повторно поверх поступления. Склад по-прежнему должен быть помечен как склад налогового учёта.
+
+### fr
+- Les documents fiscaux ne font plus bouger les marchandises en stock : la facture fiscale, la facture fiscale d'achat et les retours fiscaux client et fournisseur ne modifient que les règlements et la trésorerie. Les stocks sont tenus par la vente et la réception. Auparavant, la facture fiscale sortait une seconde fois une marchandise déjà vendue et refusait la validation s'il n'en restait plus en stock, et la facture fiscale d'achat entrait la marchandise une seconde fois en plus de la réception. L'entrepôt doit toujours être marqué comme entrepôt de comptabilité fiscale.
+
+### en
+- Tax documents no longer move goods in stock: the tax invoice, the purchase tax invoice and the customer and supplier tax returns change only settlements and cash. Stock is kept by the sale and the receipt. Previously the tax invoice wrote off already sold goods a second time and refused to post when none were left in stock, and the purchase tax invoice received the goods a second time on top of the receipt. The warehouse must still be marked as a tax accounting warehouse.
+
+### es
+- Los documentos fiscales ya no mueven mercancías en el almacén: la factura fiscal, la factura fiscal de compra y las devoluciones fiscales de cliente y a proveedor solo cambian los cobros y pagos y el dinero. Las existencias las llevan la venta y la recepción. Antes la factura fiscal daba de baja por segunda vez la mercancía ya vendida y se negaba a contabilizarse si no quedaba en el almacén, y la factura fiscal de compra daba entrada a la mercancía por segunda vez además de la recepción. El almacén debe seguir marcado como almacén de contabilidad fiscal.
+
 # Релиз 2.0.15.71 (2026-09-26)
 
 Поставка: `maERP-2.0.15.71.cf`; обновление с опубликованных релизов — `maERP-2.0.15.71.cfu`.

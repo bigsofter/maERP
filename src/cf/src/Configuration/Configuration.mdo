@@ -29,7 +29,7 @@
   <scriptVariant>Russian</scriptVariant>
   <defaultRoles>Role.Администратор</defaultRoles>
   <vendor>TinyCIO</vendor>
-  <version>2.0.16.150</version>
+  <version>2.0.17.48</version>
   <usedMobileApplicationFunctionalities>
     <functionality>
       <use>true</use>
@@ -381,6 +381,12 @@
   <roles>Role.PDV</roles>
   <roles>Role.ЛичныйКабинет</roles>
   <roles>Role.СкладскиеОрдера</roles>
+  <roles>Role.ПродажаНижеМинимальнойЦены</roles>
+  <roles>Role.ПотребностиТорговыхТочек</roles>
+  <roles>Role.РеализацииИзменениеПроведенных</roles>
+  <roles>Role.ОбменМеждуБазамиНастройка</roles>
+  <roles>Role.ОбменМеждуБазамиСервис</roles>
+  <roles>Role.РедактированиеПоступлениеТоваровУслуг</roles>
   <commonTemplates>CommonTemplate.Драйвер1СЭквайринговыеТерминалыСбербанк</commonTemplates>
   <commonTemplates>CommonTemplate.ОбщиеОбластиСтандартногоОтчета</commonTemplates>
   <commonTemplates>CommonTemplate.ОписаниеИзменений</commonTemplates>
@@ -404,6 +410,11 @@
   <commonTemplates>CommonTemplate.КодЗаполнения</commonTemplates>
   <commonTemplates>CommonTemplate.ПраздничныеДни</commonTemplates>
   <filterCriteria>FilterCriterion.СвязанныеДокументы</filterCriteria>
+  <commonModules>CommonModule.СерийныйУчет</commonModules>
+  <commonModules>CommonModule.СортировкаТаблицФормы</commonModules>
+  <commonModules>CommonModule.СтрокиТоваровСписков</commonModules>
+  <commonModules>CommonModule.СерийныйУчетВызовСервера</commonModules>
+  <commonModules>CommonModule.НезавершенныеПродажиКассы</commonModules>
   <commonModules>CommonModule.ABCАнализ</commonModules>
   <commonModules>CommonModule.АвтотестыКлиент</commonModules>
   <commonModules>CommonModule.БрендированиеВызовСервера</commonModules>
@@ -489,10 +500,19 @@
   <commonModules>CommonModule.ЗагрузкаСтанков</commonModules>
   <commonModules>CommonModule.ТребованияНакладные</commonModules>
   <commonModules>CommonModule.ОрдераСклада</commonModules>
+  <commonModules>CommonModule.ОбменМеждуБазами</commonModules>
+  <commonModules>CommonModule.ОбменМеждуБазамиПолныеПрава</commonModules>
+  <commonModules>CommonModule.ОбменМеждуБазамиВызовСервера</commonModules>
+  <commonModules>CommonModule.ПеренесенныеДокументы</commonModules>
+  <commonModules>CommonModule.НалоговыеРасчетыПроверки</commonModules>
+  <commonModules>CommonModule.ОтсечкаВзаиморасчетов</commonModules>
+  <commonModules>CommonModule.КонтрольЦенПродажи</commonModules>
   <commonModules>CommonModule.ПроцедурыРегламентныхЗаданий</commonModules>
   <commonModules>CommonModule.РаботаСДокументами</commonModules>
   <commonModules>CommonModule.КомандыТабличныхЧастейВызовСервера</commonModules>
   <commonModules>CommonModule.КомандыТабличныхЧастейКлиент</commonModules>
+  <commonModules>CommonModule.ГрупповоеИзменениеСтрок</commonModules>
+  <commonModules>CommonModule.ГрупповоеИзменениеСтрокКлиент</commonModules>
   <commonModules>CommonModule.РаботаСДокументамиВызовСервера</commonModules>
   <commonModules>CommonModule.РаботаСДокументамиКлиент</commonModules>
   <commonModules>CommonModule.РаботаСДокументамиКлиентСервер</commonModules>
@@ -500,6 +520,11 @@
   <commonModules>CommonModule.РаботаСВалютамиКлиентСервер</commonModules>
   <commonModules>CommonModule.РаботаСКонтрагентами</commonModules>
   <commonModules>CommonModule.РаботаСЭлектроннойПочтой</commonModules>
+  <commonModules>CommonModule.РозничныеПродажиКлиентСервер</commonModules>
+  <commonModules>CommonModule.ПотребностиТорговыхТочек</commonModules>
+  <commonModules>CommonModule.ЗагрузкаИзФайла</commonModules>
+  <commonModules>CommonModule.ПотребностиТорговыхТочекВызовСервера</commonModules>
+  <commonModules>CommonModule.ПотребностиТорговыхТочекКлиент</commonModules>
   <commonModules>CommonModule.РеквизитыКонтрагентов</commonModules>
   <commonModules>CommonModule.РеквизитыКонтрагентовВызовСервера</commonModules>
   <commonModules>CommonModule.РеквизитыКонтрагентовКлиент</commonModules>
@@ -512,6 +537,10 @@
   <commonModules>CommonModule.ФорматноЛогическийКонтрольКлиентСервер</commonModules>
   <commonModules>CommonModule.ФорматноЛогическийКонтрольКлиентСерверПереопределяемый</commonModules>
   <commonAttributes>CommonAttribute.УдалитьАвторОбщий</commonAttributes>
+  <exchangePlans>ExchangePlan.ОбменМеждуБазами</exchangePlans>
+  <httpServices>HTTPService.ОбменМеждуБазами</httpServices>
+  <eventSubscriptions>EventSubscription.ЗапретУдаленияСерийных</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.СерийныйУчетПередЗаписью</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ПослеЗаписиСнятиеРазрешенияНаРедактирование</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ПередЗаписьюДокументаСНумерациейПоОрганизации</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ПриУстановкеНовогоНомера</eventSubscriptions>
@@ -521,11 +550,20 @@
   <eventSubscriptions>EventSubscription.ПрежниеПозицииСкладаПередЗаписью</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ПрежниеОснованияОплатыПередЗаписью</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ПлатежПередУдалением</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ОбменМеждуБазамиПередЗаписью</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ОбменМеждуБазамиПроведение</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ОбменМеждуБазамиОтменаПроведения</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ПеренесенныеДокументыПередЗаписью</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ПеренесенныеДокументыПередУдалением</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ПеренесенныеДокументыПередЗаписьюУбытков</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ОтсечкаВзаиморасчетовПередЗаписью</eventSubscriptions>
+  <eventSubscriptions>EventSubscription.ОбменМеждуБазамиПередУдалением</eventSubscriptions>
   <scheduledJobs>ScheduledJob.ОбновлениеРозничныхЦен</scheduledJobs>
   <scheduledJobs>ScheduledJob.ПерепроведениеДокументов</scheduledJobs>
   <scheduledJobs>ScheduledJob.ПроверкаМинимальногоОстатка</scheduledJobs>
   <scheduledJobs>ScheduledJob.УстановкаДатыЗапретаРедактирования</scheduledJobs>
   <scheduledJobs>ScheduledJob.АвтозакрытиеСмены</scheduledJobs>
+  <scheduledJobs>ScheduledJob.ОбменМеждуБазами</scheduledJobs>
   <scheduledJobs>ScheduledJob.ЗакрытиеСеансов</scheduledJobs>
   <scheduledJobs>ScheduledJob.ЗапретОтгрузок</scheduledJobs>
   <functionalOptions>FunctionalOption.ВыборПартииПриПродаже</functionalOptions>
@@ -592,6 +630,8 @@
   <definedTypes>DefinedType.Сумма</definedTypes>
   <definedTypes>DefinedType.СуммаНеотрицательная</definedTypes>
   <definedTypes>DefinedType.ТорговыйОбъектБПО</definedTypes>
+  <commonCommands>CommonCommand.ЗагрузитьИзФайла</commonCommands>
+  <commonCommands>CommonCommand.ФайлыДокумента</commonCommands>
   <commonCommands>CommonCommand.ВыбратьРМТекущегоСеанса</commonCommands>
   <commonCommands>CommonCommand.ЗаказыНаПроизводство</commonCommands>
   <commonCommands>CommonCommand.ИнвентаризацияСтанков</commonCommands>
@@ -618,6 +658,7 @@
   <constants>Constant.ВыводитьЧекНаЭкрнПередПечатью</constants>
   <constants>Constant.ДатаДемоРежима</constants>
   <constants>Constant.ДатаНачалаРасчетаЗарплаты</constants>
+  <constants>Constant.ДатаНачалаУчетаВзаиморасчетов</constants>
   <constants>Constant.ЕдиницаИзмеренияВеса</constants>
   <constants>Constant.ЕдиницаИзмеренияДлины</constants>
   <constants>Constant.ЕдиницаИзмеренияОбъема</constants>
@@ -629,6 +670,7 @@
   <constants>Constant.ИспользоватьАвтовыпускПриОтгрузке</constants>
   <constants>Constant.ИспользоватьПроизводство</constants>
   <constants>Constant.ИспользоватьСерииНоменклатуры</constants>
+  <constants>Constant.ВозвратТолькоПоПродаже</constants>
   <constants>Constant.ИспользоватьСинхронизацию</constants>
   <constants>Constant.ИспользоватьУпаковку</constants>
   <constants>Constant.ИспользоватьХарактеристикиНоменклатуры</constants>
@@ -681,6 +723,7 @@
   <commonForms>CommonForm.ЧтоНового</commonForms>
   <commonForms>CommonForm.ПечатьДокументов</commonForms>
   <commonForms>CommonForm.ВопросОбУстановкеРасширения</commonForms>
+  <catalogs>Catalog.НастройкиЗагрузкиИзФайла</catalogs>
   <catalogs>Catalog.TypesDePayment</catalogs>
   <catalogs>Catalog.Банки</catalogs>
   <catalogs>Catalog.БанковскиеСчета</catalogs>
@@ -707,6 +750,7 @@
   <catalogs>Catalog.КодыТНВЭД</catalogs>
   <catalogs>Catalog.Контрагенты</catalogs>
   <catalogs>Catalog.МестаХранения</catalogs>
+  <catalogs>Catalog.Города</catalogs>
   <catalogs>Catalog.НаборыУпаковок</catalogs>
   <catalogs>Catalog.НаборыДополнительныхРеквизитов</catalogs>
   <catalogs>Catalog.Номенклатура</catalogs>
@@ -720,6 +764,7 @@
   <catalogs>Catalog.ПроизводственноеОборудование</catalogs>
   <catalogs>Catalog.РабочиеМеста</catalogs>
   <catalogs>Catalog.РодыДеятельности</catalogs>
+  <catalogs>Catalog.ЗоныКонтрагентов</catalogs>
   <catalogs>Catalog.СерииНоменклатуры</catalogs>
   <catalogs>Catalog.СтавкиНДС</catalogs>
   <catalogs>Catalog.СтатьиДвиженияДенежныхСредств</catalogs>
@@ -757,6 +802,7 @@
   <documents>Document.ОприходованиеТоваров</documents>
   <documents>Document.ПередачаВПереработку</documents>
   <documents>Document.ПеремещениеТоваров</documents>
+  <documents>Document.ПотребностьТорговойТочки</documents>
   <documents>Document.ПересортицаТоваров</documents>
   <documents>Document.ПересчётТоваров</documents>
   <documents>Document.ПлатёжнаяВедомостьНаАванс</documents>
@@ -774,6 +820,7 @@
   <documents>Document.КоммерческоеПредложение</documents>
   <documents>Document.СверкаВзаиморасчётов</documents>
   <documents>Document.СертификатНаОплату</documents>
+  <documents>Document.УдержаниеНДСПокупателем</documents>
   <documents>Document.СписаниеБезналичныхДенежныхСредств</documents>
   <documents>Document.СписаниеТоваров</documents>
   <documents>Document.ТабельУчётаРабочегоВремени</documents>
@@ -874,6 +921,9 @@
   <enums>Enum.ФормыОплаты</enums>
   <enums>Enum.ХозяйственныеОперации</enums>
   <enums>Enum.СтатусыДокументов</enums>
+  <enums>Enum.РежимыКонтроляМинимальнойЦены</enums>
+  <enums>Enum.РежимыРаботыАРМ</enums>
+  <enums>Enum.СтатусыПотребностейТорговыхТочек</enums>
   <enums>Enum.ВидыУсловияОплаты</enums>
   <enums>Enum.ВидыДокументов</enums>
   <enums>Enum.ВидыЧеков</enums>
@@ -884,6 +934,7 @@
   <enums>Enum.ВариантыНапоминаний</enums>
   <enums>Enum.Периодичность</enums>
   <enums>Enum.СтатусыЗаказовПоставщику</enums>
+  <enums>Enum.ВидыТранспортаОбменаМеждуБазами</enums>
   <reports>Report.ИсторияТовара</reports>
   <reports>Report.АнализСубконто</reports>
   <reports>Report.АнализСчета</reports>
@@ -915,6 +966,8 @@
   <reports>Report.ОтчетПоЗП</reports>
   <reports>Report.ОтчетПоНедостаткамТовара</reports>
   <reports>Report.ОтчетПоПересчетам</reports>
+  <reports>Report.АнализИнвентаризаций</reports>
+  <reports>Report.ОтгрузкиСИзмененнымиЦенами</reports>
   <reports>Report.ОтчетПоПроводкам</reports>
   <reports>Report.ПланированиеЗакупок</reports>
   <reports>Report.ПотребностиПроизводства</reports>
@@ -961,7 +1014,7 @@
   <dataProcessors>DataProcessor.ГрупповоеСозданиеДокументов</dataProcessors>
   <dataProcessors>DataProcessor.Дашборд</dataProcessors>
   <dataProcessors>DataProcessor.КонсольОтчетов</dataProcessors>
-  <dataProcessors>DataProcessor.ЗагрузкаИзExcel</dataProcessors>
+  <dataProcessors>DataProcessor.ЗагрузкаИзФайла</dataProcessors>
   <dataProcessors>DataProcessor.КлиентБанк</dataProcessors>
   <dataProcessors>DataProcessor.ЛичныйКабинетПартнера</dataProcessors>
   <dataProcessors>DataProcessor.ОбновитьПоставляемыеДрайвера</dataProcessors>
@@ -975,7 +1028,23 @@
   <dataProcessors>DataProcessor.НастройкиПрограммы</dataProcessors>
   <dataProcessors>DataProcessor.НачальноеЗаполнение</dataProcessors>
   <dataProcessors>DataProcessor.СменаПароля</dataProcessors>
+  <dataProcessors>DataProcessor.ПроверкаЦен</dataProcessors>
+  <dataProcessors>DataProcessor.МобильнаяПриемка</dataProcessors>
+  <dataProcessors>DataProcessor.МониторОбменаМеждуБазами</dataProcessors>
   <dataProcessors>DataProcessor.ФормированиеЗаказовПоставщику</dataProcessors>
+  <dataProcessors>DataProcessor.ЗагрузкаПереносаСтаройРедакции</dataProcessors>
+  <informationRegisters>InformationRegister.ПереходныеПриходыБезСерии</informationRegisters>
+  <informationRegisters>InformationRegister.СерийныеНомера</informationRegisters>
+  <informationRegisters>InformationRegister.ОперацииКассы</informationRegisters>
+  <informationRegisters>InformationRegister.ИспользованныеСсылкиПриемки</informationRegisters>
+  <informationRegisters>InformationRegister.СоответствияОбъектовОбмена</informationRegisters>
+  <informationRegisters>InformationRegister.ВходящиеОбъектыОбмена</informationRegisters>
+  <informationRegisters>InformationRegister.СостояниеОбменаМеждуБазами</informationRegisters>
+  <informationRegisters>InformationRegister.ЖурналОтправкиОбмена</informationRegisters>
+  <informationRegisters>InformationRegister.УчетныеДанныеОбмена</informationRegisters>
+  <informationRegisters>InformationRegister.СопоставлениеЕдиницОбмена</informationRegisters>
+  <informationRegisters>InformationRegister.ИсходящееСообщениеОбмена</informationRegisters>
+  <informationRegisters>InformationRegister.СверкаВосстановленияОбмена</informationRegisters>
   <informationRegisters>InformationRegister.ДатыЗапретаРедактирования</informationRegisters>
   <informationRegisters>InformationRegister.ДинамическаяКорзинаЛКП</informationRegisters>
   <informationRegisters>InformationRegister.ДополнительныеСведенияНоменклатуры</informationRegisters>
@@ -986,6 +1055,7 @@
   <informationRegisters>InformationRegister.ИзбранныеОтчеты</informationRegisters>
   <informationRegisters>InformationRegister.ИдентификаторыРабочихМест</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияЗаказовПокупателейПоСтатусам</informationRegisters>
+  <informationRegisters>InformationRegister.ИсторияСтатусовПотребностей</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияОбменаДанными</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияПоискаВЛКП</informationRegisters>
   <informationRegisters>InformationRegister.ИсторияУправленияКонфигураций</informationRegisters>
@@ -1025,6 +1095,7 @@
   <informationRegisters>InformationRegister.ЦеныПродажи</informationRegisters>
   <informationRegisters>InformationRegister.ЦеныНоменклатурыПоставщиков</informationRegisters>
   <informationRegisters>InformationRegister.ШтрихкодыНоменклатуры</informationRegisters>
+  <informationRegisters>InformationRegister.ПеренесенныеДокументы</informationRegisters>
   <accumulationRegisters>AccumulationRegister.ВзаиморасчётыСКонтрагентамиПрочие</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ВзаиморасчётыСПоcтавщикамиНалоговый</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ВзаиморасчётыСПокупателями</accumulationRegisters>
@@ -1039,6 +1110,7 @@
   <accumulationRegisters>AccumulationRegister.Зарплата</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ОплатыЧеками</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ПотребностиПроизводства</accumulationRegisters>
+  <accumulationRegisters>AccumulationRegister.ПотребностиТорговыхТочек</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.Продажи</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.СебестоимостьПродаж</accumulationRegisters>
   <accumulationRegisters>AccumulationRegister.ТоварыВНаличии</accumulationRegisters>

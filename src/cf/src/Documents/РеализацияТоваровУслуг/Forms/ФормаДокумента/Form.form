@@ -1051,15 +1051,15 @@
                             </title>
                             <title>
                               <key>fr</key>
-                              <value>Terme de paiement</value>
+                              <value>Date d'échéance</value>
                             </title>
                             <title>
                               <key>en</key>
-                              <value>Payment term</value>
+                              <value>Due date</value>
                             </title>
                             <title>
                               <key>es</key>
-                              <value>Plazo de pago</value>
+                              <value>Fecha de vencimiento</value>
                             </title>
                             <visible>true</visible>
                             <enabled>true</enabled>
@@ -3615,6 +3615,12 @@
           <showInHeader>true</showInHeader>
           <headerHorizontalAlign>Center</headerHorizontalAlign>
           <showInFooter>true</showInFooter>
+          <footerDataPath xsi:type="form:DataPath">
+            <segments>Объект.ТЧТовары.TotalСуммаСкидки</segments>
+          </footerDataPath>
+          <footerFont xsi:type="core:FontRef">
+            <font>Style.Шрифт_Подвал</font>
+          </footerFont>
           <extInfo xsi:type="form:InputFieldExtInfo">
             <width>10</width>
             <autoMaxWidth>true</autoMaxWidth>
@@ -4214,6 +4220,218 @@
             <placementArea>UserCmds</placementArea>
             <representationInContextMenu>Auto</representationInContextMenu>
           </items>
+          <items xsi:type="form:FormGroup">
+            <name>ТЧТоварыГруппаИзменитьСтроки</name>
+            <id>617</id>
+            <items xsi:type="form:Button">
+              <name>ТЧТоварыИзменитьСтрокиСкидкаПроцент</name>
+              <id>619</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>ТЧТоварыИзменитьСтрокиСкидкаПроцентРасширеннаяПодсказка</name>
+                <id>620</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.ИзменитьСтрокиСкидкаПроцент</commandName>
+              <buttonImportance>Normal</buttonImportance>
+              <representation>Auto</representation>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+            </items>
+            <items xsi:type="form:Button">
+              <name>ТЧТоварыИзменитьСтрокиСкидкаСуммой</name>
+              <id>621</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>ТЧТоварыИзменитьСтрокиСкидкаСуммойРасширеннаяПодсказка</name>
+                <id>622</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.ИзменитьСтрокиСкидкаСуммой</commandName>
+              <buttonImportance>Normal</buttonImportance>
+              <representation>Auto</representation>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+            </items>
+            <items xsi:type="form:Button">
+              <name>ТЧТоварыИзменитьСтрокиИтогДокумента</name>
+              <id>623</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>ТЧТоварыИзменитьСтрокиИтогДокументаРасширеннаяПодсказка</name>
+                <id>624</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.ИзменитьСтрокиИтогДокумента</commandName>
+              <buttonImportance>Normal</buttonImportance>
+              <representation>Auto</representation>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+            </items>
+            <items xsi:type="form:Button">
+              <name>ТЧТоварыИзменитьСтрокиУбратьСкидки</name>
+              <id>625</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>ТЧТоварыИзменитьСтрокиУбратьСкидкиРасширеннаяПодсказка</name>
+                <id>626</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.ИзменитьСтрокиУбратьСкидки</commandName>
+              <buttonImportance>Normal</buttonImportance>
+              <representation>Auto</representation>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+            </items>
+            <items xsi:type="form:Button">
+              <name>ТЧТоварыИзменитьСтрокиЦеныНаПроцент</name>
+              <id>627</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>ТЧТоварыИзменитьСтрокиЦеныНаПроцентРасширеннаяПодсказка</name>
+                <id>628</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.ИзменитьСтрокиЦеныНаПроцент</commandName>
+              <buttonImportance>Normal</buttonImportance>
+              <representation>Auto</representation>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+            </items>
+            <items xsi:type="form:Button">
+              <name>ТЧТоварыИзменитьСтрокиОкруглитьЦены</name>
+              <id>629</id>
+              <visible>true</visible>
+              <enabled>true</enabled>
+              <userVisible>
+                <common>true</common>
+              </userVisible>
+              <extendedTooltip>
+                <name>ТЧТоварыИзменитьСтрокиОкруглитьЦеныРасширеннаяПодсказка</name>
+                <id>630</id>
+                <type>Label</type>
+                <autoMaxWidth>true</autoMaxWidth>
+                <autoMaxHeight>true</autoMaxHeight>
+                <extInfo xsi:type="form:LabelDecorationExtInfo">
+                  <horizontalAlign>Left</horizontalAlign>
+                </extInfo>
+              </extendedTooltip>
+              <commandName>Form.Command.ИзменитьСтрокиОкруглитьЦены</commandName>
+              <buttonImportance>Normal</buttonImportance>
+              <representation>Auto</representation>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <placementArea>UserCmds</placementArea>
+              <representationInContextMenu>Auto</representationInContextMenu>
+            </items>
+            <visible>true</visible>
+            <enabled>true</enabled>
+            <userVisible>
+              <common>true</common>
+            </userVisible>
+            <title>
+              <key>ru</key>
+              <value>Изменить</value>
+            </title>
+            <title>
+              <key>fr</key>
+              <value>Modifier</value>
+            </title>
+            <title>
+              <key>en</key>
+              <value>Change</value>
+            </title>
+            <title>
+              <key>es</key>
+              <value>Modificar</value>
+            </title>
+            <toolTip>
+              <key>ru</key>
+              <value>Групповое изменение скидок и цен выбранных строк</value>
+            </toolTip>
+            <toolTip>
+              <key>fr</key>
+              <value>Modification groupée des remises et des prix des lignes sélectionnées</value>
+            </toolTip>
+            <toolTip>
+              <key>en</key>
+              <value>Bulk change of discounts and prices of the selected lines</value>
+            </toolTip>
+            <toolTip>
+              <key>es</key>
+              <value>Modificación masiva de descuentos y precios de las líneas seleccionadas</value>
+            </toolTip>
+            <extendedTooltip>
+              <name>ТЧТоварыГруппаИзменитьСтрокиРасширеннаяПодсказка</name>
+              <id>618</id>
+              <type>Label</type>
+              <autoMaxWidth>true</autoMaxWidth>
+              <autoMaxHeight>true</autoMaxHeight>
+              <extInfo xsi:type="form:LabelDecorationExtInfo">
+                <horizontalAlign>Left</horizontalAlign>
+              </extInfo>
+            </extendedTooltip>
+            <type>Popup</type>
+            <extInfo xsi:type="form:PopupGroupExtInfo">
+              <representation>Auto</representation>
+              <importance>Normal</importance>
+            </extInfo>
+          </items>
           <horizontalAlign>Left</horizontalAlign>
           <autoFill>true</autoFill>
         </autoCommandBar>
@@ -4224,6 +4442,10 @@
         <handlers>
           <event>BeforeDeleteRow</event>
           <name>ТЧТоварыПередУдалением</name>
+        </handlers>
+        <handlers>
+          <event>AfterDeleteRow</event>
+          <name>ТЧТоварыПослеУдаления</name>
         </handlers>
         <handlers>
           <event>BeforeEditEnd</event>
@@ -4497,6 +4719,10 @@
               <dataPath xsi:type="form:DataPath">
                 <segments>Объект.ТЧУслуги.Номенклатура</segments>
               </dataPath>
+              <handlers>
+                <event>OnChange</event>
+                <name>ТЧУслугиНоменклатураПриИзменении</name>
+              </handlers>
               <extendedTooltip>
                 <name>ТЧУслугиНоменклатураРасширеннаяПодсказка</name>
                 <id>370</id>
@@ -7035,6 +7261,74 @@
         </extInfo>
       </items>
       <items xsi:type="form:FormField">
+        <name>ИтогСкидка</name>
+        <id>631</id>
+        <title>
+          <key>ru</key>
+          <value>Скидка</value>
+        </title>
+        <title>
+          <key>fr</key>
+          <value>Remise</value>
+        </title>
+        <title>
+          <key>en</key>
+          <value>Discount</value>
+        </title>
+        <title>
+          <key>es</key>
+          <value>Descuento</value>
+        </title>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <dataPath xsi:type="form:DataPath">
+          <segments>ИтогСкидка</segments>
+        </dataPath>
+        <toolTip>
+          <key>ru</key>
+          <value>Сумма скидок строк товаров (с НДС)</value>
+        </toolTip>
+        <toolTip>
+          <key>fr</key>
+          <value>Total des remises des lignes d'articles (TTC)</value>
+        </toolTip>
+        <toolTip>
+          <key>en</key>
+          <value>Total discounts of the product lines (incl. VAT)</value>
+        </toolTip>
+        <toolTip>
+          <key>es</key>
+          <value>Suma de descuentos de las líneas de artículos (con IVA)</value>
+        </toolTip>
+        <extendedTooltip>
+          <name>ИтогСкидкаРасширеннаяПодсказка</name>
+          <id>632</id>
+          <type>Label</type>
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <extInfo xsi:type="form:LabelDecorationExtInfo">
+            <horizontalAlign>Left</horizontalAlign>
+          </extInfo>
+        </extendedTooltip>
+        <contextMenu>
+          <name>ИтогСкидкаКонтекстноеМеню</name>
+          <id>633</id>
+          <autoFill>true</autoFill>
+        </contextMenu>
+        <type>InputField</type>
+        <editMode>Enter</editMode>
+        <readOnly>true</readOnly>
+        <extInfo xsi:type="form:InputFieldExtInfo">
+          <autoMaxWidth>true</autoMaxWidth>
+          <autoMaxHeight>true</autoMaxHeight>
+          <textEdit>true</textEdit>
+          <textSize>Normal</textSize>
+        </extInfo>
+      </items>
+      <items xsi:type="form:FormField">
         <name>ИтогНДС</name>
         <id>529</id>
         <title>
@@ -7843,6 +8137,68 @@
     </edit>
     <functionalOptions>FunctionalOption.РаздельныйУчет</functionalOptions>
   </attributes>
+  <attributes>
+    <name>ИтогСкидка</name>
+    <title>
+      <key>ru</key>
+      <value>Скидка</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remise</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Discount</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Descuento</value>
+    </title>
+    <id>13</id>
+    <valueType>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
+  <attributes>
+    <name>СтавкаЗоныНДС</name>
+    <title>
+      <key>ru</key>
+      <value>Ставка зоны НДС</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Taux TVA de la zone</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Zone VAT rate</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Tipo de IVA de la zona</value>
+    </title>
+    <id>14</id>
+    <valueType>
+      <types>CatalogRef.СтавкиНДС</types>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+  </attributes>
   <formCommands>
     <name>ПодобратьОснования</name>
     <title>
@@ -8271,8 +8627,295 @@
     <currentRowUse>Auto</currentRowUse>
     <selectedRowsUse>Auto</selectedRowsUse>
   </formCommands>
+  <formCommands>
+    <name>ИзменитьСтрокиСкидкаПроцент</name>
+    <title>
+      <key>ru</key>
+      <value>Скидка, %</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remise, %</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Discount, %</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Descuento, %</value>
+    </title>
+    <id>11</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Процент скидки выбранных строк (одна или ни одной - всех строк)</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Pourcentage de remise des lignes sélectionnées (une ou aucune : toutes les lignes)</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Discount percentage of the selected lines (one or none: all lines)</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Porcentaje de descuento de las líneas seleccionadas (una o ninguna: todas las líneas)</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ИзменитьСтроки</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ИзменитьСтрокиСкидкаСуммой</name>
+    <title>
+      <key>ru</key>
+      <value>Скидка суммой</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Remise en montant</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Discount amount</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Descuento en importe</value>
+    </title>
+    <id>12</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Сумма скидки раскладывается по строкам пропорционально их суммам и заменяет прежние скидки</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Le montant de la remise est réparti entre les lignes au prorata de leurs montants et remplace les remises précédentes</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>The discount amount is spread over the lines in proportion to their amounts and replaces previous discounts</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>El importe del descuento se reparte entre las líneas en proporción a sus importes y sustituye los descuentos anteriores</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ИзменитьСтроки</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ИзменитьСтрокиИтогДокумента</name>
+    <title>
+      <key>ru</key>
+      <value>Итог документа...</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Total du document...</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Document total...</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Total del documento...</value>
+    </title>
+    <id>13</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Задать итог строк с НДС: скидка считается сама</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Fixer le total TTC des lignes : la remise est calculée automatiquement</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Set the lines total incl. VAT: the discount is calculated automatically</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Fijar el total con IVA de las líneas: el descuento se calcula solo</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ИзменитьСтроки</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ИзменитьСтрокиУбратьСкидки</name>
+    <title>
+      <key>ru</key>
+      <value>Убрать скидки</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Supprimer les remises</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Remove discounts</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Quitar descuentos</value>
+    </title>
+    <id>14</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Обнулить скидки строк</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Mettre à zéro les remises des lignes</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Clear the line discounts</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Poner a cero los descuentos de las líneas</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ИзменитьСтроки</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ИзменитьСтрокиЦеныНаПроцент</name>
+    <title>
+      <key>ru</key>
+      <value>Цены на %</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Prix de %</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Prices by %</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Precios en %</value>
+    </title>
+    <id>15</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Изменить цены строк на процент (минус - снижение)</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Modifier les prix des lignes d'un pourcentage (moins : baisse)</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Change line prices by a percentage (minus: decrease)</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Cambiar los precios de las líneas en un porcentaje (menos: reducción)</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ИзменитьСтроки</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
+  <formCommands>
+    <name>ИзменитьСтрокиОкруглитьЦены</name>
+    <title>
+      <key>ru</key>
+      <value>Округлить цены</value>
+    </title>
+    <title>
+      <key>fr</key>
+      <value>Arrondir les prix</value>
+    </title>
+    <title>
+      <key>en</key>
+      <value>Round prices</value>
+    </title>
+    <title>
+      <key>es</key>
+      <value>Redondear precios</value>
+    </title>
+    <id>16</id>
+    <toolTip>
+      <key>ru</key>
+      <value>Округлить цены строк до 1, 0,1 или 0,01</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Arrondir les prix des lignes à 1, 0,1 ou 0,01</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Round line prices to 1, 0.1 or 0.01</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Redondear los precios de las líneas a 1, 0,1 o 0,01</value>
+    </toolTip>
+    <use>
+      <common>true</common>
+    </use>
+    <action xsi:type="form:FormCommandHandlerContainer">
+      <handler>
+        <name>ИзменитьСтроки</name>
+      </handler>
+    </action>
+    <modifiesStoredData>true</modifiesStoredData>
+    <currentRowUse>Auto</currentRowUse>
+    <selectedRowsUse>Auto</selectedRowsUse>
+  </formCommands>
   <commandInterface>
-    <navigationPanel/>
+    <navigationPanel>
+      <cmiFragmentRecord>
+        <command>InformationRegister.ПрисоединённыеФайлы.StandardCommand.OpenByValue.Объект</command>
+        <userVisible/>
+      </cmiFragmentRecord>
+    </navigationPanel>
     <commandBar>
       <cmiFragmentRecord>
         <command>0</command>
@@ -8292,6 +8935,10 @@
     </commandBar>
   </commandInterface>
   <extInfo xsi:type="form:DocumentFormExtInfo">
+    <handlers>
+      <event>OnReadAtServer</event>
+      <name>ПриЧтенииНаСервере</name>
+    </handlers>
     <handlers>
       <event>AfterWriteAtServer</event>
       <name>ПослеЗаписиНаСервере</name>

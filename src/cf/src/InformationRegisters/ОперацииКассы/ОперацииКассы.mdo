@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4c89cde6-8514-4094-bf3f-05107d094907">
+  <producedTypes>
+    <selectionType typeId="4ef0585b-e90f-40f0-a9a4-eb40f08a52ad" valueTypeId="f21c301a-e550-426d-a07e-91ee195fd058"/>
+    <listType typeId="2b0a2302-662e-4a09-beed-5240afaf3f09" valueTypeId="24d4fcaf-75d1-4073-939f-f03239f716cd"/>
+    <managerType typeId="b69522f8-6185-47f2-9447-1ad54ffe4163" valueTypeId="5148504c-73ec-4b73-8fa4-5ee839697980"/>
+    <recordSetType typeId="f50763a8-524f-4ce8-a97a-cd4297250b32" valueTypeId="76887347-fe63-446a-91c3-38ec66170082"/>
+    <recordKeyType typeId="2af33067-8e9e-41ec-8532-62f6c896b2d1" valueTypeId="f67801f0-99ed-40c8-8da7-d12b2b0ca8d9"/>
+    <recordType typeId="3af3dbd1-3398-4b87-9317-2700f7aaad37" valueTypeId="e0b02610-bec4-447f-90a9-9a08c3721296"/>
+    <recordManagerType typeId="6f9478d1-4497-4006-99cb-35619069001a" valueTypeId="597342d3-adbc-4fc9-830e-c20947beb1ad"/>
+  </producedTypes>
+  <name>ОперацииКассы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Операции кассы</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Opérations de caisse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cash desk operations</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Operaciones de caja</value>
+    </synonym>
+  <useStandardCommands>false</useStandardCommands>
+  <editType>InDialog</editType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="d88bb580-3957-47b9-92eb-006e7899defb">
+    <name>ДокументЧека</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Document</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Document</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documento</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.ВозвратОтПокупателя</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="ebea7880-1e40-4675-8ea9-d6e39b028f5d">
+    <name>Отпечаток</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отпечаток запроса</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Empreinte de la demande</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Request fingerprint</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Huella de la solicitud</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="bc2d761c-f458-4ca9-8922-ac41b68f50c9">
+    <name>КассоваяСмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кассовая смена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Session de caisse</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cash session</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Turno de caja</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.КассоваяСмена</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="9e4d235b-f89e-4b63-ac6c-fa91c05ac7f7">
+    <name>Дата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Date</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Date</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Fecha</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>DateTime</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="ff193050-f479-46db-b9ee-9dcd2726c34f">
+    <name>ВнесеноНаличными</name>
+    <synonym>
+      <key>ru</key>
+      <value>Внесено наличными</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Espèces remises</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Cash tendered</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Efectivo entregado</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="17f42a48-a4a0-42d6-96fb-90f5c1fd860d">
+    <name>Сдача</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сдача</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Monnaie rendue</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Change</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Cambio</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="269d6e06-b0dd-4530-b2f0-4e758e29a741">
+    <name>СуммаОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма оплаты</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Montant du paiement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Payment amount</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Importe del pago</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="2dbeaabc-a8e0-4f6e-8d85-9e8b8e5d2511">
+    <name>ДокументыОперации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документы операции</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Documents de l'opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation documents</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Documentos de la operación</value>
+    </synonym>
+    <type>
+      <types>ValueStorage</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="bff58fdf-24b1-470f-a303-2e12c77be2cb">
+    <name>Подтверждена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подтверждена</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Confirmée</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Confirmed</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Confirmada</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="cfb1ecc2-7e7f-487e-96e7-989222606ae9">
+    <name>Пользователь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Пользователь</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Utilisateur</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>User</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Usuario</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="f1db0a5e-6768-4d18-9263-0c80bfe936f2">
+    <name>Идентификатор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Идентификатор операции</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Identifiant de l'opération</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Operation ID</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Identificador de la operación</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>36</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

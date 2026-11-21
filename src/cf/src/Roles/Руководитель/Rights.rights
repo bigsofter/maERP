@@ -4,6 +4,13 @@
 	<setForAttributesByDefault>true</setForAttributesByDefault>
 	<independentRightsOfChildObjects>false</independentRightsOfChildObjects>
 	<object>
+		<name>CommonCommand.ФайлыДокумента</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>AccumulationRegister.ТоварыКОформлению</name>
 		<right>
 			<name>Read</name>
@@ -971,6 +978,64 @@
 		</right>
 	</object>
 	<object>
+		<name>Document.УдержаниеНДСПокупателем</name>
+		<right>
+			<name>Insert</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Delete</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Posting</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>UndoPosting</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveDelete</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveDeleteMarked</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractivePosting</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractivePostingRegular</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveUndoPosting</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Constant.ДатаНачалаУчетаВзаиморасчетов</name>
+		<right>
+			<name>Update</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
 		<name>Document.НалоговаяНакладная</name>
 		<right>
 			<name>Delete</name>
@@ -1554,6 +1619,21 @@
 	</object>
 	<object>
 		<name>Catalog.Контрагенты</name>
+		<right>
+			<name>InteractiveDelete</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveDeletePredefinedData</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>InteractiveDeleteMarkedPredefinedData</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Города</name>
 		<right>
 			<name>InteractiveDelete</name>
 			<value>false</value>
@@ -2595,6 +2675,91 @@
 		</right>
 		<right>
 			<name>SwitchToDataHistoryVersion</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.НастройкиЗагрузкиИзФайла</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ГДЕ Общая ИЛИ Автор = &amp;Пользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ГДЕ Автор = &amp;Пользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ГДЕ Автор = &amp;Пользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>CommonCommand.ЗагрузитьИзФайла</name>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>DataProcessor.ЗагрузкаИзФайла</name>
+		<right>
+			<name>Use</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ПеренесенныеДокументы</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
 			<value>false</value>
 		</right>
 	</object>

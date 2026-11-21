@@ -639,7 +639,7 @@
       <autoFill>true</autoFill>
     </contextMenu>
     <representation>HierarchicalList</representation>
-    <changeRowSet>true</changeRowSet>
+    <changeRowSet>false</changeRowSet>
     <changeRowOrder>true</changeRowOrder>
     <autoMaxWidth>true</autoMaxWidth>
     <autoMaxHeight>true</autoMaxHeight>
@@ -794,6 +794,7 @@
 			И (EMail.Реквизит = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыРеквизитовКонтрагентов.EMail))
 ГДЕ
 	СправочникКонтрагенты.Покупатель
+	И НЕ СправочникКонтрагенты.НеОтображатьВИнтерфейсеКассира
 
 СГРУППИРОВАТЬ ПО
 	СправочникКонтрагенты.Ссылка,

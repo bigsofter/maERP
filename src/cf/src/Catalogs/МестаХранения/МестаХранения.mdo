@@ -207,6 +207,128 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <attributes uuid="5c644245-056c-4e91-a109-f60c826db2e7">
+    <name>СкладСнабжения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад снабжения точек</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Entrepôt d'approvisionnement des points</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Supplies stores</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Abastece puntos de venta</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="a9f48a52-5ebb-46c9-8efa-5c402b1659dc">
+    <name>СкладСнабженияТочки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Склад снабжения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Entrepôt d'approvisionnement</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Supply warehouse</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Almacén de abastecimiento</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.МестаХранения</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameters>
+      <name>Отбор.СкладСнабжения</name>
+      <value xsi:type="core:BooleanValue">
+        <value>true</value>
+      </value>
+    </choiceParameters>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="0f0c24de-e1fa-4047-88f3-168d36609cdf">
+    <name>ДнейЗапаса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дней запаса</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Jours de stock</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Days of stock</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Días de existencias</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>3</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="68f7baa9-4319-4564-96e5-ebfe224adf52">
+    <name>ДнейАнализаПродаж</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дней анализа продаж</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Jours d'analyse des ventes</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sales analysis days</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Días de análisis de ventas</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>3</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <attributes uuid="3a3eb75d-1b80-4cc3-9fd5-8151c89f290c">
     <name>ДоляОбщихРасходов</name>
     <synonym>
@@ -398,6 +520,135 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <attributes uuid="af5c86da-24d1-4335-bd32-10944aaa2c2c">
+    <name>ВидЦеныПродажи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид цены продажи</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de prix de vente</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Sales price type</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de precio de venta</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Цены продажи со склада. Пусто — как раньше: вид цены покупателя или «Розничная»</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Prix de vente de l'entrepôt. Vide — comme avant : type de prix du client ou « Détail »</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Warehouse sales prices. Empty — as before: customer's price type or Retail</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Precios de venta del almacén. Vacío — como antes: tipo de precio del cliente o «Minorista»</value>
+    </toolTip>
+    <type>
+      <types>CatalogRef.ВидыЦен</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="03a01ad5-1f26-4965-8364-d1e6de53df08">
+    <name>КонтрольМинимальнойЦены</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контроль минимальной цены</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Contrôle du prix minimal</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Minimum price check</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Control del precio mínimo</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Запрет продажи со склада ниже вида цен или ниже себестоимости</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Interdire la vente depuis l'entrepôt en dessous du type de prix ou du coût de revient</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Forbid sales from the warehouse below the price type or below cost</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Prohibir la venta desde el almacén por debajo del tipo de precio o del coste</value>
+    </toolTip>
+    <type>
+      <types>EnumRef.РежимыКонтроляМинимальнойЦены</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="69670bf2-b0b6-4c43-9de6-eb6624341ba5">
+    <name>ВидЦеныМинимальный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Минимальный вид цены</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Type de prix minimal</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Minimum price type</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Tipo de precio mínimo</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Порог контроля «не ниже вида цен». Пусто — «Минимальная цена продажи»</value>
+    </toolTip>
+    <toolTip>
+      <key>fr</key>
+      <value>Seuil du contrôle « pas en dessous du type de prix ». Vide — « Prix minimal de vente »</value>
+    </toolTip>
+    <toolTip>
+      <key>en</key>
+      <value>Threshold for "not below price type". Empty — "Minimum sale price"</value>
+    </toolTip>
+    <toolTip>
+      <key>es</key>
+      <value>Umbral del control «no inferior al tipo de precio». Vacío — «Precio mínimo de venta»</value>
+    </toolTip>
+    <type>
+      <types>CatalogRef.ВидыЦен</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <forms uuid="f9e4291a-60ba-4501-b1d5-22bedea800ea">
     <name>ФормаЭлемента</name>
     <synonym>
@@ -440,4 +691,63 @@
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
   </forms>
+  <tabularSections uuid="96d01978-77d3-488d-b18f-405f1b6118f8">
+    <producedTypes>
+      <objectType typeId="2803a1f6-235a-41bb-99df-7fa8986c1cd2" valueTypeId="c29e8a61-cec6-4b79-9c08-8eef6937ab40"/>
+      <rowType typeId="6600c798-f664-4751-8daf-d00d3e3952f7" valueTypeId="ad12fe98-6365-455d-8a31-41301783dac8"/>
+    </producedTypes>
+    <name>ТЧПолучателиОповещения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Получатели оповещений</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Destinataires des notifications</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Notification recipients</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Destinatarios de las notificaciones</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="1bddac44-f8d3-4317-8e93-562e95719a67">
+      <name>Получатель</name>
+      <synonym>
+        <key>ru</key>
+        <value>Получатель</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>Destinataire</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>Recipient</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>Destinatario</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Пользователи</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <dataHistory>Use</dataHistory>
+    </attributes>
+  </tabularSections>
 </mdclass:Catalog>

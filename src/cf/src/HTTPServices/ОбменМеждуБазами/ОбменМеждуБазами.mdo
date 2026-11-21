@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="358c54b6-e1c3-46d0-b229-1d214b0fe511">
+  <name>ОбменМеждуБазами</name>
+  <synonym>
+    <key>ru</key>
+    <value>Обмен между базами</value>
+  </synonym>
+  <synonym>
+    <key>fr</key>
+    <value>Échange entre bases</value>
+  </synonym>
+  <synonym>
+    <key>en</key>
+    <value>Inter-base exchange</value>
+  </synonym>
+  <synonym>
+    <key>es</key>
+    <value>Intercambio entre bases</value>
+  </synonym>
+  <rootURL>exchange</rootURL>
+  <reuseSessions>DontUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="fd0c94fb-7acd-46ac-98c0-e5f7a7588059">
+    <name>Сообщение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сообщение</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Message</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Message</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Mensaje</value>
+    </synonym>
+    <template>/message/{Код}</template>
+    <methods uuid="2ab01c73-5485-44cb-bb17-953c989393ea">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>POST</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>POST</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>СообщениеPOST</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="2419c3c8-b110-4e60-b724-883486d2e92d">
+    <name>Проверка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Проверка подключения</value>
+    </synonym>
+    <synonym>
+      <key>fr</key>
+      <value>Vérification de la connexion</value>
+    </synonym>
+    <synonym>
+      <key>en</key>
+      <value>Connection check</value>
+    </synonym>
+    <synonym>
+      <key>es</key>
+      <value>Comprobación de conexión</value>
+    </synonym>
+    <template>/ping/{Код}</template>
+    <methods uuid="50a72bcb-60c8-4c74-a24f-d85c5e3ef786">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <synonym>
+        <key>fr</key>
+        <value>GET</value>
+      </synonym>
+      <synonym>
+        <key>en</key>
+        <value>GET</value>
+      </synonym>
+      <synonym>
+        <key>es</key>
+        <value>GET</value>
+      </synonym>
+      <httpMethod>GET</httpMethod>
+      <handler>ПроверкаGET</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>

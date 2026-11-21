@@ -105,9 +105,12 @@ echo "== Шаг 2. Смок-тест «открыть все формы» =="
 # сервера» дважды и падает на старте («функция уже определена»).
 V8C="${V8_DIR}/1cv8c"
 rm -f "$REPORT" "$CLIENT_LOG"
-"$V8C" ENTERPRISE /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /C "СмокТест;$REPORT" \
+# SMOKE_MODE - третья часть параметра запуска: «БезСтрок» - без пятого прохода (клиентские проверки записывают и
+# удаляют документы с пустыми реквизитами - на базе клиента выключать), «ТолькоСтроки» - только он (отладка).
+LAUNCH="СмокТест;$REPORT${SMOKE_MODE:+;$SMOKE_MODE}"
+"$V8C" ENTERPRISE /F "$IB" ${AUTH[@]+"${AUTH[@]}"} /C "$LAUNCH" \
 	"${V8_BATCH[@]}" /Out "$CLIENT_LOG" || true
-if ! wait_client_start "СмокТест;$REPORT" "$REPORT"; then
+if ! wait_client_start "$LAUNCH" "$REPORT"; then
 	echo "Клиент не стартовал за ${START_TIMEOUT}с (нет строки СТАРТ в $REPORT) — процесс снят."
 	echo "Клиентский лог: $CLIENT_LOG"
 	[ -f "$CLIENT_LOG" ] && cat "$CLIENT_LOG"
@@ -115,7 +118,7 @@ if ! wait_client_start "СмокТест;$REPORT" "$REPORT"; then
 	exit 1
 fi
 
-if wait_report_mark "СмокТест;$REPORT" "$REPORT" "ИТОГ;"; then
+if wait_report_mark "$LAUNCH" "$REPORT" "ИТОГ;"; then
 	grep 'ИТОГ;' "$REPORT"
 	SKIPPED=$(grep -c 'ПРОПУСК;' "$REPORT" || true)
 	EMPTY=$(grep -c 'ПУСТО;' "$REPORT" || true)
