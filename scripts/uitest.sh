@@ -45,6 +45,28 @@ stop_clients() {
 	pkill -f "MNG_ENTERPRISE /F$IB" 2>/dev/null
 	sleep 2
 }
+# Снимок окна тест-клиента (UITEST_SHOT=<png>, строка формы с четвёртым полем «снимок=<страница>»): ждёт
+# файл-сигнал ядра, выводит клиент на передний план и снимает его самое большое окно по идентификатору -
+# чужие окна в снимок не попадают. Перехват фокуса на экране владельца - только с его разрешения.
+shoot() {  # shoot <файл-сигнал> <png>
+	local i=0 pid id best
+	rm -f "$1"
+	[ -x "$WORK/wins" ] || swiftc -O "$ROOT/tests/ui/wins.swift" -o "$WORK/wins" || return 1
+	while [ ! -f "$1" ] && [ "$i" -lt "$TIMEOUT" ]; do sleep 1; i=$((i + 1)); done
+	[ -f "$1" ] || return 1
+	pid="$(pgrep -f "MNG_ENTERPRISE /F$IB" | head -1)"
+	[ -n "$pid" ] || pid="$(pgrep -f "TESTCLIENT -TPort $PORT" | head -1)"
+	for i in 1 2; do
+		osascript -e "tell application \"System Events\" to set frontmost of (first process whose unix id is $pid) to true" \
+			2>/dev/null
+		sleep 4
+	done
+	osascript -e "tell application \"System Events\" to tell (first process whose unix id is $pid) to set size of window 1 to {1500, 900}" \
+		2>/dev/null
+	sleep 3
+	best="$("$WORK/wins" | awk -v p="$pid" '$2==p && $3==0 {print $4*$5, $1}' | sort -rn | head -1 | cut -d' ' -f2)"
+	[ -n "$best" ] && screencapture -x -o -l"$best" "$2" && echo "Снимок: $2"
+}
 build_epf() {  # build_epf <имя> <сборщик> <модуль>
 	local stamp="$WORK/$1.built"
 	python3 "$2" "$1" "$3" "$WORK/src-$1" || return 1
@@ -95,8 +117,10 @@ for line in open(os.environ.get('UITEST_FORMS') or os.path.join(root, 'tests/ui/
         m = re.search(r'<object>\s*<name>' + re.escape(obj) + r'</name>(.*?)</object>', rights, re.S)
         if not (m and re.search(r'<name>View</name>\s*<value>true</value>', m.group(1))):
             continue
-    separate = len(parts) > 3 and parts[3].strip() == 'отдельно'
-    print(('S' if separate else 'M') + ';' + link + ';' + name)
+    extra = parts[3].strip() if len(parts) > 3 else ''
+    separate = extra == 'отдельно'
+    shot = ';' + extra if '=' in extra else ''
+    print(('S' if separate else 'M') + ';' + link + ';' + name + shot)
 PY
 	EXPECT=$(grep -c . "$FORMS")
 	if [ "$EXPECT" -eq 0 ]; then
@@ -118,6 +142,7 @@ PY
 		sleep 20
 		"$V8C" ENTERPRISE /F "$IB" /N "$SMOKE_USER" /P "$SMOKE_PWD" /TESTMANAGER /Execute "$WORK/ТестыИнтерфейса.epf" \
 			/C "$ROLE_REP|$PORT|$ROLE|$SESSION" /Out "$WORK/tm-$ROLE.log" &
+		[ -n "${UITEST_SHOT:-}" ] && shoot "$ROLE_REP.ready" "$UITEST_SHOT" &
 		if wait_mark "$ROLE_REP" "$TIMEOUT"; then
 			sed -e 's/^\xEF\xBB\xBF//' "$ROLE_REP" | grep -v '^СТАРТ;' >> "$REPORT"; echo >> "$REPORT"
 			GOT=$(grep -a 'ИТОГ;' "$ROLE_REP" | sed -n 's/.*ФормОбойдено=\([0-9]*\).*/\1/p')
