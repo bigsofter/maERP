@@ -50,12 +50,14 @@ El desarrollo se hace en `develop`; `main` solo recibe los estados de versión. 
 
 ## Licencias
 
-- **Código y materiales de maERP** — © TinyCIO. Las condiciones de uso las fija el archivo `LICENSE` en la raíz del
-  repositorio. Mientras no se añada, todos los derechos están reservados, y la publicación de las fuentes no concede
-  por sí misma el derecho a redistribuirlas ni a modificarlas.
-- **Componentes de terceros** — controladores de equipos de venta, biblioteca de equipos periféricos, conjuntos de
-  reglas de desarrollo tomados de otros — siguen bajo las licencias de sus titulares. Véase
-  [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+- **Código y materiales de maERP** — © TinyCIO, bajo la
+  [GNU Affero General Public License versión 3](LICENSE) (AGPL-3.0). El programa se puede usar, estudiar, modificar
+  y redistribuir libremente. Quien distribuya una versión modificada o dé acceso a ella por la red debe publicar su
+  código fuente en las mismas condiciones. El programa se entrega sin garantía alguna.
+- **Componentes de terceros** — controladores de equipos de venta y bibliotecas de 1C — pertenecen a sus
+  desarrolladores. No están cubiertos por la licencia de maERP, y su uso requiere un acuerdo aparte con sus
+  titulares. TinyCIO no responde de ese uso. La lista y el permiso adicional para la ejecución en la plataforma 1C
+  están en [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) (en ruso).
 - **La plataforma 1C:Enterprise** se licencia aparte por 1C.
 - **El nombre y el logotipo de maERP** no están cubiertos por la licencia del código.
 
