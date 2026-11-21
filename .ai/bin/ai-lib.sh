@@ -728,7 +728,7 @@ ai_context_pack() {
   else
     ai_warn "ai_context_pack: правила tiny1C не найдены в $AI_TINY1C_HOME (TINY1C_HOME) — паёк без них"
     echo "### Правила tiny1C — НЕ НАЙДЕНЫ ($AI_TINY1C_HOME)"
-    echo "Сверяйся с \`docs/rules-1c/\` точечно (\`rg -n '<тема>' docs/rules-1c --glob '!unica/**'\`), не читая файлы целиком."
+    echo "Сверяйся с разделами «Код» и «Проверка себя» в \`CLAUDE.md\` и стандартами ИТС."
   fi
   echo
   local forms
