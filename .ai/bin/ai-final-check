@@ -106,15 +106,26 @@ def load(path):
             msgs[(k, d['code'])].append('%d: %s' % (line, d.get('message', '')))
     return counts, msgs
 
-for p in (cur_path, base_path):
-    if not os.path.isfile(p):
-        sys.exit('нет файла %s — сверять не с чем' % p)
+if not os.path.isfile(cur_path):
+    sys.exit('нет файла %s — сверять не с чем' % cur_path)
+# Полный базовый снимок лежит в build/ вне git; на свежем клоне сверка идёт по сжатой копии счётчиков
+# scripts/bsl-baseline-counts.json (обновляется scripts/lint-baseline-export.py).
+compact_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(base_path))), 'scripts',
+                            'bsl-baseline-counts.json')
+use_compact = not os.path.isfile(base_path)
+if use_compact and not os.path.isfile(compact_path):
+    sys.exit('нет ни %s, ни %s — сверять не с чем' % (base_path, compact_path))
 changed = [key('/' + l.strip()) for l in os.environ.get('AI_CHANGED_BSL', '').splitlines() if l.strip()]
 if not changed:
     sys.exit('список изменённых модулей пуст — сверять нечего, это ошибка вызова, а не «чисто»')
 cur, cur_msgs = load(cur_path)
-base, _ = load(base_path)
-base_date = json.load(open(base_path, encoding='utf-8')).get('date', '?')
+if use_compact:
+    compact = json.load(open(compact_path, encoding='utf-8'))
+    base = collections.Counter({tuple(k.split('\t')): v for k, v in compact['counts'].items()})
+    base_date = compact.get('date', '?') + ' (сжатая копия из git)'
+else:
+    base, _ = load(base_path)
+    base_date = json.load(open(base_path, encoding='utf-8')).get('date', '?')
 new = []
 for f in changed:
     for (k, code), n in sorted(cur.items()):
