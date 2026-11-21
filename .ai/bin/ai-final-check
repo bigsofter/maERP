@@ -213,6 +213,9 @@ else
   gate_skipped "уровни 1–3 (smoke.sh, doctests.sh) — без --db: проверяют build/ib, которую обновляет из EDT владелец; без обновления гоняли бы код прошлой сборки"
 fi
 
+# Неслитые ветки: сборки 2.0.17.30 и 2.0.17.31 ушли на тест из своих веток и в релиз 2.0.17.48 не попали.
+run_gate "неслитые ветки с правками конфигурации: scripts/branchcheck.sh" scripts/branchcheck.sh
+
 section "Git hygiene"
 {
   echo "### git status"
