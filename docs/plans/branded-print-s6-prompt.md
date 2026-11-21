@@ -98,7 +98,7 @@
 - Предпросмотр `scripts/print-preview.sh` каждой новой формы на ru/fr/en/es, с логотипом и печатью и без, заказ на много
   строк, запрос с фото на много строк (размер PDF); PNG — в `.ai/reports/branded-print-phase6/`, эталон прежних форм —
   **до** замены (`old/`); в отчёт — 20–30 PNG, не все.
-- `docs/TESTING.md` (строка реестра, «Проверка 2.0.16.74»), `docs/TESTS.xlsx`.
+- `docs/testing/doc-scenarios.md` (строка реестра), `docs/testing/checks-history.md` («Проверка 2.0.16.74»), `docs/TESTS.xlsx`.
 
 ## Гейты и сдача
 

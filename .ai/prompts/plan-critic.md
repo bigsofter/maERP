@@ -14,7 +14,7 @@
   `ls ../tiny1C/tracks/core/rules ../tiny1C/tracks/greenfield/rules`, заголовок —
   `sed -n 1p <файл>`, нужное — целиком (файлы по 1–4 КБ).
 - Никогда не читай целиком `docs/CHANGELOG.md` (145 КБ), `docs/TECHDEBT.md` (68 КБ),
-  `docs/MERGE-DRISSOTEX.md` (60 КБ), `docs/TESTING.md` (51 КБ), `docs/ROADMAP.md` (40 КБ), любой
+  `docs/MERGE-DRISSOTEX.md` (60 КБ), `docs/TESTING.md` (71 КБ), `docs/testing/doc-scenarios.md` (203 КБ), `docs/ROADMAP.md` (40 КБ), любой
   `Form.form`/`Rights.rights` и `build/**` — только `rg -n` и `sed -n`.
 - Проверяй утверждения плана о текущем поведении по коду, но точечно; ≤ 8 shell-команд.
 

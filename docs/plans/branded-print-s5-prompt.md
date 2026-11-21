@@ -86,7 +86,7 @@
   обработчик 2.0.16.73 правки сохраняет.
 - Предпросмотр `scripts/print-preview.sh` каждой новой формы на ru/fr/en/es, с логотипом и печатью и без, многостраничный
   акт сверки; PNG — в `.ai/reports/branded-print-phase5/`, эталон прежних форм — **до** замены (`old/`).
-- `docs/TESTING.md` (строка реестра, «Проверка 2.0.16.73»), `docs/TESTS.xlsx`.
+- `docs/testing/doc-scenarios.md` (строка реестра), `docs/testing/checks-history.md` («Проверка 2.0.16.73»), `docs/TESTS.xlsx`.
 
 ## Гейты и сдача
 

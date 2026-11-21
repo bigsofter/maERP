@@ -267,7 +267,7 @@ techniques» / «Fill all from bills of materials» / «Rellenar todo según fic
 ## 6. Документация и версия
 
 `Configuration.mdo` → 2.0.15.13; секция `## 2.0.15.13` в `ОписаниеИзменений` на ru/fr/en/es;
-`docs/TESTING.md` (строка сценария + «Проверка E5»), `docs/TESTS.xlsx`, `docs/ROADMAP.md`,
+`docs/testing/doc-scenarios.md` (строка сценария) + `docs/testing/checks-history.md` («Проверка E5»), `docs/TESTS.xlsx`, `docs/ROADMAP.md`,
 `docs/plans/production-2mzl.md` (состояние E5, отклонения, обязательство для E9, заметка для E6:
 `ЗаписатьТехкарту` перезаписывает документ дня, поэтому E6 сравнивает составы, а не ссылки),
 `production-2mzl-prompt.md` (решения 2026-09-13 — записаны).

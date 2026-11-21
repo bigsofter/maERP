@@ -11,7 +11,7 @@
 | оформление форм | `docs/FORMS-STYLE.md` |
 | механизмы УНФ как образец | `docs/UNF-ADOPTION.md` |
 | перенос функционала из базы клиента | `docs/MERGE-DRISSOTEX.md`, отчёты — `docs/drissotex-analysis/` |
-| тесты и реестр сценариев | `docs/TESTING.md`, `docs/TESTS.xlsx` |
+| тесты и реестр сценариев | `docs/TESTING.md`, `docs/TESTS.xlsx`, `docs/testing/checks-history.md` (журнал проверок сборок), `docs/testing/doc-scenarios.md` (реестр сценариев документов) |
 | сборка и выкладка релиза | `docs/RELEASING.md` (чек-лист), `docs/RELEASE.md` (устройство поставки CF и CFU) |
 | развёртывание базы клиенту | `docs/DEPLOY.md`, полезная нагрузка — `docs/hub/` |
 | платформа, EDT, headless-запуски | `docs/EDT-SETUP.md` |
@@ -22,7 +22,7 @@
 | на какого заказчика писать время | `docs/BILLING.md` |
 | критерии приёмки задачи | `docs/plans/_ACCEPTANCE-TEMPLATE.md` |
 | план и промпт текущей волны | `docs/plans/` |
-| структура метаданных | `docs/ARCHITECTURE.md` (заготовка) |
+| структура метаданных | `docs/ARCHITECTURE.md` (генерируется `scripts/archmap.py`) |
 | чужой справочник по 8.3 и XML-выгрузке | `docs/rules-1c/unica/` |
 | AI-оркестрация: ревью Codex, агенты OpenCode | `.ai/README.md` |
 
@@ -73,8 +73,9 @@
    `src/cf`, CheckConfig, смок, тесты документов, порог `scripts/smoke-floor.txt`. Итог — штамп на отпечаток
    дерева `src/cf`: правка после прогона — прогон заново.
 4. **Поведение формы исполнено на клиенте.** Команда, ввод строки, отрисовка доказываются сценарием на
-   клиенте или снимком окна (`scripts/openform.sh`), под ролью пользователя, а не администратора. Чтение кода
-   такой критерий не закрывает.
+   клиенте (`scripts/uitest.sh`: обход форм `tests/ui/forms.txt`, сценарии ввода `tests/ui/scenarios.txt`) или
+   снимком окна тест-клиента (`UITEST_SHOT`, строка формы «снимок=страница»). Чтение кода такой критерий не
+   закрывает. Под ролью, а не администратором, - когда правка касается прав или видимости.
 5. **Приёмка закрыта независимо:** агент `acceptance-checker` проставляет статусы и доказательства,
    `scripts/acceptcheck.py` не находит незакрытого. «Вне объёма» — только решением владельца.
 6. **`.ai/bin/ai-final-check <slug>` даёт «ALL GATES PASSED».** Вердикт «НА БАЗЕ НЕ ПРОВЕРЕНО» (код 4) —

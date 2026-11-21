@@ -211,7 +211,7 @@ gitignored) и `.ai/reviews/<slug>/` (находки, коммитятся).
 переотправлялся на каждом следующем ходу. Паёк + запрет широких чтений: ходов 11 → 6,
 некэшированный вход −14…−25 %. Поэтому в промптах ревьюеров maERP — прямой запрет читать целиком
 большие файлы с их размером:
-- документы: `docs/CHANGELOG.md` 145 КБ, `docs/TECHDEBT.md` 68 КБ, `docs/TESTING.md` 51 КБ;
+- документы: `docs/CHANGELOG.md` 145 КБ, `docs/TECHDEBT.md` 68 КБ, `docs/TESTING.md` 71 КБ (журнал проверок сборок - `docs/testing/checks-history.md`, таблица сценариев `ТестыДокументов` - `docs/testing/doc-scenarios.md`, 203 КБ);
 - метаданные: `Form.form` до 315 КБ, `Rights.rights` до 246 КБ, `Configuration.mdo` 69 КБ;
 - модули: `МенеджерОборудования*` до 490 КБ;
 - `build/bsl-json.json` 14 МБ.

@@ -84,7 +84,7 @@
 - Если сняты команды — проверка прав ролей (`ПравоДоступа(…, Роль)`) и что кнопок в формах нет (`menucheck`/`titlecheck`).
 - Предпросмотр не нужен (вид форм не меняется) — кроме случая, когда тронут общий код вывода: тогда 4–6 PNG для сверки
   с `.ai/reports/branded-print-phase6/new`.
-- `docs/TESTING.md` (строка реестра, «Проверка 2.0.16.75»), `docs/TESTS.xlsx`.
+- `docs/testing/doc-scenarios.md` (строка реестра), `docs/testing/checks-history.md` («Проверка 2.0.16.75»), `docs/TESTS.xlsx`.
 
 ## Гейты и сдача
 

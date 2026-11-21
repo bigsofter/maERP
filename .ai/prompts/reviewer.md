@@ -16,7 +16,7 @@
 
 - **НЕ делай `cat CLAUDE.md`** — нужное из него уже ниже.
 - **Никогда не читай целиком** (размеры на 2026-09-13): `docs/CHANGELOG.md` (145 КБ),
-  `docs/TECHDEBT.md` (68 КБ), `docs/MERGE-DRISSOTEX.md` (60 КБ), `docs/TESTING.md` (51 КБ),
+  `docs/TECHDEBT.md` (68 КБ), `docs/MERGE-DRISSOTEX.md` (60 КБ), `docs/TESTING.md` (71 КБ), `docs/testing/doc-scenarios.md` (203 КБ),
   `docs/ROADMAP.md` (40 КБ), любой `Form.form` (XML до 315 КБ), любой `Rights.rights` (до 246 КБ),
   `src/cf/src/Configuration/Configuration.mdo` (69 КБ), модули
   `DataProcessors/ТестыДокументов/ManagerModule.bsl` (148 КБ),
