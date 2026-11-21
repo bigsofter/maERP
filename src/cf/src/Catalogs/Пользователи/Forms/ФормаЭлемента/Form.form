@@ -1861,19 +1861,19 @@ así como en la entrada.</value>
         <id>190</id>
         <title>
           <key>ru</key>
-          <value>Рабочие места, которые открываются при запуске программы. Отметить рабочее место - флажок «Открывать при запуске» в меню «Настройки» самого рабочего места.</value>
+          <value>Отмеченные рабочие места открываются при запуске программы, отмеченные закладки дашборда показываются на начальной странице (первая отмеченная открыта). Без отметок дашборда на начальной странице нет.</value>
         </title>
         <title>
           <key>fr</key>
-          <value>Postes de travail ouverts au démarrage du programme. Pour en ajouter un : case « Ouvrir au démarrage » du menu « Paramètres » du poste de travail.</value>
+          <value>Les postes de travail cochés s'ouvrent au démarrage du programme, les onglets du tableau de bord cochés s'affichent sur la page d'accueil (le premier coché est ouvert). Sans onglet coché, pas de tableau de bord sur la page d'accueil.</value>
         </title>
         <title>
           <key>en</key>
-          <value>Workplaces opened when the program starts. To add one, use "Open at startup" in the "Settings" menu of the workplace.</value>
+          <value>Ticked workplaces open when the program starts; ticked dashboard tabs are shown on the home page (the first ticked one is open). With no tab ticked, the home page has no dashboard.</value>
         </title>
         <title>
           <key>es</key>
-          <value>Puestos de trabajo que se abren al iniciar el programa. Para añadir uno: casilla «Abrir al iniciar» del menú «Configuración» del puesto de trabajo.</value>
+          <value>Los puestos de trabajo marcados se abren al iniciar el programa; las pestañas del panel marcadas se muestran en la página de inicio (la primera marcada queda abierta). Sin pestañas marcadas, la página de inicio no tiene panel.</value>
         </title>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -1915,23 +1915,68 @@ así como en la entrada.</value>
         </dataPath>
         <titleLocation>None</titleLocation>
         <items xsi:type="form:FormField">
+          <name>ФормыПриЗапускеОтмечено</name>
+          <id>212</id>
+          <titleFont xsi:type="core:FontRef">
+            <font>Style.NormalTextFont</font>
+            <bold>false</bold>
+            <italic>false</italic>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+            <scale>100</scale>
+          </titleFont>
+          <visible>true</visible>
+          <enabled>true</enabled>
+          <userVisible>
+            <common>true</common>
+          </userVisible>
+          <dataPath xsi:type="form:DataPath">
+            <segments>ФормыПриЗапуске.Отмечено</segments>
+          </dataPath>
+          <handlers>
+            <event>OnChange</event>
+            <name>ФормыПриЗапускеОтмеченоПриИзменении</name>
+          </handlers>
+          <extendedTooltip>
+            <name>ФормыПриЗапускеОтмеченоРасширеннаяПодсказка</name>
+            <id>214</id>
+            <type>Label</type>
+            <autoMaxWidth>true</autoMaxWidth>
+            <autoMaxHeight>true</autoMaxHeight>
+            <extInfo xsi:type="form:LabelDecorationExtInfo">
+              <horizontalAlign>Left</horizontalAlign>
+            </extInfo>
+          </extendedTooltip>
+          <contextMenu>
+            <name>ФормыПриЗапускеОтмеченоКонтекстноеМеню</name>
+            <id>213</id>
+            <autoFill>true</autoFill>
+          </contextMenu>
+          <type>CheckBoxField</type>
+          <editMode>Auto</editMode>
+          <showInHeader>true</showInHeader>
+          <headerHorizontalAlign>Left</headerHorizontalAlign>
+          <showInFooter>true</showInFooter>
+          <extInfo xsi:type="form:CheckBoxFieldExtInfo"/>
+        </items>
+        <items xsi:type="form:FormField">
           <name>ФормыПриЗапускеПредставление</name>
           <id>194</id>
           <title>
             <key>ru</key>
-            <value>Рабочее место</value>
+            <value>Открывать или показывать при запуске</value>
           </title>
           <title>
             <key>fr</key>
-            <value>Poste de travail</value>
+            <value>Ouvrir ou afficher au démarrage</value>
           </title>
           <title>
             <key>en</key>
-            <value>Workplace</value>
+            <value>Open or show at startup</value>
           </title>
           <title>
             <key>es</key>
-            <value>Puesto de trabajo</value>
+            <value>Abrir o mostrar al iniciar</value>
           </title>
           <titleFont xsi:type="core:FontRef">
             <font>Style.NormalTextFont</font>
@@ -1983,31 +2028,6 @@ así como en la entrada.</value>
         <autoCommandBar>
           <name>ФормыПриЗапускеКоманднаяПанель</name>
           <id>197</id>
-          <items xsi:type="form:Button">
-            <name>ФормыПриЗапускеУдалить</name>
-            <id>198</id>
-            <visible>true</visible>
-            <enabled>true</enabled>
-            <userVisible>
-              <common>true</common>
-            </userVisible>
-            <extendedTooltip>
-              <name>ФормыПриЗапускеУдалитьРасширеннаяПодсказка</name>
-              <id>199</id>
-              <type>Label</type>
-              <autoMaxWidth>true</autoMaxWidth>
-              <autoMaxHeight>true</autoMaxHeight>
-              <extInfo xsi:type="form:LabelDecorationExtInfo">
-                <horizontalAlign>Left</horizontalAlign>
-              </extInfo>
-            </extendedTooltip>
-            <commandName>Form.Item.ФормыПриЗапуске.StandardCommand.Delete</commandName>
-            <representation>Auto</representation>
-            <autoMaxWidth>true</autoMaxWidth>
-            <autoMaxHeight>true</autoMaxHeight>
-            <placementArea>UserCmds</placementArea>
-            <representationInContextMenu>Auto</representationInContextMenu>
-          </items>
           <horizontalAlign>Left</horizontalAlign>
         </autoCommandBar>
         <handlers>
@@ -3332,24 +3352,32 @@ así como en la entrada.</value>
         <common>true</common>
       </edit>
     </columns>
-  </attributes>
-  <attributes>
-    <name>УдаленныеФормыПриЗапуске</name>
-    <id>22</id>
-    <valueType>
-      <types>ValueList</types>
-    </valueType>
-    <view>
-      <common>true</common>
-    </view>
-    <edit>
-      <common>true</common>
-    </edit>
-    <extInfo xsi:type="form:ValueListExtInfo">
-      <itemValueType>
-        <types>ChartOfCharacteristicTypesRef.ВидыНастроекПользователей</types>
-      </itemValueType>
-    </extInfo>
+    <columns>
+      <name>Отмечено</name>
+      <id>3</id>
+      <valueType>
+        <types>Boolean</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
+    <columns>
+      <name>ОтмеченоИсходно</name>
+      <id>4</id>
+      <valueType>
+        <types>Boolean</types>
+      </valueType>
+      <view>
+        <common>true</common>
+      </view>
+      <edit>
+        <common>true</common>
+      </edit>
+    </columns>
   </attributes>
   <formCommands>
     <name>СменитьПароль</name>
