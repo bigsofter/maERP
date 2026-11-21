@@ -134,6 +134,10 @@ if wait_report_mark "$LAUNCH" "$REPORT" "ИТОГ;"; then
 		grep 'ОШИБКА;' "$REPORT"
 		FAILED=1
 	fi
+	# Порог числа проверок (scripts/smoke-floor.txt) - только на базе гейта: SMOKE_FLOOR=1 ставит scripts/gate.sh.
+	if [ "${SMOKE_FLOOR:-0}" = 1 ] && [ -z "${SMOKE_MODE:-}" ]; then
+		python3 "$(dirname "${BASH_SOURCE[0]}")/floorcheck.py" "$REPORT" || FAILED=1
+	fi
 else
 	echo "Смок-тест не отработал: нет строки ИТОГ в $REPORT (клиентский лог: $CLIENT_LOG)"
 	[ -f "$CLIENT_LOG" ] && cat "$CLIENT_LOG"

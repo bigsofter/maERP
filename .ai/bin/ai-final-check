@@ -14,7 +14,9 @@
 #   src/cf/**      → scripts/refcheck.py, scripts/listcheck.py,
 #                    секция текущей версии в ОписаниеИзменений на ru/fr/en/es
 #                    (scripts/changelog.sh + проверка языков из CLAUDE.md)
-#   --db           → scripts/smoke.sh, scripts/doctests.sh на build/ib
+#   src/cf/**      → scripts/colfont.py, scripts/menucheck.py; гейт базы scripts/gate.sh (штамп на дерево
+#                    src/cf; --db запускает прогон) и приёмка scripts/acceptcheck.py по
+#                    .ai/reports/<slug>-acceptance.md. Без штампа вердикт «НА БАЗЕ НЕ ПРОВЕРЕНО», код 4.
 # Синтаксис и ссылочную целостность метаданных проверяет EDT у владельца —
 # отсюда не запускается и в «Gates run» так и пишется.
 set -uo pipefail
@@ -192,6 +194,18 @@ else
   gate_skipped "уровень 0.85 (navcheck) — в диффе нет src/cf/** и scripts/navcheck*"
 fi
 
+# colfont и menucheck были обязательны по CLAUDE.md, но держались на памяти агента (разбор 2026-11-21).
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/colfont"; then
+  run_gate "уровень 0.9: scripts/colfont.py (шрифт шапки колонок)" python3 scripts/colfont.py
+else
+  gate_skipped "уровень 0.9 (colfont) — в диффе нет src/cf/** и scripts/colfont*"
+fi
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/menucheck"; then
+  run_gate "уровень 0.95: scripts/menucheck.py (фактическое меню разделов)" python3 scripts/menucheck.py
+else
+  gate_skipped "уровень 0.95 (menucheck) — в диффе нет src/cf/** и scripts/menucheck*"
+fi
+
 if ai_changed_has "$CHANGED" "src/cf/"; then
   run_gate "ОписаниеИзменений: секция текущей версии на ru/fr/en/es" changelog_section
   gate_skipped "EDT: синтаксический контроль и ссылочная целостность метаданных — только у владельца после Refresh (CLAUDE.md), отсюда не запускается"
@@ -199,18 +213,23 @@ else
   gate_skipped "секция ОписаниеИзменений — в диффе нет src/cf/**"
 fi
 
-if [ "$WITH_DB" -eq 1 ]; then
-  if [ -z "${SMOKE_USER:-}" ] || [ -z "${SMOKE_PWD:-}" ]; then
-    echo "--db: SMOKE_USER/SMOKE_PWD не заданы" >> "$REPORT"
-    GATES_FAIL=$((GATES_FAIL + 1))
-    GATES_FAILED_LIST+="  - уровни 1–3 — SMOKE_USER/SMOKE_PWD не заданы, база не пустит"$'\n'
-    overall_rc=1
-  else
-    run_gate "уровни 1–2: scripts/smoke.sh (CheckConfig + смок)" scripts/smoke.sh
-    run_gate "уровень 3: scripts/doctests.sh" scripts/doctests.sh
+# Гейт базы - scripts/gate.sh на своей базе build/ib-gate (её не держит EDT). Результат - штамп на
+# отпечаток дерева src/cf в build/gate-stamps.txt: правка после прогона делает штамп негодным.
+# --db запускает прогон; без --db принимается уже имеющийся штамп на текущее дерево.
+DB_VERIFIED=1
+if ai_changed_has "$CHANGED" "src/cf/"; then
+  if [ "$WITH_DB" -eq 1 ] && ! scripts/gate.sh --check >/dev/null 2>&1; then
+    run_gate "уровни 1–3: scripts/gate.sh (синхронизация базы гейта, CheckConfig, смок, тесты документов, порог)" scripts/gate.sh
   fi
+  if scripts/gate.sh --check >/dev/null 2>&1; then
+    run_gate "уровни 1–3: штамп гейта базы на текущее дерево src/cf" scripts/gate.sh --check
+  else
+    DB_VERIFIED=0
+    gate_skipped "уровни 1–3 (смок, тесты документов) — штампа scripts/gate.sh на текущее дерево src/cf нет: НА БАЗЕ НЕ ПРОВЕРЕНО"
+  fi
+  run_gate "приёмка: scripts/acceptcheck.py .ai/reports/${SLUG}-acceptance.md" python3 scripts/acceptcheck.py ".ai/reports/${SLUG}-acceptance.md"
 else
-  gate_skipped "уровни 1–3 (smoke.sh, doctests.sh) — без --db: проверяют build/ib, которую обновляет из EDT владелец; без обновления гоняли бы код прошлой сборки"
+  gate_skipped "уровни 1–3 и приёмка — в диффе нет src/cf/**"
 fi
 
 # Неслитые ветки: сборки 2.0.17.30 и 2.0.17.31 ушли на тест из своих веток и в релиз 2.0.17.48 не попали.
@@ -344,7 +363,11 @@ section "Gates run"
 } >> "$REPORT"
 
 section "Verdict"
-if [ "$overall_rc" -eq 0 ]; then
+if [ "$overall_rc" -eq 0 ] && [ "$DB_VERIFIED" -eq 0 ]; then
+  # Статика без базы - не «пройдено»: 185 из 204 прежних отчётов заканчивались «ALL GATES PASSED» без смока и тестов.
+  echo "**НА БАЗЕ НЕ ПРОВЕРЕНО** — статика чистая, но смок и тесты документов на этом дереве не шли. Сдавать нельзя: scripts/gate.sh или ai-final-check $SLUG --db." >> "$REPORT"
+  overall_rc=4
+elif [ "$overall_rc" -eq 0 ]; then
   echo "**ALL GATES PASSED** — no hygiene issues flagged." >> "$REPORT"
 else
   echo "**FAILURES ABOVE** — do not report the task done until resolved." >> "$REPORT"

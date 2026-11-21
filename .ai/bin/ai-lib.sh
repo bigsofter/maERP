@@ -790,7 +790,7 @@ ai_regimen_warnings() {
     echo "новые объекты/формы ($n файлов), а реестр docs/TESTS.xlsx не менялся — изменение состава тестов фиксируется в реестре"
   fi
   if ai_changed_has "$changed" "src/cf/src/"; then
-    echo "уровни 1–3 проверяют build/ib, а её обновляет из EDT владелец: без Refresh и обновления базы смок гоняет код прошлой сборки"
+    echo "уровни 1–3 идут на базе гейта build/ib-gate через scripts/gate.sh; сборка сдаётся только со штампом на текущее дерево src/cf"
   fi
   return 0
 }

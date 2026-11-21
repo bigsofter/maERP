@@ -105,6 +105,20 @@ fi
 VERSION="${ARGS[0]:-}"
 RELEASED_AT="${ARGS[1]:-$(date -u +%F)}"
 
+# Сборка уходит в хаб только после гейта базы: запись видна на сайте сразу, а сборки 2.0.17.30-31 ушли
+# туда без прогона и из неслитых веток. Штамп - строка «PASS <дерево> <версия> ...» в build/gate-stamps.txt
+# (scripts/gate.sh). GATE_OVERRIDE="причина" - только по прямому решению владельца, причина печатается.
+GATE_VERSION="${VERSION:-$(sed -n 's:.*<version>\(.*\)</version>.*:\1:p' "$ROOT/src/cf/src/Configuration/Configuration.mdo" | head -1)}"
+if [ "$DRY" != "1" ] && ! grep -qE "^PASS [0-9a-f]+ ${GATE_VERSION//./\\.} " "$ROOT/build/gate-stamps.txt" 2>/dev/null; then
+	if [ -n "${GATE_OVERRIDE:-}" ]; then
+		echo "ВНИМАНИЕ: сборка $GATE_VERSION уходит в хаб без штампа гейта базы. Причина: $GATE_OVERRIDE" >&2
+	else
+		echo "Сборка $GATE_VERSION не проходила гейт базы (нет штампа PASS в build/gate-stamps.txt) - в хаб не отправляю." >&2
+		echo "Сначала scripts/gate.sh." >&2
+		exit 1
+	fi
+fi
+
 # changelog.sh сам определит версию из Configuration.mdo, если её не задали, и
 # положит JSON в build/changelog-<версия>.json.
 # MAERP_CHANGELOG_TEMPLATE — путь к макету для проверки на копии (сухой прогон
