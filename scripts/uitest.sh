@@ -18,9 +18,10 @@ IB="${1:-$BUILD/ib-gate}"
 WORK="$BUILD/uitest"
 REPORT="$BUILD/uitest-report.txt"
 PORT="${UITEST_PORT:-1548}"
-TIMEOUT="${UITEST_TIMEOUT:-900}"
+TIMEOUT="${UITEST_TIMEOUT:-2700}"
 ALL_ROLES="Администратор ОператорПроизводства Кладовщик МенеджерПоПродажам МенеджерПоЗакупкам Казначей Оператор"
 ROLES="${UITEST_ROLES:-$ALL_ROLES}"
+[ "${UITEST_GATE:-0}" = 1 ] && ROLES="Администратор"
 ENVF="$BUILD/gate/role-users.env"
 V8C="$V8_DIR/1cv8c"
 mkdir -p "$WORK" "$BUILD/gate"
@@ -107,7 +108,18 @@ if role != 'Администратор':
     if not folder:
         sys.exit('нет роли ' + role)
     rights = open(os.path.join(base, folder[0], 'Rights.rights'), encoding='utf-8').read()
-for line in open(os.environ.get('UITEST_FORMS') or os.path.join(root, 'tests/ui/forms.txt'), encoding='utf-8'):
+# Свой список (UITEST_FORMS) - как есть; иначе формы обхода и, под администратором, сценарии с вводом данных
+# (под ролью ввод пока не исполняется: сценарии рассчитаны на данные и права администратора).
+if os.environ.get('UITEST_FORMS'):
+    sources = [os.environ['UITEST_FORMS']]
+else:
+    sources = [os.path.join(root, 'tests/ui/forms.txt')]
+    if rights is None:
+        sources.append(os.path.join(root, 'tests/ui/scenarios.txt'))
+lines = []
+for source in sources:
+    lines += open(source, encoding='utf-8').read().splitlines()
+for line in lines:
     line = line.strip()
     if not line or line.startswith('#'):
         continue
@@ -162,15 +174,20 @@ stop_clients
 
 SUM() { grep -a '^ИТОГ;Роль=' "$REPORT" | sed -n "s/.*$1=\([0-9]*\).*/\1/p" | paste -sd+ - | bc; }
 ERRORS=$(grep -ac '^ОШИБКА;' "$REPORT")
-echo "ИТОГ;Ролей=$(grep -a '^ИТОГ;Роль=' "$REPORT" | cut -d';' -f2 | LC_ALL=C sort -u | grep -c .);ФормОбойдено=$(SUM ФормОбойдено);КомандНажато=$(SUM КомандНажато);ОшибокИнтерфейса=$ERRORS" >> "$REPORT"
+CHECKED=$(grep -ac '^ПРОВЕРЕНО;' "$REPORT")
+echo "ИТОГ;Ролей=$(grep -a '^ИТОГ;Роль=' "$REPORT" | cut -d';' -f2 | LC_ALL=C sort -u | grep -c .);ФормОбойдено=$(SUM ФормОбойдено);КомандНажато=$(SUM КомандНажато);ФормОбойденоАдминистратором=$(grep -a "^ИТОГ;Роль=Администратор;" "$REPORT" | sed -n "s/.*ФормОбойдено=\([0-9]*\).*/\1/p" | paste -sd+ - | bc);СценариевИнтерфейса=$CHECKED;ОшибокИнтерфейса=$ERRORS" >> "$REPORT"
 tail -1 "$REPORT"
 if [ "$ERRORS" -ne 0 ]; then
 	echo "--- Ошибки интерфейса ($REPORT):"
 	grep -a '^ОШИБКА;' "$REPORT" | cut -c1-600
 	FAILED=1
 fi
-if [ "${SMOKE_FLOOR:-0}" = 1 ] && [ -z "${UITEST_ROLES:-}" ]; then
-	python3 "$SCRIPTS/floorcheck.py" "$REPORT" Ролей,ФормОбойдено,КомандНажато || FAILED=1
+# Порог: полный прогон сверяет и число ролей; гейт базы (UITEST_GATE=1) идёт под администратором - роли в него
+# войдут, когда вход пользователя роли перестанет вставать на диалоге лицензии разработчика.
+if [ "${SMOKE_FLOOR:-0}" = 1 ] && [ "${UITEST_GATE:-0}" = 1 ]; then
+	python3 "$SCRIPTS/floorcheck.py" "$REPORT" ФормОбойденоАдминистратором,КомандНажато,СценариевИнтерфейса || FAILED=1
+elif [ "${SMOKE_FLOOR:-0}" = 1 ] && [ -z "${UITEST_ROLES:-}" ]; then
+	python3 "$SCRIPTS/floorcheck.py" "$REPORT" Ролей,ФормОбойдено,КомандНажато,СценариевИнтерфейса || FAILED=1
 fi
 if [ "$FAILED" -ne 0 ]; then echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"; exit 1; fi
 echo "ТЕСТЫ ПРОЙДЕНЫ"

@@ -233,6 +233,8 @@ else
 fi
 
 # Неслитые ветки: сборки 2.0.17.30 и 2.0.17.31 ушли на тест из своих веток и в релиз 2.0.17.48 не попали.
+# Карта архитектуры генерируется из src/cf: устаревшая карта хуже пустой (агенты читают её вместо исходников).
+run_gate "карта архитектуры актуальна: scripts/archmap.py --check (обновить: python3 scripts/archmap.py)" python3 scripts/archmap.py --check
 run_gate "неслитые ветки с правками конфигурации: scripts/branchcheck.sh" scripts/branchcheck.sh
 
 section "Git hygiene"
