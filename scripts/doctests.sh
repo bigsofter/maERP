@@ -65,6 +65,6 @@ if grep -q 'ОШИБКА;' "$REPORT"; then
 fi
 # Порог числа сценариев и запрет пропусков - только на базе гейта (SMOKE_FLOOR=1 ставит scripts/gate.sh).
 if [ "${SMOKE_FLOOR:-0}" = 1 ] && [ -z "${DOCTESTS_ONLY:-}" ]; then
-	python3 "$(dirname "${BASH_SOURCE[0]}")/floorcheck.py" "$REPORT" || { echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"; exit 1; }
+	python3 "$(dirname "${BASH_SOURCE[0]}")/floorcheck.py" "$REPORT" Сценариев || { echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"; exit 1; }
 fi
 echo "ТЕСТЫ ПРОЙДЕНЫ"

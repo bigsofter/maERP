@@ -20,10 +20,16 @@ if [ -n "$BIN" ]; then
 fi
 
 MDO="src/cf/src/Configuration/Configuration.mdo"
-if git diff --cached -U0 -- "$MDO" | grep -qE '^[+-][[:space:]]*<version>'; then
+# Версии сравниваются значениями, а не «git diff | grep -q»: под pipefail grep -q закрывал конвейер раньше git,
+# код 141 читался как «версия не менялась», и на большом диффе Configuration.mdo проверка молча пропускалась.
+mdo_version() { git show "$1" 2>/dev/null | sed -n 's:.*<version>\(.*\)</version>.*:\1:p' > "$TMP_VERSION" || true; head -1 "$TMP_VERSION"; }
+TMP_VERSION="$(mktemp)"
+trap 'rm -f "$TMP_VERSION"' EXIT
+VERSION="$(mdo_version ":$MDO")"
+if [ "$VERSION" != "$(mdo_version "HEAD:$MDO")" ]; then
 	TREE="$(scripts/srchash.sh --staged)"
-	VERSION="$(git show ":$MDO" | sed -n 's:.*<version>\(.*\)</version>.*:\1:p' | head -1)"
-	if ! grep -q "^PASS $TREE " build/gate-stamps.txt 2>/dev/null; then
+	LAST="$(grep -E "^[A-Z]+ $TREE " build/gate-stamps.txt 2>/dev/null | tail -1 || true)"
+	if [[ "$LAST" != "PASS $TREE "* ]]; then
 		if [ -n "${GATE_OVERRIDE:-}" ]; then
 			echo "ВНИМАНИЕ: сборка $VERSION коммитится без штампа гейта базы. Причина: $GATE_OVERRIDE" >&2
 			exit 0

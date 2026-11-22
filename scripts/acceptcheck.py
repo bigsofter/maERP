@@ -30,7 +30,7 @@ for line in text.splitlines():
     m = re.match(r'^##\s+(.+?)\s*$', line)
     if m:
         name = m.group(1).lower()
-        sections[name] = []
+        sections.setdefault(name, [])
     elif name is not None:
         sections[name].append(line)
 
@@ -46,7 +46,10 @@ if task is None or len(' '.join(task).strip()) < 40:
     errors.append('раздел «Постановка» пуст или короче 40 знаков: нужен дословный текст тикета или сообщения владельца')
 
 EMPTY = {'', '-', '—', '…', '...', 'нет'}
-WEAK = re.compile(r'^(проверено|готово|сделано|код написан|гейты зел[её]ные|работает|ок|ok)[.!]*$', re.I)
+WEAK = re.compile(r'^(проверено|готово|сделано|код написан|гейты зел[её]ные|работает|ок|ok)[.!,;]*(\s|$)', re.I)
+# Признание, что проверки не было, закрытым критерием не считается (ревью 2026-11-21).
+NOT_CHECKED = re.compile(r'^(не провер|только чтение кода|по коду|чтение кода)', re.I)
+DECISION = re.compile(r'решени\w* владельца.*\d{4}-\d{2}-\d{2}|\d{4}-\d{2}-\d{2}.*решени\w* владельца|владелец,? \d{4}-\d{2}-\d{2}', re.I)
 
 def rows(lines):
     out = []
@@ -59,7 +62,7 @@ def rows(lines):
         out.append(cells)
     return out[1:] if out else []
 
-def check(title, prefix, required, status_col, evidence_col, name_col):
+def check(title, prefix, required, status_col, evidence_col, name_col, untouched_ok=False):
     lines = section(prefix)
     if lines is None:
         if required:
@@ -73,16 +76,18 @@ def check(title, prefix, required, status_col, evidence_col, name_col):
             errors.append('«%s»: строка без статуса или доказательства: %s' % (title, ' | '.join(cells)))
             continue
         label, status, evidence = cells[name_col], cells[status_col].lower(), cells[evidence_col]
-        if status not in ('закрыт', 'вне объёма', 'не затронут'):
+        allowed = ('закрыт', 'вне объёма', 'не затронут') if untouched_ok else ('закрыт', 'вне объёма')
+        if status not in allowed:
             errors.append('«%s»: «%s» - статус «%s»' % (title, label, cells[status_col] or 'пусто'))
-        elif evidence.lower() in EMPTY or WEAK.match(evidence):
+        elif evidence.lower() in EMPTY or (WEAK.match(evidence) and len(evidence) < 60) or NOT_CHECKED.match(evidence):
             errors.append('«%s»: «%s» - нет доказательства (чем проверено)' % (title, label))
-        elif status == 'вне объёма' and 'владел' not in evidence.lower():
-            errors.append('«%s»: «%s» - «вне объёма» без решения владельца в доказательстве' % (title, label))
+        elif status == 'вне объёма' and not DECISION.search(evidence):
+            errors.append('«%s»: «%s» - «вне объёма» без решения владельца с датой («решение владельца ГГГГ-ММ-ДД»)'
+                          % (title, label))
     return len(table)
 
 n = check('Критерии приёмки', 'критерии', True, 2, 3, 1)
-m = check('Однотипные объекты', 'однотипные', True, 2, 3, 0)
+m = check('Однотипные объекты', 'однотипные', True, 2, 3, 0, untouched_ok=True)
 if errors:
     print('Приёмка не закрыта (%s):' % path)
     for e in errors:

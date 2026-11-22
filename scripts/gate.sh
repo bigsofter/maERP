@@ -27,8 +27,10 @@ version() { sed -n 's:.*<version>\(.*\)</version>.*:\1:p' "$SRC_CF/src/Configura
 
 if [ "${1:-}" = "--check" ]; then
 	TREE="$("$SCRIPTS/srchash.sh")"
-	if grep -q "^PASS $TREE " "$STAMPS" 2>/dev/null; then
-		grep "^PASS $TREE " "$STAMPS" | tail -1
+	# Действует последняя строка по дереву: PASS, за которым на том же дереве пришёл FAIL, штампом не считается.
+	LAST="$(grep -E "^[A-Z]+ $TREE " "$STAMPS" 2>/dev/null | tail -1)"
+	if [[ "$LAST" == "PASS $TREE "* ]]; then
+		echo "$LAST"
 		exit 0
 	fi
 	echo "Штампа гейта базы на текущее дерево src/cf нет ($TREE) - нужен scripts/gate.sh"
@@ -50,6 +52,10 @@ if [ ! -f "$GATE_IB/1Cv8.1CD" ]; then
 	cp "$SRC_IB/1Cv8.1CD" "$GATE_IB/1Cv8.1CD" || { echo "Не удалось скопировать базу" >&2; exit 1; }
 fi
 
+# Отладочные переменные урезают прогон и отключают порог (SMOKE_MODE, DOCTESTS_ONLY) или подменяют список форм:
+# унаследованные из окружения, они дали бы штамп на неполную проверку.
+unset SMOKE_MODE DOCTESTS_ONLY UITEST_FORMS UITEST_ROLES UITEST_SHOT
+
 TREE_BEFORE="$("$SCRIPTS/srchash.sh")"
 VERSION="$(version)"
 echo "== Гейт базы: версия $VERSION, дерево $TREE_BEFORE, база $GATE_IB =="
@@ -66,6 +72,14 @@ for attempt in 1 2; do
 	tail -15 "$LOG_DIR/sync-$attempt.log"
 done
 [ "$SYNC_OK" -eq 1 ] || fail "база не синхронизирована с src/cf (журнал $LOG_DIR/sync-*.log)"
+
+# «Грязные» данные: сценарии интерфейса идут по документам без контрагента, непроведённым и помеченным на
+# удаление. Скрипт повторно ничего не добавляет; на пересозданной базе гейта без него данные были бы «чистыми».
+if [ "$RESULT" = PASS ]; then
+	echo "== «Грязные» данные базы гейта =="
+	bash "$SCRIPTS/dirty-data.sh" "$GATE_IB" > "$LOG_DIR/dirty.log" 2>&1 || fail "«грязные» данные (журнал $LOG_DIR/dirty.log)"
+	tail -3 "$LOG_DIR/dirty.log"
+fi
 
 if [ "$RESULT" = PASS ]; then
 	export SMOKE_START_TIMEOUT="${SMOKE_START_TIMEOUT:-600}"

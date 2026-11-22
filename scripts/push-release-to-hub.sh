@@ -109,11 +109,15 @@ RELEASED_AT="${ARGS[1]:-$(date -u +%F)}"
 # туда без прогона и из неслитых веток. Штамп - строка «PASS <дерево> <версия> ...» в build/gate-stamps.txt
 # (scripts/gate.sh). GATE_OVERRIDE="причина" - только по прямому решению владельца, причина печатается.
 GATE_VERSION="${VERSION:-$(sed -n 's:.*<version>\(.*\)</version>.*:\1:p' "$ROOT/src/cf/src/Configuration/Configuration.mdo" | head -1)}"
-if [ "$DRY" != "1" ] && ! grep -qE "^PASS [0-9a-f]+ ${GATE_VERSION//./\\.} " "$ROOT/build/gate-stamps.txt" 2>/dev/null; then
+# Штамп сверяется с деревом src/cf, которое сейчас в рабочем каталоге, и берётся последняя строка по этому дереву:
+# раньше хватало любого PASS с той же версией - сборка с правкой после гейта ушла бы в хаб (ревью 2026-11-21).
+GATE_TREE="$("$ROOT/scripts/srchash.sh")"
+GATE_LAST="$(grep -E "^[A-Z]+ $GATE_TREE " "$ROOT/build/gate-stamps.txt" 2>/dev/null | tail -1)"
+if [ "$DRY" != "1" ] && [[ "$GATE_LAST" != "PASS $GATE_TREE $GATE_VERSION "* ]]; then
 	if [ -n "${GATE_OVERRIDE:-}" ]; then
 		echo "ВНИМАНИЕ: сборка $GATE_VERSION уходит в хаб без штампа гейта базы. Причина: $GATE_OVERRIDE" >&2
 	else
-		echo "Сборка $GATE_VERSION не проходила гейт базы (нет штампа PASS в build/gate-stamps.txt) - в хаб не отправляю." >&2
+		echo "Сборка $GATE_VERSION не проходила гейт базы (нет штампа PASS на дерево $GATE_TREE в build/gate-stamps.txt) - в хаб не отправляю." >&2
 		echo "Сначала scripts/gate.sh." >&2
 		exit 1
 	fi
