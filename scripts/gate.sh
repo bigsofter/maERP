@@ -56,6 +56,15 @@ fi
 # унаследованные из окружения, они дали бы штамп на неполную проверку.
 unset SMOKE_MODE DOCTESTS_ONLY UITEST_FORMS UITEST_ROLES UITEST_SHOT
 
+# Тесты интерфейса - последний шаг, а на заблокированном экране они не идут: проверяем блокировку до часа работы
+# и не даём дисплею уснуть (экран блокировался по простою, пока шли смок и тесты документов - прогон 2026-11-22).
+LOCK_STATE="$(ioreg -n Root -d1 2>/dev/null || true)"
+if [[ "$LOCK_STATE" == *'CGSSessionScreenIsLocked"=Yes'* ]]; then
+	echo "Экран заблокирован: тесты интерфейса не исполнятся. Разблокировать и запустить заново." >&2
+	exit 1
+fi
+caffeinate -d -i -u -w $$ &
+
 TREE_BEFORE="$("$SCRIPTS/srchash.sh")"
 VERSION="$(version)"
 echo "== Гейт базы: версия $VERSION, дерево $TREE_BEFORE, база $GATE_IB =="
