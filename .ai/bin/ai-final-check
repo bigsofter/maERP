@@ -228,7 +228,12 @@ fi
 # отпечаток дерева src/cf в build/gate-stamps.txt: правка после прогона делает штамп негодным.
 # --db запускает прогон; без --db принимается уже имеющийся штамп на текущее дерево.
 DB_VERIFIED=1
-if ai_changed_has "$CHANGED" "src/cf/"; then
+# Сборка считается несданной, пока src/cf отличается от последнего релизного тега: после коммита сборки в
+# «git diff HEAD» правок уже нет, и штамп с приёмкой уходили в «пропущены» при «ALL GATES PASSED» (ревью 2026-11-21).
+LAST_RELEASE_TAG="$(git tag --list 'v*' --sort=-creatordate | sed -n 1p)"
+SRC_SINCE_RELEASE=0
+if [ -n "$LAST_RELEASE_TAG" ] && ! git diff --quiet "$LAST_RELEASE_TAG" -- src/cf; then SRC_SINCE_RELEASE=1; fi
+if ai_changed_has "$CHANGED" "src/cf/" || [ "$SRC_SINCE_RELEASE" -eq 1 ]; then
   if [ "$WITH_DB" -eq 1 ] && ! scripts/gate.sh --check >/dev/null 2>&1; then
     run_gate "уровни 1–3: scripts/gate.sh (синхронизация базы гейта, CheckConfig, смок, тесты документов, порог)" scripts/gate.sh
   fi
@@ -240,7 +245,7 @@ if ai_changed_has "$CHANGED" "src/cf/"; then
   fi
   run_gate "приёмка: scripts/acceptcheck.py .ai/reports/${SLUG}-acceptance.md" python3 scripts/acceptcheck.py ".ai/reports/${SLUG}-acceptance.md"
 else
-  gate_skipped "уровни 1–3 и приёмка — в диффе нет src/cf/**"
+  gate_skipped "уровни 1–3 и приёмка — src/cf не менялся с последнего релиза"
 fi
 
 # Неслитые ветки: сборки 2.0.17.30 и 2.0.17.31 ушли на тест из своих веток и в релиз 2.0.17.48 не попали.
