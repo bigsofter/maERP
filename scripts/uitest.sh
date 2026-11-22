@@ -78,6 +78,25 @@ build_epf() {  # build_epf <имя> <сборщик> <модуль>
 	[ "$WORK/$1.epf" -nt "$3" ] || { echo "Обработка $1 не собралась:"; cat "$WORK/build-$1.log"; return 1; }
 }
 
+# Сценарии ввода строки исполняются только на разблокированном экране: при заблокированном сеансе клиент не
+# переходит по ячейкам, и сценарии падают с «до колонки … не дошёл» (прогоны 2026-11-21 20:06 и 23:00). Обход форм
+# и проход по строкам от блокировки не зависят. Сон дисплея на время прогона запрещает caffeinate.
+# Свой список (UITEST_FORMS, отладка) идёт и на заблокированном экране. Вывод ioreg берётся в переменную: «| grep -q»
+# под pipefail закрывал конвейер раньше ioreg, и блокировка читалась как «не заблокирован».
+screen_locked() { local state; state="$(ioreg -n Root -d1 2>/dev/null || true)"; [[ "$state" == *'CGSSessionScreenIsLocked"=Yes'* ]]; }
+if screen_locked && [ -z "${UITEST_FORMS:-}" ]; then
+	echo "ОШИБКА;прогон;экран заблокирован: сценарии ввода на клиенте не исполняются - разблокировать и повторить"
+	echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"; exit 1
+fi
+caffeinate -d -i -w $$ &
+
+# Порт тест-клиента занят клиентом другой базы - менеджер подключился бы к нему и проверил чужие формы.
+stop_clients
+if lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+	echo "ОШИБКА;прогон;порт $PORT занят другим процессом (UITEST_PORT=<другой порт> или остановить его)"
+	echo "ТЕСТЫ НЕ ПРОЙДЕНЫ"; exit 1
+fi
+
 echo "== Тесты интерфейса: база $IB =="
 build_epf ПользователиРолей "$ROOT/scripts/print-preview/build_epf.py" "$ROOT/tests/ui/role-users.bsl" || exit 1
 build_epf ТестыИнтерфейса "$ROOT/tests/ui/build_epf.py" "$ROOT/tests/ui/core.bsl" || exit 1
@@ -134,6 +153,10 @@ for line in lines:
     shot = ';' + extra if '=' in extra else ''
     print(('S' if separate else 'M') + ';' + link + ';' + name + shot)
 PY
+	if [ $? -ne 0 ]; then
+		echo "ОШИБКА;$ROLE;прогон;список форм не собран (кривая строка в tests/ui)" >> "$REPORT"
+		FAILED=1; continue
+	fi
 	EXPECT=$(grep -c . "$FORMS")
 	if [ "$EXPECT" -eq 0 ]; then
 		echo "ОШИБКА;$ROLE;прогон;у роли нет ни одной формы из tests/ui/forms.txt" >> "$REPORT"
@@ -141,6 +164,7 @@ PY
 	fi
 	if [ "$ROLE" = "Администратор" ]; then CU="$SMOKE_USER"; CP="$SMOKE_PWD"; else CU="Тест $ROLE"; CP="$UITEST_PWD"; fi
 	echo "-- $ROLE: форм к обходу $EXPECT"
+	rm -f "$FORMS".[0-9]* "$WORK"/report-"$ROLE"-*.txt
 	# Сеансы клиента: общий - формы без пометки, и по одному на каждую форму с пометкой «отдельно».
 	grep '^M;' "$FORMS" | cut -d';' -f2- > "$FORMS.0"
 	N=0
@@ -174,6 +198,9 @@ stop_clients
 
 SUM() { grep -a '^ИТОГ;Роль=' "$REPORT" | sed -n "s/.*$1=\([0-9]*\).*/\1/p" | paste -sd+ - | bc; }
 ERRORS=$(grep -ac '^ОШИБКА;' "$REPORT")
+if [ "$ERRORS" -ne 0 ] && screen_locked; then
+	echo "ЗАМЕЧАНИЕ;прогон;экран заблокирован: отказы сценариев ввода («до колонки … не дошёл») могут быть следствием" >> "$REPORT"
+fi
 CHECKED=$(grep -ac '^ПРОВЕРЕНО;' "$REPORT")
 echo "ИТОГ;Ролей=$(grep -a '^ИТОГ;Роль=' "$REPORT" | cut -d';' -f2 | LC_ALL=C sort -u | grep -c .);ФормОбойдено=$(SUM ФормОбойдено);КомандНажато=$(SUM КомандНажато);ФормОбойденоАдминистратором=$(grep -a "^ИТОГ;Роль=Администратор;" "$REPORT" | sed -n "s/.*ФормОбойдено=\([0-9]*\).*/\1/p" | paste -sd+ - | bc);СценариевИнтерфейса=$CHECKED;ОшибокИнтерфейса=$ERRORS" >> "$REPORT"
 tail -1 "$REPORT"
