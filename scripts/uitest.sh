@@ -2,6 +2,7 @@
 # Тесты интерфейса (уровень 4): обход форм на клиенте через тест-клиент, под администратором и под ролями.
 # Использование: scripts/uitest.sh [каталог-базы]        (по умолчанию build/ib-gate)
 #                UITEST_ROLES="Администратор Кладовщик" scripts/uitest.sh    часть ролей (отладка, без порога)
+#                UITEST_CLIENT_ARGS="/DEBUG" - ключи запуска тест-клиента (отладка: подробности окна ошибки)
 #                UITEST_FORMS=<файл> - свой список форм вместо tests/ui/forms.txt (отладка)
 #
 # Тест-менеджер (администратор, /TESTMANAGER) выполняет tests/ui/core.bsl внешней обработкой и управляет
@@ -19,7 +20,9 @@ WORK="$BUILD/uitest"
 REPORT="$BUILD/uitest-report.txt"
 PORT="${UITEST_PORT:-1548}"
 TIMEOUT="${UITEST_TIMEOUT:-2700}"
-ALL_ROLES="Администратор ОператорПроизводства Кладовщик МенеджерПоПродажам МенеджерПоЗакупкам Казначей Оператор"
+ALL_ROLES="${UITEST_ALL_ROLES:-Администратор ОператорПроизводства+ИзменениеЗаказаПоставщику ОператорПроизводства Кладовщик МенеджерПоПродажам МенеджерПоЗакупкам Казначей Оператор ОператорПроизводства+ЧтениеЗаказаПоставщику ОператорПроизводства+СкладскиеОрдера ОператорПроизводства+СкладскиеОрдера+ЧтениеЗаказаПоставщику}"
+# Набор с изменением заказа поставщику идёт раньше оператора: его сценарий записывает заказ поставщику, на который
+# опирается сценарий отказа прямого поступления у оператора (tests/ui/role-scenarios.txt).
 ROLES="${UITEST_ROLES:-$ALL_ROLES}"
 [ "${UITEST_GATE:-0}" = 1 ] && ROLES="Администратор"
 ENVF="$BUILD/gate/role-users.env"
@@ -101,7 +104,8 @@ echo "== Тесты интерфейса: база $IB =="
 build_epf ПользователиРолей "$ROOT/scripts/print-preview/build_epf.py" "$ROOT/tests/ui/role-users.bsl" || exit 1
 build_epf ТестыИнтерфейса "$ROOT/tests/ui/build_epf.py" "$ROOT/tests/ui/core.bsl" || exit 1
 
-ROLE_LIST="$(echo "$ALL_ROLES" | tr ' ' '\n' | grep -v '^Администратор$' | paste -sd, -)"
+# Пользователи создаются и для наборов, названных только в UITEST_ROLES: иначе вход такого набора не проходит.
+ROLE_LIST="$(echo "$ALL_ROLES $ROLES" | tr ' ' '\n' | grep -v '^Администратор$' | awk 'NF && !seen[$0]++' | paste -sd, -)"
 USERS_REP="$WORK/users-report.txt"
 : > "$USERS_REP"
 "$V8C" ENTERPRISE /F "$IB" /N "$SMOKE_USER" /P "$SMOKE_PWD" /Execute "$WORK/ПользователиРолей.epf" \
@@ -122,11 +126,14 @@ import os, re, sys, unicodedata
 root, role = sys.argv[1], sys.argv[2]
 rights = None
 if role != 'Администратор':
+    # Набор ролей одного пользователя - через «+» (основная роль и роли-дополнения): права складываются.
     base = os.path.join(root, 'src/cf/src/Roles')
-    folder = [d for d in os.listdir(base) if unicodedata.normalize('NFC', d) == role]
-    if not folder:
-        sys.exit('нет роли ' + role)
-    rights = open(os.path.join(base, folder[0], 'Rights.rights'), encoding='utf-8').read()
+    rights = ''
+    for part in role.split('+'):
+        folder = [d for d in os.listdir(base) if unicodedata.normalize('NFC', d) == part]
+        if not folder:
+            sys.exit('нет роли ' + part)
+        rights += open(os.path.join(base, folder[0], 'Rights.rights'), encoding='utf-8').read()
 # Свой список (UITEST_FORMS) - как есть; иначе формы обхода и, под администратором, сценарии с вводом данных
 # (под ролью ввод пока не исполняется: сценарии рассчитаны на данные и права администратора).
 if os.environ.get('UITEST_FORMS'):
@@ -138,15 +145,25 @@ else:
 lines = []
 for source in sources:
     lines += open(source, encoding='utf-8').read().splitlines()
+# Сценарии под ролью (tests/ui/role-scenarios.txt): первое поле - роль или набор ролей, дальше - обычная строка сценария.
+if rights is not None and not os.environ.get('UITEST_FORMS'):
+    role_file = os.environ.get('UITEST_ROLE_SCENARIOS') or os.path.join(root, 'tests/ui/role-scenarios.txt')
+    for line in open(role_file, encoding='utf-8').read().splitlines():
+        if line.strip() and not line.startswith('#') and line.split(';', 1)[0].strip() == role:
+            lines.append(line.split(';', 1)[1])
+# Форма, которая под этим набором ролей должна отказать в открытии (сценарий «отказ=»), обычным обходом не идёт.
+refused = {l.split(';')[0].strip() for l in lines if len(l.split(';')) > 3 and l.split(';')[3].strip().startswith('отказ=')}
 for line in lines:
     line = line.strip()
     if not line or line.startswith('#'):
         continue
     parts = line.split(';')
     obj, link, name = parts[:3]
+    if obj in refused and len(parts) < 4:
+        continue
     if rights is not None:
-        m = re.search(r'<object>\s*<name>' + re.escape(obj) + r'</name>(.*?)</object>', rights, re.S)
-        if not (m and re.search(r'<name>View</name>\s*<value>true</value>', m.group(1))):
+        found = re.findall(r'<object>\s*<name>' + re.escape(obj) + r'</name>(.*?)</object>', rights, re.S)
+        if not any(re.search(r'<name>View</name>\s*<value>true</value>', body) for body in found):
             continue
     extra = parts[3].strip() if len(parts) > 3 else ''
     separate = extra == 'отдельно'
@@ -174,7 +191,7 @@ PY
 		[ -s "$SESSION" ] || continue
 		stop_clients
 		ROLE_REP="$WORK/report-$ROLE-$(basename "$SESSION" | sed 's/.*\.//')-$(date +%H%M%S).txt"
-		"$V8C" ENTERPRISE /F "$IB" /N "$CU" /P "$CP" /TESTCLIENT -TPort "$PORT" /Out "$WORK/tc-$ROLE.log" &
+		"$V8C" ENTERPRISE /F "$IB" /N "$CU" /P "$CP" /TESTCLIENT -TPort "$PORT" ${UITEST_CLIENT_ARGS:-} /Out "$WORK/tc-$ROLE.log" &
 		sleep 20
 		"$V8C" ENTERPRISE /F "$IB" /N "$SMOKE_USER" /P "$SMOKE_PWD" /TESTMANAGER /Execute "$WORK/ТестыИнтерфейса.epf" \
 			/C "$ROLE_REP|$PORT|$ROLE|$SESSION" /Out "$WORK/tm-$ROLE.log" &

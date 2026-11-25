@@ -48,6 +48,10 @@
 
 Использование: scripts/rolecheck.py [каталог EDT-проекта или его src]. Код возврата 1 — есть
 расхождения.
+
+6. Рабочая роль (с правами запуска, вне NAV_EXTERNAL_ROLES), которой разрешён тонкий
+   клиент, запускает и веб-клиент: иначе пользователь входит с рабочего места и не
+   входит через браузер (решение владельца 2026-11-22).
 """
 import os
 import re
@@ -176,6 +180,10 @@ def main():
                     full = f"{name}.Command.{command}"
                     if full not in NAV_BROKEN and objects.get(full, {}).get("View") != "true":
                         findings.append(f"Объект виден, команды навигации нет — {role}: {full}")
+        launch = next((rights for name, rights in objects.items() if name.startswith("Configuration")), None)
+        if (launch and launch.get("ThinClient") == "true" and launch.get("WebClient") != "true"
+                and unicodedata.normalize("NFC", role) not in NAV_EXTERNAL_ROLES):
+            findings.append(f"Тонкий клиент разрешён, веб-клиент нет — {role}")
         if sees_print and role not in EXTERNAL_ROLES and objects.get(PRINT_FORM, {}).get("View") != "true":
             findings.append(f"Команды печати есть, окна печати нет — {role}: {PRINT_FORM}")
     for line in findings:

@@ -211,6 +211,12 @@ if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/col
 else
   gate_skipped "уровень 0.9 (colfont) — в диффе нет src/cf/** и scripts/colfont*"
 fi
+# Оформление отчётов (тикет 2606453): вариант схемы без «Античного» и отчёт кодом без палитры не проходят.
+if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/reportstyle"; then
+  run_gate "уровень 0.93: scripts/reportstyle.py (оформление отчётов)" python3 scripts/reportstyle.py
+else
+  gate_skipped "уровень 0.93 (reportstyle) — в диффе нет src/cf/** и scripts/reportstyle*"
+fi
 if ai_changed_has "$CHANGED" "src/cf/" || ai_changed_has "$CHANGED" "scripts/menucheck"; then
   run_gate "уровень 0.95: scripts/menucheck.py (фактическое меню разделов)" python3 scripts/menucheck.py
 else

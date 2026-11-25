@@ -10,6 +10,76 @@
 Макет ведётся от последней публикации CF: секции всех сборок релиза лежат здесь
 одновременно, окно «Что нового» показывает их целиком (docs/RELEASING.md).
 
+## 2.0.18.5
+### ru
+- Доступ к заказам поставщику вынесен в две отдельные роли, которые выдаются в дополнение к основной: «Чтение заказа поставщику» (просмотр) и «Изменение заказа поставщику» (ввод, изменение, проведение).
+- Роль оператора производства больше не включает заказы поставщику. Пользователям с этой ролью при обновлении автоматически выдана роль «Чтение заказа поставщику»: рабочее место производства у них работает как раньше, дополнительно им доступны раздел «Закупки» со списком заказов поставщику, просмотр и печать заказа; новому сотруднику производства эту роль можно не давать.
+- Рабочее место производства для пользователя без доступа к заказам поставщику: закладки «Заказы поставщику» и колонки заказа поставщику в поступлениях нет, строки на остальных закладках вводятся как обычно. Поступления, введённые по заказу поставщику, такой пользователь в рабочем месте видит, но не меняет.
+- Прямое поступление материала, на который есть открытый заказ поставщику, пользователю без доступа к заказам поставщику не записывается: программа сообщает, что его вводит сотрудник с доступом к заказам.
+- Рабочее место закупок и поступление по приходному ордеру, введённому по заказу поставщику, пользователю без доступа к заказам поставщику недоступны: программа называет причину. Сотруднику со складскими ордерами для приёмки по заказам нужна роль «Чтение заказа поставщику».
+- Исправлено: оператор производства не мог дописать строку в уже проведённое поступление или отгрузку - запись отказывала с сообщением о нехватке прав на налоговую накладную.
+- Исправлено: рабочее место закупок в режиме приёмки не открывалось у сотрудника со складскими ордерами без доступа к оплатам поставщикам.
+- Исправлено: рабочее место закупок открывается на той закладке, на которой его закрыли, - раньше всегда открывалось на «Потребности».
+- Рабочее место закупок в режиме приёмки: на закладке «Поступившие товары» приёмщик вводит строку прямо в таблице - она создаёт приходный ордер без цен. На складе без ордеров программа отказывает и называет причину.
+- Отчёт «Товары в переработке»: вместо дат начала и окончания - один параметр «Период» со стандартными периодами (этот месяц, квартал, произвольный). Сохранённые настройки отчёта со старыми датами нужно выбрать заново.
+- Оформление «Античный» теперь у всех отчётов: добавлено в «Остатки на складах», «Прослеживаемость партий», «Историю товара» и в варианты «Отчёт по списанию», «Заказы под риском», «По объектам расчётов».
+- Исправлено: оператор производства не мог открыть список заказов клиентов - список отказывал с сообщением о нехватке прав на налоговую накладную. Индикатора оплаты и отбора по оплате у пользователя без доступа к налоговым накладным в списке нет.
+- Исправлено: рабочее место закупок в режиме приёмки выдавало ошибку на закладке «Поступления», когда ордерные склады в программе не включены.
+- Оформление «Античный» получили и отчёты «Движения документа» и «Зарплата сотрудника».
+- Исправлено: приходный ордер, введённый по заказу поставщику, не печатался у пользователя без доступа к заказам поставщику - печать отказывала с сообщением о нехватке прав.
+- Вход через браузер (веб-клиент) разрешён всем рабочим ролям: оператор, оператор производства, кладовщик, логист, казначей, менеджер по продажам, бухгалтер по зарплате, кассир.
+### fr
+- L'accès aux commandes fournisseur passe dans deux rôles séparés, attribués en complément du rôle principal : « Lecture de la commande fournisseur » (consultation) et « Modification de la commande fournisseur » (saisie, modification, validation).
+- Le rôle d'opérateur de production n'inclut plus les commandes fournisseur. Les utilisateurs ayant ce rôle reçoivent automatiquement, à la mise à jour, le rôle « Lecture de la commande fournisseur » : leur poste de production fonctionne comme avant, ils accèdent en plus à la section « Achats » avec la liste des commandes fournisseur, à leur consultation et à leur impression ; un nouvel employé de production peut ne pas le recevoir.
+- Poste de production pour un utilisateur sans accès aux commandes fournisseur : l'onglet « Commandes fournisseur » et la colonne de commande fournisseur des réceptions sont absents, les lignes des autres onglets se saisissent normalement. Les réceptions saisies sur commande fournisseur sont visibles dans le poste mais n'y sont pas modifiables.
+- La réception directe d'une matière ayant une commande fournisseur ouverte n'est pas enregistrée pour un utilisateur sans accès aux commandes fournisseur : le programme indique qu'elle est saisie par un employé ayant cet accès.
+- Le poste achats et la réception d'après un bon d'entrée saisi sur commande fournisseur ne sont pas disponibles pour un utilisateur sans accès aux commandes fournisseur : le programme en indique la raison. Un employé avec les bons de magasin a besoin du rôle « Lecture de la commande fournisseur » pour réceptionner les commandes.
+- Corrigé : l'opérateur de production ne pouvait pas ajouter une ligne à une réception ou une expédition déjà validée - l'enregistrement était refusé pour droits insuffisants sur la facture fiscale.
+- Corrigé : le poste achats en mode réception ne s'ouvrait pas pour un employé avec les bons de magasin sans accès aux paiements fournisseurs.
+- Corrigé : le poste achats s'ouvre sur l'onglet où il a été fermé - auparavant il s'ouvrait toujours sur « Besoin ».
+- Poste achats en mode réception : dans l'onglet « Articles reçus », le réceptionnaire saisit une ligne directement dans le tableau - elle crée un bon d'entrée sans prix. Sur un entrepôt sans bons, le programme refuse et en indique la raison.
+- État « Produits en sous-traitance » : au lieu des dates de début et de fin, un seul paramètre « Période » avec les périodes standard (ce mois, trimestre, libre). Les paramètres enregistrés avec les anciennes dates sont à choisir de nouveau.
+- La présentation « Antique » s'applique désormais à tous les états : ajoutée aux « Stocks par entrepôt », à la « Traçabilité des lots », à l'« Historique de l'article » et aux variantes « État des sorties », « Commandes à risque », « Par objet de règlement ».
+- Corrigé : l'opérateur de production ne pouvait pas ouvrir la liste des commandes clients - la liste était refusée pour droits insuffisants sur la facture fiscale. L'indicateur de paiement et le filtre par paiement sont absents de la liste pour un utilisateur sans accès aux factures fiscales.
+- Corrigé : le poste achats en mode réception affichait une erreur dans l'onglet « Réceptions » lorsque les entrepôts à bons ne sont pas activés.
+- Les états « Mouvements du document » et « Salaire de l'employé » reçoivent eux aussi la présentation « Antique ».
+- Corrigé : le bon d'entrée saisi d'après une commande fournisseur ne s'imprimait pas pour un utilisateur sans accès aux commandes fournisseur - l'impression était refusée pour droits insuffisants.
+- La connexion par navigateur (client web) est autorisée à tous les rôles de travail : opérateur, opérateur de production, magasinier, logisticien, trésorier, commercial, comptable paie, caissier.
+### en
+- Access to supplier orders moves to two separate roles granted in addition to the main one: "Viewing supplier orders" and "Editing supplier orders" (entry, change, posting).
+- The production operator role no longer includes supplier orders. Users with this role automatically receive the "Viewing supplier orders" role on update: their production workstation works as before, and they can additionally open the Purchases section with the supplier order list, view and print an order; a new production employee may be left without it.
+- Production workstation for a user without access to supplier orders: the "Supplier orders" tab and the supplier order column in receipts are absent, lines on the other tabs are entered as usual. Receipts entered against a supplier order are visible to such a user in the workstation but cannot be changed there.
+- A direct receipt of a material that has an open supplier order is not saved for a user without access to supplier orders: the program says it is entered by an employee with that access.
+- The purchasing workplace and a receipt based on a goods received note entered against a supplier order are unavailable to a user without access to supplier orders: the program states the reason. An employee with warehouse orders needs the "Viewing supplier orders" role to receive goods against orders.
+- Fixed: a production operator could not add a line to an already posted receipt or shipment - saving was refused for insufficient rights to the tax invoice.
+- Fixed: the purchasing workplace in receiving mode did not open for an employee with warehouse orders and no access to supplier payments.
+- Fixed: the purchasing workplace opens on the tab it was closed on - previously it always opened on "Need".
+- Purchasing workplace in receiving mode: on the "Received items" tab the receiver enters a line right in the table - it creates a receiving order without prices. For a warehouse without receiving orders the program refuses and states the reason.
+- "Goods in processing" report: one "Period" parameter with standard periods (this month, quarter, custom) replaces the start and end dates. Saved report settings with the old dates need to be chosen again.
+- The "Antique" appearance now applies to all reports: added to "Stock by warehouse", "Lot traceability", "Item history" and the variants "Write-off report", "Orders at risk", "By settlement object".
+- Fixed: a production operator could not open the customer order list - the list was refused for insufficient rights to the tax invoice. A user without access to tax invoices has no payment indicator and no payment filter in the list.
+- Fixed: the purchasing workplace in receiving mode showed an error on the "Receipts" tab when order-based warehouses are not enabled.
+- The "Document movements" and "Employee salary" reports also get the "Antique" appearance.
+- Fixed: a goods receipt note entered against a supplier order could not be printed by a user without access to supplier orders - printing was refused for insufficient rights.
+- Browser sign-in (web client) is allowed for all working roles: operator, production operator, storekeeper, logistician, treasurer, sales manager, payroll accountant, cashier.
+### es
+- El acceso a los pedidos a proveedor pasa a dos roles separados que se asignan además del rol principal: «Lectura del pedido a proveedor» (consulta) y «Edición del pedido a proveedor» (alta, modificación, contabilización).
+- El rol de operador de producción ya no incluye los pedidos a proveedor. Los usuarios con este rol reciben automáticamente, al actualizar, el rol «Lectura del pedido a proveedor»: su puesto de producción funciona como antes y además pueden abrir la sección «Compras» con la lista de pedidos a proveedor, consultar e imprimir un pedido; a un nuevo empleado de producción se le puede no asignar.
+- Puesto de producción para un usuario sin acceso a pedidos a proveedor: no aparecen la pestaña «Pedidos a proveedor» ni la columna de pedido a proveedor en las recepciones; las líneas de las demás pestañas se introducen como siempre. Las recepciones introducidas por pedido a proveedor se ven en el puesto, pero no se modifican allí.
+- La recepción directa de un material con un pedido a proveedor abierto no se guarda para un usuario sin acceso a pedidos a proveedor: el programa indica que la introduce un empleado con ese acceso.
+- El puesto de compras y la recepción por una orden de entrada introducida por un pedido a proveedor no están disponibles para un usuario sin acceso a pedidos a proveedor: el programa indica el motivo. Un empleado con órdenes de almacén necesita el rol «Lectura del pedido a proveedor» para recibir mercancía por pedidos.
+- Corregido: el operador de producción no podía añadir una línea a una recepción o un envío ya contabilizados: el guardado se rechazaba por falta de derechos sobre la factura fiscal.
+- Corregido: el puesto de compras en modo recepción no se abría para un empleado con órdenes de almacén sin acceso a los pagos a proveedores.
+- Corregido: el puesto de compras se abre en la pestaña en la que se cerró; antes siempre se abría en «Necesidad».
+- Puesto de compras en modo recepción: en la pestaña «Artículos recibidos» el receptor introduce una línea directamente en la tabla; crea una orden de entrada sin precios. En un almacén sin órdenes, el programa lo rechaza e indica el motivo.
+- Informe «Productos en procesamiento»: en lugar de las fechas de inicio y fin, un único parámetro «Período» con períodos estándar (este mes, trimestre, personalizado). Los ajustes guardados con las fechas antiguas deben elegirse de nuevo.
+- El aspecto «Antiguo» se aplica ahora a todos los informes: añadido a «Existencias por almacén», «Trazabilidad de lotes», «Historial del artículo» y a las variantes «Informe de bajas», «Pedidos en riesgo», «Por objeto de liquidación».
+- Corregido: el operador de producción no podía abrir la lista de pedidos de clientes: la lista se rechazaba por falta de derechos sobre la factura fiscal. Un usuario sin acceso a las facturas fiscales no tiene en la lista el indicador de pago ni el filtro por pago.
+- Corregido: el puesto de compras en modo recepción mostraba un error en la pestaña «Recepciones» cuando los almacenes con órdenes no están activados.
+- Los informes «Movimientos del documento» y «Salario del empleado» también reciben el aspecto «Antiguo».
+- Corregido: la orden de entrada introducida por un pedido a proveedor no se imprimía para un usuario sin acceso a los pedidos a proveedor: la impresión se rechazaba por falta de derechos.
+- El acceso por navegador (cliente web) queda permitido a todos los roles de trabajo: operador, operador de producción, almacenero, logístico, tesorero, comercial, contable de nóminas, cajero.
+
 ## 2.0.18.4
 ### ru
 - Прибыль по продажам перенесена из документа в отчёт: в списке и в форме реализации и налоговой накладной в подменю «Отчёты» появилась команда «Прибыль по документам» — отчёт по выделенным документам с разбивкой по товарам: количество, выручка без НДС, себестоимость, прибыль, наценка. Прибыль считается так же, как раньше считал итог в документе.
