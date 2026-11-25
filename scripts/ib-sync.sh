@@ -14,8 +14,22 @@ source "$(dirname "${BASH_SOURCE[0]}")/env.sh"
 
 IB="${1:-$IB_BUILD}"
 
-echo "== 1/2. Выгрузка EDT-проекта в XML =="
-"$(dirname "${BASH_SOURCE[0]}")/edt-export.sh" || exit 1
+# В ВМ (scripts/vm-gate.sh) EDT нет: выгрузку делает хост, здесь только сверка, что она от текущего дерева src/cf.
+if [ "${IB_SYNC_XML_READY:-}" = 1 ]; then
+	echo "== 1/2. Выгрузка EDT сделана на хосте - сверка отпечатка =="
+	TREE="$("$(dirname "${BASH_SOURCE[0]}")/srchash.sh")"
+	if [ "$(cat "$XML_OUT/.srchash" 2>/dev/null)" != "$TREE" ]; then
+		echo "Выгрузка $XML_OUT не от текущего дерева src/cf ($TREE) - запустить scripts/vm-gate.sh заново" >&2
+		exit 1
+	fi
+	if [ "$(cat "$XML_OUT/.xmlsum" 2>/dev/null)" != "$("$(dirname "${BASH_SOURCE[0]}")/xmlsum.sh")" ]; then
+		echo "Выгрузка $XML_OUT в ВМ не совпадает с выгрузкой хоста по сумме файлов - кэш общей папки" >&2
+		exit 1
+	fi
+else
+	echo "== 1/2. Выгрузка EDT-проекта в XML =="
+	"$(dirname "${BASH_SOURCE[0]}")/edt-export.sh" || exit 1
+fi
 
 echo "== 2/2. Загрузка XML в базу и применение к данным =="
 "$(dirname "${BASH_SOURCE[0]}")/xml-load.sh" "$XML_OUT" "$IB" || exit 1

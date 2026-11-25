@@ -35,7 +35,9 @@ EDT_CLI="${EDT_CLI:-$HOME/Library/Application Support/1C/1cedtstart/installation
 # версия JVM берётся из JAVA_HOME/PATH, поэтому её задаём здесь.
 # Автоопределение: первая x86_64-JDK из зарегистрированных в системе.
 if [ -z "${EDT_JAVA_HOME:-}" ] && [ -x /usr/libexec/java_home ]; then
-  EDT_JAVA_HOME="$(/usr/libexec/java_home -V 2>&1 | awk '/x86_64/ {sub(/.*" /, ""); print; exit}')"
+  # Без JDK (ВМ прогонов, scripts/vm-gate.sh) java_home завершается с ошибкой: при set -e/pipefail это молча обрывало
+  # всё, что подключает env.sh.
+  EDT_JAVA_HOME="$(/usr/libexec/java_home -V 2>&1 | awk '/x86_64/ {sub(/.*" /, ""); print; exit}' || true)"
 fi
 EDT_JAVA_HOME="${EDT_JAVA_HOME:-}"
 
